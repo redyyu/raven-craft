@@ -1,18 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <fileGuidTable>
 
+	<!-- Shoulder Pads -->
 	<files>
 		<path>media/clothing/clothingItems/ShoulderPads.xml</path>
 		<guid>a54924ae-6660-4fda-b404-6a39432f581d</guid>
 	</files>
 
+	<!-- Elbow Pads -->
 	<files>
 		<path>media/clothing/clothingItems/ElbowPads.xml</path>
 		<guid>e54924ae-6660-4fda-b404-6a39432f581b</guid>
 	</files>
+
+	<!-- Knee Pads -->
 	<files>
 		<path>media/clothing/clothingItems/KneePads.xml</path>
 		<guid>22aea588-9e73-4932-873c-33d91d3fbca1</guid>
+	</files>
+
+	<!-- Vanilla Defaults -->
+	<files>
+		<path>media\clothing\clothingItems\Hat_RiotHelmet.xml</path>
+		<guid>6f664a5b-9789-41e8-ad68-143ebe03399a</guid>
+	</files>
+
+	<files>
+		<path>media\clothing\clothingItems\Hat_CrashHelmet_Police.xml</path>
+		<guid>793a533e-dab0-4aa6-9285-78fe2398ca4b</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Shirt_PoliceBlue.xml</path>
+		<guid>c87c06e9-15c3-4667-807f-7bec508f1405</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Shirt_OfficerWhite.xml</path>
+		<guid>993a89f1-7dde-406d-ba1f-3d02d14db5cc</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Tshirt_Profession_PoliceBlue.xml</path>
+		<guid>987ab998-d4c2-4b54-8c1c-c65e13b740e6</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Tshirt_Profession_PoliceWhite.xml</path>
+		<guid>1a355b1d-3b97-4a11-a244-2b80aad8c009</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Trousers_Police.xml</path>
+		<guid>01cfabba-f1eb-4d18-8259-2dca4d0af8e5</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Socks_Ankle.xml</path>
+		<guid>ebea15c8-99b3-4e20-905b-d22cf82b8217</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Shoes_Black.xml</path>
+		<guid>593bea3d-c127-4574-ac1e-2197dc56e486</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Shoes_BlackBoots.xml</path>
+		<guid>2717dfdb-49ef-401a-9715-c4487ce6abea</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Vest_BulletPolice.xml</path>
+		<guid>d234e3b1-4e68-41b9-a48c-5669a8a52629</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Gloves_LeatherGloves.xml</path>
+		<guid>2b0756ac-57f3-415e-bfed-24b28d1ca4d6</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\Holster.xml</path>
+		<guid>88f11c9e-e717-446c-82ec-f749320df25a</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\HolsterDouble.xml</path>
+		<guid>124e9f8a-d83b-4e69-a7b2-34fc44cae7e9</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\WristWatch_Left_ClassicBlack.xml</path>
+		<guid>5fc22466-2942-4ba1-8c33-2a8528b73021</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\WristWatch_Left_ClassicBrown.xml</path>
+		<guid>ce1a8520-7120-432e-8a3a-aa7b3094f0bb</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\WristWatch_Left_DigitalBlack.xml</path>
+		<guid>c7cc655b-284a-4087-85a6-d7c116385fb0</guid>
+	</files>
+	<files>
+		<path>media\clothing\clothingItems\WristWatch_Left_DigitalRed.xml</path>
+		<guid>0383956a-3fbd-4001-9749-69e2ba70b134</guid>
 	</files>
 
 </fileGuidTable>
