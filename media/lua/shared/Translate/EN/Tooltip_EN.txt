@@ -1,0 +1,13 @@
+
+-- Carpentry
+Tooltip_CRAFT_OUTHOUSEDOORDESC = "Keep your privacy when on the loo. Must be placed in a door frame. Can be locked/unlocked with a key.",
+Tooltip_CRAFT_FENCEGATEDESC = "Basic wooden gate design for wood fences.",
+Tooltip_CRAFT_HIGHFENCEGATEDESC = "High wooden gate design for wood fences., with a hole to peep through.",
+Tooltip_CRAFT_DOGHOUSEDESC = "A house for your dog.",
+Tooltip_CRAFT_CONCRETEFLOORDESC = "Make simple concrete floor."
+
+-- Metalworking
+Tooltip_CRAFT_METALDOORDESC = "Simple door made of metal.",
+Tooltip_CRAFT_GARAGEDOORDESC = "Simple rolling garage gate. incase the old one destoryed by Zombie.",
+Tooltip_CRAFT_METALGRATEDESC = "Warehouse metal grate floor."
+Tooltip_CRAFT_METALBARGRATEDESC = "Warehouse metal grate floor enhanced with bar."

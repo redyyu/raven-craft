@@ -1,0 +1,8 @@
+ItemName_EN = {
+    -- fix Suit Pants has one tight type but translate is same.
+    ItemName_Base.Trousers_SuitTEXTURE = "Tight Suit Pants",
+    ItemName_Base.Trousers_WhiteTEXTURE = "White Tight Pants",
+    ItemName_Base.Trousers_DefaultTEXTURE = "Tight Pants",
+    ItemName_Base.Trousers_DefaultTEXTURE_HUE = "Tight Pants",
+    ItemName_Base.Trousers_DefaultTEXTURE_TINT = "Tight Pants",
+}

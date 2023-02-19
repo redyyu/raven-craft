@@ -1,0 +1,1033 @@
+module RavenCraft
+{
+    imports {
+	    Base,
+	}
+    
+    /** General **/
+
+    recipe Self-made Matches {
+        Twigs/WoodenStick,
+        GunPowder=1,
+        Glue/Woodglue=1,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        
+        Result: Matches=5,
+        Time: 150.0,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Plastering,
+        NeedToBeLearn: true,
+        Category: General,
+    }
+
+    /** Carpentry **/
+
+    recipe Blend Concrete {
+        destroy BucketEmpty/BucketWaterFull,
+        Water=5,
+        ConcretePowder,
+        
+        Result: BucketConcreteFull,
+        Time: 150.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        Category: Carpentry,
+    }
+
+    recipe Artifact Stone {
+        BucketConcreteFull=1,
+        
+        Result: Stone,
+        Time: 200.0,
+        SkillRequired: Woodwork = 4,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        Category: Carpentry,
+    }
+
+    recipe Chipping Stone
+	{
+		Stone=1,
+		keep [Recipe.GetItemTypes.Hammer],
+
+		Result: SharpedStone,
+        SkillRequired: Woodwork=5,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Sound: Hammering,
+        Time: 300.0,
+        Category: Carpentry,
+	}
+
+    recipe Self-made Plaster Powder {
+        Stone = 10,
+        keep [Recipe.GetItemTypes.Hammer],
+        keep MortarPestle,
+
+        Result: PlasterPowder,
+        SkillRequired: Woodwork=6;Farming=4;,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        Time: 300.0,
+        Category: Carpentry,
+    }
+
+    recipe Self-made Gravel Bag {
+        Stone=2,
+        EmptySandbag,
+        keep [Recipe.GetItemTypes.Hammer],
+
+        Result: Gravelbag,
+        Time: 200.0,
+        SkillRequired: Woodwork = 4,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: Hammering,
+        Category: Carpentry,
+    }
+
+    recipe Craft Empty Sack {
+        DenimStrips=6,
+        Thread=5,
+        keep Scissors,
+        keep Needle,
+
+        Result: EmptySandbag,
+        SkillRequired: Tailoring=3,
+        Time: 300.0,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Sound: ClothesRipping,
+        Category: Carpentry,
+    }
+
+    recipe Craft Rolling Pin {
+        Log,
+        keep HuntingKnife/KitchenKnife/FlintKnife/Machete,
+        keep Axe/HandAxe/AxeStone/WoodAxe,
+        keep [Recipe.GetItemTypes.Saw],
+
+        Result: RollingPin = 1,
+        SkillRequired: Woodwork=2,
+        AnimNode: SawLog,
+        Prop1: Source=1,
+        Sound: Sawing,
+        Time: 200.0,
+        Category: Carpentry,
+    }
+
+    recipe Craft Bowl {
+        Log,
+        keep HuntingKnife/KitchenKnife/FlintKnife/Machete,
+        keep Axe/HandAxe/AxeStone/WoodAxe,
+        keep [Recipe.GetItemTypes.Saw],
+
+        Result:Bowl = 4,
+        SkillRequired: Woodwork=4,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        Time: 300.0,
+        Category: Carpentry,
+    }
+
+    recipe Craft Handle {
+        Log/ChairLeg/TableLeg,
+        keep [Recipe.GetItemTypes.Saw],
+        keep HuntingKnife/KitchenKnife/FlintKnife/Machete,
+
+        Result: Handle,
+        SkillRequired:Woodwork=4,
+        AnimNode: SawLog,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Sawing,
+        Time: 200.0,
+        Category: Carpentry,
+    }
+
+    recipe Craft Baseball Bat {
+        Log,
+        LeatherStrips,
+        Thread,
+        keep BaseballBat,
+        keep [Recipe.GetItemTypes.Saw],
+        keep HuntingKnife/KitchenKnife/FlintKnife/Machete,
+
+        Result: BaseballBat,
+        SkillRequired: Woodwork=8;Blunt=6;,
+        AnimNode: SawLog,
+        Prop1: Source=1,
+        Prop2:Saw,
+        Sound: Sawing,
+        Time: 300.0,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        OnGiveXP:Recipe.OnGiveXP.WoodWork10,
+        NeedToBeLearn: true,
+        Category: Carpentry,
+    }
+
+    recipe Craft Nightstick {
+        WoodenStick=3,
+        LeatherStrips=6,
+        Thread=2,
+        DuctTape=4,
+        PaintBlack,
+        Woodglue,
+        keep Nightstick,
+        keep HuntingKnife/KitchenKnife/FlintKnife/Machete,
+
+        Result: Nightstick,
+        SkillRequired: Woodwork=8;SmallBlunt=6;,
+        AnimNode: Disassemble,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        Time: 300.0,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        OnGiveXP:Recipe.OnGiveXP.WoodWork10,
+        NeedToBeLearn: true,
+        Category: Carpentry,
+    }
+
+    recipe Self-made Glue {
+        keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan,
+        keep Spoon/GrillBrush,
+        Water=2,
+        Flour=2,
+        Sugar/SugarBrown/SugarPacket=1,
+        
+        Result: Glue=4,
+        SkillRequired: Woodwork=4;Cooking=4;,
+        Time: 150.0,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: BoilingFood,
+        NeedToBeLearn: true,
+        Category: Carpentry,
+    }
+	
+	recipe Self-made Wood Glue {
+        keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan,
+        keep Spoon/GrillBrush,
+        Water=2,
+        Flour=2,
+        Sugar/SugarBrown/SugarPacket=2,
+        [Recipe.GetItemTypes.Milk],
+        Vinegar=1,
+        BakingSoda=2,
+        
+        Result: Woodglue=2,
+        SkillRequired: Woodwork=6;Cooking=6;,
+        Time: 250.0,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: BoilingFood,
+        NeedToBeLearn: true,
+        Category: Carpentry,
+	}
+
+
+    /** Trapper **/
+
+    recipe Create Mouse Trap {
+        keep [Recipe.GetItemTypes.Hammer],
+        Plank/TreeBranch,
+        Paperclip=5,
+        Nails=2,
+
+        Result: TrapMouse,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        SkillRequired: Woodwork=1,
+        Time: 100.0,
+        Category: Trapper,
+    }
+
+    recipe Create Snare Trap {
+        keep [Recipe.GetItemTypes.Hammer],
+        Plank/TreeBranch,
+        Paperclip=6,
+        Nails=3,
+        Twine=5,
+
+        Result: TrapSnare,
+        SkillRequired: Woodwork=3;Trapping=2;,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        Time: 100.0,
+        Category: Trapper,
+    }
+
+
+    /** Welding / Metalworking **/
+
+    recipe Recycle Little Metals {
+        keep [Recipe.GetItemTypes.Hammer],
+        keep [Recipe.GetItemTypes.Saw],
+        TinCanEmpty/BeerCanEmpty/PopEmpty/Pop2Empty/Pop3Empty/Fork/Spoon/UnusableMetal,
+
+        Result: ScrapMetal,
+        SkillRequired: MetalWelding=3,
+        AnimNode: Disassemble,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        Time: 100.0,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Recycle Metals {
+        keep [Recipe.GetItemTypes.Hammer],
+        keep [Recipe.GetItemTypes.Saw],
+        PaintbucketEmpty/Flute/Pot/Saucepan/GridlePan/RoastingPan/Pan/BakingTray/BakingPan/BucketEmpty/SmallSheetMetal,
+
+        Result: ScrapMetal=3,
+        SkillRequired: MetalWelding=3,
+        AnimNode: Disassemble,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        Time: 150.0,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Recycle Crowbar {
+        keep BlowTorch,
+        keep WeldingMask,
+        Crowbar,
+
+        Result: MetalBar,
+        SkillRequired: MetalWelding=4,
+        AnimNode: Disassemble,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: BlowTorch,
+        Time: 200.0,
+        AllowDestroyedItem: true,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Workable Iron {
+        keep [Recipe.GetItemTypes.Hammer],
+        keep BlowTorch,
+        ScrapMetal/UnusableMetal=20,
+
+        Result: IronIngot,
+        SkillRequired: MetalWelding=3,
+        AnimNode: Disassemble,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: BlowTorch,
+        Time: 250.0,
+        Category: Welding,
+    }
+
+    recipe Cut Barbed Wire {
+        keep [Recipe.GetItemTypes.SharpKnife],
+        Wire,
+
+        Result: BarbedWire,
+        SkillRequired: MetalWelding=3,
+        AnimNode: Disassemble,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Dismantle,
+        Time: 150.0,
+        NeedToBeLearn: true,
+        Category:Welding,
+    }
+
+    recipe Craft Tongs {
+        KitchenTongs,
+        IronIngot=5,
+        keep BlowTorch,
+        keep WeldingMask,
+
+        Result:Tongs,
+        Time: 150.0,
+        Sound: BlowTorch,
+        AnimNode: BlowTorch,
+        Prop1: BlowTorch,
+        Prop2: Source=1,
+        SkillRequired: MetalWelding=4,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Nails {
+        IronIngot=20,
+        keep [Recipe.GetItemTypes.Hammer],
+        keep BlowTorch,
+
+        Result: Nails=2,  /* 10 nails */
+        Time: 120.0,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        SkillRequired: MetalWelding=4,
+        Category: Welding,
+    }
+
+    recipe Craft Paperclips {
+        Wire,
+        [Recipe.GetItemTypes.SharpKnife]
+        keep BlowTorch,
+
+        Result: Paperclip=20,
+        Time: 120.0,
+        AnimNode: Disassemble,
+        Sound: Dismantle,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        SkillRequired: MetalWelding=4,
+        Category: Welding,
+    }
+
+    
+    recipe Craft Butter Knife {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        IronIngot=14,
+        
+        Result: ButterKnife,
+        SkillRequired: MetalWelding=4,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 180.0,
+        Category: Welding,
+    }
+
+    recipe Craft Kitchen Knife {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        IronIngot=15,
+        Woodglue,
+        Handle,
+
+        Result: KitchenKnife,
+        SkillRequired: MetalWelding=5,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 250.0,
+        Category: Welding,
+    }
+
+    recipe Craft Meat Cleaver {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        IronIngot=25,
+        Woodglue,
+        Handle,
+
+        Result: MeatCleaver,
+        SkillRequired: MetalWelding=6,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 300.0,
+        Category: Welding,
+    }
+
+    recipe Craft Hunting Knife {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        keep HuntingKnife,
+        IronIngot=50,
+        LeatherStrips,
+        Woodglue=2,
+        Handle,
+        Thread,
+
+        Result: HuntingKnife,
+        SkillRequired: MetalWelding=6;SmallBlade=4,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 300.0,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Machete {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        keep Machete,
+        IronIngot=170,
+        LeatherStrips=6,
+        Woodglue=5,
+        Thread=2,
+        Handle,
+
+        Result: Machete,
+        SkillRequired: MetalWelding=9;LongBlade=7,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 800.0,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Hand Axe {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        keep HandAxe,
+        IronIngot=120,
+        LeatherStrips,
+        Woodglue=2,
+        Handle,
+        Thread,
+
+        Result: HandAxe,
+        SkillRequired: MetalWelding=6;Woodwork=6;Axe=4,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 300.0,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Axe {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        keep Axe,
+        IronIngot=170,
+        LeatherStrips=6,
+        Woodglue=5,
+        Thread=2,
+        PaintRed,
+        Handle,
+
+        Result: Axe,
+        SkillRequired: MetalWelding=8;Woodwork=8;Axe=6,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 800.0,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Wood Axe {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
+        keep WoodAxe,
+        IronIngot=200,
+        Woodglue=5,
+        Plank/TreeBranch,
+
+        Result: WoodAxe,
+        SkillRequired: MetalWelding=8;Woodwork=8;Axe=6,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 800.0,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Pick Axe {
+        keep Tongs,
+        keep BallPeenHammer,
+        keep BlowTorch,
+        keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
+        IronIngot=200,
+        Woodglue=5,
+        Plank/TreeBranch,
+
+        Result: PickAxe,
+        SkillRequired: MetalWelding=8;Woodwork=8;Farming=6,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 800.0,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Hand Shovel {
+        keep Tongs,
+        keep [Recipe.GetItemTypes.Hammer],
+        keep BlowTorch,
+        IronIngot=50,
+        Woodglue,
+        Handle,
+
+        Result: HandShovel,
+        SkillRequired: MetalWelding=4;Woodwork=4;Farming=4,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 200.0,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Shovel {
+        keep Tongs,
+        keep [Recipe.GetItemTypes.Hammer],
+        keep BlowTorch,
+        keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
+        IronIngot=90,
+        Woodglue=2,
+        Plank/TreeBranch,
+
+        Result: Shovel,
+        SkillRequired: MetalWelding=7;Woodwork=7;Farming=6,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 500.0,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Hand Scythe {
+        keep Tongs,
+        keep [Recipe.GetItemTypes.Hammer],
+        keep BlowTorch,
+        IronIngot=50,
+        Woodglue,
+        Handle,
+
+        Result: HandScythe,
+        SkillRequired: MetalWelding=5;Woodwork=5;Farming=4,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 200.0,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+    recipe Craft Garden Hoe {
+        keep Tongs,
+        keep [Recipe.GetItemTypes.Hammer],
+        keep BlowTorch,
+        keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
+        IronIngot=70,
+        Woodglue=2,
+        Plank/TreeBranch,
+
+        Result: GardenHoe,
+        SkillRequired: MetalWelding=6;Woodwork=6;Farming=5,
+        Sound: Hammering,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 500.0,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+
+
+    recipe Craft Crowbar {
+        keep Crowbar,
+        keep BlowTorch,
+        keep WeldingMask,
+        MetalBar,
+        MetalPipe,
+        IronIngot=20,
+        PaintBlue,
+
+        Result: Crowbar,
+        Sound: BlowTorch,
+        AnimNode: BlowTorch,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Time: 500.0,
+        SkillRequired: MetalWelding=7,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+        OnCreate:Recipe.OnCreate.CraftWeapon,
+        NeedToBeLearn: true,
+        Category: Welding,
+    }
+    
+
+    /* Survivalist */
+
+    recipe Self-made Sling {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep HuntingKnife/KitchenKnife/FlintKnife/Machete,
+        LeatherStrips,
+        Thread=5,
+
+        Result: Sling,
+        SkillRequired: Tailoring=2,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        Category: Survivalist,
+    }
+
+    recipe Self-made Double Holster {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep HuntingKnife/KitchenKnife/FlintKnife/Machete,
+        HolsterSimple=2,
+        LeatherStrips=2,
+        Thread=5,
+
+        Result: HolsterDouble,
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 250.0,
+        Category: Survivalist,
+    }
+
+    /* General */
+
+    recipe Disassemble Notebook {
+        Notebook,
+        keep Scissors/HuntingKnife/KitchenKnife/FlintKnife/Machete,
+
+        Result: SheetPaper2=20,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 150.0,
+        Category: General,
+    }
+
+    recipe Binding Notebook {
+        SheetPaper2=20,
+        keep Staples/Stapler,
+
+        Result: Notebook,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: PageFlipBook,
+        Time: 150.0,
+        Category: General,
+    }
+
+    /* Health */
+
+    recipe Self-made Cigarettes {
+        CommonMallow=5,
+        SheetPaper2=10,
+        Glue=5,
+
+        Result: Cigarettes=5,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: PageFlipBook,
+        Time: 300.0,
+        NeedToBeLearn: true,
+        Category: Health,
+    }
+
+    recipe Self-made Newspaper Cigarettes {
+        CommonMallow=5,
+        Newspaper,
+        Glue=5,
+
+        Result: Cigarettes=5,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: PageFlipBook,
+        Time: 300.0,
+        NeedToBeLearn: true,
+        Category: Health,
+    }
+
+    /* Painting */
+
+    recipe Self-made White Paint {
+        keep MortarPestle,
+        Bleach,
+        WaterPaintbucket,
+
+        Result: PaintWhite,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Red Paint {
+        keep MortarPestle,
+        BerryGeneric1 = 10,
+        WaterPaintbucket,
+
+        Result: PaintRed,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Blue Paint {
+        keep MortarPestle,
+        WaterPaintbucket,
+        BerryBlue/BerryGeneric2 = 10,
+
+        Result: PaintBlue,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Yellow Paint {
+        keep MortarPestle,
+        BerryGeneric3 = 10,
+        WaterPaintbucket,
+
+        Result: PaintYellow,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Orange Paint {
+        keep MortarPestle,
+        WaterPaintbucket,
+        BerryGeneric4 = 10,
+
+        Result: PaintOrange,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Purple Paint {
+        keep MortarPestle,
+        BerryGeneric5 = 10,
+        WaterPaintbucket,
+
+        Result: PaintPurple,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Black Paint {
+        keep MortarPestle,
+        BerryBlack/Charcoal = 10,
+        WaterPaintbucket,
+
+        Result: PaintBlack,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Brown Paint {
+        keep MortarPestle,
+        BerryPoisonIvy = 5,
+        WaterPaintbucket,
+
+        Result: PaintBrown,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Cyan Paint {
+        keep MortarPestle,
+        WaterPaintbucket,
+        BerryBlue/BerryGeneric2=5,
+        BerryPoisonIvy=5,
+
+        Result: PaintCyan,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Green Paint {
+        keep MortarPestle,
+        WaterPaintbucket,
+        BerryBlue/BerryGeneric2 = 5,
+        BerryGeneric3 = 5,
+
+        Result: PaintGreen,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Gray Paint {
+        keep MortarPestle,
+        WaterPaintbucket,
+        BerryBlack/Charcoal= 5,
+        BerryPoisonIvy = 5,
+
+        Result: PaintGrey,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Light Blue Paint {
+        keep MortarPestle,
+        WaterPaintbucket,
+        BerryBlue/BerryGeneric2 = 5,
+        BerryPoisonIvy = 5,
+
+        Result: PaintLightBlue,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Light Brown Paint {
+        keep MortarPestle,
+        WaterPaintbucket,
+        BerryPoisonIvy = 5,
+        
+        Result: PaintLightBrown,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Pink Paint {
+        keep MortarPestle,
+        BerryGeneric1 = 5,
+        BerryPoisonIvy = 5,
+        WaterPaintbucket,
+
+        Result: PaintPink,
+        SkillRequired: Woodwork=6,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+	recipe Self-made Turquoise Paint {
+        keep MortarPestle,
+        BerryBlue/BerryGeneric2 = 5,
+        BerryPoisonIvy = 5,
+        WaterPaintbucket,
+
+        Result: PaintTurquoise,
+        Time:300.0,
+        AnimNode: Forage,
+        Prop1: MortarPestle,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+}

@@ -1,0 +1,67 @@
+module RavenCraft
+{
+    imports {
+	    Base,
+    }
+
+    item CraftsmenMag1 {
+        DisplayCategory = SkillBook,
+        Weight = 0.1,
+        Type = Literature,
+        DisplayName	= The Spirit of Craftsman Vol.1,
+        Icon = MagazineBlacksmith1,
+        TeachedRecipes = Craft Tongs;Self-made Glue;Self-made Wood Glue;Recycle Little Metals;Recycle Metals;Recycle Crowbar;Cut Barbed Wire;Make Metal Bar;Make Metal Pipe;,
+        ReplaceOnUse = CraftsmenMag1,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+    }
+
+    item CraftsmenMag2 {
+        DisplayCategory = SkillBook,
+        Weight = 0.1,
+        Type = Literature,
+        DisplayName	= The Spirit of Craftsman Vol.2,
+        Icon = MagazineBlacksmith2,
+        TeachedRecipes = Craft Hand Scythe;Craft Hand Shovel;Craft Shovel;Craft Garden Hoe;Craft Pick Axe;Craft Crowbar,
+        ReplaceOnUse = CraftsmenMag2,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+    }
+
+    item CraftsmenMag3 {
+        DisplayCategory = SkillBook,
+        Weight = 0.1,
+        Type = Literature,
+        DisplayName	= The Spirit of Craftsman Vol.3,
+        Icon = MagazineBlacksmith3,
+        TeachedRecipes = Self-made White Paint;Self-made Red Paint;Self-made Blue Paint;Self-made Yellow Paint;Self-made Orange Paint;Self-made Purple Paint;Self-made Black Paint;Self-made Brown Paint;Self-made Cyan Paint;Self-made Green Paint;Self-made Gray Paint;Self-made Light Blue Paint;Self-made Light Brown Paint;Self-made Pink Paint;Self-made Turquoise Paint,
+        ReplaceOnUse = CraftsmenMag3,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+    }
+
+    item CraftsmenMag4 {
+        DisplayCategory = SkillBook,
+        Weight = 0.1,
+        Type = Literature,
+        DisplayName	= The Spirit of Craftsman Vol.4,
+        Icon = MagazineBlacksmith4,
+        TeachedRecipes = Craft Baseball Bat;Craft Nightstick;Craft Hunting Knife;Craft Machete;Craft Hand Axe;Craft Axe;Craft Wood Axe,
+        ReplaceOnUse = CraftsmenMag4,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+    }
+
+    item CigarettetsMag {
+        DisplayCategory = SkillBook,
+        Weight = 0.1,
+        Type = Literature,
+        DisplayName	= The Gospel Of Smoker,
+        Icon = MagazineFood2,
+        TeachedRecipes = Self-made Matches;Self-made Cigarettes;Self-made Newspaper Cigarettes,
+        ReplaceOnUse = CigarettetsMag,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+    }
+
+}
