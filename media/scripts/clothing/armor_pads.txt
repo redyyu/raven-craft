@@ -1,0 +1,55 @@
+module Base
+{
+
+    item ElbowPads {
+		Type = Clothing,
+		FabricType = Leather,
+		DisplayName = Elbow Pads,
+		ClothingItem = ElbowPads,
+		BodyLocation = Scarf,
+		BloodLocation = UpperArms,
+		Icon = Eyepatch,  /* use similar item icon from vanilla. */
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 27,
+		RemoveOnBroken = true,
+		ScratchDefense = 20,
+		BiteDefense = 20,
+		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
+	}
+
+
+    item KneePads {
+		Type = Clothing,
+		FabricType = Leather,
+		DisplayName =Knee Pads,
+		ClothingItem = KneePads,
+		BodyLocation = Sweater,
+		BloodLocation = Trousers,
+		Icon = Eyepatch,  /* use similar item icon from vanilla. */
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 27,
+		RemoveOnBroken = true,
+		ScratchDefense = 10,
+		BiteDefense = 10,
+		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
+	}
+
+    item ShoulderPads {
+		Type = Clothing,
+		FabricType = Leather,
+		DisplayName = Shoulder Pads,
+		ClothingItem = ShoulderPads,
+		BodyLocation = Tail,
+		BloodLocation = UpperArms,
+		Icon = RifleRecoilPad,  /* use similar item icon from vanilla. */
+		ConditionLowerChanceOneIn = 50,
+		ConditionMax = 22,
+		RemoveOnBroken = true,
+		CombatSpeedModifier = 0.95,
+		ScratchDefense = 30,
+		BiteDefense = 20,
+		Weight = 1,
+		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
+	}
+
+}

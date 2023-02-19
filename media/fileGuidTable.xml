@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<fileGuidTable>
+
+	<files>
+		<path>media/clothing/clothingItems/ShoulderPads.xml</path>
+		<guid>a54924ae-6660-4fda-b404-6a39432f581d</guid>
+	</files>
+
+	<files>
+		<path>media/clothing/clothingItems/ElbowPads.xml</path>
+		<guid>e54924ae-6660-4fda-b404-6a39432f581b</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/KneePads.xml</path>
+		<guid>22aea588-9e73-4932-873c-33d91d3fbca1</guid>
+	</files>
+
+</fileGuidTable>
