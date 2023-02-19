@@ -1,0 +1,67 @@
+module RavenCraft
+{
+    imports {
+	    Base,
+    }
+
+    recipe Craft Elbow Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=6,
+        Pillow/RecoilPad=2,
+        Aluminum=2,
+        RubberBand=4,
+        Thread=4,
+
+        Result: ElbowPads,
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        Category: Survivalist,
+    }
+
+    recipe Craft Knee Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=8,
+        Pillow/RecoilPad=2,
+        Aluminum=2,
+        RubberBand=4,
+        Thread=4,
+
+        Result: KneePads,
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        Category: Survivalist,
+    }
+
+    recipe Craft Shoulder Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=10,
+        Pillow/RecoilPad=2,
+        Aluminum=4,
+        RubberBand=6,
+        Thread=4,
+
+        Result: ShoulderPads,
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 300.0,
+        Category: Survivalist,
+    }
+
+}

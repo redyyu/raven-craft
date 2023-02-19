@@ -1,0 +1,77 @@
+module RavenCraft
+{
+
+	/* 
+		Added blood clothing type to every possible body location, so you can easily mod a new clothing to protect X or Y parts:
+		Example, i want to do metal socks that protect both feet and lower legs, i'll simply add a BloodLocation = Feet;LowerLegs, in the item script.
+		Full list of per-bodypart location:
+
+		Bag (back), Hands, Head, Neck, UpperBody, LowerBody, LowerLegs, UpperLegs, LowerArms, UpperArms, Groin.
+
+		Each location will cover both left and right parts if needed.
+	*/
+
+    item ElbowPads {
+		Type = Clothing,
+		FabricType = Leather,
+		DisplayName = Elbow Pads,
+		ClothingItem = ElbowPads,
+		BodyLocation = ArmsArmor,
+		BloodLocation = LowerArms,
+		Icon = Eyepatch,  /* use similar item icon from vanilla. */
+		Weight = 0.3,
+		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
+		ConditionMax = 30,
+		/* RemoveOnBroken = true, item will remove from the game if set it true. */
+		CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
+		ScratchDefense = 30,
+		BiteDefense = 20,
+		Insulation = 0.05,
+		WindResistance = 0.05,
+        WaterResistance = 0.05,
+		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
+	}
+
+
+    item KneePads {
+		Type = Clothing,
+		FabricType = Leather,
+		DisplayName = Knee Pads,
+		ClothingItem = KneePads,
+		BodyLocation = LegsArmor,
+		BloodLocation = LowerLegs,
+		Icon = Eyepatch,  /* use similar item icon from vanilla. */
+		Weight = 0.3,
+		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
+		ConditionMax = 30,
+		/* RemoveOnBroken = true, item will remove from the game if set it true. */
+		ScratchDefense = 30,
+		BiteDefense = 20,
+		Insulation = 0.05,
+		WindResistance = 0.05,
+        WaterResistance = 0.05,
+		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
+	}
+
+    item ShoulderPads {
+		Type = Clothing,
+		FabricType = Leather,
+		DisplayName = Shoulder Pads,
+		ClothingItem = ShoulderPads,
+		BodyLocation = ShoulderArmor,
+		BloodLocation = UpperArms,
+		Icon = RifleRecoilPad,  /* use similar item icon from vanilla. */
+		Weight = 0.6,
+		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
+		ConditionMax = 30,
+		/* RemoveOnBroken = true, item will remove from the game if set it true. */
+		CombatSpeedModifier = 0.95,
+		ScratchDefense = 40,
+		BiteDefense = 30,
+		Insulation = 0.1,
+		WindResistance = 0.1,
+        WaterResistance = 0.1,
+		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
+	}
+
+}
