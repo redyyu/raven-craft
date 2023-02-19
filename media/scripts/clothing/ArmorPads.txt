@@ -17,7 +17,7 @@ module RavenCraft
 		DisplayName = Elbow Pads,
 		ClothingItem = ElbowPads,
 		BodyLocation = ArmsArmor,
-		BloodLocation = LowerArms,
+		BloodLocation = LowerArms;UpperArms,
 		Icon = Eyepatch,  /* use similar item icon from vanilla. */
 		Weight = 0.3,
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
@@ -39,7 +39,7 @@ module RavenCraft
 		DisplayName = Knee Pads,
 		ClothingItem = KneePads,
 		BodyLocation = LegsArmor,
-		BloodLocation = LowerLegs,
+		BloodLocation = LowerLegs;UpperLegs,
 		Icon = Eyepatch,  /* use similar item icon from vanilla. */
 		Weight = 0.3,
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
