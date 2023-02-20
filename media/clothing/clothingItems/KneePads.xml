@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <clothingItem>
-	<m_MaleModel>skinned\clothes\bob_ArmorSuit</m_MaleModel>
-	<m_FemaleModel>skinned\clothes\kate_ArmorSuit</m_FemaleModel>
-	<m_GUID>22aea588-9e73-4932-873c-33d91d3fbca1</m_GUID>
+	<m_MaleModel>skinned/clothes/bob_ArmorSuit</m_MaleModel>
+	<m_FemaleModel>skinned/clothes/kate_ArmorSuit</m_FemaleModel>
+	<m_GUID>cdddf6b2-a238-428f-bb12-93f526b08dbd</m_GUID>
 	<m_Static>false</m_Static>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
 
 	<m_MasksFolder></m_MasksFolder>
-	<textureChoices>clothes\ArmorPads\KneePads</textureChoices>
+	<textureChoices>clothes/ArmorPads/KneePads</textureChoices>
 </clothingItem>
