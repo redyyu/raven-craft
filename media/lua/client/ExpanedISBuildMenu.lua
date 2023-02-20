@@ -167,11 +167,6 @@ local function buildExpanedsMenu(subMenu, option, player)
 	toolTip.description = getText("Tooltip_CRAFT_CONCRETEFLOORDESC") .. toolTip.description;
 	toolTip:setTexture(sprite.sprite);
 
-	-------------------------
-	
-	if outhouseDoorOption.notAvailable and highFenceGateOption.notAvailable and fenceGateOption.notAvailable and dogHouseOption.notAvailable and conFloorOption.notAvailable then
-		option.notAvailable = true;
-	end
 end
 
 

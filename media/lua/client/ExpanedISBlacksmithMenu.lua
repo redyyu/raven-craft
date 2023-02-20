@@ -5,18 +5,36 @@ Events.OnFillWorldObjectContextMenu.Remove(ISBlacksmithMenu.doBuildMenu)
 local oldDoBuild = ISBlacksmithMenu.doBuildMenu
 
 
--- local function countMaterial(playerInv, type)
--- 	local count = playerInv:getCountTypeRecurse(type)
--- 	if ISBlacksmithMenu.groundItemCounts[type] then
--- 		count = count + ISBlacksmithMenu.groundItemCounts[type]
--- 	end
--- 	return count
--- end
+local function countMaterial(playerInv, type)
+	local count = playerInv:getCountTypeRecurse(type)
+	if ISBlacksmithMenu.groundItemCounts[type] then
+		count = count + ISBlacksmithMenu.groundItemCounts[type]
+	end
+	return count
+end
+
+local function countUses(playerObj, amount)
+  local count = 0;
+  local containers = ISInventoryPaneContextMenu.getContainers(playerObj)
+  for i=1,containers:size() do
+      local container = containers:get(i-1)
+      for j=1,container:getItems():size() do
+          local item = container:getItems():get(j-1);
+          if item:getType() == "IronIngot" then
+              count = count + item:getUsedDelta() / item:getUseDelta();
+              if count >= amount then
+                  return round(count ,0);
+              end
+          end
+      end
+  end
+  return count;
+end
 
 
 local function onMetalDoor(worldobjects, player)
   local fence = ISWoodenDoor:new("fixtures_doors_01_52","fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
-  fence.name = "Metal Door"
+  fence.name = "Metal Door";
   fence.firstItem = "BlowTorch";
   fence.secondItem = "WeldingMask";
   fence.craftingBank = "BlowTorch";
@@ -37,7 +55,7 @@ end
 
 local function onGarageDoor(worldobjects, player)
   local door =  ISGarageDoor:renew("walls_garage_02_", 0)
-  door.name = "Rolling Garage Gate"
+  door.name = "Rolling Garage Gate";
   door.firstItem = "BlowTorch";
   door.secondItem = "WeldingMask";
   door.craftingBank = "BlowTorch";
@@ -60,7 +78,7 @@ end
 
 local function onMetalGrateFloor(worldobjects, player)
   local floor =  ISWoodenFloor:new("industry_01_39", "industry_01_39")
-  floor.name = "Warehouse Floor"
+  floor.name = "Warehouse Floor";
   floor.firstItem = "BlowTorch";
   floor.secondItem = "WeldingMask";
   floor.noNeedHammer = true;
@@ -81,7 +99,7 @@ end
 
 local function onMetalBarGrateFloor(worldobjects, player)
   local floor =  ISWoodenFloor:new("industry_01_37", "industry_01_38")
-  floor.name = "Enhanced Warehouse Floor"
+  floor.name = "Enhanced Warehouse Floor";
   floor.firstItem = "BlowTorch";
   floor.secondItem = "WeldingMask";
   floor.noNeedHammer = true;
@@ -102,8 +120,111 @@ local function onMetalBarGrateFloor(worldobjects, player)
 end
 
 
+
+-- DON'T Know how to remoave moveables item from player inventory.
+-- GIVE UP TO BUILD By Metal Barrels.
+-- RESTORE those commented code after I Know how to remove the barrel.
+
+-- local source_barrels = {
+--   "Moveables.industry_01_22", 
+--   "Moveables.industry_01_23",
+--   "Moveables.location_military_generic_01_6", 
+--   "Moveables.location_military_generic_01_7",
+-- 	"Moveables.location_military_generic_01_14", 
+--   "Moveables.location_military_generic_01_15",
+-- }
+
+
+-- local transform_drums = {
+-- 	["Moveables.industry_01_22"]="crafted_01_24",  -- "crafted_01_26" full --
+--   ["Moveables.industry_01_23"]="crafted_01_28",  -- "crafted_01_30" full --
+-- 	["Moveables.location_military_generic_01_6"]="crafted_01_28", 
+--   ["Moveables.location_military_generic_01_7"]="crafted_01_28",
+-- 	["Moveables.location_military_generic_01_14"]="crafted_01_24", 
+--   ["Moveables.location_military_generic_01_15"]="crafted_01_24",
+-- }
+
+-- local function findDrum(playerInv)
+--   for _, v in ipairs(source_barrels) do
+--     if playerInv:contains(v) then
+--       return v
+--     end
+--   end
+--   return nil
+-- end
+
+-- local function findDrumTransform(source_barrel)
+--   for k, v in pairs(transform_drums) do
+--     if k == source_barrel then
+--       return v
+--     end
+--   end
+--   return "crafted_01_28"
+-- end
+
+
+-- local function onMetalDrum(worldobjects, player, source)
+--   if source then
+--     local sprite = findDrumTransform(source)
+--     local barrel = ISMetalDrum:new(player, sprite);
+--     barrel.name = "Metal Drum"
+--     barrel.firstItem = "BlowTorch";
+--     barrel.secondItem = "WeldingMask";
+--     barrel.noNeedHammer = true;
+--     barrel.craftingBank = "BlowTorch";
+--     barrel.actionAnim = "BlowTorchMid";
+--     barrel.modData["xp:MetalWelding"] = 5;
+--     barrel.modData["use:Base.BlowTorch"] = 6;
+--     barrel.modData["use:Base.WeldingRods"] = 3;  -- must be half of Torch use.
+--     -- barrel.modData["need:Moveables.industry_01_23"] = 1;
+    
+--     barrel.player = player;
+--     barrel.completedSound = "BuildMetalStructureMedium";
+--     getCell():setDrag(barrel, player);
+--   end
+-- end
+
+
+local function onMetalDrum(worldobjects, player)
+  local barrel = ISMetalDrum:new(player, "crafted_01_24");
+  barrel.name = "Metal Drum";
+  barrel.firstItem = "BlowTorch";
+  barrel.secondItem = "WeldingMask";
+  barrel.craftingBank = "BlowTorch";
+  barrel.actionAnim = "BlowTorchMid";
+  barrel.modData["xp:MetalWelding"] = 5;
+  barrel.modData["need:Base.SheetMetal"]= 4;
+  barrel.modData["need:Base.ScrapMetal"]= 6;
+  barrel.modData["use:Base.BlowTorch"] = 6;
+  barrel.modData["use:Base.WeldingRods"] = 3;  -- must be half of Torch use.
+  barrel.player = player;
+  barrel.completionSound = "BuildMetalStructureMedium";
+  getCell():setDrag(barrel, player);
+end
+
+
+local function onStoneFurnace(worldobjects, player)
+  local furniture = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
+  furniture.modData["need:Base.Stone"]= 50;
+  furniture.player = player;
+  furniture.craftingBank = "BuildFenceGravelbagFoley";
+	furniture.completionSound = "BuildFenceGravelbag";
+  getCell():setDrag(furniture, player);
+end
+
+
+local function onAnvil(worldobjects, player)
+  local furniture = ISAnvil:new("Anvil", getSpecificPlayer(player), "crafted_01_19", "crafted_01_19");
+  furniture.modData["use:Base.IronIngot"]= 500;
+  furniture.player = player;
+  furniture.completionSound = "BuildMetalStructureMedium";
+  getCell():setDrag(furniture, player);
+end
+
+
 local function buildExpanedsMenu(subMenu, option, player)
   local playerObj = getSpecificPlayer(player)
+  local playerInv = playerObj:getInventory()
 
   local metalDoorOption = {};
   local garageDoorOption = {};
@@ -139,7 +260,10 @@ local function buildExpanedsMenu(subMenu, option, player)
 
   local metalGrateOption = {};
   local metalBarGrateOption = {};
+  local drumOption = {};
+  local furnaceOption = {};
   if playerObj:getKnownRecipes():contains("Make Metal Roof") or ISBuildMenu.cheat then
+    -- Warehouse Floor --
     local sprite = {};
     sprite.sprite = "industry_01_39";
     local itemName = getText("ContextMenu_METAL_GRATE");
@@ -152,6 +276,7 @@ local function buildExpanedsMenu(subMenu, option, player)
 
     if not canCraft then metalGrateOption.notAvailable = true; end
 
+    -- Enhanced Warehouse Floor --
     local sprite = {};
     sprite.sprite = "industry_01_37";
     local itemName = getText("ContextMenu_METAL_BAR_GRATE");
@@ -163,14 +288,91 @@ local function buildExpanedsMenu(subMenu, option, player)
     -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
     if not canCraft then metalBarGrateOption.notAvailable = true; end
+
+    -- Metal Drum --
+    local sprite = {};
+    sprite.sprite = "crafted_01_24";
+
+    local itemName = getText("ContextMenu_METAL_DRUM");
+    -- local barrelName = getText("ContextMenu_METAL_BARREL");
+    drumOption = subMenu:addOption(itemName, worldobjects, onMetalDrum, player);
+    local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, sprite.sprite)
+    toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
+    
+    local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 4, 0, 6, 6, 8, playerObj, toolTip, 0, 0)
+    -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
+
+    if not canCraft then drumOption.notAvailable = true; end
+
+    -- DON'T Know how to remoave moveables item from player inventory.
+    -- GIVE UP TO BUILD By Metal Barrels.
+    -- local source_barrel = findDrum(playerInv)  -- put it before addOption, pass the source into the callback.
+    -- if not source_barrel then
+    --     toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. barrelName .. " 0/1" ;
+    --     drumOption.notAvailable = true;
+    -- else
+    --     toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. barrelName .. " 1/1" ;
+    -- end
+
+
+    -- StoneFurnace --
+    local sprite = {};
+    sprite.sprite = "crafted_01_16";
+
+    local itemName = getText("ContextMenu_STONE_FURNACE");
+    furnaceOption = subMenu:addOption(itemName, worldobjects, onStoneFurnace, player);
+    local toolTip = ISBlacksmithMenu.addToolTip(furnaceOption, itemName, sprite.sprite)
+    toolTip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. toolTip.description;
+    local resourceCount = countMaterial(playerInv, "Base.Stone")
+    if countMaterial(playerInv, "Base.Stone") < 50 then
+      toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
+      furnaceOption.notAvailable = true;
+    else
+      toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
+    end
+
   else
     metalGrateOption.notAvailable = not(ISBuildMenu.cheat);
     metalBarGrateOption.notAvailable = not(ISBuildMenu.cheat);
+    drumOption.notAvailable = not(ISBuildMenu.cheat);
+    furnaceOption.notAvailable = not(ISBuildMenu.cheat);
   end
 
-	if metalDoorOption.notAvailable and garageDoorOption.notAvailable and metalGrateOption.notAvailable and metalBarGrateOption.notAvailable then
-		option.notAvailable = true;
-	end
+  -- Anvil --
+  local sprite = {};
+  sprite.sprite = "crafted_01_19";
+
+  local itemName = getText("ContextMenu_ANVIL");
+  local anvilOption = subMenu:addOption(itemName, worldobjects, onAnvil, player);
+  local toolTip = ISBlacksmithMenu.addToolTip(anvilOption, itemName, sprite.sprite)
+  toolTip.description = getText("Tooltip_CRAFT_ANVILDESC") .. toolTip.description;
+  
+  local canBeCrafted = playerInv:contains("Hammer") and playerInv:contains("Log");
+  if not playerInv:contains("Hammer") then
+      toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Hammer") .. " 0/1" ;
+      anvilOption.notAvailable = true;
+  else
+      toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1" ;
+  end
+  if not playerInv:contains("Log") then
+      toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Log") .. " 0/1" ;
+      anvilOption.notAvailable = true;
+  else
+      toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1" ;
+  end
+
+  if canBeCrafted then
+      local metalCount = countUses(playerObj, 500);
+      if metalCount < 500 then
+          toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
+          anvilOption.notAvailable = true;
+      else
+          toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
+      end
+  else
+      anvilOption.notAvailable = true;
+  end
+
 end
 
 -- ISBlacksmithMenu.addToolTip = function(option, tipName, tipTexture)

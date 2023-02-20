@@ -7,8 +7,8 @@ module RavenCraft
     /***** Gunpowder *****/
     recipe Craft Gunpowder {
         Fertilizer/CompostBag=2,
-        Charcoal=2,
-        Sugar/SugarBrown/SugarPacket=2,
+        Charcoal=21,
+        [Recipe.GetItemTypes.Sugar]=2,
         keep MortarPestle,
 
         AnimNode:Craft,

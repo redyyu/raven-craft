@@ -14,4 +14,8 @@ ContextMenu_EN = {
   ContextMenu_GARAGE_DOOR = "Rolling Garage Door",
   ContextMenu_METAL_GRATE = "Warehouse Floor"
   ContextMenu_METAL_BAR_GRATE = "Enhanced Warehouse Floor"
+  ContextMenu_METAL_DRUM = "Metal Drum"
+  ContextMenu_METAL_BARREL = "Metal Barrel"
+  ContextMenu_STONE_FURNACE = "Stone Furnace"
+  ContextMenu_ANVIL = "Anvil"
 }

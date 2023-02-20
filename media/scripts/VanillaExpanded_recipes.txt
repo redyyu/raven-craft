@@ -21,6 +21,7 @@ module RavenCraft
         NeedToBeLearn: true,
         Category: General,
     }
+    
 
     /** Carpentry **/
 
@@ -201,7 +202,7 @@ module RavenCraft
         keep Spoon/GrillBrush,
         Water=2,
         Flour=2,
-        Sugar/SugarBrown/SugarPacket=1,
+        [Recipe.GetItemTypes.Sugar]=1,
         
         Result: Glue=4,
         SkillRequired: Woodwork=4;Cooking=4;,
@@ -219,7 +220,7 @@ module RavenCraft
         keep Spoon/GrillBrush,
         Water=2,
         Flour=2,
-        Sugar/SugarBrown/SugarPacket=2,
+        [Recipe.GetItemTypes.Sugar]=2,
         [Recipe.GetItemTypes.Milk],
         Vinegar=1,
         BakingSoda=2,
@@ -356,8 +357,9 @@ module RavenCraft
     recipe Craft Tongs {
         KitchenTongs,
         IronIngot=5,
-        keep BlowTorch,
-        keep WeldingMask,
+        keep [Recipe.GetItemTypes.Hammer],
+
+        NearItem: Anvil,
 
         Result:Tongs,
         Time: 150.0,
@@ -373,7 +375,8 @@ module RavenCraft
     recipe Craft Nails {
         IronIngot=20,
         keep [Recipe.GetItemTypes.Hammer],
-        keep BlowTorch,
+
+        NearItem: Anvil,
 
         Result: Nails=2,  /* 10 nails */
         Time: 120.0,
@@ -387,8 +390,9 @@ module RavenCraft
 
     recipe Craft Paperclips {
         Wire,
-        [Recipe.GetItemTypes.SharpKnife]
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
+
+        NearItem: Anvil,
 
         Result: Paperclip=20,
         Time: 120.0,
@@ -403,9 +407,10 @@ module RavenCraft
     
     recipe Craft Butter Knife {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
         IronIngot=14,
+
+        NearItem: Anvil,
         
         Result: ButterKnife,
         SkillRequired: MetalWelding=4,
@@ -419,11 +424,13 @@ module RavenCraft
 
     recipe Craft Kitchen Knife {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
+
         IronIngot=15,
         Woodglue,
         Handle,
+
+        NearItem: Anvil,
 
         Result: KitchenKnife,
         SkillRequired: MetalWelding=5,
@@ -437,11 +444,13 @@ module RavenCraft
 
     recipe Craft Meat Cleaver {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
+
         IronIngot=25,
         Woodglue,
         Handle,
+
+        NearItem: Anvil,
 
         Result: MeatCleaver,
         SkillRequired: MetalWelding=6,
@@ -455,7 +464,8 @@ module RavenCraft
 
     recipe Craft Hunting Knife {
         keep Tongs,
-        keep BallPeenHammer,
+        keep [Recipe.GetItemTypes.Hammer],
+
         keep BlowTorch,
         keep HuntingKnife,
         IronIngot=50,
@@ -463,6 +473,8 @@ module RavenCraft
         Woodglue=2,
         Handle,
         Thread,
+
+        NearItem: Anvil,
 
         Result: HuntingKnife,
         SkillRequired: MetalWelding=6;SmallBlade=4,
@@ -479,14 +491,16 @@ module RavenCraft
 
     recipe Craft Machete {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
         keep Machete,
+
         IronIngot=170,
         LeatherStrips=6,
         Woodglue=5,
         Thread=2,
         Handle,
+
+        NearItem: Anvil,
 
         Result: Machete,
         SkillRequired: MetalWelding=9;LongBlade=7,
@@ -503,14 +517,16 @@ module RavenCraft
 
     recipe Craft Hand Axe {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
         keep HandAxe,
+
         IronIngot=120,
         LeatherStrips,
         Woodglue=2,
         Handle,
         Thread,
+
+        NearItem: Anvil,
 
         Result: HandAxe,
         SkillRequired: MetalWelding=6;Woodwork=6;Axe=4,
@@ -527,15 +543,17 @@ module RavenCraft
 
     recipe Craft Axe {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
         keep Axe,
+
         IronIngot=170,
         LeatherStrips=6,
         Woodglue=5,
         Thread=2,
         PaintRed,
         Handle,
+
+        NearItem: Anvil,
 
         Result: Axe,
         SkillRequired: MetalWelding=8;Woodwork=8;Axe=6,
@@ -552,13 +570,15 @@ module RavenCraft
 
     recipe Craft Wood Axe {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
         keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
         keep WoodAxe,
+
         IronIngot=200,
         Woodglue=5,
         Plank/TreeBranch,
+
+        NearItem: Anvil,
 
         Result: WoodAxe,
         SkillRequired: MetalWelding=8;Woodwork=8;Axe=6,
@@ -575,12 +595,14 @@ module RavenCraft
 
     recipe Craft Pick Axe {
         keep Tongs,
-        keep BallPeenHammer,
-        keep BlowTorch,
+        keep [Recipe.GetItemTypes.Hammer],
         keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
+        
         IronIngot=200,
         Woodglue=5,
         Plank/TreeBranch,
+
+        NearItem: Anvil,
 
         Result: PickAxe,
         SkillRequired: MetalWelding=8;Woodwork=8;Farming=6,
@@ -598,10 +620,12 @@ module RavenCraft
     recipe Craft Hand Shovel {
         keep Tongs,
         keep [Recipe.GetItemTypes.Hammer],
-        keep BlowTorch,
+
         IronIngot=50,
         Woodglue,
         Handle,
+
+        NearItem: Anvil,
 
         Result: HandShovel,
         SkillRequired: MetalWelding=4;Woodwork=4;Farming=4,
@@ -618,11 +642,13 @@ module RavenCraft
     recipe Craft Shovel {
         keep Tongs,
         keep [Recipe.GetItemTypes.Hammer],
-        keep BlowTorch,
         keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
+
         IronIngot=90,
         Woodglue=2,
         Plank/TreeBranch,
+
+        NearItem: Anvil,
 
         Result: Shovel,
         SkillRequired: MetalWelding=7;Woodwork=7;Farming=6,
@@ -639,10 +665,12 @@ module RavenCraft
     recipe Craft Hand Scythe {
         keep Tongs,
         keep [Recipe.GetItemTypes.Hammer],
-        keep BlowTorch,
+
         IronIngot=50,
         Woodglue,
         Handle,
+
+        NearItem: Anvil,
 
         Result: HandScythe,
         SkillRequired: MetalWelding=5;Woodwork=5;Farming=4,
@@ -659,11 +687,13 @@ module RavenCraft
     recipe Craft Garden Hoe {
         keep Tongs,
         keep [Recipe.GetItemTypes.Hammer],
-        keep BlowTorch,
         keep [Recipe.GetItemTypes.SharpKnife]/SharpedStone/MeatCleaver,
+
         IronIngot=70,
         Woodglue=2,
         Plank/TreeBranch,
+
+        NearItem: Anvil,
 
         Result: GardenHoe,
         SkillRequired: MetalWelding=6;Woodwork=6;Farming=5,
@@ -682,6 +712,7 @@ module RavenCraft
         keep Crowbar,
         keep BlowTorch,
         keep WeldingMask,
+        
         MetalBar,
         MetalPipe,
         IronIngot=20,
