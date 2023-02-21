@@ -34,7 +34,7 @@ end
 
 local function onMetalDoor(worldobjects, player)
     local fence = ISWoodenDoor:new("fixtures_doors_01_52","fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
-    fence.name = "MetalDoor";
+    fence.name = "Metal Door";
     fence.firstItem = "BlowTorch";
     fence.secondItem = "WeldingMask";
     fence.craftingBank = "BlowTorch";
@@ -55,7 +55,7 @@ end
 
 local function onGarageDoor(worldobjects, player)
     local door =  ISGarageDoor:renew("walls_garage_02_", 0)
-    door.name = "GarageDoor";
+    door.name = "Garage Door";
     door.firstItem = "BlowTorch";
     door.secondItem = "WeldingMask";
     door.craftingBank = "BlowTorch";
@@ -78,7 +78,7 @@ end
 
 local function onMetalGrateFloor(worldobjects, player)
     local floor =  ISWoodenFloor:new("industry_01_39", "industry_01_39")
-    floor.name = "MetalGrateFloor";
+    floor.name = "Metal Grate Floor";
     floor.firstItem = "BlowTorch";
     floor.secondItem = "WeldingMask";
     floor.noNeedHammer = true;
@@ -99,7 +99,7 @@ end
 
 local function onMetalBarGrateFloor(worldobjects, player)
     local floor =  ISWoodenFloor:new("industry_01_37", "industry_01_38")
-    floor.name = "MetalBarGrateFloor";
+    floor.name = "Metal Bar Grate Floor";
     floor.firstItem = "BlowTorch";
     floor.secondItem = "WeldingMask";
     floor.noNeedHammer = true;
@@ -138,7 +138,7 @@ end
 
 
 local function onStoneFurnace(worldobjects, player)
-    local furniture = ISBSFurnace:new("Stone Furnace", "crafted_01_43", "crafted_01_42");
+    local furniture = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
     furniture.modData["need:Base.Stone"]= 30;
     furniture.player = player;
     furniture.craftingBank = "BuildFenceGravelbagFoley";
@@ -256,11 +256,14 @@ local function buildExpanedsMenu(subMenu, option, player)
         local toolTip = ISBlacksmithMenu.addToolTip(furnaceOption, itemName, sprite.sprite)
         toolTip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. toolTip.description;
         local resourceCount = countMaterial(playerInv, "Base.Stone")
-        if countMaterial(playerInv, "Base.Stone") < 50 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
-        furnaceOption.notAvailable = true;
+        if countMaterial(playerInv, "Base.Stone") > 50 then
+            toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
         else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
+            toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
+            if not ISBuildMenu.cheat then
+                furnaceOption.onSelect = nil;
+                furnaceOption.notAvailable = true;
+            end
         end
 
         -- Anvil --
@@ -275,13 +278,13 @@ local function buildExpanedsMenu(subMenu, option, player)
         local canBeCrafted = playerInv:contains("Hammer") and playerInv:contains("Log");
         if not playerInv:contains("Hammer") then
             toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Hammer") .. " 0/1" ;
-            anvilOption.notAvailable = true;
+            canBeCrafted = false;
         else
             toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1" ;
         end
         if not playerInv:contains("Log") then
             toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Log") .. " 0/1" ;
-            anvilOption.notAvailable = true;
+            canBeCrafted = false;
         else
             toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1" ;
         end
@@ -290,11 +293,13 @@ local function buildExpanedsMenu(subMenu, option, player)
             local metalCount = countUses(playerObj, 500);
             if metalCount < 500 then
                 toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
-                anvilOption.notAvailable = true;
+                canBeCrafted = false;
             else
                 toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
             end
-        else
+        end
+        if not canBeCrafted and not ISBuildMenu.cheat then
+            anvilOption.onSelect = nil;
             anvilOption.notAvailable = true;
         end
     end
@@ -345,7 +350,7 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
         end
     end
     
-    if furnace then
+    if furnace and furnace:isFireStarted() then
         context:removeOptionByName(getText("ContextMenu_Put_out_fire"));
         context:addOption(getText("ContextMenu_Put_out_fire"), worldobjects, ISBlacksmithMenu.onStopFire, furnace, playerObj);
     end

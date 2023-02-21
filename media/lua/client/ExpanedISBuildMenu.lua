@@ -68,7 +68,7 @@ end
 
 
 local function onDogHouse(worldobjects, player)
-	local dogHouse = ISSimpleFurniture:new("DogHouse", "location_farm_accesories_01_8", "location_farm_accesories_01_9", "location_farm_accesories_01_10", "location_farm_accesories_01_11");
+	local dogHouse = ISSimpleFurniture:new("Dog House", "location_farm_accesories_01_8", "location_farm_accesories_01_9", "location_farm_accesories_01_10", "location_farm_accesories_01_11");
 	dogHouse.modData["xp:Woodwork"] = 6;
 	dogHouse.modData["need:Base.Plank"] = 5;
 	dogHouse.modData["need:Base.Nails"] = 5;
