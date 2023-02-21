@@ -28,6 +28,7 @@ end
 local function onOuthouseDoor(worldobjects, player)
 	-- sprite, northsprite, openSprite, openNorthSprite
 	local door = ISWoodenDoor:new("fixtures_bathroom_02_32", "fixtures_bathroom_02_33", "fixtures_bathroom_02_34", "fixtures_bathroom_02_35");
+	gate.firstItem = "Hammer";
 	door.modData["xp:Woodwork"] = 3;
 	door.modData["need:Base.Plank"] = 4;
 	door.modData["need:Base.Nails"] = 4;
@@ -41,6 +42,7 @@ end
 local function onHighFenceGate(worldobjects, player)
 	-- sprite, northsprite, openSprite, openNorthSprite
 	local gate = ISWoodenDoor:new("fixtures_doors_fences_01_12", "fixtures_doors_fences_01_13", "fixtures_doors_fences_01_14", "fixtures_doors_fences_01_15");
+	gate.firstItem = "Hammer";
 	gate.modData["xp:Woodwork"] = 5;
 	gate.modData["need:Base.Plank"] = 6;
 	gate.modData["need:Base.Nails"] = 6;
@@ -55,6 +57,7 @@ end
 local function onFenceGate(worldobjects, player)
 	-- sprite, northsprite, openSprite, openNorthSprite
 	local gate = ISWoodenDoor:new("fixtures_doors_fences_01_4", "fixtures_doors_fences_01_5", "fixtures_doors_fences_01_6", "fixtures_doors_fences_01_7");
+	gate.firstItem = "Hammer";
 	gate.modData["xp:Woodwork"] = 3;
 	gate.modData["need:Base.Plank"] = 4;
 	gate.modData["need:Base.Nails"] = 4;
@@ -69,6 +72,7 @@ end
 
 local function onDogHouse(worldobjects, player)
 	local dogHouse = ISSimpleFurniture:new("Dog House", "location_farm_accesories_01_8", "location_farm_accesories_01_9", "location_farm_accesories_01_10", "location_farm_accesories_01_11");
+	dogHouse.firstItem = "Hammer";
 	dogHouse.modData["xp:Woodwork"] = 6;
 	dogHouse.modData["need:Base.Plank"] = 5;
 	dogHouse.modData["need:Base.Nails"] = 5;

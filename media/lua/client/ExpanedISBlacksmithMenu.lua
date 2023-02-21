@@ -83,7 +83,7 @@ local function onMetalGrateFloor(worldobjects, player)
     floor.secondItem = "WeldingMask";
     floor.noNeedHammer = true;
     floor.craftingBank = "BlowTorch";
-    floor.actionAnim = "BlowTorchMid";
+    floor.actionAnim = "BlowTorchFloor";
     floor.hoppable = true;
     floor.isThumpable = false;
     floor.canBarricade = false;
@@ -104,7 +104,7 @@ local function onMetalBarGrateFloor(worldobjects, player)
     floor.secondItem = "WeldingMask";
     floor.noNeedHammer = true;
     floor.craftingBank = "BlowTorch";
-    floor.actionAnim = "BlowTorchMid";
+    floor.actionAnim = "BlowTorchFloor";
     floor.hoppable = true;
     floor.isThumpable = false;
     floor.canBarricade = false;
@@ -127,9 +127,10 @@ local function onMetalDrum(worldobjects, player)
     barrel.secondItem = "WeldingMask";
     barrel.craftingBank = "BlowTorch";
     barrel.actionAnim = "BlowTorchMid";
+    barrel.modData["xp:MetalWelding"] = 5;
     barrel.modData["use:Base.BlowTorch"] = 6;
     barrel.modData["use:Base.WeldingRods"] = 3;  -- must be half of Torch use.
-    barrel.modData["need:Base.MetalSheet"] = 4;
+    barrel.modData["need:Base.SheetMetal"] = 4;
     barrel.modData["need:Base.ScrapMetal"] = 6;
     barrel.player = player;
     barrel.completionSound = "BuildMetalStructureMedium";
@@ -139,9 +140,10 @@ end
 
 local function onStoneFurnace(worldobjects, player)
     local furniture = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
+    furniture.firstItem = "Hammer";
+    furniture.craftingBank = "Hammering";
     furniture.modData["need:Base.Stone"]= 30;
     furniture.player = player;
-    furniture.craftingBank = "BuildFenceGravelbagFoley";
     furniture.completionSound = "BuildFenceGravelbag";
     getCell():setDrag(furniture, player);
 end
@@ -149,6 +151,8 @@ end
 
 local function onAnvil(worldobjects, player)
     local furniture = ISAnvil:new("Anvil", getSpecificPlayer(player), "crafted_01_19", "crafted_01_19");
+    furniture.firstItem = "Hammer";
+    furniture.craftingBank = "Hammering";
     furniture.modData["use:Base.IronIngot"]= 500;
     furniture.player = player;
     furniture.completionSound = "BuildMetalStructureMedium";
@@ -241,7 +245,7 @@ local function buildExpanedsMenu(subMenu, option, player)
         local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, sprite.sprite)
         toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
         
-        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 4, 0, 6, 6, 6, playerObj, toolTip, 0, 0)
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 4, 0, 6, 6, 8, playerObj, toolTip, 0, 0)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then drumOption.notAvailable = true; end
@@ -289,15 +293,14 @@ local function buildExpanedsMenu(subMenu, option, player)
             toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1" ;
         end
 
-        if canBeCrafted then
-            local metalCount = countUses(playerObj, 500);
-            if metalCount < 500 then
-                toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
-                canBeCrafted = false;
-            else
-                toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
-            end
+        local metalCount = countUses(playerObj, 500);
+        if metalCount < 500 then
+            toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
+            canBeCrafted = false;
+        else
+            toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
         end
+
         if not canBeCrafted and not ISBuildMenu.cheat then
             anvilOption.onSelect = nil;
             anvilOption.notAvailable = true;
