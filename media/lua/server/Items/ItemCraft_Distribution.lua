@@ -12,8 +12,8 @@ local LITERATURES_WEIGHT = {
 }
 
 local TOOLS_WEIGHT = {
-    [".Tongs"]=2,
-    [".Bellows"]=2,
+    [".Tongs"]=3,
+    [".Bellows"]=3,
 }
 
 local MATERIALS_WEIGHT = {
