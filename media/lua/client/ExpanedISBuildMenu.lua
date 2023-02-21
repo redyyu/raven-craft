@@ -29,10 +29,10 @@ local function onOuthouseDoor(worldobjects, player)
 	-- sprite, northsprite, openSprite, openNorthSprite
 	local door = ISWoodenDoor:new("fixtures_bathroom_02_32", "fixtures_bathroom_02_33", "fixtures_bathroom_02_34", "fixtures_bathroom_02_35");
 	door.modData["xp:Woodwork"] = 3;
-	door.modData["need:Base.Plank"] = "4";
-	door.modData["need:Base.Nails"] = "4";
-	door.modData["need:Base.Hinge"] = "2";
-	door.modData["need:Base.Doorknob"] = "1";
+	door.modData["need:Base.Plank"] = 4;
+	door.modData["need:Base.Nails"] = 4;
+	door.modData["need:Base.Hinge"] = 2;
+	door.modData["need:Base.Doorknob"] = 1;
 	door.player = player
 	getCell():setDrag(door, player);
 end
@@ -42,10 +42,10 @@ local function onHighFenceGate(worldobjects, player)
 	-- sprite, northsprite, openSprite, openNorthSprite
 	local gate = ISWoodenDoor:new("fixtures_doors_fences_01_12", "fixtures_doors_fences_01_13", "fixtures_doors_fences_01_14", "fixtures_doors_fences_01_15");
 	gate.modData["xp:Woodwork"] = 5;
-	gate.modData["need:Base.Plank"] = "6";
-	gate.modData["need:Base.Nails"] = "6";
-	gate.modData["need:Base.Hinge"] = "2";
-	gate.modData["need:Base.Doorknob"] = "1";
+	gate.modData["need:Base.Plank"] = 6;
+	gate.modData["need:Base.Nails"] = 6;
+	gate.modData["need:Base.Hinge"] = 2;
+	gate.modData["need:Base.Doorknob"] = 1;
 	gate.dontNeedFrame = true;
 	gate.canBarricade = false;
 	gate.player = player
@@ -56,10 +56,10 @@ local function onFenceGate(worldobjects, player)
 	-- sprite, northsprite, openSprite, openNorthSprite
 	local gate = ISWoodenDoor:new("fixtures_doors_fences_01_4", "fixtures_doors_fences_01_5", "fixtures_doors_fences_01_6", "fixtures_doors_fences_01_7");
 	gate.modData["xp:Woodwork"] = 3;
-	gate.modData["need:Base.Plank"] = "4";
-	gate.modData["need:Base.Nails"] = "4";
-	gate.modData["need:Base.Hinge"] = "2";
-	gate.modData["need:Base.Doorknob"] = "1";
+	gate.modData["need:Base.Plank"] = 4;
+	gate.modData["need:Base.Nails"] = 4;
+	gate.modData["need:Base.Hinge"] = 2;
+	gate.modData["need:Base.Doorknob"] = 1;
 	gate.dontNeedFrame = true;
 	gate.canBarricade = false;
 	gate.player = player
@@ -70,8 +70,8 @@ end
 local function onDogHouse(worldobjects, player)
 	local dogHouse = ISSimpleFurniture:new("DogHouse", "location_farm_accesories_01_8", "location_farm_accesories_01_9", "location_farm_accesories_01_10", "location_farm_accesories_01_11");
 	dogHouse.modData["xp:Woodwork"] = 6;
-	dogHouse.modData["need:Base.Plank"] = "5";
-	dogHouse.modData["need:Base.Nails"] = "5";
+	dogHouse.modData["need:Base.Plank"] = 5;
+	dogHouse.modData["need:Base.Nails"] = 5;
 	dogHouse.player = player
 	dogHouse.maxTime = 110;
 	getCell():setDrag(dogHouse, player);
@@ -81,7 +81,7 @@ end
 local function onConcreteFloor(worldobjects, player)
 	local floor = ISWoodenFloor:new("floors_exterior_street_01_17", "blends_street_01_101");
 	floor.modData["xp:Woodwork"] = 1;
-	floor.modData["use:BucketConcreteFull"] = "1";
+	floor.modData["use:BucketConcreteFull"] = 1;
 	floor.canBarricade = true;
 	floor.noNeedHammer = true;
 	-- floor.craftingBank = "Shoveling";
@@ -90,6 +90,7 @@ local function onConcreteFloor(worldobjects, player)
 	floor.player = player
 	getCell():setDrag(floor, player);
 end
+
 
 
 local function buildExpanedsMenu(subMenu, option, player)
@@ -148,8 +149,10 @@ local function buildExpanedsMenu(subMenu, option, player)
 		toolTip.description = toolTip.description .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Shovel") .. " 1/1 <LINE> ";
 	else
 		toolTip.description = toolTip.description .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Shovel") .. " 0/1 <LINE> ";
-		conFloorOption.onSelect = nil;
-        conFloorOption.notAvailable = true;
+		if not ISBuildMenu.cheat then
+			conFloorOption.onSelect = nil;
+        	conFloorOption.notAvailable = true;
+		end
 	end
 	
 	numConcrete = countConcerteUses(player)
@@ -166,6 +169,11 @@ local function buildExpanedsMenu(subMenu, option, player)
 
 	toolTip.description = getText("Tooltip_CRAFT_CONCRETEFLOORDESC") .. toolTip.description;
 	toolTip:setTexture(sprite.sprite);
+
+	-- Parent menu --
+	if outhouseDoorOption.notAvailable and highFenceGateOption.notAvailable and fenceGateOption.notAvailable and dogHouseOption.notAvailable and conFloorOption.notAvailable then
+		option.notAvailable = true;
+	end
 
 end
 
