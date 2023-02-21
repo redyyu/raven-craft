@@ -1,7 +1,7 @@
 ContextMenu_EN = {
   ContextMenu_EXPANDS = "Expands",
 
-  -- Carpentry menu
+  -- Carpentry
 
   ContextMenu_OUTHOUSE_DOOR = "Outhouse Door",
   ContextMenu_FENCE_GATE = "Wooden Fence Gate",
@@ -9,7 +9,7 @@ ContextMenu_EN = {
   ContextMenu_DOG_HOUSE = "Dog House",
   ContextMenu_CONCRETE_FLOOR = "Concrete Floor",
 
-  -- Metalworking menu
+  -- Metalworking
   ContextMenu_METAL_DOOR = "Metal Door",
   ContextMenu_GARAGE_DOOR = "Rolling Garage Door",
   ContextMenu_METAL_GRATE = "Warehouse Floor"
@@ -18,4 +18,7 @@ ContextMenu_EN = {
   ContextMenu_METAL_BARREL = "Metal Barrel"
   ContextMenu_STONE_FURNACE = "Stone Furnace"
   ContextMenu_ANVIL = "Anvil"
+
+  -- UI
+  ContextMenu_TAKE_BARREL = "Take Barrel",
 }
