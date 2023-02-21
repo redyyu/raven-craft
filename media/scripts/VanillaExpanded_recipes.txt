@@ -293,10 +293,9 @@ module RavenCraft
 
     /** Welding / Metalworking **/
 
-    recipe Recycle Little Metals {
+    recipe Smash Ingot {
         keep [Recipe.GetItemTypes.Hammer],
-        keep [Recipe.GetItemTypes.Saw],
-        TinCanEmpty/BeerCanEmpty/PopEmpty/Pop2Empty/Pop3Empty/Fork/Spoon/UnusableMetal,
+        IronIngot=10,
 
         Result: ScrapMetal,
         SkillRequired: MetalWelding=3,
@@ -305,55 +304,6 @@ module RavenCraft
         Prop2: Source=2,
         Sound: Hammering,
         Time: 100.0,
-        NeedToBeLearn: true,
-        Category: Welding,
-    }
-
-    recipe Recycle Metals {
-        keep [Recipe.GetItemTypes.Hammer],
-        keep [Recipe.GetItemTypes.Saw],
-        PaintbucketEmpty/Flute/Pot/Saucepan/GridlePan/RoastingPan/Pan/BakingTray/BakingPan/BucketEmpty/SmallSheetMetal,
-
-        Result: ScrapMetal=3,
-        SkillRequired: MetalWelding=3,
-        AnimNode: Disassemble,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: Hammering,
-        Time: 150.0,
-        NeedToBeLearn: true,
-        Category: Welding,
-    }
-
-    recipe Recycle Crowbar {
-        keep BlowTorch,
-        keep WeldingMask,
-        Crowbar,
-
-        Result: MetalBar,
-        SkillRequired: MetalWelding=4,
-        AnimNode: Disassemble,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: BlowTorch,
-        Time: 200.0,
-        AllowDestroyedItem: true,
-        NeedToBeLearn: true,
-        Category: Welding,
-    }
-
-    recipe Craft Workable Iron {
-        keep [Recipe.GetItemTypes.Hammer],
-        keep BlowTorch,
-        ScrapMetal/UnusableMetal=20,
-
-        Result: IronIngot,
-        SkillRequired: MetalWelding=3,
-        AnimNode: Disassemble,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: BlowTorch,
-        Time: 250.0,
         Category: Welding,
     }
 
