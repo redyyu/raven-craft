@@ -6,13 +6,13 @@ module RavenCraft
 
     /***** Gunpowder *****/
     recipe Craft Gunpowder {
+        keep MortarPestle,
         Fertilizer/CompostBag=2,
         Charcoal=21,
         [Recipe.GetItemTypes.Sugar]=2,
-        keep MortarPestle,
 
         AnimNode:Craft,
-        Prop1: MortarPestle,
+        Prop1: Source=1,
         Sound: Plastering,
         Result: GunPowder,
         Time:300.0,

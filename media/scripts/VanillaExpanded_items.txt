@@ -10,7 +10,7 @@ module RavenCraft
         Type = Literature,
         DisplayName	= The Spirit of Craftsman Vol.1,
         Icon = MagazineBlacksmith1,
-        TeachedRecipes = Craft Tongs;Self-made Glue;Self-made Wood Glue;Recycle Little Metals;Recycle Metals;Recycle Crowbar;Cut Barbed Wire;Make Metal Bar;Make Metal Pipe;,
+        TeachedRecipes = Craft Tongs;Craft Bellows;Self-made Glue;Self-made Wood Glue;Recycle Little Metals;Recycle Metals;Recycle Crowbar;Cut Barbed Wire;Make Metal Bar;Make Metal Pipe;,
         ReplaceOnUse = CraftsmenMag1,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,

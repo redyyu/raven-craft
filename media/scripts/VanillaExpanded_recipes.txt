@@ -128,13 +128,31 @@ module RavenCraft
         keep Axe/HandAxe/AxeStone/WoodAxe,
         keep [Recipe.GetItemTypes.Saw],
 
-        Result:Bowl = 4,
+        Result: Bowl = 4,
         SkillRequired: Woodwork=4,
         AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: Hammering,
         Time: 300.0,
+        Category: Carpentry,
+    }
+
+    recipe Craft Bellows {
+        Plank,
+        keep [Recipe.GetItemTypes.Saw],
+        LeatherStrips=6,
+        Thread=2,
+        keep [Recipe.GetItemTypes.SharpKnife],
+
+        Result: Bellows,
+        SkillRequired: Woodwork=6,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Sawing,
+        Time: 200.0,
+        NeedToBeLearn: true,
         Category: Carpentry,
     }
 
@@ -155,17 +173,17 @@ module RavenCraft
 
     recipe Craft Baseball Bat {
         Log,
+        keep [Recipe.GetItemTypes.Saw],
         LeatherStrips,
         Thread,
         keep BaseballBat,
-        keep [Recipe.GetItemTypes.Saw],
         keep [Recipe.GetItemTypes.SharpKnife],
 
         Result: BaseballBat,
         SkillRequired: Woodwork=8;Blunt=6;,
         AnimNode: SawLog,
         Prop1: Source=1,
-        Prop2:Saw,
+        Prop2: Source=2,
         Sound: Sawing,
         Time: 300.0,
         OnCreate:Recipe.OnCreate.CraftWeapon,

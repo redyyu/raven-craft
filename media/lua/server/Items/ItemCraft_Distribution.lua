@@ -13,6 +13,7 @@ local LITERATURES_WEIGHT = {
 
 local TOOLS_WEIGHT = {
     [".Tongs"]=2,
+    [".Bellows"]=2,
 }
 
 local MATERIALS_WEIGHT = {
@@ -28,7 +29,9 @@ utils.insertDistribution(VehicleDistributions["SurvivalistTruckBed"], LITERATURE
 utils.insertDistribution(ProceduralDistributions.list["SurvivalGear"], LITERATURES_WEIGHT, 6);
 
 
-utils.insertDistribution(ProceduralDistributions.list["BookstoreMisc"], LITERATURES_WEIGHT, 5);
+utils.insertDistribution(ProceduralDistributions.list["BookstoreMisc"], LITERATURES_WEIGHT, 3);
+utils.insertDistribution(ProceduralDistributions.list["BookstoreBooks"], LITERATURES_WEIGHT, 3);
+utils.insertDistribution(ProceduralDistributions.list["CrateBooks"], LITERATURES_WEIGHT, 3);
 utils.insertDistribution(ProceduralDistributions.list["CampingStoreBooks"], LITERATURES_WEIGHT, 2);
 utils.insertDistribution(ProceduralDistributions.list["CrateMagazines"], LITERATURES_WEIGHT, 2);
 utils.insertDistribution(ProceduralDistributions.list["Hunter"], LITERATURES_WEIGHT, 2);
