@@ -19,7 +19,6 @@ module RavenCraft
         Prop2: Source=2,
         Sound: Plastering,
         NeedToBeLearn: true,
-        Category: General,
     }
 
     recipe Disassemble Notebook {
@@ -32,7 +31,6 @@ module RavenCraft
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 150.0,
-        Category: General,
     }
 
     recipe Binding Notebook {
@@ -45,7 +43,6 @@ module RavenCraft
         Prop2: Source=2,
         Sound: PageFlipBook,
         Time: 150.0,
-        Category: General,
     }
 
     /* Health */
