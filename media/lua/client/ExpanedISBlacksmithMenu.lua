@@ -369,8 +369,6 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
 
     -- Path for Vanilla `Put out fire` on furance --
     local furnace = nil;
-    local metalDrumIsoObj = nil;
-    local metalDrumLuaObj = nil;
     for i, v in ipairs(worldobjects) do
         -- find stone furnace --
         if instanceof(v, "BSFurnace") then
