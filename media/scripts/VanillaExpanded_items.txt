@@ -4,6 +4,8 @@ module RavenCraft
 	    Base,
     }
 
+    /** Magazine **/
+
     item CraftsmenMag1 {
         DisplayCategory = SkillBook,
         Weight = 0.1,
@@ -63,5 +65,225 @@ module RavenCraft
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,
     }
+
+    /** Food **/
+
+    item BoxOfSalt {
+        DisplayCategory = Cooking,
+        Weight = 1.8,
+        Type = Normal,
+        DisplayName = Box of Salt,
+        Icon = JarBox,
+        SurvivalGear = TRUE,
+        WorldStaticModel = BoxOfJars,
+    }
+
+    item CannedRabbitMeat {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Rabbit Meat,
+		Icon = JarBrown,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodTomatoes_Ground,
+	}
+
+    item CannedSmallanimalmeat {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Small Animal Meat,
+		Icon = JarBrown,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodTomatoes_Ground,
+	}
+
+    item CannedSmallbirdmeat {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Small Bird Meat,
+		Icon = JarWhite,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedFishFillet {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Fish Fillet,
+		Icon = JarWhite,
+		Weight = 1.0,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedFishRoe {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Fish Roe,
+		Icon = JarWhite,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedSalmon {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Salmon,
+		Icon = JarWhite,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedChicken {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Chicken,
+		Icon = JarWhite,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedEgg {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Egg,
+		Icon = JarWhite,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedFrogMeat {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Frog Meat,
+		Icon = JarWhite,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedMincedMeat {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Minced Meat,
+		Icon = JarBrown,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodTomatoes_Ground,
+	}
+
+    item CannedMuttonChop {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Mutton Chop,
+		Icon = JarBrown,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodTomatoes_Ground,
+	}
+
+    item CannedPorkChop {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Pork Chop,
+		Icon = JarBrown,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodTomatoes_Ground,
+	}
+
+    item CannedSteak {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Steak,
+		Icon = JarBrown,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodTomatoes_Ground,
+	}
 
 }

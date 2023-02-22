@@ -379,6 +379,21 @@ module RavenCraft
         Category:Welding,
     }
 
+    recipe Craft Jar Lid {
+        keep [Recipe.GetItemTypes.SharpKnife],
+        keep [Recipe.GetItemTypes.Hammer],
+        Aluminum,
+
+        Result: JarLid,
+        SkillRequired: MetalWelding=3,
+        AnimNode: Disassemble,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Dismantle,
+        Time: 150.0,
+        Category:Welding,
+    }
+
     recipe Craft Tongs {
         KitchenTongs,
         IronIngot=5,
@@ -1031,5 +1046,316 @@ module RavenCraft
         NeedToBeLearn: true,
         Category: Painting,
     }
+
+
+    /* Cooking */
+
+    recipe Open Box of Salt {
+        BoxOfSalt,
+
+        Result:Salt=6,
+        Sound:PutItemInBag,
+        Time:15.0,
+    }
+
+    recipe Make Jar of Rabbit Meat {
+        EmptyJar,
+        JarLid,
+        Rabbitmeat;90,
+        Water=10,
+        Salt;2,
+
+        Result: CannedRabbitMeat,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Rabbit Meat {
+        CannedRabbitMeat,
+
+        Result: Rabbitmeat=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Small Animal Meat {
+        EmptyJar,
+        JarLid,
+        Smallanimalmeat;45,
+        Water=10,
+        Salt;1,
+
+        Result: CannedSmallanimalmeat,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Small Animal Meat {
+        CannedSmallanimalmeat,
+
+        Result: Smallanimalmeat=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Small Bird Meat {
+        EmptyJar,
+        JarLid,
+        Smallbirdmeat;45,
+        Water=10,
+        Salt;1,
+
+        Result: CannedSmallbirdmeat,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Small Bird Meat {
+        CannedSmallbirdmeat,
+
+        Result: Smallbirdmeat=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Fish Fillet {
+        EmptyJar,
+        JarLid,
+        FishFillet;100,
+        Water=10,
+        Salt;2,
+
+        Result: CannedFishFillet,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Fish Fillet {
+        CannedFishFillet,
+
+        Result: FishFillet=4,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Fish Roe {
+        EmptyJar,
+        JarLid,
+        FishRoe;100,
+        Water=10,
+        Salt;2,
+
+        Result: CannedFishRoe,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Fish Roe {
+        CannedFishRoe,
+
+        Result: FishRoe=10,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Salmon {
+        EmptyJar,
+        JarLid,
+        Salmon;90,
+        Water=10,
+        Salt;2,
+
+        Result: CannedSalmon,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Salmon {
+        CannedSalmon,
+
+        Result: Salmon=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Chicken {
+        EmptyJar,
+        JarLid,
+        Chicken;105,
+        Water=10,
+        Salt;2,
+
+        Result: CannedChicken,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Chicken {
+        CannedChicken,
+
+        Result: Chicken=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+    
+    recipe Make Jar of Egg {
+        EmptyJar,
+        JarLid,
+        Egg;100,
+        Water=10,
+        Salt;2,
+
+        Result: CannedEgg,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Egg {
+        CannedEgg,
+
+        Result: Egg=10,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Frog Meat {
+        EmptyJar,
+        JarLid,
+        FrogMeat=50,
+        Water=10,
+        Salt;1,
+
+        Result: CannedFrogMeat,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Frog Meat {
+        CannedFrogMeat,
+
+        Result: FrogMeat=5,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of MincedMeat {
+        EmptyJar,
+        JarLid,
+        MincedMeat/MeatPatty;120,
+        Water=10,
+        Salt;2,
+
+        Result: CannedMincedMeat,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Minced Meat {
+        CannedMincedMeat,
+
+        Result: MincedMeat=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Mutton Chop {
+        EmptyJar,
+        JarLid,
+        MuttonChop;90,
+        Water=10,
+        Salt;2,
+
+        Result: CannedMuttonChop,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Mutton Chop {
+        CannedMuttonChop,
+
+        Result: MuttonChop=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Pork Chop {
+        EmptyJar,
+        JarLid,
+        PorkChop;90,
+        Water=10,
+        Salt;2,
+
+        Result: CannedPorkChop,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Pork Chop {
+        CannedPorkChop,
+
+        Result: PorkChop=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+    
+    recipe Make Jar of Steak {
+        EmptyJar,
+        JarLid,
+        Steak;120,
+        Water=10,
+        Salt;2,
+
+        Result: CannedSteak,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+
+    recipe Open Jar of Steak {
+        CannedSteak,
+
+        Result: Steak=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
 
 }
