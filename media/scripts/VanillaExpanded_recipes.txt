@@ -1065,15 +1065,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedRabbitMeat,
+        Result: CannedJarRabbitMeat,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Rabbit Meat {
-        CannedRabbitMeat,
+        CannedJarRabbitMeat,
 
         Result: Rabbitmeat=3,
         Time: 30.0,
@@ -1088,15 +1087,14 @@ module RavenCraft
         Water=10,
         Salt;1,
 
-        Result: CannedSmallanimalmeat,
+        Result: CannedJarSmallanimalmeat,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Small Animal Meat {
-        CannedSmallanimalmeat,
+        CannedJarSmallanimalmeat,
 
         Result: Smallanimalmeat=3,
         Time: 30.0,
@@ -1111,15 +1109,14 @@ module RavenCraft
         Water=10,
         Salt;1,
 
-        Result: CannedSmallbirdmeat,
+        Result: CannedJarSmallbirdmeat,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Small Bird Meat {
-        CannedSmallbirdmeat,
+        CannedJarSmallbirdmeat,
 
         Result: Smallbirdmeat=3,
         Time: 30.0,
@@ -1134,15 +1131,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedFishFillet,
+        Result: CannedJarFishFillet,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Fish Fillet {
-        CannedFishFillet,
+        CannedJarFishFillet,
 
         Result: FishFillet=4,
         Time: 30.0,
@@ -1157,15 +1153,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedFishRoe,
+        Result: CannedJarFishRoe,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Fish Roe {
-        CannedFishRoe,
+        CannedJarFishRoe,
 
         Result: FishRoe=10,
         Time: 30.0,
@@ -1180,17 +1175,38 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedSalmon,
+        Result: CannedJarSalmon,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Salmon {
-        CannedSalmon,
+        CannedJarSalmon,
 
         Result: Salmon=3,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Shrimp {
+        EmptyJar,
+        JarLid,
+        Shrimp;100,
+        Water=10,
+        Salt;1,
+
+        Result: CannedJarShrimp,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+    recipe Open Jar of Shrimp {
+        CannedJarShrimp,
+
+        Result: Shrimp=10,
         Time: 30.0,
         OnCreate: Recipe.OnCreate.OpenCannedFood,
         Category: Cooking,
@@ -1203,15 +1219,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedChicken,
+        Result: CannedJarChicken,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Chicken {
-        CannedChicken,
+        CannedJarChicken,
 
         Result: Chicken=3,
         Time: 30.0,
@@ -1226,15 +1241,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedEgg,
+        Result: CannedJarEgg,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Egg {
-        CannedEgg,
+        CannedJarEgg,
 
         Result: Egg=10,
         Time: 30.0,
@@ -1249,15 +1263,14 @@ module RavenCraft
         Water=10,
         Salt;1,
 
-        Result: CannedFrogMeat,
+        Result: CannedJarFrogMeat,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Frog Meat {
-        CannedFrogMeat,
+        CannedJarFrogMeat,
 
         Result: FrogMeat=5,
         Time: 30.0,
@@ -1272,15 +1285,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedMincedMeat,
+        Result: CannedJarMincedMeat,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Minced Meat {
-        CannedMincedMeat,
+        CannedJarMincedMeat,
 
         Result: MincedMeat=3,
         Time: 30.0,
@@ -1295,15 +1307,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedMuttonChop,
+        Result: CannedJarMuttonChop,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Mutton Chop {
-        CannedMuttonChop,
+        CannedJarMuttonChop,
 
         Result: MuttonChop=3,
         Time: 30.0,
@@ -1318,15 +1329,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedPorkChop,
+        Result: CannedJarPorkChop,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Pork Chop {
-        CannedPorkChop,
+        CannedJarPorkChop,
 
         Result: PorkChop=3,
         Time: 30.0,
@@ -1341,15 +1351,14 @@ module RavenCraft
         Water=10,
         Salt;2,
 
-        Result: CannedSteak,
+        Result: CannedJarSteak,
         Time: 100.0,
         OnCreate: Recipe.OnCreate.CannedFood,
         Category: Cooking,
         OnGiveXP: Recipe.OnGiveXP.Cooking10,
     }
-
     recipe Open Jar of Steak {
-        CannedSteak,
+        CannedJarSteak,
 
         Result: Steak=3,
         Time: 30.0,
@@ -1357,5 +1366,115 @@ module RavenCraft
         Category: Cooking,
     }
 
+    recipe Make Jar of Apple {
+        EmptyJar,
+        JarLid,
+        Apple=5,
+        Water=10,
+        [Recipe.GetItemTypes.Sugar]=2,
+
+        Result: CannedJarApple,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+    recipe Open Jar of Apple {
+        CannedJarApple,
+
+        Result: Apple=5,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Orange {
+        EmptyJar,
+        JarLid,
+        Orange=5,
+        Water=10,
+        [Recipe.GetItemTypes.Sugar]=2,
+
+        Result: CannedJarOrange,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+    recipe Open Jar of Orange {
+        CannedJarOrange,
+
+        Result: Orange=5,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Peach {
+        EmptyJar,
+        JarLid,
+        Peach=5,
+        Water=10,
+        [Recipe.GetItemTypes.Sugar]=2,
+
+        Result: CannedJarPeach,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+    recipe Open Jar of Peach {
+        CannedJarPeach,
+
+        Result: Peach=5,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Peach {
+        EmptyJar,
+        JarLid,
+        Pear=5,
+        Water=10,
+        [Recipe.GetItemTypes.Sugar]=2,
+
+        Result: CannedJarPear,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+    recipe Open Jar of Peach {
+        CannedJarPear,
+
+        Result: Pear=5,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+
+    recipe Make Jar of Peach {
+        EmptyJar,
+        JarLid,
+        Pineapple=5,
+        Water=10,
+        [Recipe.GetItemTypes.Sugar]=2,
+
+        Result: CannedJarPineapple,
+        Time: 100.0,
+        OnCreate: Recipe.OnCreate.CannedFood,
+        Category: Cooking,
+        OnGiveXP: Recipe.OnGiveXP.Cooking10,
+    }
+    recipe Open Jar of Peach {
+        CannedJarPineapple,
+
+        Result: Pineapple=5,
+        Time: 30.0,
+        OnCreate: Recipe.OnCreate.OpenCannedFood,
+        Category: Cooking,
+    }
+    
 
 }

@@ -78,7 +78,7 @@ module RavenCraft
         WorldStaticModel = BoxOfJars,
     }
 
-    item CannedRabbitMeat {
+    item CannedJarRabbitMeat {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Rabbit Meat,
@@ -94,7 +94,7 @@ module RavenCraft
         WorldStaticModel = JarFoodTomatoes_Ground,
 	}
 
-    item CannedSmallanimalmeat {
+    item CannedJarSmallanimalmeat {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Small Animal Meat,
@@ -110,7 +110,7 @@ module RavenCraft
         WorldStaticModel = JarFoodTomatoes_Ground,
 	}
 
-    item CannedSmallbirdmeat {
+    item CannedJarSmallbirdmeat {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Small Bird Meat,
@@ -126,7 +126,7 @@ module RavenCraft
         WorldStaticModel = JarFoodPotatoes_Ground,
 	}
 
-    item CannedFishFillet {
+    item CannedJarFishFillet {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Fish Fillet,
@@ -142,7 +142,7 @@ module RavenCraft
         WorldStaticModel = JarFoodPotatoes_Ground,
 	}
 
-    item CannedFishRoe {
+    item CannedJarFishRoe {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Fish Roe,
@@ -158,7 +158,7 @@ module RavenCraft
         WorldStaticModel = JarFoodPotatoes_Ground,
 	}
 
-    item CannedSalmon {
+    item CannedJarSalmon {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Salmon,
@@ -174,7 +174,23 @@ module RavenCraft
         WorldStaticModel = JarFoodPotatoes_Ground,
 	}
 
-    item CannedChicken {
+    item CannedJarShrimp {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Shrimp,
+		Icon = JarWhite,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodPotatoes_Ground,
+	}
+
+    item CannedJarChicken {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Chicken,
@@ -190,7 +206,7 @@ module RavenCraft
         WorldStaticModel = JarFoodPotatoes_Ground,
 	}
 
-    item CannedEgg {
+    item CannedJarEgg {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Egg,
@@ -206,7 +222,7 @@ module RavenCraft
         WorldStaticModel = JarFoodPotatoes_Ground,
 	}
 
-    item CannedFrogMeat {
+    item CannedJarFrogMeat {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Frog Meat,
@@ -222,7 +238,7 @@ module RavenCraft
         WorldStaticModel = JarFoodPotatoes_Ground,
 	}
 
-    item CannedMincedMeat {
+    item CannedJarMincedMeat {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Minced Meat,
@@ -238,7 +254,7 @@ module RavenCraft
         WorldStaticModel = JarFoodTomatoes_Ground,
 	}
 
-    item CannedMuttonChop {
+    item CannedJarMuttonChop {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Mutton Chop,
@@ -254,7 +270,7 @@ module RavenCraft
         WorldStaticModel = JarFoodTomatoes_Ground,
 	}
 
-    item CannedPorkChop {
+    item CannedJarPorkChop {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Pork Chop,
@@ -270,7 +286,7 @@ module RavenCraft
         WorldStaticModel = JarFoodTomatoes_Ground,
 	}
 
-    item CannedSteak {
+    item CannedJarSteak {
 	    DisplayCategory = Food,
 		Type = Food,
 		DisplayName = Jar of Steak,
@@ -286,4 +302,590 @@ module RavenCraft
         WorldStaticModel = JarFoodTomatoes_Ground,
 	}
 
+    item CannedJarOrange {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Orange,
+		Icon = JarGreen,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodBroccoli_Ground,
+	}
+    
+    item CannedJarPeach {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Peach,
+		Icon = JarGreen,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodBroccoli_Ground,
+	}
+
+    item CannedJarPear {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Pear,
+		Icon = JarGreen,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodBroccoli_Ground,
+	}
+
+    item CannedJarPineapple {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Pineapple,
+		Icon = JarGreen,
+		Weight = 1.1,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodBroccoli_Ground,
+	}
+    
+    item CannedJarApple {
+	    DisplayCategory = Food,
+		Type = Food,
+		DisplayName = Jar of Apple,
+		Icon = JarGreen,
+		Weight = 1.2,
+		DaysFresh = 60,
+		DaysTotallyRotten = 90,
+		OnCooked = CannedFood_OnCooked,
+		IsCookable = TRUE,
+        MinutesToBurn = 120,
+        MinutesToCook = 60,
+        StaticModel = CanClosed,
+        WorldStaticModel = JarFoodBroccoli_Ground,
+	}
+
+    item Semi-Tofu {
+		DisplayName = Semi-Tofu,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = TofuRotten,
+        BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Pizza:10;Soup:10;Stew:10;Stir fry Griddle Pan:10;Stir fry:10;Burger:10;Salad:10;RicePot:10;RicePan:10;Roasted Vegetables:10;PastaPot:10;PastaPan:10;Taco:5;Burrito:10;Burger:10,
+		FoodType = Vegetables,
+		DaysFresh = 6,
+		DaysTotallyRotten = 6,
+		HungerChange = -10,
+		Calories = 30,
+		Carbohydrates = 1,
+		Lipids = 1,
+		Proteins = 5,
+		WorldStaticModel = Tofu,
+        UnhappyChange = 50,
+        ReplaceOnRotten = Tofu,
+	}
+
+    item PickledRabbitmeat {
+		DisplayName = Pickled Rabbit Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Rabbitmeat,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+        ReplaceOnRotten = DriedRabbitmeat,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Game,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 25,
+		MinutesToBurn = 70,
+		DaysFresh = 7,
+		DaysTotallyRotten = 7,
+		HungerChange = -30,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+		Calories = 969,
+		Carbohydrates = 20,
+		Lipids = 20,
+		Proteins = 185,
+		WorldStaticModel = RabbitMeat,
+		EvolvedRecipeName = Rabbit,
+	}
+    item DriedRabbitmeat {
+		DisplayName = Dried Rabbit Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = RabbitmeatCooked,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Game,
+		HungerChange = -30,
+		Calories = 969,
+		Carbohydrates = 20,
+		Lipids = 20,
+		Proteins = 185,
+		WorldStaticModel = RabbitMeat,
+		EvolvedRecipeName = Rabbit,
+	}
+
+    item PickledSmallanimalmeat {
+		DisplayName = Pickled Small Animal Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Smallanimalmeat,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Game,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 20,
+		MinutesToBurn = 70,
+		DaysFresh = 5,
+		DaysTotallyRotten = 5,
+		HungerChange = -15,
+		Calories = 201,
+		Carbohydrates = 5,
+		Lipids = 7.25,
+		Proteins = 45,
+		WorldStaticModel = SmallAnimalMeat_Ground,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedSmallanimalmeat,
+	}
+    item DriedSmallanimalmeat {
+		DisplayName = Dried Small Animal Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = SmallanimalmeatCooked,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Game,
+		HungerChange = -15,
+		Calories = 201,
+		Carbohydrates = 5,
+		Lipids = 7.25,
+		Proteins = 45,
+		WorldStaticModel = SmallAnimalMeat_Ground,
+	}
+
+    item PickledSmallbirdmeat {
+		DisplayName = Pickled Small Bird Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Smallbirdmeat,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Game,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 20,
+		MinutesToBurn = 70,
+		DaysFresh = 5,
+		DaysTotallyRotten = 5,
+		HungerChange = -15,
+		Calories = 261,
+		Carbohydrates = 5,
+		Lipids = 8.25,
+		Proteins = 90,
+		WorldStaticModel = SmallBirdMeat_Ground,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedSmallbirdmeat,
+	}
+    item DriedSmallbirdmeat {
+		DisplayName = Pickled Small Bird Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = SmallbirdmeatCooked,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Game,
+		HungerChange = -15,
+		Calories = 261,
+		Carbohydrates = 5,
+		Lipids = 8.25,
+		Proteins = 90,
+		WorldStaticModel = SmallBirdMeat_Ground,
+	}
+
+    item PickledFishFillet {
+		DisplayName = Pickled Fish Fillet,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = FishFillet,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Pizza:15;Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15;Taco:10|Cooked;Burrito:15|Cooked,
+		FoodType = Fish,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 20,
+		MinutesToBurn = 50,
+		DaysFresh = 5,
+		DaysTotallyRotten = 5,
+		HungerChange = -25,
+		Calories = 205,
+		Carbohydrates = 1,
+		Lipids = 12,
+		Proteins = 28.52,
+		WorldStaticModel = FishFillet,
+		Tags = FishMeat,
+		EvolvedRecipeName = Fish,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedFishFillet,
+	}
+    item DriedFishFillet {
+		DisplayName = Dried Fish Fillet,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.1,
+		Icon = FishFilletCooked,
+		EvolvedRecipe = Pizza:15;Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15;Taco:10|Cooked;Burrito:15|Cooked,
+		FoodType = Fish,
+		HungerChange = -25,
+		Calories = 205,
+		Carbohydrates = 1,
+		Lipids = 12,
+		Proteins = 28.52,
+		WorldStaticModel = FishFillet,
+		Tags = FishMeat,
+		EvolvedRecipeName = Fish,
+	}
+
+    item  PickledSalmon {
+		DisplayName = PickledSalmon,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Salmon,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Pizza:15;Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15;Taco:8|Cooked;Burrito:16|Cooked,
+		FoodType = Fish,
+		IsCookable = TRUE,
+		MinutesToCook = 80,
+		MinutesToBurn = 130,
+		DaysFresh = 5,
+		DaysTotallyRotten = 5,
+		HungerChange = -30,
+		Calories = 270,
+		Carbohydrates = 0,
+		Lipids = 10.55,
+		Proteins = 34.28,
+		WorldStaticModel = Salmon,
+		Tags = FishMeat,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedSalmon,
+	}
+    item  DriedSalmon {
+		DisplayName = Dried Salmon,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = SalmonCooked,
+		EvolvedRecipe = Pizza:15;Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15;Taco:8|Cooked;Burrito:16|Cooked,
+		FoodType = Fish,
+		HungerChange = -30,
+		Calories = 270,
+		Carbohydrates = 0,
+		Lipids = 10.55,
+		Proteins = 34.28,
+		WorldStaticModel = Salmon,
+		Tags = FishMeat,
+	}
+
+    item PickledShrimp {
+		DisplayName = Pickled Shrimp,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.1,
+		Icon = Shrimp,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Pizza:10;Soup:10;Stew:10;Pie:10;Stir fry Griddle Pan:10;Stir fry:10;Sandwich:10|Cooked;Sandwich Baguette:10|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:10;RicePot:10;RicePan:10;PastaPot:10;PastaPan:10;Burrito:10|Cooked;Taco:5|Cooked,
+		FoodType = Seafood,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 10,
+		MinutesToBurn = 60,
+		DaysFresh = 5,
+		DaysTotallyRotten = 5,
+		HungerChange = -10,
+		Calories = 80,
+		Carbohydrates = 0,
+		Lipids = 7,
+		Proteins = 10,
+		WorldStaticModel = Shrimp_Ground,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedShrimp,
+	}
+    item DriedShrimp {
+		DisplayName = Dried Shrimp,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.1,
+		Icon = ShrimpCooked,
+		EvolvedRecipe = Pizza:10;Soup:10;Stew:10;Pie:10;Stir fry Griddle Pan:10;Stir fry:10;Sandwich:10|Cooked;Sandwich Baguette:10|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:10;RicePot:10;RicePan:10;PastaPot:10;PastaPan:10;Burrito:10|Cooked;Taco:5|Cooked,
+		FoodType = Seafood,
+		HungerChange = -10,
+		Calories = 80,
+		Carbohydrates = 0,
+		Lipids = 7,
+		Proteins = 10,
+		WorldStaticModel = Shrimp_Ground,
+	}
+
+    item PickledChicken {
+		DisplayName = Pickled Chicken,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Chicken,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Pizza:12;Soup:18;Stew:18;Pie:12;Stir fry Griddle Pan:18;Stir fry:18;Sandwich:6|Cooked;Sandwich Baguette:6|Cooked;Burger:12|Cooked;Salad:6|Cooked;Roasted Vegetables:18;RicePot:18;RicePan:18;PastaPot:18;PastaPan:18;Taco:6|Cooked;Burrito:12|Cooked,
+		FoodType = Poultry,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 30,
+		MinutesToBurn = 60,
+		DaysFresh = 7,
+		DaysTotallyRotten = 7,
+		HungerChange = -36,
+		Calories = 150,
+		Carbohydrates = 0,
+		Lipids = 9,
+		Proteins = 18,
+		StaticModel = FriedChicken,
+		WorldStaticModel = Chicken,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedChicken,
+	}
+    item DriedChicken {
+		DisplayName = Dried Chicken,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = ChickenCooked,
+		EvolvedRecipe = Pizza:12;Soup:18;Stew:18;Pie:12;Stir fry Griddle Pan:18;Stir fry:18;Sandwich:6|Cooked;Sandwich Baguette:6|Cooked;Burger:12|Cooked;Salad:6|Cooked;Roasted Vegetables:18;RicePot:18;RicePan:18;PastaPot:18;PastaPan:18;Taco:6|Cooked;Burrito:12|Cooked,
+		FoodType = Poultry,
+		HungerChange = -36,
+		Calories = 150,
+		Carbohydrates = 0,
+		Lipids = 9,
+		Proteins = 18,
+		StaticModel = FriedChicken,
+		WorldStaticModel = Chicken,
+	}
+
+    item PickledFrogMeat {
+		DisplayName = Pickled Frog Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = Frogmeat,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Soup:10;Stew:10;Stir fry Griddle Pan:10;Stir fry:10;Salad:10|Cooked;Roasted Vegetables:10,
+		FoodType = Game,
+		GoodHot = true,
+		IsCookable = true,
+		MinutesToCook = 10,
+		MinutesToBurn = 40,
+		DaysFresh = 5,
+		DaysTotallyRotten = 5,
+		HungerChange = -10,
+		Calories = 66,
+		Carbohydrates = 0,
+		Lipids = 0.28,
+		Proteins = 14.6,
+		WorldStaticModel = FrogMeat_Ground,
+		EvolvedRecipeName = Frog,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedFrogMeat,
+	}
+    item DriedFrogMeat {
+		DisplayName = Dried Frog Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.1,
+		Icon = FrogmeatCooked,
+		EvolvedRecipe = Soup:10;Stew:10;Stir fry Griddle Pan:10;Stir fry:10;Salad:10|Cooked;Roasted Vegetables:10,
+		FoodType = Game,
+		HungerChange = -10,
+		Calories = 66,
+		Carbohydrates = 0,
+		Lipids = 0.28,
+		Proteins = 14.6,
+		WorldStaticModel = FrogMeat_Ground,
+		EvolvedRecipeName = Frog,
+	}
+
+    item PickledMuttonChop {
+		DisplayName = Pickled Mutton Chop,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Mutton,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Meat,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 50,
+		MinutesToBurn = 70,
+		DaysFresh = 10,
+		DaysTotallyRotten = 10,
+		HungerChange = -30,
+		Calories = 234,
+		Carbohydrates = 0.08,
+		Lipids = 11,
+		Proteins = 33,
+		WorldStaticModel = MuttonChop,
+		EvolvedRecipeName = Mutton,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedMuttonChop,
+	}
+    item DriedMuttonChop {
+		DisplayName = Dried Mutton Chop,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+        Icon = MuttonCooked,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Meat,
+		HungerChange = -30,
+		Calories = 234,
+		Carbohydrates = 0.08,
+		Lipids = 11,
+		Proteins = 33,
+		WorldStaticModel = MuttonChop,
+		EvolvedRecipeName = Mutton,
+	}
+
+    item PickledPorkChop {
+		DisplayName = Pickled Pork Chop,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Porkchop,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Meat,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 50,
+		MinutesToBurn = 70,
+		DaysFresh = 10,
+		DaysTotallyRotten = 10,
+		HungerChange = -30,
+		Calories = 150,
+		Carbohydrates = 0,
+		Lipids = 6,
+		Proteins = 25,
+		WorldStaticModel = PorkChop,
+		EvolvedRecipeName = Pork,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedPorkChop,
+	}
+    item DriedPorkChop {
+		DisplayName = Dried Pork Chop,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = PorkchopCooked,
+		EvolvedRecipe = Soup:15;Stew:15;Pie:15;Stir fry Griddle Pan:15;Stir fry:15;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Salad:10|Cooked;Roasted Vegetables:15;RicePot:15;RicePan:15;PastaPot:15;PastaPan:15,
+		FoodType = Meat,
+		HungerChange = -30,
+		Calories = 150,
+		Carbohydrates = 0,
+		Lipids = 6,
+		Proteins = 25,
+		WorldStaticModel = PorkChop,
+		EvolvedRecipeName = Pork,
+	}
+
+    item PickledSteak {
+		DisplayName = Pickled Steak,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = Steak,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Pizza:20;Stew:20;Stir fry Griddle Pan:20;Stir fry:20;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Salad:10|Cooked;Roasted Vegetables:20;PastaPot:20;PastaPan:20;RicePot:20;RicePan:20;Taco:20|Cooked;Burrito:20|Cooked,
+		FoodType = Beef,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 50,
+		MinutesToBurn = 70,
+		DaysFresh = 10,
+		DaysTotallyRotten = 10,
+		HungerChange = -40,
+		Calories = 220,
+		Carbohydrates = 0,
+		Lipids = 9.35,
+		Proteins = 31.62,
+		WorldStaticModel = Steak,
+        ThirstChange = 10,
+        UnhappyChange = 10,
+        ReplaceOnRotten = DriedSteak,
+	}
+    item Dried Steak {
+		DisplayName = Dried Steak,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.2,
+		Icon = SteakCooked,
+		EvolvedRecipe = Pizza:20;Stew:20;Stir fry Griddle Pan:20;Stir fry:20;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Salad:10|Cooked;Roasted Vegetables:20;PastaPot:20;PastaPan:20;RicePot:20;RicePan:20;Taco:20|Cooked;Burrito:20|Cooked,
+		FoodType = Beef,
+		HungerChange = -40,
+		Calories = 220,
+		Carbohydrates = 0,
+		Lipids = 9.35,
+		Proteins = 31.62,
+		WorldStaticModel = Steak,
+	}
 }
