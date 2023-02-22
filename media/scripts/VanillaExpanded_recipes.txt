@@ -1514,10 +1514,13 @@ module RavenCraft
     recipe Make Semi-Tofu {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
+        Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/TinnedBeans;25,
+        Water=10,
         PancakeMix=1,
         Salt;1,
 
-        Result: Semi-Tofu=6,
+        Result: Semi-Tofu=4,
+        SkillRequired: Cooking=6,
         Time: 150.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1530,6 +1533,7 @@ module RavenCraft
         Salt;2,
 
         Result: PickledRabbitmeat,
+        SkillRequired: Cooking=8,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1542,6 +1546,7 @@ module RavenCraft
         Salt;1,
 
         Result: PickledSmallanimalmeat,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1554,6 +1559,7 @@ module RavenCraft
         Salt;1,
 
         Result: PickledSmallbirdmeat,
+        SkillRequired: Cooking=6,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1566,6 +1572,7 @@ module RavenCraft
         Salt;2,
 
         Result: PickledFishFillet,
+        SkillRequired: Cooking=8,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1578,6 +1585,7 @@ module RavenCraft
         Salt;2,
 
         Result: PickledSalmon,
+        SkillRequired: Cooking=8,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1590,6 +1598,7 @@ module RavenCraft
         Salt;1,
 
         Result: PickledShrimp,
+        SkillRequired: Cooking=4,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1602,6 +1611,7 @@ module RavenCraft
         Salt;2,
 
         Result: PickledChicken,
+        SkillRequired: Cooking=6,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1614,6 +1624,7 @@ module RavenCraft
         Salt;1,
 
         Result: PickledFrogMeat,
+        SkillRequired: Cooking=4,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1626,6 +1637,7 @@ module RavenCraft
         Salt;2,
 
         Result: PickledMuttonChop,
+        SkillRequired: Cooking=8,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1638,6 +1650,7 @@ module RavenCraft
         Salt;2,
 
         Result: PickledPorkChop,
+        SkillRequired: Cooking=8,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1650,6 +1663,7 @@ module RavenCraft
         Salt;2,
 
         Result: PickledSteak,
+        SkillRequired: Cooking=8,
         Time: 30.0,
         Sound: Plastering,
         Category: Cooking,
