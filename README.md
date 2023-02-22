@@ -106,6 +106,7 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 42. Self-made Double Holster
 
 **Painting**
+
 43. Self-made White Paint `The Spirit of Craftsman Vol.3`
 44. Self-made Red Paint `The Spirit of Craftsman Vol.3`
 45. Self-made Blue Paint `The Spirit of Craftsman Vol.3`
@@ -124,6 +125,7 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 
 
 **Cooking**
+
 58. Open Box of Salt
 
 ### Allow put more Foods in Jar
@@ -166,6 +168,7 @@ DO NOT waste bullets.
 *other bullets mold already exists in vanilla, also you CAN NOT make bullet mold.the only way to get mold is search and loot. ex. gun store, amry crate. high possibility with survivalist stuff.*
 
 ### Added Recipe Expands:
+
 1. Craft Gunpowder
 2. Craft 9mm Bullets
 3. Craft Shotgun Shells
