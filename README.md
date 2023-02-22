@@ -123,6 +123,22 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 57. Self-made Turquoise Paint `The Spirit of Craftsman Vol.3`
 
 
+**Cooking**
+58. Open Box of Salt
+
+### Allow put more Foods in Jar
+
+`Rabbit Meat`, `Small Animal Meat`, `Small Bird Meat`, `Fish Fillet`, `Fish Roe`, `Salmon`, `Shrimp`, `Chicken`, `Egg`, `Frog Meat`, `Minced Meat`, `Mutton Chop`, `Pork Chop`, `Steak`, `Apple`, `Orange`, `Peach`, `Pear`, `Pineapple`, 
+
+### Allow pickle meat and make Tofu
+
+`Rabbit Meat`, `Small Animal Meat`, `Small Bird Meat`, `Fish Fillet`, `Salmon`, `Shrimp`, `Chicken`, `Frog Meat`, `Minced Meat`, `Mutton Chop`, `Pork Chop`, `Steak`,
+
+use salt to make **Pickled** meat, after few days, it will turn to **Dried** meat, it is not go bad any way.
+
+**Semi-Tofu**: make Semi-Tofu first, wait 1 day for turn it to Tofu. 
+
+
 ## Ammo Maker
 
 You can make Gunpowder and Bullets, but you have to read the Magginze.

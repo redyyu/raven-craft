@@ -389,12 +389,10 @@ module RavenCraft
 		Weight = 0.3,
 		Icon = TofuRotten,
         BadCold = true,
-		BadInMicrowave = true,
 		DangerousUncooked = TRUE,
-		EvolvedRecipe = Pizza:10;Soup:10;Stew:10;Stir fry Griddle Pan:10;Stir fry:10;Burger:10;Salad:10;RicePot:10;RicePan:10;Roasted Vegetables:10;PastaPot:10;PastaPan:10;Taco:5;Burrito:10;Burger:10,
 		FoodType = Vegetables,
-		DaysFresh = 6,
-		DaysTotallyRotten = 6,
+		DaysFresh = 1,
+		DaysTotallyRotten = 1,
 		HungerChange = -10,
 		Calories = 30,
 		Carbohydrates = 1,
@@ -582,8 +580,8 @@ module RavenCraft
 		EvolvedRecipeName = Fish,
 	}
 
-    item  PickledSalmon {
-		DisplayName = PickledSalmon,
+    item PickledSalmon {
+		DisplayName = Pickled Salmon,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -608,7 +606,7 @@ module RavenCraft
         UnhappyChange = 10,
         ReplaceOnRotten = DriedSalmon,
 	}
-    item  DriedSalmon {
+    item DriedSalmon {
 		DisplayName = Dried Salmon,
 		DisplayCategory = Food,
 		Type = Food,
