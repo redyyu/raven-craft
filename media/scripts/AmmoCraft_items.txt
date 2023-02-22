@@ -10,7 +10,7 @@ module RavenCraft
         Weight = 0.1,
         Type = Literature,
         DisplayName	= The Spring Of Musketeer,
-        Icon = MagazineNudie1,
+        Icon = MagazineAmmoMakerMag,
         TeachedRecipes = Craft Gunpowder;Craft 9mm Bullets;Craft .223 Bullets;Craft .308 Bullets;Craft Shotgun Shells;Craft 556mm Bullets;Craft .38 Special Bullets;Craft .44 Magnum Bullets;Craft .45 Auto Bullets,
         ReplaceOnUse = AmmoMakerMag,
         StaticModel = Magazine,

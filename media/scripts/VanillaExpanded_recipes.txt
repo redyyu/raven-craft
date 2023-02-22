@@ -410,6 +410,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         SkillRequired: MetalWelding=4,
+        NeedToBeLearn: true,
         Category: Welding,
     }
 
@@ -426,6 +427,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         SkillRequired: MetalWelding=4,
+        NeedToBeLearn: true,
         Category: Welding,
     }
 
@@ -444,6 +446,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Time: 180.0,
+        NeedToBeLearn: true,
         Category: Welding,
     }
 
@@ -464,6 +467,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Time: 250.0,
+        NeedToBeLearn: true,
         Category: Welding,
     }
 
@@ -484,6 +488,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Time: 300.0,
+        NeedToBeLearn: true,
         Category: Welding,
     }
 
