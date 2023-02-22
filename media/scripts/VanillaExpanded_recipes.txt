@@ -21,6 +21,64 @@ module RavenCraft
         NeedToBeLearn: true,
         Category: General,
     }
+
+    recipe Disassemble Notebook {
+        Notebook,
+        keep Scissors/HuntingKnife/KitchenKnife/FlintKnife/Machete,
+
+        Result: SheetPaper2=20,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 150.0,
+        Category: General,
+    }
+
+    recipe Binding Notebook {
+        SheetPaper2=20,
+        keep Staples/Stapler,
+
+        Result: Notebook,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: PageFlipBook,
+        Time: 150.0,
+        Category: General,
+    }
+
+    /* Health */
+
+    recipe Self-made Cigarettes {
+        CommonMallow=5,
+        SheetPaper2=10,
+        Glue=5,
+
+        Result: Cigarettes=5,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: PageFlipBook,
+        Time: 300.0,
+        NeedToBeLearn: true,
+        Category: Health,
+    }
+
+    recipe Self-made Newspaper Cigarettes {
+        CommonMallow=5,
+        Newspaper,
+        Glue=5,
+
+        Result: Cigarettes=5,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: PageFlipBook,
+        Time: 300.0,
+        NeedToBeLearn: true,
+        Category: Health,
+    }
     
 
     /** Carpentry **/
@@ -318,7 +376,6 @@ module RavenCraft
         Prop2: Source=2,
         Sound: Dismantle,
         Time: 150.0,
-        NeedToBeLearn: true,
         Category:Welding,
     }
 
@@ -737,65 +794,6 @@ module RavenCraft
         Category: Survivalist,
     }
 
-    /* General */
-
-    recipe Disassemble Notebook {
-        Notebook,
-        keep Scissors/HuntingKnife/KitchenKnife/FlintKnife/Machete,
-
-        Result: SheetPaper2=20,
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: ClothesRipping,
-        Time: 150.0,
-        Category: General,
-    }
-
-    recipe Binding Notebook {
-        SheetPaper2=20,
-        keep Staples/Stapler,
-
-        Result: Notebook,
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: PageFlipBook,
-        Time: 150.0,
-        Category: General,
-    }
-
-    /* Health */
-
-    recipe Self-made Cigarettes {
-        CommonMallow=5,
-        SheetPaper2=10,
-        Glue=5,
-
-        Result: Cigarettes=5,
-        AnimNode: Craft,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: PageFlipBook,
-        Time: 300.0,
-        NeedToBeLearn: true,
-        Category: Health,
-    }
-
-    recipe Self-made Newspaper Cigarettes {
-        CommonMallow=5,
-        Newspaper,
-        Glue=5,
-
-        Result: Cigarettes=5,
-        AnimNode: Craft,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: PageFlipBook,
-        Time: 300.0,
-        NeedToBeLearn: true,
-        Category: Health,
-    }
 
     /* Painting */
 

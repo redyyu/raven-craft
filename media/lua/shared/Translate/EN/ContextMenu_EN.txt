@@ -21,4 +21,5 @@ ContextMenu_EN = {
 
   -- UI
   ContextMenu_TAKE_BARREL = "Take Barrel",
+  ContextMenu_WORKBENCH = "Workbench"
 }
