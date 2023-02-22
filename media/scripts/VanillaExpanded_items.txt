@@ -512,7 +512,7 @@ module RavenCraft
         ReplaceOnRotten = DriedSmallbirdmeat,
 	}
     item DriedSmallbirdmeat {
-		DisplayName = Pickled Small Bird Meat,
+		DisplayName = Dried Small Bird Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.1,

@@ -378,7 +378,7 @@ module RavenCraft
 
     recipe Craft Jar Lid {
         keep [Recipe.GetItemTypes.SharpKnife],
-        keep [Recipe.GetItemTypes.Hammer],
+        keep Tongs,
         Aluminum,
 
         Result: JarLid,
@@ -1226,7 +1226,7 @@ module RavenCraft
     recipe Make Jar of Chicken {
         EmptyJar,
         JarLid,
-        Chicken;105,
+        Chicken;108,
         Water=10,
         Salt;2,
 
@@ -1250,7 +1250,7 @@ module RavenCraft
     recipe Make Jar of Egg {
         EmptyJar,
         JarLid,
-        Egg;100,
+        Egg;70,
         Water=10,
         Salt;2,
 
@@ -1274,7 +1274,7 @@ module RavenCraft
     recipe Make Jar of Frog Meat {
         EmptyJar,
         JarLid,
-        FrogMeat=50,
+        FrogMeat;50,
         Water=10,
         Salt;1,
 
@@ -1514,7 +1514,7 @@ module RavenCraft
     recipe Make Semi-Tofu {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/TinnedBeans;25,
+        Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/OpenBeans;25,
         Water=10,
         PancakeMix=1,
         Salt;1,
@@ -1560,7 +1560,7 @@ module RavenCraft
 
         Result: PickledSmallbirdmeat,
         SkillRequired: Cooking=6,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1573,7 +1573,7 @@ module RavenCraft
 
         Result: PickledFishFillet,
         SkillRequired: Cooking=8,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1586,7 +1586,7 @@ module RavenCraft
 
         Result: PickledSalmon,
         SkillRequired: Cooking=8,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1599,7 +1599,7 @@ module RavenCraft
 
         Result: PickledShrimp,
         SkillRequired: Cooking=4,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1612,7 +1612,7 @@ module RavenCraft
 
         Result: PickledChicken,
         SkillRequired: Cooking=6,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1625,7 +1625,7 @@ module RavenCraft
 
         Result: PickledFrogMeat,
         SkillRequired: Cooking=4,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1638,7 +1638,7 @@ module RavenCraft
 
         Result: PickledMuttonChop,
         SkillRequired: Cooking=8,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1651,7 +1651,7 @@ module RavenCraft
 
         Result: PickledPorkChop,
         SkillRequired: Cooking=8,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
@@ -1664,7 +1664,7 @@ module RavenCraft
 
         Result: PickledSteak,
         SkillRequired: Cooking=8,
-        Time: 30.0,
+        Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
     }
