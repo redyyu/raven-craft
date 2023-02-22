@@ -270,7 +270,7 @@ local function buildBenchMenu(workbenchMenu, option, player)
     sprite.sprite = "crafted_01_16";
 
     local itemName = getText("ContextMenu_STONE_FURNACE");
-    furnaceOption = subMenu:addOption(itemName, worldobjects, onStoneFurnace, player);
+    furnaceOption = workbenchMenu:addOption(itemName, worldobjects, onStoneFurnace, player);
     local toolTip = ISBlacksmithMenu.addToolTip(furnaceOption, itemName, sprite.sprite)
     toolTip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. toolTip.description;
     local resourceCount = countMaterial(playerInv, "Base.Stone")
@@ -289,7 +289,7 @@ local function buildBenchMenu(workbenchMenu, option, player)
     sprite.sprite = "crafted_01_19";
 
     local itemName = getText("ContextMenu_ANVIL");
-    anvilOption = subMenu:addOption(itemName, worldobjects, onAnvil, player);
+    anvilOption = workbenchMenu:addOption(itemName, worldobjects, onAnvil, player);
     local toolTip = ISBlacksmithMenu.addToolTip(anvilOption, itemName, sprite.sprite)
     toolTip.description = getText("Tooltip_CRAFT_ANVILDESC") .. toolTip.description;
     
