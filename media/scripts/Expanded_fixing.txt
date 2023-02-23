@@ -1,0 +1,38 @@
+module Base
+{
+
+    fixing Fix Nightstick {
+	   Require : Nightstick,
+	   ConditionModifier : 1,
+
+	   Fixer : Woodglue; Woodwork=6,
+	}
+	
+	fixing Fix Crowbar {
+	   Require : Crowbar,
+	   ConditionModifier : 0.3,
+	   
+	   Fixer : WeldingRods=4;MetalWelding=4,
+	}
+
+	fixing Fix Metal Bar {
+	   Require : MetalBar,
+	   ConditionModifier : 0.45,
+	   
+	   Fixer : WeldingRods=3;MetalWelding=3,
+	}
+
+	fixing Fix Metal Pipe {
+	   Require : MetalPipe,
+	   ConditionModifier : 0.45,
+	   
+	   Fixer : WeldingRods=2;MetalWelding=2,
+	}
+
+	fixing Fix Pipe {
+	   Require : Pipe,
+	   ConditionModifier : 0.45,
+	   
+	   Fixer : WeldingRods=4;MetalWelding=4,
+	}
+}
