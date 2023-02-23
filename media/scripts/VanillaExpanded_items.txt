@@ -78,6 +78,16 @@ module RavenCraft
         WorldStaticModel = BoxOfJars,
     }
 
+	/* 
+		All CannedJar Food recipe will call Recipe.OnCreate.CannedFood to reset `DaysFresh` and `DaysTotallyRotten` macth the source food,
+		After Cooded will call CannedFood_OnCooked (by food.update),
+		`DaysFresh` and `DaysTotallyRotten` will reset to 60 and 90.
+
+		There is bug found, While for items, there is chance find another food with no expire age, ex. Sugar, Salt.
+        Event the source food is founnd, it's still will replace after next loop.
+		Fixed in override in recipecode_extend.lua
+	*/
+
     item CannedJarRabbitMeat {
 	    DisplayCategory = Food,
 		Type = Food,
@@ -389,7 +399,7 @@ module RavenCraft
 		Weight = 0.3,
 		Icon = TofuRotten,
         BadCold = true,
-		DangerousUncooked = TRUE,
+		CantEat = TRUE,
 		FoodType = Vegetables,
 		DaysFresh = 0,
 		DaysTotallyRotten = 1,
@@ -403,7 +413,7 @@ module RavenCraft
 	}
 
     item PickledRabbitmeat {
-		DisplayName = Pickled Rabbit Meat,
+		DisplayName = Pickled - Rabbit Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -418,7 +428,7 @@ module RavenCraft
 		MinutesToCook = 25,
 		MinutesToBurn = 70,
 		DaysFresh = 0,
-		DaysTotallyRotten = 12,
+		DaysTotallyRotten = 4,
 		HungerChange = -30,
 		Calories = 969,
 		Carbohydrates = 20,
@@ -429,7 +439,7 @@ module RavenCraft
 		ReplaceOnRotten = DriedRabbitmeat,
 	}
     item DriedRabbitmeat {
-		DisplayName = Dried Rabbit Meat,
+		DisplayName = Dehydrated Rabbit Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.15,
@@ -446,7 +456,7 @@ module RavenCraft
 	}
 
     item PickledSmallanimalmeat {
-		DisplayName = Pickled Small Animal Meat,
+		DisplayName = Pickled - Small Animal Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -461,7 +471,7 @@ module RavenCraft
 		MinutesToCook = 20,
 		MinutesToBurn = 70,
 		DaysFresh = 0,
-		DaysTotallyRotten = 6,
+		DaysTotallyRotten = 3,
 		HungerChange = -15,
 		Calories = 201,
 		Carbohydrates = 5,
@@ -471,7 +481,7 @@ module RavenCraft
         ReplaceOnRotten = DriedSmallanimalmeat,
 	}
     item DriedSmallanimalmeat {
-		DisplayName = Dried Small Animal Meat,
+		DisplayName = Dehydrated Small Animal Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.1,
@@ -487,7 +497,7 @@ module RavenCraft
 	}
 
     item PickledSmallbirdmeat {
-		DisplayName = Pickled Small Bird Meat,
+		DisplayName = Pickled - Small Bird Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -502,7 +512,7 @@ module RavenCraft
 		MinutesToCook = 20,
 		MinutesToBurn = 70,
 		DaysFresh = 0,
-		DaysTotallyRotten = 6,
+		DaysTotallyRotten = 3,
 		HungerChange = -15,
 		Calories = 261,
 		Carbohydrates = 5,
@@ -512,7 +522,7 @@ module RavenCraft
         ReplaceOnRotten = DriedSmallbirdmeat,
 	}
     item DriedSmallbirdmeat {
-		DisplayName = Dried Small Bird Meat,
+		DisplayName = Dehydrated Small Bird Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.1,
@@ -528,7 +538,7 @@ module RavenCraft
 	}
 
     item PickledFishFillet {
-		DisplayName = Pickled Fish Fillet,
+		DisplayName = Pickled - Fish Fillet,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.2,
@@ -542,7 +552,7 @@ module RavenCraft
 		MinutesToCook = 20,
 		MinutesToBurn = 50,
 		DaysFresh = 0,
-		DaysTotallyRotten = 6,
+		DaysTotallyRotten = 3,
 		HungerChange = -25,
 		Calories = 205,
 		Carbohydrates = 1,
@@ -554,7 +564,7 @@ module RavenCraft
         ReplaceOnRotten = DriedFishFillet,
 	}
     item DriedFishFillet {
-		DisplayName = Dried Fish Fillet,
+		DisplayName = Dehydrated Fish Fillet,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.1,
@@ -572,7 +582,7 @@ module RavenCraft
 	}
 
     item PickledSalmon {
-		DisplayName = Pickled Salmon,
+		DisplayName = Pickled - Salmon,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -585,7 +595,7 @@ module RavenCraft
 		MinutesToCook = 80,
 		MinutesToBurn = 130,
 		DaysFresh = 0,
-		DaysTotallyRotten = 6,
+		DaysTotallyRotten = 4,
 		HungerChange = -30,
 		Calories = 270,
 		Carbohydrates = 0,
@@ -596,7 +606,7 @@ module RavenCraft
         ReplaceOnRotten = DriedSalmon,
 	}
     item DriedSalmon {
-		DisplayName = Dried Salmon,
+		DisplayName = Dehydrated Salmon,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.15,
@@ -613,7 +623,7 @@ module RavenCraft
 	}
 
     item PickledShrimp {
-		DisplayName = Pickled Shrimp,
+		DisplayName = Pickled - Shrimp,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.1,
@@ -627,7 +637,7 @@ module RavenCraft
 		MinutesToCook = 10,
 		MinutesToBurn = 60,
 		DaysFresh = 0,
-		DaysTotallyRotten = 4,
+		DaysTotallyRotten = 2,
 		HungerChange = -10,
 		Calories = 80,
 		Carbohydrates = 0,
@@ -637,7 +647,7 @@ module RavenCraft
         ReplaceOnRotten = DriedShrimp,
 	}
     item DriedShrimp {
-		DisplayName = Dried Shrimp,
+		DisplayName = Dehydrated Shrimp,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.1,
@@ -653,7 +663,7 @@ module RavenCraft
 	}
 
     item PickledChicken {
-		DisplayName = Pickled Chicken,
+		DisplayName = Pickled - Chicken,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -667,7 +677,7 @@ module RavenCraft
 		MinutesToCook = 30,
 		MinutesToBurn = 60,
 		DaysFresh = 0,
-		DaysTotallyRotten = 12,
+		DaysTotallyRotten = 4,
 		HungerChange = -36,
 		Calories = 150,
 		Carbohydrates = 0,
@@ -678,7 +688,7 @@ module RavenCraft
         ReplaceOnRotten = DriedChicken,
 	}
     item DriedChicken {
-		DisplayName = Dried Chicken,
+		DisplayName = Dehydrated Chicken,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.15,
@@ -695,7 +705,7 @@ module RavenCraft
 	}
 
     item PickledFrogMeat {
-		DisplayName = Pickled Frog Meat,
+		DisplayName = Pickled - Frog Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.2,
@@ -710,7 +720,7 @@ module RavenCraft
 		MinutesToCook = 10,
 		MinutesToBurn = 40,
 		DaysFresh = 0,
-		DaysTotallyRotten = 6,
+		DaysTotallyRotten = 2,
 		HungerChange = -10,
 		Calories = 66,
 		Carbohydrates = 0,
@@ -721,7 +731,7 @@ module RavenCraft
         ReplaceOnRotten = DriedFrogMeat,
 	}
     item DriedFrogMeat {
-		DisplayName = Dried Frog Meat,
+		DisplayName = Dehydrated Frog Meat,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.1,
@@ -738,7 +748,7 @@ module RavenCraft
 	}
 
     item PickledMuttonChop {
-		DisplayName = Pickled Mutton Chop,
+		DisplayName = Pickled - Mutton Chop,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -753,7 +763,7 @@ module RavenCraft
 		MinutesToCook = 50,
 		MinutesToBurn = 70,
 		DaysFresh = 0,
-		DaysTotallyRotten = 15,
+		DaysTotallyRotten = 5,
 		HungerChange = -30,
 		Calories = 234,
 		Carbohydrates = 0.08,
@@ -764,7 +774,7 @@ module RavenCraft
         ReplaceOnRotten = DriedMuttonChop,
 	}
     item DriedMuttonChop {
-		DisplayName = Dried Mutton Chop,
+		DisplayName = Dehydrated Mutton Chop,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.2,
@@ -781,7 +791,7 @@ module RavenCraft
 	}
 
     item PickledPorkChop {
-		DisplayName = Pickled Pork Chop,
+		DisplayName = Pickled - Pork Chop,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -796,7 +806,7 @@ module RavenCraft
 		MinutesToCook = 50,
 		MinutesToBurn = 70,
 		DaysFresh = 0,
-		DaysTotallyRotten = 15,
+		DaysTotallyRotten = 5,
 		HungerChange = -30,
 		Calories = 150,
 		Carbohydrates = 0,
@@ -807,7 +817,7 @@ module RavenCraft
         ReplaceOnRotten = DriedPorkChop,
 	}
     item DriedPorkChop {
-		DisplayName = Dried Pork Chop,
+		DisplayName = Dehydrated Pork Chop,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.2,
@@ -824,7 +834,7 @@ module RavenCraft
 	}
 
     item PickledSteak {
-		DisplayName = Pickled Steak,
+		DisplayName = Pickled - Steak,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
@@ -839,7 +849,7 @@ module RavenCraft
 		MinutesToCook = 50,
 		MinutesToBurn = 70,
 		DaysFresh = 0,
-		DaysTotallyRotten = 15,
+		DaysTotallyRotten = 5,
 		HungerChange = -40,
 		Calories = 220,
 		Carbohydrates = 0,
@@ -848,8 +858,8 @@ module RavenCraft
 		WorldStaticModel = Steak,
         ReplaceOnRotten = DriedSteak,
 	}
-    item Dried Steak {
-		DisplayName = Dried Steak,
+    item DriedSteak {
+		DisplayName = Dehydrated Steak,
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.2,
@@ -863,4 +873,5 @@ module RavenCraft
 		Proteins = 31.62,
 		WorldStaticModel = Steak,
 	}
+
 }

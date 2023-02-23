@@ -14,7 +14,6 @@ module RavenCraft
         
         Result: Matches=5,
         Time: 150.0,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: Plastering,
@@ -53,7 +52,6 @@ module RavenCraft
         Glue=5,
 
         Result: Cigarettes=5,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: PageFlipBook,
@@ -68,7 +66,6 @@ module RavenCraft
         Glue=5,
 
         Result: Cigarettes=5,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: PageFlipBook,
@@ -185,7 +182,6 @@ module RavenCraft
 
         Result: Bowl = 4,
         SkillRequired: Woodwork=4,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: Hammering,
@@ -202,7 +198,6 @@ module RavenCraft
 
         Result: Bellows,
         SkillRequired: Woodwork=6,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: Sawing,
@@ -280,7 +275,6 @@ module RavenCraft
         Result: Glue=4,
         SkillRequired: Woodwork=4;Cooking=4;,
         Time: 150.0,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: BoilingFood,
@@ -301,7 +295,6 @@ module RavenCraft
         Result: Woodglue=2,
         SkillRequired: Woodwork=6;Cooking=6;,
         Time: 250.0,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: BoilingFood,
@@ -319,7 +312,6 @@ module RavenCraft
         Nails=2,
 
         Result: TrapMouse,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: Hammering,
@@ -337,7 +329,6 @@ module RavenCraft
 
         Result: TrapSnare,
         SkillRequired: Woodwork=3;Trapping=2;,
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: Hammering,
@@ -1529,8 +1520,11 @@ module RavenCraft
     recipe Pickle Rabbit Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Rabbitmeat;30,
+        Rabbitmeat,
         Salt;2,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledRabbitmeat,
         SkillRequired: Cooking=8,
@@ -1542,8 +1536,11 @@ module RavenCraft
     recipe Pickle Small Animal Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Smallanimalmeat;15,
+        Smallanimalmeat,
         Salt;1,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledSmallanimalmeat,
         SkillRequired: Cooking=6,
@@ -1555,8 +1552,11 @@ module RavenCraft
     recipe Pickle Small Bird Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Smallbirdmeat;15,
+        Smallbirdmeat,
         Salt;1,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledSmallbirdmeat,
         SkillRequired: Cooking=6,
@@ -1568,8 +1568,11 @@ module RavenCraft
     recipe Pickle Fish Fillet {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        FishFillet;25,
+        FishFillet,
         Salt;2,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledFishFillet,
         SkillRequired: Cooking=8,
@@ -1581,8 +1584,11 @@ module RavenCraft
     recipe Pickle Salmon {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Salmon;30,
+        Salmon,
         Salt;2,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledSalmon,
         SkillRequired: Cooking=8,
@@ -1594,8 +1600,11 @@ module RavenCraft
     recipe Pickle Shrimp {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Shrimp;10,
+        Shrimp,
         Salt;1,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledShrimp,
         SkillRequired: Cooking=4,
@@ -1607,8 +1616,11 @@ module RavenCraft
     recipe Pickle Chicken {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Chicken;36,
+        Chicken,
         Salt;2,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledChicken,
         SkillRequired: Cooking=6,
@@ -1620,8 +1632,11 @@ module RavenCraft
     recipe Pickle FrogMeat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        FrogMeat;10,
+        FrogMeat,
         Salt;1,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledFrogMeat,
         SkillRequired: Cooking=4,
@@ -1633,8 +1648,11 @@ module RavenCraft
     recipe Pickle MuttonChop {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        MuttonChop;30,
+        MuttonChop,
         Salt;2,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledMuttonChop,
         SkillRequired: Cooking=8,
@@ -1646,8 +1664,11 @@ module RavenCraft
     recipe Pickle PorkChop {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        PorkChop;30,
+        PorkChop,
         Salt;2,
+
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledPorkChop,
         SkillRequired: Cooking=8,
@@ -1659,9 +1680,12 @@ module RavenCraft
     recipe Pickle Steak {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Steak;40,
+        Steak,
         Salt;2,
 
+        OnTest: Recipe.OnTest.IsNotRottenFood,
+        OnCreate: Recipe.OnCreate.PickleFoodMeat,
+        
         Result: PickledSteak,
         SkillRequired: Cooking=8,
         Time: 200.0,

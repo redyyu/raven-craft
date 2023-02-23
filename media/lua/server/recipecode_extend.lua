@@ -10,3 +10,108 @@ function Recipe.OnCreate.CraftWeapon(items, result, player)
     end
     result:setCondition(conditionMax)
 end
+
+
+-- set the age of the food to the can, you need to cook it to have a 2-3 months preservation
+function Recipe.OnCreate.CannedFood(items, result, player)
+    -- OVERRIDE the vanilla CannedFood code. because it is Bugging.
+    -- While for items, there is chance find another food with no expire age, ex. Sugar, Salt.
+    -- Event the source food is founnd, it's still will replace after next loop.
+    -- skip all Spice, and take lower OffAgeMax as source food.
+
+    local food = nil;
+    for i=0,items:size() - 1 do
+        if instanceof(items:get(i), "Food") then
+            if not items:get(i):isSpice() then
+                -- print(items:get(i):getType());
+                if not food or (food:getOffAgeMax() < items:get(i):getOffAgeMax()) then
+                    food = items:get(i);
+                    -- print("got food with age " .. food:getAge())
+                end
+            end
+        end
+    end
+
+    -- print("new jared food age " .. food:getAge() .. " and max age " .. food:getOffAgeMax());
+    if food then
+        result:setAge(food:getAge());
+        result:setOffAgeMax(food:getOffAgeMax());
+        result:setOffAge(food:getOffAge());
+    end
+end
+
+
+function Recipe.OnTest.IsNotRottenFood(item)
+    if instanceof(item, "Food") then
+        return item:getAge() < item:getOffAgeMax();
+    end
+    return true
+end
+
+
+function Recipe.OnCreate.PickleFoodMeat(items, result, player)
+    local total_calories = 0;
+    local total_carbohydrates = 0;
+    local total_lipids = 0;
+    local total_proteins = 0;
+    local total_weight = 0;
+    local total_actual_weight = 0;
+    local total_hunger = 0;
+    local total_boredom = 0;
+    local total_unhappy = 0;
+    local total_thirst = 0;
+    local poison_power = 0;
+
+    for i=0,items:size() - 1 do
+        local tmp = items:get(i);
+        if instanceof(tmp, "Food") then
+            total_calories = total_calories + tmp:getCalories();
+            total_lipids = total_lipids + tmp:getLipids();
+            total_proteins = total_proteins + tmp:getProteins();
+            total_carbohydrates = total_carbohydrates + tmp:getCarbohydrates();
+            total_weight = total_weight + tmp:getActualWeight();
+            total_hunger = total_hunger + tmp:getHungerChange();
+            total_thirst = total_thirst + tmp:getThirstChangeUnmodified();
+            total_boredom = total_boredom + tmp:getBoredomChangeUnmodified();
+            total_unhappy = total_unhappy + tmp:getUnhappyChangeUnmodified();
+
+            if tmp:getPoisonPower() > poison_power then
+                poison_power = poison_power + tmp:getPoisonPower();
+            elseif tmp:isRotten() then
+                poison_power = poison_power + round(tmp:getHungerChange()/2*-100);
+            end
+        end
+    end
+
+    if poison_power > 0 then
+        result:setName(getText("Tooltip_FOOD_WASTED_MEAT"));
+        result:setCustomName(true);
+        result:setUseForPoison(total_hunger);
+        result:setPoisonPower(poison_power);
+        result:setPoisonDetectionLevel(5);
+        result:setOffAgeMax(1000000);
+        total_calories = total_calories / 10;
+        total_carbohydrates = total_carbohydrates / 10;
+        total_lipids = total_lipids / 10;
+        total_proteins = total_proteins / 10;
+        total_hunger = total_hunger / 10;
+        total_thirst = math.max(total_thirst * 2, 0.5);
+        total_unhappy = math.max(total_unhappy * 2, 0.5);
+        total_boredom = math.max(total_boredom * 2, 50);
+    else
+        total_unhappy = 0;
+        total_boredom = 0;
+    end
+
+    result:setAge(0);
+    result:setCalories(total_calories);
+    result:setLipids(total_lipids);
+    result:setProteins(total_proteins);
+    result:setCarbohydrates(total_carbohydrates);
+    result:setActualWeight(total_weight);
+    result:setWeight(total_weight);
+    result:setHungChange(total_hunger);
+    result:setThirstChange(total_thirst);
+    result:setBoredomChange(total_boredom or total_unhappy);
+    result:setUnhappyChange(total_unhappy);
+end

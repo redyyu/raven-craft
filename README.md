@@ -1,6 +1,6 @@
 # Raven Craft
 
-A Project zomboid mod. expanding vanilla constructable facilities and craftable items. Everything in this mod is try keep "Reasonable" and "Useable".
+A Project zomboid mod. expanding vanilla constructable facilities and craftable items. Everything in this mod is try keep "Reasonable" and "Useable", make the game as close to reality as possible, but keep not too much complicated details.
 
 ### Added new Carpentry Expands:
 
@@ -136,7 +136,9 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 
 `Rabbit Meat`, `Small Animal Meat`, `Small Bird Meat`, `Fish Fillet`, `Salmon`, `Shrimp`, `Chicken`, `Frog Meat`, `Minced Meat`, `Mutton Chop`, `Pork Chop`, `Steak`,
 
-use salt to make **Pickled** meat, after few days, it will turn to **Dried** meat, it is not go bad any way.
+use salt to make **Pickled** meat, after few days, it will turn to **Dehydrated** meat, it is not go bad any way.
+
+Pickle meat before it's goes to rotten. unlike jar, pickle food can working on any size of meat. big meat produce big dehydrated.
 
 **Semi-Tofu**: make Semi-Tofu first, wait 1 day for turn it to Tofu. 
 

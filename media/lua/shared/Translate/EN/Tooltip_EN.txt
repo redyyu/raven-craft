@@ -14,3 +14,7 @@ Tooltip_CRAFT_METALBARGRATEDESC = "Harder Warehouse metal grate floor."
 Tooltip_CRAFT_METALDRUMDESC = "Metal Drum to collect rain or make charcoal."
 Tooltip_CRAFT_STONEFURNACEDESC = "Used to melt metallic items into workable iron.",
 Tooltip_CRAFT_ANVILDESC = "Use it to forge various metal objects.",
+
+
+-- UI
+Tooltip_FOOD_WASTED_MEAT = "Wasted Meat",
