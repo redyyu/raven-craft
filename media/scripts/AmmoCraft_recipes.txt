@@ -11,7 +11,6 @@ module RavenCraft
         Charcoal=21,
         [Recipe.GetItemTypes.Sugar]=2,
 
-        AnimNode:Craft,
         Prop1: Source=1,
         Sound: Plastering,
         Result: GunPowder,
@@ -33,7 +32,6 @@ module RavenCraft
 
         Result: Bullets9mm=2,  /* 10 bullets */
 
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -51,7 +49,7 @@ module RavenCraft
         GunPowder=3,
 
         Result: ShotgunShells=2,  /* 10 bullets */
-        AnimNode: Craft,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -70,7 +68,6 @@ module RavenCraft
 
         Result: 308Bullets=2,  /* 10 bullets */
 
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -89,7 +86,6 @@ module RavenCraft
 
         Result: 223Bullets=2,  /* 10 bullets */
 
-        AnimNode:Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -108,7 +104,6 @@ module RavenCraft
 
         Result: 556Bullets=2,  /* 10 bullets */
 
-        AnimNode: Craft,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -126,8 +121,7 @@ module RavenCraft
         IronIngot=22,
         
         Result: Bullets38=2,  /* 10 bullets */
-        
-        AnimNode: Craft,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -145,7 +139,7 @@ module RavenCraft
         IronIngot=20,
 
         Result: Bullets44=2,  /* 6 bullets */
-        AnimNode: Craft,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -163,7 +157,7 @@ module RavenCraft
         IronIngot=23,
 
         Result: Bullets45=2,  /* 10 bullets */
-        AnimNode: Craft,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
