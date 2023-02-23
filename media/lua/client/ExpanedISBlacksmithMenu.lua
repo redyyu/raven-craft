@@ -274,10 +274,10 @@ local function buildBenchMenu(workbenchMenu, option, player)
     local toolTip = ISBlacksmithMenu.addToolTip(furnaceOption, itemName, sprite.sprite)
     toolTip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. toolTip.description;
     local resourceCount = countMaterial(playerInv, "Base.Stone")
-    if countMaterial(playerInv, "Base.Stone") > 50 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
+    if countMaterial(playerInv, "Base.Stone") > 30 then
+        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30" ;
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/50" ;
+        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30" ;
         if not ISBuildMenu.cheat then
             furnaceOption.onSelect = nil;
             furnaceOption.notAvailable = true;
