@@ -1,0 +1,175 @@
+module RavenCraft
+{
+    imports {
+	    Base,
+	}
+    
+    /** General **/
+
+    recipe Frist Aid Training For Beginner {
+        BookFirstAid1,
+        keep Pillow,
+        keep Splint,
+        keep Bandage/AlcoholBandage/RippedSheets,
+        
+        
+        Result: BookFirstAid1,
+        OnGiveXP: Recipe.OnGiveXP.Training, 
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
+        Category: Training,
+    }
+
+    recipe Frist Aid Training For Intermediate {
+        BookFirstAid2,
+        
+        keep Pillow,
+        keep Tweezers,
+        keep CottonBalls,
+        PillsAntiDep/PillsBeta/Cigarettes/Pills/PillsSleepingTablets/PillsVitamins=1,
+        
+        Result: BookFirstAid2,
+        SkillRequired: Doctor=2,
+        OnGiveXP: Recipe.OnGiveXP.Training, 
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
+        Category: Training,
+    }
+    
+    recipe Frist Aid Training For Advanced {
+        BookFirstAid3,
+        keep Pillow,
+        keep Tweezers,
+        keep CottonBalls,
+        keep SutureNeedle,
+        keep SutureNeedleHolder,
+        PillsAntiDep/PillsBeta/Cigarettes/Pills/PillsSleepingTablets/PillsVitamins=1,
+        
+        Result: BookFirstAid3,
+        SkillRequired: Doctor=4,
+        OnGiveXP: Recipe.OnGiveXP.Training, 
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
+        Category: Training,
+    }
+
+    recipe Tailoring Training for Beginner {
+        BookTailoring1,
+        RippedSheets,
+        keep Scissors,
+        
+        OnGiveXP: Recipe.OnGiveXP.Training,
+
+        Result: BookTailoring1,
+        Time: 2000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
+        Category: Training,
+    }
+
+    recipe Tailoring Training for Intermediate {
+        BookTailoring2,
+        keep Pillow,
+        keep Needle,
+        RippedSheets,
+        Thread=1,
+        
+        Result: BookTailoring2,
+        SkillRequired: Tailoring=2,
+        OnGiveXP: Recipe.OnGiveXP.Training,
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
+        Category: Training,
+    }
+
+    recipe Tailoring Training for Advanced {
+        BookTailoring3,
+        keep Tarp/Sheet,
+        keep Needle,
+        keep Scissors,
+        DenimStrips/LeatherStrips,
+        Thread=1,
+        
+        Result: BookTailoring3,
+        SkillRequired: Tailoring=4,
+        OnGiveXP: Recipe.OnGiveXP.Training,
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
+        Category: Training,
+    }
+
+    recipe Mechanics Training for Beginner {
+        BookMechanic1,
+        keep OldTire1/OldTire2/OldTire3/NormalTire1/NormalTire2/NormalTire3/ModernTire1/ModernTire2/ModernTire3,
+        keep Jack,
+        keep LugWrench,
+        
+        Result: BookMechanic1,
+        OnGiveXP: Recipe.OnGiveXP.Training,
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        AnimNode: BuildLow,
+        Sound: RepairWithWrench,
+        Category: Training,
+    }
+
+    recipe Mechanics Training for Intermediate {
+        BookMechanic2,
+        keep OldBrake1/OldBrake2/OldBrake3/NormalBrake1/NormalBrake2/NormalBrake3/ModernBrake1/ModernBrake2/ModernBrake3,
+        keep Screwdriver,
+        keep Wrench,
+        Screws = 2,
+        
+        Result: BookMechanic2,
+        SkillRequired: Mechanics=2,
+        OnGiveXP: Recipe.OnGiveXP.Training,
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        AnimNode: BuildLow,
+        Sound: RepairWithWrench,
+        Category: Training,
+    }
+
+    recipe Mechanics Training for Advanced {
+        BookMechanic3,
+        keep NormalSuspension1/NormalSuspension2/NormalSuspension3/ModernSuspension1/ModernSuspension2/ModernSuspension3,
+        keep Screwdriver,
+        keep Wrench,
+        Screws = 2,
+        
+        Result: BookMechanic3,
+        SkillRequired: Mechanics=4,
+        OnGiveXP: Recipe.OnGiveXP.Training,
+
+        Time: 2000.0,
+        Prop1: Source=2,
+        AnimNode: BuildLow,
+        Sound: RepairWithWrench,
+        Category: Training,
+    }
+    
+}

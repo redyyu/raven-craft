@@ -182,3 +182,14 @@ DO NOT waste bullets.
 9. Craft .45 Auto Bullets
 
 *All recipe is required read "The Spring Of Musketeer"*
+
+
+
+## Training
+
+Add simple training simulation in Craft System for `First Aid`, `Tailoring` and `Mechanic`.
+Those skill perk are diffcult to level up, Player always need sort of *Auto Script* to avoid repeat clicking.
+So... why not create a simple traning progress.
+
+Those traning require matched skill and some materials (most stuff are not consume after tranning). 
+Aslo all traning can level up to Lv6, after Lv6 will lower the XP gain. very very low...

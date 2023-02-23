@@ -115,3 +115,45 @@ function Recipe.OnCreate.PickleFoodMeat(items, result, player)
     result:setBoredomChange(total_boredom or total_unhappy);
     result:setUnhappyChange(total_unhappy);
 end
+
+
+function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
+    local training_type = result:getType();
+    local perks_type = nil;
+    local xp_gain = 0;
+
+    if training_type == 'BookFirstAid1' then
+        perks_type = Perks.Doctor;
+        xp_gain = 10;
+    elseif training_type == 'BookFirstAid2' then
+        perks_type = Perks.Doctor;
+        xp_gain = 20;
+    elseif training_type == 'BookFirstAid3' then
+        perks_type = Perks.Doctor;
+        xp_gain = 30;
+    elseif training_type == 'BookTailoring1' then
+        perks_type = Perks.Tailoring;
+        xp_gain = 10;
+    elseif training_type == 'BookTailoring2' then
+        perks_type = Perks.Tailoring;
+        xp_gain = 20;
+    elseif training_type == 'BookTailoring3' then
+        perks_type = Perks.Tailoring;
+        xp_gain = 30;
+    elseif training_type == 'BookMechanic1' then
+        perks_type = Perks.Mechanics;
+        xp_gain = 10;
+    elseif training_type == 'BookMechanic2' then
+        perks_type = Perks.Mechanics;
+        xp_gain = 20;
+    elseif training_type == 'BookMechanic3' then
+        perks_type = Perks.Mechanics;
+        xp_gain = 30;
+    end
+    if player:getPerkLevel(preks_type) >= 6 then
+        xp_gain = xp_gain / 10;
+    end
+
+    player:getXp():AddXP(perks_type, xp_gain);
+
+end
