@@ -1692,4 +1692,26 @@ module RavenCraft
         Sound: Plastering,
         Category: Cooking,
     }
+
+    recipe Chop Minced Meat {
+        keep MeatCleaver,
+        MuttonChop/Chicken/PorkChop/Steak/Rabbitmeat/Smallanimalmeat/Smallbirdmeat;50,
+        
+        Result: MincedMeat,
+        SkillRequired: Cooking=3,
+        Time: 100.0,
+        Sound: Plastering,
+        Category: Cooking,
+    }
+
+    recipe Chop Pickle Minced Meat {
+        keep MeatCleaver,
+        PickledMuttonChop/PickledChicken/PickledPorkChop/PickledSteak/PickledRabbitmeat/PickledSmallanimalmeat/PickledSmallbirdmeat;40,
+        
+        Result: PickledMincedMeat,
+        SkillRequired: Cooking=3,
+        Time: 100.0,
+        Sound: Plastering,
+        Category: Cooking,
+    }
 }

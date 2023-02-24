@@ -128,6 +128,13 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 
 58. Open Box of Salt
 
+### Allow chop meat to Minced Meat
+
+`Rabbit Meat`, `Small Animal Meat`, `Small Bird Meat`, `Chicken`, `Mutton Chop`, `Pork Chop`, `Steak`
+
+Also allow chop pickled meat into Pickled Minced Meat, after few days it turn to Mysterious Meat.
+
+
 ### Allow put more Foods in Jar
 
 `Rabbit Meat`, `Small Animal Meat`, `Small Bird Meat`, `Fish Fillet`, `Fish Roe`, `Salmon`, `Shrimp`, `Chicken`, `Egg`, `Frog Meat`, `Minced Meat`, `Mutton Chop`, `Pork Chop`, `Steak`, `Apple`, `Orange`, `Peach`, `Pear`, `Pineapple`, 
