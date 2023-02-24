@@ -2,6 +2,20 @@
 
 A Project zomboid mod. expanding vanilla constructable facilities and craftable items. Everything in this mod is try keep "Reasonable" and "Useable", make the game as close to reality as possible, but keep not too much complicated details.
 
+
+## Vanilla Expanding
+
+1. Metal Drum only need 2 Log to burn.
+2. Snow can be collect by rain barrel or metal drum as water. count 10:1(wanter)
+3. Add Simple Pad shield for elbow, knee and shoulder. Some zombies will wearing it as well.
+4. Maintance skill could help fixing.
+5. Change some clothes textures.
+6. Change multiple tools to open canned food. ex. knife and fork.
+7. Bombs cloud spawn in some place.
+8. Some tools hidden by vanilla, make it useful and spawn in some wheere. ex. ammo mold, tongs, Bellows...
+
+
+
 ### Added new Carpentry Expands:
 
 1. **Outhouse Door**: a different looking wooden door.
