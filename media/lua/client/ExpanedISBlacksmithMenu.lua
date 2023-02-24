@@ -5,33 +5,6 @@ Events.OnFillWorldObjectContextMenu.Remove(ISBlacksmithMenu.doBuildMenu)
 local oldDoBuild = ISBlacksmithMenu.doBuildMenu
 
 
-local function countMaterial(playerInv, type)
-    local count = playerInv:getCountTypeRecurse(type)
-    if ISBlacksmithMenu.groundItemCounts[type] then
-        count = count + ISBlacksmithMenu.groundItemCounts[type]
-    end
-    return count
-end
-
-local function countUses(playerObj, amount)
-    local count = 0;
-    local containers = ISInventoryPaneContextMenu.getContainers(playerObj)
-    for i=1,containers:size() do
-        local container = containers:get(i-1)
-        for j=1,container:getItems():size() do
-            local item = container:getItems():get(j-1);
-            if item:getType() == "IronIngot" then
-                count = count + item:getUsedDelta() / item:getUseDelta();
-                if count >= amount then
-                    return round(count ,0);
-                end
-            end
-        end
-    end
-    return count;
-end
-
-
 local function onMetalDoor(worldobjects, player)
     local fence = ISWoodenDoor:new("fixtures_doors_01_52","fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
     fence.name = "Metal Door";
@@ -48,6 +21,7 @@ local function onMetalDoor(worldobjects, player)
     fence.modData["need:Base.Hinge"]= 2;
     fence.modData["use:Base.BlowTorch"] = 6;
     fence.modData["use:Base.WeldingRods"] = 3;  -- must be half of Torch use.
+    fence.completionSound = "BuildMetalStructureSmallScrap";
     fence.player = player
     getCell():setDrag(fence, player);
 end
@@ -92,7 +66,7 @@ local function onMetalGrateFloor(worldobjects, player)
     floor.modData["use:Base.Wire"] = 2;  -- Wire must be `use:` because it is by unit. not `need"`.
     floor.modData["use:Base.BlowTorch"] = 4;
     floor.modData["use:Base.WeldingRods"] = 2;  -- must be half of Torch use.
-    floor.completionSound = "BuildMetalStructureSmallScrap";
+    floor.completionSound = "BuildMetalStructureSmallWiredFence";
     floor.player = player
     getCell():setDrag(floor, player);
 end
@@ -114,7 +88,7 @@ local function onMetalBarGrateFloor(worldobjects, player)
     floor.modData["use:Base.Wire"] = 2;  -- Wire must be `use:` because it is by unit. not `need"`.
     floor.modData["use:Base.BlowTorch"] = 4;
     floor.modData["use:Base.WeldingRods"] = 2;  -- must be half of Torch use.
-    floor.completionSound = "BuildMetalStructureSmallScrap";
+    floor.completionSound = "BuildMetalStructureLargeWiredFence";
     floor.player = player
     getCell():setDrag(floor, player);
 end
@@ -135,28 +109,6 @@ local function onMetalDrum(worldobjects, player)
     barrel.player = player;
     barrel.completionSound = "BuildMetalStructureMedium";
     getCell():setDrag(barrel, player);
-end
-
-
-local function onStoneFurnace(worldobjects, player)
-    local furniture = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
-    furniture.firstItem = "Hammer";
-    furniture.craftingBank = "Hammering";
-    furniture.modData["need:Base.Stone"]= 30;
-    furniture.player = player;
-    furniture.completionSound = "BuildFenceGravelbag";
-    getCell():setDrag(furniture, player);
-end
-
-
-local function onAnvil(worldobjects, player)
-    local furniture = ISAnvil:new("Anvil", getSpecificPlayer(player), "crafted_01_19", "crafted_01_19");
-    furniture.firstItem = "Hammer";
-    furniture.craftingBank = "Hammering";
-    furniture.modData["use:Base.IronIngot"]= 500;
-    furniture.player = player;
-    furniture.completionSound = "BuildMetalStructureMedium";
-    getCell():setDrag(furniture, player);
 end
 
 
@@ -258,76 +210,6 @@ local function buildExpanedsMenu(subMenu, option, player)
 end
 
 
-local function buildBenchMenu(workbenchMenu, option, player)
-    local playerObj = getSpecificPlayer(player)
-    local playerInv = playerObj:getInventory()
-    
-    local furnaceOption = {};
-    local anvilOption = {};
-
-    -- StoneFurnace --
-    local sprite = {};
-    sprite.sprite = "crafted_01_16";
-
-    local itemName = getText("ContextMenu_STONE_FURNACE");
-    furnaceOption = workbenchMenu:addOption(itemName, worldobjects, onStoneFurnace, player);
-    local toolTip = ISBlacksmithMenu.addToolTip(furnaceOption, itemName, sprite.sprite)
-    toolTip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. toolTip.description;
-    local resourceCount = countMaterial(playerInv, "Base.Stone")
-    if countMaterial(playerInv, "Base.Stone") > 30 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30" ;
-    else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30" ;
-        if not ISBuildMenu.cheat then
-            furnaceOption.onSelect = nil;
-            furnaceOption.notAvailable = true;
-        end
-    end
-
-    -- Anvil --
-    local sprite = {};
-    sprite.sprite = "crafted_01_19";
-
-    local itemName = getText("ContextMenu_ANVIL");
-    anvilOption = workbenchMenu:addOption(itemName, worldobjects, onAnvil, player);
-    local toolTip = ISBlacksmithMenu.addToolTip(anvilOption, itemName, sprite.sprite)
-    toolTip.description = getText("Tooltip_CRAFT_ANVILDESC") .. toolTip.description;
-    
-    local canBeCrafted = playerInv:contains("Hammer") and playerInv:contains("Log");
-    if not playerInv:contains("Hammer") then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Hammer") .. " 0/1" ;
-        canBeCrafted = false;
-    else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1" ;
-    end
-    if not playerInv:contains("Log") then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.Log") .. " 0/1" ;
-        canBeCrafted = false;
-    else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1" ;
-    end
-
-    local metalCount = countUses(playerObj, 500);
-    if metalCount < 500 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.bhs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
-        canBeCrafted = false;
-    else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBlacksmithMenu.ghs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
-    end
-
-    if not canBeCrafted and not ISBuildMenu.cheat then
-        anvilOption.onSelect = nil;
-        anvilOption.notAvailable = true;
-    end
-
-    -- Parent menu --
-	if furnaceOption.notAvailable and anvilOption.notAvailable then
-		option.notAvailable = true;
-	end
-
-end
-
-
 ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
     if test and ISWorldObjectContextMenu.Test then return true end
 
@@ -357,28 +239,6 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
         local subMenuExpands = menu:getNew(menu);
         context:addSubMenu(expandsOption, subMenuExpands);
         buildExpanedsMenu(subMenuExpands, expandsOption, player);
-    end
-
-    if playerObj:getKnownRecipes():contains("Craft Workbench") or ISBuildMenu.cheat then
-        local workbenchOption = context:addOption(getText("ContextMenu_WORKBENCH"), worldobjects, nil);
-        local workbenchMenu = ISContextMenu:getNew(context);
-        context:addSubMenu(workbenchOption, workbenchMenu);
-        buildBenchMenu(workbenchMenu, workbenchOption, player);
-    end
-
-
-    -- Path for Vanilla `Put out fire` on furance --
-    local furnace = nil;
-    for i, v in ipairs(worldobjects) do
-        -- find stone furnace --
-        if instanceof(v, "BSFurnace") then
-            furnace = v;
-        end
-    end
-    
-    if furnace and furnace:isFireStarted() then
-        context:removeOptionByName(getText("ContextMenu_Put_out_fire"));
-        context:addOption(getText("ContextMenu_Put_out_fire"), worldobjects, ISBlacksmithMenu.onStopFire, furnace, playerObj);
     end
 
     return unpack(ret)
