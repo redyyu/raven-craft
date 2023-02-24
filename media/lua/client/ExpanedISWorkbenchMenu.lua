@@ -37,21 +37,27 @@ end
 
 local function onStoneFurnace(worldobjects, player)
     local furniture = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
-    furniture.firstItem = "Hammer";  -- DO NOT set it without check item in inventory. It will break ISBuildingObject.lua.
+    -- furniture.firstItem = "Hammer";  -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
+    -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
+    furniture.modData["xp:Woodwork"] = 30;
     furniture.craftingBank = "Hammering";
     furniture.modData["need:Base.Stone"]= 30;
     furniture.player = player;
     furniture.completionSound = "BuildFenceGravelbag";
+    furniture.maxTime = 2000;
     getCell():setDrag(furniture, player);
 end
 
 
 local function onAnvil(worldobjects, player)
     local furniture = ISAnvil:new("Anvil", getSpecificPlayer(player), "crafted_01_19", "crafted_01_19");
-    furniture.firstItem = "Hammer";
+    -- furniture.firstItem = "Hammer"; -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
+    -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
+    furniture.modData["xp:Woodwork"] = 30;
     furniture.craftingBank = "Hammering";
     furniture.modData["use:Base.IronIngot"]= 500;
     furniture.player = player;
+    furniture.maxTime = 1000;
     furniture.completionSound = "BuildMetalStructureMedium";
     getCell():setDrag(furniture, player);
 end
@@ -59,19 +65,23 @@ end
 
 local function onWaterWell(worldobjects, player)
 	local well = ISWaterWell:new("Well", "camping_01_16");
-    local playerObj = getSpecificPlayer(player);
-	local playerInv = playerObj:getInventory();
-	local sortof_shovel = playerInv:getFirstTagEvalRecurse("DigGrave", predicateNotBroken);
+    -- local playerObj = getSpecificPlayer(player);
+	-- local playerInv = playerObj:getInventory();
+	-- local sortof_shovel = playerInv:getFirstTagEvalRecurse("DigGrave", predicateNotBroken);
 
-	floor.firstItem = sortof_shovel:getType();
-	well.modData["xp:Woodwork"] = 200;
+	-- well.firstItem = sortof_shovel:getType();  -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
+    -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
+	well.modData["xp:Woodwork"] = 30;
 	well.modData["need:Base.Plank"] = 4;
 	well.modData["need:Base.Nails"] = 12;
 	well.modData["need:Base.Stone"] = 30;
 	well.modData["need:Base.MetalPipe"] = 1;
 	well.modData["need:Base.Rope"] = 1;
 	well.modData["need:Base.BucketEmpty"] = 1;
+    well.craftingBank = "DigFurrowWithShovel";
+	-- well.actionAnim = "DigShovel";
 	well.player = player;
+    well.maxTime = 2000;
 	well.completionSound = "BuildFenceGravelbag";
 	getCell():setDrag(well, player);
 end
