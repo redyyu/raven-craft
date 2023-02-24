@@ -879,7 +879,7 @@ module RavenCraft
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.3,
-		Icon = MeatPatty,
+		Icon = MincedMeat,
 		BadCold = true,
 		BadInMicrowave = true,
 		DangerousUncooked = TRUE,
@@ -896,7 +896,7 @@ module RavenCraft
 		Carbohydrates = 0,
 		Lipids = 30,
 		Proteins = 40,
-		WorldStaticModel = MeatPatty,
+		WorldStaticModel = MincedMeat,
         ReplaceOnRotten = MysteriousMeat,
 	}
     item MysteriousMeat {
@@ -904,7 +904,7 @@ module RavenCraft
 		DisplayCategory = Food,
 		Type = Food,
 		Weight = 0.2,
-		Icon = MeatPattyCooked,
+		Icon = MincedMeatBurnt,
 		EvolvedRecipe = Pizza:20;Stew:20;Stir fry Griddle Pan:20;Stir fry:20;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Salad:10|Cooked;Roasted Vegetables:20;PastaPot:20;PastaPan:20;RicePot:20;RicePan:20;Taco:20|Cooked;Burrito:20|Cooked,
 		FoodType = Meat,
 		HungerChange = -26,
@@ -912,7 +912,7 @@ module RavenCraft
 		Carbohydrates = 0,
 		Lipids = 20,
 		Proteins = 26,
-		WorldStaticModel = MeatPatty,
+		WorldStaticModel = MincedMeat,
 	}
 
 }
