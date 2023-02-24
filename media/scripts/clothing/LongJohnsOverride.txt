@@ -1,4 +1,4 @@
-module RavenCraft
+module Base
 {
 
 	item LongJohns {
