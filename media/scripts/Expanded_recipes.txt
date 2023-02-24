@@ -90,7 +90,7 @@ module RavenCraft
         Category: Carpentry,
     }
 
-    recipe Artifact Stone {
+    recipe Make Concrete Stone {
         BucketConcreteFull=1,
         
         Result: Stone,
