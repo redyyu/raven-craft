@@ -1,0 +1,58 @@
+module Base
+{
+
+    /* Override Foods */
+    
+	item MincedMeat {
+		DisplayName = Minced Meat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = MincedMeat,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Pizza:20;Stew:20;Pie:20;Sandwich:5|Cooked;Sandwich Baguette:5|Cooked;Burger:10|Cooked;Taco:10|Cooked;Burrito:10|Cooked,
+		FoodType = Meat,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 50,
+		MinutesToBurn = 70,
+		DaysFresh = 2,
+		DaysTotallyRotten = 4,
+		HungerChange = -40,
+		Calories = 300,
+		Carbohydrates = 0,
+		Lipids = 30,
+		Proteins = 46,
+		WorldStaticModel = MincedMeat_Ground,
+		EvolvedRecipeName = Beef,
+	}
+
+	item MeatPatty {
+		DisplayName = Meat Patty,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 0.3,
+		Icon = MeatPatty,
+		BadCold = true,
+		BadInMicrowave = true,
+		DangerousUncooked = TRUE,
+		EvolvedRecipe = Stew:20;Pie:20;Burger:10|Cooked;Taco:10|Cooked;Burrito:10|Cooked,
+		FoodType = Meat,
+		GoodHot = true,
+		IsCookable = TRUE,
+		MinutesToCook = 50,
+		MinutesToBurn = 70,
+		DaysFresh = 2,
+		DaysTotallyRotten = 4,
+		HungerChange = -40,
+		Calories = 380,
+		Carbohydrates = 0,
+		Lipids = 30,
+		Proteins = 46,
+		WorldStaticModel = MeatPatty,
+		EvolvedRecipeName = Beef,
+	}
+
+}
