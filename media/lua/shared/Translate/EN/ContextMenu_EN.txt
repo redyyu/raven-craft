@@ -16,8 +16,11 @@ ContextMenu_EN = {
   ContextMenu_METAL_BAR_GRATE = "Harder Warehouse Floor"
   ContextMenu_METAL_DRUM = "Metal Drum"
   ContextMenu_METAL_BARREL = "Metal Barrel"
+
+  -- Workbench
   ContextMenu_STONE_FURNACE = "Stone Furnace"
   ContextMenu_ANVIL = "Anvil"
+  ContextMenu_WATER_WELL = "Water Well"
 
   -- UI
   ContextMenu_TAKE_BARREL = "Take Barrel",
