@@ -92,6 +92,7 @@ module RavenCraft
 
     recipe Make Concrete Stone {
         BucketConcreteFull=1,
+        keep [Recipe.GetItemTypes.Hammer],
         
         Result: Stone,
         Time: 200.0,

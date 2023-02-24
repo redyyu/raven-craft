@@ -142,7 +142,7 @@ local function buildBenchMenu(workbenchMenu, option, player)
     --     toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1" ;
     -- end
 
-    if not playerInv:contains("Log") then
+    if logCount < 1 then
         toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Log") .. " 0/1" ;
         canBeCrafted = false;
     else
