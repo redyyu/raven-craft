@@ -28,11 +28,15 @@ end
 
 function ISReadABook:new(character, item, time)
 	local instance = OldNew(self, character, item, time)
-
+	print('----------------------Start Reading-------------------')
+	print(character:isSitOnGround())
+	print('----------------------Start Reading-------------------')
+	print(instance.maxTime)
 	if not instance.character:isTimedActionInstant() then
 		instance.isCharacterSitOnGround = character:isSitOnGround();
 		if instance.isCharacterSitOnGround then
 			instance.maxTime = math.floor(instance.maxTime * READING_SPPED_RATE)
+			print(instance.maxTime)
 		end
 	end
 

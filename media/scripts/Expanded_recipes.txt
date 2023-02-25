@@ -1712,7 +1712,7 @@ module RavenCraft
         Result: PickledMincedMeat,
         SkillRequired: Cooking=3,
         Time: 100.0,
-        Sound: Plastering,
+        Sound: SliceMeat,
         Category: Cooking,
     }
 }
