@@ -13,6 +13,7 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 6. Change multiple tools to open canned food. ex. knife and fork.
 7. Bombs cloud spawn in some place.
 8. Some tools hidden by vanilla, make it useful and spawn in some wheere. ex. ammo mold, tongs, Bellows...
+9. Reading speed up 75%, while sit on ground.
 
 
 
