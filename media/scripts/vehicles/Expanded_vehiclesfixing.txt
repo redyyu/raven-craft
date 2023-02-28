@@ -1,0 +1,11 @@
+module Base
+{
+	fixing Fix Tire {
+	   Require : OldTire1;OldTire2;OldTire3;NormalTire1;NormalTire2;NormalTire3;ModernTire1;ModernTire2;ModernTire3,
+	   ConditionModifier : 0.8,
+
+       Fixer : Woodglue=2;Mechanics=3;Woodwork=5,
+       Fixer : DuctTape=2;Mechanics=2,
+       Fixer : Glue=2;Mechanics=2,
+	}
+}
