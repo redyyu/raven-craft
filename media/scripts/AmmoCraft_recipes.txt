@@ -7,9 +7,9 @@ module RavenCraft
     /***** Gunpowder *****/
     recipe Craft Gunpowder {
         keep MortarPestle,
+        [Recipe.GetItemTypes.Sugar]=1,
         Fertilizer/CompostBag=2,
-        Charcoal=21,
-        [Recipe.GetItemTypes.Sugar]=2,
+        Charcoal=3,
 
         Prop1: Source=1,
         Sound: Plastering,
