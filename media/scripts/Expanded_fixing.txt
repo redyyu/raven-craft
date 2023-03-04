@@ -10,6 +10,7 @@ module Base
 	
 	fixing Fix Crowbar {
 	   Require : Crowbar,
+	   GlobalItem : BlowTorch=2,
 	   ConditionModifier : 0.3,
 	   
 	   Fixer : WeldingRods=4;MetalWelding=4,
@@ -17,6 +18,7 @@ module Base
 
 	fixing Fix Metal Bar {
 	   Require : MetalBar,
+	   GlobalItem : BlowTorch=2,
 	   ConditionModifier : 0.45,
 	   
 	   Fixer : WeldingRods=3;MetalWelding=3,
@@ -24,6 +26,7 @@ module Base
 
 	fixing Fix Metal Pipe {
 	   Require : MetalPipe,
+	   GlobalItem : BlowTorch=2,
 	   ConditionModifier : 0.45,
 	   
 	   Fixer : WeldingRods=2;MetalWelding=2,
@@ -31,6 +34,7 @@ module Base
 
 	fixing Fix Pipe {
 	   Require : Pipe,
+	   GlobalItem : BlowTorch=2,
 	   ConditionModifier : 0.45,
 	   
 	   Fixer : WeldingRods=4;MetalWelding=4,
