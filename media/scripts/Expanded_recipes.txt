@@ -1521,7 +1521,7 @@ module RavenCraft
     recipe Pickle Rabbit Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Rabbitmeat;30,
+        Rabbitmeat,
         Salt;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1537,7 +1537,7 @@ module RavenCraft
     recipe Pickle Small Animal Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Smallanimalmeat;15,
+        Smallanimalmeat,
         Salt;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1553,7 +1553,7 @@ module RavenCraft
     recipe Pickle Small Bird Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Smallbirdmeat;15,
+        Smallbirdmeat,
         Salt;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1569,7 +1569,7 @@ module RavenCraft
     recipe Pickle Fish Fillet {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        FishFillet;25,
+        FishFillet,
         Salt;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1585,7 +1585,7 @@ module RavenCraft
     recipe Pickle Salmon {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Salmon;30,
+        Salmon,
         Salt;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1601,7 +1601,7 @@ module RavenCraft
     recipe Pickle Shrimp {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Shrimp;10,
+        Shrimp,
         Salt;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1617,7 +1617,7 @@ module RavenCraft
     recipe Pickle Chicken {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Chicken;36,
+        Chicken,
         Salt;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1633,7 +1633,7 @@ module RavenCraft
     recipe Pickle FrogMeat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        FrogMeat;10,
+        FrogMeat,
         Salt;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1649,7 +1649,7 @@ module RavenCraft
     recipe Pickle MuttonChop {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        MuttonChop;30,
+        MuttonChop,
         Salt;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1665,7 +1665,7 @@ module RavenCraft
     recipe Pickle PorkChop {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        PorkChop;30,
+        PorkChop,
         Salt;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
@@ -1681,7 +1681,7 @@ module RavenCraft
     recipe Pickle Steak {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
-        Steak;40,
+        Steak,
         Salt;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,

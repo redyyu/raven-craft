@@ -65,13 +65,13 @@ function Recipe.OnCreate.PickleFoodMeat(items, result, player)
     for i=0,items:size() - 1 do
         local tmp = items:get(i);
         if instanceof(tmp, "Food") then
-            total_calories = total_calories + tmp:getCalories();
-            total_lipids = total_lipids + tmp:getLipids();
-            total_proteins = total_proteins + tmp:getProteins();
-            total_carbohydrates = total_carbohydrates + tmp:getCarbohydrates();
-            total_weight = total_weight + tmp:getActualWeight();
-            total_hunger = total_hunger + tmp:getHungerChange();
-            total_thirst = total_thirst + tmp:getThirstChangeUnmodified();
+            total_calories = total_calories + tmp:getCalories() * 0.75;
+            total_lipids = total_lipids + tmp:getLipids() * 0.5;
+            total_proteins = total_proteins + tmp:getProteins() * 0.75;
+            total_carbohydrates = total_carbohydrates + tmp:getCarbohydrates() * 0.75;
+            -- total_weight = total_weight + tmp:getActualWeight();
+            total_hunger = total_hunger + tmp:getHungerChange() * 0.5;
+            -- total_thirst = total_thirst + tmp:getThirstChangeUnmodified();
             total_boredom = total_boredom + tmp:getBoredomChangeUnmodified();
             total_unhappy = total_unhappy + tmp:getUnhappyChangeUnmodified();
 
@@ -103,15 +103,22 @@ function Recipe.OnCreate.PickleFoodMeat(items, result, player)
         total_boredom = 0;
     end
 
+    total_calories = math.max(total_calories, 0);
+    total_lipids = math.max(total_lipids, 0);
+    total_proteins = math.max(total_proteins, 0);
+    total_carbohydrates = math.max(total_carbohydrates, 0);
+    -- total_weight = math.max(total_weight, 0.1);
+    total_hunger = math.min(total_hunger, -0.01);
+
     result:setAge(0);
     result:setCalories(total_calories);
     result:setLipids(total_lipids);
     result:setProteins(total_proteins);
     result:setCarbohydrates(total_carbohydrates);
     result:setActualWeight(total_weight);
-    result:setWeight(total_weight);
-    result:setHungChange(total_hunger);
-    result:setThirstChange(total_thirst);
+    -- result:setWeight(total_weight);
+    result:setHungChange(-0.01);
+    result:setThirstChange(0.25);
     result:setBoredomChange(total_boredom or total_unhappy);
     result:setUnhappyChange(total_unhappy);
 end
