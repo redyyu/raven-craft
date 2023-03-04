@@ -8,13 +8,28 @@ module RavenCraft
     recipe Craft Gunpowder {
         keep MortarPestle,
         [Recipe.GetItemTypes.Sugar]=1,
-        Fertilizer/CompostBag=2,
+        Fertilizer=2,
         Charcoal=3,
 
         Prop1: Source=1,
         Sound: Plastering,
         Result: GunPowder,
-        Time:300.0,
+        Time: 300.0,
+        NeedToBeLearn: true,
+        SkillRequired: Doctor=2;Farming=8;Woodwork=6,
+        Category:Ammo,
+    }
+
+    recipe Craft Gunpowder {
+        keep MortarPestle,
+        [Recipe.GetItemTypes.Sugar]=1,
+        CompostBag=2,
+        Charcoal=3,
+
+        Prop1: Source=1,
+        Sound: Plastering,
+        Result: GunPowder,
+        Time: 300.0,
         NeedToBeLearn: true,
         SkillRequired: Doctor=2;Farming=8;Woodwork=6,
         Category:Ammo,

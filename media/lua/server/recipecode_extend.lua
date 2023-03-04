@@ -157,3 +157,13 @@ function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
     player:getXp():AddXP(perks_type, xp_gain);
 
 end
+
+-- function Recipe.GetItemTypes.Fertilizer(scriptItems)
+--     local allScriptItems = getScriptManager():getAllItems()
+--     for i=1,allScriptItems:size() do
+--         local scriptItem = allScriptItems:get(i-1)
+--         if scriptItem:getName() == 'Fertilizer' or scriptItem:getName() == 'CompostBag' then
+--             scriptItems:add(scriptItem)
+--         end
+--     end
+-- end
