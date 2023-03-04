@@ -1,6 +1,21 @@
 require 'BuildingObjects/ISUI/ISBuildMenu'
 
+
+local function furnaceOnStopFire(worldobjects, furnace, player)
+    if luautils.walkAdj(player, furnace:getSquare()) then
+        ISTimedActionQueue.add(ISStopFurnaceFire:new(furnace, player))
+    end
+end
+
+-- local function onAddLogs(worldobjects, metalDrum, player)
+--     if luautils.walkAdj(player, metalDrum:getSquare()) then
+--         ISTimedActionQueue.add(ISAddLogsInDrum:new(player, metalDrum, true))
+--     end
+-- end
+
+
 local PatchMenu = {};
+
 
 PatchMenu.doBuildMenu = function(player, context, worldobjects, test)
 	if test and ISWorldObjectContextMenu.Test then return true end
@@ -52,19 +67,6 @@ PatchMenu.doBuildMenu = function(player, context, worldobjects, test)
     end
 
 end
-
-
-local function furnaceOnStopFire(worldobjects, furnace, player)
-    if luautils.walkAdj(player, furnace:getSquare()) then
-        ISTimedActionQueue.add(ISStopFurnaceFire:new(furnace, player))
-    end
-end
-
--- local function onAddLogs(worldobjects, metalDrum, player)
---     if luautils.walkAdj(player, metalDrum:getSquare()) then
---         ISTimedActionQueue.add(ISAddLogsInDrum:new(player, metalDrum, true))
---     end
--- end
 
 
 Events.OnFillWorldObjectContextMenu.Add(PatchMenu.doBuildMenu)
