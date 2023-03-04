@@ -271,7 +271,7 @@ module RavenCraft
         keep Spoon/GrillBrush,
         Water=2,
         Flour=2,
-        [Recipe.GetItemTypes.Sugar]=1,
+        [Recipe.GetItemTypes.Sugar];6,
         
         Result: Glue=4,
         SkillRequired: Woodwork=4;Cooking=4;,
@@ -288,7 +288,7 @@ module RavenCraft
         keep Spoon/GrillBrush,
         Water=2,
         Flour=2,
-        [Recipe.GetItemTypes.Sugar]=2,
+        [Recipe.GetItemTypes.Sugar];12,
         [Recipe.GetItemTypes.Milk],
         Vinegar=1,
         BakingSoda=2,
@@ -1388,7 +1388,7 @@ module RavenCraft
         JarLid,
         Apple=5,
         Water=10,
-        [Recipe.GetItemTypes.Sugar]=2,
+        [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarApple,
         Time: 100.0,
@@ -1412,7 +1412,7 @@ module RavenCraft
         JarLid,
         Orange=5,
         Water=10,
-        [Recipe.GetItemTypes.Sugar]=2,
+        [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarOrange,
         Time: 100.0,
@@ -1436,7 +1436,7 @@ module RavenCraft
         JarLid,
         Peach=5,
         Water=10,
-        [Recipe.GetItemTypes.Sugar]=2,
+        [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarPeach,
         Time: 100.0,
@@ -1460,7 +1460,7 @@ module RavenCraft
         JarLid,
         Pear=5,
         Water=10,
-        [Recipe.GetItemTypes.Sugar]=2,
+        [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarPear,
         Time: 100.0,
@@ -1484,7 +1484,7 @@ module RavenCraft
         JarLid,
         Pineapple=5,
         Water=10,
-        [Recipe.GetItemTypes.Sugar]=2,
+        [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarPineapple,
         Time: 100.0,
