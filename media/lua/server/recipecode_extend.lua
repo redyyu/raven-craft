@@ -117,7 +117,7 @@ function Recipe.OnCreate.PickleFoodMeat(items, result, player)
     result:setCarbohydrates(total_carbohydrates);
     result:setActualWeight(total_weight);
     -- result:setWeight(total_weight);
-    result:setHungChange(-0.01);
+    result:setHungChange(total_hunger);
     result:setThirstChange(0.25);
     result:setBoredomChange(total_boredom or total_unhappy);
     result:setUnhappyChange(total_unhappy);
