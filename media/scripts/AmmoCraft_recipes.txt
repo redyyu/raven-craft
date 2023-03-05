@@ -10,7 +10,7 @@ module RavenCraft
         keep MortarPestle,
         Fertilizer=2,
         Charcoal=1,
-        Hairspray/Cologne/Perfume,
+        Hairspray,
 
         Prop1: Source=1,
         Sound: Plastering,
@@ -25,7 +25,7 @@ module RavenCraft
         keep MortarPestle,
         CompostBag=2,
         Charcoal=1,
-        Hairspray/Cologne/Perfume,
+        Hairspray,
 
         Prop1: Source=1,
         Sound: Plastering,
