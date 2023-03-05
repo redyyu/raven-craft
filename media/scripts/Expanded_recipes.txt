@@ -20,6 +20,21 @@ module RavenCraft
         NeedToBeLearn: true,
     }
 
+    recipe Self-made Hairspray {
+        keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
+        keep Spoon/GrillBrush,
+        Perfume/Cologne,
+        Glue=5,
+
+        Result: Hairspray,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: BoilingFood,
+        Time: 250.0,
+        NeedToBeLearn: true,
+    }
+
     recipe Disassemble Notebook {
         Notebook,
         keep Scissors/HuntingKnife/KitchenKnife/FlintKnife/Machete,
@@ -385,6 +400,7 @@ module RavenCraft
 
     recipe Craft Tongs {
         KitchenTongs,
+        BlowTorch=1,
         IronIngot=5,
         keep [Recipe.GetItemTypes.Hammer],
 
@@ -497,10 +513,10 @@ module RavenCraft
     }
 
     recipe Craft Hunting Knife {
+        BlowTorch=1,
         keep Tongs,
         keep [Recipe.GetItemTypes.Hammer],
 
-        keep BlowTorch,
         keep HuntingKnife,
         IronIngot=50,
         LeatherStrips,
@@ -743,8 +759,8 @@ module RavenCraft
 
 
     recipe Craft Crowbar {
+        BlowTorch=1,
         keep Crowbar,
-        keep BlowTorch,
         keep WeldingMask,
         
         MetalBar,

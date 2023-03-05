@@ -42,7 +42,7 @@ module RavenCraft
 	recipe Craft 9mm Bullets {
         keep 9mmBulletsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         GunPowder=2,
         IronIngot=22,
 
@@ -60,7 +60,7 @@ module RavenCraft
     recipe Craft Shotgun Shells {
         keep ShotgunShellsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         IronIngot=25,
         GunPowder=3,
 
@@ -78,7 +78,7 @@ module RavenCraft
     recipe Craft .308 Bullets {
         keep 308BulletsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         IronIngot=23,
         GunPowder=2,
 
@@ -96,7 +96,7 @@ module RavenCraft
 	recipe Craft .223 Bullets {
         keep 223BulletsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         IronIngot=23,
         GunPowder=2,
 
@@ -114,7 +114,7 @@ module RavenCraft
 	recipe Craft 556mm Bullets {
         keep 556mmBulletsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         IronIngot=25,
         GunPowder=3,
 
@@ -132,7 +132,7 @@ module RavenCraft
 	recipe Craft .38 Special Bullets {
         keep 38SpecialBulletsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         GunPowder=2,
         IronIngot=22,
         
@@ -150,7 +150,7 @@ module RavenCraft
 	recipe Craft .44 Magnum Bullets {
         keep 44MagnumBulletsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         GunPowder=2,
         IronIngot=20,
 
@@ -168,7 +168,7 @@ module RavenCraft
 	recipe Craft .45 Auto Bullets {
         keep 45AutoBulletsMold,
         keep Tongs,
-        keep BlowTorch,
+        BlowTorch=1,
         GunPowder=2,
         IronIngot=23,
 
