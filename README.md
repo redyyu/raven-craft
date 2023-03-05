@@ -50,7 +50,7 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 
 ### Added Magazine Expands:
 
-1. **The Spirit of Craftsman Vol.1**: Teach `Craft Workbench`, `Craft Tongs`, `Craft Bellows`,`Craft Nails`, `Craft Paperclips`, `Craft Butter Knife`, `Craft Kitchen Knife`, `Craft Meat Cleaver`,`Self-made Glue`, `Self-made Wood Glue`, and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
+1. **The Spirit of Craftsman Vol.1**: Teach `Craft Workbench`, `Craft Tongs`, `Craft Bellows`,`Craft Nails`, `Craft Paperclips`, `Craft Butter Knife`, `Craft Kitchen Knife`, `Craft Meat Cleaver`,`Self-made Glue`, `Self-made Wood Glue`, `Self-made Hairspray` and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
 2. **The Spirit of Craftsman Vol.2**: Teach `Craft Hand Scythe`, `Craft Hand Shovel`, `Craft Shovel`, `Craft Garden Hoe`, `Craft Pick Axe`, `Craft Crowbar`
 3. **The Spirit of Craftsman Vol.3**: Teach `Self-made White Paint`, `Self-made Red Paint`,`Self-made Blue Paint`, `Self-made Yellow Paint`, `Self-made Orange Paint`, `Self-made Purple Paint`, `Self-made Black Paint`, `Self-made Brown Paint`, `Self-made Cyan Paint`, `Self-made Green Paint`, `Self-made Gray Paint`, `Self-made Light Blue Paint`, `Self-made Light Brown Paint`,`Self-made Pink Paint`, `Self-made Turquoise Paint`
 4. **The Spirit of Craftsman Vol.4**: Teach `Craft Baseball Bat`, `Craft Nightstick`, `Craft Hunting Knife`, `Craft Machete`, `Craft Hand Axe`, `Craft Axe`, `Craft Wood Axe`
@@ -65,6 +65,7 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 1. Self-made Matches `The Gospel Of Smoker`
 2. Disassemble Notebook
 3. Binding Notebook
+4. Self-made Hairspray `The Spirit of Craftsman Vol.1`
 
 **Health**
 
@@ -215,3 +216,5 @@ So... why not create a simple traning progress.
 
 Those traning require matched skill and some materials (most stuff are not consume after tranning). 
 Aslo all traning can level up to Lv6, after Lv6 will lower the XP gain. very very low...
+
+Add training for melee weapon perks level up to 3. Such as `Axe`, `Small Blade`, `Long Blade`, `Small Blunt`, `Blunt`, `Spear`.

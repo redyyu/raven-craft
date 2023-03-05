@@ -171,5 +171,89 @@ module RavenCraft
         Sound: RepairWithWrench,
         Category: Training,
     }
+
+    recipe Training for Axe {
+        Axe,
+        Log,
+        
+        Result: Axe,
+        OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
+
+        Time: 3000.0,
+        Prop1: Source=1,
+        AnimNode: chop_tree,
+        Sound: ChopTree,
+        Category: Training,
+    }
+
+    recipe Training for Small Blade {
+        HuntingKnife,
+        Log,
+        
+        Result: HuntingKnife,
+        OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
+
+        Time: 3000.0,
+        Prop1: Source=1,
+        AnimNode: chop_tree,
+        Sound: ChopTree,
+        Category: Training,
+    }
+
+    recipe Training for Long Blade {
+        Machete,
+        Log,
+        
+        Result: Machete,
+        OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
+
+        Time: 3000.0,
+        Prop1: Source=1,
+        AnimNode: chop_tree,
+        Sound: ChopTree,
+        Category: Training,
+    }
+
+    recipe Training for Small Blunt {
+        Nightstick,
+        Log,
+        
+        Result: Nightstick,
+        OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
+
+        Time: 3000.0,
+        Prop1: Source=1,
+        AnimNode: chop_tree,
+        Sound: ChopTree,
+        Category: Training,
+    }
+
+    recipe Training for Blunt {
+        BaseballBat,
+        Log,
+        
+        Result: BaseballBat,
+        OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
+
+        Time: 3000.0,
+        Prop1: Source=1,
+        AnimNode: chop_tree,
+        Sound: ChopTree,
+        Category: Training,
+    }
+
+    recipe Training for Spear {
+        SpearCrafted,
+        Log,
+        
+        Result: SpearCrafted,
+        OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
+
+        Time: 3000.0,
+        Prop1: Source=1,
+        AnimNode: chop_tree,
+        Sound: ChopTree,
+        Category: Training,
+    }
     
 }

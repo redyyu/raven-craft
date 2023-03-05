@@ -157,13 +157,64 @@ function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
         perks_type = Perks.Mechanics;
         xp_gain = 30;
     end
-    if player:getPerkLevel(preks_type) >= 6 then
-        xp_gain = xp_gain / 10;
+    if perks_type then
+        if player:getPerkLevel(perks_type) >= 6 then
+            xp_gain = xp_gain / 10;
+        end
+        if xp_gain > 0 then
+            player:getXp():AddXP(perks_type, xp_gain);
+        end
+    end
+end
+
+
+function Recipe.OnGiveXP.TrainingMeleeWeapon(recipe, ingredients, result, player)
+    local training_Categories = result:getCategories();
+    local perks_type = nil;
+    local item = nil;
+    local preks_level = 0;
+    local xp_gain = 1;
+    local condition = 0;
+
+    if training_Categories:contains("Axe") then
+        perks_type = Perks.Axe;
+    elseif training_Categories:contains("SmallBlade") then
+        perks_type = Perks.SmallBlade;
+    elseif training_Categories:contains("LongBlade") then
+        perks_type = Perks.LongBlade;
+    elseif training_Categories:contains("SmallBlunt") then
+        perks_type = Perks.SmallBlunt;
+    elseif training_Categories:contains("Blunt") then
+        perks_type = Perks.Blunt;
+    elseif training_Categories:contains("Spear") then
+        perks_type = Perks.Spear;
     end
 
-    player:getXp():AddXP(perks_type, xp_gain);
+    for i=1,ingredients:size() do
+        item = ingredients:get(i-1);
+        if item:getType() == result:getType() then
+            condition = item:getCondition() - 1;
+        end
+    end
+    
+    if condition < 0 then
+        condition = 0;
+    end
+    result:setCondition(condition);
+
+    if perks_type then
+        preks_level = player:getPerkLevel(perks_type);
+        if preks_level <= 2 then
+            xp_gain = (preks_level + 1) * 10;
+        else
+            xp_gain = 1;
+        end
+        print(xp_gain);
+        player:getXp():AddXP(perks_type, xp_gain);
+    end
 
 end
+
 
 -- function Recipe.GetItemTypes.Fertilizer(scriptItems)
 --     local allScriptItems = getScriptManager():getAllItems()
