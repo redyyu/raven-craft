@@ -1,6 +1,19 @@
 module Base
 {
 
+	/* Override Metalworks */
+
+	item UnusableMetal {
+        DisplayCategory = Material,
+        Weight = 1,
+        Type = Normal,
+        DisplayName = Unusable Metal,
+        Icon = UnsableMetal,
+		MetalValue = 10,
+        WorldStaticModel = UnusableMetal,
+    }
+
+
     /* Override Foods */
     
 	item MincedMeat {
