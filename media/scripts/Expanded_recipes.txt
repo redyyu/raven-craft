@@ -24,7 +24,8 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Perfume/Cologne,
-        Glue=5,
+        MakeupEyeshadow/MakeupFoundation,
+        Glue=4,
 
         Result: Hairspray,
         AnimNode: RipSheets,
@@ -307,7 +308,7 @@ module RavenCraft
         Water=2,
         Flour=2,
         [Recipe.GetItemTypes.Sugar];12,
-        [Recipe.GetItemTypes.Milk];6,
+        [Recipe.GetItemTypes.Milk];4,
         Vinegar=1,
         BakingSoda=2,
         
