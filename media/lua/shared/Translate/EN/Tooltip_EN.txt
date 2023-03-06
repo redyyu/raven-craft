@@ -18,4 +18,7 @@ Tooltip_CRAFT_WATERWELLDESC = "Build a Water Well for unlimited water."
 
 -- UI
 Tooltip_FOOD_WASTED_MEAT = "Wasted Meat",
-Tooltip_CHARCOAL_LOGS = "Add %1 logs to make charcoal, once done, light the barrel with a lighter and wait",
+Tooltip_CHARCOAL_LOGS = "Add %1 logs to make charcoal, once done, light the barrel with a lighter and wait.",
+
+Tooltip_SUICIDE_CONFIRM = "Do you really want kill yourself?",
+Tooltip_NO_AMMO = "You need a loaded gun."
