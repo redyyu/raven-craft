@@ -11,17 +11,17 @@ module RavenCraft
         Type = Literature,
         DisplayName	= The Spring Of Musketeer,
         Icon = MagazineAmmoMakerMag,
-        TeachedRecipes = Craft Gunpowder;Craft 9mm Bullets;Craft .223 Bullets;Craft .308 Bullets;Craft Shotgun Shells;Craft 556mm Bullets;Craft .38 Special Bullets;Craft .44 Magnum Bullets;Craft .45 Auto Bullets,
+        TeachedRecipes = Craft Gunpowder;Craft 9mm Bullets;Craft .223 Bullets;Craft .308 Bullets;Craft Shotgun Shells;Craft 5.56mm Bullets;Craft .38 Special Bullets;Craft .44 Magnum Bullets;Craft .45 Auto Bullets,
         ReplaceOnUse = AmmoMakerMag,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,
     }
 
-    item 556mmBulletsMold {
+    item 556BulletsMold {
         DisplayCategory = Ammo,
         Weight = 0.5,
         Type = Normal,
-        DisplayName	= 556mm Bullets Mold,
+        DisplayName	= 5.56mm Bullets Mold,
         Icon = BulletMold,
         MetalValue = 15,
         WorldStaticModel = ShotGunShellsMold_Ground, 

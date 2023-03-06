@@ -12,7 +12,7 @@ local ITEMS_WEIGHT = {
     [".ShotgunShellsMold"]=0.6,
     [".223BulletsMold"]=0.6,
     [".308BulletsMold"]=0.6,
-    [".556mmBulletsMold"]=0.4,
+    [".556BulletsMold"]=0.4,
 }
 
 local rate_default = 1;

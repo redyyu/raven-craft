@@ -111,8 +111,8 @@ module RavenCraft
         Category: Ammo,
     }
 
-	recipe Craft 556mm Bullets {
-        keep 556mmBulletsMold,
+	recipe Craft 5.56mm Bullets {
+        keep 556BulletsMold,
         keep Tongs,
         BlowTorch=1,
         IronIngot=25,

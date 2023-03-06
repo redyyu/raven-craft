@@ -182,7 +182,7 @@ DO NOT waste bullets.
 
 ### Added Magazine Expands:
 
-1. **The Spring Of Musketeer**: Teach `Craft Gunpowder`, `Craft 9mm Bullets`, `Craft .223 Bullets`, `Craft .308 Bullets`, `Craft Shotgun Shells`, `Craft 556mm Bullets`, `Craft .38 Special Bullets`, `Craft .44 Magnum Bullets`, `Craft .45 Auto Bullets`
+1. **The Spring Of Musketeer**: Teach `Craft Gunpowder`, `Craft 9mm Bullets`, `Craft .223 Bullets`, `Craft .308 Bullets`, `Craft Shotgun Shells`, `Craft 5.56mm Bullets`, `Craft .38 Special Bullets`, `Craft .44 Magnum Bullets`, `Craft .45 Auto Bullets`
 
 ### Vanilla Overrides:
 
@@ -191,7 +191,7 @@ DO NOT waste bullets.
 
 ### Added Items Expands:
 
-1. 556mmBulletsMold
+1. 556BulletsMold
 2. 38SpecialBulletsMold
 3. 44MagnumBulletsMold
 4. 45AutoBulletsMold
@@ -205,7 +205,7 @@ DO NOT waste bullets.
 3. Craft Shotgun Shells
 4. Craft .308 Bullets
 5. Craft .223 Bullets
-6. Craft 556mm Bullets
+6. Craft 5.56mm Bullets
 7. Craft .38 Special Bullets
 8. Craft .44 Magnum Bullets
 9. Craft .45 Auto Bullets
