@@ -49,7 +49,8 @@ module RavenCraft
 
     recipe Binding Notebook {
         SheetPaper2=20,
-        keep Staples/Stapler,
+        keep Staples,
+        kep Stapler,
 
         Result: Notebook,
         AnimNode: RipSheets,
