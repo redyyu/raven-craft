@@ -1563,7 +1563,6 @@ module RavenCraft
         Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/OpenBeans;25,
         Water=10,
         PancakeMix=1,
-        Salt;1,
 
         Result: Semi-Tofu=4,
         SkillRequired: Cooking=6,
@@ -1576,7 +1575,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Rabbitmeat,
-        Salt;2,
+        Salt/Soysauce;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1592,7 +1591,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Smallanimalmeat,
-        Salt;1,
+        Salt/Soysauce;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1608,7 +1607,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Smallbirdmeat,
-        Salt;1,
+        Salt/Soysauce;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1624,7 +1623,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         FishFillet,
-        Salt;2,
+        Salt/Soysauce;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1640,7 +1639,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Salmon,
-        Salt;2,
+        Salt/Soysauce;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1656,7 +1655,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Shrimp,
-        Salt;1,
+        Salt/Soysauce;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1672,7 +1671,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Chicken,
-        Salt;2,
+        Salt/Soysauce;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1688,7 +1687,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         FrogMeat,
-        Salt;1,
+        Salt/Soysauce;1,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1704,7 +1703,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         MuttonChop,
-        Salt;2,
+        Salt/Soysauce;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1720,7 +1719,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         PorkChop,
-        Salt;2,
+        Salt/Soysauce;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
@@ -1736,7 +1735,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush,
         Steak,
-        Salt;2,
+        Salt/Soysauce;2,
 
         OnTest: Recipe.OnTest.IsNotRottenFood,
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
