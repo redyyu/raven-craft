@@ -14,7 +14,8 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 7. Bombs cloud spawn in some place.
 8. Some tools hidden by vanilla, make it useful and spawn in some wheere. ex. ammo mold, tongs, Bellows...
 9. Reading speed up 75%, while sit on ground.
-
+10. Allowed suicide by gun.
+11. Katana and Machete allowed attach on belt.
 
 
 ### Added new Carpentry Expands:
