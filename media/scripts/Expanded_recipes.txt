@@ -59,6 +59,21 @@ module RavenCraft
         Time: 150.0,
     }
 
+    recipe Craft Empty Sack {
+        DenimStrips=6,
+        Thread=5,
+        keep Scissors,
+        keep Needle,
+
+        Result: EmptySandbag,
+        SkillRequired: Tailoring=3,
+        Time: 300.0,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Sound: ClothesRipping,
+        Category: Carpentry,
+    }
+
     /* Health */
 
     recipe Self-made Cigarettes {
@@ -133,45 +148,32 @@ module RavenCraft
 	}
 
     recipe Self-made Plaster Powder {
-        Stone = 10,
-        keep [Recipe.GetItemTypes.Hammer],
         keep MortarPestle,
+        keep [Recipe.GetItemTypes.Hammer],
+        Stone = 10,
 
         Result: PlasterPowder,
         SkillRequired: Woodwork=6;Farming=4;,
         AnimNode: Forage,
         Prop1: Source=1,
         Sound: MakePlaster,
-        Time: 300.0,
+        Time: 500.0,
+        CanBeDoneFromFloor: true,
         Category: Carpentry,
     }
 
     recipe Self-made Gravel Bag {
+        keep [Recipe.GetItemTypes.Hammer],
         Stone=2,
         EmptySandbag,
-        keep [Recipe.GetItemTypes.Hammer],
 
         Result: Gravelbag,
         Time: 200.0,
         SkillRequired: Woodwork = 4,
-        AnimNode: Forage,
+        AnimNode: BuildLow,
         Prop1: Source=1,
         Sound: Hammering,
-        Category: Carpentry,
-    }
-
-    recipe Craft Empty Sack {
-        DenimStrips=6,
-        Thread=5,
-        keep Scissors,
-        keep Needle,
-
-        Result: EmptySandbag,
-        SkillRequired: Tailoring=3,
-        Time: 300.0,
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Sound: ClothesRipping,
+        CanBeDoneFromFloor: true,
         Category: Carpentry,
     }
 
@@ -317,40 +319,6 @@ module RavenCraft
         NeedToBeLearn: true,
         Category: Carpentry,
 	}
-
-
-    /** Trapper **/
-
-    recipe Create Mouse Trap {
-        keep [Recipe.GetItemTypes.Hammer],
-        Plank/TreeBranch,
-        Paperclip=5,
-        Nails=2,
-
-        Result: TrapMouse,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: Hammering,
-        SkillRequired: Woodwork=1,
-        Time: 100.0,
-        Category: Trapper,
-    }
-
-    recipe Create Snare Trap {
-        keep [Recipe.GetItemTypes.Hammer],
-        Plank/TreeBranch,
-        Paperclip=6,
-        Nails=3,
-        Twine=5,
-
-        Result: TrapSnare,
-        SkillRequired: Woodwork=3;Trapping=2;,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: Hammering,
-        Time: 100.0,
-        Category: Trapper,
-    }
 
 
     /** Welding / Metalworking **/
@@ -782,6 +750,40 @@ module RavenCraft
     }
     
 
+    /** Trapper **/
+
+    recipe Create Mouse Trap {
+        keep [Recipe.GetItemTypes.Hammer],
+        Plank/TreeBranch,
+        Paperclip=5,
+        Nails=2,
+
+        Result: TrapMouse,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        SkillRequired: Woodwork=1,
+        Time: 100.0,
+        Category: Trapper,
+    }
+
+    recipe Create Snare Trap {
+        keep [Recipe.GetItemTypes.Hammer],
+        Plank/TreeBranch,
+        Paperclip=6,
+        Nails=3,
+        Twine=5,
+
+        Result: TrapSnare,
+        SkillRequired: Woodwork=3;Trapping=2;,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Hammering,
+        Time: 100.0,
+        Category: Trapper,
+    }
+
+
     /* Survivalist */
 
     recipe Self-made Sling {
@@ -819,6 +821,41 @@ module RavenCraft
         Category: Survivalist,
     }
 
+    recipe Self-made Nuclear Biochemical Mask {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        RippedSheets=4,
+        LeatherStrips=4,
+        Thread=6,
+        Hat_GasMask,
+        Sheet,
+
+        Result: Hat_NBCMask,
+        SkillRequired: Tailoring=6,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 500.0,
+        Category: Survivalist,
+    }
+
+    recipe Quick make Charcoal {
+        Log=2,
+        BlowTorch=10,
+        keep WeldingMask,
+        keep Tongs,
+
+        Result: Charcoal,
+        Time: 500.0,
+        SkillRequired: Woodwork=6;MetalWelding=4,
+        Sound: BlowTorch,
+        AnimNode: BlowTorch,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        NeedToBeLearn: true,
+        Category: Survivalist,
+    }
 
     /* Painting */
 

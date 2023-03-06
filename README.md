@@ -50,10 +50,14 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 
 ### Added Magazine Expands:
 
-1. **The Spirit of Craftsman Vol.1**: Teach `Craft Workbench`, `Craft Tongs`, `Craft Bellows`,`Craft Nails`, `Craft Paperclips`, `Craft Butter Knife`, `Craft Kitchen Knife`, `Craft Meat Cleaver`,`Self-made Glue`, `Self-made Wood Glue`, `Self-made Hairspray` and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
-2. **The Spirit of Craftsman Vol.2**: Teach `Craft Hand Scythe`, `Craft Hand Shovel`, `Craft Shovel`, `Craft Garden Hoe`, `Craft Pick Axe`, `Craft Crowbar`
-3. **The Spirit of Craftsman Vol.3**: Teach `Self-made White Paint`, `Self-made Red Paint`,`Self-made Blue Paint`, `Self-made Yellow Paint`, `Self-made Orange Paint`, `Self-made Purple Paint`, `Self-made Black Paint`, `Self-made Brown Paint`, `Self-made Cyan Paint`, `Self-made Green Paint`, `Self-made Gray Paint`, `Self-made Light Blue Paint`, `Self-made Light Brown Paint`,`Self-made Pink Paint`, `Self-made Turquoise Paint`
-4. **The Spirit of Craftsman Vol.4**: Teach `Craft Baseball Bat`, `Craft Nightstick`, `Craft Hunting Knife`, `Craft Machete`, `Craft Hand Axe`, `Craft Axe`, `Craft Wood Axe`
+1. **The Spirit of Craftsman Vol.1**: Teach `Craft Workbench`, `Craft Tongs`, `Craft Bellows`, `Quick make Charcoal`, `Self-made Glue`, `Self-made Wood Glue`, `Self-made Hairspray` and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
+
+2. **The Spirit of Craftsman Vol.2**: Teach `Craft Nails`, `Craft Paperclips`, `Craft Butter Knife`, `Craft Kitchen Knife`, `Craft Meat Cleaver`, `Craft Hand Scythe`, `Craft Hand Shovel`, `Craft Shovel`, `Craft Garden Hoe`, `Craft Pick Axe`, `Craft Crowbar`;
+
+3. **The Spirit of Craftsman Vol.3**: Teach `Self-made White Paint`, `Self-made Red Paint`,`Self-made Blue Paint`, `Self-made Yellow Paint`, `Self-made Orange Paint`, `Self-made Purple Paint`, `Self-made Black Paint`, `Self-made Brown Paint`, `Self-made Cyan Paint`, `Self-made Green Paint`, `Self-made Gray Paint`, `Self-made Light Blue Paint`, `Self-made Light Brown Paint`,`Self-made Pink Paint`, `Self-made Turquoise Paint`;
+
+4. **The Spirit of Craftsman Vol.4**: Teach `Craft Baseball Bat`, `Craft Nightstick`, `Craft Hunting Knife`, `Craft Machete`, `Craft Hand Axe`, `Craft Axe`, `Craft Wood Axe`;
+
 5. **The Gospel Of Smoker**: Teach `Self-made Matches`, `Self-made Cigarettes`, `Self-made Newspaper Cigarettes`
 
 *Recipes make weapones need to close Anvil, and required kind of weapone skill, ex. Craft Axe, required Axe skill, also Maintenace skill will effect the Condition of you made, ex. Maintenace lv0, most result will be broken.*
@@ -99,11 +103,11 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 22. Smash Ingot: make Scrap Metal
 23. Cut Barbed Wire
 24. Craft Tongs `The Spirit of Craftsman Vol.1`
-25. Craft Nails
-26. Craft Paperclips
-27. Craft Butter Knife
-28. Craft Kitchen Knife
-29. Craft Meat Cleaver
+25. Craft Nails `The Spirit of Craftsman Vol.2`
+26. Craft Paperclips `The Spirit of Craftsman Vol.2`
+27. Craft Butter Knife `The Spirit of Craftsman Vol.2`
+28. Craft Kitchen Knife `The Spirit of Craftsman Vol.2`
+29. Craft Meat Cleaver `The Spirit of Craftsman Vol.2`
 30. Craft Hunting Knife `The Spirit of Craftsman Vol.4`
 31. Craft Machete `The Spirit of Craftsman Vol.4`
 32. Craft Hand Axe `The Spirit of Craftsman Vol.4`
@@ -120,6 +124,8 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 
 41. Self-made Sling
 42. Self-made Double Holster
+43. Quick make Charcoal `The Spirit of Craftsman Vol.1`
+44. Self-made Nuclear Biochemical Mask
 
 **Painting**
 
