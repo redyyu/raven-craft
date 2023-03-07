@@ -4,8 +4,7 @@ module RavenCraft
 	    Base,
     }
 
-    item AmmoMakerMag
-    {
+    item AmmoMakerMag {
         DisplayCategory = SkillBook,
         Weight = 0.1,
         Type = Literature,
