@@ -523,7 +523,7 @@ module RavenCraft
         NearItem: Anvil,
 
         Result: Machete,
-        SkillRequired: MetalWelding=9;LongBlade=7,
+        SkillRequired: MetalWelding=9;LongBlade=6,
         Sound: Hammering,
         AnimNode: BuildLow,
         Prop1: Source=1,
