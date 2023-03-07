@@ -22,7 +22,7 @@ module RavenCraft
 
     recipe Self-made Hairspray {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Perfume/Cologne,
         MakeupEyeshadow/MakeupFoundation,
         Glue=4,
@@ -287,7 +287,7 @@ module RavenCraft
 
     recipe Self-made Glue {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Water=2,
         Flour=1,
         [Recipe.GetItemTypes.Sugar];6,
@@ -304,7 +304,7 @@ module RavenCraft
 	
 	recipe Self-made Wood Glue {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Water=2,
         Flour=2,
         [Recipe.GetItemTypes.Sugar];12,
@@ -1560,7 +1560,7 @@ module RavenCraft
     
     recipe Make Semi-Tofu {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/OpenBeans;25,
         Water=10,
         PancakeMix=1,
@@ -1574,7 +1574,7 @@ module RavenCraft
 
     recipe Pickle Rabbit Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Rabbitmeat,
         Salt/Soysauce;2,
 
@@ -1590,7 +1590,7 @@ module RavenCraft
 
     recipe Pickle Small Animal Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Smallanimalmeat,
         Salt/Soysauce;1,
 
@@ -1606,7 +1606,7 @@ module RavenCraft
 
     recipe Pickle Small Bird Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Smallbirdmeat,
         Salt/Soysauce;1,
 
@@ -1622,7 +1622,7 @@ module RavenCraft
 
     recipe Pickle Fish Fillet {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         FishFillet,
         Salt/Soysauce;2,
 
@@ -1638,7 +1638,7 @@ module RavenCraft
 
     recipe Pickle Salmon {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Salmon,
         Salt/Soysauce;2,
 
@@ -1654,7 +1654,7 @@ module RavenCraft
 
     recipe Pickle Shrimp {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Shrimp,
         Salt/Soysauce;1,
 
@@ -1670,7 +1670,7 @@ module RavenCraft
 
     recipe Pickle Chicken {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Chicken,
         Salt/Soysauce;2,
 
@@ -1686,7 +1686,7 @@ module RavenCraft
 
     recipe Pickle FrogMeat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         FrogMeat,
         Salt/Soysauce;1,
 
@@ -1702,7 +1702,7 @@ module RavenCraft
 
     recipe Pickle MuttonChop {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         MuttonChop,
         Salt/Soysauce;2,
 
@@ -1718,7 +1718,7 @@ module RavenCraft
 
     recipe Pickle PorkChop {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         PorkChop,
         Salt/Soysauce;2,
 
@@ -1734,7 +1734,7 @@ module RavenCraft
 
     recipe Pickle Steak {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush,
+        keep Spoon/GrillBrush/Spatula,
         Steak,
         Salt/Soysauce;2,
 
