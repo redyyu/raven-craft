@@ -25,7 +25,8 @@ module RavenCraft
         keep Spoon/GrillBrush/Spatula,
         Perfume/Cologne,
         MakeupEyeshadow/MakeupFoundation,
-        Glue=4,
+        Toothpaste,
+        Glue=2,
 
         Result: Hairspray,
         AnimNode: RipSheets,
