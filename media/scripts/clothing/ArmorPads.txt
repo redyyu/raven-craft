@@ -26,9 +26,6 @@ module RavenCraft
 		CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
 		ScratchDefense = 20,
 		BiteDefense = 20,
-		Insulation = 0.05,
-		WindResistance = 0.05,
-        WaterResistance = 0.05,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -47,9 +44,6 @@ module RavenCraft
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		ScratchDefense = 20,
 		BiteDefense = 20,
-		Insulation = 0.05,
-		WindResistance = 0.05,
-        WaterResistance = 0.05,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -68,9 +62,6 @@ module RavenCraft
 		CombatSpeedModifier = 0.95,
 		ScratchDefense = 30,
 		BiteDefense = 30,
-		Insulation = 0.1,
-		WindResistance = 0.1,
-        WaterResistance = 0.1,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
