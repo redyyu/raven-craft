@@ -309,7 +309,7 @@ module RavenCraft
         Water=2,
         Flour=2,
         [Recipe.GetItemTypes.Sugar];12,
-        [Recipe.GetItemTypes.Milk];4,
+        [Recipe.GetItemTypes.Milk]/Yoghurt;4,
         Vinegar=1,
         BakingSoda=2,
         
