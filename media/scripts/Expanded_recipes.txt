@@ -310,7 +310,7 @@ module RavenCraft
         Flour=2,
         [Recipe.GetItemTypes.Sugar];12,
         [Recipe.GetItemTypes.Milk]/Yoghurt;4,
-        Vinegar=1,
+        Glue=5,
         BakingSoda=2,
         
         Result: Woodglue,
