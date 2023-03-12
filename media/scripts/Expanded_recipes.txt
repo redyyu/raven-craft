@@ -23,10 +23,10 @@ module RavenCraft
     recipe Self-made Hairspray {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
-        Perfume/Cologne,
+        Perfume/Cologne/Hairgel,
         MakeupEyeshadow/MakeupFoundation,
         Toothpaste,
-        Glue=2,
+        Glue=1,
 
         Result: Hairspray,
         AnimNode: RipSheets,
