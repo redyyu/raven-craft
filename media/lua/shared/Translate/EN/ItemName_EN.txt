@@ -5,4 +5,5 @@ ItemName_EN = {
     ItemName_Base.Trousers_DefaultTEXTURE = "Tight Pants",
     ItemName_Base.Trousers_DefaultTEXTURE_HUE = "Tight Pants",
     ItemName_Base.Trousers_DefaultTEXTURE_TINT = "Tight Pants",
+    ItemName_Base.Gloves_LeatherGlovesBlack = "Black Leather Gloves",
 }
