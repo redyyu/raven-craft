@@ -394,26 +394,6 @@ module RavenCraft
         WorldStaticModel = JarFoodBroccoli_Ground,
 	}
 
-    item Semi-Tofu {
-		DisplayName = Semi-Tofu,
-		DisplayCategory = Food,
-		Type = Food,
-		Weight = 0.3,
-		Icon = TofuRotten,
-        BadCold = true,
-		CantEat = TRUE,
-		FoodType = Vegetables,
-		DaysFresh = 0,
-		DaysTotallyRotten = 2,
-		HungerChange = -10,
-		Calories = 30,
-		Carbohydrates = 1,
-		Lipids = 1,
-		Proteins = 5,
-		WorldStaticModel = Tofu,
-        ReplaceOnRotten = Tofu,
-	}
-
     item PickledRabbitmeat {
 		DisplayName = Pickled - Rabbit Meat,
 		DisplayCategory = Food,

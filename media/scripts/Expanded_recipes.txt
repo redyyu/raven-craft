@@ -1559,14 +1559,14 @@ module RavenCraft
         Category: Cooking,
     }
     
-    recipe Make Semi-Tofu {
+    recipe Make Tofu {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
-        Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/OpenBeans;25,
+        Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/OpenBeans;10,
         Water=10,
         PancakeMix=1,
 
-        Result: Semi-Tofu=4,
+        Result: Tofu,
         SkillRequired: Cooking=6,
         Time: 150.0,
         Sound: Plastering,

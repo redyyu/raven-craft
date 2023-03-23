@@ -170,8 +170,6 @@ use salt to make **Pickled** meat, after few days, it will turn to **Dehydrated*
 
 Pickle meat before it's goes to rotten. unlike jar, pickle food can working on any size of meat. big meat produce big dehydrated.
 
-**Semi-Tofu**: make Semi-Tofu first, wait 1 day for turn it to Tofu. 
-
 
 ## Ammo Maker
 
