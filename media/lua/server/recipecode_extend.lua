@@ -41,6 +41,14 @@ function Recipe.OnCreate.CannedFood(items, result, player)
 end
 
 
+-- function Recipe.OnTest.PaintBucketWater(item)
+--     if item:getType() ==  "WaterPaintbucket" then
+--         return item:getUsedDelta() >= 0.8;
+--     end
+--     return true
+-- end
+
+
 function Recipe.OnTest.IsNotRottenFood(item)
     if instanceof(item, "Food") then
         return item:getAge() < item:getOffAgeMax();

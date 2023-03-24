@@ -111,12 +111,12 @@ module RavenCraft
     /** Carpentry **/
 
     recipe Blend Concrete {
-        destroy BucketEmpty/BucketWaterFull,
-        Water=5,
+        destroy BucketEmpty,
+        Water=15,
         ConcretePowder,
         
         Result: BucketConcreteFull,
-        Time: 150.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: Source=1,
         Sound: MakePlaster,
@@ -436,7 +436,7 @@ module RavenCraft
         AnimNode: BuildLow,
         Prop1: Source=1,
         Prop2: Source=2,
-        Time: 180.0,
+        Time: 155.0,
         NeedToBeLearn: true,
         Category: Welding,
     }
@@ -860,16 +860,254 @@ module RavenCraft
         Category: Survivalist,
     }
 
+
     /* Painting */
+
+    recipe Blending Black Paint {
+        destroy PaintbucketEmpty,
+        HairDyeBlack=4,
+        Water=20,
+
+        Result: PaintBlack,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Blue Paint {
+        destroy PaintbucketEmpty,
+        HairDyeBlue=4,
+        Water=20,
+
+        Result: PaintBlue,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Brown Paint {
+        destroy PaintbucketEmpty,
+        HairDyeGinger=4,
+        HairDyeBlack,
+        Water=20,
+
+        Result: PaintBrown,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Cyan Paint {
+        destroy PaintbucketEmpty,
+        HairDyeBlue=2,
+        HairDyeWhite=1,
+        HairDyeGreen=1,
+        Water=20,
+
+        Result: PaintCyan,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Green Paint {
+        destroy PaintbucketEmpty,
+        HairDyeGreen=4,
+        Water=20,
+
+        Result: PaintGreen,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Grey Paint {
+        destroy PaintbucketEmpty,
+        HairDyeBlack=2,
+        HairDyeWhite=2,
+        Water=20,
+
+        Result: PaintGrey,
+        SkillRequired: Woodwork=6,
+        Time: 200.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Light Blue Paint {
+        destroy PaintbucketEmpty,
+        HairDyeBlue=2,
+        HairDyeWhite=2,
+        Water=20,
+
+        Result: PaintLightBlue,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Light Brown Paint {
+        destroy PaintbucketEmpty,
+        HairDyeLightBrown=4,
+        Water=20,
+
+        Result: PaintLightBrown,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Orange Paint {
+        destroy PaintbucketEmpty,
+        HairDyeBlonde=2,
+        HairDyeRed=1,
+        HairDyeWhite=1,
+        Water=20,
+
+        Result: PaintOrange,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Pink Paint {
+        destroy PaintbucketEmpty,
+        HairDyePink=4,
+        Water=20,
+
+        Result: PaintPink,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Purple Paint {
+        destroy PaintbucketEmpty,
+        HairDyeRed=2,
+        HairDyePink=2,
+        Water=20,
+
+        Result: PaintPurple,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Red Paint {
+        destroy PaintbucketEmpty,
+        HairDyeRed=4,
+        Water=20,
+
+        Result: PaintRed,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Turquoise Paint {
+        destroy PaintbucketEmpty,
+        HairDyeWhite=1,
+        HairDyeGreen=2,
+        HairDyeBlue=1,
+        Water=20,
+
+        Result: PaintTurquoise,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending White Paint {
+        destroy PaintbucketEmpty,
+        HairDyeWhite=4,
+        Water=20,
+
+        Result: PaintWhite,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
+    recipe Blending Yellow Paint {
+        destroy PaintbucketEmpty,
+        HairDyeYellow=4,
+        Water=20,
+
+        Result: PaintYellow,
+        SkillRequired: Woodwork=6,
+        Time: 155.0,
+        AnimNode: Forage,
+        Prop1: Source=1,
+        Sound: MakePlaster,
+        NeedToBeLearn: true,
+        Category: Painting,
+    }
+
 
     recipe Self-made White Paint {
         keep MortarPestle,
         Bleach,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintWhite,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -880,11 +1118,12 @@ module RavenCraft
 	recipe Self-made Red Paint {
         keep MortarPestle,
         BerryGeneric1 = 10,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintRed,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -894,12 +1133,13 @@ module RavenCraft
 
 	recipe Self-made Blue Paint {
         keep MortarPestle,
-        WaterPaintbucket,
         BerryBlue/BerryGeneric2 = 10,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintBlue,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -910,11 +1150,12 @@ module RavenCraft
 	recipe Self-made Yellow Paint {
         keep MortarPestle,
         BerryGeneric3 = 10,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintYellow,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -924,12 +1165,13 @@ module RavenCraft
 
 	recipe Self-made Orange Paint {
         keep MortarPestle,
-        WaterPaintbucket,
         BerryGeneric4 = 10,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintOrange,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -940,11 +1182,12 @@ module RavenCraft
 	recipe Self-made Purple Paint {
         keep MortarPestle,
         BerryGeneric5 = 10,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintPurple,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -955,11 +1198,12 @@ module RavenCraft
 	recipe Self-made Black Paint {
         keep MortarPestle,
         BerryBlack/Charcoal = 10,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintBlack,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -970,11 +1214,12 @@ module RavenCraft
 	recipe Self-made Brown Paint {
         keep MortarPestle,
         BerryPoisonIvy = 5,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintBrown,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -984,13 +1229,14 @@ module RavenCraft
 
 	recipe Self-made Cyan Paint {
         keep MortarPestle,
-        WaterPaintbucket,
         BerryBlue/BerryGeneric2=5,
         BerryPoisonIvy=5,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintCyan,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -1000,13 +1246,14 @@ module RavenCraft
 
 	recipe Self-made Green Paint {
         keep MortarPestle,
-        WaterPaintbucket,
         BerryBlue/BerryGeneric2 = 5,
         BerryGeneric3 = 5,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintGreen,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -1016,13 +1263,14 @@ module RavenCraft
 
 	recipe Self-made Gray Paint {
         keep MortarPestle,
-        WaterPaintbucket,
         BerryBlack/Charcoal= 5,
         BerryPoisonIvy = 5,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintGrey,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -1032,13 +1280,14 @@ module RavenCraft
 
 	recipe Self-made Light Blue Paint {
         keep MortarPestle,
-        WaterPaintbucket,
         BerryBlue/BerryGeneric2 = 5,
         BerryPoisonIvy = 5,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintLightBlue,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -1048,12 +1297,13 @@ module RavenCraft
 
 	recipe Self-made Light Brown Paint {
         keep MortarPestle,
-        WaterPaintbucket,
         BerryPoisonIvy = 5,
+        destroy PaintbucketEmpty,
+        Water=20,
         
         Result: PaintLightBrown,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -1065,11 +1315,12 @@ module RavenCraft
         keep MortarPestle,
         BerryGeneric1 = 5,
         BerryPoisonIvy = 5,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintPink,
         SkillRequired: Woodwork=6,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,
@@ -1081,10 +1332,11 @@ module RavenCraft
         keep MortarPestle,
         BerryBlue/BerryGeneric2 = 5,
         BerryPoisonIvy = 5,
-        WaterPaintbucket,
+        destroy PaintbucketEmpty,
+        Water=20,
 
         Result: PaintTurquoise,
-        Time:300.0,
+        Time: 155.0,
         AnimNode: Forage,
         Prop1: MortarPestle,
         Sound: MakePlaster,

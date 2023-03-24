@@ -36,7 +36,7 @@ module RavenCraft
         Type = Literature,
         DisplayName	= The Spirit of Craftsman Vol.3,
         Icon = MagazineBlacksmith3,
-        TeachedRecipes = Self-made White Paint;Self-made Red Paint;Self-made Blue Paint;Self-made Yellow Paint;Self-made Orange Paint;Self-made Purple Paint;Self-made Black Paint;Self-made Brown Paint;Self-made Cyan Paint;Self-made Green Paint;Self-made Gray Paint;Self-made Light Blue Paint;Self-made Light Brown Paint;Self-made Pink Paint;Self-made Turquoise Paint,
+        TeachedRecipes = Blending Black Paint;Blending Blue Paint;Blending Brown Paint;Blending Cyan Paint;Blending Green Paint;Blending Grey Paint;Blending Light Blue Paint;Blending Light Brown Paint;Blending Orange Paint;Blending Pink Paint;Blending Purple Paint;Blending Red Paint;Blending Turquoise Paint;Blending White Paint;Blending Yellow Paint;Self-made White Paint;Self-made Red Paint;Self-made Blue Paint;Self-made Yellow Paint;Self-made Orange Paint;Self-made Purple Paint;Self-made Black Paint;Self-made Brown Paint;Self-made Cyan Paint;Self-made Green Paint;Self-made Gray Paint;Self-made Light Blue Paint;Self-made Light Brown Paint;Self-made Pink Paint;Self-made Turquoise Paint,
         ReplaceOnUse = CraftsmenMag3,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,
