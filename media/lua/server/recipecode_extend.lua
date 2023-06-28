@@ -139,30 +139,38 @@ function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
 
     if training_type == 'BookFirstAid1' then
         perks_type = Perks.Doctor;
+        xp_gain = 10;
     elseif training_type == 'BookFirstAid2' then
         perks_type = Perks.Doctor;
+        xp_gain = 20;
     elseif training_type == 'BookFirstAid3' then
         perks_type = Perks.Doctor;
+        xp_gain = 30;
     elseif training_type == 'BookFirstAid4' then
         perks_type = Perks.Doctor;
+        xp_gain = 40;
     elseif training_type == 'BookFirstAid5' then
         perks_type = Perks.Doctor;
+        xp_gain = 50;
 
     elseif training_type == 'BookTailoring1' then
         perks_type = Perks.Tailoring;
+        xp_gain = 10;
     elseif training_type == 'BookTailoring2' then
         perks_type = Perks.Tailoring;
+        xp_gain = 20;
     elseif training_type == 'BookTailoring3' then
         perks_type = Perks.Tailoring;
+        xp_gain = 30;
     elseif training_type == 'BookTailoring4' then
         perks_type = Perks.Tailoring;
+        xp_gain = 40;
     elseif training_type == 'BookTailoring5' then
         perks_type = Perks.Tailoring;
+        xp_gain = 50;
     end
 
-    if perks_type then
-        preks_level = player:getPerkLevel(perks_type);
-        xp_gain = (preks_level + 1) * 10;
+    if perks_type and xp_gain ~= 0 then
         player:getXp():AddXP(perks_type, xp_gain);
     end
 end
