@@ -1835,7 +1835,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledRabbitmeat,
-        SkillRequired: Cooking=8,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1883,7 +1883,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledFishFillet,
-        SkillRequired: Cooking=8,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1899,7 +1899,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledSalmon,
-        SkillRequired: Cooking=8,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1915,7 +1915,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledShrimp,
-        SkillRequired: Cooking=4,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1947,7 +1947,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledFrogMeat,
-        SkillRequired: Cooking=4,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1963,7 +1963,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledMuttonChop,
-        SkillRequired: Cooking=8,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1979,7 +1979,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
 
         Result: PickledPorkChop,
-        SkillRequired: Cooking=8,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
@@ -1995,7 +1995,7 @@ module RavenCraft
         OnCreate: Recipe.OnCreate.PickleFoodMeat,
         
         Result: PickledSteak,
-        SkillRequired: Cooking=8,
+        SkillRequired: Cooking=6,
         Time: 200.0,
         Sound: Plastering,
         Category: Cooking,
