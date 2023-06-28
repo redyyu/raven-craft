@@ -16,7 +16,7 @@ module RavenCraft
         Result: BookFirstAid1,
         OnGiveXP: Recipe.OnGiveXP.Training, 
 
-        Time: 3000.0,
+        Time: 2000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -54,7 +54,7 @@ module RavenCraft
         SkillRequired: Doctor=4,
         OnGiveXP: Recipe.OnGiveXP.Training, 
 
-        Time: 3000.0,
+        Time: 4000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -76,7 +76,7 @@ module RavenCraft
         SkillRequired: Doctor=6,
         OnGiveXP: Recipe.OnGiveXP.Training, 
 
-        Time: 3000.0,
+        Time: 5000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -99,7 +99,7 @@ module RavenCraft
         SkillRequired: Doctor=8,
         OnGiveXP: Recipe.OnGiveXP.Training, 
 
-        Time: 3000.0,
+        Time: 6000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -117,7 +117,7 @@ module RavenCraft
         OnGiveXP: Recipe.OnGiveXP.Training,
 
         Result: BookTailoring1,
-        Time: 3000.0,
+        Time: 2000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -156,7 +156,7 @@ module RavenCraft
         SkillRequired: Tailoring=4,
         OnGiveXP: Recipe.OnGiveXP.Training,
 
-        Time: 3000.0,
+        Time: 4000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -175,7 +175,7 @@ module RavenCraft
         SkillRequired: Tailoring=6,
         OnGiveXP: Recipe.OnGiveXP.Training,
 
-        Time: 3000.0,
+        Time: 5000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -195,7 +195,7 @@ module RavenCraft
         SkillRequired: Tailoring=8,
         OnGiveXP: Recipe.OnGiveXP.Training,
 
-        Time: 3000.0,
+        Time: 6000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
