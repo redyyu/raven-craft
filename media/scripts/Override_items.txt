@@ -13,6 +13,19 @@ module Base
         WorldStaticModel = UnusableMetal,
     }
 
+	item IronIngot
+    {
+        DisplayCategory = Material,
+        Weight = 5,
+        Type = Drainable,
+        DisplayName	= Workable Iron,
+        Icon = MetalBits,
+        UseDelta = 0.01,
+        ConsolidateOption = ContextMenu_Merge,
+        UseWhileEquipped = FALSE,
+		WorldStaticModel = Stone,
+    }
+
 
     /* Override Foods */
     
