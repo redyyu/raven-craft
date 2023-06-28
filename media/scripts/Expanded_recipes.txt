@@ -2003,7 +2003,7 @@ module RavenCraft
 
     recipe Chop Minced Meat {
         keep MeatCleaver,
-        Steak;45,
+        Steak;40,
         
         Result: MincedMeat,
         SkillRequired: Cooking=3,
