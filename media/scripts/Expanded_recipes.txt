@@ -2001,25 +2001,9 @@ module RavenCraft
         Category: Cooking,
     }
 
-    recipe Pickle Minced Meat {
-        keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
-        keep Spoon/GrillBrush/Spatula,
-        MincedMeat,
-        Salt/Soysauce;2,
-
-        OnTest: Recipe.OnTest.IsNotRottenFood,
-        OnCreate: Recipe.OnCreate.PickleFoodMeat,
-        
-        Result: PickledMincedMeat,
-        SkillRequired: Cooking=6,
-        Time: 200.0,
-        Sound: Plastering,
-        Category: Cooking,
-    }
-
     recipe Chop Minced Meat {
         keep MeatCleaver,
-        MuttonChop/Chicken/PorkChop/Steak/Rabbitmeat/Smallanimalmeat/Smallbirdmeat;50,
+        Steak;45,
         
         Result: MincedMeat,
         SkillRequired: Cooking=3,
@@ -2028,14 +2012,4 @@ module RavenCraft
         Category: Cooking,
     }
 
-    recipe Chop Pickle Minced Meat {
-        keep MeatCleaver,
-        PickledMuttonChop/PickledChicken/PickledPorkChop/PickledSteak/PickledRabbitmeat/PickledSmallanimalmeat/PickledSmallbirdmeat;40,
-        
-        Result: PickledMincedMeat,
-        SkillRequired: Cooking=3,
-        Time: 100.0,
-        Sound: SliceMeat,
-        Category: Cooking,
-    }
 }
