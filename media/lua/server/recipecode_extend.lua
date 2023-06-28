@@ -139,39 +139,31 @@ function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
 
     if training_type == 'BookFirstAid1' then
         perks_type = Perks.Doctor;
-        xp_gain = 10;
     elseif training_type == 'BookFirstAid2' then
         perks_type = Perks.Doctor;
-        xp_gain = 20;
     elseif training_type == 'BookFirstAid3' then
         perks_type = Perks.Doctor;
-        xp_gain = 30;
+    elseif training_type == 'BookFirstAid4' then
+        perks_type = Perks.Doctor;
+    elseif training_type == 'BookFirstAid5' then
+        perks_type = Perks.Doctor;
+
     elseif training_type == 'BookTailoring1' then
         perks_type = Perks.Tailoring;
-        xp_gain = 10;
     elseif training_type == 'BookTailoring2' then
         perks_type = Perks.Tailoring;
-        xp_gain = 20;
     elseif training_type == 'BookTailoring3' then
         perks_type = Perks.Tailoring;
-        xp_gain = 30;
-    elseif training_type == 'BookMechanic1' then
-        perks_type = Perks.Mechanics;
-        xp_gain = 10;
-    elseif training_type == 'BookMechanic2' then
-        perks_type = Perks.Mechanics;
-        xp_gain = 20;
-    elseif training_type == 'BookMechanic3' then
-        perks_type = Perks.Mechanics;
-        xp_gain = 30;
+    elseif training_type == 'BookTailoring4' then
+        perks_type = Perks.Tailoring;
+    elseif training_type == 'BookTailoring5' then
+        perks_type = Perks.Tailoring;
     end
+
     if perks_type then
-        if player:getPerkLevel(perks_type) >= 6 then
-            xp_gain = xp_gain / 10;
-        end
-        if xp_gain > 0 then
-            player:getXp():AddXP(perks_type, xp_gain);
-        end
+        preks_level = player:getPerkLevel(perks_type);
+        xp_gain = (preks_level + 1) * 10;
+        player:getXp():AddXP(perks_type, xp_gain);
     end
 end
 
@@ -212,12 +204,11 @@ function Recipe.OnGiveXP.TrainingMeleeWeapon(recipe, ingredients, result, player
 
     if perks_type then
         preks_level = player:getPerkLevel(perks_type);
-        if preks_level <= 2 then
+        if preks_level <= 3 then
             xp_gain = (preks_level + 1) * 10;
         else
             xp_gain = 1;
         end
-        print(xp_gain);
         player:getXp():AddXP(perks_type, xp_gain);
     end
 

@@ -4,19 +4,19 @@ module RavenCraft
 	    Base,
 	}
     
-    /** General **/
+    /** Frist Aid **/
 
     recipe Frist Aid Training For Beginner {
         BookFirstAid1,
+
         keep Pillow,
         keep Splint,
-        keep Bandage/AlcoholBandage/RippedSheets,
-        
+        RippedSheets,
         
         Result: BookFirstAid1,
         OnGiveXP: Recipe.OnGiveXP.Training, 
 
-        Time: 2500.0,
+        Time: 3000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -30,40 +30,84 @@ module RavenCraft
         keep Pillow,
         keep Tweezers,
         keep CottonBalls,
-        PillsAntiDep/PillsBeta/Cigarettes/Pills/PillsSleepingTablets/PillsVitamins=1,
+        RippedSheets,
         
         Result: BookFirstAid2,
         SkillRequired: Doctor=2,
         OnGiveXP: Recipe.OnGiveXP.Training, 
 
-        Time: 5000.0,
+        Time: 3000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
-        Sound: ClothesRipping,
+        Sound: Plastering,
         Category: Training,
     }
     
     recipe Frist Aid Training For Advanced {
         BookFirstAid3,
-        keep Pillow,
-        keep Tweezers,
-        keep CottonBalls,
-        keep SutureNeedle,
-        keep SutureNeedleHolder,
+
+        keep MortarPestle,
         PillsAntiDep/PillsBeta/Cigarettes/Pills/PillsSleepingTablets/PillsVitamins=1,
         
         Result: BookFirstAid3,
         SkillRequired: Doctor=4,
         OnGiveXP: Recipe.OnGiveXP.Training, 
 
-        Time: 7500.0,
+        Time: 3000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
-        Sound: ClothesRipping,
+        Sound: Plastering,
         Category: Training,
     }
+
+    recipe Frist Aid Training For Expert {
+        BookFirstAid4,
+        
+        keep Pillow,
+        keep Tweezers,
+        keep CottonBalls,
+        keep MortarPestle,
+
+        PillsAntiDep/PillsBeta/Cigarettes/Pills/PillsSleepingTablets/PillsVitamins=1,
+        
+        Result: BookFirstAid4,
+        SkillRequired: Doctor=6,
+        OnGiveXP: Recipe.OnGiveXP.Training, 
+
+        Time: 3000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: Plastering,
+        Category: Training,
+    }
+    
+    recipe Frist Aid Training For Mastery {
+        BookFirstAid5,
+        keep Pillow,
+        keep Tweezers,
+        keep CottonBalls,
+        keep SutureNeedle,
+        keep SutureNeedleHolder,
+        keep MortarPestle,
+
+        PillsAntiDep/PillsBeta/Cigarettes/Pills/PillsSleepingTablets/PillsVitamins=1,
+        
+        Result: BookFirstAid5,
+        SkillRequired: Doctor=8,
+        OnGiveXP: Recipe.OnGiveXP.Training, 
+
+        Time: 3000.0,
+        Prop1: Source=2,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: Plastering,
+        Category: Training,
+    }
+
+    /** Tailoring **/
 
     recipe Tailoring Training for Beginner {
         BookTailoring1,
@@ -73,7 +117,7 @@ module RavenCraft
         OnGiveXP: Recipe.OnGiveXP.Training,
 
         Result: BookTailoring1,
-        Time: 2500.0,
+        Time: 3000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -92,7 +136,7 @@ module RavenCraft
         SkillRequired: Tailoring=2,
         OnGiveXP: Recipe.OnGiveXP.Training,
 
-        Time: 5000.0,
+        Time: 3000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -102,17 +146,17 @@ module RavenCraft
 
     recipe Tailoring Training for Advanced {
         BookTailoring3,
-        keep Tarp/Sheet,
+        keep Pillow,
         keep Needle,
         keep Scissors,
-        DenimStrips/LeatherStrips,
+        DenimStrips,
         Thread=1,
         
         Result: BookTailoring3,
         SkillRequired: Tailoring=4,
         OnGiveXP: Recipe.OnGiveXP.Training,
 
-        Time: 7500.0,
+        Time: 3000.0,
         Prop1: Source=2,
         Prop2: Source=3,
         AnimNode: RipSheets,
@@ -120,63 +164,52 @@ module RavenCraft
         Category: Training,
     }
 
-    recipe Mechanics Training for Beginner {
-        BookMechanic1,
-        keep OldTire1/OldTire2/OldTire3/NormalTire1/NormalTire2/NormalTire3/ModernTire1/ModernTire2/ModernTire3,
-        keep Jack,
-        keep LugWrench,
+    recipe Tailoring Training for Expert {
+        BookTailoring4,
+        keep Pillow,
+        keep Needle,
+        LeatherStrips,
+        Thread=1,
         
-        Result: BookMechanic1,
+        Result: BookTailoring4,
+        SkillRequired: Tailoring=6,
         OnGiveXP: Recipe.OnGiveXP.Training,
 
-        Time: 2500.0,
+        Time: 3000.0,
         Prop1: Source=2,
-        AnimNode: BuildLow,
-        Sound: RepairWithWrench,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
         Category: Training,
     }
 
-    recipe Mechanics Training for Intermediate {
-        BookMechanic2,
-        keep OldBrake1/OldBrake2/OldBrake3/NormalBrake1/NormalBrake2/NormalBrake3/ModernBrake1/ModernBrake2/ModernBrake3,
-        keep Screwdriver,
-        keep Wrench,
-        Screws = 2,
+    recipe Tailoring Training for Mastery {
+        BookTailoring5,
+        keep Needle,
+        keep Scissors,
+        Sheet,
+        LeatherStrips,
+        Thread=1,
         
-        Result: BookMechanic2,
-        SkillRequired: Mechanics=2,
+        Result: BookTailoring5,
+        SkillRequired: Tailoring=8,
         OnGiveXP: Recipe.OnGiveXP.Training,
 
-        Time: 5000.0,
+        Time: 3000.0,
         Prop1: Source=2,
-        AnimNode: BuildLow,
-        Sound: RepairWithWrench,
+        Prop2: Source=3,
+        AnimNode: RipSheets,
+        Sound: ClothesRipping,
         Category: Training,
     }
 
-    recipe Mechanics Training for Advanced {
-        BookMechanic3,
-        keep NormalSuspension1/NormalSuspension2/NormalSuspension3/ModernSuspension1/ModernSuspension2/ModernSuspension3,
-        keep Screwdriver,
-        keep Wrench,
-        Screws = 2,
-        
-        Result: BookMechanic3,
-        SkillRequired: Mechanics=4,
-        OnGiveXP: Recipe.OnGiveXP.Training,
-
-        Time: 7500.0,
-        Prop1: Source=2,
-        AnimNode: BuildLow,
-        Sound: RepairWithWrench,
-        Category: Training,
-    }
-
+    /* Weapons */
+    
     recipe Training for Axe {
-        Axe,
+        Keep Axe,
         Log,
         
-        Result: Axe,
+        Result: UnusableWood=6,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
         Time: 3000.0,
@@ -187,10 +220,10 @@ module RavenCraft
     }
 
     recipe Training for Small Blade {
-        HuntingKnife,
+        Keep HuntingKnife,
         Log,
         
-        Result: HuntingKnife,
+        Result: UnusableWood=6,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
         Time: 3000.0,
@@ -201,10 +234,10 @@ module RavenCraft
     }
 
     recipe Training for Long Blade {
-        Machete,
+        Keep Machete,
         Log,
         
-        Result: Machete,
+        Result: UnusableWood=6,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
         Time: 3000.0,
@@ -215,10 +248,10 @@ module RavenCraft
     }
 
     recipe Training for Small Blunt {
-        Nightstick,
+        Keep Nightstick,
         Log,
         
-        Result: Nightstick,
+        Result: UnusableWood=6,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
         Time: 3000.0,
@@ -229,10 +262,10 @@ module RavenCraft
     }
 
     recipe Training for Blunt {
-        BaseballBat,
+        Keep BaseballBat,
         Log,
         
-        Result: BaseballBat,
+        Result: UnusableWood=6,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
         Time: 3000.0,
@@ -243,10 +276,10 @@ module RavenCraft
     }
 
     recipe Training for Spear {
-        SpearCrafted,
+        Keep SpearCrafted,
         Log,
         
-        Result: SpearCrafted,
+        Result: UnusableWood=6,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
         Time: 3000.0,
