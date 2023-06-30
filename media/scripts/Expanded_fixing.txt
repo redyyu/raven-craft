@@ -7,6 +7,14 @@ module Base
 
 	   Fixer : Woodglue; Woodwork=6,
 	}
+
+	fixing Fix Lead Pipe {
+	   Require : LeadPipe,
+	   GlobalItem : BlowTorch=2,
+	   ConditionModifier : 1,
+
+	   Fixer : WeldingRods=4;MetalWelding=4,
+	}
 	
 	fixing Fix Crowbar {
 	   Require : Crowbar,
