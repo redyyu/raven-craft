@@ -12,12 +12,12 @@ local LITERATURES_WEIGHT = {
 }
 
 local TOOLS_WEIGHT = {
-    [".Tongs"]=3,
-    [".Bellows"]=3,
+    [".Tongs"]=1,
+    [".Bellows"]=1,
 }
 
 local MATERIALS_WEIGHT = {
-    [".IronIngot"]=3,
+    [".IronIngot"]=1,
 }
 
 --- Literatures ---

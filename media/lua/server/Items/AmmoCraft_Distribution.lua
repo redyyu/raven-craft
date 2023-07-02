@@ -4,15 +4,15 @@ require "Vehicles/VehicleDistributions"
 require "utils"
 
 local ITEMS_WEIGHT = {
-    [".AmmoMakerMag"]=1,
-    [".38SpecialBulletsMold"]=0.8,
-    [".9mmBulletsMold"]=0.8,
-    [".45AutoBulletsMold"]=0.8,
-    [".44MagnumBulletsMold"]=0.6,
-    [".ShotgunShellsMold"]=0.6,
-    [".223BulletsMold"]=0.6,
-    [".308BulletsMold"]=0.6,
-    [".556BulletsMold"]=0.4,
+    [".AmmoMakerMag"]=0.8,
+    [".38SpecialBulletsMold"]=0.4,
+    [".9mmBulletsMold"]=0.4,
+    [".45AutoBulletsMold"]=0.4,
+    [".44MagnumBulletsMold"]=0.3,
+    [".ShotgunShellsMold"]=0.3,
+    [".223BulletsMold"]=0.3,
+    [".308BulletsMold"]=0.3,
+    [".556BulletsMold"]=0.2,
 }
 
 local rate_default = 1;

@@ -4,7 +4,7 @@ require "MetalDrum/SMetalDrumGlobalObject.lua"
 require "RainBarrel/SRainBarrelSystem.lua"
 
 
-local EXCHANGE_RATIO = 10;
+local EXCHANGE_RATE = 0.25;
 
 
 -- Gather Snow for Metal Drum
@@ -20,7 +20,7 @@ function SMetalDrumGlobalObject:update()
             if self.exterior then
                 if not self.haveLogs and not self.haveCharcoal then
                     if isSnowing then 
-                        self.waterAmount = math.min(self.waterMax, self.waterAmount + (1 * ISMetalDrum.waterScale)/EXCHANGE_RATIO)
+                        self.waterAmount = math.min(self.waterMax, self.waterAmount + (ISMetalDrum.waterScale * EXCHANGE_RATE))
                     else
                        self.waterAmount = math.min(self.waterMax, self.waterAmount + 1 * ISMetalDrum.waterScale)
                     end
@@ -72,7 +72,8 @@ function SRainBarrelSystem:checkSnow()
 				luaObject.exterior = square:isOutside()
 			end
 			if luaObject.exterior then
-				luaObject.waterAmount = math.min(luaObject.waterMax, luaObject.waterAmount + (1 * RainCollectorBarrel.waterScale)/EXCHANGE_RATIO) --snow water is half of what should be with rain
+				luaObject.waterAmount = math.min(luaObject.waterMax, luaObject.waterAmount + (RainCollectorBarrel.waterScale * EXCHANGE_RATE))
+                -- snow water is precent of what should be with rain
 				luaObject.taintedWater = true
 				local isoObject = luaObject:getIsoObject()
 				if isoObject then -- object might have been destroyed
