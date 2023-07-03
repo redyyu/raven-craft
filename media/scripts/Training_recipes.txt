@@ -206,13 +206,13 @@ module RavenCraft
     /* Weapons */
     
     recipe Training for Axe {
-        Keep Axe,
+        Axe,
         Log,
         
-        Result: UnusableWood=6,
+        Result: Axe,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
-        Time: 3000.0,
+        Time: 600.0,
         Prop1: Source=1,
         AnimNode: chop_tree,
         Sound: ChopTree,
@@ -220,13 +220,13 @@ module RavenCraft
     }
 
     recipe Training for Small Blade {
-        Keep HuntingKnife,
+        HuntingKnife,
         Log,
         
-        Result: UnusableWood=6,
+        Result: HuntingKnife,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
-        Time: 3000.0,
+        Time: 600.0,
         Prop1: Source=1,
         AnimNode: chop_tree,
         Sound: ChopTree,
@@ -234,13 +234,13 @@ module RavenCraft
     }
 
     recipe Training for Long Blade {
-        Keep Machete,
+        Machete,
         Log,
         
-        Result: UnusableWood=6,
+        Result: Machete,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
-        Time: 3000.0,
+        Time: 600.0,
         Prop1: Source=1,
         AnimNode: chop_tree,
         Sound: ChopTree,
@@ -248,13 +248,13 @@ module RavenCraft
     }
 
     recipe Training for Small Blunt {
-        Keep Nightstick,
+        Nightstick,
         Log,
         
-        Result: UnusableWood=6,
+        Result: Nightstick,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
-        Time: 3000.0,
+        Time: 600.0,
         Prop1: Source=1,
         AnimNode: chop_tree,
         Sound: ChopTree,
@@ -262,13 +262,13 @@ module RavenCraft
     }
 
     recipe Training for Blunt {
-        Keep BaseballBat,
+        BaseballBat,
         Log,
         
-        Result: UnusableWood=6,
+        Result: BaseballBat,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
-        Time: 3000.0,
+        Time: 600.0,
         Prop1: Source=1,
         AnimNode: chop_tree,
         Sound: ChopTree,
@@ -276,13 +276,13 @@ module RavenCraft
     }
 
     recipe Training for Spear {
-        Keep SpearCrafted,
+        SpearCrafted,
         Log,
         
-        Result: UnusableWood=6,
+        Result: SpearCrafted,
         OnGiveXP: Recipe.OnGiveXP.TrainingMeleeWeapon,
 
-        Time: 3000.0,
+        Time: 600.0,
         Prop1: Source=1,
         AnimNode: chop_tree,
         Sound: ChopTree,

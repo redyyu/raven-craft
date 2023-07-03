@@ -213,13 +213,16 @@ function Recipe.OnGiveXP.TrainingMeleeWeapon(recipe, ingredients, result, player
     if perks_type then
         preks_level = player:getPerkLevel(perks_type);
         if preks_level <= 3 then
-            xp_gain = (preks_level + 1) * 10;
+            xp_gain = (preks_level + 1) * 10 * 2;
         else
             xp_gain = 1;
         end
         player:getXp():AddXP(perks_type, xp_gain);
     end
 
+    for i = 1, 6 do
+        player:getInventory():AddItem("Base.UnusableWood");
+    end
 end
 
 
