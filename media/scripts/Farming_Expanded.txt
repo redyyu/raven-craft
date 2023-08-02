@@ -105,17 +105,6 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	recipe Put Wheat in Sack {
-        Wheat=100,
-
-        Result: SackProduce_Wheat,
-        OnCreate: Recipe.OnCreate.OpenSackProduce,
-        OnGiveXP: Recipe.OnGiveXP.None,
-        Sound: PutItemInBag,
-        Time: 30.0,
-        AllowRottenItem: true,
-    }
-
     recipe Open Sack of Wheat {
         SackProduce_Wheat,
 
