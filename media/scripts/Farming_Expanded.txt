@@ -1,0 +1,178 @@
+module RavenCraft 
+{
+	imports {
+	    Base,
+    }
+
+    item Wheat {
+	    DisplayCategory = Gardening,
+		Type = Food,
+		DisplayName = Wheat,
+		Icon = Wheat,
+		Weight = 0.01,
+		DaysFresh =	60,
+		DaysTotallyRotten =	240,
+		FoodType = Vegetables,
+		WorldStaticModel = Seeds_Ground,
+		CantEat = TRUE,
+	}
+
+	item SackProduce_Wheat {
+		DisplayName = Sack of Wheat,
+		DisplayCategory = Food,
+		Type = Food,
+		Weight = 2,
+		Icon = Sandbag,
+		CantEat = TRUE,
+		DaysFresh =	60,
+		DaysTotallyRotten =	240,
+		WorldStaticModel = SandBag,
+	}
+
+	item WheatSeed {
+	    DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Wheat Seeds,
+		Icon = TZ_LRRadishSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+
+	item WheatBagSeed {
+	    DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Wheat Seeds Packet,
+		Icon = SeedpackWheat,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = CarrotSeedBag_Ground,
+	}
+
+	item CornSeed {
+	    DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Corn Seeds,
+		Icon = TZ_TomatoSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+
+	item CornBagSeed {
+	    DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Corn Seeds Packet,
+		Icon = SeedpackCorns,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = CarrotSeedBag_Ground,
+	}
+
+	/* Recipes */
+	
+	recipe Put Corn Seeds in Packet {
+        CornSeed=50,
+
+        Result: CornBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+
+	recipe Open Packet of Corn Seeds {
+		CornBagSeed,
+  
+        Result: CornSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	recipe Put Wheat Seeds in Packet {
+        WheatSeed=50,
+
+        Result: WheatBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+
+	recipe Open Packet of Wheat Seeds {
+		WheatBagSeed,
+  
+        Result: WheatSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	recipe Put Wheat in Sack {
+        Wheat=100,
+
+        Result: SackProduce_Wheat,
+        OnCreate: Recipe.OnCreate.OpenSackProduce,
+        OnGiveXP: Recipe.OnGiveXP.None,
+        Sound: PutItemInBag,
+        Time: 30.0,
+        AllowRottenItem: true,
+    }
+
+    recipe Open Sack of Wheat {
+        SackProduce_Wheat,
+
+        Result: Wheat=100,
+        OnCreate: Recipe.OnCreate.OpenSackProduce,
+        OnGiveXP: Recipe.OnGiveXP.None,
+        Sound: OpenSeedPacket,
+        Time: 15.0,
+        AllowRottenItem: true,
+    }
+
+	recipe Mill Flour {	
+		keep MortarPestle,
+		Wheat = 100,
+		EmptySandbag = 1,
+		
+		Result: Flour,
+		Sound: Dismantle,
+
+		AllowRottenItem: false,
+		StopOnWalk: true,
+		SkillRequired: Cooking=3;Farming=1,
+		OnGiveXP: Recipe.OnGiveXP.Cooking10,
+		Time: 1000.0,
+		Category: Cooking,
+	}
+
+	recipe Mill Corn Flour {	
+		keep MortarPestle,
+		Corn = 30,
+		PaperBag/Paperbag_Spiffos/Paperbag_Jays,
+		
+		Result: Cornflour,
+		Sound: Dismantle,
+
+		AllowRottenItem: false,
+		StopOnWalk: true,
+		SkillRequired: Cooking=3;Farming=1,
+		OnGiveXP: Recipe.OnGiveXP.Cooking10,
+		Time: 1000.0,
+		Category: Cooking,
+	}
+
+	recipe Mill Rice {
+		keep MortarPestle,
+		Wheat = 100,
+		PaperBag/Paperbag_Spiffos/Paperbag_Jays,
+		
+		Result: Rice,
+		Sound: Dismantle,
+
+		AllowRottenItem: false,
+		StopOnWalk: true,
+		SkillRequired: Cooking=3;Farming=1,
+		OnGiveXP: Recipe.OnGiveXP.Cooking10,
+		Time: 1000.0,
+		Category: Cooking,
+	}
+
+}
