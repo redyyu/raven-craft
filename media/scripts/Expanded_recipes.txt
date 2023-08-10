@@ -311,7 +311,6 @@ module RavenCraft
         [Recipe.GetItemTypes.Sugar];6,
         [Recipe.GetItemTypes.Milk]/Yoghurt;4,
         Glue=5,
-        Hairgel=10,
         
         Result: Woodglue,
         SkillRequired: Woodwork=6;Cooking=6;,
