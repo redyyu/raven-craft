@@ -87,7 +87,7 @@ end
 
 
 local function onLowWoodenCrate(worldobjects, player)
-	local crate = ISWoodenContainer:new("location_farm_accesories_01_8", "location_farm_accesories_01_9");
+	local crate = ISWoodenContainer:new("location_shop_greenes_01_35", "location_shop_greenes_01_36");
 	-- crate.firstItem = "Hammer";
 	crate.renderFloorHelper = true
 	crate.canBeAlwaysPlaced = true;
@@ -164,10 +164,10 @@ local function buildExpanedsMenu(subMenu, option, player)
 
 
 	-- Low Wooden Crate --
-	local thumbnail = "location_farm_accesories_01_8";
+	local thumbnail = "location_shop_greenes_01_35";
 	local itemName = getText("ContextMenu_LOW_WOODEN_CRATE");
 	local lowWoodenCrateOption = subMenu:addOption(itemName, worldobjects, onLowWoodenCrate, player);
-	local toolTip = ISBuildMenu.canBuild(2,3,0,0,0,3, lowWoodenCrateOption, player);
+	local toolTip = ISBuildMenu.canBuild(2,3,0,0,0,6, lowWoodenCrateOption, player);
 	toolTip:setName(itemName);
 	toolTip.description = getText("Tooltip_CRAFT_LOWWOODENCRATEDESC") .. toolTip.description;
 	toolTip:setTexture(thumbnail);
