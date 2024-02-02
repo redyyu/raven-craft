@@ -8,6 +8,7 @@ ContextMenu_EN = {
   ContextMenu_HIGH_FENCE_GATE = "High Wooden Fence Gate",
   ContextMenu_DOG_HOUSE = "Dog House",
   ContextMenu_CONCRETE_FLOOR = "Concrete Floor",
+  ContextMenu_LOW_WOODEN_CRATE = "Low Wooden Crate",
 
   -- Metalworking
   ContextMenu_METAL_DOOR = "Metal Door",

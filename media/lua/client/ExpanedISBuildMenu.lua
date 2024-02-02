@@ -86,6 +86,21 @@ local function onDogHouse(worldobjects, player)
 end
 
 
+local function onLowWoodenCrate(worldobjects, player)
+	local crate = ISWoodenContainer:new("location_farm_accesories_01_8", "location_farm_accesories_01_9");
+	-- crate.firstItem = "Hammer";
+	crate.renderFloorHelper = true
+	crate.canBeAlwaysPlaced = true;
+	crate.containerType = "crate";
+    crate.modData["xp:Woodwork"] = 3;
+	crate.modData["need:Base.Plank"] = "2";
+	crate.modData["need:Base.Nails"] = "3";
+	crate.completionSound = "BuildWoodenStructureMedium";
+	crate.player = player
+	getCell():setDrag(crate, player);
+end
+
+
 local function onConcreteFloor(worldobjects, player)
 	local floor = ISWoodenFloor:new("floors_exterior_street_01_17", "blends_street_01_101");
 	local playerObj = getSpecificPlayer(player);
@@ -112,48 +127,54 @@ local function buildExpanedsMenu(subMenu, option, player)
 	local playerInv = playerObj:getInventory();
 
 	-- Outhouse Door --
-	local sprite = {};
-	sprite.sprite = "fixtures_bathroom_02_32";
+	local thumbnail = "fixtures_bathroom_02_32";
 	local itemName = getText("ContextMenu_OUTHOUSE_DOOR");
 	local outhouseDoorOption = subMenu:addOption(itemName, worldobjects, onOuthouseDoor, player);
 	local toolTip = ISBuildMenu.canBuild(4,4,2,1,0,5, outhouseDoorOption, player);
 	toolTip:setName(itemName);
 	toolTip.description = getText("Tooltip_CRAFT_OUTHOUSEDOORDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+	toolTip:setTexture(thumbnail);
 
 	-- High Fence Gate --
-	local sprite = {};
-	sprite.sprite = "fixtures_doors_fences_01_12";
+	local thumbnail = "fixtures_doors_fences_01_12";
 	local itemName = getText("ContextMenu_HIGH_FENCE_GATE");
 	local highFenceGateOption = subMenu:addOption(itemName, worldobjects, onHighFenceGate, player);
 	local toolTip = ISBuildMenu.canBuild(6,6,2,1,0,6, highFenceGateOption, player);
 	toolTip:setName(itemName);
 	toolTip.description = getText("Tooltip_CRAFT_HIGHFENCEGATEDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+	toolTip:setTexture(thumbnail);
 
 	-- Fence Gate --
-	local sprite = {};
-	sprite.sprite = "fixtures_doors_fences_01_4";
+	local thumbnail = "fixtures_doors_fences_01_4";
 	local itemName = getText("ContextMenu_FENCE_GATE");
 	local fenceGateOption = subMenu:addOption(itemName, worldobjects, onFenceGate, player);
 	local toolTip = ISBuildMenu.canBuild(4,4,2,1,0,4, fenceGateOption, player);
 	toolTip:setName(itemName);
 	toolTip.description = getText("Tooltip_CRAFT_FENCEGATEDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+	toolTip:setTexture(thumbnail);
 
 	-- Dog House --
-	local sprite = {};
-	sprite.sprite = "location_farm_accesories_01_8";
+	local thumbnail = "location_farm_accesories_01_8";
 	local itemName = getText("ContextMenu_DOG_HOUSE");
 	local dogHouseOption = subMenu:addOption(itemName, worldobjects, onDogHouse, player);
 	local toolTip = ISBuildMenu.canBuild(10,15,0,0,0,6, dogHouseOption, player);
 	toolTip:setName(itemName);
 	toolTip.description = getText("Tooltip_CRAFT_DOGHOUSEDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+	toolTip:setTexture(thumbnail);
+
+
+	-- Low Wooden Crate --
+	local thumbnail = "location_farm_accesories_01_8";
+	local itemName = getText("ContextMenu_LOW_WOODEN_CRATE");
+	local lowWoodenCrateOption = subMenu:addOption(itemName, worldobjects, onLowWoodenCrate, player);
+	local toolTip = ISBuildMenu.canBuild(2,3,0,0,0,3, lowWoodenCrateOption, player);
+	toolTip:setName(itemName);
+	toolTip.description = getText("Tooltip_CRAFT_LOWWOODENCRATEDESC") .. toolTip.description;
+	toolTip:setTexture(thumbnail);
+
 
 	-- Concrete Floor --
-	local sprite = {};
-	sprite.sprite = "floors_exterior_street_01_17";
+	local thumbnail = "floors_exterior_street_01_17";
 	local itemName = getText("ContextMenu_CONCRETE_FLOOR");
 	local conFloorOption = subMenu:addOption(itemName, worldobjects, onConcreteFloor, player);
 	local toolTip = ISBuildMenu.canBuild(0,0,0,0,0,6, conFloorOption, player);
@@ -182,7 +203,7 @@ local function buildExpanedsMenu(subMenu, option, player)
     end
 
 	toolTip.description = getText("Tooltip_CRAFT_CONCRETEFLOORDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+	toolTip:setTexture(thumbnail);
 
 	-- Parent menu --
 	if outhouseDoorOption.notAvailable and highFenceGateOption.notAvailable and fenceGateOption.notAvailable and dogHouseOption.notAvailable and conFloorOption.notAvailable then

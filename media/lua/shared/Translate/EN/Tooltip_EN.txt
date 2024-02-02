@@ -4,7 +4,8 @@ Tooltip_CRAFT_OUTHOUSEDOORDESC = "Keep your privacy when on the loo. Must be pla
 Tooltip_CRAFT_FENCEGATEDESC = "Basic wooden gate design for wood fences.",
 Tooltip_CRAFT_HIGHFENCEGATEDESC = "High wooden gate design for wood fences., with a hole to peep through.",
 Tooltip_CRAFT_DOGHOUSEDESC = "A house for your dog.",
-Tooltip_CRAFT_CONCRETEFLOORDESC = "Make simple concrete floor."
+Tooltip_CRAFT_CONCRETEFLOORDESC = "Make simple concrete floor.",
+Tooltip_CRAFT_LOWWOODENCRATEDESC = "Used for item storage.",
 
 -- Metalworking
 Tooltip_CRAFT_METALDOORDESC = "Simple door made of metal.",

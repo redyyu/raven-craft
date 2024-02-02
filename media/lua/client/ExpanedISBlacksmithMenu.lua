@@ -119,11 +119,10 @@ local function buildExpanedsMenu(subMenu, option, player)
     local metalDoorOption = {};
     local garageDoorOption = {};
     if playerObj:getKnownRecipes():contains("Make Metal Fences") or ISBuildMenu.cheat then
-        local sprite = {};
-        sprite.sprite = "fixtures_doors_01_52";
+        local thumbnail = "fixtures_doors_01_52";
         local itemName = getText("ContextMenu_METAL_DOOR");
         local metalDoorOption = subMenu:addOption(itemName, worldobjects, onMetalDoor, player)
-        local toolTip = ISBlacksmithMenu.addToolTip(metalDoorOption, itemName, sprite.sprite)
+        local toolTip = ISBlacksmithMenu.addToolTip(metalDoorOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDOORDESC") .. toolTip.description;
 
         local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 2, 2, 2, 8, 4, playerObj, toolTip, 0, 0)
@@ -131,11 +130,10 @@ local function buildExpanedsMenu(subMenu, option, player)
 
         if not canCraft then metalDoorOption.notAvailable = true; end
 
-        local sprite = {};
-        sprite.sprite = "walls_garage_02_1";
+        local thumbnail = "walls_garage_02_1";
         local itemName = getText("ContextMenu_GARAGE_DOOR");
         garageDoorOption = subMenu:addOption(itemName, worldobjects, onGarageDoor, player);
-        local toolTip = ISBlacksmithMenu.addToolTip(garageDoorOption, itemName, sprite.sprite)
+        local toolTip = ISBlacksmithMenu.addToolTip(garageDoorOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_GARAGEDOORDESC") .. toolTip.description;
 
         local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(6, 0, 8, 2, 2, 10, 8, playerObj, toolTip, 0, 5)
@@ -152,11 +150,10 @@ local function buildExpanedsMenu(subMenu, option, player)
     local metalBarGrateOption = {};
     if playerObj:getKnownRecipes():contains("Make Metal Roof") or ISBuildMenu.cheat then
         -- Warehouse Floor --
-        local sprite = {};
-        sprite.sprite = "industry_01_39";
+        local thumbnail = "industry_01_39";
         local itemName = getText("ContextMenu_METAL_GRATE");
         metalGrateOption = subMenu:addOption(itemName, worldobjects, onMetalGrateFloor, player);
-        local toolTip = ISBlacksmithMenu.addToolTip(metalGrateOption, itemName, sprite.sprite)
+        local toolTip = ISBlacksmithMenu.addToolTip(metalGrateOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALGRATEDESC") .. toolTip.description;
 
         local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 0, 0, 4, 4, 8, playerObj, toolTip, 0, 2)
@@ -165,11 +162,10 @@ local function buildExpanedsMenu(subMenu, option, player)
         if not canCraft then metalGrateOption.notAvailable = true; end
 
         -- Enhanced Warehouse Floor --
-        local sprite = {};
-        sprite.sprite = "industry_01_37";
+        local thumbnail = "industry_01_37";
         local itemName = getText("ContextMenu_METAL_BAR_GRATE");
         metalBarGrateOption = subMenu:addOption(itemName, worldobjects, onMetalBarGrateFloor, player);
-        local toolTip = ISBlacksmithMenu.addToolTip(metalBarGrateOption, itemName, sprite.sprite)
+        local toolTip = ISBlacksmithMenu.addToolTip(metalBarGrateOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALBARGRATEDESC") .. toolTip.description;
 
         local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 2, 0, 0, 4, 4, 8, playerObj, toolTip, 0, 2)
@@ -185,13 +181,12 @@ local function buildExpanedsMenu(subMenu, option, player)
     local drumOption = {};
     if playerObj:isRecipeKnown("Make Metal Containers") or ISBuildMenu.cheat then
         -- Metal Drum --
-        local sprite = {};
-        sprite.sprite = "crafted_01_24";
+        local thumbnail = "crafted_01_24";
 
         local itemName = getText("ContextMenu_METAL_DRUM");
         -- local barrelName = getText("ContextMenu_METAL_BARREL");
         drumOption = subMenu:addOption(itemName, worldobjects, onMetalDrum, player);
-        local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, sprite.sprite)
+        local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
         
         local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 4, 0, 6, 6, 8, playerObj, toolTip, 0, 0)
