@@ -72,7 +72,7 @@ module RavenCraft
 	item PeanutsSeed {
 	    DisplayCategory = Gardening,
 		Type = Normal,
-		DisplayName = Corn Seeds,
+		DisplayName = Peanuts Seeds,
 		Icon = TZ_LRRadishSeeds,
 		Weight = 0.009,
 		SurvivalGear = TRUE,
@@ -82,7 +82,7 @@ module RavenCraft
 	item PeanutsBagSeed {
 	    DisplayCategory = Gardening,
 		Type = Normal,
-		DisplayName = Corn Seeds Packet,
+		DisplayName =Peanuts Seeds Packet,
 		Icon = SeedpackPeanuts,
 		Weight = 0.1,
 		SurvivalGear = TRUE,

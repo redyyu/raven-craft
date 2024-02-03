@@ -24,6 +24,8 @@ function SFarmingSystem:growPlant(luaObject, nextGrowing, updateNbOfGrow)
 			luaObject = farming_vegetableconf.growCabbage(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "Corn") then
 			luaObject = farming_vegetableconf.growCorn(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Peanuts") then
+			luaObject = farming_vegetableconf.growCorn(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "Wheat") then
 			luaObject = farming_vegetableconf.growWheat(luaObject, nextGrowing, updateNbOfGrow)
 		end
@@ -55,6 +57,8 @@ function SPlantGlobalObject:rottenThis()
 		texture = "vegetation_farming_01_31"
 	elseif self.typeOfSeed == "Corn" then
 		texture = "vegetation_farming_01_79"
+	elseif self.typeOfSeed == "Peanuts" then
+		texture = "vegetation_farming_01_47"
 	elseif self.typeOfSeed == "Wheat" then
 		texture = "vegetation_farm_01_34"
 	end

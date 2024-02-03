@@ -2,4 +2,5 @@ Farming_EN = {
   -- vegetables name (type of seed)
 	Farming_Wheat = "Wheat",
   Farming_Corn = "Corn",
+  Farming_Peanuts = "Peanuts",
 }

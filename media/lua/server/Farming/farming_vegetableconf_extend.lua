@@ -31,6 +31,7 @@ farming_vegetableconf.sprite["Corn"] = {
 
 -- Need 6 seeds
 -- Water lvl over 70
+-- need 4 weeks (112 hours per phase)
 -- Need 20 to 24 weeks to grow
 farming_vegetableconf.growCorn = function(planting, nextGrowing, updateNbOfGrow)
 	local nbOfGrow = planting.nbOfGrow;
@@ -77,34 +78,35 @@ print(spray)
 
 
 -- Peanuts
-farming_vegetableconf.icons["Peanuts"] = "Item_Peanuts";
+farming_vegetableconf.icons["Peanuts"] = "Item_Peanut";
 
 farming_vegetableconf.props["Peanuts"] = {};
-farming_vegetableconf.props["Peanuts"].seedsRequired = 4;
-farming_vegetableconf.props["Peanuts"].texture = "vegetation_farming_01_78";
+farming_vegetableconf.props["Peanuts"].seedsRequired = 9;
+farming_vegetableconf.props["Peanuts"].texture = "vegetation_farming_01_45";
 farming_vegetableconf.props["Peanuts"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Peanuts"].waterLvl = 65;
-farming_vegetableconf.props["Peanuts"].minVeg = 3;
-farming_vegetableconf.props["Peanuts"].maxVeg = 4;
-farming_vegetableconf.props["Peanuts"].minVegAutorized = 5;
-farming_vegetableconf.props["Peanuts"].maxVegAutorized = 9;
+farming_vegetableconf.props["Peanuts"].minVeg = 4;
+farming_vegetableconf.props["Peanuts"].maxVeg = 6;
+farming_vegetableconf.props["Peanuts"].minVegAutorized = 9;
+farming_vegetableconf.props["Peanuts"].maxVegAutorized = 11;
 farming_vegetableconf.props["Peanuts"].vegetableName = "Base.Peanuts";
 farming_vegetableconf.props["Peanuts"].seedName = "RavenCraft.PeanutsSeed";
 farming_vegetableconf.props["Peanuts"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Peanuts"] = {
-"vegetation_farming_01_72",
-"vegetation_farming_01_73",
-"vegetation_farming_01_74",
-"vegetation_farming_01_75",
-"vegetation_farming_01_76",
-"vegetation_farming_01_77",
-"vegetation_farming_01_78",
-"vegetation_farming_01_79"
+"vegetation_farming_01_40",
+"vegetation_farming_01_41",
+"vegetation_farming_01_42",
+"vegetation_farming_01_43",
+"vegetation_farming_01_44",
+"vegetation_farming_01_46",
+"vegetation_farming_01_45",
+"vegetation_farming_01_47"
 }
 
--- Need 4 seeds
+-- Need 6 seeds
 -- Water lvl over 65
+-- Need 3 weeks (84h per phase)
 -- Need 16 to 20 weeks to grow
 farming_vegetableconf.growPeanuts = function(planting, nextGrowing, updateNbOfGrow)
 	local nbOfGrow = planting.nbOfGrow;
@@ -112,7 +114,7 @@ farming_vegetableconf.growPeanuts = function(planting, nextGrowing, updateNbOfGr
 	local diseaseLvl = farming_vegetableconf.calcDisease(planting.mildewLvl);
 	if(nbOfGrow == 0) then -- young
 		planting = growNext(planting, farming_vegetableconf.getSpriteName(planting), farming_vegetableconf.getObjectName(planting), nextGrowing, farming_vegetableconf.props[planting.typeOfSeed].timeToGrow + water + diseaseLvl);
-		planting.waterNeeded = 75;
+		planting.waterNeeded = 70;
 	elseif (nbOfGrow <= 4) then -- young
 		if(water >= 0 and diseaseLvl >= 0) then
 			planting = growNext(planting, farming_vegetableconf.getSpriteName(planting), farming_vegetableconf.getObjectName(planting), nextGrowing, farming_vegetableconf.props[planting.typeOfSeed].timeToGrow + water + diseaseLvl);
@@ -154,7 +156,7 @@ print(spray)
 farming_vegetableconf.icons["Wheat"] = "Item_Wheat";
 
 farming_vegetableconf.props["Wheat"] = {};
-farming_vegetableconf.props["Wheat"].seedsRequired = 5;
+farming_vegetableconf.props["Wheat"].seedsRequired = 4;
 farming_vegetableconf.props["Wheat"].texture = "vegetation_farming_01_76";
 farming_vegetableconf.props["Wheat"].timeToGrow = ZombRand(103, 117);
 farming_vegetableconf.props["Wheat"].waterLvl = 75;
@@ -179,6 +181,7 @@ farming_vegetableconf.sprite["Wheat"] = {
 
 -- need 5 seeds
 -- need to have more than 75 water lvl
+-- need 4 weeks (112 hours per phase)
 -- Need 20 to 24 weeks to grow
 farming_vegetableconf.growWheat = function(planting, nextGrowing, updateNbOfGrow)
 	local nbOfGrow = planting.nbOfGrow;
@@ -188,7 +191,7 @@ farming_vegetableconf.growWheat = function(planting, nextGrowing, updateNbOfGrow
 		nbOfGrow = 0;
 		planting.nbOfGrow = 0;
 		planting = growNext(planting, farming_vegetableconf.getSpriteName(planting), farming_vegetableconf.getObjectName(planting), nextGrowing, (farming_vegetableconf.props[planting.typeOfSeed].timeToGrow * 0.5) + water + diseaseLvl);
-		planting.waterNeeded = 75;
+		planting.waterNeeded = 80;
 	elseif (nbOfGrow <= 4) then -- young
 		if(water >= 0 and diseaseLvl >= 0) then
 			planting = growNext(planting, farming_vegetableconf.getSpriteName(planting), farming_vegetableconf.getObjectName(planting), nextGrowing, (farming_vegetableconf.props[planting.typeOfSeed].timeToGrow * 1.5) + water + diseaseLvl);
