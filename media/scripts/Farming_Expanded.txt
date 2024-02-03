@@ -205,15 +205,15 @@ module RavenCraft
 	recipe Mill PeanutButter {	
 		keep MortarPestle,
 		Peanuts = 10,
-		EmptyJar,
-        JarLid,
-		
+		Water = 2,
+		[Recipe.GetItemTypes.Sugar];4,
+		farming.RemouladeEmpty/farming.MayonnaiseEmpty,
 		Result: PeanutButter,
 		Sound: Dismantle,
 
 		AllowRottenItem: false,
 		StopOnWalk: true,
-		SkillRequired: Cooking=3;Farming=1,
+		SkillRequired: Cooking=4;Farming=1,
 		OnGiveXP: Recipe.OnGiveXP.Cooking10,
 		Time: 1000.0,
 		Category: Cooking,
