@@ -16,7 +16,7 @@ farming_vegetableconf.props["Corn"].minVegAutorized = 6;
 farming_vegetableconf.props["Corn"].maxVegAutorized = 12;
 farming_vegetableconf.props["Corn"].vegetableName = "Base.Corn";
 farming_vegetableconf.props["Corn"].seedName = "RavenCraft.CornSeed";
-farming_vegetableconf.props["Corn"].seedPerVeg = 4;
+farming_vegetableconf.props["Corn"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Corn"] = {
 "vegetation_farming_01_72",
@@ -89,7 +89,7 @@ farming_vegetableconf.props["Wheat"].minVegAutorized = 12;
 farming_vegetableconf.props["Wheat"].maxVegAutorized = 24;
 farming_vegetableconf.props["Wheat"].vegetableName = "RavenCraft.Wheat";
 farming_vegetableconf.props["Wheat"].seedName = "RavenCraft.WheatSeed";
-farming_vegetableconf.props["Wheat"].seedPerVeg = 4;
+farming_vegetableconf.props["Wheat"].seedPerVeg = 1;
 
 farming_vegetableconf.sprite["Wheat"] = {
 "vegetation_farming_01_72",
