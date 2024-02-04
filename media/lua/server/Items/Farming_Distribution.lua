@@ -5,6 +5,7 @@ require "utils"
 
 local ITEMS_WEIGHT = {
     [".CornBagSeed"]=1,
+    [".PeanutsBagSeed"]=1,
     [".WheatBagSeed"]=1,
 }
 
