@@ -3,10 +3,12 @@ require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
 require "utils"
 
+local loot_chance = SandboxVars.RavenCraft.LootChance;
+local loot_chance_percent = loot_chance / 100;
 
 local ITEMS_WEIGHT = {
-    [".BoxOfSalt"]=4,
-    [".Salt"]=1,
+    [".BoxOfSalt"] = 6 * loot_chance_percent,
+    [".Salt"] = 2 * loot_chance_percent,
 }
 
 

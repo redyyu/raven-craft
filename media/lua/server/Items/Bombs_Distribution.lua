@@ -5,14 +5,16 @@ require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
 require "utils"
 
+local loot_chance = SandboxVars.RavenCraft.LootChance;
+local loot_chance_percent = loot_chance / 100;
 
 local ITEMS_WEIGHT = {
-    ["PipeBomb"]=1,
-    ["NoiseTrap"]=1,
-    ["AerosolBomb"]=1,
-    ["FlameTrap"]=1,
-    ["SmokeBomb"]=1,
-    ["Molotov"]=1,
+    ["PipeBomb"] = 1 * loot_chance_percent,
+    ["NoiseTrap"] = 2 * loot_chance_percent,
+    ["AerosolBomb"] = 1 * loot_chance_percent,
+    ["FlameTrap"] = 1 * loot_chance_percent,
+    ["SmokeBomb"] = 1 * loot_chance_percent,
+    ["Molotov"] = 2 * loot_chance_percent,
 }
 
 utils.insertDistribution(SuburbsDistributions["SurvivorCache1"]["SurvivorCrate"], ITEMS_WEIGHT, 8);

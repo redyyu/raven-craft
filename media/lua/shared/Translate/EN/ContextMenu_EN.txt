@@ -27,4 +27,6 @@ ContextMenu_EN = {
   ContextMenu_TAKE_BARREL = "Take Barrel",
   ContextMenu_WORKBENCH = "Workbench"
   ContextMenu_GUN_SUICIDE = "Suicide by Gun"
+  ContextMenu_TAKE_INJECTION = "Take Injection",
+
 }

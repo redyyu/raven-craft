@@ -23,3 +23,5 @@ Tooltip_CHARCOAL_LOGS = "Add %1 logs to make charcoal, once done, light the barr
 
 Tooltip_SUICIDE_CONFIRM = "Do you really want kill yourself?",
 Tooltip_NO_AMMO = "You need a loaded gun."
+
+Tooltip_CURE_INJECTION = "Have a chance to Fights zombification, take it before the symptoms start."

@@ -3,10 +3,13 @@ require "Vehicles/VehicleDistributions"
 require "utils"
 
 
+local loot_chance = SandboxVars.RavenCraft.LootChance;
+local loot_chance_percent = loot_chance / 100;
+
 local ITEMS_WEIGHT = {
-    [".CornBagSeed"]=1,
-    [".PeanutsBagSeed"]=1,
-    [".WheatBagSeed"]=1,
+    [".CornBagSeed"] = 2 * loot_chance_percent,
+    [".PeanutsBagSeed"] = 2 * loot_chance_percent,
+    [".WheatBagSeed"] = 2 * loot_chance_percent,
 }
 
 utils.insertDistribution(ProceduralDistributions.list["CrateFarming"], ITEMS_WEIGHT, 8);

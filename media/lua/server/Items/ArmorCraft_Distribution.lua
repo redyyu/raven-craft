@@ -3,10 +3,13 @@ require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
 require "utils"
 
+local loot_chance = SandboxVars.RavenCraft.LootChance;
+local loot_chance_percent = loot_chance / 100;
+
 local ITEMS_WEIGHT = {
-    [".ElbowPads"]=1,
-    [".KneePads"]=1,
-    [".ShoulderPads"]=1,
+    [".ElbowPads"] = 1 * loot_chance_percent,
+    [".KneePads"] = 1 * loot_chance_percent,
+    [".ShoulderPads"] = 1 * loot_chance_percent,
 }
 
 

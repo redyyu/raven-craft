@@ -1,0 +1,24 @@
+module RavenCraft
+{
+    imports {
+	    Base,
+    }
+
+    /** Cure **/
+
+    item CureInjection {
+		DisplayCategory = FirstAid,
+        Weight = 0.1,
+        Type = Food,
+        DisplayName	= Mysterious Serum Injection,
+        Icon = CureInjection,
+		OnEat = OnTake_CureInjection,
+        CustomContextMenu = TAKE_INJECTION,
+        CantBeFrozen = TRUE,
+        Tooltip = Tooltip_CURE_INJECTION,
+        Medical = TRUE,
+        WorldStaticModel = Tweezers,
+    }
+
+
+}
