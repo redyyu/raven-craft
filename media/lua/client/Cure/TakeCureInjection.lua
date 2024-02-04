@@ -4,7 +4,7 @@ function OnTake_CureInjection(food, player, percent)
 		if bodyDamage:getInfectionLevel() <= 25 then
 			ExecCureInjection(bodyDamage, 1.0);
 		else
-			ExecCureInjection(bodyDamage, (bodyDamage:getInfectionLevel() - 25) / 200);
+			ExecCureInjection(bodyDamage, (bodyDamage:getInfectionLevel() - 25) / 100);
 		end
 	end
 
