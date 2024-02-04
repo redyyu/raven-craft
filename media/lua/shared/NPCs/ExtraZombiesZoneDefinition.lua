@@ -15,7 +15,7 @@ table.insert(ZombiesZoneDefinition.SecretBase, {name = "ArmoredArmy", chance=2*s
 table.insert(ZombiesZoneDefinition.Survivalist, {name = "ArmoredSurvivalist", chance=2*spawn_chance_percent});
 
 -- Add more HazardSuit for get Cure Injection
-table.insert(ZombiesZoneDefinition.Prison, {name = "HazardSuit", chance=30*spawn_chance_percent});
-table.insert(ZombiesZoneDefinition.Army, {name = "HazardSuit", chance=30*spawn_chance_percent});
-table.insert(ZombiesZoneDefinition.SecretBase, {name = "HazardSuit", chance=50*spawn_chance_percent});
+table.insert(ZombiesZoneDefinition.Prison, {name = "HazardSuit", chance=20*spawn_chance_percent});
+table.insert(ZombiesZoneDefinition.Army, {name = "HazardSuit", chance=20*spawn_chance_percent});
+table.insert(ZombiesZoneDefinition.SecretBase, {name = "HazardSuit", chance=40*spawn_chance_percent});
 table.insert(ZombiesZoneDefinition.Default, {name = "HazardSuit", chance=0.02*spawn_chance_percent});
