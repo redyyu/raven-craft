@@ -204,7 +204,7 @@ module RavenCraft
 
 	recipe Mill PeanutButter {	
 		keep MortarPestle,
-		Peanuts = 10,
+		Peanuts;100,
 		Water = 2,
 		[Recipe.GetItemTypes.Sugar];4,
 		farming.RemouladeEmpty/farming.MayonnaiseEmpty,
