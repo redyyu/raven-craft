@@ -173,7 +173,7 @@ module RavenCraft
 	recipe Mill Corn Flour {	
 		keep MortarPestle,
 		Corn = 30,
-		PaperBag/Paperbag_Spiffos/Paperbag_Jays,
+		PaperBag/Paperbag_Spiffos/Paperbag_Jays/Lunchbag,
 		
 		Result: Cornflour,
 		Sound: Dismantle,
@@ -189,7 +189,7 @@ module RavenCraft
 	recipe Mill Rice {
 		keep MortarPestle,
 		Wheat = 100,
-		PaperBag/Paperbag_Spiffos/Paperbag_Jays,
+		PaperBag/Paperbag_Spiffos/Paperbag_Jays/Lunchbag,
 		
 		Result: Rice,
 		Sound: Dismantle,

@@ -3,6 +3,22 @@ module Base
 
 	/* Override Metalworks */
 
+    item PropaneTank
+	{
+	    DisplayCategory = Material,
+		Weight	=	10.0,
+		Type	=	Drainable,
+		UseWhileEquipped	=	FALSE,
+		UseDelta	=	0.03125,
+		DisplayName	=	Propane Tank,
+		Icon	=	PropaneTank,
+		UseWorldItem = TRUE,
+		ScaleWorldIcon = 2.0,
+		WeightEmpty = 5.0,
+		WorldStaticModel = PropaneTank,
+		cantBeConsolided = TRUE,
+	}
+
 	item UnusableMetal {
         DisplayCategory = Material,
         Weight = 1,
