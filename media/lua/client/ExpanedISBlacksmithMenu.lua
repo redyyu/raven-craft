@@ -6,7 +6,7 @@ local oldDoBuild = ISBlacksmithMenu.doBuildMenu
 
 
 local function onMetalDoor(worldobjects, player)
-    local fence = ISWoodenDoor:new("fixtures_doors_01_52","fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
+    local fence = ISWoodenDoor:new("fixtures_doors_01_52", "fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
     fence.name = "Metal Door";
     fence.firstItem = "BlowTorch";
     fence.secondItem = "WeldingMask";
@@ -28,7 +28,7 @@ end
 
 
 local function onGarageDoor(worldobjects, player)
-    local door =  ISGarageDoor:renew("walls_garage_02_", 0)
+    local door = ISGarageDoor:renew("walls_garage_02_", 0)
     door.name = "Rolling Garage Door";
     door.firstItem = "BlowTorch";
     door.secondItem = "WeldingMask";
@@ -51,7 +51,7 @@ end
 
 
 local function onMetalGrateFloor(worldobjects, player)
-    local floor =  ISWoodenFloor:new("industry_01_39", "industry_01_39")
+    local floor = ISWoodenFloor:new("industry_01_39", "industry_01_39")
     floor.name = "Metal Grate Floor";
     floor.firstItem = "BlowTorch";
     floor.secondItem = "WeldingMask";
@@ -72,7 +72,7 @@ local function onMetalGrateFloor(worldobjects, player)
 end
 
 local function onMetalBarGrateFloor(worldobjects, player)
-    local floor =  ISWoodenFloor:new("industry_01_37", "industry_01_38")
+    local floor = ISWoodenFloor:new("industry_01_37", "industry_01_38")
     floor.name = "Metal Bar Grate Floor";
     floor.firstItem = "BlowTorch";
     floor.secondItem = "WeldingMask";
@@ -93,6 +93,27 @@ local function onMetalBarGrateFloor(worldobjects, player)
     getCell():setDrag(floor, player);
 end
 
+
+local function onMetalBarHandrail(worldobjects, player)
+    local handrail = ISWoodenWall:new("fixtures_railings_01_48", "fixtures_railings_01_49", nil)
+    handrail.name = "Metal Bar Handrail";
+    handrail.firstItem = "BlowTorch";
+    handrail.secondItem = "WeldingMask";
+    handrail.noNeedHammer = true;
+    handrail.craftingBank = "BlowTorch";
+    handrail.actionAnim = "BlowTorchFloor";
+    handrail.hoppable = true;
+    handrail.isThumpable = false;
+    handrail.canBarricade = false;
+    handrail.modData["xp:MetalWelding"] = 5;
+    handrail.modData["need:Base.MetalPipe"]= 3;
+    handrail.modData["need:Base.ScrapMetal"]= 4;
+    handrail.modData["use:Base.BlowTorch"] = 4;
+    handrail.modData["use:Base.WeldingRods"] = 2;  -- must be half of Torch use.
+    handrail.completionSound = "BuildMetalStructureSmallScrap";
+    handrail.player = player
+    getCell():setDrag(handrail, player);
+end
 
 local function onMetalDrum(worldobjects, player)
     local barrel = ISMetalDrum:new(player, "crafted_01_24");
@@ -156,7 +177,7 @@ local function buildExpanedsMenu(subMenu, option, player)
         local toolTip = ISBlacksmithMenu.addToolTip(metalGrateOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALGRATEDESC") .. toolTip.description;
 
-        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 0, 0, 4, 4, 8, playerObj, toolTip, 0, 2)
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 0, 0, 4, 4, 6, playerObj, toolTip, 0, 2)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then metalGrateOption.notAvailable = true; end
@@ -168,10 +189,22 @@ local function buildExpanedsMenu(subMenu, option, player)
         local toolTip = ISBlacksmithMenu.addToolTip(metalBarGrateOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALBARGRATEDESC") .. toolTip.description;
 
-        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 2, 0, 0, 4, 4, 8, playerObj, toolTip, 0, 2)
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 2, 0, 0, 4, 4, 6, playerObj, toolTip, 0, 2)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then metalBarGrateOption.notAvailable = true; end
+
+        -- Warehouse Handrail --
+        local thumbnail = "fixtures_railings_01_48";
+        local itemName = getText("ContextMenu_METAL_BAR_HANDRAIL");
+        metalBarRailOption = subMenu:addOption(itemName, worldobjects, onMetalBarHandrail, player);
+        local toolTip = ISBlacksmithMenu.addToolTip(metalBarRailOption, itemName, thumbnail)
+        toolTip.description = getText("Tooltip_CRAFT_METALBARHANDRAILEDESC") .. toolTip.description;
+
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(3, 0, 0, 0, 4, 4, 6, playerObj, toolTip, 0, 0)
+        -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
+
+        if not canCraft then metalBarRailOption.notAvailable = true; end
 
     else
         metalGrateOption.notAvailable = not(ISBuildMenu.cheat);
@@ -189,7 +222,7 @@ local function buildExpanedsMenu(subMenu, option, player)
         local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
         
-        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 4, 0, 6, 6, 8, playerObj, toolTip, 0, 0)
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 4, 0, 6, 6, 7, playerObj, toolTip, 0, 0)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then drumOption.notAvailable = true; end

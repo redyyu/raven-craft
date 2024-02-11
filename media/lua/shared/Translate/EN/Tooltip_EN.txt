@@ -12,6 +12,7 @@ Tooltip_CRAFT_METALDOORDESC = "Simple door made of metal.",
 Tooltip_CRAFT_GARAGEDOORDESC = "Simple rolling garage gate. incase the old one destoryed by Zombie.",
 Tooltip_CRAFT_METALGRATEDESC = "Warehouse metal grate floor."
 Tooltip_CRAFT_METALBARGRATEDESC = "Harder Warehouse metal grate floor."
+Tooltip_CRAFT_METALBARHANDRAILEDESC = "Warehouse metal handrail."
 Tooltip_CRAFT_METALDRUMDESC = "Metal Drum to collect rain or make charcoal."
 Tooltip_CRAFT_STONEFURNACEDESC = "Used to melt metallic items into workable iron.",
 Tooltip_CRAFT_ANVILDESC = "Use it to forge various metal objects.",
