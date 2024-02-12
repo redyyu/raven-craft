@@ -93,7 +93,7 @@ local function onLowWoodenCrate(worldobjects, player)
 	crate.canBeAlwaysPlaced = true;
 	crate.containerType = "crate";
     crate.modData["xp:Woodwork"] = 3;
-	crate.modData["need:Base.Plank"] = "2";
+	crate.modData["need:Base.Plank"] = "3";
 	crate.modData["need:Base.Nails"] = "3";
 	crate.completionSound = "BuildWoodenStructureMedium";
 	crate.player = player
@@ -167,7 +167,7 @@ local function buildExpanedsMenu(subMenu, option, player)
 	local thumbnail = "location_shop_greenes_01_35";
 	local itemName = getText("ContextMenu_LOW_WOODEN_CRATE");
 	local lowWoodenCrateOption = subMenu:addOption(itemName, worldobjects, onLowWoodenCrate, player);
-	local toolTip = ISBuildMenu.canBuild(2,3,0,0,0,6, lowWoodenCrateOption, player);
+	local toolTip = ISBuildMenu.canBuild(3,3,0,0,0,6, lowWoodenCrateOption, player);
 	toolTip:setName(itemName);
 	toolTip.description = getText("Tooltip_CRAFT_LOWWOODENCRATEDESC") .. toolTip.description;
 	toolTip:setTexture(thumbnail);
