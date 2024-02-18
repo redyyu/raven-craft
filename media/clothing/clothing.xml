@@ -112,18 +112,22 @@
 		</m_items>
         <!-- Knee Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>cdddf6b2-a238-428f-bb12-93f526b08dbd</itemGUID>
 		</m_items>
 		<!-- Hand Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>65e72f8f-6798-4419-ba32-e37b5a837708</itemGUID>
 		</m_items>
 		<!-- Elbow Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</itemGUID>
 		</m_items>
 		<!-- Shoulder Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>6aaab72d-2ec9-4d15-9ff8-4eaa5ba8c5d7</itemGUID>
 		</m_items>
 	</m_FemaleOutfits>
@@ -238,18 +242,22 @@
 		</m_items>
         <!-- Knee Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>cdddf6b2-a238-428f-bb12-93f526b08dbd</itemGUID>
 		</m_items>
 		<!-- Hand Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>65e72f8f-6798-4419-ba32-e37b5a837708</itemGUID>
 		</m_items>
 		<!-- Elbow Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</itemGUID>
 		</m_items>
 		<!-- Shoulder Pads -->
 		<m_items>
+			<probability>0.6</probability>
 			<itemGUID>6aaab72d-2ec9-4d15-9ff8-4eaa5ba8c5d7</itemGUID>
 		</m_items>
 	</m_MaleOutfits>
@@ -354,18 +362,22 @@
 		</m_items>
 		<!-- Knee Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>cdddf6b2-a238-428f-bb12-93f526b08dbd</itemGUID>
 		</m_items>
 		<!-- Hand Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>65e72f8f-6798-4419-ba32-e37b5a837708</itemGUID>
 		</m_items>
 		<!-- Elbow Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</itemGUID>
 		</m_items>
 		<!-- Shoulder Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>6aaab72d-2ec9-4d15-9ff8-4eaa5ba8c5d7</itemGUID>
 		</m_items>
 	</m_FemaleOutfits>
@@ -469,18 +481,22 @@
 		</m_items>
 		<!-- Knee Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>cdddf6b2-a238-428f-bb12-93f526b08dbd</itemGUID>
 		</m_items>
 		<!-- Hand Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>65e72f8f-6798-4419-ba32-e37b5a837708</itemGUID>
 		</m_items>
 		<!-- Elbow Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</itemGUID>
 		</m_items>
 		<!-- Shoulder Pads -->
 		<m_items>
+			<probability>0.8</probability>
 			<itemGUID>6aaab72d-2ec9-4d15-9ff8-4eaa5ba8c5d7</itemGUID>
 		</m_items>
 	</m_MaleOutfits>
@@ -638,18 +654,22 @@
 		</m_items>
 		<!-- Knee Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>cdddf6b2-a238-428f-bb12-93f526b08dbd</itemGUID>
 		</m_items>
 		<!-- Hand Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>65e72f8f-6798-4419-ba32-e37b5a837708</itemGUID>
 		</m_items>
 		<!-- Elbow Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</itemGUID>
 		</m_items>
 		<!-- Shoulder Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>6aaab72d-2ec9-4d15-9ff8-4eaa5ba8c5d7</itemGUID>
 		</m_items>
 	</m_FemaleOutfits>
@@ -805,18 +825,22 @@
 		</m_items>
 		<!-- Knee Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>cdddf6b2-a238-428f-bb12-93f526b08dbd</itemGUID>
 		</m_items>
 		<!-- Hand Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>65e72f8f-6798-4419-ba32-e37b5a837708</itemGUID>
 		</m_items>
 		<!-- Elbow Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</itemGUID>
 		</m_items>
 		<!-- Shoulder Pads -->
 		<m_items>
+			<probability>0.4</probability>
 			<itemGUID>6aaab72d-2ec9-4d15-9ff8-4eaa5ba8c5d7</itemGUID>
 		</m_items>
 	</m_MaleOutfits>

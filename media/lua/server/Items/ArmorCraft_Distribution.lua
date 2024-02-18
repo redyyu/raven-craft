@@ -10,6 +10,7 @@ local ITEMS_WEIGHT = {
     [".ElbowPads"] = 1 * loot_chance_percent,
     [".KneePads"] = 1 * loot_chance_percent,
     [".ShoulderPads"] = 1 * loot_chance_percent,
+    [".HandPads"] = 1 * loot_chance_percent,
 }
 
 

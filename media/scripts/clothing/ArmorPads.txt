@@ -18,14 +18,14 @@ module RavenCraft
 		ClothingItem = ElbowPads,
 		BodyLocation = ArmsArmor,
 		BloodLocation = LowerArms,
-		Icon = Eyepatch,  /* use similar item icon from vanilla. */
+		Icon = ElbowPads,
 		Weight = 0.3,
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
-		ScratchDefense = 25,
-		BiteDefense = 20,
+		ScratchDefense = 35,
+		BiteDefense = 25,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -37,13 +37,13 @@ module RavenCraft
 		ClothingItem = KneePads,
 		BodyLocation = LegsArmor,
 		BloodLocation = LowerLegs,
-		Icon = Eyepatch,  /* use similar item icon from vanilla. */
+		Icon = KneePads,
 		Weight = 0.3,
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 25,
-		BiteDefense = 20,
+		ScratchDefense = 35,
+		BiteDefense = 25,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -54,14 +54,14 @@ module RavenCraft
 		ClothingItem = ShoulderPads,
 		BodyLocation = ShoulderArmor,
 		BloodLocation = UpperArms,
-		Icon = RifleRecoilPad,  /* use similar item icon from vanilla. */
+		Icon = ShoulderPads,
 		Weight = 0.6,
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		CombatSpeedModifier = 0.95,
-		ScratchDefense = 35,
-		BiteDefense = 30,
+		ScratchDefense = 45,
+		BiteDefense = 35,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -72,13 +72,13 @@ module RavenCraft
 		ClothingItem = HandPads,
 		BodyLocation = HandsArmor,
 		BloodLocation = Hands,
-		Icon = Eyepatch,  /* use similar item icon from vanilla. */
-		Weight = 0.3,
+		Icon = HandPads,
+		Weight = 0.2,
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 25,
-		BiteDefense = 20,
+		ScratchDefense = 45,
+		BiteDefense = 35,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 }
