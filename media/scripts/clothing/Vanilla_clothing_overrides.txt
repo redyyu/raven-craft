@@ -1,0 +1,181 @@
+module Base
+{
+    /* LongJohns */
+
+	item LongJohns {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Long Johns,
+        ClothingItem = LongJohns,
+        BodyLocation = Torso1Legs1,
+        BloodLocation = Trousers;ShirtLongSleeves,
+        IconsForTexture = Longjohns;Longjohns_tan;Longjohns_black,
+        Insulation = 0.3,
+        WindResistance = 0.15,
+        FabricType = Cotton,
+        WorldStaticModel = BoilerSuit_Ground,
+    }
+    
+	item LongJohns_Bottoms {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Long Johns Bottoms,
+        ClothingItem = LongJohns_Bottoms,
+        BodyLocation = Legs1,
+        BloodLocation = Trousers,
+        IconsForTexture = TrousersLongjohns;LongJohns_Bottoms_Tan;LongJohns_Bottoms_Black,
+        Insulation = 0.3,
+        WindResistance = 0.15,
+        FabricType = Cotton,
+        WorldStaticModel = Trousers_Ground,
+    }
+
+    item LongJohns_Bottoms {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Long Johns Bottoms,
+        ClothingItem = LongJohns_Bottoms,
+        BodyLocation = Legs1,
+        BloodLocation = Trousers,
+        IconsForTexture = TrousersLongjohns;LongJohns_Bottoms_Tan;LongJohns_Bottoms_Black,
+        Insulation = 0.3,
+        WindResistance = 0.15,
+        FabricType = Cotton,
+        WorldStaticModel = Trousers_Ground,
+    }
+
+
+    /* Gloves */
+
+    item Gloves_FingerlessGloves
+	{
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Fingerless Gloves,
+		ClothingItem = Gloves_FingerlessGloves,
+		BodyLocation = Hands,
+		BloodLocation = Hands,
+		Icon = GlovesFingerlessWhite,
+        ScratchDefense = 10,
+        BiteDefense = 5,
+		Weight = 0.1,
+        Insulation = 0.25,
+        WindResistance = 0.3,
+        WorldStaticModel = Gloves_Ground,
+	}
+	item Gloves_LeatherGloves
+	{
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Leather Gloves,
+		ClothingItem = Gloves_LeatherGloves,
+		BodyLocation = Hands,
+		IconsForTexture = GlovesLeatherBlackpng;GlovesLeatherBrown,
+		BloodLocation = Hands,
+		ScratchDefense = 30,
+        BiteDefense = 15,
+        Weight = 0.1,
+        Insulation = 0.75,
+        WindResistance = 0.75,
+        FabricType = Leather,
+        WorldStaticModel = Gloves_Ground,
+	}
+	item Gloves_LeatherGlovesBlack
+	{
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Leather Gloves,
+		ClothingItem = Gloves_LeatherGlovesBlack,
+		BodyLocation = Hands,
+		BloodLocation = Hands,
+		Icon = GlovesLeatherBlackpng,
+		ScratchDefense = 30,
+        BiteDefense = 15,
+        Weight = 0.1,
+        Insulation = 0.75,
+        WindResistance = 0.75,
+        FabricType = Leather,
+        WorldStaticModel = Gloves_Ground,
+	}
+	item Gloves_LongWomenGloves
+	{
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Long Gloves,
+		ClothingItem = Gloves_LongWomenGloves,
+		BodyLocation = Hands,
+		BloodLocation = Hands,
+		Icon = GlovesLongBlack,
+		Weight = 0.1,
+        Insulation = 0.5,
+        WindResistance = 0.5,
+        FabricType = Cotton,
+        WorldStaticModel = GlovesLong_Ground,
+	}
+	item Gloves_WhiteTINT
+	{
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Gloves,
+		ClothingItem = Gloves_WhiteTINT,
+		BodyLocation = Hands,
+		BloodLocation = Hands,
+		Icon = GlovesWoolyWhite,
+        ScratchDefense = 15,
+        BiteDefense = 10,
+		Weight = 0.1,
+        Insulation = 1.0,
+        WindResistance = 1.0,
+        FabricType = Cotton,
+        WorldStaticModel = Gloves_Ground,
+	}
+	item Gloves_Surgical
+	{
+	    DisplayCategory = FirstAid,
+		Type = Clothing,
+		DisplayName = Surgical Gloves,
+		ClothingItem = Gloves_Surgical,
+		BodyLocation = Hands,
+		BloodLocation = Hands,
+		Icon = GlovesSurgical,
+        ScratchDefense = 5,
+        BiteDefense = 0,
+		Weight = 0.1,
+        Insulation = 0.25,
+        WindResistance = 0.3,
+        WorldStaticModel = Gloves_Ground,
+	}
+    item Gloves_BoxingRed
+	{
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Boxing Gloves,
+		ClothingItem = Gloves_BoxingRed,
+		BodyLocation = Hands,
+		BloodLocation = Hands,
+		Icon = BoxingGloves_Red,
+        ScratchDefense = 100,
+        BiteDefense = 100,
+		Weight = 0.1,
+        Insulation = 0.25,
+        WindResistance = 0.3,
+        WorldStaticModel = BoxingGlovesRed_Ground,
+	}
+    item Gloves_BoxingBlue
+	{
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Boxing Gloves,
+		ClothingItem = Gloves_BoxingBlue,
+		BodyLocation = Hands,
+		BloodLocation = Hands,
+		Icon = BoxingGloves_Blue,
+        ScratchDefense = 100,
+        BiteDefense = 100,
+		Weight = 0.1,
+        Insulation = 0.25,
+        WindResistance = 0.3,
+        WorldStaticModel = BoxingGlovesBlue_Ground,
+	}
+
+}
