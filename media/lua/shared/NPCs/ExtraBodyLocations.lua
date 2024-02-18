@@ -12,6 +12,7 @@ local group = BodyLocations.getGroup("Human")
 group:getOrCreateLocation("ArmsArmor")
 group:getOrCreateLocation("LegsArmor")
 group:getOrCreateLocation("ShoulderArmor")
+group:getOrCreateLocation("HandsArmor")
 
 
 

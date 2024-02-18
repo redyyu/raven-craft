@@ -19,6 +19,12 @@
 		<guid>cdddf6b2-a238-428f-bb12-93f526b08dbd</guid>
 	</files>
 
+	<!-- Hand Pads -->
+	<files>
+		<path>media/clothing/clothingItems/HandPads.xml</path>
+		<guid>65e72f8f-6798-4419-ba32-e37b5a837708</guid>
+	</files>
+
 
 	<!-- Vanilla Defaults -->
 	<files>
@@ -256,6 +262,10 @@
 	<files>
 		<path>media/clothing/clothingItems/Bag_ALICEpack_Army.xml</path>
 		<guid>e5e131ff-bc65-4b94-9bc1-b70e8f99e68d</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Bag_ALICEpack.xml</path>
+		<guid>8b3f943c-e903-431b-bf8d-8f2eb86c9ef3</guid>
 	</files>
 	<files>
 		<path>media/clothing/clothingItems/Bag_SurvivorBag.xml</path>
