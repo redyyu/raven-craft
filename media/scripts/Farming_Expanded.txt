@@ -224,6 +224,41 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 	
+	item WatermelonSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Watermelon Seeds,
+		Icon = TZ_StrewberrySeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item WatermelonBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Watermelon Seeds Packet,
+		Icon = SeedpackWatermelon,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = StrawberrySeedBag_Ground,
+	}
+	recipe Put Watermelon Seeds in Packet {
+        WatermelonSeed=50,
+
+        Result: WatermelonBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Watermelon Seeds {
+		WatermelonBagSeed,
+  
+        Result: WatermelonSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+
 	item OnionSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,

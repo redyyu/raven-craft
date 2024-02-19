@@ -1,4 +1,5 @@
 require "Items/ProceduralDistributions"
+require "Items/SuburbsDistributions"
 require "Vehicles/VehicleDistributions"
 require "utils"
 
@@ -12,6 +13,7 @@ local ITEMS_WEIGHT = {
     [".WheatBagSeed"] = 2 * loot_chance_percent,
     [".ZucchiniBagSeed"] = 2 * loot_chance_percent,
     [".PumpkinBagSeed"] = 2 * loot_chance_percent,
+    [".WatermelonBagSeed"] = 2 * loot_chance_percent,
     [".OnionBagSeed"] = 2 * loot_chance_percent,
     [".LettuceBagSeed"] = 2 * loot_chance_percent,
     [".LeekBagSeed"] = 2 * loot_chance_percent,
@@ -43,3 +45,11 @@ utils.insertTable(ProceduralDistributions.list["ProduceStorageLettuce"], ".SackP
 utils.insertTable(ProceduralDistributions.list["ProduceStorageOnions"], ".SackProduce_Wheat", 5)
 utils.insertTable(ProceduralDistributions.list["ProduceStoragePotatoes"], ".SackProduce_Wheat", 5)
 utils.insertTable(ProceduralDistributions.list["CrateFarming"], ".SackProduce_Wheat", 2)
+
+
+-- SuburbsDistributions
+utils.insertDistribution(SuburbsDistributions.all.Outfit_Farmer, ITEMS_WEIGHT, 8)
+utils.insertDistribution(SuburbsDistributions.SeedBag, ITEMS_WEIGHT, 20)
+
+
+utils.insertTable(ProceduralDistributions.list["KitchenPots"], "SeedBag", 1000)

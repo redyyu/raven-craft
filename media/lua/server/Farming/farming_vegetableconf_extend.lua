@@ -144,31 +144,62 @@ farming_vegetableconf.icons["Pumpkin"] = "Item_Pumpkin";
 
 farming_vegetableconf.props["Pumpkin"] = {};
 farming_vegetableconf.props["Pumpkin"].seedsRequired = 9;
-farming_vegetableconf.props["Pumpkin"].texture = "vegetation_farming_01_29";
+farming_vegetableconf.props["Pumpkin"].texture = "rc_vegetation_farming_pumpkin_6";
 farming_vegetableconf.props["Pumpkin"].waterLvl = 70;
 farming_vegetableconf.props["Pumpkin"].timeToGrow = ZombRand(103, 117);
 farming_vegetableconf.props["Pumpkin"].minVeg = 1;
-farming_vegetableconf.props["Pumpkin"].maxVeg = 2;
+farming_vegetableconf.props["Pumpkin"].maxVeg = 3;
 farming_vegetableconf.props["Pumpkin"].minVegAutorized = 5;
 farming_vegetableconf.props["Pumpkin"].maxVegAutorized = 6;
 farming_vegetableconf.props["Pumpkin"].vegetableName = "Base.Pumpkin";
 farming_vegetableconf.props["Pumpkin"].seedName = "RavenCraft.PumpkinSeed";
-farming_vegetableconf.props["Pumpkin"].seedPerVeg = 12;
+farming_vegetableconf.props["Pumpkin"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Pumpkin"] = {
-	"vegetation_farming_01_24",
-	"vegetation_farming_01_25",
-	"vegetation_farming_01_26",
-	"vegetation_farming_01_27",
-	"vegetation_farming_01_28",
-	"vegetation_farming_01_30",
-	"vegetation_farming_01_29",
-	"vegetation_farming_01_31"
+	"rc_vegetation_farming_pumpkin_0",
+	"rc_vegetation_farming_pumpkin_1",
+	"rc_vegetation_farming_pumpkin_2",
+	"rc_vegetation_farming_pumpkin_3",
+	"rc_vegetation_farming_pumpkin_4",
+	"rc_vegetation_farming_pumpkin_5",
+	"rc_vegetation_farming_pumpkin_6",
+	"rc_vegetation_farming_pumpkin_7"
 }
 
 farming_vegetableconf.growPumpkin = farming_vegetableconf.growBroccoli
 
 
+-- Watermelon
+-- Need 9 seeds
+-- Water lvl over 70
+-- Need 4 weeks to grow (112h per phase)
+farming_vegetableconf.icons["Watermelon"] = "Item_Watermelon";
+
+farming_vegetableconf.props["Watermelon"] = {};
+farming_vegetableconf.props["Watermelon"].seedsRequired = 9;
+farming_vegetableconf.props["Watermelon"].texture = "rc_vegetation_farming_watermelon_6";
+farming_vegetableconf.props["Watermelon"].waterLvl = 70;
+farming_vegetableconf.props["Watermelon"].timeToGrow = ZombRand(103, 117);
+farming_vegetableconf.props["Watermelon"].minVeg = 1;
+farming_vegetableconf.props["Watermelon"].maxVeg = 3;
+farming_vegetableconf.props["Watermelon"].minVegAutorized = 5;
+farming_vegetableconf.props["Watermelon"].maxVegAutorized = 6;
+farming_vegetableconf.props["Watermelon"].vegetableName = "Base.Watermelon";
+farming_vegetableconf.props["Watermelon"].seedName = "RavenCraft.WatermelonSeed";
+farming_vegetableconf.props["Watermelon"].seedPerVeg = 3;
+
+farming_vegetableconf.sprite["Watermelon"] = {
+	"rc_vegetation_farming_watermelon_0",
+	"rc_vegetation_farming_watermelon_1",
+	"rc_vegetation_farming_watermelon_2",
+	"rc_vegetation_farming_watermelon_3",
+	"rc_vegetation_farming_watermelon_4",
+	"rc_vegetation_farming_watermelon_5",
+	"rc_vegetation_farming_watermelon_6",
+	"rc_vegetation_farming_watermelon_7"
+}
+
+farming_vegetableconf.growWatermelon = farming_vegetableconf.growBroccoli
 
 -- Onion
 -- Need 6 seeds
@@ -182,13 +213,13 @@ farming_vegetableconf.props["Onion"].texture = "vegetation_farming_01_53";
 farming_vegetableconf.props["Onion"].waterLvl = 45;
 farming_vegetableconf.props["Onion"].waterLvlMax = 85;
 farming_vegetableconf.props["Onion"].timeToGrow = ZombRand(89, 103);
-farming_vegetableconf.props["Onion"].minVeg = 1;
-farming_vegetableconf.props["Onion"].maxVeg = 2;
-farming_vegetableconf.props["Onion"].minVegAutorized = 5;
-farming_vegetableconf.props["Onion"].maxVegAutorized = 6;
+farming_vegetableconf.props["Onion"].minVeg = 4;
+farming_vegetableconf.props["Onion"].maxVeg = 5;
+farming_vegetableconf.props["Onion"].minVegAutorized = 6;
+farming_vegetableconf.props["Onion"].maxVegAutorized = 10;
 farming_vegetableconf.props["Onion"].vegetableName = "Base.Onion";
 farming_vegetableconf.props["Onion"].seedName = "RavenCraft.OnionSeed";
-farming_vegetableconf.props["Onion"].seedPerVeg = 12;
+farming_vegetableconf.props["Onion"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Onion"] = {
 	"vegetation_farming_01_48",

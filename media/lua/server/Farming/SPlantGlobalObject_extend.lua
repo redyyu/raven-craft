@@ -32,6 +32,8 @@ function SFarmingSystem:growPlant(luaObject, nextGrowing, updateNbOfGrow)
 			luaObject = farming_vegetableconf.growZucchini(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "Pumpkin") then
 			luaObject = farming_vegetableconf.growPumpkin(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Watermelon") then
+			luaObject = farming_vegetableconf.growWatermelon(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "Onion") then
 			luaObject = farming_vegetableconf.growOnion(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "Lettuce") then
@@ -86,7 +88,9 @@ function SPlantGlobalObject:rottenThis()
 	elseif self.typeOfSeed == "Zucchini" then
 		texture = "vegetation_farming_01_71"
 	elseif self.typeOfSeed == "Pumpkin" then
-		texture = "vegetation_farming_01_31"
+		texture = "rc_vegetation_farming_pumpkin_7"
+	elseif self.typeOfSeed == "Watermelon" then
+		texture = "rc_vegetation_farming_watermelon_7"
 	elseif self.typeOfSeed == "Onion" then
 		texture = "vegetation_farming_01_55"
 	elseif self.typeOfSeed == "Lettuce" then

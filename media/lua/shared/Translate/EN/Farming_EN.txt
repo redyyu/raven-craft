@@ -5,6 +5,7 @@ Farming_EN = {
   Farming_Peanuts = "Peanuts",
   Farming_Zucchini = "Zucchini",
   Farming_Pumpkin = "Pumpkin",
+  Farming_Watermelon = "Watermelon",
   Farming_Onion = "Onion",
   Farming_Lettuce = "Lettuce",
   Farming_Leek = "Leek",
