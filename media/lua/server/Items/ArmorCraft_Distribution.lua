@@ -15,7 +15,7 @@ local ITEMS_WEIGHT = {
 }
 
 local LITERATURES_WEIGHT = {
-    [".ArmorPadsMakerMag"] = 1 * loot_chance_percent,
+    [".ArmorPadsMakerMag"] = 2 * loot_chance_percent,
 }
 
 utils.insertDistribution(VehicleDistributions["GloveBox"], ITEMS_WEIGHT, 0.01);
