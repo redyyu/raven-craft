@@ -206,7 +206,7 @@ module RavenCraft
 		keep MortarPestle,
 		Peanuts;100,
 		Water = 2,
-		[Recipe.GetItemTypes.Sugar];1,
+		[Recipe.GetItemTypes.Sugar];2,
 		farming.RemouladeEmpty/farming.MayonnaiseEmpty,
 		Result: PeanutButter,
 		Sound: Dismantle,

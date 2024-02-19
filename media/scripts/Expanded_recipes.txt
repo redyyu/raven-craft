@@ -24,7 +24,6 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
         Perfume/Cologne/Hairgel,
-        MakeupEyeshadow/MakeupFoundation,
         Toothpaste,
         Glue=1,
 

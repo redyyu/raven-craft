@@ -10,7 +10,9 @@ module RavenCraft
         keep MortarPestle,
         Fertilizer=2,
         Charcoal=1,
-        Hairspray,
+        Perfume/Cologne/Hairgel,
+        MakeupEyeshadow/MakeupFoundation,
+        [Recipe.GetItemTypes.Sugar];2,
 
         Prop1: Source=1,
         Sound: Plastering,
@@ -25,7 +27,9 @@ module RavenCraft
         keep MortarPestle,
         CompostBag=2,
         Charcoal=1,
-        Hairspray,
+        Perfume/Cologne/Hairgel,
+        MakeupEyeshadow/MakeupFoundation,
+        [Recipe.GetItemTypes.Sugar];2,
 
         Prop1: Source=1,
         Sound: Plastering,
