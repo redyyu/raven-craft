@@ -51,5 +51,3 @@ utils.insertTable(ProceduralDistributions.list["CrateFarming"], ".SackProduce_Wh
 utils.insertDistribution(SuburbsDistributions.all.Outfit_Farmer, ITEMS_WEIGHT, 8)
 utils.insertDistribution(SuburbsDistributions.SeedBag, ITEMS_WEIGHT, 20)
 
-
-utils.insertTable(ProceduralDistributions.list["KitchenPots"], "SeedBag", 1000)
