@@ -14,5 +14,5 @@ group:getOrCreateLocation("LegsArmor")
 group:getOrCreateLocation("ShoulderArmor")
 group:getOrCreateLocation("HandsArmor")
 
-
+group:getOrCreateLocation("TightMask")  -- for some mask wearing with FullHat, Masks or Glasses.
 

@@ -47,8 +47,7 @@ module Base
 
     /* Gloves */
 
-    item Gloves_FingerlessGloves
-	{
+    item Gloves_FingerlessGloves {
 	    DisplayCategory = Accessory,
 		Type = Clothing,
 		DisplayName = Fingerless Gloves,
@@ -56,45 +55,11 @@ module Base
 		BodyLocation = Hands,
 		BloodLocation = Hands,
 		Icon = GlovesFingerlessWhite,
-        ScratchDefense = 10,
-        BiteDefense = 5,
+        ScratchDefense = 5,
+        BiteDefense = 10,
 		Weight = 0.1,
         Insulation = 0.25,
         WindResistance = 0.3,
-        WorldStaticModel = Gloves_Ground,
-	}
-	item Gloves_LeatherGloves
-	{
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Leather Gloves,
-		ClothingItem = Gloves_LeatherGloves,
-		BodyLocation = Hands,
-		IconsForTexture = GlovesLeatherBlackpng;GlovesLeatherBrown,
-		BloodLocation = Hands,
-		ScratchDefense = 30,
-        BiteDefense = 15,
-        Weight = 0.1,
-        Insulation = 0.75,
-        WindResistance = 0.75,
-        FabricType = Leather,
-        WorldStaticModel = Gloves_Ground,
-	}
-	item Gloves_LeatherGlovesBlack
-	{
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Leather Gloves,
-		ClothingItem = Gloves_LeatherGlovesBlack,
-		BodyLocation = Hands,
-		BloodLocation = Hands,
-		Icon = GlovesLeatherBlackpng,
-		ScratchDefense = 30,
-        BiteDefense = 15,
-        Weight = 0.1,
-        Insulation = 0.75,
-        WindResistance = 0.75,
-        FabricType = Leather,
         WorldStaticModel = Gloves_Ground,
 	}
 	item Gloves_LongWomenGloves
@@ -104,16 +69,17 @@ module Base
 		DisplayName = Long Gloves,
 		ClothingItem = Gloves_LongWomenGloves,
 		BodyLocation = Hands,
-		BloodLocation = Hands,
+		BloodLocation = Hands;LowerArms,
 		Icon = GlovesLongBlack,
+		ScratchDefense = 5,
+        BiteDefense = 0,
 		Weight = 0.1,
         Insulation = 0.5,
         WindResistance = 0.5,
         FabricType = Cotton,
         WorldStaticModel = GlovesLong_Ground,
 	}
-	item Gloves_WhiteTINT
-	{
+	item Gloves_WhiteTINT {
 	    DisplayCategory = Accessory,
 		Type = Clothing,
 		DisplayName = Gloves,
@@ -129,8 +95,7 @@ module Base
         FabricType = Cotton,
         WorldStaticModel = Gloves_Ground,
 	}
-	item Gloves_Surgical
-	{
+	item Gloves_Surgical {
 	    DisplayCategory = FirstAid,
 		Type = Clothing,
 		DisplayName = Surgical Gloves,
@@ -151,14 +116,15 @@ module Base
 		Type = Clothing,
 		DisplayName = Boxing Gloves,
 		ClothingItem = Gloves_BoxingRed,
-		BodyLocation = Hands,
+		BodyLocation = HandsArmor,
 		BloodLocation = Hands,
 		Icon = BoxingGloves_Red,
         ScratchDefense = 100,
         BiteDefense = 100,
 		Weight = 0.1,
-        Insulation = 0.25,
+        Insulation = 0.45,
         WindResistance = 0.3,
+		WaterResistance = 1,
         WorldStaticModel = BoxingGlovesRed_Ground,
 	}
     item Gloves_BoxingBlue
@@ -167,15 +133,45 @@ module Base
 		Type = Clothing,
 		DisplayName = Boxing Gloves,
 		ClothingItem = Gloves_BoxingBlue,
-		BodyLocation = Hands,
+		BodyLocation = HandsArmor,
 		BloodLocation = Hands,
 		Icon = BoxingGloves_Blue,
         ScratchDefense = 100,
         BiteDefense = 100,
 		Weight = 0.1,
-        Insulation = 0.25,
+        Insulation = 0.45,
         WindResistance = 0.3,
+		WaterResistance = 1,
         WorldStaticModel = BoxingGlovesBlue_Ground,
 	}
 
+	/* Masks */
+
+	item Hat_BalaclavaFace {
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Open Balaclava,
+		ClothingItem = Hat_BalaclavaFace,
+		BodyLocation = TightMask,
+		Icon = BalaclavaOpen,
+		CanHaveHoles = false,
+		BloodLocation = Head,
+		Insulation = 0.8,
+		WindResistance = 0.8,
+		WorldStaticModel = BalaclavaFace_Ground,
+	}
+	item Hat_BalaclavaFull {
+	    DisplayCategory = Accessory,
+		Type = Clothing,
+		DisplayName = Balaclava,
+		ClothingItem = Hat_BalaclavaFull,
+		BodyLocation = TightMask,
+		BloodLocation = Head,
+		Icon = Balaclava,
+		CanHaveHoles = false,
+        Insulation = 1.0,
+        WindResistance = 1.0,
+        WaterResistance = 0.5,
+        WorldStaticModel = BalaclavaFull_Ground,
+	}
 }
