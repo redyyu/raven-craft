@@ -18,14 +18,14 @@ module RavenCraft
         DisplayName	= The Crafting Of Defense,
         Icon = MagazineArmorPadsMakerMag,
         TeachedRecipes = Craft Elbow Pads;Remake Elbow Pads;Craft Knee Pads;Remake Knee Pads;Craft Shoulder Pads;Craft Hand Pads;Remake Hand Pads,
-        ReplaceOnUse = AmmoMakerMag,
+        ReplaceOnUse = ArmorPadsMakerMag,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,
     }
 
     item ElbowPads {
 		Type = Clothing,
-		FabricType = Leather,
+		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Elbow Pads,
 		ClothingItem = ElbowPads,
 		BodyLocation = ArmsArmor,
@@ -44,7 +44,7 @@ module RavenCraft
 
     item KneePads {
 		Type = Clothing,
-		FabricType = Leather,
+		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Knee Pads,
 		ClothingItem = KneePads,
 		BodyLocation = LegsArmor,
@@ -61,7 +61,7 @@ module RavenCraft
 
     item ShoulderPads {
 		Type = Clothing,
-		FabricType = Leather,
+		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Shoulder Pads,
 		ClothingItem = ShoulderPads,
 		BodyLocation = ShoulderArmor,
@@ -79,7 +79,7 @@ module RavenCraft
 
 	item HandPads {
 		Type = Clothing,
-		FabricType = Leather,
+		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Hand Pads,
 		ClothingItem = HandPads,
 		BodyLocation = HandsArmor,
