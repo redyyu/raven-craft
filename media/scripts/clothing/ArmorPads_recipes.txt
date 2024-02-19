@@ -21,6 +21,26 @@ module RavenCraft
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 200.0,
+        NeedToBeLearn: true,
+        Category: Survivalist,
+    }
+
+    recipe Remake Elbow Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=1,
+        KneePads,
+        Thread=2,
+
+        Result: ElbowPads,
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        NeedToBeLearn: true,
         Category: Survivalist,
     }
 
@@ -41,6 +61,26 @@ module RavenCraft
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 200.0,
+        NeedToBeLearn: true,
+        Category: Survivalist,
+    }
+
+    recipe Remake Knee Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=4,
+        ElbowPads,
+        Thread=2,
+
+        Result: KneePads,
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        NeedToBeLearn: true,
         Category: Survivalist,
     }
 
@@ -61,6 +101,7 @@ module RavenCraft
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 300.0,
+        NeedToBeLearn: true,
         Category: Survivalist,
     }
 
@@ -69,18 +110,38 @@ module RavenCraft
         keep Needle/SutureNeedle,
         keep [Recipe.GetItemTypes.SharpKnife],
         LeatherStrips=6,
-        Pillow/RecoilPad=2,
         Aluminum=2,
-        RubberBand=4,
-        Thread=4,
+        RubberBand=2,
+        Thread=3,
 
-        Result: ElbowPads,
+        Result: HandPads,
         SkillRequired: Tailoring=4,
         AnimNode: RipSheets,
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 200.0,
+        NeedToBeLearn: true,
+        Category: Survivalist,
+    }
+
+    recipe Remake Hand Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=1,
+        KneePads/ElbowPads,
+        Thread=2,
+
+        Result: HandPads,
+        
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        NeedToBeLearn: true,
         Category: Survivalist,
     }
 

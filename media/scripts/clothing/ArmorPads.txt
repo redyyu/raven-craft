@@ -11,6 +11,18 @@ module RavenCraft
 		Each location will cover both left and right parts if needed.
 	*/
 
+	item ArmorPadsMakerMag {
+        DisplayCategory = SkillBook,
+        Weight = 0.1,
+        Type = Literature,
+        DisplayName	= The Crafting Of Defense,
+        Icon = MagazineArmorPadsMakerMag,
+        TeachedRecipes = Craft Elbow Pads;Remake Elbow Pads;Craft Knee Pads;Remake Knee Pads;Craft Shoulder Pads;Craft Hand Pads;Remake Hand Pads,
+        ReplaceOnUse = AmmoMakerMag,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+    }
+
     item ElbowPads {
 		Type = Clothing,
 		FabricType = Leather,
@@ -24,8 +36,8 @@ module RavenCraft
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
-		ScratchDefense = 35,
-		BiteDefense = 25,
+		ScratchDefense = 30,
+		BiteDefense = 15,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -42,8 +54,8 @@ module RavenCraft
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 35,
-		BiteDefense = 25,
+		ScratchDefense = 45,
+		BiteDefense = 30,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -60,8 +72,8 @@ module RavenCraft
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		CombatSpeedModifier = 0.95,
-		ScratchDefense = 45,
-		BiteDefense = 35,
+		ScratchDefense = 35,
+		BiteDefense = 20,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -77,8 +89,8 @@ module RavenCraft
 		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
 		ConditionMax = 30,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 45,
-		BiteDefense = 35,
+		ScratchDefense = 55,
+		BiteDefense = 40,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 }
