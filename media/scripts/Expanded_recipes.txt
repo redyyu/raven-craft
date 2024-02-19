@@ -23,7 +23,8 @@ module RavenCraft
     recipe Self-made Hairspray {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
-        Perfume/Cologne/Hairgel,
+        Perfume/Cologne,
+        Hairgel,
         Toothpaste,
         Glue=1,
 

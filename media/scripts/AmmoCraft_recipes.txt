@@ -19,8 +19,6 @@ module RavenCraft
         keep MortarPestle,
         Fertilizer=2,
         Charcoal=1,
-        Perfume/Cologne/Hairgel,
-        MakeupEyeshadow/MakeupFoundation,
         [Recipe.GetItemTypes.Sugar];2,
 
         Prop1: Source=1,
@@ -36,8 +34,6 @@ module RavenCraft
         keep MortarPestle,
         CompostBag=2,
         Charcoal=1,
-        Perfume/Cologne/Hairgel,
-        MakeupEyeshadow/MakeupFoundation,
         [Recipe.GetItemTypes.Sugar];2,
 
         Prop1: Source=1,
