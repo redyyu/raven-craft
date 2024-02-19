@@ -110,7 +110,7 @@ farming_vegetableconf.icons["Zucchini"] = "Item_Zucchini";
 
 farming_vegetableconf.props["Zucchini"] = {};
 farming_vegetableconf.props["Zucchini"].seedsRequired = 4;
-farming_vegetableconf.props["Zucchini"].texture = "vegetation_farming_01_70";
+farming_vegetableconf.props["Zucchini"].texture = "vegetation_farming_01_69";
 farming_vegetableconf.props["Zucchini"].waterLvl = 75;
 farming_vegetableconf.props["Zucchini"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Zucchini"].minVeg = 4;
@@ -126,9 +126,9 @@ farming_vegetableconf.sprite["Zucchini"] = {
 	"vegetation_farming_01_65",
 	"vegetation_farming_01_66",
 	"vegetation_farming_01_67",
+	"vegetation_farming_01_67",
 	"vegetation_farming_01_68",
 	"vegetation_farming_01_69",
-	"vegetation_farming_01_70",
 	"vegetation_farming_01_71"
 }
 
@@ -263,9 +263,9 @@ farming_vegetableconf.sprite["Leek"] = {
 	"vegetation_farming_01_33",
 	"vegetation_farming_01_34",
 	"vegetation_farming_01_35",
+	"vegetation_farming_01_35",
 	"vegetation_farming_01_36",
 	"vegetation_farming_01_37",
-	"vegetation_farming_01_38",
 	"vegetation_farming_01_39"
 }
 
@@ -280,7 +280,7 @@ farming_vegetableconf.icons["Eggplant"] = "Item_Eggplant";
 
 farming_vegetableconf.props["Eggplant"] = {};
 farming_vegetableconf.props["Eggplant"].seedsRequired = 6;
-farming_vegetableconf.props["Eggplant"].texture = "vegetation_farming_01_70";
+farming_vegetableconf.props["Eggplant"].texture = "vegetation_farming_01_69";
 farming_vegetableconf.props["Eggplant"].waterLvl = 75;
 farming_vegetableconf.props["Eggplant"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Eggplant"].minVeg = 4;
@@ -295,10 +295,10 @@ farming_vegetableconf.sprite["Eggplant"] = {
 	"vegetation_farming_01_64",
 	"vegetation_farming_01_65",
 	"vegetation_farming_01_66",
+	"vegetation_farming_01_66",
 	"vegetation_farming_01_67",
 	"vegetation_farming_01_68",
 	"vegetation_farming_01_69",
-	"vegetation_farming_01_70",
 	"vegetation_farming_01_71"
 }
 
@@ -313,7 +313,7 @@ farming_vegetableconf.icons["Edamame"] = "Item_Edamame";
 
 farming_vegetableconf.props["Edamame"] = {};
 farming_vegetableconf.props["Edamame"].seedsRequired = 6;
-farming_vegetableconf.props["Edamame"].texture = "vegetation_farming_01_69";
+farming_vegetableconf.props["Edamame"].texture = "vegetation_farming_01_68";
 farming_vegetableconf.props["Edamame"].waterLvl = 75;
 farming_vegetableconf.props["Edamame"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Edamame"].minVeg = 4;
@@ -328,10 +328,10 @@ farming_vegetableconf.sprite["Edamame"] = {
 	"vegetation_farming_01_64",
 	"vegetation_farming_01_65",
 	"vegetation_farming_01_66",
+	"vegetation_farming_01_66",
+	"vegetation_farming_01_67",
 	"vegetation_farming_01_67",
 	"vegetation_farming_01_68",
-	"vegetation_farming_01_69",
-	"vegetation_farming_01_70",
 	"vegetation_farming_01_71"
 }
 
@@ -348,7 +348,7 @@ farming_vegetableconf.props["Daikon"] = {};
 farming_vegetableconf.props["Daikon"].seedsRequired = 6;
 farming_vegetableconf.props["Daikon"].texture = "vegetation_farming_01_53";
 farming_vegetableconf.props["Daikon"].waterLvl = 55;
-farming_vegetableconf.props["Daikon"].waterLvlMax = 100;
+farming_vegetableconf.props["Daikon"].waterLvlMax = 85;
 farming_vegetableconf.props["Daikon"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Daikon"].minVeg = 4;
 farming_vegetableconf.props["Daikon"].maxVeg = 9;
@@ -369,7 +369,7 @@ farming_vegetableconf.sprite["Daikon"] = {
 	"vegetation_farming_01_55"
 }
 
-farming_vegetableconf.growDaikon = farming_vegetableconf.RedRadish
+farming_vegetableconf.growDaikon = farming_vegetableconf.growRedRadish
 
 
 -- PepperJalapeno

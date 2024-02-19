@@ -156,7 +156,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 	
-	Item ZucchiniSeed {
+	item ZucchiniSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Zucchini Seeds,
@@ -165,7 +165,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item ZucchiniBagSeed {
+	item ZucchiniBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Zucchini Seeds Packet,
@@ -190,7 +190,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item PumpkinSeed {
+	item PumpkinSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Pumpkin Seeds,
@@ -199,7 +199,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item PumpkinBagSeed {
+	item PumpkinBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Pumpkin Seeds Packet,
@@ -224,7 +224,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 	
-	Item OnionSeed {
+	item OnionSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Onion Seeds,
@@ -233,7 +233,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item OnionBagSeed {
+	item OnionBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Onion Seeds Packet,
@@ -258,7 +258,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item LettuceSeed {
+	item LettuceSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName =  Lettuce Seeds,
@@ -267,7 +267,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item LettuceBagSeed {
+	item LettuceBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Lettuce Seeds Packet,
@@ -292,7 +292,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item LeekSeed {
+	item LeekSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName =  Leek Seeds,
@@ -301,7 +301,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item LeekBagSeed {
+	item LeekBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Leek Seeds Packet,
@@ -327,7 +327,7 @@ module RavenCraft
 	}
 
 
-	Item EggplantSeed {
+	item EggplantSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName =  Eggplant Seeds,
@@ -336,7 +336,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item EggplantBagSeed {
+	item EggplantBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Eggplant Seeds Packet,
@@ -361,7 +361,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item EdamameSeed {
+	item EdamameSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Edamame Seeds,
@@ -370,7 +370,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item EdamameBagSeed {
+	item EdamameBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Edamame Seeds Packet,
@@ -395,7 +395,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item DaikonSeed {
+	item DaikonSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Daikon Seeds,
@@ -405,7 +405,7 @@ module RavenCraft
 		WorldStaticModel = Seeds_Ground,
 	}
 
-	Item DaikonBagSeed {
+	item DaikonBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Daikon Seeds Packet,
@@ -430,7 +430,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item PepperJalapenoSeed {
+	item PepperJalapenoSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName =  Pepper Jalapeno Seeds,
@@ -439,7 +439,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item PepperJalapenoBagSeed {
+	item PepperJalapenoBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Pepper Jalapeno Seeds Packet,
@@ -464,7 +464,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item PepperHabaneroSeed {
+	item PepperHabaneroSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName =  Pepper Habanero Seeds,
@@ -473,7 +473,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item PepperHabaneroBagSeed {
+	item PepperHabaneroBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Pepper Habanero Seeds Packet,
@@ -498,7 +498,7 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	Item BellPepperSeed {
+	item BellPepperSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName =  Bell Pepper Seeds,
@@ -507,7 +507,7 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	Item BellPepperBagSeed {
+	item BellPepperBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Bell Pepper Seeds Packet,
