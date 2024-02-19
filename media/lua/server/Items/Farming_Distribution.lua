@@ -10,6 +10,17 @@ local ITEMS_WEIGHT = {
     [".CornBagSeed"] = 2 * loot_chance_percent,
     [".PeanutsBagSeed"] = 2 * loot_chance_percent,
     [".WheatBagSeed"] = 2 * loot_chance_percent,
+    [".ZucchiniBagSeed"] = 2 * loot_chance_percent,
+    [".PumpkinBagSeed"] = 2 * loot_chance_percent,
+    [".OnionBagSeed"] = 2 * loot_chance_percent,
+    [".LettuceBagSeed"] = 2 * loot_chance_percent,
+    [".LeekBagSeed"] = 2 * loot_chance_percent,
+    [".EggplantBagSeed"] = 2 * loot_chance_percent,
+    [".EdamameBagSeed"] = 2 * loot_chance_percent,
+    [".DaikonBagSeed"] = 2 * loot_chance_percent,
+    [".PepperJalapenoBagSeed"] = 2 * loot_chance_percent,
+    [".PepperHabaneroBagSeed"] = 2 * loot_chance_percent,
+    [".BellPepperBagSeed"] = 2 * loot_chance_percent,
 }
 
 utils.insertDistribution(ProceduralDistributions.list["CrateFarming"], ITEMS_WEIGHT, 8);

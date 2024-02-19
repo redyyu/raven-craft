@@ -4,6 +4,20 @@ module RavenCraft
 	    Base,
     }
 
+	/* Override vanilla Farming Magazine */
+	item FarmingMag1 {
+        DisplayCategory = SkillBook,
+        Weight	=	0.1,
+        Type	=	Literature,
+        DisplayName	=	The Farming Magazine,
+        Icon	=	MagazineFish,
+        TeachedRecipes  =   Make Mildew Cure;Make Flies Cure;Mill Flour;Mill Corn Flour;Mill Rice;Mill PeanutButter;Make Corn Sugar,
+        ReplaceOnUse    =   FarmingMag1,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineFarmGround,
+    }
+
+	/* Grow Vegetables */
     item Wheat {
 	    DisplayCategory = Gardening,
 		Type = Food,
@@ -16,7 +30,7 @@ module RavenCraft
 		WorldStaticModel = Seeds_Ground,
 		CantEat = TRUE,
 	}
-
+	
 	item SackProduce_Wheat {
 		DisplayName = Sack of Wheat,
 		DisplayCategory = Food,
@@ -28,6 +42,16 @@ module RavenCraft
 		DaysTotallyRotten =	240,
 		WorldStaticModel = SandBag,
 	}
+	recipe Open Sack of Wheat {
+        SackProduce_Wheat,
+
+        Result: Wheat=100,
+        OnCreate: Recipe.OnCreate.OpenSackProduce,
+        OnGiveXP: Recipe.OnGiveXP.None,
+        Sound: OpenSeedPacket,
+        Time: 15.0,
+        AllowRottenItem: true,
+    }
 
 	item WheatSeed {
 	    DisplayCategory = Gardening,
@@ -38,7 +62,6 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-
 	item WheatBagSeed {
 	    DisplayCategory = Gardening,
 		Type = Normal,
@@ -48,6 +71,22 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = CarrotSeedBag_Ground,
 	}
+	recipe Put Wheat Seeds in Packet {
+        WheatSeed=50,
+
+        Result: WheatBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Wheat Seeds {
+		WheatBagSeed,
+  
+        Result: WheatSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
 
 	item CornSeed {
 	    DisplayCategory = Gardening,
@@ -58,7 +97,6 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-
 	item CornBagSeed {
 	    DisplayCategory = Gardening,
 		Type = Normal,
@@ -67,6 +105,21 @@ module RavenCraft
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = CarrotSeedBag_Ground,
+	}
+	recipe Put Corn Seeds in Packet {
+        CornSeed=50,
+
+        Result: CornBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Corn Seeds {
+		CornBagSeed,
+  
+        Result: CornSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
 	}
 
 	item PeanutsSeed {
@@ -78,36 +131,15 @@ module RavenCraft
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-
 	item PeanutsBagSeed {
 	    DisplayCategory = Gardening,
 		Type = Normal,
-		DisplayName =Peanuts Seeds Packet,
+		DisplayName = Peanuts Seeds Packet,
 		Icon = SeedpackPeanuts,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,
 	}
-
-	/* Recipes */
-	
-	recipe Put Corn Seeds in Packet {
-        CornSeed=50,
-
-        Result: CornBagSeed,
-        Time: 10.0,
-        Category: Farming,
-    }
-
-	recipe Open Packet of Corn Seeds {
-		CornBagSeed,
-  
-        Result: CornSeed=50,
-        Time: 20.0,
-        Category: Farming,
-        Sound: OpenSeedPacket,
-	}
-	
 	recipe Put Peanuts Seeds in Packet {
         PeanutsSeed=50,
 
@@ -115,7 +147,6 @@ module RavenCraft
         Time: 10.0,
         Category: Farming,
     }
-
 	recipe Open Packet of Peanuts Seeds {
 		PeanutsBagSeed,
   
@@ -124,35 +155,385 @@ module RavenCraft
         Category: Farming,
         Sound: OpenSeedPacket,
 	}
+	
+	Item ZucchiniSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Zucchini Seeds,
+		Icon = TZ_CabbageLettuceSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item ZucchiniBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Zucchini Seeds Packet,
+		Icon = SeedpackZucchini,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = CabbageSeedBag_Ground,
+	}
+	recipe Put Zucchini Seeds in Packet {
+        ZucchiniSeed=50,
 
-
-	recipe Put Wheat Seeds in Packet {
-        WheatSeed=50,
-
-        Result: WheatBagSeed,
+        Result: ZucchiniBagSeed,
         Time: 10.0,
         Category: Farming,
     }
-
-	recipe Open Packet of Wheat Seeds {
-		WheatBagSeed,
+	recipe Open Packet of Zucchini Seeds {
+		ZucchiniBagSeed,
   
-        Result: WheatSeed=50,
+        Result: ZucchiniSeed=50,
         Time: 20.0,
         Category: Farming,
         Sound: OpenSeedPacket,
 	}
 
-    recipe Open Sack of Wheat {
-        SackProduce_Wheat,
+	Item PumpkinSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Pumpkin Seeds,
+		Icon = TZ_StrewberrySeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item PumpkinBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Pumpkin Seeds Packet,
+		Icon = SeedpackPumpkin,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = StrawberrySeedBag_Ground,
+	}
+	recipe Put Pumpkin Seeds in Packet {
+        PumpkinSeed=50,
 
-        Result: Wheat=100,
-        OnCreate: Recipe.OnCreate.OpenSackProduce,
-        OnGiveXP: Recipe.OnGiveXP.None,
-        Sound: OpenSeedPacket,
-        Time: 15.0,
-        AllowRottenItem: true,
+        Result: PumpkinBagSeed,
+        Time: 10.0,
+        Category: Farming,
     }
+	recipe Open Packet of Pumpkin Seeds {
+		PumpkinBagSeed,
+  
+        Result: PumpkinSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+	
+	Item OnionSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Onion Seeds,
+		Icon = TZ_TomatoSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item OnionBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Onion Seeds Packet,
+		Icon = SeedpackOnion,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = TomatoSeedBag_Ground,
+	}
+	recipe Put Onion Seeds in Packet {
+        OnionSeed=50,
+
+        Result: OnionBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Onion Seeds {
+		OnionBagSeed,
+  
+        Result: OnionSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	Item LettuceSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Lettuce Seeds,
+		Icon = TZ_BroccoliSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item LettuceBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Lettuce Seeds Packet,
+		Icon = SeedpackLettuce,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = BroccoliSeedBag_Ground,
+	}
+	recipe Put Lettuce Seeds in Packet {
+        LettuceSeed=50,
+
+        Result: LettuceBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Lettuce Seeds {
+		LettuceBagSeed,
+  
+        Result: LettuceSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	Item LeekSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Leek Seeds,
+		Icon = TZ_PotatoSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item LeekBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Leek Seeds Packet,
+		Icon = SeedpackLeek,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = PotatoSeedBag_Ground,
+	}
+	recipe Put Leek Seeds in Packet {
+        LeekSeed=50,
+
+        Result: LeekBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Leek Seeds {
+		LeekBagSeed,
+  
+        Result: LeekSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+
+	Item EggplantSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Eggplant Seeds,
+		Icon = TZ_StrewberrySeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item EggplantBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Eggplant Seeds Packet,
+		Icon = SeedpackEggplant,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = StrawberrySeedBag_Ground,
+	}
+	recipe Put Eggplant Seeds in Packet {
+        EggplantSeed=50,
+
+        Result: EggplantBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Eggplant Seeds {
+		EggplantBagSeed,
+  
+        Result: EggplantSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	Item EdamameSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Edamame Seeds,
+		Icon = TZ_CarrotSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item EdamameBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Edamame Seeds Packet,
+		Icon = SeedpackEdamame,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = CarrotSeedBag_Ground,
+	}
+	recipe Put Edamame Seeds in Packet {
+        EdamameSeed=50,
+
+        Result: EdamameBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Edamame Seeds {
+		EdamameBagSeed,
+  
+        Result: EdamameSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	Item DaikonSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Daikon Seeds,
+		Icon = TZ_TomatoSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+
+	Item DaikonBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Daikon Seeds Packet,
+		Icon = SeedpackDaikon,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = TomatoSeedBag_Ground,
+	}
+	recipe Put Daikon Seeds in Packet {
+        DaikonSeed=50,
+
+        Result: DaikonBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Daikon Seeds {
+		DaikonBagSeed,
+  
+        Result: DaikonSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	Item PepperJalapenoSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Pepper Jalapeno Seeds,
+		Icon = TZ_LRRadishSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item PepperJalapenoBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Pepper Jalapeno Seeds Packet,
+		Icon = SeedpackPepperJalapeno,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Pepper Jalapeno Seeds in Packet {
+        PepperJalapenoSeed=50,
+
+        Result: PepperJalapenoBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Pepper Jalapeno Seeds {
+		PepperJalapenoBagSeed,
+  
+        Result: PepperJalapenoSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	Item PepperHabaneroSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Pepper Habanero Seeds,
+		Icon = TZ_LRRadishSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item PepperHabaneroBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Pepper Habanero Seeds Packet,
+		Icon = SeedpackPepperHabanero,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Pepper Habanero Seeds in Packet {
+        PepperHabaneroSeed=50,
+
+        Result: PepperHabaneroBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Pepper Habanero Seeds {
+		PepperHabaneroBagSeed,
+  
+        Result: PepperHabaneroSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	Item BellPepperSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Bell Pepper Seeds,
+		Icon = TZ_LRRadishSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	Item BellPepperBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Bell Pepper Seeds Packet,
+		Icon = SeedpackBellPepper,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Bell Pepper Seeds in Packet {
+        BellPepperSeed=50,
+
+        Result: BellPepperBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Bell Pepper Seeds {
+		BellPepperBagSeed,
+  
+        Result: BellPepperSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+
+	/* Cooking Recipes */
 
 	recipe Mill Flour {	
 		keep MortarPestle,
@@ -164,9 +545,10 @@ module RavenCraft
 
 		AllowRottenItem: false,
 		StopOnWalk: true,
-		SkillRequired: Cooking=3;Farming=1,
+		SkillRequired: Cooking=3;Farming=3,
 		OnGiveXP: Recipe.OnGiveXP.Cooking10,
 		Time: 1000.0,
+		NeedToBeLearn: true,
 		Category: Cooking,
 	}
 
@@ -180,9 +562,10 @@ module RavenCraft
 
 		AllowRottenItem: false,
 		StopOnWalk: true,
-		SkillRequired: Cooking=3;Farming=1,
+		SkillRequired: Cooking=3;Farming=3,
 		OnGiveXP: Recipe.OnGiveXP.Cooking10,
 		Time: 1000.0,
+		NeedToBeLearn: true,
 		Category: Cooking,
 	}
 
@@ -196,9 +579,10 @@ module RavenCraft
 
 		AllowRottenItem: false,
 		StopOnWalk: true,
-		SkillRequired: Cooking=3;Farming=1,
+		SkillRequired: Cooking=4;Farming=3,
 		OnGiveXP: Recipe.OnGiveXP.Cooking10,
 		Time: 1000.0,
+		NeedToBeLearn: true,
 		Category: Cooking,
 	}
 
@@ -213,10 +597,30 @@ module RavenCraft
 
 		AllowRottenItem: false,
 		StopOnWalk: true,
-		SkillRequired: Cooking=4;Farming=1,
+		SkillRequired: Cooking=5;Farming=4,
 		OnGiveXP: Recipe.OnGiveXP.Cooking10,
 		Time: 1000.0,
+		NeedToBeLearn: true,
 		Category: Cooking,
 	}
 
+	recipe Make Corn Sugar {
+		keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
+        keep Spoon/GrillBrush/Spatula,
+		Corn = 30,
+		Water = 4,
+
+		Result: Sugar,
+		Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: BoilingFood,
+
+		AllowRottenItem: false,
+		StopOnWalk: true,
+		SkillRequired: Cooking=6;Farming=4,
+		OnGiveXP: Recipe.OnGiveXP.Cooking10,
+		Time: 1000.0,
+		NeedToBeLearn: true,
+		Category: Cooking,
+	}
 }

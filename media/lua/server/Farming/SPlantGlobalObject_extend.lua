@@ -28,6 +28,28 @@ function SFarmingSystem:growPlant(luaObject, nextGrowing, updateNbOfGrow)
 			luaObject = farming_vegetableconf.growCorn(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "Wheat") then
 			luaObject = farming_vegetableconf.growWheat(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Zucchini") then
+			luaObject = farming_vegetableconf.growZucchini(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Pumpkin") then
+			luaObject = farming_vegetableconf.growPumpkin(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Onion") then
+			luaObject = farming_vegetableconf.growOnion(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Lettuce") then
+			luaObject = farming_vegetableconf.growLettuce(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Leek") then
+			luaObject = farming_vegetableconf.growLeek(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Eggplant") then
+			luaObject = farming_vegetableconf.growEggplant(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Edamame") then
+			luaObject = farming_vegetableconf.growEdamame(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Daikon") then
+			luaObject = farming_vegetableconf.growDaikon(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "PepperJalapeno") then
+			luaObject = farming_vegetableconf.growPepperJalapeno(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "PepperHabanero") then
+			luaObject = farming_vegetableconf.growPepperHabanero(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "BellPepper") then
+			luaObject = farming_vegetableconf.growBellPepper(luaObject, nextGrowing, updateNbOfGrow)
 		end
 		-- maybe this plant gonna be disease
 		if not new and luaObject.nbOfGrow > 0 then
@@ -61,6 +83,28 @@ function SPlantGlobalObject:rottenThis()
 		texture = "vegetation_farming_01_47"
 	elseif self.typeOfSeed == "Wheat" then
 		texture = "vegetation_farm_01_34"
+	elseif self.typeOfSeed == "Zucchini" then
+		texture = "vegetation_farming_01_71"
+	elseif self.typeOfSeed == "Pumpkin" then
+		texture = "vegetation_farming_01_31"
+	elseif self.typeOfSeed == "Onion" then
+		texture = "vegetation_farming_01_55"
+	elseif self.typeOfSeed == "Lettuce" then
+		texture = "vegetation_farming_01_23"
+	elseif self.typeOfSeed == "Leek" then
+		texture = "vegetation_farming_01_39"
+	elseif self.typeOfSeed == "Eggplant" then
+		texture = "vegetation_farming_01_71"
+	elseif self.typeOfSeed == "Edamame" then
+		texture = "vegetation_farming_01_71"
+	elseif self.typeOfSeed == "Daikon" then
+		texture = "vegetation_farming_01_55"
+	elseif self.typeOfSeed == "PepperJalapeno" then
+		texture = "vegetation_farming_01_71"
+	elseif self.typeOfSeed == "PepperHabanero" then
+		texture = "vegetation_farming_01_71"
+	elseif self.typeOfSeed == "BellPepper" then
+		texture = "vegetation_farming_01_71"
 	end
 	self:setSpriteName(texture)
 	self.state = "rotten"
