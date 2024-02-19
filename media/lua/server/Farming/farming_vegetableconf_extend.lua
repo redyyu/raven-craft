@@ -133,6 +133,7 @@ farming_vegetableconf.sprite["Zucchini"] = {
 }
 
 farming_vegetableconf.growZucchini = farming_vegetableconf.growTomato
+-- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
 -- Pumpkin
@@ -212,7 +213,7 @@ farming_vegetableconf.icons["Lettuce"] = "Item_Lettuce";
 
 farming_vegetableconf.props["Lettuce"] = {};
 farming_vegetableconf.props["Lettuce"].seedsRequired = 9;
-farming_vegetableconf.props["Lettuce"].texture = "vegetation_farming_01_22";
+farming_vegetableconf.props["Lettuce"].texture = "vegetation_farming_01_20";
 farming_vegetableconf.props["Lettuce"].waterLvl = 85;
 farming_vegetableconf.props["Lettuce"].timeToGrow = ZombRand(46, 52);
 farming_vegetableconf.props["Lettuce"].minVeg = 4;
@@ -227,10 +228,10 @@ farming_vegetableconf.sprite["Lettuce"] = {
 	"vegetation_farming_01_16",
 	"vegetation_farming_01_17",
 	"vegetation_farming_01_18",
+	"vegetation_farming_01_18",
+	"vegetation_farming_01_19",
 	"vegetation_farming_01_19",
 	"vegetation_farming_01_20",
-	"vegetation_farming_01_22",
-	"vegetation_farming_01_21",
 	"vegetation_farming_01_23"
 }
 
@@ -246,7 +247,7 @@ farming_vegetableconf.icons["Leek"] = "Item_Leek";
 
 farming_vegetableconf.props["Leek"] = {};
 farming_vegetableconf.props["Leek"].seedsRequired = 6;
-farming_vegetableconf.props["Leek"].texture = "vegetation_farming_01_37";
+farming_vegetableconf.props["Leek"].texture = "vegetation_farming_01_36";
 farming_vegetableconf.props["Leek"].waterLvl = 55;
 farming_vegetableconf.props["Leek"].waterLvlMax = 100;
 farming_vegetableconf.props["Leek"].timeToGrow = ZombRand(50, 55);
@@ -262,10 +263,10 @@ farming_vegetableconf.sprite["Leek"] = {
 	"vegetation_farming_01_32",
 	"vegetation_farming_01_33",
 	"vegetation_farming_01_34",
+	"vegetation_farming_01_34",
 	"vegetation_farming_01_35",
 	"vegetation_farming_01_35",
 	"vegetation_farming_01_36",
-	"vegetation_farming_01_37",
 	"vegetation_farming_01_39"
 }
 
@@ -303,6 +304,7 @@ farming_vegetableconf.sprite["Eggplant"] = {
 }
 
 farming_vegetableconf.growEggplant = farming_vegetableconf.growTomato
+-- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
 -- Edamame
@@ -336,6 +338,7 @@ farming_vegetableconf.sprite["Edamame"] = {
 }
 
 farming_vegetableconf.growEdamame = farming_vegetableconf.growTomato
+-- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
 -- Daikon
@@ -403,6 +406,7 @@ farming_vegetableconf.sprite["PepperJalapeno"] = {
 }
 
 farming_vegetableconf.growPepperJalapeno = farming_vegetableconf.growTomato
+-- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
 
@@ -437,6 +441,7 @@ farming_vegetableconf.sprite["PepperHabanero"] = {
 }
 
 farming_vegetableconf.growPepperHabanero = farming_vegetableconf.growTomato
+-- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
 
@@ -471,6 +476,7 @@ farming_vegetableconf.sprite["BellPepper"] = {
 }
 
 farming_vegetableconf.growBellPepper = farming_vegetableconf.growTomato
+-- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
 -- BellPepper
@@ -504,3 +510,4 @@ farming_vegetableconf.sprite["BellPepper"] = {
 }
 
 farming_vegetableconf.growBellPepper = farming_vegetableconf.growTomato
+-- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
