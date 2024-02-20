@@ -1,3 +1,74 @@
+-- check player is in somewhere have electricity
+function Recipe.OnCanPerform.haveElectricity(recipe, playerObj)
+    return playerObj:getCurrentSquare():haveElectricity()
+end
+
+function Recipe.OnCanPerform.NearFurnaceFire(recipe, playerObj)
+    local furnaceFireItems = {
+        -- ["Stove"] = true, 
+        -- ["Barbecue"] = true, 
+        -- ["Fireplace"] = true, 
+        ["StoneFurnace"] = true, 
+        ["Fire"] = true, -- "Fire" includes campfires, etc.
+    }
+
+    local maxDistance = 3
+    local square = playerObj:getCurrentSquare()
+    local objects = square:getObjects()
+
+    for i=0, objects:size()-1 do
+        local o = objects:get(i)
+
+        if furnaceFireItems[o:getObjectName()] then
+            print(o:getObjectName())
+            -- get object position.
+            local objX = o:getX() + 0.5 -- center with 0.5 offset
+            local objY = o:getY() + 0.5 -- center with 0.5 offset
+            local objZ = o:getZ()
+            
+            -- get player position.
+            local pX = playerObj:getX()
+            local pY = playerObj:getY()
+            local pZ = playerObj:getZ()
+
+            -- Is the player close enough?
+            local distance = math.sqrt((objX-pX)^2 + (objY-pY)^2 + (objZ-pZ)^2)
+            
+            if distance <= maxDistance then
+                -- Can the player see the cooking util?
+                local gridSquare = o:getSquare();
+                local lineOfSightTestResults = LosUtil.lineClear(playerObj:getCell(), objX, objY, objZ, pX, pY, pZ, false);
+                --print(string.format("%s", tostring(lineOfSightTestResults)));
+                
+                if tostring(lineOfSightTestResults) ~= "Blocked" then
+                    -- Is the fire still alive? Includes campfires, etc. (IsoFire)
+                    if (o.getLife ~= nil and o:getLife() > 0) or (o.getLightRadius ~= nil and o:getLightRadius() > 1) then
+                        return true
+                    end
+                    
+                    -- Is the fire started? (BSFurnace --> ObjectName: "StoneFurnace")
+                    if o.isFireStarted ~= nil and o:isFireStarted() == true then
+                        return true
+                    end
+
+                    -- -- Is the fire lit? (IsoFireplace, IsoBarbecue)
+                    -- if o.isLit ~= nil and o:isLit() == true then
+                    --     return true; -- The player is close enough to a working cooking util and can see it; return true.
+                    -- end
+                    
+                    -- -- Is the cooking util turned on? (IsoStove)
+                    -- if o.Activated ~= nil and o:Activated() == true then
+                    --     return true; -- The player is close enough to a working cooking util and can see it; return true.
+                    -- end
+                end
+            end
+        end
+    end
+
+    return false
+end
+
+
 -- get the weapon, lower its condition according to Maintenance perk level
 function Recipe.OnCreate.CraftWeapon(items, result, player)
     local conditionMax = player:getPerkLevel(Perks.Maintenance);
@@ -132,98 +203,116 @@ function Recipe.OnCreate.PickleFoodMeat(items, result, player)
 end
 
 
-function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
-    local training_type = result:getType();
-    local perks_type = nil;
-    local xp_gain = 0;
 
-    if training_type == 'BookFirstAid1' then
-        perks_type = Perks.Doctor;
-        xp_gain = 10;
-    elseif training_type == 'BookFirstAid2' then
-        perks_type = Perks.Doctor;
-        xp_gain = 20;
-    elseif training_type == 'BookFirstAid3' then
-        perks_type = Perks.Doctor;
-        xp_gain = 30;
-    elseif training_type == 'BookFirstAid4' then
-        perks_type = Perks.Doctor;
-        xp_gain = 40;
-    elseif training_type == 'BookFirstAid5' then
-        perks_type = Perks.Doctor;
-        xp_gain = 50;
+function Recipe.OnGiveXP.Reloading10(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Reloading, 10);
+end
 
-    elseif training_type == 'BookTailoring1' then
-        perks_type = Perks.Tailoring;
-        xp_gain = 10;
-    elseif training_type == 'BookTailoring2' then
-        perks_type = Perks.Tailoring;
-        xp_gain = 20;
-    elseif training_type == 'BookTailoring3' then
-        perks_type = Perks.Tailoring;
-        xp_gain = 30;
-    elseif training_type == 'BookTailoring4' then
-        perks_type = Perks.Tailoring;
-        xp_gain = 40;
-    elseif training_type == 'BookTailoring5' then
-        perks_type = Perks.Tailoring;
-        xp_gain = 50;
-    end
+function Recipe.OnGiveXP.Reloading15(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Reloading, 15);
+end
 
-    if perks_type and xp_gain ~= 0 then
-        player:getXp():AddXP(perks_type, xp_gain);
-    end
+function Recipe.OnGiveXP.Reloading20(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Reloading, 20);
+end
+
+function Recipe.OnGiveXP.Reloading25(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Reloading, 25);
 end
 
 
-function Recipe.OnGiveXP.TrainingMeleeWeapon(recipe, ingredients, result, player)
-    local training_Categories = result:getCategories();
-    local perks_type = nil;
-    local item = nil;
-    local preks_level = 0;
-    local xp_gain = 1;
-    local condition = 0;
+-- function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
+--     local training_type = result:getType();
+--     local perks_type = nil;
+--     local xp_gain = 0;
 
-    if training_Categories:contains("Axe") then
-        perks_type = Perks.Axe;
-    elseif training_Categories:contains("SmallBlade") then
-        perks_type = Perks.SmallBlade;
-    elseif training_Categories:contains("LongBlade") then
-        perks_type = Perks.LongBlade;
-    elseif training_Categories:contains("SmallBlunt") then
-        perks_type = Perks.SmallBlunt;
-    elseif training_Categories:contains("Blunt") then
-        perks_type = Perks.Blunt;
-    elseif training_Categories:contains("Spear") then
-        perks_type = Perks.Spear;
-    end
+--     if training_type == 'BookFirstAid1' then
+--         perks_type = Perks.Doctor;
+--         xp_gain = 10;
+--     elseif training_type == 'BookFirstAid2' then
+--         perks_type = Perks.Doctor;
+--         xp_gain = 20;
+--     elseif training_type == 'BookFirstAid3' then
+--         perks_type = Perks.Doctor;
+--         xp_gain = 30;
+--     elseif training_type == 'BookFirstAid4' then
+--         perks_type = Perks.Doctor;
+--         xp_gain = 40;
+--     elseif training_type == 'BookFirstAid5' then
+--         perks_type = Perks.Doctor;
+--         xp_gain = 50;
 
-    for i=1,ingredients:size() do
-        item = ingredients:get(i-1);
-        if item:getType() == result:getType() then
-            condition = item:getCondition() - 1;
-        end
-    end
+--     elseif training_type == 'BookTailoring1' then
+--         perks_type = Perks.Tailoring;
+--         xp_gain = 10;
+--     elseif training_type == 'BookTailoring2' then
+--         perks_type = Perks.Tailoring;
+--         xp_gain = 20;
+--     elseif training_type == 'BookTailoring3' then
+--         perks_type = Perks.Tailoring;
+--         xp_gain = 30;
+--     elseif training_type == 'BookTailoring4' then
+--         perks_type = Perks.Tailoring;
+--         xp_gain = 40;
+--     elseif training_type == 'BookTailoring5' then
+--         perks_type = Perks.Tailoring;
+--         xp_gain = 50;
+--     end
+
+--     if perks_type and xp_gain ~= 0 then
+--         player:getXp():AddXP(perks_type, xp_gain);
+--     end
+-- end
+
+
+-- function Recipe.OnGiveXP.TrainingMeleeWeapon(recipe, ingredients, result, player)
+--     local training_Categories = result:getCategories();
+--     local perks_type = nil;
+--     local item = nil;
+--     local preks_level = 0;
+--     local xp_gain = 1;
+--     local condition = 0;
+
+--     if training_Categories:contains("Axe") then
+--         perks_type = Perks.Axe;
+--     elseif training_Categories:contains("SmallBlade") then
+--         perks_type = Perks.SmallBlade;
+--     elseif training_Categories:contains("LongBlade") then
+--         perks_type = Perks.LongBlade;
+--     elseif training_Categories:contains("SmallBlunt") then
+--         perks_type = Perks.SmallBlunt;
+--     elseif training_Categories:contains("Blunt") then
+--         perks_type = Perks.Blunt;
+--     elseif training_Categories:contains("Spear") then
+--         perks_type = Perks.Spear;
+--     end
+
+--     for i=1,ingredients:size() do
+--         item = ingredients:get(i-1);
+--         if item:getType() == result:getType() then
+--             condition = item:getCondition() - 1;
+--         end
+--     end
     
-    if condition < 0 then
-        condition = 0;
-    end
-    result:setCondition(condition);
+--     if condition < 0 then
+--         condition = 0;
+--     end
+--     result:setCondition(condition);
 
-    if perks_type then
-        preks_level = player:getPerkLevel(perks_type);
-        if preks_level <= 3 then
-            xp_gain = (preks_level + 1) * 10 * 2;
-        else
-            xp_gain = 1;
-        end
-        player:getXp():AddXP(perks_type, xp_gain);
-    end
+--     if perks_type then
+--         preks_level = player:getPerkLevel(perks_type);
+--         if preks_level <= 3 then
+--             xp_gain = (preks_level + 1) * 10 * 2;
+--         else
+--             xp_gain = 1;
+--         end
+--         player:getXp():AddXP(perks_type, xp_gain);
+--     end
 
-    for i = 1, 6 do
-        player:getInventory():AddItem("Base.UnusableWood");
-    end
-end
+--     for i = 1, 6 do
+--         player:getInventory():AddItem("Base.UnusableWood");
+--     end
+-- end
 
 
 -- function Recipe.GetItemTypes.Fertilizer(scriptItems)

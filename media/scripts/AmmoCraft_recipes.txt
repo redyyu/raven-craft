@@ -7,6 +7,8 @@ module RavenCraft
     /***** Gunpowder *****/
 
     /* Override Vanilla recipe */
+
+    /* Gatherpowder is calculated with Gunpowder usage */
     recipe Gather Gunpowder {
         Bullets38/Bullets45/Bullets9mm/223Bullets/308Bullets/Bullets44/556Bullets/ShotgunShells=50,
 
@@ -15,6 +17,7 @@ module RavenCraft
         Override:true,
     }
 
+    /* Craft Gunpowder */
     recipe Craft Gunpowder {
         keep MortarPestle,
         Fertilizer=2,
@@ -48,14 +51,18 @@ module RavenCraft
 
 	/***** Bullets *****/
 
+    /* GunPowder usage is calculated to match with Gatherpowder*/
+
 	recipe Craft 9mm Bullets {
         keep 9mmBulletsMold,
         keep Tongs,
-        BlowTorch=1,
         GunPowder=2,
         IronIngot=22,
 
         Result: Bullets9mm=2,  /* 10 bullets */
+        
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading10,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -69,11 +76,13 @@ module RavenCraft
     recipe Craft Shotgun Shells {
         keep ShotgunShellsMold,
         keep Tongs,
-        BlowTorch=1,
         IronIngot=25,
         GunPowder=3,
 
         Result: ShotgunShells=2,  /* 10 bullets */
+
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading15,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -87,11 +96,13 @@ module RavenCraft
     recipe Craft .308 Bullets {
         keep 308BulletsMold,
         keep Tongs,
-        BlowTorch=1,
         IronIngot=23,
         GunPowder=2,
 
         Result: 308Bullets=2,  /* 10 bullets */
+
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading15,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -105,11 +116,13 @@ module RavenCraft
 	recipe Craft .223 Bullets {
         keep 223BulletsMold,
         keep Tongs,
-        BlowTorch=1,
         IronIngot=23,
         GunPowder=2,
 
         Result: 223Bullets=2,  /* 10 bullets */
+
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading15,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -123,11 +136,13 @@ module RavenCraft
 	recipe Craft 5.56mm Bullets {
         keep 556BulletsMold,
         keep Tongs,
-        BlowTorch=1,
         IronIngot=25,
         GunPowder=3,
 
         Result: 556Bullets=2,  /* 10 bullets */
+
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading25,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -141,11 +156,13 @@ module RavenCraft
 	recipe Craft .38 Special Bullets {
         keep 38SpecialBulletsMold,
         keep Tongs,
-        BlowTorch=1,
         GunPowder=2,
         IronIngot=22,
         
         Result: Bullets38=2,  /* 10 bullets */
+
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading10,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -159,11 +176,13 @@ module RavenCraft
 	recipe Craft .44 Magnum Bullets {
         keep 44MagnumBulletsMold,
         keep Tongs,
-        BlowTorch=1,
         GunPowder=2,
         IronIngot=20,
 
         Result: Bullets44=2,  /* 6 bullets */
+
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading20,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -177,11 +196,13 @@ module RavenCraft
 	recipe Craft .45 Auto Bullets {
         keep 45AutoBulletsMold,
         keep Tongs,
-        BlowTorch=1,
         GunPowder=2,
         IronIngot=23,
 
         Result: Bullets45=2,  /* 10 bullets */
+
+        OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
+        OnGiveXP: Recipe.OnGiveXP.Reloading15,
 
         Prop1: Source=1,
         Prop2: Source=2,
