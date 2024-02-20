@@ -1824,6 +1824,19 @@ module RavenCraft
         Category: Cooking,
     }
 
+    recipe Make Mixed Vegetables {
+        keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        Corn/Potato/RedRadish/Carrots/Cabbage/Broccoli/BellPepper/PepperHabanero/PepperJalapeno/Leek/Lettuce/Onion/Tomato/Zucchini/Daikon/Edamame/Eggplant;20,
+        Plasticbag/GroceryBag1/GroceryBag2/GroceryBag3/GroceryBag4/GroceryBag5,
+
+        Result: CornFrozen,
+        SkillRequired: Cooking=6,
+        Time: 150.0,
+        Sound: Plastering,
+        Category: Cooking,
+    }
+
     recipe Pickle Rabbit Meat {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
