@@ -69,7 +69,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=6;Reloading=4,
+        SkillRequired: MetalWelding=4;Reloading=2,
         Category: Ammo,
     }
 
@@ -89,7 +89,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=6;Reloading=4,
+        SkillRequired: MetalWelding=5;Reloading=2,
         Category: Ammo,
     }
 
@@ -109,7 +109,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=7;Reloading=5,
+        SkillRequired: MetalWelding=5;Reloading=2,
         Category: Ammo,
     }
 
@@ -129,7 +129,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=7;Reloading=5,
+        SkillRequired: MetalWelding=5;Reloading=2,
         Category: Ammo,
     }
 
@@ -149,7 +149,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=7;Reloading=5,
+        SkillRequired: MetalWelding=6;Reloading=2,
         Category: Ammo,
     }
 
@@ -169,7 +169,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=6;Reloading=4,
+        SkillRequired: MetalWelding=3;Reloading=2,
         Category: Ammo,
     }
 
@@ -189,7 +189,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=6;Reloading=4,
+        SkillRequired: MetalWelding=4;Reloading=2,
         Category: Ammo,
     }
 
@@ -209,7 +209,7 @@ module RavenCraft
         Sound: RepairWithWrench,
         Time: 180.0,
         NeedToBeLearn: true,
-        SkillRequired: MetalWelding=6;Reloading=4,
+        SkillRequired: MetalWelding=4;Reloading=2,
         Category: Ammo,
     }
 
