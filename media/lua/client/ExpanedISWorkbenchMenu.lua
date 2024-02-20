@@ -36,30 +36,32 @@ end
 
 
 local function onStoneFurnace(worldobjects, player)
-    local furniture = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
-    -- furniture.firstItem = "Hammer";  -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
+    -- Object name will be 'StoneFurnace'
+    local furnace = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
+    -- furnace.firstItem = "Hammer";  -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
     -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
-    furniture.modData["xp:Woodwork"] = 30;
-    furniture.craftingBank = "Hammering";
-    furniture.modData["need:Base.Stone"]= 30;
-    furniture.player = player;
-    furniture.completionSound = "BuildFenceGravelbag";
-    furniture.maxTime = 2000;
-    getCell():setDrag(furniture, player);
+    furnace.modData["xp:Woodwork"] = 30;
+    furnace.craftingBank = "Hammering";
+    furnace.modData["need:Base.Stone"]= 30;
+    furnace.player = player;
+    furnace.completionSound = "BuildFenceGravelbag";
+    furnace.maxTime = 2000;
+    getCell():setDrag(furnace, player);
 end
 
 
 local function onAnvil(worldobjects, player)
-    local furniture = ISAnvil:new("Anvil", getSpecificPlayer(player), "crafted_01_19", "crafted_01_19");
-    -- furniture.firstItem = "Hammer"; -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
+    -- Object name will be 'Anvil' recipe NearItem is work.
+    local anvil = ISAnvil:new("Anvil", getSpecificPlayer(player), "crafted_01_19", "crafted_01_19");
+    -- anvil.firstItem = "Hammer"; -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
     -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
-    furniture.modData["xp:Woodwork"] = 30;
-    furniture.craftingBank = "Hammering";
-    furniture.modData["use:Base.IronIngot"]= 500;
-    furniture.player = player;
-    furniture.maxTime = 1000;
-    furniture.completionSound = "BuildMetalStructureMedium";
-    getCell():setDrag(furniture, player);
+    anvil.modData["xp:Woodwork"] = 30;
+    anvil.craftingBank = "Hammering";
+    anvil.modData["use:Base.IronIngot"]= 500;
+    anvil.player = player;
+    anvil.maxTime = 1000;
+    anvil.completionSound = "BuildMetalStructureMedium";
+    getCell():setDrag(anvil, player);
 end
 
 

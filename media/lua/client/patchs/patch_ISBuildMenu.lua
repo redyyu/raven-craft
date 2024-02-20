@@ -38,6 +38,7 @@ PatchMenu.doBuildMenu = function(player, context, worldobjects, test)
         -- find Stone Furnace --
         if instanceof(v, "BSFurnace") then
             furnace = v;
+            print(furnace)
         end
         -- find Metal Drum --
         if CMetalDrumSystem.instance:isValidIsoObject(v) then
@@ -45,7 +46,7 @@ PatchMenu.doBuildMenu = function(player, context, worldobjects, test)
         end
     end
     
-    -- fix `Put out fire` on furance not change texture. --
+    -- fix `Put out fire` on furnace not change texture. --
     if furnace and furnace:isFireStarted() then
         context:removeOptionByName(getText("ContextMenu_Put_out_fire"));
         context:addOption(getText("ContextMenu_Put_out_fire"), worldobjects, furnaceOnStopFire, furnace, playerObj);
