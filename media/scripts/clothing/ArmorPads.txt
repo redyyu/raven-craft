@@ -15,7 +15,7 @@ module RavenCraft
         DisplayCategory = SkillBook,
         Weight = 0.1,
         Type = Literature,
-        DisplayName	= The Crafting Of Defense,
+        DisplayName	= The Art of Defense,
         Icon = MagazineArmorPadsMakerMag,
         TeachedRecipes = Craft Elbow Pads;Remake Elbow Pads;Craft Knee Pads;Remake Knee Pads;Craft Shoulder Pads;Craft Hand Pads;Remake Hand Pads,
         ReplaceOnUse = ArmorPadsMakerMag,
