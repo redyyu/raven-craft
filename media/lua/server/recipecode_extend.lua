@@ -4,65 +4,68 @@ function Recipe.OnCanPerform.haveElectricity(recipe, playerObj)
 end
 
 function Recipe.OnCanPerform.NearFurnaceFire(recipe, playerObj)
-    local furnaceFireItems = {
+    local furnaceFireObjectNames = {
+        ["StoneFurnace"] = true, 
+        ["Fire"] = true, -- "Fire" includes campfires, etc.
+        -- ["Campfire"] = true,  No need this, check the fire on campfire only.
         -- ["Stove"] = true, 
         -- ["Barbecue"] = true, 
         -- ["Fireplace"] = true, 
-        ["StoneFurnace"] = true, 
-        ["Fire"] = true, -- "Fire" includes campfires, etc.
     }
 
-    local maxDistance = 3
-    local square = playerObj:getCurrentSquare()
-    local objects = square:getObjects()
-
-    for i=0, objects:size()-1 do
-        local o = objects:get(i)
-
-        if furnaceFireItems[o:getObjectName()] then
-            print(o:getObjectName())
-            -- get object position.
-            local objX = o:getX() + 0.5 -- center with 0.5 offset
-            local objY = o:getY() + 0.5 -- center with 0.5 offset
-            local objZ = o:getZ()
-            
-            -- get player position.
-            local pX = playerObj:getX()
-            local pY = playerObj:getY()
-            local pZ = playerObj:getZ()
-
-            -- Is the player close enough?
-            local distance = math.sqrt((objX-pX)^2 + (objY-pY)^2 + (objZ-pZ)^2)
-            
-            if distance <= maxDistance then
-                -- Can the player see the cooking util?
-                local gridSquare = o:getSquare();
-                local lineOfSightTestResults = LosUtil.lineClear(playerObj:getCell(), objX, objY, objZ, pX, pY, pZ, false);
-                --print(string.format("%s", tostring(lineOfSightTestResults)));
-                
-                if tostring(lineOfSightTestResults) ~= "Blocked" then
-                    -- Is the fire still alive? Includes campfires, etc. (IsoFire)
-                    if (o.getLife ~= nil and o:getLife() > 0) or (o.getLightRadius ~= nil and o:getLightRadius() > 1) then
-                        return true
+    local max_distance = 1
+    local curr_square = playerObj:getCurrentSquare()
+    local object_tables = {}
+    -- local gs = getCell():getGridSquare(curr_square:getX(), curr_square:getY(), curr_square:getZ());
+    -- if gs then
+    --     local gs_objects = gs:getObjects()
+    --     for j=0, gs_objects:size()-1 do
+    --         local obj_name = gs_objects:get(j):getObjectName()
+    --         if obj_name ~= 'IsoObject' then
+    --             print(obj_name)
+    --         end
+    --     end
+    --     -- objects:addAll(gs:getObjects())
+    -- end
+ 
+	for x=curr_square:getX()-max_distance, curr_square:getX()+max_distance do
+		for y=curr_square:getY()-max_distance, curr_square:getY()+max_distance do
+			local gs = getCell():getGridSquare(x, y, curr_square:getZ());
+			if gs then
+                local gs_objects = gs:getObjects()
+                for j=0, gs_objects:size()-1 do
+                    local obj = gs_objects:get(j)
+                    local obj_name = obj:getObjectName()
+                    if furnaceFireObjectNames[obj_name] then
+                        table.insert(object_tables, obj)
                     end
-                    
-                    -- Is the fire started? (BSFurnace --> ObjectName: "StoneFurnace")
-                    if o.isFireStarted ~= nil and o:isFireStarted() == true then
-                        return true
-                    end
-
-                    -- -- Is the fire lit? (IsoFireplace, IsoBarbecue)
-                    -- if o.isLit ~= nil and o:isLit() == true then
-                    --     return true; -- The player is close enough to a working cooking util and can see it; return true.
-                    -- end
-                    
-                    -- -- Is the cooking util turned on? (IsoStove)
-                    -- if o.Activated ~= nil and o:Activated() == true then
-                    --     return true; -- The player is close enough to a working cooking util and can see it; return true.
-                    -- end
                 end
-            end
+			end
+		end
+	end
+
+    for i=1, #object_tables do
+        local o = object_tables[i]
+        -- Is the fire still alive? Includes campfires, etc. (IsoFire)
+        if (o.getLife ~= nil and o:getLife() > 0) or (o.getLightRadius ~= nil and o:getLightRadius() > 1) then
+            return true
         end
+        
+        -- Is the fire started? (BSFurnace --> ObjectName: "StoneFurnace")
+        if o.isFireStarted ~= nil and o:isFireStarted() == true then
+            return true
+        end
+
+        -- -- Is the fire lit? (IsoFireplace, IsoBarbecue)
+        -- if o.isLit ~= nil and o:isLit() == true then
+        --     return true; -- The player is close enough to a working cooking util and can see it; return true.
+        -- end
+        
+        -- -- Is the cooking util turned on? (IsoStove)
+        -- if o.Activated ~= nil and o:Activated() == true then
+        --     return true; -- The player is close enough to a working cooking util and can see it; return true.
+        -- end
+
     end
 
     return false
