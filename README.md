@@ -49,6 +49,27 @@ A Project zomboid mod. expanding vanilla constructable facilities and craftable 
 *Required "Craft Workbench" recipe, which is in "The Spirit of Craftsman"(1-4) magazine.*
 
 
+### Added new Farming Expands:
+
+1. **Corn**: grows vanilla Corn.
+2. **Peanuts**: grows vanilla Peanuts (will never be rotten).
+3. **Wheat**: grows expaneded Wheat.
+4. **Zucchini**: grows vanilla Zucchini.
+5. **Pumpkin**: grows vanilla Pumpkin.
+6. **Watermelon**: grows vanilla Watermelon
+7. **Onion**: grows vanilla Onion
+8. **Lettuce**: grows vanilla Lettuce
+9. **Leek**: grows vanilla Leek
+10. **Eggplant**: grows vanilla Eggplant
+11. **Edamame**: grows vanilla Edamame
+12. **Daikon**: grows vanilla Daikon
+13. **PepperJalapeno**: grows vanilla PepperJalapeno
+14. **PepperHabanero**: grows vanilla PepperHabanero
+15. **BellPepper**: grows vanilla BellPepper
+
+*no magazine required above*
+
+
 ### Added Magazine Expands:
 
 1. **The Spirit of Craftsman Vol.1**: Teach `Craft Workbench`, `Craft Tongs`, `Craft Bellows`, `Quick make Charcoal`, `Self-made Glue`, `Self-made Wood Glue`, `Self-made Hairspray` and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
@@ -162,13 +183,17 @@ Also allow chop pickled meat into Pickled Minced Meat, after few days it turn to
 
 `Rabbit Meat`, `Small Animal Meat`, `Small Bird Meat`, `Fish Fillet`, `Fish Roe`, `Salmon`, `Shrimp`, `Chicken`, `Egg`, `Frog Meat`, `Minced Meat`, `Mutton Chop`, `Pork Chop`, `Steak`, `Apple`, `Orange`, `Peach`, `Pear`, `Pineapple`, 
 
-### Allow pickle meat and make Tofu
+### Allow pickle meat
 
 `Rabbit Meat`, `Small Animal Meat`, `Small Bird Meat`, `Fish Fillet`, `Salmon`, `Shrimp`, `Chicken`, `Frog Meat`, `Minced Meat`, `Mutton Chop`, `Pork Chop`, `Steak`,
 
 use salt to make **Pickled** meat, after few days, it will turn to **Dehydrated** meat, it is not go bad any way.
 
 Pickle meat before it's goes to rotten. unlike jar, pickle food can working on any size of meat. big meat produce big dehydrated.
+
+### New food recipes
+
+`Make Tofu`, `Make Mixed Vegetables`
 
 
 ## Ammo Maker
@@ -210,6 +235,8 @@ DO NOT waste bullets.
 9. Craft .45 Auto Bullets
 
 *All recipe is required read "The Spring Of Musketeer"*
+
+**Require near by Stone Furnace or Campfire, also fire must be lit up.**
 
 
 

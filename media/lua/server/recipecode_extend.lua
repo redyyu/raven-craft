@@ -16,17 +16,6 @@ function Recipe.OnCanPerform.NearFurnaceFire(recipe, playerObj)
     local max_distance = 1
     local curr_square = playerObj:getCurrentSquare()
     local object_tables = {}
-    -- local gs = getCell():getGridSquare(curr_square:getX(), curr_square:getY(), curr_square:getZ());
-    -- if gs then
-    --     local gs_objects = gs:getObjects()
-    --     for j=0, gs_objects:size()-1 do
-    --         local obj_name = gs_objects:get(j):getObjectName()
-    --         if obj_name ~= 'IsoObject' then
-    --             print(obj_name)
-    --         end
-    --     end
-    --     -- objects:addAll(gs:getObjects())
-    -- end
  
 	for x=curr_square:getX()-max_distance, curr_square:getX()+max_distance do
 		for y=curr_square:getY()-max_distance, curr_square:getY()+max_distance do
