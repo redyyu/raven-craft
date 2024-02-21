@@ -1,0 +1,33 @@
+module KCMweapons
+{
+	model CrossbowHand
+	{
+		mesh = Weapons/firearm/CrossbowHandNoBolt,
+		texture = Weapons/firearm/CrossbowHandNoBolt,
+	}
+	model CrossbowHandDrawn
+	{
+		mesh = Weapons/firearm/CrossbowHandDrawn,
+		texture = Weapons/firearm/CrossbowHandDrawn,
+	}
+	model CrossbowCompound
+	{
+		mesh = Weapons/firearm/CrossbowCompoundNoBolt,
+		texture = Weapons/firearm/CrossbowCompoundNoBolt,
+	}
+	model CrossbowCompoundDrawn
+	{
+		mesh = Weapons/Firearm/CrossbowCompoundDrawn,
+		texture = Weapons/Firearm/CrossbowCompoundDrawn,
+	}
+	model CrossbowWooden
+	{
+		mesh = Weapons/firearm/CrossbowWoodenNoBolt,
+		texture = Weapons/firearm/CrossbowWoodenNoBolt,
+	}
+	model CrossbowWoodenDrawn
+	{
+		mesh = Weapons/Firearm/CrossbowWoodenDrawn,
+		texture = Weapons/Firearm/CrossbowWoodenDrawn,
+	}
+}

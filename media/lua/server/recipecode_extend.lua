@@ -195,6 +195,25 @@ function Recipe.OnCreate.PickleFoodMeat(items, result, player)
 end
 
 
+function Recipe.OnGiveXP.WoodWork10(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Woodwork, 10);
+end
+
+function Recipe.OnGiveXP.WoodWork15(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Woodwork, 15);
+end
+
+function Recipe.OnGiveXP.WoodWork20(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Woodwork, 15);
+end
+
+function Recipe.OnGiveXP.WoodWork25(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Woodwork, 25);
+end
+
+function Recipe.OnGiveXP.Reloading5(recipe, ingredients, result, player)
+    player:getXp():AddXP(Perks.Reloading, 5);
+end
 
 function Recipe.OnGiveXP.Reloading10(recipe, ingredients, result, player)
     player:getXp():AddXP(Perks.Reloading, 10);
@@ -204,13 +223,6 @@ function Recipe.OnGiveXP.Reloading15(recipe, ingredients, result, player)
     player:getXp():AddXP(Perks.Reloading, 15);
 end
 
-function Recipe.OnGiveXP.Reloading20(recipe, ingredients, result, player)
-    player:getXp():AddXP(Perks.Reloading, 20);
-end
-
-function Recipe.OnGiveXP.Reloading25(recipe, ingredients, result, player)
-    player:getXp():AddXP(Perks.Reloading, 25);
-end
 
 
 -- function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)

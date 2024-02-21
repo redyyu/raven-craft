@@ -66,6 +66,59 @@ module RavenCraft
         WorldStaticModel = MagazineGround,
     }
 
+	/** Skill Books **/
+
+	item BookWeaponAiming1 {
+        NumberOfPages = 220,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayName = Hunter's Guide,
+        SkillTrained = Aiming,
+        LvlSkillTrained = 1,
+        NumLevelsTrained = 2,
+        Icon = BookAiming,
+        StaticModel = Book,
+        WorldStaticModel = BookRedPink_Ground,
+    }
+
+    item BookWeaponAiming2 {
+        NumberOfPages = 260,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayName = Guard's guide,
+        SkillTrained = Aiming,
+        LvlSkillTrained = 3,
+        NumLevelsTrained = 2,
+        Icon = BookAiming,
+        StaticModel = Book,
+        WorldStaticModel = BookRedPink_Ground,
+    }
+
+    item BookWeaponAiming3 {
+        NumberOfPages = 300,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayName = Sniper's Guide,
+        SkillTrained = Aiming,
+        LvlSkillTrained = 5,
+        NumLevelsTrained = 2,
+        Icon = BookAiming,
+        StaticModel = Book,
+        WorldStaticModel = BookClosedRedPink_Ground,
+    }
+
+    item BookWeaponReloading1 {
+        NumberOfPages = 220,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayName = Weapon Reloading,
+        SkillTrained = Reloading,
+        LvlSkillTrained = 1,
+        NumLevelsTrained = 2,
+        Icon = BookReloading,
+        StaticModel = Book,
+        WorldStaticModel = BookPurple_Ground,
+    }
 
 
     /** Food **/

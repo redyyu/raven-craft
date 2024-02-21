@@ -62,7 +62,7 @@ module RavenCraft
         Result: Bullets9mm=2,  /* 10 bullets */
         
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
-        OnGiveXP: Recipe.OnGiveXP.Reloading10,
+        OnGiveXP: Recipe.OnGiveXP.Reloading5,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -82,7 +82,7 @@ module RavenCraft
         Result: ShotgunShells=2,  /* 10 bullets */
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
-        OnGiveXP: Recipe.OnGiveXP.Reloading15,
+        OnGiveXP: Recipe.OnGiveXP.Reloading10,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -102,7 +102,7 @@ module RavenCraft
         Result: 308Bullets=2,  /* 10 bullets */
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
-        OnGiveXP: Recipe.OnGiveXP.Reloading15,
+        OnGiveXP: Recipe.OnGiveXP.Reloading10,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -142,7 +142,7 @@ module RavenCraft
         Result: 556Bullets=2,  /* 10 bullets */
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
-        OnGiveXP: Recipe.OnGiveXP.Reloading25,
+        OnGiveXP: Recipe.OnGiveXP.Reloading15,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -162,7 +162,7 @@ module RavenCraft
         Result: Bullets38=2,  /* 10 bullets */
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
-        OnGiveXP: Recipe.OnGiveXP.Reloading10,
+        OnGiveXP: Recipe.OnGiveXP.Reloading5,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -182,7 +182,7 @@ module RavenCraft
         Result: Bullets44=2,  /* 6 bullets */
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
-        OnGiveXP: Recipe.OnGiveXP.Reloading20,
+        OnGiveXP: Recipe.OnGiveXP.Reloading15,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -202,7 +202,7 @@ module RavenCraft
         Result: Bullets45=2,  /* 10 bullets */
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
-        OnGiveXP: Recipe.OnGiveXP.Reloading15,
+        OnGiveXP: Recipe.OnGiveXP.Reloading10,
 
         Prop1: Source=1,
         Prop2: Source=2,

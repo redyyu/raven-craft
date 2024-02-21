@@ -1,0 +1,251 @@
+module KCMweapons
+{
+	imports
+	{
+		Base,
+	}
+	
+	/****************************** PACK/UNPACK AMMO RECIPES ******************************/
+
+	recipe Unpack Bundle of Crossbow Bolts {
+		CrossbowBoltBox,
+
+		Result: CrossbowBolt = 24,
+		Sound: PZ_PutInBag,
+		Time: 5,
+		AnimNode: Craft,
+	}
+
+	recipe Pack Bundle of Crossbow Bolts {
+		CrossbowBolt = 24,
+				
+		Result: CrossbowBoltBox,
+		Sound: PZ_PutInBag,
+		Time: 5,
+		AnimNode: Craft,
+	}
+
+
+	/****************************** CRAFTING RECIPES ******************************/
+
+	recipe Craft Wooden Crossbow {
+		keep [Recipe.GetItemTypes.Hammer],
+		keep [Recipe.GetItemTypes.Saw],
+		Plank=4,
+		Nails=10,
+		Twine=4,
+		ScrapMetal=2,
+		RippedSheets=2,
+
+		NoBrokenItems: true,        
+		Result: CrossbowWooden,
+		Sound: Sawing,
+		Time: 2500,
+
+		AnimNode: Disassemble,
+		OnGiveXP: Recipe.OnGiveXP.WoodWork25,
+		Prop1: Source=1,
+
+		NeedToBeLearn: true,
+		Category: Survivalist,
+	}
+
+
+	recipe Craft Crossbow Bolts {
+		keep [Recipe.GetItemTypes.SharpKnife],
+		keep [Recipe.GetItemTypes.Hammer],
+		ScrapMetal = 12,
+		WoodenStick = 12,
+		Twine,
+
+		Result: CrossbowBolt = 12,
+		Time: 1000,
+		Sound: Hammering,
+		AnimNode: Disassemble,
+		OnGiveXP: Recipe.OnGiveXP.WoodWork5,
+		Prop1: Source=1,
+
+		NeedToBeLearn:true,
+		Category: Survivalist,
+	}
+
+
+	/****************************** ATTACHMENT CONVERSION RECIPES ******************************/
+
+	recipe Convert Sling to Crossbow Sling {
+		Sling,
+		keep Screwdriver,
+
+		Result: Crossbow_Sling,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode:Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Ironsight to Crossbow Ironsight {
+		IronSight,
+		keep Screwdriver,
+
+		Result: Crossbow_IronSight,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert x2 Scope to Crossbow x2 Scope {
+		x2Scope,
+		keep Screwdriver,
+
+		Result: Crossbow_x2Scope,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert x4 Scope to Crossbow x4 Scope {
+		x4Scope,
+		keep Screwdriver,
+
+		Result: Crossbow_x4Scope,
+		Time:40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert x8 Scope to Crossbow x8 Scope {
+		x8Scope,
+		keep Screwdriver,
+
+		Result: Crossbow_x8Scope,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert RedDot to Crossbow RedDot {
+		RedDot,
+		keep Screwdriver,
+
+		Result: Crossbow_RedDot,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Stock to Crossbow Stock {
+		FiberglassStock,
+		keep Screwdriver,
+
+		Result: Crossbow_FiberglassStock,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Laser to Crossbow Laser {
+		Laser,
+		keep Screwdriver,
+
+		Result: Crossbow_Laser,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow Sling to Sling {
+		Crossbow_Sling,
+		keep Screwdriver,
+
+		Result: Sling,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow Ironsight to Ironsight {
+		Crossbow_IronSight,
+		keep Screwdriver,
+
+		Result:IronSight,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow x2 Scope to x2 Scope {
+		KCM_x2Scope,
+		keep Screwdriver,
+
+		Result: x2Scope,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow x4 Scope to 4x Scope {
+		Crossbow_x4Scope,
+		keep Screwdriver,
+
+		Result: x4Scope,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow x8 Scope to x8 Scope {
+		Crossbow_x8Scope,
+		keep Screwdriver,
+
+		Result: x8Scope,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow RedDot to RedDot {
+		Crossbow_RedDot,
+		keep Screwdriver,
+
+		Result:RedDot,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow Stock to Stock {
+		Crossbow_FiberglassStock,
+		keep Screwdriver,
+
+		Result: FiberglassStock,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+	recipe Convert Crossbow Laser to Laser {
+		Crossbow_Laser,
+		keep Screwdriver,
+
+		Result: Laser,
+		Time: 40.0,
+		Sound: Screwdriver,
+		AnimNode: Disassemble,
+		Prop1: Screwdriver,
+	}
+
+}

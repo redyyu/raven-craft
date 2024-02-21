@@ -18,6 +18,10 @@ Tooltip_CRAFT_STONEFURNACEDESC = "Used to melt metallic items into workable iron
 Tooltip_CRAFT_ANVILDESC = "Use it to forge various metal objects.",
 Tooltip_CRAFT_WATERWELLDESC = "Build a Water Well for unlimited water."
 
+-- Books
+Tooltip_BookTitle_Reloading = "Reloading"
+Tooltip_BookTitle_Aiming = "Aiming"
+
 -- UI
 Tooltip_FOOD_WASTED_MEAT = "Wasted Meat",
 Tooltip_CHARCOAL_LOGS = "Add %1 logs to make charcoal, once done, light the barrel with a lighter and wait.",

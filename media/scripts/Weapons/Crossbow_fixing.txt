@@ -1,0 +1,32 @@
+module KCMweapons
+{
+	imports
+	{
+		Base,
+	}
+	
+	/****************************** REPAIR ******************************/
+
+	fixing Fix Hand Crossbow {
+		Require: CrossbowHand,
+		Fixer: CrossbowHand; Aiming=4,
+		Fixer: ScrapMetal=1; MetalWelding=3,
+		Fixer: DuctTape=2,
+	}
+
+	fixing Fix Wooden Crossbow {
+		Require: CrossbowWooden,
+		Fixer: CrossbowWooden; Aiming=3,
+		Fixer: Plank=2; Carpentry=4,
+		Fixer: DuctTape=1,
+	}
+
+	fixing Fix Haze 470 Compound Bow {
+		Require: CrossbowCompound,
+		
+		Fixer: CrossbowCompound; Aiming=5,
+		Fixer: ScrapMetal=3; MetalWelding=4,
+		Fixer: DuctTape=3,
+	}
+
+}

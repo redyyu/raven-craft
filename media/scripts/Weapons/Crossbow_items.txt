@@ -1,0 +1,268 @@
+module RavenCraft
+{
+    imports
+    {
+        Base,
+    }
+
+/** Crossbows **/
+
+    item CrossbowHand {
+        MinDamage = 0.50,
+        MaxDamage = 0.8,
+        DoorDamage = 4,
+        CriticalChance = 30,
+        CritDmgMultiplier = 5,
+        AimingPerkCritModifier = 5,
+  
+        AimingTime = 10,
+        HitChance = 60,
+        AimingPerkHitChanceModifier = 5,
+  
+        MinRange = 0.5,
+        MaxRange = 6,
+        MinAngle = 0.9,
+  
+        AmmoType = RavenCraft.CrossbowBolt,
+        AmmoBox = RavenCraft.CrossbowBoltBox,
+        WeaponReloadType = revolver,
+        ReloadTime = 8,
+        SwingTime = 0.45,
+        RecoilDelay = 1,
+
+        SoundRadius = 4,
+        ConditionMax = 10,
+        ConditionLowerChanceOneIn = 60,
+        MaxAmmo = 1,
+        ProjectileCount = 1,
+        MaxHitCount = 1,
+
+        SplatNumber = 5,
+        Weight = 1.2,
+        UseEndurance = FALSE,
+        KnockBackOnNoDeath = TRUE,
+        KnockdownMod = 0,
+
+        /* ANIMATION AND SPRITES */
+        Icon = CrossbowHand,
+        RunAnim = Run_Weapon2,
+        WeaponSprite = RavenCraft.CrossbowHand,
+
+        /* SOUNDS */
+        SoundVolume = 1,
+        NPCSoundBoost = 1.5,
+        SoundGain = 2,
+        SoundRadius = 12,
+
+        ImpactSound = null,
+        SwingSound = CrossbowHandFire,
+        InsertAmmoSound = CrossbowInsert,
+        EjectAmmoSound = CrossbowInsert,
+        RackSound = CrossbowHandRack,
+        BreakSound = CrossbowBreak,
+
+        /* MISC */
+        DisplayName = Hand Crossbow,
+        Type = Weapon,
+        Ranged = TRUE,
+        SubCategory =Firearm,
+        IsAimedHandWeapon = TRUE,
+        IsAimedFirearm = TRUE,
+        AttachmentType = Holster,
+        InsertAllBulletsReload = TRUE,
+        RackAfterShoot = FALSE,
+        haveChamber = FALSE,
+        JamGunChance = 0,
+        SplatBloodOnNoDeath = TRUE,
+
+        /* NO CLUE */
+        RangeFalloff = FALSE,
+        ToHitModifier = 1.5,
+        PushBackMod = 0.5,
+        ShareDamage = FALSE,
+        AngleFalloff = TRUE,
+        MultipleHitConditionAffected = FALSE,
+        MetalValue = 25,
+    }
+
+
+    item CrossbowCompound {
+        ImpactSound = null,
+        MaxRange = 11,
+        RangeFalloff = TRUE,
+        WeaponSprite = RavenCraft.CrossbowCompound,
+        ToHitModifier = 1.5,
+        SoundVolume = 1,
+        NPCSoundBoost = 1.5,
+        MinAngle = 0.9,
+        Type = Weapon,
+        KnockBackOnNoDeath = TRUE,
+        Ranged = TRUE,
+        ProjectileCount = 1,
+        ConditionLowerChanceOneIn = 45,
+        Weight = 2.4,
+        SplatNumber = 5,
+        PushBackMod = 1,
+        SubCategory = Firearm,
+        AimingMod = 2,
+        ConditionMax = 10,
+        ShareDamage = FALSE,
+        MaxHitCount = 1,
+        IsAimedHandWeapon = TRUE,
+        IsAimedFirearm = TRUE,
+        DoorDamage = 8,
+        UseEndurance = FALSE,
+        DisplayName = Haze 470 Compound Bow,
+        MinRange = 0.5,
+        SwingTime = 1.25,
+        SwingAnim = Rifle,
+        AngleFalloff = TRUE,
+        MultipleHitConditionAffected = FALSE,
+        SwingSound = CrossbowCompoundFire,
+        SoundRadius = 6,
+        MinDamage = 1.0,
+        MaxDamage = 1.75,
+        KnockdownMod = 0,
+        SplatBloodOnNoDeath = TRUE,
+        Icon = CrossbowCompound,
+        RunAnim = Run_Weapon2,
+        CriticalChance = 60,
+        CritDmgMultiplier = 8,
+        AimingPerkCritModifier = 4,
+        TwoHandWeapon = TRUE,
+        RequiresEquippedBothHands = TRUE,
+        HitChance = 50,
+        AimingPerkHitChanceModifier = 15,
+        RecoilDelay = 1,
+        SoundGain = 2,
+        ReloadTime = 10,
+        AimingTime = 20,
+        BreakSound = CrossbowBreak,
+        MetalValue = 25,
+        MaxAmmo = 1,
+        InsertAmmoSound = CrossbowCompoundReload,
+        EjectAmmoSound = CrossbowInsert,
+        RackSound = CrossbowCompoundReload,
+        AmmoType = RavenCraft.CrossbowBolt,
+        AmmoBox = RavenCraft.CrossbowBoltBox,
+        WeaponReloadType = boltaction,
+        JamGunChance = 0,
+        AttachmentType = Rifle,
+        InsertAllBulletsReload = TRUE,
+        RackAfterShoot = FALSE,
+        haveChamber = FALSE,
+    }
+
+
+    item CrossbowWooden {
+        ImpactSound = null,
+        MaxRange = 10,
+        RangeFalloff = TRUE,
+        WeaponSprite = RavenCraft.CrossbowWooden,
+        ToHitModifier = 1.8,
+        SoundVolume    =    1,
+        NPCSoundBoost    =    1.5,
+        MinAngle = 0.95,
+        Type = Weapon,
+        KnockBackOnNoDeath = TRUE,
+        Ranged = TRUE,
+        ProjectileCount = 1,
+        ConditionLowerChanceOneIn = 60,
+        Weight = 2.4,
+        SplatNumber = 5,
+        PushBackMod = 2,
+        SubCategory = Firearm,
+        AimingMod = 2,
+        ConditionMax = 6,
+        ShareDamage = FALSE,
+        MaxHitCount = 1,
+        IsAimedHandWeapon = TRUE,
+        IsAimedFirearm = TRUE,
+        DoorDamage = 8,
+        UseEndurance = FALSE,
+        DisplayName = Handmade Wooden Crossbow,
+        MinRange = 0.61,
+        SwingTime = 1.25,
+        SwingAnim = Rifle,
+        AngleFalloff = TRUE,
+        MultipleHitConditionAffected = FALSE,
+        SwingSound = CrossbowCompoundFire,
+        SoundRadius = 12,
+        MinDamage = 0.70,
+        MaxDamage = 1.50,
+        KnockdownMod = 0,
+        SplatBloodOnNoDeath = TRUE,
+        Icon = Crossbow_Wood,
+        RunAnim = Run_Weapon2,
+        CriticalChance = 50,
+        CritDmgMultiplier = 7,
+        AimingPerkCritModifier = 4,
+        TwoHandWeapon = TRUE,
+        RequiresEquippedBothHands = TRUE,
+        HitChance = 40,
+        AimingPerkHitChanceModifier = 12,
+        RecoilDelay = 1,
+        SoundGain = 2,
+        ReloadTime = 10,
+        AimingTime = 20,
+        BreakSound = CrossbowBreak,
+        MetalValue = 25,
+        MaxAmmo = 1,
+        InsertAmmoSound = CrossbowCompoundReload,
+        EjectAmmoSound = CrossbowInsert,
+        RackSound = CrossbowCompoundReload,
+        AmmoType = RavenCraft.CrossbowBolt,
+        AmmoBox = RavenCraft.CrossbowBoltBox,
+        WeaponReloadType = boltaction,
+        JamGunChance = 0,
+        AttachmentType = Rifle,
+        InsertAllBulletsReload = TRUE,
+        RackAfterShoot = FALSE,
+        haveChamber = FALSE,
+    }
+
+
+/** Ammo **/
+
+    item CrossbowBolt {
+        Count = 1,
+        Weight = 0.1,
+        AlwaysWelcomeGift = TRUE,
+        Type = Normal,
+        DisplayCategory = Ammo,
+        DisplayName = Crossbow Bolt,
+        Icon = CrossbowAmmo,
+        MetalValue = 1,
+    }
+
+    item CrossbowBoltBox {
+        Weight = 0.5,
+        Type = Normal,
+        DisplayName = Bundle of Crossbow Bolts,
+        DisplayCategory = Ammo,
+        Icon = CrossbowBoltBundle,
+        MetalValue = 24,
+    }
+
+    item CrossbowBoltBroken {
+        Weight = 0.1,
+        Type = Normal,
+        DisplayName	= Broken Bolt,
+        Icon = CrossbowAmmoBroken,
+    }
+ 
+/** Magazines **/
+
+    item CrossbowMakerMag {
+        Weight = 0.2,
+        Type = Literature,
+        DisplayName = Doomsday Preppers,
+        Icon = MagazineCrossbowMakerMag,
+        
+        TeachedRecipes = Craft Wooden Crossbow; Craft Metal Crossbow;Craft Metal Crossbow Bolt;Craft Wooden Crossbow Bolt,
+        ReplaceOnUse = CrossbowMakerMag,
+        StaticModel = Magazine,
+        WorldStaticModel = MagazineGround,
+    }
+
+}
