@@ -111,7 +111,7 @@ module RavenCraft
         NumberOfPages = 220,
         Weight = 0.8,
         Type = Literature,
-        DisplayName = Weapon Reloading,
+        DisplayName = Tactical Reload,
         SkillTrained = Reloading,
         LvlSkillTrained = 1,
         NumLevelsTrained = 2,
