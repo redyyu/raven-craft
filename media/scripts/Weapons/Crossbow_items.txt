@@ -62,7 +62,7 @@ module RavenCraft
         BreakSound = CrossbowBreak,
 
         /* MISC */
-        DisplayName = Hand Crossbow,
+        DisplayName = Prophecy Pistol Hand Crossbow,
         Type = Weapon,
         Ranged = TRUE,
         SubCategory =Firearm,

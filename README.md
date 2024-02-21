@@ -239,14 +239,36 @@ DO NOT waste bullets.
 **Require near by Stone Furnace or Campfire, also fire must be lit up.**
 
 
+## Crossbow
 
-## Training
+Combine with other crossbox. have several of corssbows. also need a magazine to learn recipes.
 
-Add simple training simulation in Craft System for `First Aid`, `Tailoring` and `Mechanic`.
-Those skill perk are diffcult to level up, Player always need sort of *Auto Script* to avoid repeat clicking.
-So... why not create a simple traning progress.
+### Add Crossbow and Components
 
-Those traning require matched skill and some materials (most stuff are not consume after tranning). 
-Aslo all traning can level up to Lv6, after Lv6 will lower the XP gain. very very low...
+1. **CrossbowHand**: Prophecy Pistol Hand Crossbow.
+2. **CrossbowCompound**: Haze 470 Compound Bow.
+3. **CrossbowWooden**: Handmade Wooden Crossbow.
+4. **CrossbowBolt**: Crossbow Bolt.
+5. **CrossbowBoltBox**: Bundle of Crossbow Bolts.
+6. **CrossbowBoltBroken**: Broken Crossbow Bolt (chance to break the bolt while hit the target).
+7. **CrossbowMakerMag**：Doomsday Preppers, Teach `Craft Wooden Crossbow`, `Craft Crossbow Bolts`
 
-Add training for melee weapon perks level up to 3. Such as `Axe`, `Small Blade`, `Long Blade`, `Small Blunt`, `Blunt`, `Spear`.
+
+## Skill Books
+
+Add skill book for Perk `Aiming` and `Reloading`.
+
+`BookWeaponAiming1`, `BookWeaponAiming2`, `BookWeaponAiming3` are for Aiming Perk,
+can boost by skill book between lv1 ~ lv6
+
+`BookWeaponReloading`, is for Reloading Perk, only up to lv2.
+
+
+## Cure
+
+A Mysterious Serum Injection drop by `HazardSuit` or somewhere in Medical place, especially from amry.
+
+
+## GunSuicide
+
+Kill your self by a loaded gun, prevent become a zombie.
