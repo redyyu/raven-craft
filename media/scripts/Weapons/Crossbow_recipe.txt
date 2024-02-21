@@ -1,4 +1,4 @@
-module KCMweapons
+module RavenCraft
 {
 	imports
 	{
@@ -52,15 +52,15 @@ module KCMweapons
 
 
 	recipe Craft Crossbow Bolts {
+		keep [Recipe.GetItemTypes.Saw],
 		keep [Recipe.GetItemTypes.SharpKnife],
-		keep [Recipe.GetItemTypes.Hammer],
-		ScrapMetal = 12,
-		WoodenStick = 12,
+		ScrapMetal,
+		Plank,
 		Twine,
 
 		Result: CrossbowBolt = 12,
 		Time: 1000,
-		Sound: Hammering,
+		Sound: Sawing,
 		AnimNode: Disassemble,
 		OnGiveXP: Recipe.OnGiveXP.WoodWork5,
 		Prop1: Source=1,

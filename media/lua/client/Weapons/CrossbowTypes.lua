@@ -1,13 +1,13 @@
 CrossbowTypes = {
-	'CrossbowWooden' = {
+	['CrossbowWooden'] = {
 		sprite = 'RavenCraft.CrossbowWooden',
 		sprite_drawn = 'RavenCraft.CrossbowWoodenDrawn',
 	},
-	'CrossbowHand' = {
+	['CrossbowHand'] = {
 		sprite = 'RavenCraft.CrossbowHand',
 		sprite_drawn = 'RavenCraft.CrossbowHandDrawn',
 	},
-	'CrossbowCompound' = {
+	['CrossbowCompound'] = {
 		sprite = 'RavenCraft.CrossbowCompound',
 		sprite_drawn = 'RavenCraft.CrossbowCompoundDrawn',
 	},

@@ -1,4 +1,4 @@
-module KCMweapons
+module RavenCraft
 {
 	model CrossbowHand
 	{
@@ -17,8 +17,8 @@ module KCMweapons
 	}
 	model CrossbowCompoundDrawn
 	{
-		mesh = Weapons/Firearm/CrossbowCompoundDrawn,
-		texture = Weapons/Firearm/CrossbowCompoundDrawn,
+		mesh = Weapons/firearm/CrossbowCompoundDrawn,
+		texture = Weapons/firearm/CrossbowCompoundDrawn,
 	}
 	model CrossbowWooden
 	{

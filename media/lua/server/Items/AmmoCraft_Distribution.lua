@@ -18,77 +18,68 @@ local ITEMS_WEIGHT = {
     [".556BulletsMold"] = 0.4 * loot_chance_percent,
 }
 
-local rate_default = 1;
-local rate_survivor = 10;
-local rate_firearm = 3;
-local rate_army = 2.5;
-local rate_janitor = 2;
-local rate_police = 1.5;
-local rate_mac = 1;
-local rate_metal = 1;
-
 
 utils.insertDistribution(VehicleDistributions["GloveBox"], ITEMS_WEIGHT, 0.1);
 
 ----------------------------
 
-utils.insertDistribution(SuburbsDistributions["SurvivorCache1"]["SurvivorCrate"], ITEMS_WEIGHT, rate_survivor);
-utils.insertDistribution(SuburbsDistributions["SurvivorCache2"]["SurvivorCrate"], ITEMS_WEIGHT, rate_survivor);
-utils.insertDistribution(VehicleDistributions["SurvivalistTruckBed"], ITEMS_WEIGHT, rate_survivor);
-utils.insertDistribution(VehicleDistributions["SurvivalistGlovebox"], ITEMS_WEIGHT, rate_survivor);
-utils.insertDistribution(ProceduralDistributions.list["SurvivalGear"], ITEMS_WEIGHT, rate_survivor);
+utils.insertDistribution(SuburbsDistributions["SurvivorCache1"]["SurvivorCrate"], ITEMS_WEIGHT, 3);
+utils.insertDistribution(SuburbsDistributions["SurvivorCache2"]["SurvivorCrate"], ITEMS_WEIGHT, 3);
+utils.insertDistribution(VehicleDistributions["SurvivalistTruckBed"], ITEMS_WEIGHT, 2);
+utils.insertDistribution(VehicleDistributions["SurvivalistGlovebox"], ITEMS_WEIGHT, 4);
+utils.insertDistribution(ProceduralDistributions.list["SurvivalGear"], ITEMS_WEIGHT, 4);
 
 
 ----------------------------
 
-utils.insertDistribution(ProceduralDistributions.list["GarageFirearms"], ITEMS_WEIGHT, rate_firearm);
-utils.insertDistribution(ProceduralDistributions.list["GunStoreAmmunition"], ITEMS_WEIGHT, rate_firearm);
-utils.insertDistribution(ProceduralDistributions.list["GunStoreCounter"], ITEMS_WEIGHT, rate_firearm);
-utils.insertDistribution(ProceduralDistributions.list["GunStoreShelf"], ITEMS_WEIGHT, rate_firearm);
-utils.insertDistribution(ProceduralDistributions.list["Hunter"], ITEMS_WEIGHT, rate_firearm);
-utils.insertDistribution(ProceduralDistributions.list["SafehouseArmor"], ITEMS_WEIGHT, rate_firearm);
-utils.insertDistribution(ProceduralDistributions.list["SafehouseTraps"], ITEMS_WEIGHT, rate_firearm);
+utils.insertDistribution(ProceduralDistributions.list["GarageFirearms"], ITEMS_WEIGHT, 1);
+utils.insertDistribution(ProceduralDistributions.list["GunStoreAmmunition"], ITEMS_WEIGHT, 1);
+utils.insertDistribution(ProceduralDistributions.list["GunStoreCounter"], ITEMS_WEIGHT, 0.5);
+utils.insertDistribution(ProceduralDistributions.list["GunStoreShelf"], ITEMS_WEIGHT, 0.5);
+utils.insertDistribution(ProceduralDistributions.list["Hunter"], ITEMS_WEIGHT, 2);
+utils.insertDistribution(ProceduralDistributions.list["SafehouseArmor"], ITEMS_WEIGHT, 6);
+utils.insertDistribution(ProceduralDistributions.list["SafehouseTraps"], ITEMS_WEIGHT, 6);
 
 ----------------------------
 
-utils.insertDistribution(ProceduralDistributions.list["ArmySurplusMisc"], ITEMS_WEIGHT, rate_army);
-utils.insertDistribution(ProceduralDistributions.list["ArmySurplusTools"], ITEMS_WEIGHT, rate_army);
-utils.insertDistribution(ProceduralDistributions.list["ArmyHangarTools"], ITEMS_WEIGHT, rate_army);
-utils.insertDistribution(ProceduralDistributions.list["ArmyStorageAmmunition"], ITEMS_WEIGHT, rate_army);
-utils.insertDistribution(ProceduralDistributions.list["ArmyStorageGuns"], ITEMS_WEIGHT, rate_army);
-utils.insertDistribution(ProceduralDistributions.list["ArmySurplusBackpacks"], ITEMS_WEIGHT, rate_army);
-utils.insertDistribution(ProceduralDistributions.list["ArmyHangarOutfit"], ITEMS_WEIGHT, rate_army);
-utils.insertDistribution(ProceduralDistributions.list["ArmyStorageOutfit"], ITEMS_WEIGHT, rate_army);
+utils.insertDistribution(ProceduralDistributions.list["ArmySurplusMisc"], ITEMS_WEIGHT, 2);
+utils.insertDistribution(ProceduralDistributions.list["ArmySurplusTools"], ITEMS_WEIGHT, 4);
+utils.insertDistribution(ProceduralDistributions.list["ArmyHangarTools"], ITEMS_WEIGHT, 4);
+utils.insertDistribution(ProceduralDistributions.list["ArmyStorageAmmunition"], ITEMS_WEIGHT, 3);
+utils.insertDistribution(ProceduralDistributions.list["ArmyStorageGuns"], ITEMS_WEIGHT, 3);
+utils.insertDistribution(ProceduralDistributions.list["ArmySurplusBackpacks"], ITEMS_WEIGHT, 2);
+utils.insertDistribution(ProceduralDistributions.list["ArmyHangarOutfit"], ITEMS_WEIGHT, 2);
+utils.insertDistribution(ProceduralDistributions.list["ArmyStorageOutfit"], ITEMS_WEIGHT, 2);
 
 ----------------------------
 
-utils.insertDistribution(ProceduralDistributions.list["PoliceStorageAmmunition"], ITEMS_WEIGHT, rate_police);
-utils.insertDistribution(ProceduralDistributions.list["PoliceStorageGuns"], ITEMS_WEIGHT, rate_police);
-utils.insertDistribution(ProceduralDistributions.list["PrisonGuardLockers"], ITEMS_WEIGHT, rate_police);
-utils.insertDistribution(ProceduralDistributions.list["PoliceLockers"], ITEMS_WEIGHT, rate_police);
-utils.insertDistribution(ProceduralDistributions.list["PawnShopGuns"], ITEMS_WEIGHT, rate_police);
-utils.insertDistribution(ProceduralDistributions.list["PawnShopGunsSpecial"], ITEMS_WEIGHT, rate_police);
+utils.insertDistribution(ProceduralDistributions.list["PoliceStorageAmmunition"], ITEMS_WEIGHT, 1);
+utils.insertDistribution(ProceduralDistributions.list["PoliceStorageGuns"], ITEMS_WEIGHT, 1.5);
+utils.insertDistribution(ProceduralDistributions.list["PrisonGuardLockers"], ITEMS_WEIGHT, 1);
+utils.insertDistribution(ProceduralDistributions.list["PoliceLockers"], ITEMS_WEIGHT, 0.2);
+utils.insertDistribution(ProceduralDistributions.list["PawnShopGuns"], ITEMS_WEIGHT, 3);
+utils.insertDistribution(ProceduralDistributions.list["PawnShopGunsSpecial"], ITEMS_WEIGHT, 2.5);
 ----------------------------
 
-utils.insertDistribution(ProceduralDistributions.list["JanitorTools"], ITEMS_WEIGHT, rate_janitor);
-
-----------------------------
-
-utils.insertDistribution(ProceduralDistributions.list["MechanicShelfTools"], ITEMS_WEIGHT, rate_mac);
-utils.insertDistribution(ProceduralDistributions.list["MechanicShelfMisc"], ITEMS_WEIGHT, rate_mac);
-utils.insertDistribution(ProceduralDistributions.list["GarageMechanics"], ITEMS_WEIGHT, rate_mac);
+utils.insertDistribution(ProceduralDistributions.list["JanitorTools"], ITEMS_WEIGHT, 3);
 
 ----------------------------
 
-utils.insertDistribution(ProceduralDistributions.list["GarageMetalwork"], ITEMS_WEIGHT, rate_metal);
+utils.insertDistribution(ProceduralDistributions.list["MechanicShelfTools"], ITEMS_WEIGHT, 1);
+utils.insertDistribution(ProceduralDistributions.list["MechanicShelfMisc"], ITEMS_WEIGHT, 1);
+utils.insertDistribution(ProceduralDistributions.list["GarageMechanics"], ITEMS_WEIGHT, 1.5);
 
 ----------------------------
 
-utils.insertDistribution(ProceduralDistributions.list["GarageTools"], ITEMS_WEIGHT, rate_default);
+utils.insertDistribution(ProceduralDistributions.list["GarageMetalwork"], ITEMS_WEIGHT, 1);
+
+----------------------------
+
+utils.insertDistribution(ProceduralDistributions.list["GarageTools"], ITEMS_WEIGHT, 0.5);
 
 
-utils.insertDistribution(ProceduralDistributions.list["CabinetFactoryTools"], ITEMS_WEIGHT, rate_default);
-utils.insertDistribution(ProceduralDistributions.list["CrateTools"], ITEMS_WEIGHT, rate_default);
+utils.insertDistribution(ProceduralDistributions.list["CabinetFactoryTools"], ITEMS_WEIGHT, 0.2);
+utils.insertDistribution(ProceduralDistributions.list["CrateTools"], ITEMS_WEIGHT, 0.1);
 
 
 ------------- Magazine ---------------

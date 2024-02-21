@@ -10,9 +10,9 @@ AttachedWeaponDefinitions.chanceOfAttachedWeapon = 6; -- Global chance of having
 AttachedWeaponDefinitions.crossbowBack = {
 	chance = 1,
 	weaponLocation = {"Rifle On Back"},
-	bloodLocations = {"Back"}
+	bloodLocations = nil,
 	addHoles = true,
-	daySurvived = 20,
+	daySurvived = 14,
 	weapons = {
 		"RavenCraft.CrossbowWooden",
 		"RavenCraft.CrossbowHand",

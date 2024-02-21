@@ -231,7 +231,7 @@ module RavenCraft
         Type = Normal,
         DisplayCategory = Ammo,
         DisplayName = Crossbow Bolt,
-        Icon = CrossbowAmmo,
+        Icon = CrossbowBolt,
         MetalValue = 1,
     }
 
@@ -247,8 +247,8 @@ module RavenCraft
     item CrossbowBoltBroken {
         Weight = 0.1,
         Type = Normal,
-        DisplayName	= Broken Bolt,
-        Icon = CrossbowAmmoBroken,
+        DisplayName	= Broken Crossbow Bolt,
+        Icon = CrossbowBoltBroken,
     }
  
 /** Magazines **/
@@ -259,7 +259,7 @@ module RavenCraft
         DisplayName = Doomsday Preppers,
         Icon = MagazineCrossbowMakerMag,
         
-        TeachedRecipes = Craft Wooden Crossbow; Craft Metal Crossbow;Craft Metal Crossbow Bolt;Craft Wooden Crossbow Bolt,
+        TeachedRecipes = Craft Wooden Crossbow;Craft Crossbow Bolts,
         ReplaceOnUse = CrossbowMakerMag,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,

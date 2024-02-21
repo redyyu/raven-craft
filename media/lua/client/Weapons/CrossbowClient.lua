@@ -65,10 +65,10 @@ local function CrossbowOnZombieDead(zombie)
             
             local bolt
             
-            if rnd <= 90 then
-                bolt = zombie:getInventory():AddItem("RavenCraft.CrossBolt");
+            if rnd <= 75 then
+                bolt = zombie:getInventory():AddItem("RavenCraft.CrossbowBolt");
             else
-                bolt = zombie:getInventory():AddItem("RavenCraft.CrossBoltBroken");
+                bolt = zombie:getInventory():AddItem("RavenCraft.CrossbowBoltBroken");
             end
         end
         modData.LCquarrels = 0;

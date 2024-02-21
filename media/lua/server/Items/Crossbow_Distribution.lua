@@ -57,6 +57,7 @@ utils.insertDistribution(SuburbsDistributions["SurvivorCache1"]["SurvivorCrate"]
 utils.insertDistribution(SuburbsDistributions["SurvivorCache2"]["SurvivorCrate"], ITEMS_WEIGHT, 3);
 utils.insertDistribution(VehicleDistributions["SurvivalistTruckBed"], ITEMS_WEIGHT, 2);
 utils.insertDistribution(VehicleDistributions["SurvivalistGlovebox"], ITEMS_WEIGHT, 4);
+
 utils.insertDistribution(ProceduralDistributions.list["SurvivalGear"], ITEMS_WEIGHT, 4);
 utils.insertDistribution(ProceduralDistributions.list["Hunter"], ITEMS_WEIGHT, 3);
 utils.insertDistribution(ProceduralDistributions.list["CampingStoreBackpacks"], ITEMS_WEIGHT, 2);
@@ -67,14 +68,14 @@ utils.insertDistribution(ProceduralDistributions.list["GarageFirearms"], ITEMS_W
 utils.insertDistribution(ProceduralDistributions.list["GunStoreAmmunition"], ITEMS_WEIGHT, 1);
 utils.insertDistribution(ProceduralDistributions.list["GunStoreCounter"], ITEMS_WEIGHT, 0.2);
 utils.insertDistribution(ProceduralDistributions.list["GunStoreShelf"], ITEMS_WEIGHT, 0.2);
-utils.insertDistribution(ProceduralDistributions.list["Hunter"], ITEMS_WEIGHT, 0.1);
+utils.insertDistribution(ProceduralDistributions.list["Hunter"], ITEMS_WEIGHT, 2);
 utils.insertDistribution(ProceduralDistributions.list["SafehouseArmor"], ITEMS_WEIGHT, 20);
 utils.insertDistribution(ProceduralDistributions.list["SafehouseTraps"], ITEMS_WEIGHT, 10);
 
 ----------------------------
 
-utils.insertDistribution(ProceduralDistributions.list["PawnShopGuns"], ITEMS_WEIGHT, 0.2);
-utils.insertDistribution(ProceduralDistributions.list["PawnShopGunsSpecial"], ITEMS_WEIGHT, 0.2);
+utils.insertDistribution(ProceduralDistributions.list["PawnShopGuns"], ITEMS_WEIGHT, 2.5);
+utils.insertDistribution(ProceduralDistributions.list["PawnShopGunsSpecial"], ITEMS_WEIGHT, 1.5);
 ----------------------------
 
 utils.insertDistribution(ProceduralDistributions.list["JanitorTools"], ITEMS_WEIGHT, 0.5);

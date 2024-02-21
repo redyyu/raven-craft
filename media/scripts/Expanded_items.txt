@@ -78,7 +78,7 @@ module RavenCraft
         NumLevelsTrained = 2,
         Icon = BookAiming,
         StaticModel = Book,
-        WorldStaticModel = BookRedPink_Ground,
+        WorldStaticModel = BookDarkCyan_Ground,
     }
 
     item BookWeaponAiming2 {
@@ -91,7 +91,7 @@ module RavenCraft
         NumLevelsTrained = 2,
         Icon = BookAiming,
         StaticModel = Book,
-        WorldStaticModel = BookRedPink_Ground,
+        WorldStaticModel = BookDarkCyan_Ground,
     }
 
     item BookWeaponAiming3 {
@@ -104,7 +104,7 @@ module RavenCraft
         NumLevelsTrained = 2,
         Icon = BookAiming,
         StaticModel = Book,
-        WorldStaticModel = BookClosedRedPink_Ground,
+        WorldStaticModel = BookClosedDarkCyan_Ground,
     }
 
     item BookWeaponReloading1 {
@@ -117,7 +117,7 @@ module RavenCraft
         NumLevelsTrained = 2,
         Icon = BookReloading,
         StaticModel = Book,
-        WorldStaticModel = BookPurple_Ground,
+        WorldStaticModel = BookRedPink_Ground,
     }
 
 
