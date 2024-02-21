@@ -68,28 +68,44 @@ end
 local function doBuildSuicideMenu(player, context, items)
     local playerObj = getSpecificPlayer(player)
 
-    items = ISInventoryPane.getActualItems(items)
+    local items = ISInventoryPane.getActualItems(items)
+    local one_hand_gun = nil
+    local two_hand_gun = nil
+    local is_loaded_gun = false
+
     for _, item in ipairs(items) do
         if instanceof(item, "HandWeapon") and item:isAimedFirearm() then
-            local option = nil
+            is_loaded_gun = (item:haveChamber() and item:isRoundChambered()) or (not item:haveChamber() and item:getCurrentAmmoCount() > 0)
             if item:isRequiresEquippedBothHands() then
-                option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onTwoHandGunSuicide, item); 
+                if not two_hand_gun or is_loaded_gun then
+                    two_hand_gun = item
+                end
             else
-                option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onHandGunSuicide, item);   
-            end
-
-            if (item:haveChamber() and not item:isRoundChambered()) or (not item:haveChamber() and item:getCurrentAmmoCount() <= 0) then
-                local toolTip = ISToolTip:new();
-                toolTip:initialise();
-                
-                option.toolTip = toolTip;
-                option.notAvailable = true;
-
-                toolTip:setName(getText("ContextMenu_GUN_SUICIDE"));
-                toolTip.description = getText("Tooltip_NO_AMMO");
+                if not one_hand_gun or is_loaded_gun then
+                    one_hand_gun = item
+                end
             end
         end
 	end
+    
+    local option = nil
+
+    if two_hand_gun then
+        option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onTwoHandGunSuicide, two_hand_gun); 
+    elseif one_hand_gun then
+        option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onHandGunSuicide, one_hand_gun);   
+    end
+
+    if option and not is_loaded_gun then
+        local toolTip = ISToolTip:new();
+        toolTip:initialise();
+        
+        option.toolTip = toolTip;
+        option.notAvailable = true;
+
+        toolTip:setName(getText("ContextMenu_GUN_SUICIDE"));
+        toolTip.description = getText("Tooltip_NO_AMMO");
+    end
 end
 
 Events.OnFillInventoryObjectContextMenu.Add(doBuildSuicideMenu);
