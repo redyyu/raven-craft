@@ -4,4 +4,6 @@ IGUI_EN = {
     IGUI_FIRE_STARTED = "Fire Started",
     IGUI_HEAT = "Heat",
     IGUI_FURNACE_BELLOWS = "Use a Bellows to increase heat.",
+
+    IGUI_PLAYER_TEXT_CANT_REACH_VEHICLE = "Can't reach the vehicle",
 }

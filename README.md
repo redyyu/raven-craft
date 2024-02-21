@@ -241,7 +241,7 @@ DO NOT waste bullets.
 
 ## Crossbow
 
-Combine with other crossbox. have several of corssbows. also need a magazine to learn recipes.
+Combine with other crossbow models. have several of corssbows. also need a magazine to learn recipes.
 
 ### Add Crossbow and Components
 
@@ -267,6 +267,16 @@ can boost by skill book between lv1 ~ lv6
 ## Cure
 
 A Mysterious Serum Injection drop by `HazardSuit` or somewhere in Medical place, especially from amry.
+
+
+## Push Vehicle
+
+Allow to push to move vehicle little bit.
+ 
+
+## Better Shoes
+
+Combine better shoes models.
 
 
 ## GunSuicide
