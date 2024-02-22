@@ -1,21 +1,21 @@
 
 -- Carpentry
-Tooltip_CRAFT_OUTHOUSEDOORDESC = "Keep your privacy when on the loo. Must be placed in a door frame. Can be locked/unlocked with a key.",
-Tooltip_CRAFT_FENCEGATEDESC = "Basic wooden gate design for wood fences.",
-Tooltip_CRAFT_HIGHFENCEGATEDESC = "High wooden gate design for wood fences., with a hole to peep through.",
-Tooltip_CRAFT_DOGHOUSEDESC = "A house for your dog.",
-Tooltip_CRAFT_CONCRETEFLOORDESC = "Make simple concrete floor.",
-Tooltip_CRAFT_LOWWOODENCRATEDESC = "Used for item storage.",
+Tooltip_CRAFT_OUTHOUSEDOORDESC = "Keep your privacy when on the loo. Must be placed in a door frame. Can be locked/unlocked with a key."
+Tooltip_CRAFT_FENCEGATEDESC = "Basic wooden gate design for wood fences."
+Tooltip_CRAFT_HIGHFENCEGATEDESC = "High wooden gate design for wood fences., with a hole to peep through."
+Tooltip_CRAFT_DOGHOUSEDESC = "A house for your dog."
+Tooltip_CRAFT_CONCRETEFLOORDESC = "Make simple concrete floor."
+Tooltip_CRAFT_LOWWOODENCRATEDESC = "Used for item storage."
 
 -- Metalworking
-Tooltip_CRAFT_METALDOORDESC = "Simple door made of metal.",
-Tooltip_CRAFT_GARAGEDOORDESC = "Simple rolling garage gate. incase the old one destoryed by Zombie.",
+Tooltip_CRAFT_METALDOORDESC = "Simple door made of metal."
+Tooltip_CRAFT_GARAGEDOORDESC = "Simple rolling garage gate. incase the old one destoryed by Zombie."
 Tooltip_CRAFT_METALGRATEDESC = "Warehouse metal grate floor."
 Tooltip_CRAFT_METALBARGRATEDESC = "Harder Warehouse metal grate floor."
 Tooltip_CRAFT_METALBARHANDRAILEDESC = "Warehouse metal handrail."
 Tooltip_CRAFT_METALDRUMDESC = "Metal Drum to collect rain or make charcoal."
-Tooltip_CRAFT_STONEFURNACEDESC = "Used to melt metallic items into workable iron.",
-Tooltip_CRAFT_ANVILDESC = "Use it to forge various metal objects.",
+Tooltip_CRAFT_STONEFURNACEDESC = "Used to melt metallic items into workable iron."
+Tooltip_CRAFT_ANVILDESC = "Use it to forge various metal objects."
 Tooltip_CRAFT_WATERWELLDESC = "Build a Water Well for unlimited water."
 
 -- Books
@@ -24,9 +24,9 @@ Tooltip_BookTitle_Aiming = "Aiming"
 
 -- UI
 Tooltip_FOOD_WASTED_MEAT = "Wasted Meat",
-Tooltip_CHARCOAL_LOGS = "Add %1 logs to make charcoal, once done, light the barrel with a lighter and wait.",
+Tooltip_CHARCOAL_LOGS = "Add %1 logs to make charcoal, once done, light the barrel with a lighter and wait."
 
-Tooltip_SUICIDE_CONFIRM = "Do you really want kill yourself?",
+Tooltip_SUICIDE_CONFIRM = "Do you really want kill yourself?"
 Tooltip_NO_AMMO = "You need a loaded gun."
 
 Tooltip_CURE_INJECTION = "Have a chance to Fights zombification, take it before the symptoms start."

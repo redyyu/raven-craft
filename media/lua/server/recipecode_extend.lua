@@ -1,6 +1,8 @@
+require "utils"
+
 -- check player is in somewhere have electricity
 function Recipe.OnCanPerform.haveElectricity(recipe, playerObj)
-    return playerObj:getCurrentSquare():haveElectricity()
+    return utils.isBeforeElecShut() or playerObj:getCurrentSquare():haveElectricity()
 end
 
 function Recipe.OnCanPerform.NearFurnaceFire(recipe, playerObj)

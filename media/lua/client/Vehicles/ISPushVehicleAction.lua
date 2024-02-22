@@ -50,7 +50,11 @@ function ISPushVehicleAction:perform()
     local pushPoint = self.vehicle:getWorldPos(x, 0, z, positionVector):add(-self.vehicle:getX(), -self.vehicle:getY(), -self.vehicle:getZ())
     pushPoint:set(pushPoint:x(), 0, pushPoint:y());
 
-    local force = 0.2 * self.character:getPerkLevel(Perks.Strength);
+    local force = 0.1 * self.character:getPerkLevel(Perks.Strength);
+    -- When push axis aligned, less effort
+    if self.pushDir == 'Front' or 'Rear' then
+        force = force * 2
+    end
     -- print("Applying '" .. force .. "' force to vehicle")
     forceVec:mul(forceCoeff * force * self.vehicle:getMass());
     forceVec:set(forceVec:x(), 0, forceVec:y());

@@ -1,18 +1,18 @@
 Farming_EN = {
   -- vegetables name (type of seed)
-	Farming_Wheat = "Wheat",
-  Farming_Corn = "Corn",
-  Farming_Peanuts = "Peanuts",
-  Farming_Zucchini = "Zucchini",
-  Farming_Pumpkin = "Pumpkin",
-  Farming_Watermelon = "Watermelon",
-  Farming_Onion = "Onion",
-  Farming_Lettuce = "Lettuce",
-  Farming_Leek = "Leek",
-  Farming_Eggplant = "Eggplant",
-  Farming_Edamame = "Edamame",
-  Farming_Daikon = "Daikon",
-  Farming_PepperJalapeno = "PepperJalapeno",
-  Farming_PepperHabanero = "PepperHabanero",
-  Farming_BellPepper = "BellPepper",
+	Farming_Wheat = "Wheat"
+  Farming_Corn = "Corn"
+  Farming_Peanuts = "Peanuts"
+  Farming_Zucchini = "Zucchini"
+  Farming_Pumpkin = "Pumpkin"
+  Farming_Watermelon = "Watermelon"
+  Farming_Onion = "Onion"
+  Farming_Lettuce = "Lettuce"
+  Farming_Leek = "Leek"
+  Farming_Eggplant = "Eggplant"
+  Farming_Edamame = "Edamame"
+  Farming_Daikon = "Daikon"
+  Farming_PepperJalapeno = "PepperJalapeno"
+  Farming_PepperHabanero = "PepperHabanero"
+  Farming_BellPepper = "BellPepper"
 }

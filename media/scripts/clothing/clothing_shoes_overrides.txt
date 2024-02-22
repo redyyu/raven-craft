@@ -70,7 +70,7 @@ module Base
 		ClothingItem = Shoes_BootsTINT,
 		BodyLocation = Shoes,
 		BloodLocation = Shoes,
-		IconsForTexture = BootsBiker;BootsBikerRed;BootsBikerPink;BootsBikerYellow;BootsBikerBrown;BootsBikerWhite,
+		IconsForTexture = BootsBiker;BootsBikerRed;BootsBikerPink;BootsBikerBrown;BootsBikerWhite,
 		StompPower = 2.2,
 		ConditionLowerChanceOneIn = 15,
         ConditionMax = 27,

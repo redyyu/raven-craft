@@ -24,6 +24,10 @@ utils.insertDistribution = function(table_obj, ITEMS_WEIGHT, rate)
 end
 
 
+utils.isBeforeElecShut = function()
+    return (SandboxVars.ElecShutModifier < 0 or GameTime:getInstance():getNightsSurvived() < SandboxVars.ElecShutModifier)
+end
+
 
 function enum(tbl)
     local length = #tbl

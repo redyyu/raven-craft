@@ -1,18 +1,18 @@
 ContextMenu_EN = {
-  ContextMenu_EXPANDS = "Expands",
+  ContextMenu_EXPANDS = "Expands"
 
   -- Carpentry
 
-  ContextMenu_OUTHOUSE_DOOR = "Outhouse Door",
-  ContextMenu_FENCE_GATE = "Wooden Fence Gate",
-  ContextMenu_HIGH_FENCE_GATE = "High Wooden Fence Gate",
-  ContextMenu_DOG_HOUSE = "Dog House",
-  ContextMenu_CONCRETE_FLOOR = "Concrete Floor",
-  ContextMenu_LOW_WOODEN_CRATE = "Low Wooden Crate",
+  ContextMenu_OUTHOUSE_DOOR = "Outhouse Door"
+  ContextMenu_FENCE_GATE = "Wooden Fence Gate"
+  ContextMenu_HIGH_FENCE_GATE = "High Wooden Fence Gate"
+  ContextMenu_DOG_HOUSE = "Dog House"
+  ContextMenu_CONCRETE_FLOOR = "Concrete Floor"
+  ContextMenu_LOW_WOODEN_CRATE = "Low Wooden Crate"
 
   -- Metalworking
-  ContextMenu_METAL_DOOR = "Metal Door",
-  ContextMenu_GARAGE_DOOR = "Rolling Garage Door",
+  ContextMenu_METAL_DOOR = "Metal Door"
+  ContextMenu_GARAGE_DOOR = "Rolling Garage Door"
   ContextMenu_METAL_GRATE = "Warehouse Floor"
   ContextMenu_METAL_BAR_GRATE = "Harder Warehouse Floor"
   ContextMenu_METAL_BAR_HANDRAIL = "Warehouse Handrail"
@@ -24,16 +24,20 @@ ContextMenu_EN = {
   ContextMenu_ANVIL = "Anvil"
   ContextMenu_WATER_WELL = "Water Well"
 
+  -- Exercises
+  ContextMenu_USE_EXER_TREADMILL = "Use Treadmill fitness (%1)"
+  ContextMenu_USE_EXER_BENCH = "Use Bench Press (%1)"
+
   -- UI
-  ContextMenu_TAKE_BARREL = "Take Barrel",
+  ContextMenu_TAKE_BARREL = "Take Barrel"
   ContextMenu_WORKBENCH = "Workbench"
   ContextMenu_GUN_SUICIDE = "Suicide by Gun"
-  ContextMenu_TAKE_INJECTION = "Take Injection",
+  ContextMenu_TAKE_INJECTION = "Take Injection"
 
-  ContextMenu_PUSH_VEHICLE = "Push vehicle",
-  ContextMenu_PUSH_VEHICLE_FROMLEFT = "From Left Side",
-  ContextMenu_PUSH_VEHICLE_FROMRIGHT = "From Right Side",
-  ContextMenu_PUSH_VEHICLE_FROMFRONT = "From The Front",    
-  ContextMenu_PUSH_VEHICLE_FROMREAR = "From The Rear",
+  ContextMenu_PUSH_VEHICLE = "Push vehicle"
+  ContextMenu_PUSH_VEHICLE_FROMLEFT = "From Left Side"
+  ContextMenu_PUSH_VEHICLE_FROMRIGHT = "From Right Side"
+  ContextMenu_PUSH_VEHICLE_FROMFRONT = "From The Front"  
+  ContextMenu_PUSH_VEHICLE_FROMREAR = "From The Rear"
 
 }

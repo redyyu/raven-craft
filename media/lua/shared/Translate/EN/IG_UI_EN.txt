@@ -1,9 +1,23 @@
 IGUI_EN = {
-	IGUI_FUEL_AMOUNT = "Fuel: %1",
+	IGUI_FUEL_AMOUNT = "Fuel: %1"
 
-    IGUI_FIRE_STARTED = "Fire Started",
-    IGUI_HEAT = "Heat",
-    IGUI_FURNACE_BELLOWS = "Use a Bellows to increase heat.",
+    IGUI_FIRE_STARTED = "Fire Started"
+    IGUI_HEAT = "Heat"
+    IGUI_FURNACE_BELLOWS = "Use a Bellows to increase heat."
 
-    IGUI_PLAYER_TEXT_CANT_REACH_VEHICLE = "Can't reach the vehicle",
+    IGUI_PLAYER_TEXT_CANT_REACH_VEHICLE = "Can't reach the vehicle"
+    IGUI_PLAYER_TEXT_TREADMILL_NEED_ELC = "The treadmill needs electricity to run"
+    IGUI_PLAYER_TEXT_TOO_EXHAUSTED = "Too exhausted to use"
+    IGUI_PLAYER_TEXT_TOO_PAIN = "Too much pain to use"
+    IGUI_PLAYER_TEXT_TOO_HEAVY = "Too heavy to use"
+    IGUI_PLAYER_TEXT_NEED_BARBELL = ""I need a barbell to do this exercise""
+
+    IGUI_BenchPress = "BenchPress"
+	IGUI_BenchPress_Tooltip = "Train on BenchPress, must near Fitness Contraption."
+	IGUI_Treadmill = "Treadmill"
+	IGUI_Treadmill_Tooltip = "Run on Treadmill, must near Human Hamster Wheel."
+
+    IGUI_FitnessNeedNerbyDevice = " (Require near by %1)"
+    IGUI_FitnessDeviceNeedElectricity = "Need Electricity"
+    
 }
