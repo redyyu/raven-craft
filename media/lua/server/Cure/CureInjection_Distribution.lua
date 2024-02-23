@@ -23,7 +23,7 @@ function CheckCureInjectionZombieDrops(zombie)
 	if outfit == "HazardSuit" then
 		local inv = zombie:getInventory();
 		if loot_chance >= ZombRand(1, 100) then
-			inv:AddItems("RavenCraft.CureInjection", 1);
+			inv:AddItems(PACKAGE_NAME..".CureInjection", 1);
 		end
 	end
 end

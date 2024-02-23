@@ -1,6 +1,6 @@
 require "Farming/SFarmingSystem"
 require "Farming/farming_vegetableconf"
-
+require "utils"
 
 -- Corn
 -- Need 6 seeds
@@ -18,7 +18,7 @@ farming_vegetableconf.props["Corn"].maxVeg = 6;
 farming_vegetableconf.props["Corn"].minVegAutorized = 6;
 farming_vegetableconf.props["Corn"].maxVegAutorized = 12;
 farming_vegetableconf.props["Corn"].vegetableName = "Base.Corn";
-farming_vegetableconf.props["Corn"].seedName = "RavenCraft.CornSeed";
+farming_vegetableconf.props["Corn"].seedName = PACKAGE_NAME..".CornSeed";
 farming_vegetableconf.props["Corn"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Corn"] = {
@@ -51,7 +51,7 @@ farming_vegetableconf.props["Peanuts"].maxVeg = 4;
 farming_vegetableconf.props["Peanuts"].minVegAutorized = 5;
 farming_vegetableconf.props["Peanuts"].maxVegAutorized = 9;
 farming_vegetableconf.props["Peanuts"].vegetableName = "Base.Peanuts";
-farming_vegetableconf.props["Peanuts"].seedName = "RavenCraft.PeanutsSeed";
+farming_vegetableconf.props["Peanuts"].seedName = PACKAGE_NAME..".PeanutsSeed";
 farming_vegetableconf.props["Peanuts"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Peanuts"] = {
@@ -84,8 +84,8 @@ farming_vegetableconf.props["Wheat"].minVeg = 6;
 farming_vegetableconf.props["Wheat"].maxVeg = 12;
 farming_vegetableconf.props["Wheat"].minVegAutorized = 12;
 farming_vegetableconf.props["Wheat"].maxVegAutorized = 24;
-farming_vegetableconf.props["Wheat"].vegetableName = "RavenCraft.Wheat";
-farming_vegetableconf.props["Wheat"].seedName = "RavenCraft.WheatSeed";
+farming_vegetableconf.props["Wheat"].vegetableName = PACKAGE_NAME..".Wheat";
+farming_vegetableconf.props["Wheat"].seedName = PACKAGE_NAME..".WheatSeed";
 farming_vegetableconf.props["Wheat"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Wheat"] = {
@@ -118,7 +118,7 @@ farming_vegetableconf.props["Zucchini"].maxVeg = 5;
 farming_vegetableconf.props["Zucchini"].minVegAutorized = 6;
 farming_vegetableconf.props["Zucchini"].maxVegAutorized = 10;
 farming_vegetableconf.props["Zucchini"].vegetableName = "Base.Zucchini";
-farming_vegetableconf.props["Zucchini"].seedName = "RavenCraft.ZucchiniSeed";
+farming_vegetableconf.props["Zucchini"].seedName = PACKAGE_NAME..".ZucchiniSeed";
 farming_vegetableconf.props["Zucchini"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Zucchini"] = {
@@ -152,7 +152,7 @@ farming_vegetableconf.props["Pumpkin"].maxVeg = 3;
 farming_vegetableconf.props["Pumpkin"].minVegAutorized = 5;
 farming_vegetableconf.props["Pumpkin"].maxVegAutorized = 6;
 farming_vegetableconf.props["Pumpkin"].vegetableName = "Base.Pumpkin";
-farming_vegetableconf.props["Pumpkin"].seedName = "RavenCraft.PumpkinSeed";
+farming_vegetableconf.props["Pumpkin"].seedName = PACKAGE_NAME..".PumpkinSeed";
 farming_vegetableconf.props["Pumpkin"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Pumpkin"] = {
@@ -185,7 +185,7 @@ farming_vegetableconf.props["Watermelon"].maxVeg = 3;
 farming_vegetableconf.props["Watermelon"].minVegAutorized = 5;
 farming_vegetableconf.props["Watermelon"].maxVegAutorized = 6;
 farming_vegetableconf.props["Watermelon"].vegetableName = "Base.Watermelon";
-farming_vegetableconf.props["Watermelon"].seedName = "RavenCraft.WatermelonSeed";
+farming_vegetableconf.props["Watermelon"].seedName = PACKAGE_NAME..".WatermelonSeed";
 farming_vegetableconf.props["Watermelon"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Watermelon"] = {
@@ -218,7 +218,7 @@ farming_vegetableconf.props["Onion"].maxVeg = 5;
 farming_vegetableconf.props["Onion"].minVegAutorized = 6;
 farming_vegetableconf.props["Onion"].maxVegAutorized = 10;
 farming_vegetableconf.props["Onion"].vegetableName = "Base.Onion";
-farming_vegetableconf.props["Onion"].seedName = "RavenCraft.OnionSeed";
+farming_vegetableconf.props["Onion"].seedName = PACKAGE_NAME..".OnionSeed";
 farming_vegetableconf.props["Onion"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Onion"] = {
@@ -252,7 +252,7 @@ farming_vegetableconf.props["Lettuce"].maxVeg = 6;
 farming_vegetableconf.props["Lettuce"].minVegAutorized = 9;
 farming_vegetableconf.props["Lettuce"].maxVegAutorized = 11;
 farming_vegetableconf.props["Lettuce"].vegetableName = "Base.Lettuce";
-farming_vegetableconf.props["Lettuce"].seedName = "RavenCraft.LettuceSeed";
+farming_vegetableconf.props["Lettuce"].seedName = PACKAGE_NAME..".LettuceSeed";
 farming_vegetableconf.props["Lettuce"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Lettuce"] = {
@@ -287,7 +287,7 @@ farming_vegetableconf.props["Leek"].maxVeg = 9;
 farming_vegetableconf.props["Leek"].minVegAutorized = 12;
 farming_vegetableconf.props["Leek"].maxVegAutorized = 24;
 farming_vegetableconf.props["Leek"].vegetableName = "Base.Leek";
-farming_vegetableconf.props["Leek"].seedName = "RavenCraft.LeekSeed";
+farming_vegetableconf.props["Leek"].seedName = PACKAGE_NAME..".LeekSeed";
 farming_vegetableconf.props["Leek"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Leek"] = {
@@ -320,7 +320,7 @@ farming_vegetableconf.props["Eggplant"].maxVeg = 5;
 farming_vegetableconf.props["Eggplant"].minVegAutorized = 6;
 farming_vegetableconf.props["Eggplant"].maxVegAutorized = 10;
 farming_vegetableconf.props["Eggplant"].vegetableName = "Base.Eggplant";
-farming_vegetableconf.props["Eggplant"].seedName = "RavenCraft.EggplantSeed";
+farming_vegetableconf.props["Eggplant"].seedName = PACKAGE_NAME..".EggplantSeed";
 farming_vegetableconf.props["Eggplant"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Eggplant"] = {
@@ -354,7 +354,7 @@ farming_vegetableconf.props["Edamame"].maxVeg = 5;
 farming_vegetableconf.props["Edamame"].minVegAutorized = 6;
 farming_vegetableconf.props["Edamame"].maxVegAutorized = 10;
 farming_vegetableconf.props["Edamame"].vegetableName = "Base.Edamame";
-farming_vegetableconf.props["Edamame"].seedName = "RavenCraft.EdamameSeed";
+farming_vegetableconf.props["Edamame"].seedName = PACKAGE_NAME..".EdamameSeed";
 farming_vegetableconf.props["Edamame"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Edamame"] = {
@@ -389,7 +389,7 @@ farming_vegetableconf.props["Daikon"].maxVeg = 9;
 farming_vegetableconf.props["Daikon"].minVegAutorized = 11;
 farming_vegetableconf.props["Daikon"].maxVegAutorized = 15;
 farming_vegetableconf.props["Daikon"].vegetableName = "Base.Daikon";
-farming_vegetableconf.props["Daikon"].seedName = "RavenCraft.DaikonSeed";
+farming_vegetableconf.props["Daikon"].seedName = PACKAGE_NAME..".DaikonSeed";
 farming_vegetableconf.props["Daikon"].seedPerVeg = 4;
 
 farming_vegetableconf.sprite["Daikon"] = {
@@ -422,7 +422,7 @@ farming_vegetableconf.props["PepperJalapeno"].maxVeg = 5;
 farming_vegetableconf.props["PepperJalapeno"].minVegAutorized = 6;
 farming_vegetableconf.props["PepperJalapeno"].maxVegAutorized = 10;
 farming_vegetableconf.props["PepperJalapeno"].vegetableName = "Base.PepperJalapeno";
-farming_vegetableconf.props["PepperJalapeno"].seedName = "RavenCraft.PepperJalapenoSeed";
+farming_vegetableconf.props["PepperJalapeno"].seedName = PACKAGE_NAME..".PepperJalapenoSeed";
 farming_vegetableconf.props["PepperJalapeno"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["PepperJalapeno"] = {
@@ -457,7 +457,7 @@ farming_vegetableconf.props["PepperHabanero"].maxVeg = 5;
 farming_vegetableconf.props["PepperHabanero"].minVegAutorized = 6;
 farming_vegetableconf.props["PepperHabanero"].maxVegAutorized = 10;
 farming_vegetableconf.props["PepperHabanero"].vegetableName = "Base.PepperHabanero";
-farming_vegetableconf.props["PepperHabanero"].seedName = "RavenCraft.PepperHabaneroSeed";
+farming_vegetableconf.props["PepperHabanero"].seedName = PACKAGE_NAME..".PepperHabaneroSeed";
 farming_vegetableconf.props["PepperHabanero"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["PepperHabanero"] = {
@@ -492,7 +492,7 @@ farming_vegetableconf.props["BellPepper"].maxVeg = 5;
 farming_vegetableconf.props["BellPepper"].minVegAutorized = 6;
 farming_vegetableconf.props["BellPepper"].maxVegAutorized = 10;
 farming_vegetableconf.props["BellPepper"].vegetableName = "Base.BellPepper";
-farming_vegetableconf.props["BellPepper"].seedName = "RavenCraft.BellPepperSeed";
+farming_vegetableconf.props["BellPepper"].seedName = PACKAGE_NAME..".BellPepperSeed";
 farming_vegetableconf.props["BellPepper"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["BellPepper"] = {
@@ -526,7 +526,7 @@ farming_vegetableconf.props["BellPepper"].maxVeg = 5;
 farming_vegetableconf.props["BellPepper"].minVegAutorized = 6;
 farming_vegetableconf.props["BellPepper"].maxVegAutorized = 10;
 farming_vegetableconf.props["BellPepper"].vegetableName = "Base.BellPepper";
-farming_vegetableconf.props["BellPepper"].seedName = "RavenCraft.BellPepperSeed";
+farming_vegetableconf.props["BellPepper"].seedName = PACKAGE_NAME..".BellPepperSeed";
 farming_vegetableconf.props["BellPepper"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["BellPepper"] = {

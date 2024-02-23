@@ -1,3 +1,5 @@
+require 'utils'
+
 -- define weapons to be attached to zombies when creating them
 -- random knives inside their neck, spear in their stomach, meatcleaver in their back...
 -- this is used in IsoZombie.addRandomAttachedWeapon()
@@ -14,8 +16,8 @@ AttachedWeaponDefinitions.crossbowBack = {
 	addHoles = true,
 	daySurvived = 14,
 	weapons = {
-		"RavenCraft.CrossbowWooden",
-		"RavenCraft.CrossbowHand",
-		"RavenCraft.CrossbowCompound",
+		PACKAGE_NAME..".CrossbowWooden",
+		PACKAGE_NAME..".CrossbowHand",
+		PACKAGE_NAME..".CrossbowCompound",
 	},
 }

@@ -255,10 +255,6 @@ Ladder.setLadderClimbingFlags = function(manager)
 	propsN:Set(IsoFlagType.HoppableN)
 	propsN:CreateKeySet()
 
-	print('----------------DFDDDDDDDSSDFFSDFSDF---------------')
-	print(spriteW:getSquare())
-	print('----------------DFDDDDDDDSSDFFSDFSDF---------------')
-
 end
 
 Ladder.doBuildMenu = function(player, context, worldobjects, test)

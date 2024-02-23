@@ -1,14 +1,16 @@
+require 'utils'
+
 CrossbowTypes = {
 	['CrossbowWooden'] = {
-		sprite = 'RavenCraft.CrossbowWooden',
-		sprite_drawn = 'RavenCraft.CrossbowWoodenDrawn',
+		sprite = PACKAGE_NAME..'.CrossbowWooden',
+		sprite_drawn = PACKAGE_NAME..'CrossbowWoodenDrawn',
 	},
 	['CrossbowHand'] = {
-		sprite = 'RavenCraft.CrossbowHand',
-		sprite_drawn = 'RavenCraft.CrossbowHandDrawn',
+		sprite = PACKAGE_NAME..'.CrossbowHand',
+		sprite_drawn = PACKAGE_NAME..'.CrossbowHandDrawn',
 	},
 	['CrossbowCompound'] = {
-		sprite = 'RavenCraft.CrossbowCompound',
-		sprite_drawn = 'RavenCraft.CrossbowCompoundDrawn',
+		sprite = PACKAGE_NAME..'CrossbowCompound',
+		sprite_drawn = PACKAGE_NAME..'CrossbowCompoundDrawn',
 	},
 }

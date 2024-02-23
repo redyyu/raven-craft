@@ -16,12 +16,13 @@ local LITERATURES_WEIGHT = {
 }
 
 local TOOLS_WEIGHT = {
-    [".Tongs"] = 1.5 * loot_chance_percent,
-    [".Bellows"] = 1.5 * loot_chance_percent,
+    ["Tongs"] = 1.5 * loot_chance_percent,
+    ["Bellows"] = 1.5 * loot_chance_percent,
+    [".CartContainer"] = 1 * loot_chance_percent,
 }
 
 local MATERIALS_WEIGHT = {
-    [".IronIngot"] = 1 * loot_chance_percent,
+    ["IronIngot"] = 1 * loot_chance_percent,
 }
 
 --- Literatures ---
@@ -73,11 +74,16 @@ insertDistTable(ProceduralDistributions.list["ForestFireTools"], TOOLS_WEIGHT, 1
 insertDistTable(ProceduralDistributions.list["GarageCarpentry"], TOOLS_WEIGHT, 1);
 insertDistTable(ProceduralDistributions.list["GarageTools"], TOOLS_WEIGHT, 1);
 insertDistTable(ProceduralDistributions.list["GigamartTools"], TOOLS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["GigamartHousewares"], TOOLS_WEIGHT, 2);
 insertDistTable(ProceduralDistributions.list["LoggingFactoryTools"], TOOLS_WEIGHT, 0.5);
 insertDistTable(ProceduralDistributions.list["ToolStoreCarpentry"], TOOLS_WEIGHT, 1);
 insertDistTable(ProceduralDistributions.list["ToolStoreTools"], TOOLS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["ToolStoreMisc"], TOOLS_WEIGHT, 2);
 insertDistTable(ProceduralDistributions.list["CrateMechanics"], TOOLS_WEIGHT, 2);
 insertDistTable(ProceduralDistributions.list["CrateMetalwork"], TOOLS_WEIGHT, 4);
+insertDistTable(ProceduralDistributions.list["StoreCounterBagsFancy"], TOOLS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["JanitorTools"], TOOLS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["ToolStoreFarming"], TOOLS_WEIGHT, 2);
 
 
 --- Materials ---

@@ -22,17 +22,19 @@ ItemName_EN = {
     ItemName_farming.RemouladeEmpty = "Empty Remoulade Bottle"
     ItemName_farming.RemouladeWaterFull = "Remoulade Bottle of Water"
     
+    -- 
+    ItemName_SimpleTrolleyCart.CartContainer = "Trolley Cart",
+
     -- Drink packs
-	ItemName_Base.Beer = "Beer",
-	ItemName_Base.BeerBottle = "Beer Bottle",
-	ItemName_Base.BeerBottlePack = "6 Pack of Beer Bottled",
-	ItemName_Base.BeerPack = "6 Pack of Beer",
-	ItemName_Base.Pop2Pack = "6 Pack of Pop",
-	ItemName_Base.Pop3Pack = "6 Pack of Pop",
-	ItemName_Base.PopPack = "6 Pack of Pop",
-	ItemName_Base.WhiskeyBottledPack = "12 Pack of Whiskey Bottled",
-	ItemName_Base.Wine2BottledPack = "12 Pack of Red Wine",
-	ItemName_Base.WineBottledPack = "12 Pack of Chardonnay",
-	ItemName_Base.PopBottlePack = "12 Pack of Orange Soda",
-	ItemName_Base.WaterBottlePack = "12 Pack of Water Bottle",
+	ItemName_RavenCraft.BeerPack = "6 Pack of Beer",
+	ItemName_RavenCraft.Pop2Pack = "6 Pack of Pop",
+	ItemName_RavenCraft.Pop3Pack = "6 Pack of Pop",
+	ItemName_RavenCraft.PopPack = "6 Pack of Pop",
+
+    ItemName_RavenCraft.BeerBottlePack = "6 Pack of Beer Bottled",
+	ItemName_RavenCraft.WhiskeyBottledPack = "12 Pack of Whiskey Bottled",
+	ItemName_RavenCraft.Wine2BottledPack = "12 Pack of Red Wine",
+	ItemName_RavenCraft.WineBottledPack = "12 Pack of Chardonnay",
+	ItemName_RavenCraft.PopBottlePack = "12 Pack of Orange Soda",
+	ItemName_RavenCraft.WaterBottlePack = "12 Pack of Water Bottle",
 }

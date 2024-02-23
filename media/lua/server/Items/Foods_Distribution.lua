@@ -8,16 +8,16 @@ local loot_chance_percent = loot_chance / 100;
 
 local SEASONING_WEIGHT = {
     [".BoxOfSalt"] = 6 * loot_chance_percent,
-    [".Salt"] = 2 * loot_chance_percent,
+    ["Salt"] = 2 * loot_chance_percent,
 }
 
 local POP_BEER_WEIGHT = {
+    ["BeerCan"] = 2 * loot_chance_percent,
+    ["BeerBottle"] = 2 * loot_chance_percent,
     [".PopPack"] = 2 * loot_chance_percent,
     [".Pop2Pack"] = 2 * loot_chance_percent,
     [".Pop3Pack"] = 2 * loot_chance_percent,
     [".PopBottlePack"] = 2 * loot_chance_percent,
-    [".BeerCan"] = 2 * loot_chance_percent,
-    [".BeerBottle"] = 2 * loot_chance_percent,
     [".BeerPack"] = 2 * loot_chance_percent,
     [".BeerBottlePack"] = 2 * loot_chance_percent,
     [".WaterBottlePack"] = 2 * loot_chance_percent,
