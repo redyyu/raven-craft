@@ -11,9 +11,9 @@ local ITEMS_WEIGHT = {
 }
 
 
-utils.insertDistribution(ProceduralDistributions.list["MedicalStorageDrugs"], ITEMS_WEIGHT, 0.05);
-utils.insertDistribution(ProceduralDistributions.list["MedicalClinicDrugs"], ITEMS_WEIGHT, 0.05);
-utils.insertDistribution(ProceduralDistributions.list["ArmyStorageMedical"], ITEMS_WEIGHT, 20);
+insertDistTable(ProceduralDistributions.list["MedicalStorageDrugs"], ITEMS_WEIGHT, 0.05);
+insertDistTable(ProceduralDistributions.list["MedicalClinicDrugs"], ITEMS_WEIGHT, 0.05);
+insertDistTable(ProceduralDistributions.list["ArmyStorageMedical"], ITEMS_WEIGHT, 20);
 
 
 -- Zombie Drops

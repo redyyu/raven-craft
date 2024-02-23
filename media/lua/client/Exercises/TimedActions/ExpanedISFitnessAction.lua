@@ -6,61 +6,29 @@
 
 require "TimedActions/ISFitnessAction"
 
-local default_stop = ISFitnessAction.stop
-local default_start = ISFitnessAction.start
-local default_update = ISFitnessAction.update
-local default_waitToStart = ISFitnessAction.waitToStart
-local default_perform = ISFitnessAction.perform
-local default_isValid = ISFitnessAction.isValid
-local default_exeLooped = ISFitnessAction.exeLooped
-	
-local currentDelta = nil
-local deltaIncrease = nil
-local player = nil	
 local soundFileBenchpress = "ExercisesBench"
 local soundFileTreadmill = "ExercisesTreadmillrun"
 local soundEnd = "ExercisesTreadmillend"
 local soundFile = nil
 local gameSound = 0
-ExerObject = nil
 
+
+local oldWaitToStart = ISFitnessAction.waitToStart
 function ISFitnessAction:waitToStart()
 	if self.exercise == "benchpress" then
 		soundFile = soundFileBenchpress
-	--[[
-		--animation offset fix attempt
-		if(ExerObject:getSprite():getProperties():Val("Facing") == "W") then
-			self.character:setX(ExerObject:getX()+0.02)
-			self.character:setY(ExerObject:getY()+0.60)	
-		end
-		if(ExerObject:getSprite():getProperties():Val("Facing") == "E") then
-			self.character:setX(ExerObject:getX()+1.5)
-			self.character:setY(ExerObject:getY()+1.0)	
-		end]]
 	elseif self.exercise == "treadmill" then
 		soundFile = soundFileTreadmill	
 	end
-	self.character:faceThisObject(ExerObject);
-	return self.character:shouldBeTurning();
-end
-
-local function addXP()
-	local strengthXPMultiply = SandboxVars.RavenCraft.StrengthXPMultiply
-	local sprintingXPMultiply = SandboxVars.RavenCraft.SprintingXPMultiply
-	
-	local sprintingXp = (0.185 * sprintingXPMultiply) 
-	local strenghtXp = (1.5 * strengthXPMultiply) 
-	
-	player:getXp():AddXP(Perks.Sprinting, sprintingXp);
-	if player:getInventoryWeight() > player:getMaxWeight() * 0.5 then
-		player:getXp():AddXP(Perks.Strength, strenghtXp);
-	end
+	oldWaitToStart(self)
 end
 
 
+local oldExeLooped = ISFitnessAction.exeLooped
 
 function ISFitnessAction:exeLooped()
 	player=self.character;
+
 	--bugfix work around for animation not triggering
 	if self.character:getCurrentState() ~= FitnessState.instance() then
 		self.character:setVariable("ExerciseType", self.exercise);
@@ -72,7 +40,8 @@ function ISFitnessAction:exeLooped()
 	end
 	
 	if self.exercise == "treadmill" then
-		addXP()		
+		-- gain Sprinting XP when use treadmill
+		player:getXp():AddXP(Perks.Sprinting, self.exeData.xpMod);
 	end
 
 	if self.character:getStats():getEndurance() < 0.2 then
@@ -81,7 +50,7 @@ function ISFitnessAction:exeLooped()
 		self.character:reportEvent("EventUpdateFitness");
 	end
 	
-	default_exeLooped(self)
+	oldExeLooped(self)
 end
 
 local function ExerEndOfAction(self)
@@ -98,7 +67,6 @@ local function ExerEndOfAction(self)
 		local soundRadius = 15
 		local volume = 6
 
-		-- Use the emitter because it emits sound in the world (zombies can hear)
 		gameSound = self.character:getEmitter():playSound(soundEnd);
 			
 		addSound(self.character,
@@ -109,7 +77,6 @@ local function ExerEndOfAction(self)
 				 volume)
 		
 	elseif self.exercise == "benchpress" then
-	--[[Make sure game sound has stopped]]
 		if gameSound and
 			gameSound ~= 0 and
 			self.character:getEmitter():isPlaying(gameSound) then
@@ -130,9 +97,14 @@ local function ExerEndOfAction(self)
 
 end
 
+
+local oldUpdate = ISFitnessAction.update
+
 function ISFitnessAction:update()
-	
+	print('-------------------UPUPUPUPUPDATDAE========')
+	print(self.exercise)
 	if self.exercise == "treadmill" or self.exercise == "benchpress" then
+		
 		local isPlaying = gameSound
 			and gameSound ~= 0
 			and self.character:getEmitter():isPlaying(gameSound)
@@ -153,17 +125,21 @@ function ISFitnessAction:update()
 		end
 	end	
 	
-
-	default_update(self)	
+	oldUpdate(self)	
 end
+
+
+local oldStop = ISFitnessAction.stop
 
 function ISFitnessAction:stop()
-	ExerEndOfAction(self);
-	default_stop(self)
+	ExerEndOfAction(self)
+	oldStop(self)
 end
 
+local oldPerform = ISFitnessAction.perform
+
 function ISFitnessAction:perform()
-	ExerEndOfAction(self);
-	default_perform(self)
+	ExerEndOfAction(self)
+	oldPerform(self)
 end
 

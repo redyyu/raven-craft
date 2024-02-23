@@ -12,14 +12,14 @@ local ITEMS_WEIGHT = {
 }
 
 
-utils.insertDistribution(ProceduralDistributions.list["BurgerKitchenButcher"], ITEMS_WEIGHT, 2);
-utils.insertDistribution(ProceduralDistributions.list["FishChipsKitchenButcher"], ITEMS_WEIGHT, 4);
-utils.insertDistribution(ProceduralDistributions.list["ItalianKitchenButcher"], ITEMS_WEIGHT, 3);
-utils.insertDistribution(ProceduralDistributions.list["JaysKitchenButcher"], ITEMS_WEIGHT, 2);
-utils.insertDistribution(ProceduralDistributions.list["KitchenDryFood"], ITEMS_WEIGHT, 2);
-utils.insertDistribution(ProceduralDistributions.list["MexicanKitchenButcher"], ITEMS_WEIGHT, 3);
-utils.insertDistribution(ProceduralDistributions.list["SeafoodKitchenButcher"], ITEMS_WEIGHT, 3);
-utils.insertDistribution(ProceduralDistributions.list["StoreKitchenButcher"], ITEMS_WEIGHT, 2);
-utils.insertDistribution(ProceduralDistributions.list["WesternKitchenButcher"], ITEMS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["BurgerKitchenButcher"], ITEMS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["FishChipsKitchenButcher"], ITEMS_WEIGHT, 4);
+insertDistTable(ProceduralDistributions.list["ItalianKitchenButcher"], ITEMS_WEIGHT, 3);
+insertDistTable(ProceduralDistributions.list["JaysKitchenButcher"], ITEMS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["KitchenDryFood"], ITEMS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["MexicanKitchenButcher"], ITEMS_WEIGHT, 3);
+insertDistTable(ProceduralDistributions.list["SeafoodKitchenButcher"], ITEMS_WEIGHT, 3);
+insertDistTable(ProceduralDistributions.list["StoreKitchenButcher"], ITEMS_WEIGHT, 2);
+insertDistTable(ProceduralDistributions.list["WesternKitchenButcher"], ITEMS_WEIGHT, 2);
 
-utils.insertDistribution(ProceduralDistributions.list["StoreShelfSpices"], ITEMS_WEIGHT, 5);
+insertDistTable(ProceduralDistributions.list["StoreShelfSpices"], ITEMS_WEIGHT, 5);
