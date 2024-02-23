@@ -98,4 +98,6 @@ function BenchPressMenu.onUseBench(worldobjects, player, benchMachine, benchExer
 	end
 end
 
-Events.OnPreFillWorldObjectContextMenu.Add(BenchPressMenu.doBuildMenu);
+if isDebugEnabled() then
+	Events.OnPreFillWorldObjectContextMenu.Add(BenchPressMenu.doBuildMenu);
+end

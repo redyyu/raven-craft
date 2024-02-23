@@ -14,7 +14,9 @@ function findDeviceNearby(curr_square, nearbySprites)
                 for j=0, gs_objects:size()-1 do
                     local obj = gs_objects:get(j)
 					if obj:getSprite() and nearbySprites[obj:getSprite():getName()] then
-						return obj
+						if AdjacentFreeTileFinder.privTrySquare(curr_square, gs) then
+							return obj
+						end
 					end
 					-- No need check prop name any more, but keep it comm here.
 					-- local properties = obj:getSprite():getProperties()
@@ -90,37 +92,37 @@ function ISFitnessUI:onClick(button)
 	if button.internal == "OK" then
 		if self.exeData.nearby then
 			local device = findDeviceNearby(self.player, self.exeData.nearby.sprites)
-			if not device then return end
+			if device then
+				local facing = getDeviceFacing(device)
+				local facingX = device:getSquare():getX()
+				local facingY = device:getSquare():getY()
 
-			local facing = getDeviceFacing(device)
-			local facingX = device:getSquare():getX()
-			local facingY = device:getSquare():getY()
+				-- DO NOT use getW, getE, getN, getS, ...
+				-- seems get blocked square as nil.
 
-			-- DO NOT use getW, getE, getN, getS, ...
-			-- seems get blocked square as nil.
+				if facing == "S" then
+					facingY = facingY - 10
+					-- face_to_square = target_square:getN()
+				elseif facing == "E" then
+					facingX = facingX - 10
+					-- face_to_square = target_square:getW()
+				elseif facing == "W" then
+					facingX = facingX + 10
+					-- face_to_square = target_square:getE()
+				elseif facing == "N" then
+					facingY = facingY + 10
+					-- face_to_square = target_square:getS()
+				end
 
-			if facing == "S" then
-				facingY = facingY - 10
-				-- face_to_square = target_square:getN()
-			elseif facing == "E" then
-				facingX = facingX - 10
-				-- face_to_square = target_square:getW()
-			elseif facing == "W" then
-				facingX = facingX + 10
-				-- face_to_square = target_square:getE()
-			elseif facing == "N" then
-				facingY = facingY + 10
-				-- face_to_square = target_square:getS()
-			end
-			if AdjacentFreeTileFinder.privTrySquare(self.player:getCurrentSquare(), device:getSquare()) then
 				ISTimedActionQueue.add(ISWalkToTimedAction:new(self.player, device:getSquare()))
 				ISTimedActionQueue.add(ISCharacterFacingToAction:new(self.player, facingX, facingY))
 			else
-				return
+				self.player:Say(self.exeData.name..getText("IGUI_FitnessNeedNerbyDevice"))
 			end
 		end
 		
 		if self.exeData.electricity and not isSquarePowered(self.player:getCurrentSquare()) then
+			self.player:Say(self.exeData.name..getText("IGUI_FitnessNeedElectricity"))
 			return
 		end
 

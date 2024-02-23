@@ -103,5 +103,6 @@ TreadmillMenu.onUseTreadmill = function(worldobjects, player, treadmillMachine, 
 	end
 end
 
-
-Events.OnPreFillWorldObjectContextMenu.Add(TreadmillMenu.doBuildMenu);
+if isDebugEnabled() then
+	Events.OnPreFillWorldObjectContextMenu.Add(TreadmillMenu.doBuildMenu);
+end
