@@ -279,6 +279,11 @@ Allow to push to move vehicle little bit.
 Combine better shoes models.
 
 
+## Drink Packs
+
+Combine Drink packs. pack up 6 or 12 Bottle or Pop Can into one.
+
+
 ## GunSuicide
 
 Kill your self by a loaded gun, prevent become a zombie.
