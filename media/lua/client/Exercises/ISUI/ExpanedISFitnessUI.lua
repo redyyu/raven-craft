@@ -112,9 +112,12 @@ function ISFitnessUI:onClick(button)
 				facingY = facingY + 10
 				-- face_to_square = target_square:getS()
 			end
-			
-			ISTimedActionQueue.add(ISWalkToTimedAction:new(self.player, device:getSquare()))
-			ISTimedActionQueue.add(ISCharacterFacingToAction:new(self.player, facingX, facingY))
+			if AdjacentFreeTileFinder.privTrySquare(self.player:getCurrentSquare(), device:getSquare()) then
+				ISTimedActionQueue.add(ISWalkToTimedAction:new(self.player, device:getSquare()))
+				ISTimedActionQueue.add(ISCharacterFacingToAction:new(self.player, facingX, facingY))
+			else
+				return
+			end
 		end
 		
 		if self.exeData.electricity and not isSquarePowered(self.player:getCurrentSquare()) then

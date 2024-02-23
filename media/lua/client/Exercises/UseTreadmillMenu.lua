@@ -49,11 +49,11 @@ TreadmillMenu.onUseTreadmill = function(worldobjects, player, treadmillMachine, 
 	player:setSecondaryHandItem(nil)
 	
 	if player:getMoodles():getMoodleLevel(MoodleType.Endurance) > 2 then
-		player:Say(getText("IGUI_PLAYER_TEXT_IGUI_PLAYER_TEXT_TOO_EXHAUSTED"))
+		player:Say(getText("IGUI_PLAYER_TEXT_TOO_EXHAUSTED"))
 		return
 	end
 	if player:getMoodles():getMoodleLevel(MoodleType.Pain) > 3 then
-		player:Say(getText("IGUI_PLAYER_TEXT_IGUI_PLAYER_TEXT_TOO_PAIN"))
+		player:Say(getText("IGUI_PLAYER_TEXT_TOO_PAIN"))
 		return
 	end
 			
@@ -66,7 +66,7 @@ TreadmillMenu.onUseTreadmill = function(worldobjects, player, treadmillMachine, 
 	end
 	
 	if player:getMoodles():getMoodleLevel(MoodleType.HeavyLoad) > 2 then
-		player:Say(getText("IGUI_PLAYER_TEXT_IGUI_PLAYER_TEXT_TOO_HEAVY"))
+		player:Say(getText("IGUI_PLAYER_TEXT_TOO_HEAVY"))
 		return
 	end
 	
@@ -94,9 +94,13 @@ TreadmillMenu.onUseTreadmill = function(worldobjects, player, treadmillMachine, 
 		end
 	end
 
-	ISTimedActionQueue.add(ISWalkToTimedAction:new(player, treadmillMachine:getSquare()))
-	ISTimedActionQueue.add(ISCharacterFacingToAction:new(player, facingX, facingY))
-	ISTimedActionQueue.add(ISFitnessAction:new(player, treadmillExercise.type, length , ISFitnessUI:new(0,0, 600, 350, player) , treadmillExercise))
+	if AdjacentFreeTileFinder.privTrySquare(player:getCurrentSquare(), treadmillMachine:getSquare()) then
+		ISTimedActionQueue.add(ISWalkToTimedAction:new(player, treadmillMachine:getSquare()))
+		ISTimedActionQueue.add(ISCharacterFacingToAction:new(player, facingX, facingY))
+		ISTimedActionQueue.add(ISFitnessAction:new(player, treadmillExercise.type, length , ISFitnessUI:new(0,0, 600, 350, player) , treadmillExercise))
+	else
+		
+	end
 end
 
 

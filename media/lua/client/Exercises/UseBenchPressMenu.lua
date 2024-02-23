@@ -50,7 +50,7 @@ function BenchPressMenu.onUseBench(worldobjects, player, benchMachine, benchExer
 		return
 	end
 	if player:getMoodles():getMoodleLevel(MoodleType.Pain) > 3 then
-		player:Say(getText("IGUI_PLAYER_TEXT_TOO_PAIND"))
+		player:Say(getText("IGUI_PLAYER_TEXT_TOO_PAIN"))
 		return
 	end
 	
@@ -91,10 +91,11 @@ function BenchPressMenu.onUseBench(worldobjects, player, benchMachine, benchExer
 			-- face_to_square = target_square:getS()
 		end
 	end
-
-	ISTimedActionQueue.add(ISWalkToTimedAction:new(player, benchMachine:getSquare()))
-	ISTimedActionQueue.add(ISCharacterFacingToAction:new(player, facingX, facingY))
-	ISTimedActionQueue.add(ISFitnessAction:new(player, benchExercise.type, length , ISFitnessUI:new(0,0, 600, 350, player) , benchExercise))
+	if AdjacentFreeTileFinder.privTrySquare(player:getCurrentSquare(), benchMachine:getSquare()) then
+		ISTimedActionQueue.add(ISWalkToTimedAction:new(player, benchMachine:getSquare()))
+		ISTimedActionQueue.add(ISCharacterFacingToAction:new(player, facingX, facingY))
+		ISTimedActionQueue.add(ISFitnessAction:new(player, benchExercise.type, length , ISFitnessUI:new(0,0, 600, 350, player) , benchExercise))
+	end
 end
 
 Events.OnPreFillWorldObjectContextMenu.Add(BenchPressMenu.doBuildMenu);

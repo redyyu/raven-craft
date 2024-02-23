@@ -20,36 +20,19 @@ function ISFitnessAction:waitToStart()
 	elseif self.exercise == "treadmill" then
 		soundFile = soundFileTreadmill	
 	end
-	oldWaitToStart(self)
+	return oldWaitToStart(self)
 end
 
 
 local oldExeLooped = ISFitnessAction.exeLooped
 
 function ISFitnessAction:exeLooped()
-	player=self.character;
 
-	--bugfix work around for animation not triggering
-	if self.character:getCurrentState() ~= FitnessState.instance() then
-		self.character:setVariable("ExerciseType", self.exercise);
-		self.character:reportEvent("EventFitness");
-		self.character:clearVariable("ExerciseStarted");
-		self.character:clearVariable("ExerciseEnded");
-		
-		self.character:reportEvent("EventUpdateFitness");
-	end
-	
 	if self.exercise == "treadmill" then
 		-- gain Sprinting XP when use treadmill
-		player:getXp():AddXP(Perks.Sprinting, self.exeData.xpMod);
+		self.character:getXp():AddXP(Perks.Sprinting, self.exeData.xpMod);
 	end
 
-	if self.character:getStats():getEndurance() < 0.2 then
-		self.character:setVariable("ExerciseEnded", "true");
-		self.character:setVariable("ExerciseStarted", "false");
-		self.character:reportEvent("EventUpdateFitness");
-	end
-	
 	oldExeLooped(self)
 end
 
@@ -101,8 +84,6 @@ end
 local oldUpdate = ISFitnessAction.update
 
 function ISFitnessAction:update()
-	print('-------------------UPUPUPUPUPDATDAE========')
-	print(self.exercise)
 	if self.exercise == "treadmill" or self.exercise == "benchpress" then
 		
 		local isPlaying = gameSound
