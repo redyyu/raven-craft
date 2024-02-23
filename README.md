@@ -269,6 +269,10 @@ can boost by skill book between lv1 ~ lv6
 A Mysterious Serum Injection drop by `HazardSuit` or somewhere in Medical place, especially from amry.
 
 
+## TV Tap
+
+A New Tv Tap `First Aid Guide 1 - 4` for gain `FristAid` Perk.
+
 ## Exercises
 
 Combine Exercises, Bench Press and Treadmill. Those exercises, is work like Vanilla Exercises exactly.
