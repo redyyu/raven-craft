@@ -8,12 +8,12 @@ local function SheetRopeClimbingJumpingKeyHandler(_keyPressed)
 	-- $PZ_DIR/media/actiongroups/player/climbrope/finishclimb.xml
 	-- But there is no transition from ClimbDownRope to ClimbRope and PZ doesn't include transitions from mods.
 	
-	local playerJoypadBind = player:getJoypadBind();
+	local joypad_id = player:getJoypadBind();
 	local axisY;
-	if playerJoypadBind == -1 then 
+	if joypad_id == -1 then 
 		axisY = 0;
 	else
-		axisY = getJoypadMovementAxisY(playerJoypadBind);
+		axisY = getJoypadMovementAxisY(joypad_id);
 	end;
 	
 	if _keyPressed == getCore():getKey("Forward") or axisY > 0 then
@@ -32,7 +32,7 @@ local function SheetRopeClimbingJumpingKeyHandler(_keyPressed)
 			player:getStateMachineParams(ClimbDownSheetRopeState:instance()):clear();
 			player:reportEvent("EventClimbDownRope");
 		end
-	elseif _keyPressed == getCore():getKey("Run") or isJoypadPressed(playerJoypadBind, Joypad.RBumper) then
+	elseif _keyPressed == getCore():getKey("Run") or isJoypadPressed(joypad_id, Joypad.RBumper) then
 		player:changeState(IdleState:instance());
 	end	
 end

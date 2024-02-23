@@ -18,6 +18,11 @@ function ISCharacterFacingToAction:perform()
 	ISBaseTimedAction.perform(self)
 end
 
+function ISCharacterFacingToAction:create()
+	ISBaseTimedAction.create(self)
+	self.action:setUseProgressBar(false)
+end
+
 function ISCharacterFacingToAction:new(character, to_x, to_y)
 	if type(character) == 'number' then
 		character = getSpecificPlayer(character)

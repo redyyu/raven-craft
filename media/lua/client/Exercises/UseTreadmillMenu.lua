@@ -9,31 +9,25 @@ TreadmillMenu.doBuildMenu = function(player, context, worldobjects)
 	
 	if not treadmillExercise then return end
 
+	for _, obj in ipairs(worldobjects) do
+		if obj:getSprite() and treadmillExercise.nearby.sprites[obj:getSprite():getName()] then
+			treadmillMachine = obj
+			break
+		end
 
-	for _,object in ipairs(worldobjects) do
-		local square = object:getSquare()
-		if not square then return end
-		
-		for i=1,square:getObjects():size() do
-			local obj = square:getObjects():get(i-1)
-			if obj:getSprite() and treadmillExercise.nearby.sprites[obj:getSprite():getName()] then
-				treadmillMachine = obj
-				break
-			end 
-		end 
 	end
 
 	if treadmillMachine then 
 		local treadmillRegularity = math.floor(getSpecificPlayer(player):getFitness():getRegularity("treadmill"))
 		local contextMenuText = getText("ContextMenu_USE_EXER_TREADMILL", treadmillRegularity)
 
-		context:addOption(contextMenuText,
-						worldobjects,
-						TreadmillMenu.onUseTreadmill,
-						getSpecificPlayer(player),
-						treadmillMachine,
-						treadmillExercise,
-						60)
+		context:addDebugOption(contextMenuText,
+							   worldobjects,
+							   TreadmillMenu.onUseTreadmill,
+							   getSpecificPlayer(player),
+							   treadmillMachine,
+							   treadmillExercise,
+							   60)
 	end
 	
 	

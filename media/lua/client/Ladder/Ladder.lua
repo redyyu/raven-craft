@@ -4,19 +4,20 @@
 	IDs used are in the range for fileNumber 100, used by mod SpearTraps
 --]]
 
-local Ladder = {}
+local Ladder = {
+	idW = 26476542,
+	idN = 26476543,
+	climbLadderTopW = "TopOfLadderW",
+	climbLadderTopN = "TopOfLadderN",
+}
 
-Ladder.idW, Ladder.idN = 26476542, 26476543
-Ladder.climbSheetTopW = "TopOfLadderW"
-Ladder.climbSheetTopN = "TopOfLadderN"
 
----@return IsoObject topOfLadder
 function Ladder.getTopOfLadder(square, north)
 	local objects = square:getObjects()
 	for i = 0, objects:size() - 1 do
 		local obj = objects:get(i)
 		local name = obj:getTextureName()
-		if name == ( north and Ladder.climbSheetTopN or Ladder.climbSheetTopW ) then
+		if name == ( north and Ladder.climbLadderTopN or Ladder.climbLadderTopW ) then
 			return obj
 		end
 	end
@@ -34,7 +35,7 @@ function Ladder.addTopOfLadder(square, north)
 	if props:Is(north and IsoFlagType.climbSheetTopN or IsoFlagType.climbSheetTopW) then
 		return Ladder.getTopOfLadder(square, north)
 	else
-		local object = IsoObject.new(getCell(), square, north and Ladder.climbSheetTopN or Ladder.climbSheetTopW)
+		local object = IsoObject.new(getCell(), square, north and Ladder.climbLadderTopN or Ladder.climbLadderTopW)
 		square:transmitAddObjectToSquare(object, -1)
 		return object
 	end
@@ -46,7 +47,7 @@ function Ladder.removeTopOfLadder(square)
 	for i = objects:size() - 1, 0, - 1  do
 		local object = objects:get(i)
 		local sprite = object:getTextureName()
-		if sprite == Ladder.climbSheetTopN or sprite == Ladder.climbSheetTopW then
+		if sprite == Ladder.climbLadderTopN or sprite == Ladder.climbLadderTopW then
 			square:transmitRemoveItemFromSquare(object)
 		end
 	end
@@ -60,7 +61,7 @@ function Ladder.makeLadderClimbable(square, north)
 	local topObject
 
 	while true do
-		topObject = topSquare:Is(flags.climbSheetTop) and Ladder.getTopOfLadder(topSquare, north)
+		topObject = topSquare:Is(flags.climbSheetTop) and Ladder.getTopOfLadder(topSquare,north)
 		z = z + 1
 		local aboveSquare = getSquare(x, y, z)
 		if not aboveSquare or aboveSquare:TreatAsSolidFloor() or aboveSquare:Is("RoofGroup") then break end
@@ -79,7 +80,6 @@ function Ladder.makeLadderClimbable(square, north)
 
 	-- if topSquare == square then return end
 	topObject = Ladder.addTopOfLadder(topSquare, north)
-	Ladder.chooseAnimVar(topSquare, topObject)
 end
 
 function Ladder.makeLadderClimbableFromTop(square)
@@ -117,6 +117,8 @@ function Ladder.OnKeyPressed(key)
 		if not player or player:isDead() then return end
 		if MainScreen.instance:isVisible() then return end
 
+		-- Will store last player to attempt to climb a ladder.
+
 		local square = player:getSquare()
 		Ladder.makeLadderClimbableFromTop(square)
 		Ladder.makeLadderClimbableFromBottom(square)
@@ -137,67 +139,35 @@ Events.OnKeyPressed.Add(Ladder.OnKeyPressed)
 
 -- Compatibility: Adding a backup for anyone who needs it.
 
-Ladder.ISMoveablesAction = {
-	perform = ISMoveablesAction.perform
-}
+-- Ladder.ISMoveablesAction = {
+-- 	perform = ISMoveablesAction.perform
+-- }
 
-local ISMoveablesAction_perform = ISMoveablesAction.perform
+-- local ISMoveablesAction_perform = ISMoveablesAction.perform
 
-function ISMoveablesAction:perform()
+-- function ISMoveablesAction:perform()
 
-	ISMoveablesAction_perform(self)
+-- 	ISMoveablesAction_perform(self)
 
-	if self.mode == 'pickup' then
-		Ladder.removeTopOfLadder(getSquare(self.square:getX(),self.square:getY(),self.square:getZ()+1))
-	end
-end
+-- 	if self.mode == 'pickup' then
+-- 		Ladder.removeLadder(getSquare(self.square:getX(),self.square:getY(),self.square:getZ()+1))
+-- 	end
+-- end
 
-require "TimedActions/ISDestroyStuffAction"
-Ladder.ISDestroyStuffAction = {
-	perform = ISDestroyStuffAction.perform,
- }
+-- require "TimedActions/ISDestroyStuffAction"
+-- Ladder.ISDestroyStuffAction = {
+-- 	perform = ISDestroyStuffAction.perform,
+--  }
 
-function ISDestroyStuffAction:perform()
-	if self.item:haveSheetRope() then
-		Ladder.removeTopOfLadder(self.item:getSquare())
-	end
-	return Ladder.ISDestroyStuffAction.perform(self)
-end
+-- function ISDestroyStuffAction:perform()
+-- 	if self.item:haveSheetRope() then
+-- 		Ladder.removeLadder(self.item:getSquare())
+-- 	end
+-- 	return Ladder.ISDestroyStuffAction.perform(self)
+-- end
 
--- Animations
+-- Sprite flags
 
---
--- Some tiles for ladders are missing the proper flags to
--- make them climbable so we add the missing flags here.
---
--- We actually attempt to list all vanilla ladders in order
--- to flag them all using mod data; this allows us to base
--- our animation on whether the object is a ladder, rather than
--- simply climbable.
---
--- I also include many ladder tiles from mods.
---
-
---topObject means we added custom ladder object, excluded tile list is smaller that included
-function Ladder.chooseAnimVar(square, topObject)
-	local doLadderAnim
-	if topObject then
-		doLadderAnim = true
-		local objects = square:getObjects()
-		for i = 0, objects:size() - 1 do
-			local sprite = objects:get(i):getTextureName()
-			if Ladder.excludeAnimTiles[sprite] then
-				doLadderAnim = false
-				break
-			end
-		end
-	end
-	if doLadderAnim then
-		Ladder.player:setVariable("ClimbLadder", true)
-	else
-		Ladder.player:clearVariable("ClimbLadder")
-	end
-end
 
 Ladder.westLadderTiles = {
 	"industry_02_86", "location_sewer_01_32", "industry_railroad_05_20", "industry_railroad_05_36", "walls_commercial_03_0",
@@ -232,59 +202,110 @@ Ladder.poleTiles = {
 	"recreational_sports_01_32", "recreational_sports_01_33"
 }
 
---- Generate Table for faster check during anim choice
---Ladder.ladderTiles = {}
---
---for each, name in ipairs(Ladder.westLadderTiles) do
---	Ladder.ladderTiles[name] = true
---end
---
---for each, name in ipairs(Ladder.northLadderTiles) do
---	Ladder.ladderTiles[name] = true
---end
+-- too many not need those, just check startswith `crafted_01_`
+-- Ladder.sheetRope = {
+-- 	"crafted_01_0", "crafted_01_1", "crafted_01_3", "crafted_01_4", "crafted_01_5", 
+-- 	"crafted_01_8", "crafted_01_9", "crafted_01_10", "crafted_01_13", "crafted_01_14", "crafted_01_15", 
+-- 	"crafted_01_22", "crafted_01_23",
+-- 	"crafted_01_48", "crafted_01_49", "crafted_01_50", "crafted_01_53",
+-- }
+
 Ladder.excludeAnimTiles = {}
 for each, name in ipairs(Ladder.poleTiles) do
 	Ladder.excludeAnimTiles[name] = true
 end
 
+
 Ladder.setLadderClimbingFlags = function(manager)
-	local IsoFlagType, ipairs = IsoFlagType, ipairs
-
-	for each, name in ipairs(Ladder.westLadderTiles) do
-		manager:getSprite(name):getProperties():Set(IsoFlagType.climbSheetW)
+	print('-----------CLIMBLINGFlags-----------------------')
+	for _, name in ipairs(Ladder.westLadderTiles) do
+		local properties = manager:getSprite(name):getProperties()
+		properties:Set(IsoFlagType.climbSheetW)
+		-- properties:Set('CustomName', 'Ladder')
 	end
 
-	for each, name in ipairs(Ladder.northLadderTiles) do
-		manager:getSprite(name):getProperties():Set(IsoFlagType.climbSheetN)
+	for _, name in ipairs(Ladder.northLadderTiles) do
+		local properties = manager:getSprite(name):getProperties()
+		properties:Set(IsoFlagType.climbSheetN)
+		-- properties:Set('CustomName', 'Ladder')
 	end
 
-	for each, name in ipairs(Ladder.holeTiles) do
+	for _, name in ipairs(Ladder.holeTiles) do
 		local properties = manager:getSprite(name):getProperties()
 		properties:Set(IsoFlagType.climbSheetTopW)
 		properties:Set(IsoFlagType.HoppableW)
 		properties:UnSet(IsoFlagType.solidfloor)
 	end
 
-	for each, name in ipairs(Ladder.poleTiles) do
+	for _, name in ipairs(Ladder.poleTiles) do
 		manager:getSprite(name):getProperties():Set(IsoFlagType.climbSheetW)
 	end
 
-	local spriteW = manager:AddSprite(Ladder.climbSheetTopW,Ladder.idW)
-	spriteW:setName(Ladder.climbSheetTopW)
+	local spriteW = manager:AddSprite(Ladder.climbLadderTopW, Ladder.idW)
+	spriteW:setName(Ladder.climbLadderTopW)
 	local propsW = spriteW:getProperties()
 	propsW:Set(IsoFlagType.climbSheetTopW)
 	propsW:Set(IsoFlagType.HoppableW)
 	propsW:CreateKeySet()
 
-	local spriteN = manager:AddSprite(Ladder.climbSheetTopN,Ladder.idN)
-	spriteN:setName(Ladder.climbSheetTopN)
+	local spriteN = manager:AddSprite(Ladder.climbLadderTopN, Ladder.idN)
+	spriteN:setName(Ladder.climbLadderTopN)
 	local propsN = spriteN:getProperties()
 	propsN:Set(IsoFlagType.climbSheetTopN)
 	propsN:Set(IsoFlagType.HoppableN)
 	propsN:CreateKeySet()
 
+	print('----------------DFDDDDDDDSSDFFSDFSDF---------------')
+	print(spriteW:getSquare())
+	print('----------------DFDDDDDDDSSDFFSDFSDF---------------')
+
+end
+
+Ladder.doBuildMenu = function(player, context, worldobjects, test)
+	local playerObj = getSpecificPlayer(player)
+	-- local climbOption = context:getOptionFromName(getText("ContextMenu_Climb_Sheet_Rope"))
+	-- local removeRopeOption = context:getOptionFromName(getText("ContextMenu_Remove_escape_rope"))
+
+	-- local is_ladder = true
+	-- local square = nil
+
+	-- for _, obj in ipairs(worldobjects) do
+	-- 	square = obj:getSquare()
+	-- 	local prop = obj:getProperties()
+	-- 	print('----------Have Sheet Rope ---------')
+	-- 	print(prop:Val('CustomName'))
+	-- 	print('--------- End -Have Sheet Rope ---------')
+	
+	-- 	if Ladder.excludeAnimTiles[obj:getTextureName()] then
+	-- 		-- check if no need ladder action
+	-- 		is_ladder = false
+	-- 		break
+	-- 	end
+	-- end
+
+	-- if climbOption then
+		
+	-- 	local is_down = false
+
+	-- 	-- if square then
+	-- 	-- 	is_down = playerObj:getZ() > square:getZ()
+	-- 	-- 	square =  AdjacentFreeTileFinder.Find(getSquare(square:getX(), square:getY(), playerObj:getZ()), playerObj)
+	-- 	-- end
+		
+	-- 	local opt_name = is_ladder and getText("ContextMenu_CLIMB_LADDER") or climbOption.name
+	-- 	context:removeOptionByName(climbOption.name)
+	-- 	if square and playerObj:canClimbSheetRope(square) and playerObj:getPerkLevel(Perks.Strength) >= 0 then
+	-- 		context:addOptionOnTop(opt_name, worldobjects, ISWorldObjectContextMenu.onClimbSheetRope, square, is_down, player)
+	-- 	end
+	-- end
+
+	-- -- take care remove escape rope, ledder's no need this option
+	-- -- otherwise will cause Error.
+	-- if removeRopeOption and squ then
+	-- 	-- context:removeOptionByName(removeRopeOption.name)
+	-- 	print('------------------dsafasdfasdfasdfsddsafdsaf----------------------------')
+	-- end
 end
 
 Events.OnLoadedTileDefinitions.Add(Ladder.setLadderClimbingFlags)
-
-return Ladder
+Events.OnFillWorldObjectContextMenu.Add(Ladder.doBuildMenu)

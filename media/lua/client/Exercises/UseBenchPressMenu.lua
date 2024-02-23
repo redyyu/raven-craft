@@ -7,31 +7,24 @@ BenchPressMenu.doBuildMenu = function(player, context, worldobjects)
 	
 	if not benchExercise then return end
 
-
-	for _,object in ipairs(worldobjects) do
-		local square = object:getSquare()
-		if not square then return end
-		
-		for i=1,square:getObjects():size() do
-			local obj = square:getObjects():get(i-1)
-			if obj:getSprite() and benchExercise.nearby.sprites[obj:getSprite():getName()] then
-				benchMachine = obj
-				break
-			end 
-		end 
+	for _, obj in ipairs(worldobjects) do
+		if obj:getSprite() and benchExercise.nearby.sprites[obj:getSprite():getName()] then
+			benchMachine = obj
+			break
+		end
 	end
 
 	if benchMachine then
 		local benchRegularity = math.floor(getSpecificPlayer(player):getFitness():getRegularity("benchpress"))
 		local contextMenuText = getText("ContextMenu_USE_EXER_BENCH", benchRegularity)
 
-		context:addOption(contextMenuText,
-						worldobjects,
-						BenchPressMenu.onUseBench,
-						getSpecificPlayer(player),
-						benchMachine,
-						benchExercise,
-						60)
+		context:addDebugOption(contextMenuText,
+							   worldobjects,
+							   BenchPressMenu.onUseBench,
+							   getSpecificPlayer(player),
+							   benchMachine,
+							   benchExercise,
+							   60)
 	end
 	
 end
