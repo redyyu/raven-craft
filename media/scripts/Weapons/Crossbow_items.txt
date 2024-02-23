@@ -82,7 +82,7 @@ module RavenCraft
         ShareDamage = FALSE,
         AngleFalloff = TRUE,
         MultipleHitConditionAffected = FALSE,
-        MetalValue = 25,
+        MetalValue = 55,
     }
 
 
@@ -138,7 +138,7 @@ module RavenCraft
         ReloadTime = 10,
         AimingTime = 20,
         BreakSound = CrossbowBreak,
-        MetalValue = 25,
+        MetalValue = 35,
         MaxAmmo = 1,
         InsertAmmoSound = CrossbowCompoundReload,
         EjectAmmoSound = CrossbowInsert,
@@ -206,7 +206,7 @@ module RavenCraft
         ReloadTime = 10,
         AimingTime = 20,
         BreakSound = CrossbowBreak,
-        MetalValue = 25,
+        MetalValue = 20,
         MaxAmmo = 1,
         InsertAmmoSound = CrossbowCompoundReload,
         EjectAmmoSound = CrossbowInsert,
