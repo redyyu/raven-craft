@@ -39,10 +39,4 @@ ContextMenu_EN = {
 	ContextMenu_DROP_CART = "Drop Cart",
 	ContextMenu_GRAB_CONTAINER = "Grab Cart"
 
-  ContextMenu_PUSH_VEHICLE = "Push vehicle"
-  ContextMenu_PUSH_VEHICLE_FROMLEFT = "From Left Side"
-  ContextMenu_PUSH_VEHICLE_FROMRIGHT = "From Right Side"
-  ContextMenu_PUSH_VEHICLE_FROMFRONT = "From The Front"  
-  ContextMenu_PUSH_VEHICLE_FROMREAR = "From The Rear"
-
 }

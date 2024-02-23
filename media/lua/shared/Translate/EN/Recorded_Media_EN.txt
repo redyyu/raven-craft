@@ -1,0 +1,154 @@
+//SkillTapes EN IDs and Text
+//itemDisplayName, title, subtitle, dialog lines
+
+
+// Nurse Rose E1 Tape Data
+RM_dc07f3a9-707c-4bf8-8fd5-559b6e74d85d = "VHS: Nurse Rose E1"
+RM_18332bce-2936-4eb1-b142-b43cdd907502 = "First Aid"
+RM_59760b4f-5507-4ddc-974e-fbcea7322f1d = "Episode 1: Bandages"
+// Nurse Rose E1 Dialog - 19 lines
+
+RM_4189218a-b958-4b15-a3a8-5a6974f7c573 = "Nurse Rose here bringing you a first aid station right from home!"
+RM_88d1a0eb-2cb8-496f-bfd9-73e2ad998978 = "Nowadays, trips to the hospital is super expensive and the waiting times is super bad"
+RM_06da4177-8093-4acb-8160-28258e117e3d = "So I thought I'd just teach you right here from home. Now please be careful."
+RM_6978f05c-c74b-421b-a85f-d44adb11bc6f = "Otherwise, you could really be hurting yourself and others!"
+RM_c92ed5ba-25c3-483c-a216-84002c3993b9 = "This is not my first rodeo but it may be yours."
+RM_25bef7d5-53ef-4b4d-88f7-e343aea6b258 = "First! Get your first aid kit, a proper bandage but a ripped sheet could work in a pinch!"
+RM_0b779542-c7b0-45bf-bf9b-d1c1c6d247f7 = "Grab some type of disinfectant, alcohol wipes could work too! This will help clean the wound that you may have!"
+RM_f52097d0-5e21-4886-a7d9-ff983665b039 = "Now earlier today, my cat scratched me because he didn't want to be held. Rascal!"
+RM_fa0a5111-af16-4d7d-833b-aaad0f6b226a = "His name is Tim for all those who want to know, he's a black tabby!"
+RM_54de3312-a477-4b9b-9dac-da278627262c = "Take your disinfectant or alcohol wipe and apply it to your scratch and you may feel a slight burn/pain."
+RM_1d59bc64-facb-46c7-afb4-eeea9094ce62 = "The disinfectant is used to sink into your wound and take out the bad guys!"
+RM_d39ec60d-ddbf-473e-aa40-73557193eab0 = "Now what we will do, is disinfect a rag/our bandage which is pretty easy!"
+RM_39b18300-36e5-4712-95b7-fb7f95e66a92 = "Apply that bandage straight upon our scratch just like that! See? Easy!"
+RM_2521434a-111b-4f6b-bed7-0f25313147d5 = "Now you should change this out every day or sooner if it becomes dirty or wet."
+RM_d9c1b734-f0a2-4fca-86fa-08f655a31c80 = "This will keep it dry and clean so you can't pick up any more infections!"
+RM_8634c1c0-bd67-4bb1-8a84-850b38397b8d = "Please be careful if you are allergic to Latex! Most bandages are made out of them! Be sure to read the labels otherwise you're in for a nasty treat!"
+RM_a7ce0fd2-ea27-48a6-819a-3e25871790f5 = "Tomorrow we will cover abrasions and lacerations!"
+RM_b7d86b1b-b571-4da8-81bf-4939dc78b9cd = "Remember! Bring your first aid kit and follow what I do! Carefully!"
+RM_fee95747-e7d8-4e75-b11e-edb79558e5ed = "*knock knock* Yes?"
+
+// Nurse Rose E2 Tape Data
+RM_de9ff462-b2c5-4a94-8606-2c5a878227d4 = "VHS: Nurse Rose E2"
+RM_f27f7e75-5807-4b2e-9001-a977aa4ba9de = "First Aid"
+RM_fa39c00e-a5ed-452c-8a9d-34f4ddd9edec = "Episode 2: Lacerations"
+
+// Nurse Rose E2 Dialog - 19 lines
+
+RM_e335e134-280d-4505-affe-7deb04d02dd2 = "Hey! It's me again! Nurse Rose bringing you super helpful tips regarding first aid!" 
+RM_dbe093a2-12bf-4103-b0f1-fab0a4f8a59d = "Now yesterday, I got a knock at my door regarding my cat, go figure right?" 
+RM_796944d5-6c74-42b5-a16a-7c01e42d9a28 = "My neighbor brought him over from his yard but hey that's okay!" 
+RM_2e8ec28e-5474-4643-8583-d10494dfd5e3 = "Should've never rescued him from that shelter years ago, haha just kidding! He's super special to me!"
+RM_3d32df6c-c11b-47b5-8a0c-c0c435fe192d = "Now back to actual the teaching here!" 
+RM_9f5cc76e-4eb5-4e75-8a63-d18d33ddb37e = "I've got this dummy here with a pretty good laceration! As you can see the blood dripping here, we've got to act quick!" 
+RM_08b5347d-757b-4b3f-97cd-ed225587d5c6 = "But first, the difference between an abrasion and a laceration!" 
+RM_708e3627-ab49-499b-9f09-25a2e43f6c26 = "Abrasion occurs when your skin scrapes against a rough or hard surface. A laceration is a deep cut or tearing of your skin by items such as knives, tools, or machinery." 
+RM_7faadac9-7a02-44db-a8c6-3412ae17584f = "If it's your friend, grab a mask and disinfect that bandage really fast." 
+RM_e58e020c-70f2-44f6-83d0-06fa3e2ba355 = "Run cold water over the wound to clean the dirt and the blood. Clean it with a sterile cloth." 
+RM_8f9076ad-63b4-4e3d-a261-1b2e0d7e5112 = "Now put the bandage on the area of the wound because it'll bleed pretty quick if it's really nasty." 
+RM_80ed80b7-f771-42fe-b966-8713ea567633 = "If there is excess blood, wipe it away with a cloth and put pressure on the wound, if you have tape, you can wrap it." 
+RM_ce5fe761-f047-412d-b1c7-58bced6a3f2e = "Now if you want to be super safe, grab some water and drink antibiotics if you have some laying around which I do right here!" 
+RM_6b18d580-eded-4448-bb35-6a0373863835 = "Don't worry, I am not sponsored." 
+RM_7d132e55-aa1f-4ae5-bb23-3ff6881646df = "Now, don't run around with that wound and bandage on you, relax for awhile and change it out if it becomes dirty!" 
+RM_19222c3f-9809-470c-852b-18dfce88fdea = "Tomorrow we will cover deep wounds that need stitches!" 
+RM_833064e8-0a64-4cc3-be7d-f02115feddae = "Remember! Bring your first aid kit and follow what I do carefully!" 
+RM_27a0599e-527b-4a8e-813c-90d872185b25 = "*knock knock* What is it?" 
+
+// Nurse Rose E3 Tape Data
+RM_acf98023-9ad6-4e2d-806d-8318f6b5b3d4 = "VHS: Nurse Rose E3"
+RM_d7cfe2b4-dac3-423f-8e17-7d9990507b1e = "First Aid"
+RM_32bd3afd-cef4-4908-8b8d-32097d3a5c8d = "Episode 3: Sutures"
+// Nurse Rose E3 Dialog - 19 lines
+
+RM_da72bbd3-dd0d-4912-aa4f-face345bf5d2 = "Hey! It's me again! Nurse Rose bringing you super helpful tips regarding first aid!" 
+RM_b8137daa-c28b-4237-a20a-0a862b7ad986 = "This show has been getting popular and I've also even been receiving some calls of how good of a job I'm doing"
+RM_ff5e68b5-b4ec-4fda-bdca-6b95f7a0926d = "Now I would say, this is super exciting, it is but it also makes me nervous as I'm a retired military medic."
+RM_23af5b06-e750-4f6f-bc4b-c2dc37d48678 = "I shouldn't have said that."
+RM_8c97ad80-f91a-4243-8018-a1b91847bc77 = "Oh well, back to the show folks!" 
+RM_f82b35f9-3010-44ad-99e8-6d2abb6d23c2 = "As you can see in front of me, I have a dummy with a really deep wound, deeper than the laceration we had yesterday!" 
+RM_6f18b619-0db5-412c-b427-d75b1185b46b = "Again, grab your handy first aid box. We're gonna grab everything we had yesterday for this procedure. Put on your mask and your gloves, don't forget them if you're working on someone else like I am."
+RM_a7a16ac0-f5fe-49be-987b-4c52af6843ee = "Run the wound over cold water to wipe off that extra dirt and the blood. Wipe the rest of the blood with a nice sterile cloth" 
+RM_543638d2-094a-4228-9803-7b07b0d1d93e = "Now we need use the needle holder to grasp and drive the needle into the skin. But first we also need to plan the entry and exit of our suture on both sides of the wound." 
+RM_aa3d0b06-db78-499e-95e2-29872159716f = "Push the needle through the skin at a 90 degree angle about a centimeter to the right of a wound, stay above the fat. When you've gone deep enough, twist your hand clockwise so the needle starts coming up on the other side of the wound" 
+RM_da0c2fa7-5a69-4a55-9448-6b968d187664 = "When the needle has come out on the other side of the wound, unlock the needle driver, reattach it near the tip of the needle and pull until you have 2 inches of thread on the right side of the wound. Use your left hand and hold the thread on the left side of the needle and wrap around twice of the tip of the needle holder" 
+RM_10a25afe-538c-4963-bc9a-b6cb4e210139 = "Now SLIGHTLY open the needle holder and grab that thread and pull it. Now you have created a knot with two loops! Tighten it so the tissue is touching and make sure the knot is lying flat!" 
+RM_2a58e1cc-4e81-4acd-bdf1-409ad7b4c69a = "Use your left hand and hold the long end of the thread and wrap it around once of the needle driver. SLIGHTLY open the needle driver and grab the short end of the thread. Use your left hand and pull the long part of the thread. We have made our second knot! Yay!" 
+RM_b042340e-b4da-4411-b453-1b742ae07f81 = "Repeat that step to create a really secure knot, instead of wrapping it clockwise though, wrap it counter-clockwise and it'll prevent the knot from slipping. Cut the excess thread. Move a quarter-inch down the wound and repeat the process. Make sure the knots are lined up. Now wrap it with a sterilized bandage please!" 
+RM_185c24fb-2383-4e51-ab1e-52858fc03637 = "Tomorrow we will discuss lodged bullets and lodged glass shards!"
+RM_427e8a3a-7f6c-4f98-974a-701eccfe5817 = "Make sure to bring the same kit you did today, we will be needling again!" 
+RM_ba3e4b59-710b-4538-b193-a47294fc445c = "Later! *trips and falls*" 
+
+// Nurse Rose E4 Tape Data
+RM_5c67328c-5c9f-4865-901c-ad8b5b2adf26 = "VHS: Nurse Rose E4"
+RM_3c5cd3b4-19bc-4b3c-ad52-a8ed8d4437e9 = "First Aid"
+RM_fc04a4ae-c476-4a39-bde8-27df765e0697 = "Episode 4: Splints And Fractures"
+
+// Nurse Rose E4 Dialog
+
+RM_297dd0a1-3d31-4052-b0b4-08ee96eed4c4 = "Hey! It's me again! Nurse Rose bringing you super helpful tips regarding first aid!"
+RM_f25b074f-4358-4544-a15e-e1c61a93d246 = "As you guys may know, I fell yesterday, I have to admit, it was pretty stupid of me to fall over that chair."
+RM_f794ef55-c4bc-4a88-8f06-34618e5a7e56 = "However, it seems I have sprained my leg. This really hurts mind you. "
+RM_2d408c88-ed12-45c0-a27f-e0d76dccefb2 = "Meow"
+RM_4c821bb5-dee6-4c74-bb39-c98f11710b62 = "Thanks Tim! It's good to see you too! Now, let's fix this together."
+RM_e12c881d-f06e-4704-8f94-dbff69160ed8 = "Grab a ripped sheet of some kind, any kind really, you could rip it from your clothes if you want to."
+RM_cbbcd2f3-b209-431d-b20e-87ef3537dd36 = "Make sure you grab a STRAIGHT, wooden item. It can be a plank, a super sturdy stick."
+RM_5483fa66-abf9-45ba-a371-dd4a35efdf3c = "If it's got sharp edges, be careful. Pad it well by wrapping it in cloth."
+RM_11903d76-002f-4419-a44f-dd888aff695e = "You're going to need something to fasten this homemade splint in place. Preferably something strong like medical tape or a rope would work well."
+RM_e508e352-35bd-44e7-a15c-ae153bc921f2 = "If you are bleeding, make sure to stop the bleeding before we place the splint. Put a sterile cloth on it and apply pressure."
+RM_41d60408-efc3-45e7-8d4d-adbb73a4b97c = "Carefully place the splint so it rests on the joint above where we fractured or sprained and the joint below it like this!"
+RM_3f090bba-f2f8-4766-b188-71692ba1eb13 = "Now that we have placed it, tighten it enough to hold the body part still but not too tightly okay? Otherwise we cut off circulation."
+RM_c68b9b09-bbb8-4b9e-bf7c-7ed11ce8bc66 = "Once the splint is applied, it's advised not to run. Or do anything dangerous."
+RM_c2cc6931-1852-4310-9e23-13bda5ca22f8 = "Watch out for decreased blood circulation, if it appears swollen or tinged with blue, loosen the ties."
+RM_a24ed68e-6cce-4135-878c-7d40f568c3c9 = "Tomorrow, we will deal with burns. There are several different types of burns and I'll teach you each!"
+RM_f4d92139-ae8b-4213-b967-24d7a8259135 = "Be sure to have all your supplies!"
+RM_0a625334-c107-4a03-b110-7f44fc2c12bd = "*Radio in the background* The outbreak is contained. I repeat the Knox Virus is contained. Back off! It's CONTAINED. *gunfire*"
+RM_3ff5e5c9-50ae-4703-8bd3-67711fcc6637 = "Let me shut that off. Take care now!"
+
+// Nurse Rose E5 Tape Data
+RM_86d10794-b6d0-4423-9102-1d3f9d8b8433 = "VHS: Nurse Rose E5"
+RM_559aa06e-849e-4bab-b5f7-56b4d40af054 = "First Aid"
+RM_1cf92182-ebcb-427a-9905-619250201b2a = "Episode 5: Burns"
+
+// Nurse Rose E5 Dialog
+
+RM_73674e11-5fc8-4314-bf88-c1f385c16726 = "Hey! It's me again! Nurse Rose bringing you super helpful tips regarding first aid!"
+RM_69713461-345c-40c9-b4d7-f670215a61ec = "Please try to forget yesterday before the show  ended. I'm not sure what it was about."
+RM_6b76fcde-78c4-4e04-b3b2-e441e4c255d7 = "Meow"
+RM_47071c77-e23a-431b-b24f-a1eec490c6e0 = "Yes, Tim, we all see you!"
+RM_f6d3254e-f79c-4a82-b524-769008a2b9b3 = "Let's go over the types of burns, now I can't provide an example but I will tell you the best of my knowledge today!"
+RM_4508931d-cce9-4025-97e5-80efad9ae15b = "First degree burns are the most common, they only affect the skin surface. Second degree burns are the worst burns as they don't affect nerves but they burn the outermost and second skin layer."
+RM_982acc78-9b44-4ae5-b861-b73577a33e57 = "Third degree burns are by far the worst you can have, they burn nerves as you cannot feel your skin anymore and they have burned a huge layer down into your skin."
+RM_6bb19d32-08c7-482a-b6c0-67f2eab8d247 = "To treat a first degree burn, we need to cool it immediately with cold water or apply wet and cold compresses. Apply aloe to the affect area. Now, use a NONSTICK sterile bandage on all burns, otherwise you may tear off more skin as it is already weak."
+RM_ff77ba1e-bd81-4b12-a841-f015ec13d95a = "A first degree burn can heal pretty fast but that does not mean to run around and go jump in a fire after or before it's healing. Burns are dangerous and should be taken seriously!"
+RM_c145829b-a441-449d-84f3-dd3e27b1dfa0 = "To treat a second degree, do the same thing as a first degree burn but you may not need a bandage if the skin has not broken open."
+RM_bf20dd86-c702-4746-abc7-f1114f2bce5c = "Luckily, they heal within one to three weeks with proper care and medication. Skin grows fast! But you still have to be careful!"
+RM_68603aad-9dc1-401e-9aa4-8e4db8a4a238 = "To treat a third degree burn may require surgery. Clean the dead skin and use IV fluids into persons mouth. Use antibiotic ointments or creams. You may need a skin graft to cover a burned area."
+RM_2d3faa89-6d6d-48aa-b3d1-d2384d698f81 = "This healing process could last months to even years. And you may even need functional and cosmetic reconstruction."
+RM_3079e4b1-15f5-45bb-82d2-c3db9f856a33 = "If you manage to have a third degree burn, go to your nearest hospital immediately, do not remove clothing stuck to the burn and do not soak it into water. Cover it with a cool clean cloth or a bandage. Let me repeat, do not put water on third degree burns!"
+RM_2af2f8b8-8397-4b11-89e5-d56ef580152a = "Tomorrow we will finally talk about bullet lodges and glass lodges. I have experienced both."
+RM_14e711a9-dbd0-4515-b940-5357c8d654ce = "Bring all your supplies and bring that suture needle too! We won't repeat the process of the needling because you already know what to do!"
+RM_f33c4053-3dc4-4063-9466-6fc783e23247 = "Meow"
+
+// Nurse Rose E6 Tape Data
+RM_9d01ca46-97e3-498a-85d9-a7a2a387f42c = "VHS: Nurse Show E6"
+RM_1be92685-5209-42a9-b646-e41a9ef90ef2 = "First Aid"
+RM_ee686b04-0abd-40a1-bc3c-a2c11a384859 = "Episode 6: Bullets"
+
+// Nurse Rose E6 Dialog
+
+RM_f51668f0-8a60-4618-a17a-16cc753a3689 = "Hey! It's me again! Nurse Rose bringing you super helpful tips regarding first aid!"
+RM_cb9dc4bd-00ea-4dbe-917a-daa6df8b3d4c = "We have finally made it to dislodging glass shards and dislodging bullets."
+RM_d7d1eaa7-dace-48a0-8954-b879c6ebc34c = "I haven't seen my cat recently, he's been missing since last night. Hopefully he's alright!"
+RM_a047bba8-ac78-4b65-82c8-b488801a5f8f = "Meow"
+RM_9cc944b4-0bd8-4228-9259-f31428866f59 = "Ah there he is, Hey Tim! Now, onto dislodging bullets first!"
+RM_fd808501-7673-441f-b88e-8bb03beb5844 = "Removing a bullet is not as easy as movies tend to make it, it's not as simple as biting down on tongs and dropping the bullet on the pallet. Always wear a mask and gloves too!"
+RM_3c15b928-23b2-431c-b8a9-9452364c57ef = "Sometimes, it's easier to leave it in and way much safer as going around inside the body is really dangerous for bacteria. Only remove the bullet if you think it will cause further damage."
+RM_f57fd3f1-46f0-4939-9552-85ed46168af8 = "First, stop the bleeding, and disinfect it. Your goal is to repair the damage done by the bullet, if you can see the bullet, use tweezers. DO NOT USE YOUR HAND! I repeat, do not use your dirty grubby hands."
+RM_633a412d-1576-48f0-9a8e-8f194844f9af = "Once the bullet is out, suture up the wound like we have done before. Sterilize it, and apply a bandage over it and change it out as needed!"
+RM_17754b6a-4bbe-46a4-9e9b-46ae83593c81 = "Onto glass, glass is a different subject entirely. Kind of."
+RM_8b8c0f18-c74f-4cc3-a789-56f98cbe7cb2 = "Heat up your tweezers, you should probably also do this as well for bullets to sterilize the tweezers. Or clean it with rubbing alcohol"
+RM_fdf9ce5e-b35e-4d61-84f4-04c0a6e307cd = "If the wound needs a suture, then apply a suture as we have done before. Sterilize it. Apply a bandage over it and change it out as needed!"
+RM_b260421c-c459-45e1-84b5-8b5c373018c7 = "Now please for the love of god, do not go around jumping into glass doors or buildings or shot at for fun. First aid is no joke!"
+RM_9471c1ea-26b1-4aeb-acd7-789e09cfd28c = "Tomorrow we will discuss..--"
+RM_d59e88be-8563-401a-86f2-6790a8d66954 = "*sound of gunfire and military soldiers yelling can be heard outside*"
+RM_7b82e220-e20f-4c0a-8115-e3ea3ed05e20 = "I will be back tomorrow."

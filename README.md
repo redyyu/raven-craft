@@ -273,10 +273,6 @@ A Mysterious Serum Injection drop by `HazardSuit` or somewhere in Medical place,
 
 Combine Exercises, Bench Press and Treadmill. Those exercises, is work like Vanilla Exercises exactly.
 Character must be near by the device to start exercise, also Treadmill need electricity.
-
-## Push Vehicle
-
-Allow to push to move vehicle little bit.
  
 
 ## Better Shoes
@@ -292,11 +288,6 @@ Combine Drink packs. pack up 6 or 12 Bottle or Pop Can into one.
 ## Trolley Cart
 
 Combine Trolley Cart. A equipment container for both hands. It will slow the movement speed.
-
-
-## Ladder
-Combine Ladder, Make Ladders Climbable and Craftable. 
-Also some pole could be climbable now, etc., the one in fire station.
 
 
 ## GunSuicide

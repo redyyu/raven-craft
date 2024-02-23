@@ -1,7 +1,4 @@
 Recipes_EN = {
-    Recipe_Make_Steel_Ladder = "Make Steel Ladder",
-    Recipe_Make_Wooden_Ladder = "Make Wooden Ladder",
-
     -- Drink packs
 	Recipe_Open_a_pack_of_Beer = "Open a pack of Beer",
 	Recipe_Pack_a_Beer = "Pack a Beer",
