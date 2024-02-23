@@ -13,34 +13,10 @@ local soundFile = nil
 local gameSound = 0
 
 
-local oldWaitToStart = ISFitnessAction.waitToStart
-function ISFitnessAction:waitToStart()
-	if self.exercise == "benchpress" then
-		soundFile = soundFileBenchpress
-	elseif self.exercise == "treadmill" then
-		soundFile = soundFileTreadmill	
-	end
-	return oldWaitToStart(self)
-end
-
-
-local oldExeLooped = ISFitnessAction.exeLooped
-
-function ISFitnessAction:exeLooped()
-
-	if self.exercise == "treadmill" then
-		-- gain Sprinting XP when use treadmill
-		self.character:getXp():AddXP(Perks.Sprinting, self.exeData.xpMod);
-	end
-
-	oldExeLooped(self)
-end
-
-local function ExerEndOfAction(self)
+local function endExerSound(self)
 	if self.exercise == "treadmill" then
 		-- Make sure game sound has stopped
-		if gameSound and
-			gameSound ~= 0 and
+		if gameSound and gameSound ~= 0 and
 			self.character:getEmitter():isPlaying(gameSound) then
 			self.character:getEmitter():stopSound(gameSound);
 		end
@@ -81,9 +57,7 @@ local function ExerEndOfAction(self)
 end
 
 
-local oldUpdate = ISFitnessAction.update
-
-function ISFitnessAction:update()
+local function playExerSound(self)
 	if self.exercise == "treadmill" or self.exercise == "benchpress" then
 		
 		local isPlaying = gameSound
@@ -105,7 +79,37 @@ function ISFitnessAction:update()
 					 volume)
 		end
 	end	
-	
+end 
+
+
+local oldWaitToStart = ISFitnessAction.waitToStart
+function ISFitnessAction:waitToStart()
+	if self.exercise == "benchpress" then
+		soundFile = soundFileBenchpress
+	elseif self.exercise == "treadmill" then
+		soundFile = soundFileTreadmill	
+	end
+	return oldWaitToStart(self)
+end
+
+
+local oldExeLooped = ISFitnessAction.exeLooped
+
+function ISFitnessAction:exeLooped()
+
+	if self.exercise == "treadmill" then
+		-- gain Sprinting XP when use treadmill
+		self.character:getXp():AddXP(Perks.Sprinting, self.exeData.xpMod);
+	end
+
+	oldExeLooped(self)
+end
+
+
+local oldUpdate = ISFitnessAction.update
+
+function ISFitnessAction:update()
+	playExerSound(self)
 	oldUpdate(self)	
 end
 
@@ -113,14 +117,14 @@ end
 local oldStop = ISFitnessAction.stop
 
 function ISFitnessAction:stop()
-	ExerEndOfAction(self)
+	endExerSound(self)
 	oldStop(self)
 end
 
 local oldPerform = ISFitnessAction.perform
 
 function ISFitnessAction:perform()
-	ExerEndOfAction(self)
+	endExerSound(self)
 	oldPerform(self)
 end
 
