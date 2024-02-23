@@ -1,4 +1,4 @@
-local PACKAGE_NAME = "RavenCraft";
+PACKAGE_NAME = "RavenCraft";
 
 insertDistTable = function(table_obj, group_or_key, weight)
 
