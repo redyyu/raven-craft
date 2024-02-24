@@ -9,4 +9,4 @@ function ExpanedDoTraits()
     oldDoTraits()
 end
 
-Events.OnGameStart.Add(ExpanedDoTraits);
+Events.OnGameBoot.Add(ExpanedDoTraits);
