@@ -3,25 +3,25 @@
 
 	<!-- Shoulder Pads -->
 	<files>
-		<path>media/clothing/clothingItems/Armor/ShoulderPads.xml</path>
+		<path>media/clothing/clothingItems/ShoulderPads.xml</path>
 		<guid>6aaab72d-2ec9-4d15-9ff8-4eaa5ba8c5d7</guid>
 	</files>
 
 	<!-- Elbow Pads -->
 	<files>
-		<path>media/clothing/clothingItems/Armor/ElbowPads.xml</path>
+		<path>media/clothing/clothingItems/ElbowPads.xml</path>
 		<guid>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</guid>
 	</files>
 
 	<!-- Knee Pads -->
 	<files>
-		<path>media/clothing/clothingItems/Armor/KneePads.xml</path>
+		<path>media/clothing/clothingItems/KneePads.xml</path>
 		<guid>cdddf6b2-a238-428f-bb12-93f526b08dbd</guid>
 	</files>
 
 	<!-- Hand Pads -->
 	<files>
-		<path>media/clothing/clothingItems/Armor/HandPads.xml</path>
+		<path>media/clothing/clothingItems/HandPads.xml</path>
 		<guid>65e72f8f-6798-4419-ba32-e37b5a837708</guid>
 	</files>
 
