@@ -1,6 +1,12 @@
 # Raven Craft
 
-A Project zomboid mod. expanding vanilla constructable facilities and craftable items. Everything in this mod is try keep "Reasonable" and "Useable", make the game as close to reality as possible, but keep not too much complicated details.
+A Project zomboid mod. expanding vanilla constructable facilities and craftable items.
+Everything in this mod is try keep "Reasonable" and "Useable", make the game as close to reality as possible, but keep not too much complicated details.
+
+When I play this game, some Mods is good, but not quite fit my needs.
+I might refine or remake it, or sometime have some good idea to improve the game.
+Most refined mod will keep standalone, when some features or ideas become solid will combine to this Mod.
+
 
 
 ## Vanilla Expanding
