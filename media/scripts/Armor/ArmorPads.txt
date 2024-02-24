@@ -1,6 +1,9 @@
 module RavenCraft
 {
-
+	imports {
+	    Base,
+    }
+	
 	/* 
 		Added blood clothing type to every possible body location, so you can easily mod a new clothing to protect X or Y parts:
 		Example, i want to do metal socks that protect both feet and lower legs, i'll simply add a BloodLocation = Feet;LowerLegs, in the item script.
