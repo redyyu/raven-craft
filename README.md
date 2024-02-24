@@ -254,12 +254,17 @@ and modified some Vanilla Weapons or tools.
 6. **CrossbowBoltBroken**: Broken Crossbow Bolt (chance to break the bolt while hit the target).
 7. **CrossbowMakerMag**：Doomsday Preppers, Teach `Craft Wooden Crossbow`, `Craft Crossbow Bolts`
 
-### Modified Vanilla Weapons / Tools
+## Modified Vanilla Items
 
-`PipeWrench`, `Wrench`, `Pan`, `GridlePan`, `Saucepan`, make theme little bit powerful.
-also `PipeWrench` could use as Hammer now.
+**Better Wrenchs**: `PipeWrench`, `Wrench`, is harder and powered, also can be use as hammer, I use that all the time in really world (It's easy to broken in world).
+**Harder Pans**: `Pan`, `GridlePan`, `Saucepan` not that easy to broken.
+**Better Hammers**: `Hammer`, `ClubHammer`, `BallPeenHammer`, `WoodenMallet`, `HammerStone`, make hammer like real hammer.
+**Harder Axe Stone**: `AxeStone` like a Axe, not Tofu.
+**Bigger PropaneTank**: `PropaneTank` double the useDelta.
 
+All changes are balanced with a vanilla game.
 Btw., Remove all fixing for metal melee weapon tools.
+
 
 
 ## Skill Books
