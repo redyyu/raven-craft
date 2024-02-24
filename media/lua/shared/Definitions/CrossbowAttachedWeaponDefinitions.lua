@@ -1,4 +1,4 @@
-require 'utils'
+require "RCCore"
 
 -- define weapons to be attached to zombies when creating them
 -- random knives inside their neck, spear in their stomach, meatcleaver in their back...

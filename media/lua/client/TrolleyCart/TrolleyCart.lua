@@ -1,4 +1,4 @@
-require 'utils'
+require "RCCore"
 
 
 TROLLEY_TYPES = {PACKAGE_NAME..".CartContainer"}
