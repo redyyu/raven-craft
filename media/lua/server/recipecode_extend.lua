@@ -122,6 +122,14 @@ function Recipe.OnTest.IsNotRottenFood(item)
 end
 
 
+function Recipe.OnTest.IsFullWaterBottle(item)
+    if item:getType() == "WaterBottleFull" then
+        return item:getUsedDelta() >= 1;
+    end
+    return true
+end
+
+
 function Recipe.OnCreate.PickleFoodMeat(items, result, player)
     local total_calories = 0;
     local total_carbohydrates = 0;
