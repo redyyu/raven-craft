@@ -14,6 +14,7 @@ group:getOrCreateLocation("HandsArmor")
 
 group:getOrCreateLocation("TightMask")  -- for some mask wearing with FullHat, Masks or Glasses.
 
+-- VERY IMPORTANT TIPs.
 -- if got DoSomthing(BloodBodyPartType) Error.
 -- BloodBodyPartType is null.
 -- is not blood or body location not created.
