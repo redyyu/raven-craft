@@ -239,9 +239,10 @@ DO NOT waste bullets.
 **Require near by Stone Furnace or Campfire, also fire must be lit up.**
 
 
-## Crossbow
+## Weapons / Tools
 
 Combine with other crossbow models. have several of corssbows. also need a magazine to learn recipes.
+and modified some Vanilla Weapons or tools.
 
 ### Add Crossbow and Components
 
@@ -252,6 +253,13 @@ Combine with other crossbow models. have several of corssbows. also need a magaz
 5. **CrossbowBoltBox**: Bundle of Crossbow Bolts.
 6. **CrossbowBoltBroken**: Broken Crossbow Bolt (chance to break the bolt while hit the target).
 7. **CrossbowMakerMag**：Doomsday Preppers, Teach `Craft Wooden Crossbow`, `Craft Crossbow Bolts`
+
+### Modified Vanilla Weapons / Tools
+
+`PipeWrench`, `Wrench`, `Pan`, `GridlePan`, `Saucepan`, make theme little bit powerful.
+also `PipeWrench` could use as Hammer now.
+
+Btw., Remove all fixing for metal melee weapon tools.
 
 
 ## Skill Books

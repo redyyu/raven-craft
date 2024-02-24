@@ -131,7 +131,7 @@ module RavenCraft
 	}
 
 	recipe Pack a Water Bottle {
-		WaterBottleFull=12,
+		WaterBottleFull=120,  /* Water is by unit */
 		Result:WaterBottlePack,
 		Sound:PZ_PutInBag,
 		Time:3.0,
