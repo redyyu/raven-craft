@@ -80,6 +80,7 @@ module Base
         BaseSpeed = 1,
         WeaponLength = 0.3,
         AttachmentType = Wrench,
+        Tags = Hammer;RemoveBarricade,
     }
 
     item Wrench {
@@ -120,6 +121,7 @@ module Base
         BaseSpeed = 1,
         WeaponLength = 0.25,
         AttachmentType = Wrench,
+        Tags = Hammer;RemoveBarricade,
     }
 
     item ClubHammer {
