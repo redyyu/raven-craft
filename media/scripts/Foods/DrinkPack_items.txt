@@ -76,14 +76,15 @@ module RavenCraft
 		Weight = 9,
 		Icon = PopBottlePack,
 		DisplayCategory =Food,
-		WorldStaticModel = Pop_Bottle,
+		WorldStaticModel = Pop_Bottle_Pack,
 	}
 
 	item WaterBottlePack {
 		DisplayName = 12 Pack of Water Bottle,
 		Weight = 9.6,
 		Icon = WaterBottlePack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
+		WorldStaticModel = Water_Bottle_Pack,
 	}
 
 

@@ -155,7 +155,7 @@ local function TrolleyOnFillWorldObjectContextMenu(player, context, worldobjects
 	local playerInv = playerObj:getInventory()
 
 	if countTrolly(playerInv) > 0 then
-		context:addOption(getText("ContextMenu_DROP_CART"), playerObj, onDropTrolley)
+		context:addOptionOnTop(getText("ContextMenu_DROP_CART"), playerObj, onDropTrolley)
 		return
 	else
 

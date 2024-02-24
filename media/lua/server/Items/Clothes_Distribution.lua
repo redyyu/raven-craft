@@ -1,14 +1,11 @@
 require "Items/ProceduralDistributions"
 require "Items/SuburbsDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local ITEMS_WEIGHT = {
-    ["Shoes_BootsTINT"] = 2 * loot_chance_percent,
+    ["Shoes_BootsTINT"] = 2,
 }
 
 insertDistTable(ProceduralDistributions.list["BandMerchShelves"], ITEMS_WEIGHT, 6);

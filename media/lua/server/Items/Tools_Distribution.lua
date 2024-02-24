@@ -1,29 +1,27 @@
 require "Items/SuburbsDistributions"
 require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local LITERATURES_WEIGHT = {
-    [".CraftsmenMag1"] = 2.4 * loot_chance_percent,
-    [".CraftsmenMag2"] = 2 * loot_chance_percent,
-    [".CraftsmenMag3"] = 1.6 * loot_chance_percent,
-    [".CraftsmenMag4"] = 1.2 * loot_chance_percent,
-    [".CigarettetsMag"] = 1 * loot_chance_percent,
+    [".CraftsmenMag1"] = 2.4,
+    [".CraftsmenMag2"] = 2,
+    [".CraftsmenMag3"] = 1.6,
+    [".CraftsmenMag4"] = 1.2,
+    [".CigarettetsMag"] = 1,
 }
 
 local TOOLS_WEIGHT = {
-    ["Tongs"] = 1.5 * loot_chance_percent,
-    ["Bellows"] = 1.5 * loot_chance_percent,
-    [".CartContainer"] = 1 * loot_chance_percent,
+    ["Tongs"] = 1.5,
+    ["Bellows"] = 1.5,
+    [".CartContainer"] = 1,
 }
 
 local MATERIALS_WEIGHT = {
-    ["IronIngot"] = 1 * loot_chance_percent,
+    ["IronIngot"] = 1,
 }
+
 
 --- Literatures ---
 

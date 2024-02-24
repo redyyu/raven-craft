@@ -1,13 +1,11 @@
 require "Items/SuburbsDistributions"
 require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local ITEMS_WEIGHT = {
-    [".CureInjection"]= 2 * loot_chance_percent,
+    [".CureInjection"]= 2,
 }
 
 

@@ -1,21 +1,19 @@
 require "Items/SuburbsDistributions"
 require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local ITEMS_WEIGHT = {
-    [".AmmoMakerMag"] = 1.6 * loot_chance_percent,
-    [".38SpecialBulletsMold"] = 0.8 * loot_chance_percent,
-    [".9mmBulletsMold"] = 0.8 * loot_chance_percent,
-    [".45AutoBulletsMold"] = 0.8 * loot_chance_percent,
-    [".44MagnumBulletsMold"] = 0.6 * loot_chance_percent,
-    [".ShotgunShellsMold"] = 0.6 * loot_chance_percent,
-    [".223BulletsMold"] = 0.6 * loot_chance_percent,
-    [".308BulletsMold"] = 0.6 * loot_chance_percent,
-    [".556BulletsMold"] = 0.4 * loot_chance_percent,
+    [".AmmoMakerMag"] = 1.6,
+    [".38SpecialBulletsMold"] = 0.8,
+    [".9mmBulletsMold"] = 0.8,
+    [".45AutoBulletsMold"] = 0.8,
+    [".44MagnumBulletsMold"] = 0.6,
+    [".ShotgunShellsMold"] = 0.6,
+    [".223BulletsMold"] = 0.6,
+    [".308BulletsMold"] = 0.6,
+    [".556BulletsMold"] = 0.4,
 }
 
 

@@ -1,9 +1,18 @@
 PACKAGE_NAME = "RavenCraft";
 
+local loot_chance = SandboxVars.RavenCraft.LootChance;
+local loot_chance_percent = loot_chance / 100;
+
+
 insertDistTable = function(table_obj, group_or_key, weight)
 
     if weight == nil and weight ~= 0 then  -- could be 0, but 0 == nil
         weight = 1
+    end
+
+    weight = weight * loot_chance_percent
+    if isDebugEnabled() then
+        print('Loot Chance: '.. tostring(weight))
     end
 
     if type(group_or_key) == 'string' then

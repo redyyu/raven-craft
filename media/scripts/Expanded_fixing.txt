@@ -8,10 +8,13 @@ module RavenCraft
 	   Fixer : Woodglue; Woodwork=6,
 	}
 
+
+	/** No fixing full metal Weapons or tools
+
 	fixing Fix Lead Pipe {
 	   Require : LeadPipe,
 	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 1,
+	   ConditionModifier : 0.45,
 
 	   Fixer : WeldingRods=4;MetalWelding=4,
 	}
@@ -19,10 +22,19 @@ module RavenCraft
 	fixing Fix Crowbar {
 	   Require : Crowbar,
 	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.3,
+	   ConditionModifier : 0.45,
 	   
 	   Fixer : WeldingRods=4;MetalWelding=4,
 	}
+
+	fixing Fix Pipe Wrench {
+	   Require : PipeWrench,
+	   GlobalItem : BlowTorch=2,
+	   ConditionModifier : 0.45,
+	   
+	   Fixer : WeldingRods=4; MetalWelding=4,
+	}
+
 
 	fixing Fix Metal Bar {
 	   Require : MetalBar,
@@ -47,4 +59,13 @@ module RavenCraft
 	   
 	   Fixer : WeldingRods=4;MetalWelding=4,
 	}
+
+	fixing Fix Pan {
+	   Require : Pan/SaucePan/GridlePan,
+	   GlobalItem : BlowTorch=2,
+	   ConditionModifier : 0.45,
+	   
+	   Fixer : WeldingRods=2;MetalWelding=3,
+	}
+	**/
 }

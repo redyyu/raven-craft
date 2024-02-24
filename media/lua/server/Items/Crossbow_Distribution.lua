@@ -1,21 +1,18 @@
 require "Items/SuburbsDistributions"
 require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local LITERATURES_WEIGHT = {
-    [".CrossbowMakerMag"] = 1.6 * loot_chance_percent,
+    [".CrossbowMakerMag"] = 1.6,
 }
 
 local ITEMS_WEIGHT = {
-    [".CrossbowHand"] = 1 * loot_chance_percent,
-    [".CrossbowCompound"] = 1 * loot_chance_percent,
-    [".CrossbowWooden"] = 1 * loot_chance_percent,
-    [".CrossbowBoltBox"] = 2 * loot_chance_percent,
+    [".CrossbowHand"] = 1,
+    [".CrossbowCompound"] = 1,
+    [".CrossbowWooden"] = 1,
+    [".CrossbowBoltBox"] = 2,
 }
 
 

@@ -1,6 +1,6 @@
 require "Farming/SFarmingSystem"
 require "Farming/farming_vegetableconf"
-require "utils"
+require "RCCore"
 
 -- Corn
 -- Need 6 seeds

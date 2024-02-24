@@ -1,32 +1,30 @@
 require "Items/SuburbsDistributions"
 require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local SEASONING_WEIGHT = {
-    [".BoxOfSalt"] = 6 * loot_chance_percent,
-    ["Salt"] = 2 * loot_chance_percent,
+    [".BoxOfSalt"] = 6,
+    ["Salt"] = 2,
 }
 
 local POP_BEER_WEIGHT = {
-    ["BeerCan"] = 2 * loot_chance_percent,
-    ["BeerBottle"] = 2 * loot_chance_percent,
-    [".PopPack"] = 2 * loot_chance_percent,
-    [".Pop2Pack"] = 2 * loot_chance_percent,
-    [".Pop3Pack"] = 2 * loot_chance_percent,
-    [".PopBottlePack"] = 2 * loot_chance_percent,
-    [".BeerPack"] = 2 * loot_chance_percent,
-    [".BeerBottlePack"] = 2 * loot_chance_percent,
-    [".WaterBottlePack"] = 2 * loot_chance_percent,
+    ["BeerCan"] = 2,
+    ["BeerBottle"] = 2,
+    [".PopPack"] = 2,
+    [".Pop2Pack"] = 2,
+    [".Pop3Pack"] = 2,
+    [".PopBottlePack"] = 2,
+    [".BeerPack"] = 2,
+    [".BeerBottlePack"] = 2,
+    [".WaterBottlePack"] = 2,
 }
 
 local ALCOHOL_WEIGHT = {
-    [".WhiskeyBottledPack"] = 2 * loot_chance_percent,
-    [".WineBottledPack"] = 2 * loot_chance_percent,
-    [".Wine2BottledPack"] = 2 * loot_chance_percent,
+    [".WhiskeyBottledPack"] = 2,
+    [".WineBottledPack"] = 2,
+    [".Wine2BottledPack"] = 2,
 }
 
 

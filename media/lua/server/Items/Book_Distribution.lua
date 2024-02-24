@@ -1,17 +1,14 @@
 require "Items/SuburbsDistributions"
 require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local BOOKS_WEIGHT = {
-    [".BookWeaponAiming1"] = 2 * loot_chance_percent,
-    [".BookWeaponAiming2"] = 2 * loot_chance_percent,
-    [".BookWeaponAiming3"] = 2 * loot_chance_percent,
-    [".BookWeaponReloading1"] = 2 * loot_chance_percent,
+    [".BookWeaponAiming1"] = 2,
+    [".BookWeaponAiming2"] = 2,
+    [".BookWeaponAiming3"] = 2,
+    [".BookWeaponReloading1"] = 2,
 }
 
 

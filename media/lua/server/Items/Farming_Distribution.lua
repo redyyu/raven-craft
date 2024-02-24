@@ -1,28 +1,25 @@
 require "Items/ProceduralDistributions"
 require "Items/SuburbsDistributions"
 require "Vehicles/VehicleDistributions"
-require "utils"
+require "RCCore"
 
-
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
 
 local ITEMS_WEIGHT = {
-    [".CornBagSeed"] = 2 * loot_chance_percent,
-    [".PeanutsBagSeed"] = 2 * loot_chance_percent,
-    [".WheatBagSeed"] = 2 * loot_chance_percent,
-    [".ZucchiniBagSeed"] = 2 * loot_chance_percent,
-    [".PumpkinBagSeed"] = 2 * loot_chance_percent,
-    [".WatermelonBagSeed"] = 2 * loot_chance_percent,
-    [".OnionBagSeed"] = 2 * loot_chance_percent,
-    [".LettuceBagSeed"] = 2 * loot_chance_percent,
-    [".LeekBagSeed"] = 2 * loot_chance_percent,
-    [".EggplantBagSeed"] = 2 * loot_chance_percent,
-    [".EdamameBagSeed"] = 2 * loot_chance_percent,
-    [".DaikonBagSeed"] = 2 * loot_chance_percent,
-    [".PepperJalapenoBagSeed"] = 2 * loot_chance_percent,
-    [".PepperHabaneroBagSeed"] = 2 * loot_chance_percent,
-    [".BellPepperBagSeed"] = 2 * loot_chance_percent,
+    [".CornBagSeed"] = 2,
+    [".PeanutsBagSeed"] = 2,
+    [".WheatBagSeed"] = 2,
+    [".ZucchiniBagSeed"] = 2,
+    [".PumpkinBagSeed"] = 2,
+    [".WatermelonBagSeed"] = 2,
+    [".OnionBagSeed"] = 2,
+    [".LettuceBagSeed"] = 2,
+    [".LeekBagSeed"] = 2,
+    [".EggplantBagSeed"] = 2,
+    [".EdamameBagSeed"] = 2,
+    [".DaikonBagSeed"] = 2,
+    [".PepperJalapenoBagSeed"] = 2,
+    [".PepperHabaneroBagSeed"] = 2,
+    [".BellPepperBagSeed"] = 2,
 }
 
 insertDistTable(ProceduralDistributions.list["CrateFarming"], ITEMS_WEIGHT, 8);

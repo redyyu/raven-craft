@@ -1,7 +1,7 @@
 module RavenCraft
-	{
+{
 
-	model Beer_Bottle_Pack {
+    model Beer_Bottle_Pack {
         mesh = WorldItems/Beer_Bottled_Pack,
         texture = WorldItems/Beer_Bottled_Pack,
         scale = 0.4,
@@ -49,7 +49,13 @@ module RavenCraft
         scale = 0.4,
 	}
 
-	model Pop_Bottle {
+	model Pop_Bottle_Pack {
+        mesh = WorldItems/Pop_Bottle,
+        texture = WorldItems/Pop_Bottle_Pack,
+        scale = 1.8,
+	}
+
+	model Water_Bottle_Pack {
         mesh = WorldItems/Pop_Bottle,
         texture = WorldItems/Pop_Bottle_Pack,
         scale = 1.8,

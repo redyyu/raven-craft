@@ -1,4 +1,4 @@
-require "utils"
+require "RCCore"
 
 -- check player is in somewhere have electricity
 function Recipe.OnCanPerform.haveElectricity(recipe, playerObj)

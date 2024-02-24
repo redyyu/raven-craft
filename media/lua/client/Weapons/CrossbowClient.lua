@@ -1,5 +1,5 @@
 require "CrossbowTypes"
-require "utils"
+require "RCCore"
 
 local function shootCrossbow(player,item)
 	if item:getType() == "LargeCrossbow" then
