@@ -272,6 +272,12 @@ can boost by skill book between lv1 ~ lv6
 `BookWeaponReloading`, is for Reloading Perk, only up to lv2.
 
 
+## Traits Modify
+
+Trait `Handy` add `Perks.SmallBlunt` + 1, make -8 practical use.
+Pertty much like `Hunter`.
+
+
 ## Cure
 
 A Mysterious Serum Injection drop by `HazardSuit` or somewhere in Medical place, especially from amry.
