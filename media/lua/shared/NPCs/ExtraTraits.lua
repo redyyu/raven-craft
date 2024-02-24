@@ -1,4 +1,4 @@
-require "MainCreationMethods"
+require "NPCs/MainCreationMethods"
 
 local oldDoTraits = BaseGameCharacterDetails.DoTraits
 

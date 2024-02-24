@@ -4,6 +4,7 @@
 	<m_FemaleModel>skinned/clothes/kate_ArmorSuit</m_FemaleModel>
 	<m_GUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</m_GUID>
 	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
 
