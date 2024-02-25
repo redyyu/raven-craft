@@ -2,6 +2,78 @@ require "Farming/SFarmingSystem"
 require "Farming/farming_vegetableconf"
 require "RCCore"
 
+
+-- common growing
+farming_vegetableconf.growPlantUniversal = function(planting, nextGrowing, updateNbOfGrow)
+	local nbOfGrow = planting.nbOfGrow;
+	local water = farming_vegetableconf.calcWater(planting.waterNeeded, planting.waterLvl);
+	local waterMax = farming_vegetableconf.calcWater(planting.waterLvl, planting.waterNeededMax);
+	local diseaseLvl = farming_vegetableconf.calcDisease(planting.mildewLvl);
+	local conf = farming_vegetableconf.props[planting.typeOfSeed]
+
+	if conf.restoreGrow and nbOfGrow <= 0 then
+		nbOfGrow = 0;
+		planting.nbOfGrow = 0;
+	end
+
+	if(nbOfGrow == 0) then -- young  Tips: Don't know why Cabbage is nbOfGrow <= 0
+		planting = growNext(planting,
+							farming_vegetableconf.getSpriteName(planting),
+							farming_vegetableconf.getObjectName(planting),
+							nextGrowing,
+							conf.timeToGrow + water + diseaseLvl);
+		planting.waterNeeded = math.min(conf.waterLvl + 5, 100);
+	elseif (nbOfGrow <= 4) then -- young
+		if(water >= 0 and diseaseLvl >= 0) then
+			planting = growNext(planting,
+								farming_vegetableconf.getSpriteName(planting),
+								farming_vegetableconf.getObjectName(planting),
+								nextGrowing,
+								conf.timeToGrow + water + diseaseLvl);
+			planting.waterNeeded = conf.waterLvl;
+			planting.waterNeededMax = conf.waterLvlMax;
+		else
+			badPlant(water, waterMax, diseaseLvl, planting, nextGrowing, updateNbOfGrow);
+		end
+	elseif (nbOfGrow == 5) then -- mature
+		if(water >= 0 and diseaseLvl >= 0) then
+			if conf.harvestSeedOnly then
+				planting = growNext(planting,
+									farming_vegetableconf.getSpriteName(planting),
+									farming_vegetableconf.getObjectName(planting),
+									nextGrowing,
+									conf.timeToGrow + water + diseaseLvl);
+			else
+				planting.nextGrowing = calcNextGrowing(nextGrowing,
+													   conf.timeToGrow + water + diseaseLvl);
+				planting:setObjectName(farming_vegetableconf.getObjectName(planting))
+				planting:setSpriteName(farming_vegetableconf.getSpriteName(planting))
+				planting.hasVegetable = true;
+			end
+		else
+			badPlant(water, waterMax, diseaseLvl, planting, nextGrowing, updateNbOfGrow);
+		end
+	elseif (nbOfGrow == 6) then -- mature with seed
+		if(water >= 0 and diseaseLvl >= 0) then
+			local timeToBad = conf.timeToBad
+			if not timeToBad then
+				timeToBad = 248
+			end
+			planting.nextGrowing = calcNextGrowing(nextGrowing, timeToBad);
+			planting:setObjectName(farming_vegetableconf.getObjectName(planting))
+			planting:setSpriteName(farming_vegetableconf.getSpriteName(planting))
+			planting.hasVegetable = true;
+			planting.hasSeed = true;
+		else
+			badPlant(water, waterMax, diseaseLvl, planting, nextGrowing, updateNbOfGrow);
+		end
+	elseif (planting.state ~= "rotten") then -- rotten
+		planting:rottenThis()
+	end
+	return planting;
+end
+
+
 -- Corn
 -- Need 6 seeds
 -- Water lvl over 70
@@ -20,6 +92,7 @@ farming_vegetableconf.props["Corn"].maxVegAutorized = 12;
 farming_vegetableconf.props["Corn"].vegetableName = "Base.Corn";
 farming_vegetableconf.props["Corn"].seedName = PACKAGE_NAME..".CornSeed";
 farming_vegetableconf.props["Corn"].seedPerVeg = 3;
+farming_vegetableconf.props["Corn"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["Corn"] = {
 "vegetation_farming_01_72",
@@ -32,7 +105,7 @@ farming_vegetableconf.sprite["Corn"] = {
 "vegetation_farming_01_79"
 }
 
-farming_vegetableconf.growCorn = farming_vegetableconf.growCabbage
+farming_vegetableconf.growCorn = farming_vegetableconf.growPlantUniversal
 
 
 -- Peanuts 
@@ -53,6 +126,7 @@ farming_vegetableconf.props["Peanuts"].maxVegAutorized = 9;
 farming_vegetableconf.props["Peanuts"].vegetableName = "Base.Peanuts";
 farming_vegetableconf.props["Peanuts"].seedName = PACKAGE_NAME..".PeanutsSeed";
 farming_vegetableconf.props["Peanuts"].seedPerVeg = 3;
+farming_vegetableconf.props["Peanuts"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["Peanuts"] = {
 "vegetation_farming_01_40",
@@ -66,7 +140,7 @@ farming_vegetableconf.sprite["Peanuts"] = {
 }
 
 
-farming_vegetableconf.growPeanuts = farming_vegetableconf.growPotato
+farming_vegetableconf.growPeanuts = farming_vegetableconf.growPlantUniversal
 
 
 -- Wheat
@@ -87,6 +161,7 @@ farming_vegetableconf.props["Wheat"].maxVegAutorized = 24;
 farming_vegetableconf.props["Wheat"].vegetableName = PACKAGE_NAME..".Wheat";
 farming_vegetableconf.props["Wheat"].seedName = PACKAGE_NAME..".WheatSeed";
 farming_vegetableconf.props["Wheat"].seedPerVeg = 2;
+farming_vegetableconf.props["Wheat"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["Wheat"] = {
 "vegetation_farming_01_72",
@@ -99,7 +174,7 @@ farming_vegetableconf.sprite["Wheat"] = {
 "vegetation_farm_01_34"
 }
 
-farming_vegetableconf.growWheat = farming_vegetableconf.growCabbage
+farming_vegetableconf.growWheat = farming_vegetableconf.growPlantUniversal
 
 
 -- Zucchini
@@ -132,8 +207,7 @@ farming_vegetableconf.sprite["Zucchini"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growZucchini = farming_vegetableconf.growTomato
--- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
+farming_vegetableconf.growWheat = farming_vegetableconf.growPlantUniversal
 
 
 -- Pumpkin
@@ -154,6 +228,7 @@ farming_vegetableconf.props["Pumpkin"].maxVegAutorized = 6;
 farming_vegetableconf.props["Pumpkin"].vegetableName = "Base.Pumpkin";
 farming_vegetableconf.props["Pumpkin"].seedName = PACKAGE_NAME..".PumpkinSeed";
 farming_vegetableconf.props["Pumpkin"].seedPerVeg = 3;
+farming_vegetableconf.props["Pumpkin"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["Pumpkin"] = {
 	"rc_vegetation_farming_pumpkin_0",
@@ -166,7 +241,7 @@ farming_vegetableconf.sprite["Pumpkin"] = {
 	"rc_vegetation_farming_pumpkin_7"
 }
 
-farming_vegetableconf.growPumpkin = farming_vegetableconf.growBroccoli
+farming_vegetableconf.growPumpkin = farming_vegetableconf.growPlantUniversal
 
 
 -- Watermelon
@@ -187,6 +262,7 @@ farming_vegetableconf.props["Watermelon"].maxVegAutorized = 6;
 farming_vegetableconf.props["Watermelon"].vegetableName = "Base.Watermelon";
 farming_vegetableconf.props["Watermelon"].seedName = PACKAGE_NAME..".WatermelonSeed";
 farming_vegetableconf.props["Watermelon"].seedPerVeg = 3;
+farming_vegetableconf.props["Watermelon"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["Watermelon"] = {
 	"rc_vegetation_farming_watermelon_0",
@@ -199,7 +275,7 @@ farming_vegetableconf.sprite["Watermelon"] = {
 	"rc_vegetation_farming_watermelon_7"
 }
 
-farming_vegetableconf.growWatermelon = farming_vegetableconf.growBroccoli
+farming_vegetableconf.growWatermelon = farming_vegetableconf.growPlantUniversal
 
 -- Onion
 -- Need 6 seeds
@@ -232,7 +308,7 @@ farming_vegetableconf.sprite["Onion"] = {
 	"vegetation_farming_01_55"
 }
 
-farming_vegetableconf.growOnion = farming_vegetableconf.growRedRadish
+farming_vegetableconf.growOnion = farming_vegetableconf.growPlantUniversal
 
 
 
@@ -266,7 +342,7 @@ farming_vegetableconf.sprite["Lettuce"] = {
 	"vegetation_farming_01_23"
 }
 
-farming_vegetableconf.growLettuce = farming_vegetableconf.growCabbage
+farming_vegetableconf.growLettuce = farming_vegetableconf.growPlantUniversal
 
 
 
@@ -280,7 +356,6 @@ farming_vegetableconf.props["Leek"] = {};
 farming_vegetableconf.props["Leek"].seedsRequired = 6;
 farming_vegetableconf.props["Leek"].texture = "vegetation_farming_01_36";
 farming_vegetableconf.props["Leek"].waterLvl = 55;
-farming_vegetableconf.props["Leek"].waterLvlMax = 100;
 farming_vegetableconf.props["Leek"].timeToGrow = ZombRand(50, 55);
 farming_vegetableconf.props["Leek"].minVeg = 6;
 farming_vegetableconf.props["Leek"].maxVeg = 9;
@@ -301,7 +376,7 @@ farming_vegetableconf.sprite["Leek"] = {
 	"vegetation_farming_01_39"
 }
 
-farming_vegetableconf.growLeek = farming_vegetableconf.growCarrots
+farming_vegetableconf.growLeek = farming_vegetableconf.growPlantUniversal
 
 
 -- Eggplant
@@ -334,7 +409,7 @@ farming_vegetableconf.sprite["Eggplant"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growEggplant = farming_vegetableconf.growTomato
+farming_vegetableconf.growEggplant = farming_vegetableconf.growPlantUniversal
 -- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
@@ -356,6 +431,7 @@ farming_vegetableconf.props["Edamame"].maxVegAutorized = 10;
 farming_vegetableconf.props["Edamame"].vegetableName = "Base.Edamame";
 farming_vegetableconf.props["Edamame"].seedName = PACKAGE_NAME..".EdamameSeed";
 farming_vegetableconf.props["Edamame"].seedPerVeg = 2;
+farming_vegetableconf.props["Edamame"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["Edamame"] = {
 	"vegetation_farming_01_64",
@@ -368,7 +444,7 @@ farming_vegetableconf.sprite["Edamame"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growEdamame = farming_vegetableconf.growTomato
+farming_vegetableconf.growEdamame = farming_vegetableconf.growPlantUniversal
 -- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
@@ -382,7 +458,6 @@ farming_vegetableconf.props["Daikon"] = {};
 farming_vegetableconf.props["Daikon"].seedsRequired = 6;
 farming_vegetableconf.props["Daikon"].texture = "vegetation_farming_01_53";
 farming_vegetableconf.props["Daikon"].waterLvl = 55;
-farming_vegetableconf.props["Daikon"].waterLvlMax = 85;
 farming_vegetableconf.props["Daikon"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Daikon"].minVeg = 4;
 farming_vegetableconf.props["Daikon"].maxVeg = 9;
@@ -403,7 +478,7 @@ farming_vegetableconf.sprite["Daikon"] = {
 	"vegetation_farming_01_55"
 }
 
-farming_vegetableconf.growDaikon = farming_vegetableconf.growRedRadish
+farming_vegetableconf.growDaikon = farming_vegetableconf.growPlantUniversal
 
 
 -- PepperJalapeno
@@ -424,6 +499,7 @@ farming_vegetableconf.props["PepperJalapeno"].maxVegAutorized = 10;
 farming_vegetableconf.props["PepperJalapeno"].vegetableName = "Base.PepperJalapeno";
 farming_vegetableconf.props["PepperJalapeno"].seedName = PACKAGE_NAME..".PepperJalapenoSeed";
 farming_vegetableconf.props["PepperJalapeno"].seedPerVeg = 2;
+farming_vegetableconf.props["PepperJalapeno"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["PepperJalapeno"] = {
 	"vegetation_farming_01_64",
@@ -436,7 +512,7 @@ farming_vegetableconf.sprite["PepperJalapeno"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growPepperJalapeno = farming_vegetableconf.growTomato
+farming_vegetableconf.growPepperJalapeno = farming_vegetableconf.growPlantUniversal
 -- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
@@ -459,6 +535,7 @@ farming_vegetableconf.props["PepperHabanero"].maxVegAutorized = 10;
 farming_vegetableconf.props["PepperHabanero"].vegetableName = "Base.PepperHabanero";
 farming_vegetableconf.props["PepperHabanero"].seedName = PACKAGE_NAME..".PepperHabaneroSeed";
 farming_vegetableconf.props["PepperHabanero"].seedPerVeg = 2;
+farming_vegetableconf.props["PepperHabanero"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["PepperHabanero"] = {
 	"vegetation_farming_01_64",
@@ -471,7 +548,7 @@ farming_vegetableconf.sprite["PepperHabanero"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growPepperHabanero = farming_vegetableconf.growTomato
+farming_vegetableconf.growPepperHabanero = farming_vegetableconf.growPlantUniversal
 -- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
@@ -494,6 +571,7 @@ farming_vegetableconf.props["BellPepper"].maxVegAutorized = 10;
 farming_vegetableconf.props["BellPepper"].vegetableName = "Base.BellPepper";
 farming_vegetableconf.props["BellPepper"].seedName = PACKAGE_NAME..".BellPepperSeed";
 farming_vegetableconf.props["BellPepper"].seedPerVeg = 2;
+farming_vegetableconf.props["BellPepper"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["BellPepper"] = {
 	"vegetation_farming_01_64",
@@ -506,7 +584,7 @@ farming_vegetableconf.sprite["BellPepper"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growBellPepper = farming_vegetableconf.growTomato
+farming_vegetableconf.growBellPepper = farming_vegetableconf.growPlantUniversal
 -- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
 
 
@@ -528,6 +606,7 @@ farming_vegetableconf.props["BellPepper"].maxVegAutorized = 10;
 farming_vegetableconf.props["BellPepper"].vegetableName = "Base.BellPepper";
 farming_vegetableconf.props["BellPepper"].seedName = PACKAGE_NAME..".BellPepperSeed";
 farming_vegetableconf.props["BellPepper"].seedPerVeg = 2;
+farming_vegetableconf.props["BellPepper"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["BellPepper"] = {
 	"vegetation_farming_01_64",
@@ -540,5 +619,5 @@ farming_vegetableconf.sprite["BellPepper"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growBellPepper = farming_vegetableconf.growTomato
+farming_vegetableconf.growBellPepper = farming_vegetableconf.growPlantUniversal
 -- Require grow to phase 6 seed-bearing for harvest, because the seed is vegetable self.
