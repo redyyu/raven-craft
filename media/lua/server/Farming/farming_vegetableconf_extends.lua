@@ -820,36 +820,3 @@ farming_vegetableconf.sprite["Peach"] = {
 
 farming_vegetableconf.growPeach = farming_vegetableconf.growPlantUniversal
 
-
--- Pear
--- Need 5 seeds
--- Water lvl over 75
--- Need 4 weeks (84h per phase)
-farming_vegetableconf.icons["Pear"] = "Item_Pear";
-
-farming_vegetableconf.props["Pear"] = {};
-farming_vegetableconf.props["Pear"].seedsRequired = 5;
-farming_vegetableconf.props["Pear"].texture = "rc_vegetation_farming_pear_6";
-farming_vegetableconf.props["Pear"].waterLvl = 75;
-farming_vegetableconf.props["Pear"].timeToGrow = ZombRand(103, 117);
-farming_vegetableconf.props["Pear"].minVeg = 4;
-farming_vegetableconf.props["Pear"].maxVeg = 6;
-farming_vegetableconf.props["Pear"].minVegAutorized = 5;
-farming_vegetableconf.props["Pear"].maxVegAutorized = 10;
-farming_vegetableconf.props["Pear"].vegetableName = "Base.Pear";
-farming_vegetableconf.props["Pear"].seedName = PACKAGE_NAME..".PearSeed";
-farming_vegetableconf.props["Pear"].seedPerVeg = 2;
-farming_vegetableconf.props["Pear"].harvestSeedOnly = true;
-
-farming_vegetableconf.sprite["Pear"] = {
-	"rc_vegetation_farming_pear_0",
-	"rc_vegetation_farming_pear_1",
-	"rc_vegetation_farming_pear_2",
-	"rc_vegetation_farming_pear_3",
-	"rc_vegetation_farming_pear_4",
-	"rc_vegetation_farming_pear_5",
-	"rc_vegetation_farming_pear_6",
-	"rc_vegetation_farming_pear_7"
-}
-
-farming_vegetableconf.growPear = farming_vegetableconf.growPlantUniversal

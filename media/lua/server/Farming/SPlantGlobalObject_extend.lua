@@ -66,8 +66,6 @@ function SFarmingSystem:growPlant(luaObject, nextGrowing, updateNbOfGrow)
 			luaObject = farming_vegetableconf.growOrange(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "Peach") then
 			luaObject = farming_vegetableconf.growPeach(luaObject, nextGrowing, updateNbOfGrow)
-		elseif(luaObject.typeOfSeed == "Pear") then
-			luaObject = farming_vegetableconf.growPear(luaObject, nextGrowing, updateNbOfGrow)
 		end
 		-- maybe this plant gonna be disease
 		if not new and luaObject.nbOfGrow > 0 then
@@ -139,8 +137,6 @@ function SPlantGlobalObject:rottenThis()
 		texture = "rc_vegetation_farming_orange_7"
 	elseif self.typeOfSeed == "Peach" then
 		texture = "rc_vegetation_farming_peach_7"
-	elseif self.typeOfSeed == "Pear" then
-		texture = "rc_vegetation_farming_pear7"
 	end
 	self:setSpriteName(texture)
 	self.state = "rotten"
