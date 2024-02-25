@@ -52,6 +52,22 @@ function SFarmingSystem:growPlant(luaObject, nextGrowing, updateNbOfGrow)
 			luaObject = farming_vegetableconf.growPepperHabanero(luaObject, nextGrowing, updateNbOfGrow)
 		elseif(luaObject.typeOfSeed == "BellPepper") then
 			luaObject = farming_vegetableconf.growBellPepper(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Apple") then
+			luaObject = farming_vegetableconf.growApple(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Banana") then
+			luaObject = farming_vegetableconf.growBanana(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Grapefruit") then
+			luaObject = farming_vegetableconf.growGrapefruit(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Grapes") then
+			luaObject = farming_vegetableconf.growGrapes(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Lemon") then
+			luaObject = farming_vegetableconf.growLemon(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Orange") then
+			luaObject = farming_vegetableconf.growOrange(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Peach") then
+			luaObject = farming_vegetableconf.growPeach(luaObject, nextGrowing, updateNbOfGrow)
+		elseif(luaObject.typeOfSeed == "Pear") then
+			luaObject = farming_vegetableconf.growPear(luaObject, nextGrowing, updateNbOfGrow)
 		end
 		-- maybe this plant gonna be disease
 		if not new and luaObject.nbOfGrow > 0 then
@@ -109,6 +125,22 @@ function SPlantGlobalObject:rottenThis()
 		texture = "vegetation_farming_01_71"
 	elseif self.typeOfSeed == "BellPepper" then
 		texture = "vegetation_farming_01_71"
+	elseif self.typeOfSeed == "Apple" then
+		texture = "rc_vegetation_farming_apple_7"
+	elseif self.typeOfSeed == "Banana" then
+		texture = "rc_vegetation_farming_banana_7"
+	elseif self.typeOfSeed == "Grapefruit" then
+		texture = "rc_vegetation_farming_grapefruit_7"
+	elseif self.typeOfSeed == "Grapes" then
+		texture = "rc_vegetation_farming_grapes_7"
+	elseif self.typeOfSeed == "Lemon" then
+		texture = "rc_vegetation_farming_lemon_7"
+	elseif self.typeOfSeed == "Orange" then
+		texture = "rc_vegetation_farming_orange_7"
+	elseif self.typeOfSeed == "Peach" then
+		texture = "rc_vegetation_farming_peach_7"
+	elseif self.typeOfSeed == "Pear" then
+		texture = "rc_vegetation_farming_pear7"
 	end
 	self:setSpriteName(texture)
 	self.state = "rotten"
