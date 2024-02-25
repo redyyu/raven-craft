@@ -112,7 +112,7 @@ function SPlantGlobalObject:rottenThis()
 	elseif self.typeOfSeed == "Leek" then
 		texture = "vegetation_farming_01_39"
 	elseif self.typeOfSeed == "Eggplant" then
-		texture = "vegetation_farming_01_71"
+		texture = "rc_vegetation_farming_eggplant_7"
 	elseif self.typeOfSeed == "Edamame" then
 		texture = "vegetation_farming_01_71"
 	elseif self.typeOfSeed == "Daikon" then

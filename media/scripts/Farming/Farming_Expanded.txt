@@ -567,6 +567,247 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
+	item ApplySeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Apply Seeds,
+		Icon = TZ_CabbageLettuceSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item ApplyBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Apply Seeds Packet,
+		Icon = SeedpackBellApply,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Apply Seeds in Packet {
+        ApplySeed=50,
+
+        Result: ApplyBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Apply Seeds {
+		ApplyBagSeed,
+  
+        Result: ApplySeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	item BananaSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Banana Seeds,
+		Icon = TZ_TomatoSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item BananaBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Banana Seeds Packet,
+		Icon = SeedpackBellBanana,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Banana Seeds in Packet {
+        BananaSeed=50,
+
+        Result: BananaBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Banana Seeds {
+		BananaBagSeed,
+  
+        Result: BananaSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+
+	item GrapefruitSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Grapefruit Seeds,
+		Icon = TZ_PotatoSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item GrapefruitBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Grapefruit Seeds Packet,
+		Icon = SeedpackBellGrapefruit,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Grapefruit Seeds in Packet {
+        GrapefruitSeed=50,
+
+        Result: GrapefruitBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Grapefruit Seeds {
+		GrapefruitBagSeed,
+  
+        Result: GrapefruitSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+
+	item GrapesSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Grapes Seeds,
+		Icon = TZ_LRRadishSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item GrapesBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Grapes Seeds Packet,
+		Icon = SeedpackBellGrapes,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Grapes Seeds in Packet {
+        GrapesSeed=50,
+
+        Result: GrapesBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Grapes Seeds {
+		GrapesBagSeed,
+  
+        Result: GrapesSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+
+	item LemonSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Lemon Seeds,
+		Icon = TZ_TomatoSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item LemonBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Lemon Seeds Packet,
+		Icon = SeedpackBellLemon,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Lemon Seeds in Packet {
+        LemonSeed=50,
+
+        Result: LemonBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Lemon Seeds {
+		LemonBagSeed,
+  
+        Result: LemonSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	item OrangeSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Orange Seeds,
+		Icon = TZ_CabbageLettuceSeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item OrangeBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Orange Seeds Packet,
+		Icon = SeedpackBellOrange,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Orange Seeds in Packet {
+        OrangeSeed=50,
+
+        Result: OrangeBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Orange Seeds {
+		OrangeBagSeed,
+  
+        Result: OrangeSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
+	item PeachSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName =  Peach Seeds,
+		Icon = TZ_StrewberrySeeds,
+		Weight = 0.009,
+		SurvivalGear = TRUE,
+		WorldStaticModel = Seeds_Ground,
+	}
+	item PeachBagSeed {
+		DisplayCategory = Gardening,
+		Type = Normal,
+		DisplayName = Peach Seeds Packet,
+		Icon = SeedpackBellPeach,
+		Weight = 0.1,
+		SurvivalGear = TRUE,
+		WorldStaticModel = RadishSeedBag_Ground,
+	}
+	recipe Put Peach Seeds in Packet {
+        PeachSeed=50,
+
+        Result: PeachBagSeed,
+        Time: 10.0,
+        Category: Farming,
+    }
+	recipe Open Packet of Peach Seeds {
+		PeachBagSeed,
+  
+        Result: PeachSeed=50,
+        Time: 20.0,
+        Category: Farming,
+        Sound: OpenSeedPacket,
+	}
+
 
 	/* Cooking Recipes */
 

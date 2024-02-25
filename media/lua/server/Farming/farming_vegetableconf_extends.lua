@@ -399,14 +399,14 @@ farming_vegetableconf.props["Eggplant"].seedName = PACKAGE_NAME..".EggplantSeed"
 farming_vegetableconf.props["Eggplant"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Eggplant"] = {
-	"vegetation_farming_01_64",
-	"vegetation_farming_01_65",
-	"vegetation_farming_01_66",
-	"vegetation_farming_01_66",
-	"vegetation_farming_01_67",
-	"vegetation_farming_01_68",
-	"vegetation_farming_01_69",
-	"vegetation_farming_01_71"
+	"rc_vegetation_farming_eggplant_0",
+	"rc_vegetation_farming_eggplant_1",
+	"rc_vegetation_farming_eggplant_2",
+	"rc_vegetation_farming_eggplant_3",
+	"rc_vegetation_farming_eggplant_4",
+	"rc_vegetation_farming_eggplant_5",
+	"rc_vegetation_farming_eggplant_6",
+	"rc_vegetation_farming_eggplant_7"
 }
 
 farming_vegetableconf.growEggplant = farming_vegetableconf.growPlantUniversal
