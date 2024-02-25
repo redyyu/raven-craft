@@ -567,35 +567,35 @@ module RavenCraft
         Sound: OpenSeedPacket,
 	}
 
-	item ApplySeed {
+	item AppleSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
-		DisplayName =  Apply Seeds,
+		DisplayName =  Apple Seeds,
 		Icon = TZ_CabbageLettuceSeeds,
 		Weight = 0.009,
 		SurvivalGear = TRUE,
 		WorldStaticModel = Seeds_Ground,
 	}
-	item ApplyBagSeed {
+	item AppleBagSeed {
 		DisplayCategory = Gardening,
 		Type = Normal,
-		DisplayName = Apply Seeds Packet,
-		Icon = SeedpackBellApply,
+		DisplayName = Apple Seeds Packet,
+		Icon = SeedpackApple,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,
 	}
-	recipe Put Apply Seeds in Packet {
-        ApplySeed=50,
+	recipe Put Apple Seeds in Packet {
+        AppleSeed=50,
 
-        Result: ApplyBagSeed,
+        Result: AppleBagSeed,
         Time: 10.0,
         Category: Farming,
     }
-	recipe Open Packet of Apply Seeds {
-		ApplyBagSeed,
+	recipe Open Packet of Apple Seeds {
+		AppleBagSeed,
   
-        Result: ApplySeed=50,
+        Result: AppleSeed=50,
         Time: 20.0,
         Category: Farming,
         Sound: OpenSeedPacket,
@@ -614,7 +614,7 @@ module RavenCraft
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Banana Seeds Packet,
-		Icon = SeedpackBellBanana,
+		Icon = SeedpackBanana,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,
@@ -649,7 +649,7 @@ module RavenCraft
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Grapefruit Seeds Packet,
-		Icon = SeedpackBellGrapefruit,
+		Icon = SeedpackGrapefruit,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,
@@ -684,7 +684,7 @@ module RavenCraft
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Grapes Seeds Packet,
-		Icon = SeedpackBellGrapes,
+		Icon = SeedpackGrapes,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,
@@ -719,7 +719,7 @@ module RavenCraft
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Lemon Seeds Packet,
-		Icon = SeedpackBellLemon,
+		Icon = SeedpackLemon,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,
@@ -753,7 +753,7 @@ module RavenCraft
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Orange Seeds Packet,
-		Icon = SeedpackBellOrange,
+		Icon = SeedpackOrange,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,
@@ -787,7 +787,7 @@ module RavenCraft
 		DisplayCategory = Gardening,
 		Type = Normal,
 		DisplayName = Peach Seeds Packet,
-		Icon = SeedpackBellPeach,
+		Icon = SeedpackPeach,
 		Weight = 0.1,
 		SurvivalGear = TRUE,
 		WorldStaticModel = RadishSeedBag_Ground,

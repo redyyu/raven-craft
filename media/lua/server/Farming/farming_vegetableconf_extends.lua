@@ -76,7 +76,7 @@ end
 
 -- Corn
 -- Need 6 seeds
--- Water lvl over 70
+-- Need Water lvl over 70
 -- need 4 weeks (112 hours per phase)
 farming_vegetableconf.icons["Corn"] = "Item_Corn";
 
@@ -110,7 +110,7 @@ farming_vegetableconf.growCorn = farming_vegetableconf.growPlantUniversal
 
 -- Peanuts 
 -- Need 6 seeds
--- Water lvl over 65
+-- Need Water lvl over 65
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Peanuts"] = "Item_Peanut";
 
@@ -145,7 +145,7 @@ farming_vegetableconf.growPeanuts = farming_vegetableconf.growPlantUniversal
 
 -- Wheat
 -- Need 9 seeds
--- Water lvl over 85
+-- Need Water lvl over 85
 -- Need 4 weeks to grow (112h per phase)
 farming_vegetableconf.icons["Wheat"] = "Item_Wheat";
 
@@ -156,8 +156,8 @@ farming_vegetableconf.props["Wheat"].timeToGrow = ZombRand(103, 117);
 farming_vegetableconf.props["Wheat"].waterLvl = 85;
 farming_vegetableconf.props["Wheat"].minVeg = 4;
 farming_vegetableconf.props["Wheat"].maxVeg = 12;
-farming_vegetableconf.props["Wheat"].minVegAutorized = 12;
-farming_vegetableconf.props["Wheat"].maxVegAutorized = 24;
+farming_vegetableconf.props["Wheat"].minVegAutorized = 8;
+farming_vegetableconf.props["Wheat"].maxVegAutorized = 16;
 farming_vegetableconf.props["Wheat"].vegetableName = PACKAGE_NAME..".Wheat";
 farming_vegetableconf.props["Wheat"].seedName = PACKAGE_NAME..".WheatSeed";
 farming_vegetableconf.props["Wheat"].seedPerVeg = 2;
@@ -179,7 +179,7 @@ farming_vegetableconf.growWheat = farming_vegetableconf.growPlantUniversal
 
 -- Zucchini
 -- Need 4 seeds
--- Water lvl over 75
+-- Need Water lvl over 75
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Zucchini"] = "Item_Zucchini";
 
@@ -195,6 +195,7 @@ farming_vegetableconf.props["Zucchini"].maxVegAutorized = 10;
 farming_vegetableconf.props["Zucchini"].vegetableName = "Base.Zucchini";
 farming_vegetableconf.props["Zucchini"].seedName = PACKAGE_NAME..".ZucchiniSeed";
 farming_vegetableconf.props["Zucchini"].seedPerVeg = 2;
+farming_vegetableconf.props["Zucchini"].harvestSeedOnly = true;
 
 farming_vegetableconf.sprite["Zucchini"] = {
 	"vegetation_farming_01_64",
@@ -207,12 +208,12 @@ farming_vegetableconf.sprite["Zucchini"] = {
 	"vegetation_farming_01_71"
 }
 
-farming_vegetableconf.growWheat = farming_vegetableconf.growPlantUniversal
+farming_vegetableconf.growZucchini = farming_vegetableconf.growPlantUniversal
 
 
 -- Pumpkin
 -- Need 9 seeds
--- Water lvl over 70
+-- Need Water lvl over 70
 -- Need 4 weeks to grow (112h per phase)
 farming_vegetableconf.icons["Pumpkin"] = "Item_Pumpkin";
 
@@ -246,7 +247,7 @@ farming_vegetableconf.growPumpkin = farming_vegetableconf.growPlantUniversal
 
 -- Watermelon
 -- Need 9 seeds
--- Water lvl over 70
+-- Need Water lvl over 70
 -- Need 4 weeks to grow (112h per phase)
 farming_vegetableconf.icons["Watermelon"] = "Item_Watermelon";
 
@@ -279,15 +280,14 @@ farming_vegetableconf.growWatermelon = farming_vegetableconf.growPlantUniversal
 
 -- Onion
 -- Need 6 seeds
--- Need water lvl between 45 and 85
+-- Need Water lvl over 65
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Onion"] = "Item_Onion";
 
 farming_vegetableconf.props["Onion"] = {};
 farming_vegetableconf.props["Onion"].seedsRequired = 6;
 farming_vegetableconf.props["Onion"].texture = "vegetation_farming_01_53";
-farming_vegetableconf.props["Onion"].waterLvl = 45;
-farming_vegetableconf.props["Onion"].waterLvlMax = 85;
+farming_vegetableconf.props["Onion"].waterLvl = 65;
 farming_vegetableconf.props["Onion"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Onion"].minVeg = 4;
 farming_vegetableconf.props["Onion"].maxVeg = 5;
@@ -314,14 +314,14 @@ farming_vegetableconf.growOnion = farming_vegetableconf.growPlantUniversal
 
 -- Lettuce
 -- Need 9 seeds
--- Water lvl over 85
+-- Need Water lvl over 75
 -- Need 2 weeks (48h per phase)
 farming_vegetableconf.icons["Lettuce"] = "Item_Lettuce";
 
 farming_vegetableconf.props["Lettuce"] = {};
 farming_vegetableconf.props["Lettuce"].seedsRequired = 9;
 farming_vegetableconf.props["Lettuce"].texture = "vegetation_farming_01_20";
-farming_vegetableconf.props["Lettuce"].waterLvl = 85;
+farming_vegetableconf.props["Lettuce"].waterLvl = 75;
 farming_vegetableconf.props["Lettuce"].timeToGrow = ZombRand(46, 52);
 farming_vegetableconf.props["Lettuce"].minVeg = 4;
 farming_vegetableconf.props["Lettuce"].maxVeg = 6;
@@ -348,14 +348,14 @@ farming_vegetableconf.growLettuce = farming_vegetableconf.growPlantUniversal
 
 -- Leek
 -- Need 6 seeds
--- Need water lvl between 55 and 100
+-- Need Water lvl 65
 -- Grow in 17 days (52h per phase)
 farming_vegetableconf.icons["Leek"] = "Item_Leek";
 
 farming_vegetableconf.props["Leek"] = {};
 farming_vegetableconf.props["Leek"].seedsRequired = 6;
 farming_vegetableconf.props["Leek"].texture = "vegetation_farming_01_36";
-farming_vegetableconf.props["Leek"].waterLvl = 55;
+farming_vegetableconf.props["Leek"].waterLvl = 65;
 farming_vegetableconf.props["Leek"].timeToGrow = ZombRand(50, 55);
 farming_vegetableconf.props["Leek"].minVeg = 6;
 farming_vegetableconf.props["Leek"].maxVeg = 9;
@@ -381,13 +381,13 @@ farming_vegetableconf.growLeek = farming_vegetableconf.growPlantUniversal
 
 -- Eggplant
 -- Need 6 seeds
--- Water lvl over 75
+-- Need Water  lvl over 75
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Eggplant"] = "Item_Eggplant";
 
 farming_vegetableconf.props["Eggplant"] = {};
 farming_vegetableconf.props["Eggplant"].seedsRequired = 6;
-farming_vegetableconf.props["Eggplant"].texture = "vegetation_farming_01_69";
+farming_vegetableconf.props["Eggplant"].texture = "rc_vegetation_farming_eggplant_6";
 farming_vegetableconf.props["Eggplant"].waterLvl = 75;
 farming_vegetableconf.props["Eggplant"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Eggplant"].minVeg = 4;
@@ -414,7 +414,7 @@ farming_vegetableconf.growEggplant = farming_vegetableconf.growPlantUniversal
 
 -- Edamame
 -- Need 6 seeds
--- Water lvl over 75
+-- Need Water lvl over 75
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Edamame"] = "Item_Edamame";
 
@@ -448,14 +448,14 @@ farming_vegetableconf.growEdamame = farming_vegetableconf.growPlantUniversal
 
 -- Daikon
 -- Need 6 seeds
--- Need water lvl between 55 and 100
+-- Need Water lvl between 65
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Daikon"] = "Item_Daikon";
 
 farming_vegetableconf.props["Daikon"] = {};
 farming_vegetableconf.props["Daikon"].seedsRequired = 6;
 farming_vegetableconf.props["Daikon"].texture = "vegetation_farming_01_53";
-farming_vegetableconf.props["Daikon"].waterLvl = 55;
+farming_vegetableconf.props["Daikon"].waterLvl = 65;
 farming_vegetableconf.props["Daikon"].timeToGrow = ZombRand(89, 103);
 farming_vegetableconf.props["Daikon"].minVeg = 4;
 farming_vegetableconf.props["Daikon"].maxVeg = 6;
@@ -481,7 +481,7 @@ farming_vegetableconf.growDaikon = farming_vegetableconf.growPlantUniversal
 
 -- PepperJalapeno
 -- Need 5 seeds
--- Water lvl over 75
+-- Need Water lvl over 75
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["PepperJalapeno"] = "Item_PepperJalapeno";
 
@@ -517,7 +517,7 @@ farming_vegetableconf.growPepperJalapeno = farming_vegetableconf.growPlantUniver
 
 -- PepperHabanero
 -- Need 5 seeds
--- Water lvl over 75
+-- Need Water lvl over 75
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["PepperHabanero"] = "Item_PepperHabanero";
 
@@ -552,7 +552,7 @@ farming_vegetableconf.growPepperHabanero = farming_vegetableconf.growPlantUniver
 
 -- BellPepper
 -- Need 5 seeds
--- Water lvl over 75
+-- Need Water lvl over 75
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["BellPepper"] = "Item_BellPepper";
 
@@ -586,19 +586,19 @@ farming_vegetableconf.growBellPepper = farming_vegetableconf.growPlantUniversal
 
 -- Apple
 -- Need 6 seeds
--- Water lvl over 75
+-- Need Water lvl over 80
 -- Need 4 weeks (112h per phase)
 farming_vegetableconf.icons["Apple"] = "Item_Apple";
 
 farming_vegetableconf.props["Apple"] = {};
-farming_vegetableconf.props["Apple"].seedsRequired = 6;
+farming_vegetableconf.props["Apple"].seedsRequired = 12;
 farming_vegetableconf.props["Apple"].texture = "rc_vegetation_farming_apple_6";
-farming_vegetableconf.props["Apple"].waterLvl = 75;
+farming_vegetableconf.props["Apple"].waterLvl = 80;
 farming_vegetableconf.props["Apple"].timeToGrow = ZombRand(103, 117);
-farming_vegetableconf.props["Apple"].minVeg = 4;
-farming_vegetableconf.props["Apple"].maxVeg = 5;
-farming_vegetableconf.props["Apple"].minVegAutorized = 6;
-farming_vegetableconf.props["Apple"].maxVegAutorized = 10;
+farming_vegetableconf.props["Apple"].minVeg = 6;
+farming_vegetableconf.props["Apple"].maxVeg = 12;
+farming_vegetableconf.props["Apple"].minVegAutorized = 8;
+farming_vegetableconf.props["Apple"].maxVegAutorized = 16;
 farming_vegetableconf.props["Apple"].vegetableName = "Base.Apple";
 farming_vegetableconf.props["Apple"].seedName = PACKAGE_NAME..".AppleSeed";
 farming_vegetableconf.props["Apple"].seedPerVeg = 2;
@@ -620,19 +620,19 @@ farming_vegetableconf.growApple = farming_vegetableconf.growPlantUniversal
 
 -- Banana
 -- Need 4 seeds
--- Water lvl over 75
+-- Need Water lvl over 80
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Banana"] = "Item_Banana";
 
 farming_vegetableconf.props["Banana"] = {};
-farming_vegetableconf.props["Banana"].seedsRequired = 4;
+farming_vegetableconf.props["Banana"].seedsRequired = 10;
 farming_vegetableconf.props["Banana"].texture = "rc_vegetation_farming_banana_6";
-farming_vegetableconf.props["Banana"].waterLvl = 75;
+farming_vegetableconf.props["Banana"].waterLvl = 80;
 farming_vegetableconf.props["Banana"].timeToGrow = ZombRand(89, 103);
-farming_vegetableconf.props["Banana"].minVeg = 4;
-farming_vegetableconf.props["Banana"].maxVeg = 6;
-farming_vegetableconf.props["Banana"].minVegAutorized = 6;
-farming_vegetableconf.props["Banana"].maxVegAutorized = 12;
+farming_vegetableconf.props["Banana"].minVeg = 5;
+farming_vegetableconf.props["Banana"].maxVeg = 10;
+farming_vegetableconf.props["Banana"].minVegAutorized = 8;
+farming_vegetableconf.props["Banana"].maxVegAutorized = 16;
 farming_vegetableconf.props["Banana"].vegetableName = "Base.Banana";
 farming_vegetableconf.props["Banana"].seedName = PACKAGE_NAME..".BananaSeed";
 farming_vegetableconf.props["Banana"].seedPerVeg = 2;
@@ -653,19 +653,19 @@ farming_vegetableconf.growBanana = farming_vegetableconf.growPlantUniversal
 
 -- Grapefruit
 -- Need 6 seeds
--- Water lvl over 75
+-- Need Water lvl over 80
 -- Need 4 weeks (112h per phase)
 farming_vegetableconf.icons["Grapefruit"] = "Item_Grapefruit";
 
 farming_vegetableconf.props["Grapefruit"] = {};
-farming_vegetableconf.props["Grapefruit"].seedsRequired = 6;
+farming_vegetableconf.props["Grapefruit"].seedsRequired = 12;
 farming_vegetableconf.props["Grapefruit"].texture = "rc_vegetation_farming_grapefruit_6";
-farming_vegetableconf.props["Grapefruit"].waterLvl = 75;
+farming_vegetableconf.props["Grapefruit"].waterLvl = 80;
 farming_vegetableconf.props["Grapefruit"].timeToGrow = ZombRand(103, 117);
-farming_vegetableconf.props["Grapefruit"].minVeg = 3;
-farming_vegetableconf.props["Grapefruit"].maxVeg = 4;
-farming_vegetableconf.props["Grapefruit"].minVegAutorized = 5;
-farming_vegetableconf.props["Grapefruit"].maxVegAutorized = 9;
+farming_vegetableconf.props["Grapefruit"].minVeg = 6;
+farming_vegetableconf.props["Grapefruit"].maxVeg = 12;
+farming_vegetableconf.props["Grapefruit"].minVegAutorized = 8;
+farming_vegetableconf.props["Grapefruit"].maxVegAutorized = 16;
 farming_vegetableconf.props["Grapefruit"].vegetableName = "Base.Grapefruit";
 farming_vegetableconf.props["Grapefruit"].seedName = PACKAGE_NAME..".GrapefruitSeed";
 farming_vegetableconf.props["Grapefruit"].seedPerVeg = 2;
@@ -686,20 +686,21 @@ farming_vegetableconf.growGrapefruit = farming_vegetableconf.growPlantUniversal
 
 
 -- Grapes
--- Need 6 seeds
--- Water lvl over 75
+-- Need 12 seeds
+-- Need Water lvl betwwen 70 - 85
 -- Need 4 weeks (112h per phase)
 farming_vegetableconf.icons["Grapes"] = "Item_Grapes";
 
 farming_vegetableconf.props["Grapes"] = {};
-farming_vegetableconf.props["Grapes"].seedsRequired = 6;
+farming_vegetableconf.props["Grapes"].seedsRequired = 10;
 farming_vegetableconf.props["Grapes"].texture = "rc_vegetation_farming_grapes_6";
-farming_vegetableconf.props["Grapes"].waterLvl = 75;
+farming_vegetableconf.props["Grapes"].waterLvl = 70;
+farming_vegetableconf.props["Grapes"].waterLvlMax = 85;
 farming_vegetableconf.props["Grapes"].timeToGrow = ZombRand(103, 117);
-farming_vegetableconf.props["Grapes"].minVeg = 4;
-farming_vegetableconf.props["Grapes"].maxVeg = 6;
-farming_vegetableconf.props["Grapes"].minVegAutorized = 6;
-farming_vegetableconf.props["Grapes"].maxVegAutorized = 12;
+farming_vegetableconf.props["Grapes"].minVeg = 5;
+farming_vegetableconf.props["Grapes"].maxVeg = 12;
+farming_vegetableconf.props["Grapes"].minVegAutorized = 8;
+farming_vegetableconf.props["Grapes"].maxVegAutorized = 16;
 farming_vegetableconf.props["Grapes"].vegetableName = "Base.Grapes";
 farming_vegetableconf.props["Grapes"].seedName = PACKAGE_NAME..".GrapesSeed";
 farming_vegetableconf.props["Grapes"].seedPerVeg = 2;
@@ -720,20 +721,20 @@ farming_vegetableconf.growGrapes = farming_vegetableconf.growPlantUniversal
 
 
 -- Lemon
--- Need 4 seeds
--- Water lvl over 75
+-- Need 12 seeds
+-- Need Water lvl over 80
 -- Need 3 weeks (84h per phase)
 farming_vegetableconf.icons["Lemon"] = "Item_Lemon";
 
 farming_vegetableconf.props["Lemon"] = {};
-farming_vegetableconf.props["Lemon"].seedsRequired = 4;
+farming_vegetableconf.props["Lemon"].seedsRequired = 12;
 farming_vegetableconf.props["Lemon"].texture = "rc_vegetation_farming_lemon_6";
-farming_vegetableconf.props["Lemon"].waterLvl = 75;
+farming_vegetableconf.props["Lemon"].waterLvl = 80;
 farming_vegetableconf.props["Lemon"].timeToGrow = ZombRand(89, 103);
-farming_vegetableconf.props["Lemon"].minVeg = 4;
-farming_vegetableconf.props["Lemon"].maxVeg = 6;
-farming_vegetableconf.props["Lemon"].minVegAutorized = 6;
-farming_vegetableconf.props["Lemon"].maxVegAutorized = 9;
+farming_vegetableconf.props["Lemon"].minVeg = 6;
+farming_vegetableconf.props["Lemon"].maxVeg = 12;
+farming_vegetableconf.props["Lemon"].minVegAutorized = 8;
+farming_vegetableconf.props["Lemon"].maxVegAutorized = 16;
 farming_vegetableconf.props["Lemon"].vegetableName = "Base.Lemon";
 farming_vegetableconf.props["Lemon"].seedName = PACKAGE_NAME..".LemonSeed";
 farming_vegetableconf.props["Lemon"].seedPerVeg = 2;
@@ -754,20 +755,20 @@ farming_vegetableconf.growLemon = farming_vegetableconf.growPlantUniversal
 
 
 -- Orange
--- Need 5 seeds
--- Water lvl over 75
+-- Need 12 seeds
+-- Need Water lvl over 80
 -- Need 4 weeks (84h per phase)
 farming_vegetableconf.icons["Orange"] = "Item_Orange";
 
 farming_vegetableconf.props["Orange"] = {};
-farming_vegetableconf.props["Orange"].seedsRequired = 5;
+farming_vegetableconf.props["Orange"].seedsRequired = 12;
 farming_vegetableconf.props["Orange"].texture = "rc_vegetation_farming_orange_6";
-farming_vegetableconf.props["Orange"].waterLvl = 75;
+farming_vegetableconf.props["Orange"].waterLvl = 80;
 farming_vegetableconf.props["Orange"].timeToGrow = ZombRand(103, 117);
-farming_vegetableconf.props["Orange"].minVeg = 4;
-farming_vegetableconf.props["Orange"].maxVeg = 6;
-farming_vegetableconf.props["Orange"].minVegAutorized = 5;
-farming_vegetableconf.props["Orange"].maxVegAutorized = 10;
+farming_vegetableconf.props["Orange"].minVeg = 6;
+farming_vegetableconf.props["Orange"].maxVeg = 10;
+farming_vegetableconf.props["Orange"].minVegAutorized = 8;
+farming_vegetableconf.props["Orange"].maxVegAutorized = 16;
 farming_vegetableconf.props["Orange"].vegetableName = "Base.Orange";
 farming_vegetableconf.props["Orange"].seedName = PACKAGE_NAME..".OrangeSeed";
 farming_vegetableconf.props["Orange"].seedPerVeg = 2;
@@ -788,20 +789,20 @@ farming_vegetableconf.growOrange = farming_vegetableconf.growPlantUniversal
 
 
 -- Peach
--- Need 5 seeds
--- Water lvl over 75
+-- Need 10 seeds
+-- Need Water lvl over 80
 -- Need 4 weeks (84h per phase)
 farming_vegetableconf.icons["Peach"] = "Item_Peach";
 
 farming_vegetableconf.props["Peach"] = {};
-farming_vegetableconf.props["Peach"].seedsRequired = 5;
+farming_vegetableconf.props["Peach"].seedsRequired = 10;
 farming_vegetableconf.props["Peach"].texture = "rc_vegetation_farming_peach_6";
-farming_vegetableconf.props["Peach"].waterLvl = 75;
+farming_vegetableconf.props["Peach"].waterLvl = 80;
 farming_vegetableconf.props["Peach"].timeToGrow = ZombRand(103, 117);
-farming_vegetableconf.props["Peach"].minVeg = 4;
-farming_vegetableconf.props["Peach"].maxVeg = 6;
-farming_vegetableconf.props["Peach"].minVegAutorized = 5;
-farming_vegetableconf.props["Peach"].maxVegAutorized = 10;
+farming_vegetableconf.props["Peach"].minVeg = 5;
+farming_vegetableconf.props["Peach"].maxVeg = 10;
+farming_vegetableconf.props["Peach"].minVegAutorized = 8;
+farming_vegetableconf.props["Peach"].maxVegAutorized = 16;
 farming_vegetableconf.props["Peach"].vegetableName = "Base.Peach";
 farming_vegetableconf.props["Peach"].seedName = PACKAGE_NAME..".PeachSeed";
 farming_vegetableconf.props["Peach"].seedPerVeg = 2;

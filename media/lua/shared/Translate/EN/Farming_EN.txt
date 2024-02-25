@@ -15,4 +15,11 @@ Farming_EN = {
   Farming_PepperJalapeno = "PepperJalapeno"
   Farming_PepperHabanero = "PepperHabanero"
   Farming_BellPepper = "BellPepper"
+  Farming_Apple = "Apple"
+  Farming_Banana = "Banana"
+  Farming_Grapefruit = "Grapefruit"
+  Farming_Grapes = "Grapes"
+  Farming_Lemon = "Lemon"
+  Farming_Orange = "Orange"
+  Farming_Peach = "Peach"
 }
