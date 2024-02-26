@@ -4,34 +4,6 @@ Events.OnFillWorldObjectContextMenu.Remove(ISBlacksmithMenu.doBuildMenu)
 
 local oldDoBuild = ISBlacksmithMenu.doBuildMenu
 
--- for MetalDrum
-local DRUM_SPRITES_MAP = {
-    ["Moveables.crafted_01_32"] = "crafted_01_24",
-    ["Moveables.industry_01_22"] = "crafted_01_28",
-    ["Moveables.industry_01_23"] = "crafted_01_28",
-    ["Moveables.location_military_generic_01_6"] = "crafted_01_28",
-    ["Moveables.location_military_generic_01_7"] = "crafted_01_28",
-    ["Moveables.location_military_generic_01_14"] = "crafted_01_24",
-    ["Moveables.location_military_generic_01_15"] = "crafted_01_24",
-}
-
-local function getBarrelItem(playerInv)
-    local items = playerInv:getItems()
-    for i = 0, item:size() - 1 do
-        local obj = item:get(i);
-        print(obj)
-        if DRUM_SPRITES_MAP[obj:getFullType()] then
-            return obj
-        end
-    end
-end
-
-local function getMetalDrumSpriteByBarrel(barrel)
-    return DRUM_SPRITES_MAP[barrel:getFullType()] or 'crafted_01_24'
-end
-
-
--- on Create
 
 local function onMetalDoor(worldobjects, player)
     local fence = ISWoodenDoor:new("fixtures_doors_01_52", "fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
@@ -141,6 +113,48 @@ local function onMetalBarHandrail(worldobjects, player)
     handrail.completionSound = "BuildMetalStructureSmallScrap";
     handrail.player = player
     getCell():setDrag(handrail, player);
+end
+
+
+
+-- for MetalDrum
+
+-- give up, unable to change MetalDrum sprite without using custom tiles,
+-- only .pack is not enough for this things. It might change runtime, 
+-- the sprite will lost while created. and it is not Moveables.
+-- go with plan b, switch all Barrel to MetalDrum with out textures.
+-- I don't want go with '.tiles', because it might contaminate save files.
+-- on the other hands, I don't know how to make .tiles file yet.
+
+local DRUM_SPRITES_MAP = {
+    ["Moveables.crafted_01_32"] = "crafted_01_24",
+    ["Moveables.industry_01_22"] = "crafted_01_28",
+    ["Moveables.industry_01_23"] = "crafted_01_28",
+    ["Moveables.location_military_generic_01_6"] = "crafted_01_28",
+    ["Moveables.location_military_generic_01_7"] = "crafted_01_28",
+    ["Moveables.location_military_generic_01_14"] = "crafted_01_24",
+    ["Moveables.location_military_generic_01_15"] = "crafted_01_24",
+}
+
+local function getBarrelItem(playerInv)
+    for k, v in pairs(DRUM_SPRITES_MAP) do
+        local item = playerInv:getItemFromTypeRecurse(k)
+        if item then
+            return item
+        end
+    end
+    return nil
+end
+
+local function getMetalDrumSpriteByBarrel(barrel)
+    local drum_sprite = 'crafted_01_24'
+    if barrel then
+        local rel_sprite = DRUM_SPRITES_MAP[barrel:getFullType()]
+        if rel_sprite then
+            drum_sprite = rel_sprite
+        end
+    end
+    return drum_sprite
 end
 
 local function onMetalDrum(worldobjects, player, barrel)
