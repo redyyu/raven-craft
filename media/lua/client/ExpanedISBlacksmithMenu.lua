@@ -4,6 +4,37 @@ Events.OnFillWorldObjectContextMenu.Remove(ISBlacksmithMenu.doBuildMenu)
 
 local oldDoBuild = ISBlacksmithMenu.doBuildMenu
 
+-- for MetalDrum
+local DRUM_SPRITES_MAP = {
+    ["crafted_01_32"] = 'crafted_01_24',
+    ["industry_01_22"] = 'crafted_01_28',
+    ["industry_01_23"] = 'rc_crafted_metaldrum_03_0',
+    ["location_military_generic_01_14"] = 'rc_crafted_metaldrum_01_0',
+    ["location_military_generic_01_15"] = 'rc_crafted_metaldrum_01_4',
+    ["location_military_generic_01_6"] = 'rc_crafted_metaldrum_02_0',
+    ["location_military_generic_01_7"] = 'rc_crafted_metaldrum_02_4',
+}
+
+local function getMetalDrumSprite(obj_sprite, SPRITE_MAP)
+    return SPRITE_MAP[obj_sprite]
+end
+
+local function getBarrelItem(playerInv):
+    for i = 0, playerInv:getItems():size() - 1 do
+        print('--------------XXXXXXXXXXXXXXXXXXX----------------')
+        local obj = playerInv:getItems():get(i);
+        print(obj:getStringItemType())
+        print(obj:getType())
+        print(obj:getFullType())
+        print(obj:getScriptItem():getSpriteName())
+        print(obj:getScriptItem():getTypeString())
+        print('-----------------------------')
+        count = count +1
+    end
+end
+
+
+-- on Create
 
 local function onMetalDoor(worldobjects, player)
     local fence = ISWoodenDoor:new("fixtures_doors_01_52", "fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
@@ -115,21 +146,26 @@ local function onMetalBarHandrail(worldobjects, player)
     getCell():setDrag(handrail, player);
 end
 
-local function onMetalDrum(worldobjects, player)
-    local barrel = ISMetalDrum:new(player, "crafted_01_24");
-    barrel.name = "MetalDrum";  -- careful the name, some function require matched name. ex. contextMenu
-    barrel.firstItem = "BlowTorch";
-    barrel.secondItem = "WeldingMask";
-    barrel.craftingBank = "BlowTorch";
-    barrel.actionAnim = "BlowTorchMid";
-    barrel.modData["xp:MetalWelding"] = 5;
-    barrel.modData["use:Base.BlowTorch"] = 6;
-    barrel.modData["use:Base.WeldingRods"] = 3;  -- must be half of Torch use.
-    barrel.modData["need:Base.SheetMetal"] = 4;
-    barrel.modData["need:Base.ScrapMetal"] = 6;
-    barrel.player = player;
-    barrel.completionSound = "BuildMetalStructureMedium";
-    getCell():setDrag(barrel, player);
+local function onMetalDrum(worldobjects, player, barrel)
+    local sprite = nil
+    if barrel then
+        sprite = getMetalDrumSprite(barrel:getType())
+    end
+    if not sprite then return end
+    local metaldrum = ISMetalDrum:new(player, sprite);
+    metaldrum.name = "MetalDrum";  -- careful the name, some function require matched name. ex. contextMenu
+    metaldrum.firstItem = "BlowTorch";
+    metaldrum.secondItem = "WeldingMask";
+    metaldrum.craftingBank = "BlowTorch";
+    metaldrum.actionAnim = "BlowTorchMid";
+    metaldrum.modData["xp:MetalWelding"] = 5;
+    metaldrum.modData["use:Base.BlowTorch"] = 6;
+    metaldrum.modData["use:Base.WeldingRods"] = 3;  -- must be half of Torch use.
+    metaldrum.modData["need:Base.SheetMetal"] = 4;
+    metaldrum.modData["need:Base.ScrapMetal"] = 6;
+    metaldrum.player = player;
+    metaldrum.completionSound = "BuildMetalStructureMedium";
+    getCell():setDrag(metaldrum, player);
 end
 
 
@@ -139,7 +175,7 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
 
     local metalDoorOption = {};
     local garageDoorOption = {};
-    if playerObj:getKnownRecipes():contains("Make Metal Door") or ISBuildMenu.cheat then
+    if playerObj:getKnownRecipes():contains("Make Metal Fences") or ISBuildMenu.cheat then
         local thumbnail = "fixtures_doors_01_52";
         local itemName = getText("ContextMenu_METAL_DOOR");
         local metalDoorOption = subMenu:addOption(itemName, worldobjects, onMetalDoor, player)
@@ -224,11 +260,12 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
 
         local itemName = getText("ContextMenu_METAL_DRUM");
         -- local barrelName = getText("ContextMenu_METAL_BARREL");
-        drumOption = subMenu:addOption(itemName, worldobjects, onMetalDrum, player);
+        local barrel = getBarrelItem(playerInv)
+        drumOption = subMenu:addOption(itemName, worldobjects, onMetalDrum, player, barrel);
         local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
         
-        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 4, 0, 6, 6, 7, playerObj, toolTip, 0, 0)
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 0, 0, 0, 5, 7, playerObj, toolTip, 0, 0)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then drumOption.notAvailable = true; end
@@ -269,8 +306,8 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
     end
     local ret = {oldDoBuild(player, context, worldobjects, test)}
     ISContextMenu.addSubMenu = oldaddSubMenu
-
-    -- for _, obj in ipairs(worldobjects) do
+    
+        -- for _, obj in ipairs(worldobjects) do
 	-- 	print('--------------EEEEEEEEEEEEEEEEEEEEEEEEEEE----------------')
     --     print(obj:getName())
     --     print(obj:getObjectName())
@@ -282,22 +319,33 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
     --         obj:removeFromSquare()
 	-- 	end
 	-- end
-
-    -- for _, obj in ipairs(playerObj:getInventory():getItems()) do
+    -- print('--------------XXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------')
+    -- local count = 0
+    -- for i = 0, playerInv:getItems():size() - 1 do
     --     print('--------------XXXXXXXXXXXXXXXXXXX----------------')
-    --     print(obj:getName())
-    --     print(obj:getObjectName())
-    --     print(obj:getScriptName())
-    --     print(obj:getSprite():getName())
-    --     print('--------------XXXXXXXXXXXXXXXXXXXXXX----------------')
+    --     local obj = playerInv:getItems():get(i);
+    --     print(obj:getStringItemType())
+    --     print(obj:getType())
+    --     print(obj:getFullType())
+    --     print(obj:getScriptItem():getSpriteName())
+    --     print(obj:getScriptItem():getTypeString())
+    --     print('-----------------------------')
+    --     count = count +1
     -- end
+    -- print(count)
+    -- print('--------------CONTAIN XXXXX----------------')
+    -- local items = playerInv:getAllTypeRecurse("Moveables.location_military_generic_01_14")
+    -- for _, obj in ipairs(items) do
+    --     print(obj)
+    -- end
+    -- print('--------------CONTAINE----------------')
 
-    -- if menu then
-    --     local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
-    --     local subMenuExpands = menu:getNew(menu);
-    --     context:addSubMenu(expandsOption, subMenuExpands);
-    --     buildExpanedsMenu(subMenuExpands, expandsOption, player, worldobjects);
-    -- end
+    if menu then
+        local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
+        local subMenuExpands = menu:getNew(menu);
+        context:addSubMenu(expandsOption, subMenuExpands);
+        buildExpanedsMenu(subMenuExpands, expandsOption, player, worldobjects);
+    end
 
     return unpack(ret)
 
