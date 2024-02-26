@@ -133,13 +133,13 @@ local function onMetalDrum(worldobjects, player)
 end
 
 
-local function buildExpanedsMenu(subMenu, option, player)
+local function buildExpanedsMenu(subMenu, option, player, worldobjects)
     local playerObj = getSpecificPlayer(player)
     local playerInv = playerObj:getInventory()
 
     local metalDoorOption = {};
     local garageDoorOption = {};
-    if playerObj:getKnownRecipes():contains("Make Metal Fences") or ISBuildMenu.cheat then
+    if playerObj:getKnownRecipes():contains("Make Metal Door") or ISBuildMenu.cheat then
         local thumbnail = "fixtures_doors_01_52";
         local itemName = getText("ContextMenu_METAL_DOOR");
         local metalDoorOption = subMenu:addOption(itemName, worldobjects, onMetalDoor, player)
@@ -193,7 +193,13 @@ local function buildExpanedsMenu(subMenu, option, player)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then metalBarGrateOption.notAvailable = true; end
+    else
+        metalGrateOption.notAvailable = not(ISBuildMenu.cheat);
+        metalBarGrateOption.notAvailable = not(ISBuildMenu.cheat);
+    end
 
+    local metalBarRailOption = {};
+    if playerObj:getKnownRecipes():contains("Make Metal Fences") or ISBuildMenu.cheat then
         -- Warehouse Handrail --
         local thumbnail = "fixtures_railings_01_48";
         local itemName = getText("ContextMenu_METAL_BAR_HANDRAIL");
@@ -207,9 +213,9 @@ local function buildExpanedsMenu(subMenu, option, player)
         if not canCraft then metalBarRailOption.notAvailable = true; end
 
     else
-        metalGrateOption.notAvailable = not(ISBuildMenu.cheat);
-        metalBarGrateOption.notAvailable = not(ISBuildMenu.cheat);
+        metalBarRailOption.notAvailable = not(ISBuildMenu.cheat);
     end
+    
 
     local drumOption = {};
     if playerObj:isRecipeKnown("Make Metal Containers") or ISBuildMenu.cheat then
@@ -230,14 +236,17 @@ local function buildExpanedsMenu(subMenu, option, player)
         drumOption.notAvailable = not(ISBuildMenu.cheat);
     end
 
-    -- Parent menu --
-	if metalDoorOption.notAvailable and garageDoorOption.notAvailable and metalGrateOption.notAvailable and metalBarGrateOption.notAvailable and drumOption.notAvailable then
-		option.notAvailable = true;
-	end
+    -- for parent menu --
+    if metalDoorOption.notAvailable and garageDoorOption.notAvailable
+       and metalGrateOption.notAvailable and metalBarGrateOption.notAvailable and metalBarRailOption.notAvailable
+       and drumOption.notAvailable then
+        option.notAvailable = true;
+    end
 
 end
 
 
+-- Parent menu
 ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
     if test and ISWorldObjectContextMenu.Test then return true end
 
@@ -261,12 +270,33 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
     local ret = {oldDoBuild(player, context, worldobjects, test)}
     ISContextMenu.addSubMenu = oldaddSubMenu
 
+    -- for _, obj in ipairs(worldobjects) do
+	-- 	print('--------------EEEEEEEEEEEEEEEEEEEEEEEEEEE----------------')
+    --     print(obj:getName())
+    --     print(obj:getObjectName())
+    --     print(obj:getScriptName())
+    --     print(obj:getSprite():getName())
+    --     print('--------------EEEEEEEEEEEEEEEEEEEEEEEEEEE----------------')
+    --     if obj:getSprite() and obj:getSprite():getName() == 'industry_01_23' then
+    --         obj:removeFromWorld()
+    --         obj:removeFromSquare()
+	-- 	end
+	-- end
+
+    for _, obj in ipairs(playerObj:getInventory():getItems()) do
+        print('--------------XXXXXXXXXXXXXXXXXXX----------------')
+        print(obj:getName())
+        print(obj:getObjectName())
+        print(obj:getScriptName())
+        print(obj:getSprite():getName())
+        print('--------------XXXXXXXXXXXXXXXXXXXXXX----------------')
+    end
 
     if menu then
         local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
         local subMenuExpands = menu:getNew(menu);
         context:addSubMenu(expandsOption, subMenuExpands);
-        buildExpanedsMenu(subMenuExpands, expandsOption, player);
+        buildExpanedsMenu(subMenuExpands, expandsOption, player, worldobjects);
     end
 
     return unpack(ret)
