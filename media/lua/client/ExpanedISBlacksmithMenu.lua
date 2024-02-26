@@ -6,26 +6,28 @@ local oldDoBuild = ISBlacksmithMenu.doBuildMenu
 
 -- for MetalDrum
 local DRUM_SPRITES_MAP = {
-    ["crafted_01_32"] = 'crafted_01_24',
-    ["industry_01_22"] = 'crafted_01_28',
-    ["industry_01_23"] = 'rc_crafted_metaldrum_03_0',
-    ["location_military_generic_01_6"] = 'rc_crafted_metaldrum_01_0',
-    ["location_military_generic_01_7"] = 'rc_crafted_metaldrum_01_4',
-    ["location_military_generic_01_14"] = 'rc_crafted_metaldrum_02_0',
-    ["location_military_generic_01_15"] = 'rc_crafted_metaldrum_02_4',
+    ["Moveables.crafted_01_32"] = "crafted_01_24",
+    ["Moveables.industry_01_22"] = "crafted_01_28",
+    ["Moveables.industry_01_23"] = "crafted_01_28",
+    ["Moveables.location_military_generic_01_6"] = "crafted_01_28",
+    ["Moveables.location_military_generic_01_7"] = "crafted_01_28",
+    ["Moveables.location_military_generic_01_14"] = "crafted_01_24",
+    ["Moveables.location_military_generic_01_15"] = "crafted_01_24",
 }
 
 local function getBarrelItem(playerInv)
-    for i = 0, playerInv:getItems():size() - 1 do
-        local obj = playerInv:getItems():get(i);
-        if DRUM_SPRITES_MAP[obj:getType()] then
+    local items = playerInv:getItems()
+    for i = 0, item:size() - 1 do
+        local obj = item:get(i);
+        print(obj)
+        if DRUM_SPRITES_MAP[obj:getFullType()] then
             return obj
         end
     end
 end
 
 local function getMetalDrumSpriteByBarrel(barrel)
-    return DRUM_SPRITES_MAP[barrel:getType()] or 'crafted_01_24'
+    return DRUM_SPRITES_MAP[barrel:getFullType()] or 'crafted_01_24'
 end
 
 
@@ -250,7 +252,7 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
 
         local itemName = getText("ContextMenu_METAL_DRUM");
         local barrel = getBarrelItem(playerInv)
-
+        
         drumOption = subMenu:addOption(itemName, worldobjects, onMetalDrum, player, barrel);
         local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
@@ -304,39 +306,6 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
     local ret = {oldDoBuild(player, context, worldobjects, test)}
     ISContextMenu.addSubMenu = oldaddSubMenu
     
-        -- for _, obj in ipairs(worldobjects) do
-	-- 	print('--------------EEEEEEEEEEEEEEEEEEEEEEEEEEE----------------')
-    --     print(obj:getName())
-    --     print(obj:getObjectName())
-    --     print(obj:getScriptName())
-    --     print(obj:getSprite():getName())
-    --     print('--------------EEEEEEEEEEEEEEEEEEEEEEEEEEE----------------')
-    --     if obj:getSprite() and obj:getSprite():getName() == 'industry_01_23' then
-    --         obj:removeFromWorld()
-    --         obj:removeFromSquare()
-	-- 	end
-	-- end
-    -- print('--------------XXXXXXXXXXXXXXXXXXXXXXXXXXXX----------------')
-    -- local count = 0
-    -- for i = 0, playerInv:getItems():size() - 1 do
-    --     print('--------------XXXXXXXXXXXXXXXXXXX----------------')
-    --     local obj = playerInv:getItems():get(i);
-    --     print(obj:getStringItemType())
-    --     print(obj:getType())
-    --     print(obj:getFullType())
-    --     print(obj:getScriptItem():getSpriteName())
-    --     print(obj:getScriptItem():getTypeString())
-    --     print('-----------------------------')
-    --     count = count +1
-    -- end
-    -- print(count)
-    -- print('--------------CONTAIN XXXXX----------------')
-    -- local items = playerInv:getAllTypeRecurse("Moveables.location_military_generic_01_14")
-    -- for _, obj in ipairs(items) do
-    --     print(obj)
-    -- end
-    -- print('--------------CONTAINE----------------')
-
     if menu then
         local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
         local subMenuExpands = menu:getNew(menu);
