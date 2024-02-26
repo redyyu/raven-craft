@@ -283,21 +283,21 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
 	-- 	end
 	-- end
 
-    for _, obj in ipairs(playerObj:getInventory():getItems()) do
-        print('--------------XXXXXXXXXXXXXXXXXXX----------------')
-        print(obj:getName())
-        print(obj:getObjectName())
-        print(obj:getScriptName())
-        print(obj:getSprite():getName())
-        print('--------------XXXXXXXXXXXXXXXXXXXXXX----------------')
-    end
+    -- for _, obj in ipairs(playerObj:getInventory():getItems()) do
+    --     print('--------------XXXXXXXXXXXXXXXXXXX----------------')
+    --     print(obj:getName())
+    --     print(obj:getObjectName())
+    --     print(obj:getScriptName())
+    --     print(obj:getSprite():getName())
+    --     print('--------------XXXXXXXXXXXXXXXXXXXXXX----------------')
+    -- end
 
-    if menu then
-        local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
-        local subMenuExpands = menu:getNew(menu);
-        context:addSubMenu(expandsOption, subMenuExpands);
-        buildExpanedsMenu(subMenuExpands, expandsOption, player, worldobjects);
-    end
+    -- if menu then
+    --     local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
+    --     local subMenuExpands = menu:getNew(menu);
+    --     context:addSubMenu(expandsOption, subMenuExpands);
+    --     buildExpanedsMenu(subMenuExpands, expandsOption, player, worldobjects);
+    -- end
 
     return unpack(ret)
 

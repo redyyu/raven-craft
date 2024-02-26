@@ -40,7 +40,7 @@ Most refined mod will keep standalone, when some features or ideas become solid 
 2. **Rolling Garage Door**: a kind of Garage Door, x3 tiles and sliver. Incase zombies crash your garage door. 
 3. **Warehouse Floor**: like the metal grate floor in any Warehouse. incase you want make second floor in warehouse.
 4. **Harder Warehouse Floor**: Metal grate floor with side bar.
-4. **Warehouse Handrail**: Metal handrail.
+4. **Warehouse Handrail**: Metal handrail in any Warehouse.
 5. **Metal Drum**: Metal Drum can collect rain water or burn Log to Charcoal, Same as those Drum outside in Louisville. In some Mod's idea, you have to use a new menu action to take A Barrel into inventory as a small Metal Drum item (which is no worldstatic model), It's only a durm, we can build Fences, doors, crates, why need a special action for a durm, looks silly. So, in this mod, build it directly.
 
 *"Metal Door" and "Rolling Garage Door" required "Make Metal Fences" recipe.*
