@@ -9,28 +9,23 @@ local DRUM_SPRITES_MAP = {
     ["crafted_01_32"] = 'crafted_01_24',
     ["industry_01_22"] = 'crafted_01_28',
     ["industry_01_23"] = 'rc_crafted_metaldrum_03_0',
-    ["location_military_generic_01_14"] = 'rc_crafted_metaldrum_01_0',
-    ["location_military_generic_01_15"] = 'rc_crafted_metaldrum_01_4',
-    ["location_military_generic_01_6"] = 'rc_crafted_metaldrum_02_0',
-    ["location_military_generic_01_7"] = 'rc_crafted_metaldrum_02_4',
+    ["location_military_generic_01_6"] = 'rc_crafted_metaldrum_01_0',
+    ["location_military_generic_01_7"] = 'rc_crafted_metaldrum_01_4',
+    ["location_military_generic_01_14"] = 'rc_crafted_metaldrum_02_0',
+    ["location_military_generic_01_15"] = 'rc_crafted_metaldrum_02_4',
 }
 
-local function getMetalDrumSprite(obj_sprite, SPRITE_MAP)
-    return SPRITE_MAP[obj_sprite]
+local function getBarrelItem(playerInv)
+    for i = 0, playerInv:getItems():size() - 1 do
+        local obj = playerInv:getItems():get(i);
+        if DRUM_SPRITES_MAP[obj:getType()] then
+            return obj
+        end
+    end
 end
 
-local function getBarrelItem(playerInv):
-    for i = 0, playerInv:getItems():size() - 1 do
-        print('--------------XXXXXXXXXXXXXXXXXXX----------------')
-        local obj = playerInv:getItems():get(i);
-        print(obj:getStringItemType())
-        print(obj:getType())
-        print(obj:getFullType())
-        print(obj:getScriptItem():getSpriteName())
-        print(obj:getScriptItem():getTypeString())
-        print('-----------------------------')
-        count = count +1
-    end
+local function getMetalDrumSpriteByBarrel(barrel)
+    return DRUM_SPRITES_MAP[barrel:getType()] or 'crafted_01_24'
 end
 
 
@@ -147,22 +142,17 @@ local function onMetalBarHandrail(worldobjects, player)
 end
 
 local function onMetalDrum(worldobjects, player, barrel)
-    local sprite = nil
-    if barrel then
-        sprite = getMetalDrumSprite(barrel:getType())
-    end
-    if not sprite then return end
+    local sprite = getMetalDrumSpriteByBarrel(barrel)
     local metaldrum = ISMetalDrum:new(player, sprite);
     metaldrum.name = "MetalDrum";  -- careful the name, some function require matched name. ex. contextMenu
     metaldrum.firstItem = "BlowTorch";
     metaldrum.secondItem = "WeldingMask";
     metaldrum.craftingBank = "BlowTorch";
     metaldrum.actionAnim = "BlowTorchMid";
-    metaldrum.modData["xp:MetalWelding"] = 5;
-    metaldrum.modData["use:Base.BlowTorch"] = 6;
-    metaldrum.modData["use:Base.WeldingRods"] = 3;  -- must be half of Torch use.
-    metaldrum.modData["need:Base.SheetMetal"] = 4;
-    metaldrum.modData["need:Base.ScrapMetal"] = 6;
+    metaldrum.modData["xp:MetalWelding"] = 15;
+    metaldrum.modData["use:Base.BlowTorch"] = 4;
+    metaldrum.modData["use:Base.WeldingRods"] = 2;  -- must be half of Torch use.
+    metaldrum.modData["need:"..barrel:getFullType()] = 1;
     metaldrum.player = player;
     metaldrum.completionSound = "BuildMetalStructureMedium";
     getCell():setDrag(metaldrum, player);
@@ -259,8 +249,8 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
         local thumbnail = "crafted_01_24";
 
         local itemName = getText("ContextMenu_METAL_DRUM");
-        -- local barrelName = getText("ContextMenu_METAL_BARREL");
         local barrel = getBarrelItem(playerInv)
+
         drumOption = subMenu:addOption(itemName, worldobjects, onMetalDrum, player, barrel);
         local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
@@ -269,6 +259,13 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then drumOption.notAvailable = true; end
+
+        if barrel then
+            toolTip.description = toolTip.description .. " <LINE> ".. ISBuildMenu.ghs .. getText("ContextMenu_METAL_BARREL");
+        else
+            toolTip.description = toolTip.description .. " <LINE> ".. ISBuildMenu.bhs .. getText("ContextMenu_METAL_BARREL");
+            drumOption.notAvailable = true
+        end
     else
         drumOption.notAvailable = not(ISBuildMenu.cheat);
     end

@@ -17,7 +17,8 @@ ContextMenu_EN = {
   ContextMenu_METAL_BAR_GRATE = "Harder Warehouse Floor"
   ContextMenu_METAL_BAR_HANDRAIL = "Warehouse Handrail"
   ContextMenu_METAL_DRUM = "Metal Drum"
-  ContextMenu_METAL_BARREL = "Metal Barrel"
+  ContextMenu_METAL_BARREL = "Barrel (Metal)"
+  
 
   -- Workbench
   ContextMenu_STONE_FURNACE = "Stone Furnace"
