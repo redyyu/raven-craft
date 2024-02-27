@@ -2,9 +2,9 @@ function OnTake_CureInjection(food, player, percent)
 	local bodyDamage = player:getBodyDamage();
 	if bodyDamage:IsInfected() and bodyDamage:getInfectionLevel() > 0 then
 		if bodyDamage:getInfectionLevel() <= 25 then
-			ExecCureInjection(bodyDamage, 1.0);
+			ExecCureInjection(player, bodyDamage, 1.0);
 		else
-			ExecCureInjection(bodyDamage, (bodyDamage:getInfectionLevel() - 25) / 100);
+			ExecCureInjection(player, bodyDamage, (bodyDamage:getInfectionLevel() - 25) / 100);
 		end
 	end
 
@@ -24,9 +24,16 @@ function OnTake_CureInjection(food, player, percent)
 end
 
 
-function ExecCureInjection(bodyDamage, chance_percent)
+function ExecCureInjection(character, bodyDamage, chance_modified)
+	local rand = ZombRand(1, 100)
 	local cure_chance = SandboxVars.RavenCraft.CureChance;
-	if cure_chance * chance_percent > ZombRand(1, 100) then
+	if character:getTraits():contains("Lucky") then
+		cure_chance = cure_chance * 1.5
+	elseif character:getTraits():contains("Unlucky") then
+		cure_chance = cure_chance * 0.75
+	end
+	if cure_chance * chance_modified > rand then
+		print('Cured ---------------------->')
 		bodyDamage:setInfected(false);
 		bodyDamage:setInfectionMortalityDuration(-1);
 		bodyDamage:setInfectionTime(-1);

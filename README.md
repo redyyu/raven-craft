@@ -299,6 +299,10 @@ A Mysterious Serum Injection drop by `HazardSuit` or somewhere in Medical place,
 Looting change is round about 25%, effect by `Lucky` or `Unlucky` Traits.
 (tested kill 50 HazardSuit zombie in Debug mode, got 4 injection. without Lucky traits)
 
+*Mysterious Serum Injection* take chances to cure the infection. (set by sandbox options)
+`Lucky` increase 50% (75% total chance to cure, if default setting)
+`Unlucky` decrease 25% (25% total chance to cure, if default setting)
+
 
 ## TV Tap
 
