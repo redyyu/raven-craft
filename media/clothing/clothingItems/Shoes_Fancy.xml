@@ -7,7 +7,8 @@
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>true</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
-	<m_Masks>8</m_Masks>
-	<m_Masks>10</m_Masks>
+	<m_Masks>11</m_Masks>
+	<m_MasksFolder></m_MasksFolder>
+	<m_UnderlayMasksFolder>media/textures/Clothes/Masks/heels</m_UnderlayMasksFolder>
 	<textureChoices>clothes/Shoes/shoes_white</textureChoices>
 </clothingItem>

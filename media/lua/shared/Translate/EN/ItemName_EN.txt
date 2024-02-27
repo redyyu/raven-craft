@@ -21,7 +21,13 @@ ItemName_EN = {
     ItemName_farming.MayonnaiseWaterFull = "Mayonnaise Bottle of Water"
     ItemName_farming.RemouladeEmpty = "Empty Remoulade Bottle"
     ItemName_farming.RemouladeWaterFull = "Remoulade Bottle of Water"
-    
+    ItemName_Base.Shoes_BlackBoots = "Black Boots",
+    ItemName_Base.Shoes_BootsTINT = "Boots",
+    ItemName_Base.Shoes_BlueTrainers = "Blue Sneakers",
+    ItemName_Base.Shoes_RedTrainers = "Red Sneakers",
+    ItemName_Base.Shoes_Black = "Black Shoes",
+    ItemName_Base.Shoes_Brown = "Brown Shoes",
+
     -- 
     ItemName_SimpleTrolleyCart.CartContainer = "Trolley Cart",
 

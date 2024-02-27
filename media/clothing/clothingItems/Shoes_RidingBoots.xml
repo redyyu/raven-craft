@@ -9,6 +9,9 @@
 	<m_Masks>10</m_Masks>
 	<m_AttachBone></m_AttachBone>
 	<m_MasksFolder></m_MasksFolder>
+	<textureChoices>clothes/Shoes/boots_gray</textureChoices>
+	<textureChoices>clothes/Shoes/boots_gray2</textureChoices>
+	<textureChoices>clothes/Shoes/boots_gray3</textureChoices>
 	<textureChoices>clothes/Shoes/boots_black</textureChoices>
 	<textureChoices>clothes/Shoes/boots_black2</textureChoices>
 	<textureChoices>clothes/Shoes/boots_black3</textureChoices>
@@ -30,4 +33,5 @@
 	<textureChoices>clothes/Shoes/boots_moccasins</textureChoices>
 	<textureChoices>clothes/Shoes/boots_moccasins2</textureChoices>
 	<textureChoices>clothes/Shoes/boots_moccasins3</textureChoices>
+	<textureChoices>clothes/Shoes/boots_leopard</textureChoices>
 </clothingItem>

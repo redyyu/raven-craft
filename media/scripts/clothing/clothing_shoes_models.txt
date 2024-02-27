@@ -1,8 +1,8 @@
 module Base
 {
 
-	model Boots_Ground {  /** override vanilla **/
-		mesh = WorldItems/clothing/boots_ground,	
+	model boots_Ground {  /** override vanilla **/
+		mesh = WorldItems/clothing/boots_ground,
 	}
 
 	model riddingboots_Ground {

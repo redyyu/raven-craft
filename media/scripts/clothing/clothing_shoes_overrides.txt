@@ -60,7 +60,7 @@ module Base
         Insulation = 0.75,
         WindResistance = 0.65,
         WaterResistance = 0.65,
-        WorldStaticModel = Boots_Ground,
+        WorldStaticModel = boots_Ground,
 	}
 
 	item Shoes_BootsTINT {
@@ -70,7 +70,7 @@ module Base
 		ClothingItem = Shoes_BootsTINT,
 		BodyLocation = Shoes,
 		BloodLocation = Shoes,
-		Icon = BootsBikerWhite,
+		Icon = BootsTINT,
 		StompPower = 2.2,
 		ConditionLowerChanceOneIn = 15,
         ConditionMax = 27,
@@ -81,7 +81,7 @@ module Base
         Insulation = 0.75,
         WindResistance = 0.65,
         WaterResistance = 0.65,
-        WorldStaticModel = Boots_Ground,
+        WorldStaticModel = boots_Ground,
 	}
 
 	item Shoes_Black {
