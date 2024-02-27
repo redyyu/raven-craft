@@ -184,7 +184,7 @@ module Base
         Insulation = 0.5,
         WindResistance = 1.0,
         WaterResistance = 1.0,
-        WorldStaticModel = jungleboots_Ground,
+        WorldStaticModel = wellies_Ground,
 	}
 
 	item Shoes_Fancy {

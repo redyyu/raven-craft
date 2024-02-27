@@ -8,10 +8,7 @@
 	<m_AttachBone></m_AttachBone>
 	<m_Masks>8</m_Masks>
 	<m_Masks>10</m_Masks>	
-	<textureChoices>clothes/Shoes/shoesbrown</textureChoices>
-	<textureChoices>clothes/Shoes/shoesbrown2</textureChoices>
-	<textureChoices>clothes/Shoes/shoesbrown3</textureChoices>
-	<textureChoices>clothes/Shoes/brownboots2</textureChoices>
-	<textureChoices>clothes/Shoes/brownboots5</textureChoices>
-	<textureChoices>clothes/Shoes/brownboots3</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown2</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown3</textureChoices>
 </clothingItem>

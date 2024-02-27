@@ -22,8 +22,8 @@ module Base
 		mesh = WorldItems/clothing/sneakers_ground,	
 	}
 
-	model jungleboots_Ground {
-		mesh = WorldItems/clothing/jungleboots_ground,	
+	model wellies_Ground {
+		mesh = WorldItems/clothing/wellies_ground,	
 	}
 
 	model shoesfancy_Ground {

@@ -9,11 +9,13 @@
 	<m_AttachBone></m_AttachBone>
 	<m_MasksFolder>media/textures/Clothes/Shoes/Masks/strappedshoes</m_MasksFolder>
 	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/strappedshoes</m_UnderlayMasksFolder>
-	<textureChoices>clothes/Shoes/blackboots0</textureChoices>
-	<textureChoices>clothes/Shoes/blackboots1</textureChoices>
-	<textureChoices>clothes/Shoes/shoesbrown</textureChoices>
-	<textureChoices>clothes/Shoes/shoered</textureChoices>
-	<textureChoices>clothes/Shoes/shoepale</textureChoices>
-	<textureChoices>clothes/Shoes/shoepink</textureChoices>
-	
+	<textureChoices>clothes/Shoes/shoes_black</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_black2</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_black3</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown2</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown3</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_red</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_pink</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_pale</textureChoices>
 </clothingItem>

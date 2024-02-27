@@ -10,5 +10,7 @@
 	<m_Masks>10</m_Masks>	
 	<m_MasksFolder></m_MasksFolder>
 	<m_AttachBone></m_AttachBone>
-	<textureChoices>clothes/Shoes/allstarred</textureChoices>
+	<textureChoices>clothes/Shoes/sneakers_allstarred</textureChoices>
+	<textureChoices>clothes/Shoes/sneakers_allstarred2</textureChoices>
+	<textureChoices>clothes/Shoes/sneakers_allstarred3</textureChoices>
 </clothingItem>	

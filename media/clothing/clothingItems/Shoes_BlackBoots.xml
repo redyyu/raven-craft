@@ -9,13 +9,16 @@
 	<m_Masks>8</m_Masks>
 	<m_Masks>10</m_Masks>
 	<m_MasksFolder></m_MasksFolder>
-	<textureChoices>clothes/Shoes/bikerboots</textureChoices>
-	<textureChoices>clothes/Shoes/blackboots0</textureChoices>
-	<textureChoices>clothes/Shoes/blackboots1</textureChoices>
-	<textureChoices>clothes/Shoes/shoesblack2</textureChoices>
-	<textureChoices>clothes/Shoes/blackboots7</textureChoices>
-	<textureChoices>clothes/Shoes/blackboots8</textureChoices>
-	<textureChoices>clothes/Shoes/drmartens1</textureChoices>
-	<textureChoices>clothes/Shoes/drmartens6</textureChoices>
-	<textureChoices>clothes/Shoes/drmartens7</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black2</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black3</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black4</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black5</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black6</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black7</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black8</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black9</textureChoices>
+	<textureChoices>clothes/Shoes/boots_drmartens</textureChoices>
+	<textureChoices>clothes/Shoes/boots_drmartens2</textureChoices>
+	<textureChoices>clothes/Shoes/boots_drmartens3</textureChoices>
 </clothingItem>

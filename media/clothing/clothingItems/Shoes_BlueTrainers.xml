@@ -7,5 +7,7 @@
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
-	<textureChoices>clothes/Shoes/allstarblue</textureChoices>
+	<textureChoices>clothes/Shoes/sneakers_allstarblue</textureChoices>
+	<textureChoices>clothes/Shoes/sneakers_allstarblue2</textureChoices>
+	<textureChoices>clothes/Shoes/sneakers_allstarblue3</textureChoices>
 </clothingItem>	

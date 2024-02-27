@@ -9,11 +9,25 @@
 	<m_Masks>10</m_Masks>
 	<m_AttachBone></m_AttachBone>
 	<m_MasksFolder></m_MasksFolder>
-	<textureChoices>clothes/Shoes/blackboots0</textureChoices>
-	<textureChoices>clothes/Shoes/blackboots8</textureChoices>
-	<textureChoices>clothes/Shoes/blackboots7</textureChoices>
-	<textureChoices>clothes/Shoes/brownboots1</textureChoices>
-	<textureChoices>clothes/Shoes/brownboots3</textureChoices>
-	<textureChoices>clothes/Shoes/gothboots1</textureChoices>
-	<textureChoices>clothes/Shoes/gothboots3</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black2</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black3</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black4</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black5</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black6</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black7</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black8</textureChoices>
+	<textureChoices>clothes/Shoes/boots_black9</textureChoices>
+	<textureChoices>clothes/Shoes/boots_brown</textureChoices>
+	<textureChoices>clothes/Shoes/boots_brown2</textureChoices>
+	<textureChoices>clothes/Shoes/boots_brown3</textureChoices>
+	<textureChoices>clothes/Shoes/boots_brown4</textureChoices>
+	<textureChoices>clothes/Shoes/boots_brown5</textureChoices>
+	<textureChoices>clothes/Shoes/boots_brown6</textureChoices>
+	<textureChoices>clothes/Shoes/boots_drmartens</textureChoices>
+	<textureChoices>clothes/Shoes/boots_drmartens2</textureChoices>
+	<textureChoices>clothes/Shoes/boots_drmartens3</textureChoices>
+	<textureChoices>clothes/Shoes/boots_moccasins</textureChoices>
+	<textureChoices>clothes/Shoes/boots_moccasins2</textureChoices>
+	<textureChoices>clothes/Shoes/boots_moccasins3</textureChoices>
 </clothingItem>
