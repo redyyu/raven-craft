@@ -60,7 +60,7 @@ module Base
         Insulation = 0.75,
         WindResistance = 0.65,
         WaterResistance = 0.65,
-        WorldStaticModel = militaryboots_Ground,
+        WorldStaticModel = Boots_Ground,
 	}
 
 	item Shoes_BootsTINT {
@@ -70,7 +70,7 @@ module Base
 		ClothingItem = Shoes_BootsTINT,
 		BodyLocation = Shoes,
 		BloodLocation = Shoes,
-		IconsForTexture = BootsBiker;BootsBikerRed;BootsBikerPink;BootsBikerBrown;BootsBikerWhite,
+		Icon = BootsBikerWhite,
 		StompPower = 2.2,
 		ConditionLowerChanceOneIn = 15,
         ConditionMax = 27,
@@ -81,7 +81,7 @@ module Base
         Insulation = 0.75,
         WindResistance = 0.65,
         WaterResistance = 0.65,
-        WorldStaticModel = militaryboots_Ground,
+        WorldStaticModel = Boots_Ground,
 	}
 
 	item Shoes_Black {
@@ -102,7 +102,7 @@ module Base
         Insulation = 0.25,
         WindResistance = 0.25,
         WaterResistance = 0.25,
-        WorldStaticModel = Sneakers_Ground,
+        WorldStaticModel = Shoes_Ground,
 	}
 
 	item Shoes_Brown {
@@ -122,7 +122,7 @@ module Base
         BiteDefense = 10,
         Insulation = 0.3,
         WindResistance = 0.15,
-        WorldStaticModel = Sneakers_Ground,
+        WorldStaticModel = Shoes_Ground,
 	}
 
 	item Shoes_Random {
@@ -142,7 +142,7 @@ module Base
         BiteDefense = 10,
         Insulation = 0.4,
         WindResistance = 0.25,
-        WorldStaticModel = Sneakers_Ground,
+        WorldStaticModel = Shoes_Ground,
 	}
 
 	item Shoes_RidingBoots {
@@ -163,7 +163,7 @@ module Base
         Insulation = 0.9,
         WindResistance = 0.6,
         WaterResistance = 0.45,
-        WorldStaticModel = longboots_Ground,
+        WorldStaticModel = riddingboots_Ground,
 	}
 
 	item Shoes_Wellies {
@@ -184,7 +184,7 @@ module Base
         Insulation = 0.5,
         WindResistance = 1.0,
         WaterResistance = 1.0,
-        WorldStaticModel = longboots_Ground,
+        WorldStaticModel = jungleboots_Ground,
 	}
 
 	item Shoes_Fancy {
@@ -245,7 +245,7 @@ module Base
 		ScratchDefense = 10,
         Insulation = 0.45,
         WindResistance = 0.3,
-        WorldStaticModel = Sneakers_Ground,
+        WorldStaticModel = sneakers_Ground,
 	}
 
 	item Shoes_RedTrainers {
@@ -264,7 +264,7 @@ module Base
         ScratchDefense = 10,
         Insulation = 0.55,
         WindResistance = 0.35,
-        WorldStaticModel = Sneakers_Ground,
+        WorldStaticModel = sneakers_Ground,
 	}
 
 	item Shoes_TrainerTINT {
@@ -283,7 +283,7 @@ module Base
         ScratchDefense = 10,
         Insulation = 0.35,
         WindResistance = 0.25,
-        WorldStaticModel = Sneakers_Ground,
+        WorldStaticModel = sneakers_Ground,
 	}
 
 
@@ -359,7 +359,7 @@ module Base
         Insulation = 0.25,
         WindResistance = 0.25,
         WaterResistance = 0.25,
-        WorldStaticModel = Sneakers_Ground,
+        WorldStaticModel = Shoes_Ground,
 	}
 
 }

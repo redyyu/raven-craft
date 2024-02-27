@@ -1,104 +1,37 @@
 module Base
 {
-	model longboots_Ground
-	{
-		mesh = WorldItems/clothing/longboots_ground,	
+
+	model Boots_Ground {  /** override vanilla **/
+		mesh = WorldItems/clothing/boots_ground,	
 	}
 
-
-	model riddingboots_Ground
-	{
+	model riddingboots_Ground {
 		mesh = WorldItems/clothing/riddingboots_ground,	
 	}
-
 
 	model militaryboots_Ground
 	{
 		mesh = WorldItems/clothing/militaryboots_ground,	
 	}
 
-
-	model fancyboots_Ground
-	{
+	model fancyboots_Ground {
 		mesh = WorldItems/clothing/fancyboots_ground,	
 	}
 
-
-	model shortboots_Ground
-	{
-		mesh = WorldItems/clothing/shortboots_ground,	
+	model sneakers_Ground {
+		mesh = WorldItems/clothing/sneakers_ground,	
 	}
 
-	model PlatformBoots_Ground
-	{
-		mesh = WorldItems/clothing/PlatformBoots_ground,	
+	model jungleboots_Ground {
+		mesh = WorldItems/clothing/jungleboots_ground,	
 	}
 
-	model Hitops_Ground
-	{
-		mesh = WorldItems/clothing/Hitops_ground,	
-	}
-
-
-	model Sneakers_Ground
-	{
-		mesh = WorldItems/clothing/Sneakers_ground,	
-	}
-
-	model AllStars_Ground
-	{
-		mesh = WorldItems/clothing/AllStars_ground,	
-	}
-
-
-	model Marteens_Ground
-	{
-		mesh = WorldItems/clothing/Marteens_ground,	
-	}
-
-	model steelettos_Ground
-	{
-		mesh = WorldItems/clothing/steelettos_ground,	
-	}
-	
-
-
-	model newrocks_Ground
-	{
-		mesh = WorldItems/clothing/newrocks_ground,	
-	}
-
-
-	model kneehighboots_Ground
-	{
-		mesh = WorldItems/clothing/kneehighboots_Ground,	
-	}
-
-
-	model Jungleboots_Ground
-	{
-		mesh = WorldItems/clothing/Jungleboots_ground,	
-	}
-
-
-
-	model shoesfancy_ground
-	{
+	model shoesfancy_Ground {
 		mesh = WorldItems/clothing/shoesfancy_ground,	
 	}
 
-
-	model shoesstrapped_ground
-	{
+	model shoesstrapped_Ground {
 		mesh = WorldItems/clothing/shoesstrapped_ground,	
 	}
-
-
-	model heels_Ground
-	{
-		mesh = WorldItems/clothing/heels_Ground,	
-	}
-
-
 
 }

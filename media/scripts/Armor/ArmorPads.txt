@@ -30,7 +30,7 @@ module RavenCraft
 		Type = Clothing,
 		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Elbow Pads,
-		ClothingItem = ElbowPads,
+		ClothingItem = ArmorPads_Elbow,
 		BodyLocation = ArmsArmor,
 		BloodLocation = LowerArms,
 		Icon = ElbowPads,
@@ -49,7 +49,7 @@ module RavenCraft
 		Type = Clothing,
 		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Knee Pads,
-		ClothingItem = KneePads,
+		ClothingItem = ArmorPads_Knee,
 		BodyLocation = LegsArmor,
 		BloodLocation = LowerLegs,
 		Icon = KneePads,
@@ -66,7 +66,7 @@ module RavenCraft
 		Type = Clothing,
 		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Shoulder Pads,
-		ClothingItem = ShoulderPads,
+		ClothingItem = ArmorPads_Shoulder,
 		BodyLocation = ShoulderArmor,
 		BloodLocation = UpperArms,
 		Icon = ShoulderPads,
@@ -84,7 +84,7 @@ module RavenCraft
 		Type = Clothing,
 		/* FabricType = Leather, Make it unpatchable. */
 		DisplayName = Hand Pads,
-		ClothingItem = HandPads,
+		ClothingItem = ArmorPads_Hand,
 		BodyLocation = HandsArmor,
 		BloodLocation = Hands,
 		Icon = HandPads,
