@@ -4,10 +4,18 @@ local loot_chance = SandboxVars.RavenCraft.LootChance;
 local loot_chance_percent = loot_chance / 100;
 
 
-getLootChance = function(rand)
+getLootChance = function(rand, character)
     if rand == nil or rand < 0 then
         rand = 1
     end
+    if character then
+        if character:getTraits():contains("Lucky") then
+            rand = rand * 1.25
+        elseif character:getTraits():contains("Unlucky") then
+            rand = rand * 0.75
+        end
+    end
+    
     return rand * loot_chance_percent
 end
 

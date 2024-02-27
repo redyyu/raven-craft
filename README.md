@@ -296,6 +296,8 @@ Pertty much like `Hunter`.
 ## Cure
 
 A Mysterious Serum Injection drop by `HazardSuit` or somewhere in Medical place, especially from amry.
+Looting change is round about 25%, effect by `Lucky` or `Unlucky` Traits.
+(tested kill 50 HazardSuit zombie in Debug mode, got 4 injection. without Lucky traits)
 
 
 ## TV Tap

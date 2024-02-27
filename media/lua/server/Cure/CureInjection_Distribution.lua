@@ -20,7 +20,7 @@ function CheckCureInjectionZombieDrops(zombie)
 	local outfit = tostring(zombie:getOutfitName());
 	if outfit == "HazardSuit" then
 		local inv = zombie:getInventory();
-		if getLootChance(ZombRand(1, 100)) >= ZombRand(1, 100) then
+		if getLootChance(ZombRand(1, 25)) >= ZombRand(1, 100) then
 			inv:AddItems(PACKAGE_NAME..".CureInjection", 1);
 		end
 	end
