@@ -614,4 +614,105 @@ module Base
         AttachmentType = MeatCleaver,
     }
 
+
+/** Override Ammo **/
+
+    item Bullets9mmBox {
+        Weight = 0.3,
+        Type = Normal,
+        DisplayName = Box of 9mm Bullets,
+        DisplayCategory = Ammo,
+        Icon = HandgunAmmoBox,
+        MetalValue = 45,
+        WorldStaticModel = HandGunAmmoBox,
+        PlaceOneSound = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound = BoxOfRoundsPlaceAll,
+    }
+
+    item Bullets45Box {
+        DisplayCategory = Ammo,
+        Weight = 1.5,
+        Type = Normal,
+        DisplayName = Box of .45 Auto Bullets,
+        Icon = HandgunAmmoBox,
+        MetalValue = 45,
+        WorldStaticModel = BoxOf45Auto,
+        PlaceOneSound = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound = BoxOfRoundsPlaceAll,
+    }
+
+    item Bullets44Box {
+        DisplayCategory = Ammo,
+        Weight = 0.57,
+        Type = Normal,
+        DisplayName = Box of .44 Magnum Bullets,
+        Icon = HandgunAmmoBox,
+        MetalValue = 45,
+        WorldStaticModel = BoxOf44Magnum,
+        PlaceOneSound = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound = BoxOfRoundsPlaceAll,
+    }
+
+    item Bullets38Box {
+        DisplayCategory = Ammo,
+        Weight = 0.525,
+        Type = Normal,
+        DisplayName = Box of .38 Special Bullets,
+        Icon = HandgunAmmoBox,
+        MetalValue = 45,
+        WorldStaticModel = BoxOf38Special,
+        PlaceOneSound = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound = BoxOfRoundsPlaceAll,
+    }
+
+    item ShotgunShellsBox {
+        DisplayCategory = Ammo,
+        Weight = 1.35,
+        Type = Normal,
+        DisplayName = Box of Shotgun Shells,
+        Icon = ShotgunAmmoBox,
+        MetalValue = 36,
+        WorldStaticModel = BoxOfShotGunShells,
+        PlaceOneSound = BoxOfShellsPlaceOne,
+        PlaceMultipleSound = BoxOfShellsPlaceAll,
+    }
+
+    item 223Box {
+        DisplayCategory = Ammo,
+        Weight = 0.9,
+        AlwaysWelcomeGift = TRUE,
+        Type = Normal,
+        DisplayName = Box of .223 Bullets,
+        Icon = RifleAmmo223,
+        MetalValue = 60,
+        WorldStaticModel = RifleAmmoBox,
+        PlaceOneSound = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound = BoxOfRoundsPlaceAll,
+    }
+
+    item 308Box {
+        DisplayCategory = Ammo,
+        Weight = 0.9,
+        AlwaysWelcomeGift = TRUE,
+        Type = Normal,
+        DisplayName = Box of .308 Bullets,
+        Icon = RifleAmmo308,
+        MetalValue = 60,
+        WorldStaticModel = RifleAmmoBox,
+        PlaceOneSound = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound = BoxOfRoundsPlaceAll,
+    }
+
+    item 556Box {
+        DisplayCategory = Ammo,
+        Weight = 1.8,
+        AlwaysWelcomeGift = TRUE,
+        Type = Normal,
+        DisplayName = Box of .556 Bullets,
+        Icon = RifleAmmo308,
+        MetalValue = 60,
+        WorldStaticModel = RifleAmmoBox,
+        PlaceOneSound = BoxOfRoundsPlaceOne,
+        PlaceMultipleSound = BoxOfRoundsPlaceAll,
+    }
 }
