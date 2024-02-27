@@ -4,6 +4,14 @@ local loot_chance = SandboxVars.RavenCraft.LootChance;
 local loot_chance_percent = loot_chance / 100;
 
 
+getLootChance = function(rand)
+    if rand == nil or rand < 0 then
+        rand = 1
+    end
+    return rand * loot_chance_percent
+end
+
+
 insertDistTable = function(table_obj, group_or_key, weight)
 
     if weight == nil and weight ~= 0 then  -- could be 0, but 0 == nil
