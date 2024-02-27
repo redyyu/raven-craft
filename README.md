@@ -3,9 +3,9 @@
 A Project zomboid mod. expanding vanilla constructable facilities and craftable items.
 Everything in this mod is try keep "Reasonable" and "Useable", make the game as close to reality as possible, but keep not too much complicated details.
 
-When I play this game, some Mods is good, but not quite fit my needs.
-I might refine or remake it, or sometime have some good idea to improve the game.
-Most refined mod will keep standalone, when some features or ideas become solid will combine to this Mod.
+Some idea is from other mods, make it more fit with vanilla game. 
+Also, I did learn so much from many other mods, 
+those knowledge is become my treasure, Thank you very much.
 
 
 
@@ -206,7 +206,7 @@ Pickle meat before it's goes to rotten. unlike jar, pickle food can working on a
 
 ## Ammo Maker
 
-You can make Gunpowder and Bullets, but you have to read the Magginze.
+You can make Gunpowder and Bullets, but you have to read the Magginze first.
 But, get materials still is not that easy.
 
 Also ammo box contains is 50% increased. (Weight and MetalValue as well)
