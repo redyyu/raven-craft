@@ -3,4 +3,5 @@ Sandbox_EN = {
 	Sandbox_RavenCraft_SPAWN_CHANCE = "Spawn Chance out of 100"
 	Sandbox_RavenCraft_LOOT_CHANCE = "Loot Chance out of 100"
 	Sandbox_RavenCraft_CURE_CHANCE = "Cure zombification Chance out of 100"
+	Sandbox_RavenCraft_READING_ON_SIT = "% Percent of Reading time when sit"
 }

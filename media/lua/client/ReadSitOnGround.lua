@@ -1,4 +1,3 @@
-local READING_SPPED_RATE = 0.75;
 
 
 local OldIsValid = ISReadABook.isValid
@@ -28,14 +27,12 @@ end
 
 function ISReadABook:new(character, item, time)
 	local instance = OldNew(self, character, item, time)
-	-- print('----------------------Start Reading-------------------')
-	-- print(character:isSitOnGround())
-	-- print('----------------------Start Reading-------------------')
-	-- print(instance.maxTime)
+	local reading_effective = SandboxVars.RavenCraft.ReadingOnSitEffective
+
 	if not instance.character:isTimedActionInstant() then
 		instance.isCharacterSitOnGround = character:isSitOnGround();
 		if instance.isCharacterSitOnGround then
-			instance.maxTime = math.floor(instance.maxTime * READING_SPPED_RATE)
+			instance.maxTime = math.floor(instance.maxTime * reading_effective)
 			-- print(instance.maxTime)
 		end
 	end
