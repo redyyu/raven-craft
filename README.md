@@ -303,6 +303,8 @@ Looting change is round about 25%, effect by `Lucky` or `Unlucky` Traits.
 `Lucky` increase 50% (75% total chance to cure, if default setting)
 `Unlucky` decrease 25% (25% total chance to cure, if default setting)
 
+If eat it with out infection, that will be waste.
+
 
 ## TV Tap
 
