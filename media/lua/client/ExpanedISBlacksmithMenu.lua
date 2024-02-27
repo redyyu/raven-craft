@@ -188,7 +188,7 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
         local toolTip = ISBlacksmithMenu.addToolTip(metalDoorOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDOORDESC") .. toolTip.description;
 
-        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 2, 2, 2, 8, 4, playerObj, toolTip, 0, 0)
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 2, 2, 2, 8, 5, playerObj, toolTip, 0, 0)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then metalDoorOption.notAvailable = true; end
@@ -271,7 +271,7 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
         local toolTip = ISBlacksmithMenu.addToolTip(drumOption, itemName, thumbnail)
         toolTip.description = getText("Tooltip_CRAFT_METALDRUMDESC") .. toolTip.description;
         
-        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 0, 0, 0, 5, 7, playerObj, toolTip, 0, 0)
+        local canCraft = ISBlacksmithMenu.checkMetalWeldingFurnitures(0, 0, 0, 0, 0, 5, 5, playerObj, toolTip, 0, 0)
         -- checkMetalWeldingFurnitures(metalPipes, smallMetalSheet, metalSheet, hinge, scrapMetal, torchUse, skill, player, toolTip, metalBar, wire)
 
         if not canCraft then drumOption.notAvailable = true; end
