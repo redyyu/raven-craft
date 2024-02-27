@@ -796,7 +796,7 @@ module RavenCraft
 	}
 
 
-	/* Cooking Recipes */
+/*** Cooking Recipes ***/ /** Ovrride FarmingMag1 to learn **/
 
 	recipe Mill Flour { 
         keep MortarPestle,
