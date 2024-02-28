@@ -394,3 +394,27 @@ dark texture also work, but most time tint to more darkness.
 	<textureChoices>clothes/Shoes/shoes_pink</textureChoices>
 </clothingItem>
 ```
+
+
+
+
+## Strange Errors
+
+
+### Recipe Format is wrong
+
+if got `ISCraftingUI` exceptions, probably is Recipe Script is wrong, might missing `,` end of some line.
+
+```
+-----------------------------------------
+function: populateRecipesList -- file: ISCraftingUI.lua line # 1093 | Vanilla
+function: createChildren -- file: ISCraftingUI.lua line # 969 | Vanilla
+function: instantiate -- file: ISUIElement.lua line # 653 | Vanilla
+function: addToUIManager -- file: ISUIElement.lua line # 1009 | Vanilla
+function: createInventoryInterface -- file: ISPlayerDataObject.lua line # 157 | Vanilla
+function: createInventoryInterface -- file: ISPlayerDataTuning.lua line # 22 | MOD: Tsar's Common Library v.2.07
+function: createPlayerData -- file: ISPlayerData.lua line # 187 | Vanilla.
+[28-02-24 23:29:29.090] ERROR: General     , 1709134169090> ExceptionLogger.logException> Exception thrown java.lang.RuntimeException: attempted index: getFullType of non-table: null at KahluaThread.tableget line:1689..
+[28-02-24 23:29:29.090] ERROR: General     , 1709134169090> DebugLogStream.printException> Stack trace:.
+[28-02-24 23:29:29.092] LOG  : General     , 1709134169092> -----------------------------------------
+```

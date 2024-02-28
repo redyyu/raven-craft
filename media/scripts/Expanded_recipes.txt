@@ -312,6 +312,8 @@ module RavenCraft
         [Recipe.GetItemTypes.Milk]/Yoghurt;4,
         Glue=5,
         
+        AllowRottenItem: true,
+
         Result: Woodglue,
         SkillRequired: Woodwork=6;Cooking=6;,
         Time: 250.0,
