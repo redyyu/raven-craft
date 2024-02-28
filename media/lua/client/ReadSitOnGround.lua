@@ -32,7 +32,7 @@ function ISReadABook:new(character, item, time)
 	if not instance.character:isTimedActionInstant() then
 		instance.isCharacterSitOnGround = character:isSitOnGround();
 		if instance.isCharacterSitOnGround then
-			instance.maxTime = math.floor(instance.maxTime * reading_effective)
+			instance.maxTime = math.floor(instance.maxTime * reading_effective / 100)
 			-- print(instance.maxTime)
 		end
 	end
