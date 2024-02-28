@@ -920,6 +920,10 @@
 				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
 			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
+			</subItems>
 		</m_items>
 		<!-- Accessory -->
 		<m_items>
@@ -993,6 +997,10 @@
 			<subItems>
 				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
+			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
 			</subItems>
 		</m_items>
 		<!-- Accessory -->
@@ -1105,7 +1113,12 @@
 				<itemGUID>2717dfdb-49ef-401a-9715-c4487ce6abea</itemGUID>
 			</subItems>
 			<subItems>
+				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
+			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
 			</subItems>
 		</m_items>
 		<m_items>
@@ -1175,7 +1188,12 @@
 				<itemGUID>f6b27bb5-b736-4bd7-afb1-689ecb9a9c52</itemGUID>
 			</subItems>
 			<subItems>
+				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
+			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
 			</subItems>
 		</m_items>
 		<m_items>
@@ -1344,7 +1362,12 @@
 				<itemGUID>f6b27bb5-b736-4bd7-afb1-689ecb9a9c52</itemGUID>
 			</subItems>
 			<subItems>
+				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
+			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
 			</subItems>
 		</m_items>
 		<m_items>
@@ -1433,6 +1456,10 @@
 			<subItems>
 				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
+			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
 			</subItems>
 			<subItems>
 				<itemGUID>7741404b-9689-4608-a0f5-4e06597776f9</itemGUID>
@@ -1554,6 +1581,10 @@
 				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
 			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
+			</subItems>
 		</m_items>
 		<m_items>
 			<probability>0.3</probability>
@@ -1624,6 +1655,10 @@
 			<subItems>
 				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
+			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
 			</subItems>
 		</m_items>
 		<m_items>
@@ -1907,6 +1942,10 @@
 			<subItems>
 				<!-- Shoes_BootsTINT -->
 				<itemGUID>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</itemGUID>
+			</subItems>
+			<subItems>
+				<!-- Shoes_FancyBoots -->
+				<itemGUID>c72a5755-5aef-4499-ba73-48b6416d0b00</itemGUID>
 			</subItems>
 		</m_items>
 		<m_items>

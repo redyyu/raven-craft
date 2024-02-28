@@ -6,6 +6,7 @@ require "RCCore"
 
 local ITEMS_WEIGHT = {
     ["Shoes_BootsTINT"] = 2,
+    ["Shoes_FancyBoots"] = 2,
 }
 
 insertDistTable(ProceduralDistributions.list["BandMerchShelves"], ITEMS_WEIGHT, 6);

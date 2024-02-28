@@ -194,7 +194,7 @@ module Base
 		ClothingItem = Shoes_Fancy,
 		BodyLocation = Shoes,
 		BloodLocation = Shoes,
-		Icon = Shoes,
+		IconsForTexture = FancyShoesWhite;FancyShoesBlack;FancyShoesBrown;FancyShoesRed;FancyShoesPink;FancyShoesPale,
 		StompPower = 2.1,
 		ConditionLowerChanceOneIn = 12,
         ConditionMax = 24,
@@ -206,6 +206,27 @@ module Base
         WindResistance = 0.25,
         WaterResistance = 0.25,
         WorldStaticModel = shoesfancy_Ground,
+	}
+
+	item Shoes_FancyBoots {
+	    DisplayCategory = Clothing,
+		Type = Clothing,
+		DisplayName = Fancy Boots,
+		ClothingItem = Shoes_FancyBoots,
+		BodyLocation = Shoes,
+		BloodLocation = Shoes,
+		IconsForTexture = FancyBootsWhite;FancyBootsBlack;FancyBootsBrown;FancyBootsRed;FancyBootsPink;FancyBootsPale,FancyBootsLeopard,
+		StompPower = 2.2,
+		ConditionLowerChanceOneIn = 15,
+        ConditionMax = 27,
+        RunSpeedModifier = 0.9,
+        RemoveOnBroken = false,
+        ScratchDefense = 100,
+        BiteDefense = 100,
+        Insulation = 0.9,
+        WindResistance = 0.6,
+        WaterResistance = 0.45,
+        WorldStaticModel = fancyboots_Ground,
 	}
 
 	item Shoes_Strapped {

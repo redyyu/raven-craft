@@ -334,3 +334,63 @@ Combine Trolley Cart. A equipment container for both hands. It will slow the mov
 ## GunSuicide
 
 Kill your self by a loaded gun, prevent become a zombie.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# For Develpers 
+
+
+## clothingItems
+`<m_MaleModel>`, `<m_FemaleModel>` path to 3D model file, X or fbx, X is too old, so use fbx.
+DO NOT just convert X to fbx, if skinned info will be lost, model will not working anymore.
+
+`<m_GUID>` the guid for thi item, must add to fileGuidTable.xml from `media` folder,
+otherwise item will not found. Use same GUID to ovrride the others.
+
+`<m_AllowRandomHue>true</m_AllowRandomHue>` change the color of texture base on Hue.
+`<m_AllowRandomTint>true</m_AllowRandomTint>` tint the texture, so light texuture will be nice. 
+dark texture also work, but most time tint to more darkness.
+
+`<m_AttachBone></m_AttachBone>`  attach bone info. I don't know how to use it yet.
+
+`<m_Masks>11</m_Masks>` the number id of the body part will be masked. that's my best guess.
+
+`<m_MasksFolder></m_MasksFolder>` mask folder, I guess, didn't use it yet.
+
+`<m_UnderlayMasksFolder>fancyshoes</m_UnderlayMasksFolder>` underlay mask folder, I used, just many different colors image to mask the mesh.
+
+`<textureChoices>` the path to texture file, must be png, no need file ext. path startswith textures folder.
+
+`<m_BaseTextures>` didn't use that much, same as textureChoices, but it's different, I guess.
+**<m_BaseTextures>clothes\gloves\leathergloves_brown</m_BaseTextures>**
+
+```
+<clothingItem>
+	<m_MaleModel>media\models_X\Static\Clothes\fancyshoes_male.fbx</m_MaleModel>
+	<m_FemaleModel>media\models_X\Static\Clothes\fancyshoes_female.fbx</m_FemaleModel>
+	<m_GUID>b87c05cc-9a93-4572-99f8-005e350ee723</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>true</m_AllowRandomHue>
+	<m_AllowRandomTint>true</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<m_Masks>11</m_Masks>
+	<m_MasksFolder></m_MasksFolder>
+	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancyshoes</m_UnderlayMasksFolder>
+	<textureChoices>clothes/Shoes/shoes_white</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_red</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_pale</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_pink</textureChoices>
+</clothingItem>
+```

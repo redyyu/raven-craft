@@ -31,6 +31,12 @@
 		<guid>1946aac7-8d86-4a78-ab4c-3a0dc32d5e7b</guid>
 	</files>
 
+	<!-- Fancy Boots -->
+	<files>
+		<path>media/clothing/clothingItems/Shoes_FancyBoots.xml</path>
+		<guid>c72a5755-5aef-4499-ba73-48b6416d0b00</guid>
+	</files>
+
 
 	<!-- Vanilla fileGuidTable Reference -->
 	<files>

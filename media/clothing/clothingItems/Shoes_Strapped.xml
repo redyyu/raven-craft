@@ -6,9 +6,9 @@
 	<m_Static>true</m_Static>
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_Masks>8</m_Masks>
+	<m_Masks>10</m_Masks>
 	<m_AttachBone></m_AttachBone>
-	<m_MasksFolder>media/textures/Clothes/Shoes/Masks/strappedshoes</m_MasksFolder>
-	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/strappedshoes</m_UnderlayMasksFolder>
 	<textureChoices>clothes/Shoes/shoes_black</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_black2</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_black3</textureChoices>

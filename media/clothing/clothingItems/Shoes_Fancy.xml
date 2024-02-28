@@ -5,10 +5,15 @@
 	<m_GUID>b87c05cc-9a93-4572-99f8-005e350ee723</m_GUID>
 	<m_Static>false</m_Static>
 	<m_AllowRandomHue>false</m_AllowRandomHue>
-	<m_AllowRandomTint>true</m_AllowRandomTint>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
 	<m_Masks>11</m_Masks>
 	<m_MasksFolder></m_MasksFolder>
-	<m_UnderlayMasksFolder>media/textures/Clothes/Masks/heels</m_UnderlayMasksFolder>
+	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancyshoes</m_UnderlayMasksFolder>
 	<textureChoices>clothes/Shoes/shoes_white</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_black</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_brown</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_red</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_pink</textureChoices>
+	<textureChoices>clothes/Shoes/shoes_pale</textureChoices>
 </clothingItem>
