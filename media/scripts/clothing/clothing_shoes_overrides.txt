@@ -215,7 +215,7 @@ module Base
 		ClothingItem = Shoes_FancyBoots,
 		BodyLocation = Shoes,
 		BloodLocation = Shoes,
-		IconsForTexture = FancyBootsWhite;FancyBootsBlack;FancyBootsBrown;FancyBootsRed;FancyBootsPink;FancyBootsPale,FancyBootsLeopard,
+		IconsForTexture = FancyBootsGray;FancyBootsBlack;FancyBootsBrown;FancyBootsRed;FancyBootsPink;FancyBootsLeopard,
 		StompPower = 2.2,
 		ConditionLowerChanceOneIn = 15,
         ConditionMax = 27,
