@@ -64,6 +64,8 @@ module RavenCraft
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
 
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -83,6 +85,8 @@ module RavenCraft
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -104,6 +108,8 @@ module RavenCraft
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
 
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -123,6 +129,8 @@ module RavenCraft
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -144,6 +152,8 @@ module RavenCraft
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
 
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -163,6 +173,8 @@ module RavenCraft
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
 
         Prop1: Source=1,
         Prop2: Source=2,
@@ -184,6 +196,8 @@ module RavenCraft
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
 
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
+
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: RepairWithWrench,
@@ -203,6 +217,8 @@ module RavenCraft
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE,
 
         Prop1: Source=1,
         Prop2: Source=2,

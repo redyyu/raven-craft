@@ -30,3 +30,6 @@ Tooltip_SUICIDE_CONFIRM = "Do you really want kill yourself?"
 Tooltip_NO_AMMO = "You need a loaded gun."
 
 Tooltip_CURE_INJECTION = "Have a chance to Fights zombification, take it before the symptoms start."
+
+
+Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE = "Required near Campfire or Stone Furnace."
