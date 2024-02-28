@@ -266,9 +266,9 @@ and modified some Vanilla Weapons or tools.
 
 ## Modified Vanilla Items
 
-**Better Wrenchs**: `PipeWrench`, `Wrench`, is harder and powered, also can be use as hammer, I use that all the time in really world (It's easy to broken in world).
+**Better Wrenchs**: `PipeWrench`, `Wrench`, increase harder and powered.
 **Harder Pans**: `Pan`, `GridlePan`, `Saucepan` not that easy to broken.
-**Better Hammers**: `Hammer`, `ClubHammer`, `BallPeenHammer`, `WoodenMallet`, `HammerStone`, make hammer like real hammer.
+**Better Hammers**: `Hammer`, `BallPeenHammer`, make hammer like real hammer.
 **Harder Axe Stone**: `AxeStone` like a Axe, not Tofu.
 **Bigger PropaneTank**: `PropaneTank` double the useDelta.
 

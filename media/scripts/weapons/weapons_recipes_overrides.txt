@@ -1,0 +1,149 @@
+module Base
+{
+
+/** Override Open Ammo Box **/
+
+    recipe Open Box of 9mm Bullets {
+        Bullets9mmBox,
+
+        Result:Bullets9mm=9,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Open Box of .45 Auto Bullets {
+        Bullets45Box,
+
+        Result:Bullets45=9,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Open Box of .38 Special Bullets {
+        Bullets38Box,
+
+        Result:Bullets38=9,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Open Box of .44 Magnum Bullets {
+        Bullets44Box,
+
+        Result:Bullets44=6,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Open Box of .223 Ammo {
+        223Box,
+
+        Result:223Bullets=12,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Open Box of .308 Ammo {
+        308Box,
+
+        Result:308Bullets=12,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Open Box of Shotgun Shells {
+        ShotgunShellsBox,
+
+        Result:ShotgunShells=6,
+        Sound:BoxOfShellsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Open Box of .556 Ammo {
+        556Box,
+
+        Result:556Bullets=18,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place .556 Ammo in Box {
+        556Bullets=90,
+
+        Result:556Box,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place .223 Ammo in Box {
+        223Bullets=60,
+
+        Result:223Box,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place .308 Ammo in Box {
+        308Bullets=60,
+
+        Result:308Box,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place 9mm Bullets in Box {
+        Bullets9mm=45,
+
+        Result:Bullets9mmBox,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place .45 Auto Bullets in Box {
+        Bullets45=45,
+
+        Result:Bullets45Box,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place .38 Speciam Bullets in Box {
+        Bullets38=45,
+
+        Result:Bullets38Box,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place .44 Magnum Bullets in Box {
+        Bullets44=18,
+
+        Result:Bullets44Box,
+        Sound:BoxOfRoundsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+
+    recipe Place Shotgun Shells in Box {
+        ShotgunShells=36,
+
+        Result:ShotgunShellsBox,
+        Sound:BoxOfShellsOpenOne,
+        Time:15.0,
+        Override:true
+    }
+}
