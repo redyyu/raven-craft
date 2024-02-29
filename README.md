@@ -374,7 +374,7 @@ dark texture also work, but most time tint to more darkness.
 
 `<m_AttachBone></m_AttachBone>`  attach bone info. I don't know how to use it yet.
 
-`<m_Masks>11</m_Masks>` the number id of the body part will be masked. that's my best guess.
+`<m_Masks>11</m_Masks>` the number id of the body part will be masked. that's my best guess. (0-15) any other numbers will crash the game.
 
 `<m_MasksFolder></m_MasksFolder>` mask folder, I guess, didn't use it yet.
 
