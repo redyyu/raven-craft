@@ -1,5 +1,3 @@
-require "RCCore"
-
 
 TreadmillMenu = {}
 TreadmillMenu.doBuildMenu = function(player, context, worldobjects)

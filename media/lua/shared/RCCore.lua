@@ -4,9 +4,37 @@ local loot_chance = SandboxVars.RavenCraft.LootChance;
 local loot_chance_percent = loot_chance / 100;
 
 
-getLootChance = function(rand, character)
-    if rand == nil or rand < 0 then
-        rand = 1
+getPackageName = function()
+    return PACKAGE_NAME
+end
+
+getPackageItemType = function(item_name)
+    if item_name:find(".", 1, true) == 1 then
+        item_name = PACKAGE_NAME..item_name
+    end
+    return item_name
+end
+
+getLootChance = function(character)
+    local modifier = 1
+    if character then
+        if character:getTraits():contains("Lucky") then
+            modifier = modifier * 1.25
+        elseif character:getTraits():contains("Unlucky") then
+            modifier = modifier * 0.75
+        end
+    end
+    
+    return loot_chance_percent * modifier
+end
+
+
+predicateLootChance = function(character, rand, rand_2)
+    if rand == nil then
+        rand = ZombRand(1, 100)
+    end
+    if rand_2 == nil then
+        rand_2 = ZombRand(1, 100)
     end
     if character then
         if character:getTraits():contains("Lucky") then
@@ -16,7 +44,7 @@ getLootChance = function(rand, character)
         end
     end
     
-    return rand * loot_chance_percent
+    return (rand * loot_chance_percent) > rand_2
 end
 
 

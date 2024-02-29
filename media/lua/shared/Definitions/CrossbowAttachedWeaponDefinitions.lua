@@ -16,8 +16,8 @@ AttachedWeaponDefinitions.crossbowBack = {
 	addHoles = true,
 	daySurvived = 14,
 	weapons = {
-		PACKAGE_NAME..".CrossbowWooden",
-		PACKAGE_NAME..".CrossbowHand",
-		PACKAGE_NAME..".CrossbowCompound",
+		getPackageItemType(".CrossbowWooden"),
+		getPackageItemType(".CrossbowHand"),
+		getPackageItemType(".CrossbowCompound"),
 	},
 }

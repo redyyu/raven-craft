@@ -1,7 +1,6 @@
 require "Items/ProceduralDistributions"
 require "Items/SuburbsDistributions"
 require "Vehicles/VehicleDistributions"
-require "RCCore"
 
 
 local ITEMS_WEIGHT = {

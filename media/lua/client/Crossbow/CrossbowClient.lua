@@ -1,5 +1,4 @@
 require "CrossbowTypes"
-require "RCCore"
 
 local function shootCrossbow(player,item)
 	if item:getType() == "LargeCrossbow" then
@@ -15,7 +14,7 @@ local function hitCrossbow(attacker, target, weapon,damage)
     if ammoType ~= nil then
     	-- If ammoType is nil, it's a melee attack, do nothing
 
-        if ammoType == PACKAGE_NAME..".CrossbowBolt" then
+        if ammoType == getPackageItemType(".CrossbowBolt") then
             -- bolt
             local modData = target:getModData();
             if modData.LCquarrels == nil then
@@ -67,9 +66,9 @@ local function CrossbowOnZombieDead(zombie)
             local bolt
             
             if rnd <= 75 then
-                bolt = zombie:getInventory():AddItem(PACKAGE_NAME..".CrossbowBolt");
+                bolt = zombie:getInventory():AddItem(getPackageItemType(".CrossbowBolt"));
             else
-                bolt = zombie:getInventory():AddItem(PACKAGE_NAME..".CrossbowBoltBroken");
+                bolt = zombie:getInventory():AddItem(getPackageItemType(".CrossbowBoltBroken"));
             end
         end
         modData.LCquarrels = 0;

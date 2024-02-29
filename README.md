@@ -19,9 +19,12 @@ those knowledge is become my treasure, Thank you very much.
 6. Change multiple tools to open canned food. ex. knife and fork.
 7. Bombs cloud spawn in some place.
 8. Some tools hidden by vanilla, make it useful and spawn in some wheere. ex. ammo mold, tongs, Bellows...
-9. Reading speed up 75%, while sit on ground.
+9. Reading speed up while sit on ground.
 10. Allowed suicide by gun.
 11. Katana and Machete allowed attach on belt.
+12. Move up / down or jump to ground, when climbing rope.
+13. Increase Red Mobile Tool Cabinet capacity. (only effect new discovered.)
+14. Combine better boots 3D model and textures.
 
 
 ### Added new Carpentry Expands:
@@ -303,7 +306,10 @@ Looting change is round about 25%, effect by `Lucky` or `Unlucky` Traits.
 `Lucky` increase 50% (75% total chance to cure, if default setting)
 `Unlucky` decrease 25% (25% total chance to cure, if default setting)
 
-If eat it with out infection, that will be waste.
+More bad player stats will showing up when cured.
+there is chance to be fake cured base on CureChance option in MOD sandbox settings.
+
+If eat it with out infection, that will be waste, and bad stats will come up too.
 
 
 ## TV Tap
@@ -329,6 +335,10 @@ Combine Drink packs. pack up 6 or 12 Bottle or Pop Can into one.
 ## Trolley Cart
 
 Combine Trolley Cart. A equipment container for both hands. It will slow the movement speed.
+
+## Fishing Net
+
+Make better Fishing Net, could cacth more than `BaitFish`, base on character fishing skill and lucky.
 
 
 ## GunSuicide
@@ -418,3 +428,9 @@ function: createPlayerData -- file: ISPlayerData.lua line # 187 | Vanilla.
 [28-02-24 23:29:29.090] ERROR: General     , 1709134169090> DebugLogStream.printException> Stack trace:.
 [28-02-24 23:29:29.092] LOG  : General     , 1709134169092> -----------------------------------------
 ```
+
+
+### No math.round()
+
+use math.floor(n + 0.5) to make round().
+lua sucks.

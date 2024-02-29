@@ -1,6 +1,5 @@
 require "Farming/SFarmingSystem"
 require "Farming/farming_vegetableconf"
-require "RCCore"
 
 
 -- common growing
@@ -90,7 +89,7 @@ farming_vegetableconf.props["Corn"].maxVeg = 6;
 farming_vegetableconf.props["Corn"].minVegAutorized = 6;
 farming_vegetableconf.props["Corn"].maxVegAutorized = 12;
 farming_vegetableconf.props["Corn"].vegetableName = "Base.Corn";
-farming_vegetableconf.props["Corn"].seedName = PACKAGE_NAME..".CornSeed";
+farming_vegetableconf.props["Corn"].seedName = getPackageItemType(".CornSeed");
 farming_vegetableconf.props["Corn"].seedPerVeg = 3;
 farming_vegetableconf.props["Corn"].harvestSeedOnly = true;
 
@@ -124,7 +123,7 @@ farming_vegetableconf.props["Peanuts"].maxVeg = 6;
 farming_vegetableconf.props["Peanuts"].minVegAutorized = 6;
 farming_vegetableconf.props["Peanuts"].maxVegAutorized = 10;
 farming_vegetableconf.props["Peanuts"].vegetableName = "Base.Peanuts";
-farming_vegetableconf.props["Peanuts"].seedName = PACKAGE_NAME..".PeanutsSeed";
+farming_vegetableconf.props["Peanuts"].seedName = getPackageItemType(".PeanutsSeed");
 farming_vegetableconf.props["Peanuts"].seedPerVeg = 3;
 farming_vegetableconf.props["Peanuts"].harvestSeedOnly = true;
 
@@ -158,8 +157,8 @@ farming_vegetableconf.props["Wheat"].minVeg = 4;
 farming_vegetableconf.props["Wheat"].maxVeg = 12;
 farming_vegetableconf.props["Wheat"].minVegAutorized = 8;
 farming_vegetableconf.props["Wheat"].maxVegAutorized = 16;
-farming_vegetableconf.props["Wheat"].vegetableName = PACKAGE_NAME..".Wheat";
-farming_vegetableconf.props["Wheat"].seedName = PACKAGE_NAME..".WheatSeed";
+farming_vegetableconf.props["Wheat"].vegetableName = getPackageItemType(".Wheat");
+farming_vegetableconf.props["Wheat"].seedName = getPackageItemType(".WheatSeed");
 farming_vegetableconf.props["Wheat"].seedPerVeg = 2;
 farming_vegetableconf.props["Wheat"].harvestSeedOnly = true;
 
@@ -193,7 +192,7 @@ farming_vegetableconf.props["Zucchini"].maxVeg = 5;
 farming_vegetableconf.props["Zucchini"].minVegAutorized = 6;
 farming_vegetableconf.props["Zucchini"].maxVegAutorized = 10;
 farming_vegetableconf.props["Zucchini"].vegetableName = "Base.Zucchini";
-farming_vegetableconf.props["Zucchini"].seedName = PACKAGE_NAME..".ZucchiniSeed";
+farming_vegetableconf.props["Zucchini"].seedName = getPackageItemType(".ZucchiniSeed");
 farming_vegetableconf.props["Zucchini"].seedPerVeg = 2;
 farming_vegetableconf.props["Zucchini"].harvestSeedOnly = true;
 
@@ -227,7 +226,7 @@ farming_vegetableconf.props["Pumpkin"].maxVeg = 3;
 farming_vegetableconf.props["Pumpkin"].minVegAutorized = 5;
 farming_vegetableconf.props["Pumpkin"].maxVegAutorized = 6;
 farming_vegetableconf.props["Pumpkin"].vegetableName = "Base.Pumpkin";
-farming_vegetableconf.props["Pumpkin"].seedName = PACKAGE_NAME..".PumpkinSeed";
+farming_vegetableconf.props["Pumpkin"].seedName = getPackageItemType(".PumpkinSeed");
 farming_vegetableconf.props["Pumpkin"].seedPerVeg = 3;
 farming_vegetableconf.props["Pumpkin"].harvestSeedOnly = true;
 
@@ -261,7 +260,7 @@ farming_vegetableconf.props["Watermelon"].maxVeg = 3;
 farming_vegetableconf.props["Watermelon"].minVegAutorized = 5;
 farming_vegetableconf.props["Watermelon"].maxVegAutorized = 6;
 farming_vegetableconf.props["Watermelon"].vegetableName = "Base.Watermelon";
-farming_vegetableconf.props["Watermelon"].seedName = PACKAGE_NAME..".WatermelonSeed";
+farming_vegetableconf.props["Watermelon"].seedName = getPackageItemType(".WatermelonSeed");
 farming_vegetableconf.props["Watermelon"].seedPerVeg = 3;
 farming_vegetableconf.props["Watermelon"].harvestSeedOnly = true;
 
@@ -294,7 +293,7 @@ farming_vegetableconf.props["Onion"].maxVeg = 5;
 farming_vegetableconf.props["Onion"].minVegAutorized = 6;
 farming_vegetableconf.props["Onion"].maxVegAutorized = 10;
 farming_vegetableconf.props["Onion"].vegetableName = "Base.Onion";
-farming_vegetableconf.props["Onion"].seedName = PACKAGE_NAME..".OnionSeed";
+farming_vegetableconf.props["Onion"].seedName = getPackageItemType(".OnionSeed");
 farming_vegetableconf.props["Onion"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Onion"] = {
@@ -328,7 +327,7 @@ farming_vegetableconf.props["Lettuce"].maxVeg = 6;
 farming_vegetableconf.props["Lettuce"].minVegAutorized = 9;
 farming_vegetableconf.props["Lettuce"].maxVegAutorized = 11;
 farming_vegetableconf.props["Lettuce"].vegetableName = "Base.Lettuce";
-farming_vegetableconf.props["Lettuce"].seedName = PACKAGE_NAME..".LettuceSeed";
+farming_vegetableconf.props["Lettuce"].seedName = getPackageItemType(".LettuceSeed");
 farming_vegetableconf.props["Lettuce"].seedPerVeg = 3;
 
 farming_vegetableconf.sprite["Lettuce"] = {
@@ -362,7 +361,7 @@ farming_vegetableconf.props["Leek"].maxVeg = 9;
 farming_vegetableconf.props["Leek"].minVegAutorized = 6;
 farming_vegetableconf.props["Leek"].maxVegAutorized = 10;
 farming_vegetableconf.props["Leek"].vegetableName = "Base.Leek";
-farming_vegetableconf.props["Leek"].seedName = PACKAGE_NAME..".LeekSeed";
+farming_vegetableconf.props["Leek"].seedName = getPackageItemType(".LeekSeed");
 farming_vegetableconf.props["Leek"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Leek"] = {
@@ -395,7 +394,7 @@ farming_vegetableconf.props["Eggplant"].maxVeg = 5;
 farming_vegetableconf.props["Eggplant"].minVegAutorized = 6;
 farming_vegetableconf.props["Eggplant"].maxVegAutorized = 10;
 farming_vegetableconf.props["Eggplant"].vegetableName = "Base.Eggplant";
-farming_vegetableconf.props["Eggplant"].seedName = PACKAGE_NAME..".EggplantSeed";
+farming_vegetableconf.props["Eggplant"].seedName = getPackageItemType(".EggplantSeed");
 farming_vegetableconf.props["Eggplant"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Eggplant"] = {
@@ -428,7 +427,7 @@ farming_vegetableconf.props["Edamame"].maxVeg = 5;
 farming_vegetableconf.props["Edamame"].minVegAutorized = 6;
 farming_vegetableconf.props["Edamame"].maxVegAutorized = 10;
 farming_vegetableconf.props["Edamame"].vegetableName = "Base.Edamame";
-farming_vegetableconf.props["Edamame"].seedName = PACKAGE_NAME..".EdamameSeed";
+farming_vegetableconf.props["Edamame"].seedName = getPackageItemType(".EdamameSeed");
 farming_vegetableconf.props["Edamame"].seedPerVeg = 2;
 farming_vegetableconf.props["Edamame"].harvestSeedOnly = true;
 
@@ -462,7 +461,7 @@ farming_vegetableconf.props["Daikon"].maxVeg = 6;
 farming_vegetableconf.props["Daikon"].minVegAutorized = 5;
 farming_vegetableconf.props["Daikon"].maxVegAutorized = 9;
 farming_vegetableconf.props["Daikon"].vegetableName = "Base.Daikon";
-farming_vegetableconf.props["Daikon"].seedName = PACKAGE_NAME..".DaikonSeed";
+farming_vegetableconf.props["Daikon"].seedName = getPackageItemType(".DaikonSeed");
 farming_vegetableconf.props["Daikon"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Daikon"] = {
@@ -495,7 +494,7 @@ farming_vegetableconf.props["PepperJalapeno"].maxVeg = 5;
 farming_vegetableconf.props["PepperJalapeno"].minVegAutorized = 6;
 farming_vegetableconf.props["PepperJalapeno"].maxVegAutorized = 10;
 farming_vegetableconf.props["PepperJalapeno"].vegetableName = "Base.PepperJalapeno";
-farming_vegetableconf.props["PepperJalapeno"].seedName = PACKAGE_NAME..".PepperJalapenoSeed";
+farming_vegetableconf.props["PepperJalapeno"].seedName = getPackageItemType(".PepperJalapenoSeed");
 farming_vegetableconf.props["PepperJalapeno"].seedPerVeg = 2;
 farming_vegetableconf.props["PepperJalapeno"].harvestSeedOnly = true;
 
@@ -531,7 +530,7 @@ farming_vegetableconf.props["PepperHabanero"].maxVeg = 5;
 farming_vegetableconf.props["PepperHabanero"].minVegAutorized = 6;
 farming_vegetableconf.props["PepperHabanero"].maxVegAutorized = 10;
 farming_vegetableconf.props["PepperHabanero"].vegetableName = "Base.PepperHabanero";
-farming_vegetableconf.props["PepperHabanero"].seedName = PACKAGE_NAME..".PepperHabaneroSeed";
+farming_vegetableconf.props["PepperHabanero"].seedName = getPackageItemType(".PepperHabaneroSeed");
 farming_vegetableconf.props["PepperHabanero"].seedPerVeg = 2;
 farming_vegetableconf.props["PepperHabanero"].harvestSeedOnly = true;
 
@@ -566,7 +565,7 @@ farming_vegetableconf.props["BellPepper"].maxVeg = 5;
 farming_vegetableconf.props["BellPepper"].minVegAutorized = 6;
 farming_vegetableconf.props["BellPepper"].maxVegAutorized = 10;
 farming_vegetableconf.props["BellPepper"].vegetableName = "Base.BellPepper";
-farming_vegetableconf.props["BellPepper"].seedName = PACKAGE_NAME..".BellPepperSeed";
+farming_vegetableconf.props["BellPepper"].seedName = getPackageItemType(".BellPepperSeed");
 farming_vegetableconf.props["BellPepper"].seedPerVeg = 2;
 farming_vegetableconf.props["BellPepper"].harvestSeedOnly = true;
 
@@ -600,7 +599,7 @@ farming_vegetableconf.props["Apple"].maxVeg = 12;
 farming_vegetableconf.props["Apple"].minVegAutorized = 8;
 farming_vegetableconf.props["Apple"].maxVegAutorized = 16;
 farming_vegetableconf.props["Apple"].vegetableName = "Base.Apple";
-farming_vegetableconf.props["Apple"].seedName = PACKAGE_NAME..".AppleSeed";
+farming_vegetableconf.props["Apple"].seedName = getPackageItemType(".AppleSeed");
 farming_vegetableconf.props["Apple"].seedPerVeg = 2;
 farming_vegetableconf.props["Apple"].harvestSeedOnly = true;
 
@@ -634,7 +633,7 @@ farming_vegetableconf.props["Banana"].maxVeg = 10;
 farming_vegetableconf.props["Banana"].minVegAutorized = 8;
 farming_vegetableconf.props["Banana"].maxVegAutorized = 16;
 farming_vegetableconf.props["Banana"].vegetableName = "Base.Banana";
-farming_vegetableconf.props["Banana"].seedName = PACKAGE_NAME..".BananaSeed";
+farming_vegetableconf.props["Banana"].seedName = getPackageItemType(".BananaSeed");
 farming_vegetableconf.props["Banana"].seedPerVeg = 2;
 
 farming_vegetableconf.sprite["Banana"] = {
@@ -667,7 +666,7 @@ farming_vegetableconf.props["Grapefruit"].maxVeg = 12;
 farming_vegetableconf.props["Grapefruit"].minVegAutorized = 8;
 farming_vegetableconf.props["Grapefruit"].maxVegAutorized = 16;
 farming_vegetableconf.props["Grapefruit"].vegetableName = "Base.Grapefruit";
-farming_vegetableconf.props["Grapefruit"].seedName = PACKAGE_NAME..".GrapefruitSeed";
+farming_vegetableconf.props["Grapefruit"].seedName = getPackageItemType(".GrapefruitSeed");
 farming_vegetableconf.props["Grapefruit"].seedPerVeg = 2;
 farming_vegetableconf.props["Grapefruit"].harvestSeedOnly = true;
 
@@ -702,7 +701,7 @@ farming_vegetableconf.props["Grapes"].maxVeg = 12;
 farming_vegetableconf.props["Grapes"].minVegAutorized = 8;
 farming_vegetableconf.props["Grapes"].maxVegAutorized = 16;
 farming_vegetableconf.props["Grapes"].vegetableName = "Base.Grapes";
-farming_vegetableconf.props["Grapes"].seedName = PACKAGE_NAME..".GrapesSeed";
+farming_vegetableconf.props["Grapes"].seedName = getPackageItemType(".GrapesSeed");
 farming_vegetableconf.props["Grapes"].seedPerVeg = 2;
 farming_vegetableconf.props["Grapes"].harvestSeedOnly = true;
 
@@ -736,7 +735,7 @@ farming_vegetableconf.props["Lemon"].maxVeg = 12;
 farming_vegetableconf.props["Lemon"].minVegAutorized = 8;
 farming_vegetableconf.props["Lemon"].maxVegAutorized = 16;
 farming_vegetableconf.props["Lemon"].vegetableName = "Base.Lemon";
-farming_vegetableconf.props["Lemon"].seedName = PACKAGE_NAME..".LemonSeed";
+farming_vegetableconf.props["Lemon"].seedName = getPackageItemType(".LemonSeed");
 farming_vegetableconf.props["Lemon"].seedPerVeg = 2;
 farming_vegetableconf.props["Lemon"].harvestSeedOnly = true;
 
@@ -770,7 +769,7 @@ farming_vegetableconf.props["Orange"].maxVeg = 10;
 farming_vegetableconf.props["Orange"].minVegAutorized = 8;
 farming_vegetableconf.props["Orange"].maxVegAutorized = 16;
 farming_vegetableconf.props["Orange"].vegetableName = "Base.Orange";
-farming_vegetableconf.props["Orange"].seedName = PACKAGE_NAME..".OrangeSeed";
+farming_vegetableconf.props["Orange"].seedName = getPackageItemType(".OrangeSeed");
 farming_vegetableconf.props["Orange"].seedPerVeg = 2;
 farming_vegetableconf.props["Orange"].harvestSeedOnly = true;
 
@@ -804,7 +803,7 @@ farming_vegetableconf.props["Peach"].maxVeg = 10;
 farming_vegetableconf.props["Peach"].minVegAutorized = 8;
 farming_vegetableconf.props["Peach"].maxVegAutorized = 16;
 farming_vegetableconf.props["Peach"].vegetableName = "Base.Peach";
-farming_vegetableconf.props["Peach"].seedName = PACKAGE_NAME..".PeachSeed";
+farming_vegetableconf.props["Peach"].seedName = getPackageItemType(".PeachSeed");
 farming_vegetableconf.props["Peach"].seedPerVeg = 2;
 farming_vegetableconf.props["Peach"].harvestSeedOnly = true;
 

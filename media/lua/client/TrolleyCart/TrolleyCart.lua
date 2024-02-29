@@ -1,7 +1,5 @@
-require "RCCore"
 
-
-TROLLEY_TYPES = {PACKAGE_NAME..".CartContainer"}
+TROLLEY_TYPES = {getPackageItemType(".CartContainer")}
 
 local seatNameTable = {"SeatFrontLeft", "SeatFrontRight", "SeatMiddleLeft", "SeatMiddleRight", "SeatRearLeft", "SeatRearRight"}
 

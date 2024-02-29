@@ -1,16 +1,15 @@
-require "RCCore"
 
 CrossbowTypes = {
 	['CrossbowWooden'] = {
-		sprite = PACKAGE_NAME..'.CrossbowWooden',
-		sprite_drawn = PACKAGE_NAME..'CrossbowWoodenDrawn',
+		sprite = getPackageItemType('.CrossbowWooden'),
+		sprite_drawn = getPackageItemType('.CrossbowWoodenDrawn'),
 	},
 	['CrossbowHand'] = {
-		sprite = PACKAGE_NAME..'.CrossbowHand',
-		sprite_drawn = PACKAGE_NAME..'.CrossbowHandDrawn',
+		sprite = getPackageItemType('.CrossbowHand'),
+		sprite_drawn = getPackageItemType('.CrossbowHandDrawn'),
 	},
 	['CrossbowCompound'] = {
-		sprite = PACKAGE_NAME..'CrossbowCompound',
-		sprite_drawn = PACKAGE_NAME..'CrossbowCompoundDrawn',
+		sprite = getPackageItemType('CrossbowCompound'),
+		sprite_drawn = getPackageItemType('CrossbowCompoundDrawn'),
 	},
 }
