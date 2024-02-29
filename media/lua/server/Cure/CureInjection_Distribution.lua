@@ -1,7 +1,6 @@
 require "Items/SuburbsDistributions"
 require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
-require "RCCore"
 
 
 local ITEMS_WEIGHT = {
@@ -20,8 +19,8 @@ function CheckCureInjectionZombieDrops(zombie)
 	local outfit = tostring(zombie:getOutfitName());
 	if outfit == "HazardSuit" then
 		local inv = zombie:getInventory();
-		if getLootChance(ZombRand(1, 25)) >= ZombRand(1, 100) then
-			inv:AddItems(PACKAGE_NAME..".CureInjection", 1);
+		if predicateLootChance(getPlayer(), ZombRand(1, 25)) then
+			inv:AddItems(getPackageItemType(".CureInjection"), 1);
 		end
 	end
 end
