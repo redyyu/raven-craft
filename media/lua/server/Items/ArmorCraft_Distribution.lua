@@ -9,6 +9,7 @@ local ITEMS_WEIGHT = {
     [".KneePads"] = 1,
     [".ShoulderPads"] = 1,
     [".HandPads"] = 1,
+    [".NeckPads"] = 1,
 }
 
 local LITERATURES_WEIGHT = {

@@ -7,10 +7,19 @@
 local group = BodyLocations.getGroup("Human")
 
 
-group:getOrCreateLocation("ArmsArmor")
-group:getOrCreateLocation("LegsArmor")
-group:getOrCreateLocation("ShoulderArmor")
-group:getOrCreateLocation("HandsArmor")
+group:getOrCreateLocation("ArmorArms")
+group:getOrCreateLocation("ArmorLegs")
+group:getOrCreateLocation("ArmorShoulder")
+group:getOrCreateLocation("ArmorHands")
+group:getOrCreateLocation("ArmorNeck")
+
+group:getOrCreateLocation("ArmorFull")
+
+group:setExclusive("ArmorFull", "ArmorArms")
+group:setExclusive("ArmorFull", "ArmorLegs")
+group:setExclusive("ArmorFull", "ArmorShoulder")
+group:setExclusive("ArmorFull", "ArmorHands")
+group:setExclusive("ArmorFull", "ArmorNeck")
 
 group:getOrCreateLocation("TightMask")  -- for some mask wearing with FullHat, Masks or Glasses.
 

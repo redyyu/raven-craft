@@ -8,8 +8,8 @@ module Base
         Type = Literature,
         DisplayName = The Farming Magazine,
         Icon = MagazineFish,
-        TeachedRecipes  =   Make Mildew Cure;Make Flies Cure;Mill Flour;Mill Corn Flour;Mill Rice;Mill PeanutButter;Make Corn Sugar,
-        ReplaceOnUse    =   FarmingMag1,
+        TeachedRecipes = Make Mildew Cure;Make Flies Cure;Mill Flour;Mill Corn Flour;Mill Rice;Mill PeanutButter;Make Corn Sugar,
+        ReplaceOnUse = FarmingMag1,
         StaticModel = Magazine,
         WorldStaticModel = MagazineFarmGround,
 	}
