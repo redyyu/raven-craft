@@ -361,7 +361,8 @@ Kill your self by a loaded gun, prevent become a zombie.
 # For Develpers 
 
 
-## clothingItems
+## ClothingItem Tips
+
 `<m_MaleModel>`, `<m_FemaleModel>` path to 3D model file, X or fbx, X is too old, so use fbx.
 DO NOT just convert X to fbx, if skinned info will be lost, model will not working anymore.
 
@@ -374,16 +375,18 @@ dark texture also work, but most time tint to more darkness.
 
 `<m_AttachBone></m_AttachBone>`  attach bone info. I don't know how to use it yet.
 
-`<m_Masks>11</m_Masks>` the number id of the body part will be masked. that's my best guess. (0-15) any other numbers will crash the game.
+`<m_Masks>11</m_Masks>` the number id of the body part will be masked. (0-15) any other numbers will crash the game.
 
-`<m_MasksFolder></m_MasksFolder>` mask folder, I guess, didn't use it yet.
+`<m_MasksFolder></m_MasksFolder>` mask folder, but I dont know how effect the results yet.
 
-`<m_UnderlayMasksFolder>fancyshoes</m_UnderlayMasksFolder>` underlay mask folder, I used, just many different colors image to mask the mesh.
+`<m_UnderlayMasksFolder>fancyshoes</m_UnderlayMasksFolder>` underlay mask folder, for closthes with model.
 
 `<textureChoices>` the path to texture file, must be png, no need file ext. path startswith textures folder.
 
-`<m_BaseTextures>` didn't use that much, same as textureChoices, but it's different, I guess.
+`<m_BaseTextures>` it is for body base, which mean is for none model closthes, I guess.
 **<m_BaseTextures>clothes\gloves\leathergloves_brown</m_BaseTextures>**
+
+*Example here*
 
 ```
 <clothingItem>
@@ -404,6 +407,40 @@ dark texture also work, but most time tint to more darkness.
 	<textureChoices>clothes/Shoes/shoes_pink</textureChoices>
 </clothingItem>
 ```
+
+*KEEP IN MIND*
+
+`<m_Masks>` is taken orders. For example, if a `Shoes` item set `m_Makes` to 11, `Skirt` will be show strange buggey.
+because `Skirt` have a port in 11, and `Skirt` rendering before `Shoes`,
+`Shoes`'s Underlay Maskswill not only mask itself, but other underlays.
+
+
+very important is the if Ovrride Vanilla ClothingItems, IT MUST place intro `fileGuidTable.xml`.
+otherwise not fully work, might change texture or masks will change someting, but not really, the model still wrong.
+
+
+I guess this is sort of hacking, shoes not really cover the mask 11, 
+but use this to trigger underlaymask to work.
+to do this, MUST ovrride BodyLoaction.lua, put `Shoes` before `Jacket` or `Skirt` something.
+otherwise will brake the mash when waring Jacket with Skirt. 
+(see what happend by image somewhere in this project, proprobably in _assets folder)
+BUT, this is not good idea to ovrride this way.
+other mod might do samething, than cause conflict.
+WHY do this? because for the hightheels with foot instep showing up.
+MUST trigger the underlayMaks to work, might need use one of mask.
+CAN NOT use mask 8 and 10, that will masking both feet.
+But If no mask, the highheel wont showing up.
+only mask 11 will not mask any body part, but it will effect other clothes with model.
+etc. `Jacket` or `Skirt`... that why need put `Shoes` before others in BodyLocation.
+that's hacking way, might cause other problem don't know yet.
+
+```
+<m_Masks>11</m_Masks>
+<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancy_shoes</m_UnderlayMasksFolder>
+```
+
+
+`<m_UnderlayMasksFolder>` seems only work when `m_masks` setted.
 
 
 

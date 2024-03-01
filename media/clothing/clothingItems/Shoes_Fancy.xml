@@ -7,9 +7,24 @@
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
-
-	<m_MasksFolder>media/textures/Clothes/Shoes/Masks/fancyshoes</m_MasksFolder>
-	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancyshoes</m_UnderlayMasksFolder>
+	<!-- I guess this is sort of hacking, shoes not really cover the mask 11, 
+		 but use this to trigger underlaymask to work.
+		 to do this, MUST ovrride BodyLoaction.lua, put `Shoes` before `Jacket` or `Skirt` something.
+		 otherwise will brake the mash when waring Jacket with Skirt. 
+		 (see what happend by image somewhere in this project, proprobably in _assets folder)
+		 BUT, this is not good idea to ovrride this way.
+		 other mod might do samething, than cause conflict.
+		 WHY do this? because for the hightheels with foot instep showing up.
+		 MUST trigger the underlayMaks to work, might need use one of mask.
+		 CAN NOT use mask 8 and 10, that will masking both feet.
+		 But If no mask, the highheel wont showing up.
+		 only mask 11 will not mask any body part, but it will effect other clothes with model.
+		 etc. `Jacket` or `Skirt`... that why need put `Shoes` before others in BodyLocation.
+		 that's hacking way, might cause other problem don't know yet.
+		<m_Masks>11</m_Masks>
+	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancy_shoes</m_UnderlayMasksFolder> -->
+	<m_MasksFolder></m_MasksFolder>
+	<m_UnderlayMasksFolder></m_UnderlayMasksFolder>
 	<textureChoices>clothes/Shoes/shoes_white</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_black</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_brown</textureChoices>
