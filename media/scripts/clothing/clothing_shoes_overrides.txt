@@ -1,5 +1,10 @@
 module Base
 {
+	imports
+	{
+		Base,
+	}
+	
 	item Shoes_ArmyBoots {
 	    DisplayCategory = Clothing,
 		Type = Clothing,

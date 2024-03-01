@@ -4,7 +4,7 @@ module RavenCraft
 	model CartModel
 	{
 		mesh = trolley|cart,
-		texture = cart,
+		texture = TrolleyCart/cart,
 		scale = 1,
 		invertX = true,
 		attachment world

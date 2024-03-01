@@ -3,29 +3,6 @@ if not ISHotbarAttachDefinition then
     return
 end
 
-local AttachementExtends = {
-    SmallBeltLeft = {
-        BigBlade = "Belt Left Upside",
-        Canteen = "Canteen Belt Left",
-    },
-    SmallBeltRight = {
-        BigBlade = "Belt Right Upside",
-        Canteen = "Canteen Belt Right",
-    },
-}
-
-for _,t in pairs(ISHotbarAttachDefinition) do
-    if t.type and AttachementExtends[t.type] then
-        for k, v in pairs(AttachementExtends[t.type]) do
-            if t.attachments and not t.attachments[k] then
-                t.attachments[k] = v;
-            end
-        end
-    end
-end
-
-
-
 local Hikingbag = {
 	type = "Hikingbag",
 	name = "Backpack",

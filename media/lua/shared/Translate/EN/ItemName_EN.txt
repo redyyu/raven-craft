@@ -28,7 +28,8 @@ ItemName_EN = {
     ItemName_Base.Shoes_RedTrainers = "Red Sneakers",
     ItemName_Base.Shoes_Black = "Black Shoes",
     ItemName_Base.Shoes_Brown = "Brown Shoes",
-
+    ItemName_Base.Bag_SurvivorBag = "Survivor Bag",
+    ItemName_Base.Bag_Military = "Military Duffel Bag",
     -- 
     ItemName_SimpleTrolleyCart.CartContainer = "Trolley Cart",
 
