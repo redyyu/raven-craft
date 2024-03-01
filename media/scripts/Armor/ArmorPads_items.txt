@@ -20,7 +20,7 @@ module RavenCraft
         Type = Literature,
         DisplayName	= The Art of Defense,
         Icon = MagazineArmorPadsMakerMag,
-        TeachedRecipes = Craft Elbow Pads;Remake Elbow Pads;Craft Knee Pads;Remake Knee Pads;Craft Shoulder Pads;Craft Hand Pads;Remake Hand Pads;Craft Neck Pads;Remake Neck Pads,
+        TeachedRecipes = Craft Elbow Pads;Craft Knee Pads;Craft Shoulder Pads;Craft Hand Pads;Craft Neck Pads,
         ReplaceOnUse = ArmorPadsMakerMag,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,
