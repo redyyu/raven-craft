@@ -115,6 +115,7 @@ module RavenCraft
         ShoulderPads,
         
         OnTest: Recipe.OnTest.isNoHolesInClothes,
+        OnCreate: Recipe.OnCreate.AssembleArmorSuit,
 
         Result: SuitPads,
         SkillRequired: Tailoring=1,

@@ -76,30 +76,78 @@ function Recipe.OnCreate.CraftWeapon(items, result, player)
 end
 
 
-function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
-    local conditionRatio = 1;
+function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
+    local condition_ratio = 1;
+    local dirtyness = 0;
+    local bloodlevel = 0; 
     for i=0, items:size() - 1 do
         local item = items:get(i)
         if instanceof(item, "Clothing") then
             local cr = item:getCondition() / item:getConditionMax()
-            if conditionRatio < cr then
-                conditionRatio = cr
+            if condition_ratio < cr then
+                condition_ratio = cr
             end
+
+            local drt = item:getDirtyness()
+            if drt > dirtyness then
+                dirtyness = drt
+            end
+
+            local bld = item:getBloodLevel()
+            if bld > bloodlevel then
+                bloodlevel = bld
+            end
+
         end
     end
 
-    local knee_pads = player:getInventory():AddItem(getPackageItemType(".KneePads"))
-    local shoulder_pads = player:getInventory():AddItem(getPackageItemType(".ShoulderPads"))
-    local hand_pads = player:getInventory():AddItem(getPackageItemType(".HandPads"))
-    local neck_pads = player:getInventory():AddItem(getPackageItemType(".NeckPads"))
-    result:setCondition(math.floor(result:getConditionMax() * conditionRatio))
-    knee_pads:setCondition(math.floor(knee_pads:getConditionMax() * conditionRatio))
-    shoulder_pads:setCondition(math.floor(shoulder_pads:getConditionMax() * conditionRatio))
-    hand_pads:setCondition(math.floor(hand_pads:getConditionMax() * conditionRatio))
-    neck_pads:setCondition(math.floor(neck_pads:getConditionMax() * conditionRatio))
-    print('---------------FFUKCKKC------------------------')
-    -- result:remove()
-    -- player:getInventory():Remove(result)
+    result:setCondition(math.floor(result:getConditionMax() * condition_ratio))
+    result:setDirtyness(dirtyness)
+    result:setBloodLevel(bloodlevel)
+end
+
+
+function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
+    local condition_ratio = 1;
+    local dirtyness = 0;
+    local bloodlevel = 0; 
+    for i=0, items:size() - 1 do
+        local item = items:get(i)
+        if instanceof(item, "Clothing") then
+            local cr = item:getCondition() / item:getConditionMax()
+            if condition_ratio < cr then
+                condition_ratio = cr
+            end
+
+            local drt = item:getDirtyness()
+            if drt > dirtyness then
+                dirtyness = drt
+            end
+
+            local bld = item:getBloodLevel()
+            if bld > bloodlevel then
+                bloodlevel = bld
+            end
+
+        end
+    end
+    local itemtbl = {".ElbowPads", ".KneePads", ".ShoulderPads", ".HandPads", ".NeckPads"}
+    local result_item = nil
+
+    for _, n in ipairs(itemtbl) do
+        local item_type = getPackageItemType(n)
+        if item_type ~= result:getFullType() then
+            result_item = player:getInventory():AddItem(item_type)
+        else
+            result_item = result
+        end
+        if result_item then
+            result_item:setCondition(math.floor(result_item:getConditionMax() * condition_ratio))
+            result_item:setDirtyness(dirtyness)
+            result_item:setBloodLevel(bloodlevel)
+        end
+    end
+
 end
 
 
