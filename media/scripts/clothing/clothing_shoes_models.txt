@@ -27,11 +27,15 @@ module Base
 	}
 
 	model shoesfancy_Ground {
-		mesh = WorldItems/clothing/shoesfancy_ground,	
+		mesh = WorldItems/clothing/fancyshoes_ground,	
 	}
 
 	model shoesstrapped_Ground {
-		mesh = WorldItems/clothing/shoesstrapped_ground,	
+		mesh = WorldItems/clothing/strapped_ground,	
+	}
+
+	model shoes_Ground {
+		mesh = WorldItems/clothing/shoes_ground,	
 	}
 
 }
