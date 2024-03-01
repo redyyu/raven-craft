@@ -120,8 +120,7 @@ module RavenCraft
         SkillRequired: Tailoring=1,
         AnimNode: RipSheets,
         Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: Dismantle,
+        Sound: PZ_PutInBag,
         Time: 100.0,
         Category: Survivalist,
 
@@ -137,12 +136,11 @@ module RavenCraft
         OnTest: Recipe.OnTest.isNoHolesInClothes,
         OnCreate: Recipe.OnCreate.DisassembleArmorSuit,
 
-        Result: SuitPads,
+        Result: ElbowPads,
         SkillRequired: Tailoring=1,
         AnimNode: RipSheets,
         Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: Dismantle,
+        Sound: PZ_PutInBag,
         Time: 100.0,
         Category: Survivalist,
 

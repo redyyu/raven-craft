@@ -117,7 +117,7 @@ module RavenCraft
 		BodyLocation = ArmorFull,
 		BloodLocation = Neck;Hands;UpperArms;LowerArms;LowerLegs,
 		Icon = SuitPads,
-		Weight = 0.2,
+		Weight = 1.0,
 		ConditionLowerChanceOneIn = 15,
 		ConditionMax = 15,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */

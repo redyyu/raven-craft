@@ -88,18 +88,17 @@ function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
         end
     end
 
-    local elbow_pads = player:getInventory():AddItem(getPackageItemType(".ElbowPads"))
     local knee_pads = player:getInventory():AddItem(getPackageItemType(".KneePads"))
-    local Shoulder_pads = player:getInventory():AddItem(getPackageItemType(".ShoulderPads"))
+    local shoulder_pads = player:getInventory():AddItem(getPackageItemType(".ShoulderPads"))
     local hand_pads = player:getInventory():AddItem(getPackageItemType(".HandPads"))
     local neck_pads = player:getInventory():AddItem(getPackageItemType(".NeckPads"))
-    elbow_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
-    knee_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
-    shoulder_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
-    hand_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
-    neck_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
+    result:setCondition(math.floor(result:getConditionMax() * conditionRatio))
+    knee_pads:setCondition(math.floor(knee_pads:getConditionMax() * conditionRatio))
+    shoulder_pads:setCondition(math.floor(shoulder_pads:getConditionMax() * conditionRatio))
+    hand_pads:setCondition(math.floor(hand_pads:getConditionMax() * conditionRatio))
+    neck_pads:setCondition(math.floor(neck_pads:getConditionMax() * conditionRatio))
     print('---------------FFUKCKKC------------------------')
-    result:remove()
+    -- result:remove()
     -- player:getInventory():Remove(result)
 end
 
