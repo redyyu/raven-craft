@@ -132,7 +132,7 @@ module RavenCraft
 		ConditionMax = 15,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		ScratchDefense = 40,
-		BiteDefense = 35,
+		BiteDefense = 30,
 		BulletDefense = 25,
 		ChanceToSpawnDamaged = 25,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
