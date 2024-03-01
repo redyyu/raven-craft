@@ -31,6 +31,13 @@
         <guid>4db1489e-9406-44c1-b061-27f24360f716</guid>
     </files>
 
+	<!-- Suit Pads -->
+    <files>
+        <path>media/clothing/clothingItems/ArmorPads_Suit.xml</path>
+        <guid>eb12ee0f-fbb7-4412-af95-05487a4b10db</guid>
+    </files>
+
+	
     <!-- Boots (TINT)-->
     <files>
         <path>media/clothing/clothingItems/Shoes_BootsTINT.xml</path>

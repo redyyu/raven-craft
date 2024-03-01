@@ -32,4 +32,8 @@ Tooltip_NO_AMMO = "You need a loaded gun."
 Tooltip_CURE_INJECTION = "Have a chance to Fights zombification, take it before the symptoms start."
 
 
+
+-- Recipes
+
 Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE = "Required nearby Campfire or Stone Furnace."
+Tooltip_CRAFT_REQUIRED_CANT_BROKEN = "Can't use items which is have hole or broken."

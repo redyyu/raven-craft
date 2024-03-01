@@ -37,7 +37,7 @@ module RavenCraft
         NeedToBeLearn: true,
     }
 
-    recipe Disassemble Notebook {
+    recipe Dismantle Notebook {
         Notebook,
         keep Scissors/HuntingKnife/KitchenKnife/FlintKnife/Machete,
 

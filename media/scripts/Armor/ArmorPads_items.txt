@@ -26,6 +26,7 @@ module RavenCraft
         WorldStaticModel = MagazineGround,
     }
 
+
     item ElbowPads {
 		Type = Clothing,
 		DisplayName = Elbow Pads,
@@ -34,12 +35,12 @@ module RavenCraft
 		BloodLocation = LowerArms,
 		Icon = ElbowPads,
 		Weight = 0.3,
-		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
-		ConditionMax = 30,
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 10,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
-		ScratchDefense = 30,
-		BiteDefense = 15,
+		ScratchDefense = 35,
+		BiteDefense = 30,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -52,11 +53,11 @@ module RavenCraft
 		BloodLocation = LowerLegs,
 		Icon = KneePads,
 		Weight = 0.3,
-		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
-		ConditionMax = 30,
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 10,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 45,
-		BiteDefense = 30,
+		ScratchDefense = 40,
+		BiteDefense = 35,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -68,12 +69,12 @@ module RavenCraft
 		BloodLocation = UpperArms,
 		Icon = ShoulderPads,
 		Weight = 0.6,
-		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
-		ConditionMax = 30,
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 10,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		CombatSpeedModifier = 0.95,
-		ScratchDefense = 35,
-		BiteDefense = 20,
+		ScratchDefense = 50,
+		BiteDefense = 40,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -85,10 +86,10 @@ module RavenCraft
 		BloodLocation = Hands,
 		Icon = HandPads,
 		Weight = 0.2,
-		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
-		ConditionMax = 30,
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 10,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 55,
+		ScratchDefense = 45,
 		BiteDefense = 40,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
@@ -101,11 +102,27 @@ module RavenCraft
 		BloodLocation = Neck,
 		Icon = NeckPads,
 		Weight = 0.2,
-		ConditionLowerChanceOneIn = 20,  /* same with vanilla's military Boots */
-		ConditionMax = 30,
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 10,
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 35,
-		BiteDefense = 20,
+		ScratchDefense = 45,
+		BiteDefense = 30,
+		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
+	}
+
+	item SuitPads {
+		Type = Clothing,
+		DisplayName = Armor Pads Suit,
+		ClothingItem = ArmorPads_Suit,
+		BodyLocation = ArmorFull,
+		BloodLocation = Neck;Hands;UpperArms;LowerArms;LowerLegs,
+		Icon = SuitPads,
+		Weight = 0.2,
+		ConditionLowerChanceOneIn = 15,
+		ConditionMax = 15,
+		/* RemoveOnBroken = true, item will remove from the game if set it true. */
+		ScratchDefense = 40,
+		BiteDefense = 35,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 

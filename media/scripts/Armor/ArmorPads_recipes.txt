@@ -20,26 +20,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: ClothesRipping,
-        Time: 200.0,
-        NeedToBeLearn: true,
-        Category: Survivalist,
-    }
-
-    recipe Remake Elbow Pads {
-        keep Scissors,
-        keep Needle/SutureNeedle,
-        keep [Recipe.GetItemTypes.SharpKnife],
-        LeatherStrips=1,
-        KneePads,
-        Thread=2,
-
-        Result: ElbowPads,
-        SkillRequired: Tailoring=4,
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: ClothesRipping,
-        Time: 200.0,
+        Time: 600.0,
         NeedToBeLearn: true,
         Category: Survivalist,
     }
@@ -60,26 +41,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: ClothesRipping,
-        Time: 200.0,
-        NeedToBeLearn: true,
-        Category: Survivalist,
-    }
-
-    recipe Remake Knee Pads {
-        keep Scissors,
-        keep Needle/SutureNeedle,
-        keep [Recipe.GetItemTypes.SharpKnife],
-        LeatherStrips=4,
-        ElbowPads,
-        Thread=2,
-
-        Result: KneePads,
-        SkillRequired: Tailoring=4,
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: ClothesRipping,
-        Time: 200.0,
+        Time: 600.0,
         NeedToBeLearn: true,
         Category: Survivalist,
     }
@@ -100,7 +62,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: ClothesRipping,
-        Time: 300.0,
+        Time: 900.0,
         NeedToBeLearn: true,
         Category: Survivalist,
     }
@@ -120,37 +82,16 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: ClothesRipping,
-        Time: 200.0,
+        Time: 600.0,
         NeedToBeLearn: true,
         Category: Survivalist,
     }
-
-    recipe Remake Hand Pads {
-        keep Scissors,
-        keep Needle/SutureNeedle,
-        keep [Recipe.GetItemTypes.SharpKnife],
-        LeatherStrips=1,
-        KneePads/ElbowPads,
-        Thread=2,
-
-        Result: HandPads,
-        
-        SkillRequired: Tailoring=4,
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: ClothesRipping,
-        Time: 200.0,
-        NeedToBeLearn: true,
-        Category: Survivalist,
-    }
-
 
     recipe Craft Neck Pads {
         keep Scissors,
         keep Needle/SutureNeedle,
         keep [Recipe.GetItemTypes.SharpKnife],
-        LeatherStrips=6,
+        LeatherStrips=5,
         Aluminum=2,
         RubberBand=2,
         Thread=3,
@@ -161,30 +102,54 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         Sound: ClothesRipping,
-        Time: 200.0,
+        Time: 600.0,
         NeedToBeLearn: true,
         Category: Survivalist,
     }
 
-    recipe Remake Neck Pads {
-        keep Scissors,
-        keep Needle/SutureNeedle,
-        keep [Recipe.GetItemTypes.SharpKnife],
-        LeatherStrips=1,
-        KneePads/ElbowPads/HandPads,
-        Thread=2,
-
-        Result: NeckPads,
+    recipe Assembly Aromr Pads Suit {
+        NeckPads,
+        HandPads,
+        ElbowPads,
+        KneePads,
+        ShoulderPads,
         
-        SkillRequired: Tailoring=4,
+        OnTest: Recipe.OnTest.isNoHolesInClothes,
+
+        Result: SuitPads,
+        SkillRequired: Tailoring=1,
         AnimNode: RipSheets,
         Prop1: Source=1,
         Prop2: Source=2,
-        Sound: ClothesRipping,
-        Time: 200.0,
-        NeedToBeLearn: true,
+        Sound: Dismantle,
+        Time: 100.0,
         Category: Survivalist,
+
+        NoBrokenItems:true,
+        IsHidden: true,
+        
+        Tooltip: Tooltip_CRAFT_REQUIRED_CANT_BROKEN,
     }
 
+    recipe Disassemble Aromr Pads Suit {
+        SuitPads,
+
+        OnTest: Recipe.OnTest.isNoHolesInClothes,
+        OnCreate: Recipe.OnCreate.DisassembleArmorSuit,
+
+        Result: SuitPads,
+        SkillRequired: Tailoring=1,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Dismantle,
+        Time: 100.0,
+        Category: Survivalist,
+
+        NoBrokenItems:true,
+        IsHidden: true,
+        
+        Tooltip: Tooltip_CRAFT_REQUIRED_CANT_BROKEN,
+    }
 
 }

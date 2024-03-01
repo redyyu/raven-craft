@@ -25,6 +25,7 @@ those knowledge is become my treasure, Thank you very much.
 12. Move up / down or jump to ground, when climbing rope.
 13. Increase Red Mobile Tool Cabinet capacity. (only effect new discovered.)
 14. Combine better boots 3D model and textures.
+15. 5 x Armor Pads for different positions.
 
 
 ### Added new Carpentry Expands:
@@ -100,7 +101,7 @@ those knowledge is become my treasure, Thank you very much.
 **General**
 
 1. Self-made Matches `The Gospel Of Smoker`
-2. Disassemble Notebook
+2. Dismantle Notebook
 3. Binding Notebook
 4. Self-made Hairspray `The Spirit of Craftsman Vol.1`
 

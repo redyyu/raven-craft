@@ -76,6 +76,34 @@ function Recipe.OnCreate.CraftWeapon(items, result, player)
 end
 
 
+function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
+    local conditionRatio = 1;
+    for i=0, items:size() - 1 do
+        local item = items:get(i)
+        if instanceof(item, "Clothing") then
+            local cr = item:getCondition() / item:getConditionMax()
+            if conditionRatio < cr then
+                conditionRatio = cr
+            end
+        end
+    end
+
+    local elbow_pads = player:getInventory():AddItem(getPackageItemType(".ElbowPads"))
+    local knee_pads = player:getInventory():AddItem(getPackageItemType(".KneePads"))
+    local Shoulder_pads = player:getInventory():AddItem(getPackageItemType(".ShoulderPads"))
+    local hand_pads = player:getInventory():AddItem(getPackageItemType(".HandPads"))
+    local neck_pads = player:getInventory():AddItem(getPackageItemType(".NeckPads"))
+    elbow_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
+    knee_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
+    shoulder_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
+    hand_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
+    neck_pads:setCondition(math.floor(elbow_pads:getCondition() * conditionRatio))
+    print('---------------FFUKCKKC------------------------')
+    result:remove()
+    -- player:getInventory():Remove(result)
+end
+
+
 -- set the age of the food to the can, you need to cook it to have a 2-3 months preservation
 function Recipe.OnCreate.CannedFood(items, result, player)
     -- OVERRIDE the vanilla CannedFood code. because it is Bugging.
@@ -115,7 +143,7 @@ end
 
 function Recipe.OnTest.IsNotRottenFood(item)
     if instanceof(item, "Food") then
-        return item:getAge() < item:getOffAgeMax();
+        return item:getAge() < item:getOffAgeMax()
     end
     return true
 end
@@ -123,42 +151,50 @@ end
 
 function Recipe.OnTest.IsFullWaterBottle(item)
     if item:getType() == "WaterBottleFull" then
-        return item:getUsedDelta() >= 1;
+        return item:getUsedDelta() >= 1
+    end
+    return true
+end
+
+
+function Recipe.OnTest.isNoHolesInClothes(item)
+    if instanceof(item, "Clothing") then
+        return item:getHolesNumber() <= 0
     end
     return true
 end
 
 
 function Recipe.OnCreate.PickleFoodMeat(items, result, player)
-    local total_calories = 0;
-    local total_carbohydrates = 0;
-    local total_lipids = 0;
-    local total_proteins = 0;
-    local total_weight = 0;
-    local total_actual_weight = 0;
-    local total_hunger = 0;
-    local total_boredom = 0;
-    local total_unhappy = 0;
-    local total_thirst = 0;
-    local poison_power = 0;
+    local total_calories = 0
+    local total_carbohydrates = 0
+    local total_lipids = 0
+    local total_proteins = 0
+    local total_weight = 0
+    local total_actual_weight = 0
+    local total_hunger = 0
+    local total_boredom = 0
+    local total_unhappy = 0
+    local total_thirst = 0
+    local poison_power = 0
 
     for i=0,items:size() - 1 do
         local tmp = items:get(i);
         if instanceof(tmp, "Food") then
-            total_calories = total_calories + tmp:getCalories() * 0.75;
-            total_lipids = total_lipids + tmp:getLipids() * 0.5;
-            total_proteins = total_proteins + tmp:getProteins() * 0.75;
-            total_carbohydrates = total_carbohydrates + tmp:getCarbohydrates() * 0.75;
+            total_calories = total_calories + tmp:getCalories() * 0.75
+            total_lipids = total_lipids + tmp:getLipids() * 0.5
+            total_proteins = total_proteins + tmp:getProteins() * 0.75
+            total_carbohydrates = total_carbohydrates + tmp:getCarbohydrates() * 0.75
             -- total_weight = total_weight + tmp:getActualWeight();
-            total_hunger = total_hunger + tmp:getHungerChange() * 0.5;
-            -- total_thirst = total_thirst + tmp:getThirstChangeUnmodified();
-            total_boredom = total_boredom + tmp:getBoredomChangeUnmodified();
-            total_unhappy = total_unhappy + tmp:getUnhappyChangeUnmodified();
+            total_hunger = total_hunger + tmp:getHungerChange() * 0.5
+            -- total_thirst = total_thirst + tmp:getThirstChangeUnmodified()
+            total_boredom = total_boredom + tmp:getBoredomChangeUnmodified()
+            total_unhappy = total_unhappy + tmp:getUnhappyChangeUnmodified()
 
             if tmp:getPoisonPower() > poison_power then
-                poison_power = poison_power + tmp:getPoisonPower();
+                poison_power = poison_power + tmp:getPoisonPower()
             elseif tmp:isRotten() then
-                poison_power = poison_power + round(tmp:getHungerChange()/2*-100);
+                poison_power = poison_power + round(tmp:getHungerChange()/2*-100)
             end
         end
     end
