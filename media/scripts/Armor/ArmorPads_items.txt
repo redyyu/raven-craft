@@ -41,6 +41,8 @@ module RavenCraft
 		CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
 		ScratchDefense = 35,
 		BiteDefense = 30,
+		BulletDefense = 25,
+		ChanceToSpawnDamaged = 25,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -58,6 +60,8 @@ module RavenCraft
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		ScratchDefense = 40,
 		BiteDefense = 35,
+		BulletDefense = 25,
+		ChanceToSpawnDamaged = 25,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -75,6 +79,8 @@ module RavenCraft
 		CombatSpeedModifier = 0.95,
 		ScratchDefense = 50,
 		BiteDefense = 40,
+		BulletDefense = 25,
+		ChanceToSpawnDamaged = 25,
 		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -91,6 +97,8 @@ module RavenCraft
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		ScratchDefense = 45,
 		BiteDefense = 40,
+		BulletDefense = 25,
+		ChanceToSpawnDamaged = 25,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -107,6 +115,8 @@ module RavenCraft
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		ScratchDefense = 45,
 		BiteDefense = 30,
+		BulletDefense = 25,
+		ChanceToSpawnDamaged = 25,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 
@@ -123,6 +133,8 @@ module RavenCraft
 		/* RemoveOnBroken = true, item will remove from the game if set it true. */
 		ScratchDefense = 40,
 		BiteDefense = 35,
+		BulletDefense = 25,
+		ChanceToSpawnDamaged = 25,
 		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
 	}
 

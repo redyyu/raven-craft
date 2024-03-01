@@ -79,12 +79,20 @@ end
 function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
     local condition_ratio = 1;
     local dirtyness = 0;
-    local bloodlevel = 0; 
+    local bloodlevel = 0;
+    local wetness = 0
+    
+    local suitPartMap = {}
+    local coveredParts = result:getCoveredParts()
+    for i=0, coveredParts:size() - 1 do
+        suitPartMap[coveredParts:get(i)] = true
+    end
+    
     for i=0, items:size() - 1 do
         local item = items:get(i)
-        if instanceof(item, "Clothing") then
+        if item:IsClothing() then
             local cr = item:getCondition() / item:getConditionMax()
-            if condition_ratio < cr then
+            if condition_ratio > cr then
                 condition_ratio = cr
             end
 
@@ -98,24 +106,39 @@ function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
                 bloodlevel = bld
             end
 
+            local wet = item:getWetness()
+            if wet > wetness then
+                wetness = wet
+            end
+
+            local item_parts = item:getCoveredParts()
+            for i=0, item_parts:size() - 1 do
+                local p = item_parts:get(i)
+                if suitPartMap[p] and item:getVisual():getHole(p) > 0 then
+                    result:getVisual():setHole(p)
+                end
+            end
         end
     end
-
+    
     result:setCondition(math.floor(result:getConditionMax() * condition_ratio))
     result:setDirtyness(dirtyness)
+    result:setWetness(wetness)
     result:setBloodLevel(bloodlevel)
 end
 
 
 function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
-    local condition_ratio = 1;
-    local dirtyness = 0;
-    local bloodlevel = 0; 
+    local condition_ratio = 1
+    local dirtyness = 0
+    local bloodlevel = 0
+    local wetness = 0
+    local suit_clothing = nil
     for i=0, items:size() - 1 do
         local item = items:get(i)
-        if instanceof(item, "Clothing") then
+        if item:IsClothing() then
             local cr = item:getCondition() / item:getConditionMax()
-            if condition_ratio < cr then
+            if condition_ratio > cr then
                 condition_ratio = cr
             end
 
@@ -129,8 +152,25 @@ function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
                 bloodlevel = bld
             end
 
+            local wet = item:getWetness()
+            if wet > wetness then
+                wetness = wet
+            end
+            if item:getFullType() == getPackageItemType(".SuitPads") then
+                suit_clothing = item
+            end
         end
     end
+
+    local holesMap = {}
+    if suit_clothing then
+        local coveredParts = suit_clothing:getCoveredParts()
+        for i=0, coveredParts:size() - 1 do
+            local part = coveredParts:get(i)
+            holesMap[part] = suit_clothing:getVisual():getHole(part)
+        end
+    end
+
     local itemtbl = {".ElbowPads", ".KneePads", ".ShoulderPads", ".HandPads", ".NeckPads"}
     local result_item = nil
 
@@ -144,7 +184,15 @@ function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
         if result_item then
             result_item:setCondition(math.floor(result_item:getConditionMax() * condition_ratio))
             result_item:setDirtyness(dirtyness)
+            result_item:setWetness(wetness)
             result_item:setBloodLevel(bloodlevel)
+            local parts = result_item:getCoveredParts()
+            for i=0, parts:size() - 1 do
+                local p = parts:get(i)
+                if holesMap[p] > 0 then
+                    result_item:getVisual():setHole(p)
+                end
+            end
         end
     end
 
