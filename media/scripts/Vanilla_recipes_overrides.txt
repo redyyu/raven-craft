@@ -1,6 +1,11 @@
 module Base
 {
 
+   imports
+	{
+		Base,
+	}
+   
 /* Override Open Foods */
     
 	recipe Open Dog Food {

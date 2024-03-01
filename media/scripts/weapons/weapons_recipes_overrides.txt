@@ -1,6 +1,11 @@
 module Base
 {
 
+    imports
+	{
+		Base,
+	}
+    
 /** Override Open Ammo Box **/
 
     recipe Open Box of 9mm Bullets {

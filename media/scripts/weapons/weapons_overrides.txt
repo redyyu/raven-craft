@@ -1,5 +1,9 @@
 module Base
 {
+    imports
+	{
+		Base,
+	}
 
 /** Override Tool/Weapon **/
 

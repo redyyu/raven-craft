@@ -4,6 +4,9 @@ IGUI_EN = {
     IGUI_FIRE_STARTED = "Fire Started"
     IGUI_HEAT = "Heat"
     IGUI_FURNACE_BELLOWS = "Use a Bellows to increase heat."
+    IGUI_Hair_HatLong = "Hat Long"
+    IGUI_Hair_HatLongCurly = "Hat Long Curly"
+    IGUI_Hair_HatLongBraided = "Hat Long Braided"
 
     IGUI_PLAYER_TEXT_CANT_REACH_VEHICLE = "Can't reach the vehicle"
     IGUI_PLAYER_TEXT_TREADMILL_NEED_ELC = "The treadmill needs electricity to run"

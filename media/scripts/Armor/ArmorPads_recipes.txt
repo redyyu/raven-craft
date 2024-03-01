@@ -145,4 +145,46 @@ module RavenCraft
         Category: Survivalist,
     }
 
+
+    recipe Craft Neck Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=6,
+        Aluminum=2,
+        RubberBand=2,
+        Thread=3,
+
+        Result: NeckPads,
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        NeedToBeLearn: true,
+        Category: Survivalist,
+    }
+
+    recipe Remake Neck Pads {
+        keep Scissors,
+        keep Needle/SutureNeedle,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        LeatherStrips=1,
+        KneePads/ElbowPads/HandPads,
+        Thread=2,
+
+        Result: NeckPads,
+        
+        SkillRequired: Tailoring=4,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 200.0,
+        NeedToBeLearn: true,
+        Category: Survivalist,
+    }
+
+
 }

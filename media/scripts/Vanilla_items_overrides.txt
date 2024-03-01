@@ -1,6 +1,11 @@
 module Base
 {
 
+    imports
+	{
+		Base,
+	}
+    
 /* Override Literature */
 	item FarmingMag1 {
         DisplayCategory = SkillBook,
