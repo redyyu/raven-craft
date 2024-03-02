@@ -7,6 +7,6 @@
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
-	<textureChoices>alicepack_camo</textureChoices>
-	<textureChoices>alicepack_camo_dark</textureChoices>
+	<textureChoices>clothes/Bags/alicepack_camo</textureChoices>
+	<textureChoices>clothes/Bags/alicepack_camo_dark</textureChoices>
 </clothingItem>

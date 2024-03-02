@@ -38,7 +38,7 @@ module Base
 		}
     }
 	
-	model Canteen_World {
+	model Canteen_Ground {
         mesh = Static/Gear/canteen_ground,
         texture = Gear/canteen,
 		attachment world
@@ -47,6 +47,11 @@ module Base
 			rotate = 180.0000 0.0000 0.0000,
 		}
     }
+
+	model Webbing_Ground {
+		mesh = Static/Gear/webbing_ground,
+		scale = 1.0,
+	}
 
 
 }

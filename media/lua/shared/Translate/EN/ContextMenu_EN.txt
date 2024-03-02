@@ -40,4 +40,7 @@ ContextMenu_EN = {
 	ContextMenu_DROP_CART = "Drop Cart",
 	ContextMenu_GRAB_CONTAINER = "Grab Cart"
 
+  ContextMenu_WearTight = "Wear Tight",
+  ContextMenu_WearLoose = "Wear Loose",
+
 }

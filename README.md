@@ -26,6 +26,8 @@ those knowledge is become my treasure, Thank you very much.
 13. Increase Red Mobile Tool Cabinet capacity. (only effect new discovered.)
 14. Combine better boots 3D model and textures.
 15. 5 x Armor Pads for different positions.
+16. Backpacks and HikingBags have attachments by default. (no need Tailoring it any more.)
+17. Add Canteen, Flashlight and ChestRig. (No nead G.E.A.R)
 
 
 ### Added new Carpentry Expands:

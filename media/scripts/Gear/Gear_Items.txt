@@ -1,7 +1,7 @@
 module Base
 {
     imports {
-	    Base,
+     Base,
     }
 
 
@@ -43,7 +43,7 @@ module Base
         AttachmentType = Canteen,
 
         StaticModel = Canteen,
-        WorldStaticModel = Canteen_World,
+        WorldStaticModel = Canteen_Ground,
     }
 
     item Canteenfull {
@@ -64,11 +64,125 @@ module Base
         AttachmentType = Canteen,
 
         StaticModel = Canteen,
-        WorldStaticModel = Canteen_World,
+        WorldStaticModel = Canteen_Ground,
 
         CustomEatSound = DrinkingFromBottlePlastic,
         EatType = popcan,
     }
 
+
+    item ChestRig {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Chest Holster,
+        Icon = ChestRig_Tan,
+        BodyLocation = TorsoRig,
+        ClothingItem = ChestRig,
+        AttachmentsProvided = ChestRig,
+        WorldStaticModel = Webbing_Ground,
+    }
+
+    item ChestRig_Black {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Chest Holster Anti-Riot,
+        Icon = ChestRig_Gray,
+        BodyLocation = TorsoRig,
+        ClothingItem = ChestRig_Black,
+        AttachmentsProvided = ChestRig,
+        WorldStaticModel = Webbing_Ground,
+    }
+
+    item ChestRig_Military {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Chest Holster Military,
+        Icon = ChestRig_Green,
+        BodyLocation = TorsoRig,
+        ClothingItem = ChestRig_Military,
+        AttachmentsProvided = ChestRig,
+        WorldStaticModel = Webbing_Ground,
+    }
+
+    item Webbing {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Webbing,
+        Icon = Webbing_Tan,
+        BodyLocation = TorsoRig,
+        ClothingItem = Webbing,
+        AttachmentsProvided = ChestRig;ChestRigRight,
+        ClothingItemExtra = WebbingLoose,
+        ClothingItemExtraOption = WearLoose,
+        ClothingExtraSubmenu = WearTight,
+        WorldStaticModel = Webbing_Ground,
+    }
+    item WebbingLoose {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Webbing (Loose),
+        Icon = Webbing_Tan,
+        BodyLocation = TorsoRig,
+        ClothingItem = WebbingLoose,
+        AttachmentsProvided = ChestRig;ChestRigRight,
+        ClothingItemExtra = Webbing,
+        ClothingItemExtraOption = WearTight,
+        ClothingExtraSubmenu = WearLoose,
+        WorldStaticModel = Webbing_Ground,
+    }
+
+    item Webbing_Black {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Webbing Anti-Riot,
+        Icon = Webbing_Gray,
+        BodyLocation = TorsoRig,
+        ClothingItem = Webbing_Black,
+        AttachmentsProvided = ChestRig;ChestRigRight,
+        ClothingItemExtra = Webbing_BlackLoose,
+        ClothingItemExtraOption = WearLoose,
+        clothingExtraSubmenu = WearTight,
+        WorldStaticModel = Webbing_Ground,
+    }
+    item Webbing_BlackLoose {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Webbing Anti-Riot (Loose),
+        Icon = Webbing_Gray,
+        BodyLocation = TorsoRig,
+        ClothingItem = Webbing_BlackLoose,
+        AttachmentsProvided = ChestRig;ChestRigRight,
+        ClothingItemExtra = Webbing_Black,
+        ClothingItemExtraOption = WearTight,
+        clothingExtraSubmenu = WearLoose,
+        WorldStaticModel = Webbing_Ground,
+    }
+
+    item Webbing_Military {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Webbing Military,
+        Icon = Webbing_Green,
+        BodyLocation = TorsoRig,
+        ClothingItem = Webbing_Military,
+        AttachmentsProvided = ChestRig;ChestRigRight,
+        ClothingItemExtra = Webbing_MilitaryLoose,
+        ClothingItemExtraOption = WearLoose,
+        ClothingExtraSubmenu = WearTight,
+        WorldStaticModel = Webbing_Ground,
+    }
+    item Webbing_MilitaryLoose {
+        Weight = 0.5,
+        Type = Clothing,
+        DisplayName = Webbing Military (Loose),
+        Icon = Webbing_Green,
+        BodyLocation = TorsoRig,
+        ClothingItem = Webbing_MilitaryLoose,
+        AttachmentsProvided = ChestRig;ChestRigRight,
+        ClothingItemExtra = WebbingMilitary,
+        ClothingItemExtraOption = WearTight,
+        ClothingExtraSubmenu = WearLoose,
+        WorldStaticModel = Webbing_Ground,
+    }
 
 }
