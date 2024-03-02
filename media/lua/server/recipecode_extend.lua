@@ -20,10 +20,10 @@ function Recipe.OnCanPerform.NearFurnaceFire(recipe, playerObj)
     local curr_square = playerObj:getCurrentSquare()
     local object_tables = {}
  
-	for x=curr_square:getX()-max_distance, curr_square:getX()+max_distance do
-		for y=curr_square:getY()-max_distance, curr_square:getY()+max_distance do
-			local gs = getCell():getGridSquare(x, y, curr_square:getZ());
-			if gs then
+    for x=curr_square:getX()-max_distance, curr_square:getX()+max_distance do
+        for y=curr_square:getY()-max_distance, curr_square:getY()+max_distance do
+            local gs = getCell():getGridSquare(x, y, curr_square:getZ());
+            if gs then
                 local gs_objects = gs:getObjects()
                 for j=0, gs_objects:size()-1 do
                     local obj = gs_objects:get(j)
@@ -32,9 +32,9 @@ function Recipe.OnCanPerform.NearFurnaceFire(recipe, playerObj)
                         table.insert(object_tables, obj)
                     end
                 end
-			end
-		end
-	end
+            end
+        end
+    end
 
     for i=1, #object_tables do
         local o = object_tables[i]
@@ -475,59 +475,56 @@ end
 -- require "TimedActions/ISAttachItemHotbar"
 
 
-function Recipe.OnCreate.RestoreBagItemsOnly(item, resultItem)
+function Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem)
 
-	local transferred_Items = {}; 
-	local dItem;
-	
-	for i = 0, (item:size()-1) do 
-		dItem = item:get(i); 
-		if instanceof(dItem, "InventoryContainer") then 
-			dInv = dItem:getInventory(); 
-			newInv = resultItem:getInventory(); 
-			dInvItems = dInv:getItems(); 
-			if dInvItems:size() >= 1 then 
-				for i2 = 0, (dInvItems:size()-1) do
-					invItem = dInvItems:get(i2);
-					table.insert(transferred_Items, invItem) 
-				end
-			end
-		end
-	end
-	
-	for _, v in ipairs(transferred_Items) do
-		dInv:Remove(v); 
-		newInv:AddItem(v); 
-	end
+    local newbag_inventory = resultItem:getInventory()
+
+    for i = 0, (items:size()-1) do 
+        local item = items:get(i); 
+        if instanceof(item, "InventoryContainer") then 
+            local bag_inventory = item:getInventory()
+            local bag_items = bag_inventory:getItems()
+            for j = 0, (bag_items:size()-1) do
+                bag_inventory:Remove(v)
+                newbag_inventory:AddItem(v)
+            end
+        end
+    end
+
 end
 
 
-function Recipe.OnCreate.RestoreBagItemsWithTexture(item, resultItem, player)
-	
-	local texture;
+function Recipe.OnCreate.RestoreBagItemsWithTexture(items, resultItem, player)
+    
+    local texture;
 
-	Recipe.OnCreate.RestoreBagItemsOnly(item, resultItem, player);
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
 
-	for i = 0, (item:size()-1) do 
-		dItem = item:get(i); 
-		if instanceof(dItem, "InventoryContainer") then 
-			texture = dItem:getTexture();
-		end
-	end
-
-	resultItem:setTexture(texture);
+    for i = 0, (items:size()-1) do 
+        local item = items:get(i)
+        if instanceof(item, "InventoryContainer") then 
+            texture = item:getTexture()
+            break
+        end
+    end
+    if texture then
+        resultItem:setTexture(texture);
+    end
 end
 
 
-function Recipe.OnCreate.printArmyPackToBlack(item, resultItem, player)
-	
-	local texture;
+function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
 
-	Recipe.OnCreate.RestoreBagItemsOnly(item, resultItem, player);
-
-	resultItem:getVisual():setTextureChoice(1);
+    resultItem:getVisual():setTextureChoice(1);
 end
 
+function Recipe.OnTest.IsNotBlackArmyPack(item)
+    if instanceof(item, "InventoryContainer") and item:getType() == 'Bag_ALICEpack_Army' then
+        return item:getVisual():getTextureChoice() ~= 1 
+    end
+    return true
+end
 
 
 function Recipe.OnTest.IsEmptyBag(item)
@@ -538,7 +535,7 @@ function Recipe.OnTest.IsEmptyBag(item)
 end
 
 
-function Recipe.OnTest.IsEquippedBag(item)
+function Recipe.OnTest.IsNotEquippedBag(item)
     if instanceof(item, "InventoryContainer") then
         return not item:isEquipped();
     end

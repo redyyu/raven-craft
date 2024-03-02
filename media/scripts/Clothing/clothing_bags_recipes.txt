@@ -10,7 +10,8 @@ module Base
         Bag_ALICEpack_Army,
         PaintBlack,
         
-        
+        OnTest: Recipe.OnTest.IsNotBlackArmyPack,
+        OnCreate: Recipe.OnCreate.printArmyPackToBlack,
 
         Result: Bag_ALICEpack_Army,
         SkillRequired: Tailoring=2,
