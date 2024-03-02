@@ -3,7 +3,7 @@ module RavenCraft
 	
 	model CartModel
 	{
-		mesh = TrollyCart/trolley|cart,
+		mesh = TrolleyCart/trolley|cart,
 		texture = TrolleyCart/cart,
 		scale = 1,
 		invertX = true,
