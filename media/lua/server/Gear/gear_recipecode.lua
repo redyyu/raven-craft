@@ -37,3 +37,24 @@ function Recipe.OnCreate.FlashlightBatteryInsert(items, result, player)
 	  end
 	end
   end
+
+
+-- print chestrig and webbing to different color texture.
+function Recipe.OnCreate.printChestRigToBrown(items, resultItem, player)
+	if resultItem:getType() == 'ChestRig' or resultItem:getType() == 'Webbing' then
+    	resultItem:getVisual():setTextureChoice(0);
+	end
+end
+
+function Recipe.OnCreate.printChestRigToBlack(items, resultItem, player)
+	if resultItem:getType() == 'ChestRig' or resultItem:getType() == 'Webbing' then
+    	resultItem:getVisual():setTextureChoice(1);
+	end
+end
+
+function Recipe.OnCreate.printChestRigToArmy(items, resultItem, player)
+	if resultItem:getType() == 'ChestRig' or resultItem:getType() == 'Webbing' then
+    	resultItem:getVisual():setTextureChoice(2);
+	end
+end
+

@@ -48,7 +48,7 @@ function BenchPressMenu.onUseBench(worldobjects, player, benchMachine, benchExer
 	end
 	
 	-- take off and drop worn container items / bages
-	for i=0,player:getWornItems():size()-1 do
+	for i=0, player:getWornItems():size()-1 do
 		local item = player:getWornItems():get(i):getItem();
 		if item and instanceof(item, "InventoryContainer") then
 			ISTimedActionQueue.add(ISUnequipAction:new(player, item, 50));

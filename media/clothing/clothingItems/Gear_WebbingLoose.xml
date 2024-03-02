@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <clothingItem>
-	<m_MaleModel>media\models_X\Static\Gear\webbingLooseM</m_MaleModel>
-	<m_FemaleModel>media\models_X\Static\Gear\webbingLooseF</m_FemaleModel>
+	<m_MaleModel>media\models_X\Static\Gear\webbing_loose_male.fbx</m_MaleModel>
+	<m_FemaleModel>media\models_X\Static\Gear\webbing_loose_female.fbx</m_FemaleModel>
 	<m_GUID>67c44229-682a-4b58-99cb-1db47489e726</m_GUID>
 	<m_Static>false</m_Static>
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
-	<textureChoices>Gear/Webbing_Tan</textureChoices>
+	<textureChoices>Gear/webbing</textureChoices>
+	<textureChoices>Gear/webbing_dark</textureChoices>
+	<textureChoices>Gear/webbing_army</textureChoices>
 </clothingItem>

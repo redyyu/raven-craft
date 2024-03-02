@@ -477,19 +477,29 @@ end
 
 function Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem)
 
-    local newbag_inventory = resultItem:getInventory()
+    local result_inventory = resultItem:getInventory()
+    local transform_stack = {}
 
     for i = 0, (items:size()-1) do 
         local item = items:get(i); 
-        if instanceof(item, "InventoryContainer") then 
+        if instanceof(item, "InventoryContainer") then
             local bag_inventory = item:getInventory()
             local bag_items = bag_inventory:getItems()
-            for j = 0, (bag_items:size()-1) do
-                bag_inventory:Remove(v)
-                newbag_inventory:AddItem(v)
+            if bag_items then
+                for j = 0, (bag_items:size()-1) do
+                    print(j)
+                    local itm = bag_items:get(j)
+                    if itm then
+                        table.insert(transform_stack, itm)
+                    end 
+                end
             end
         end
     end
+
+    for _, v in ipairs(transform_stack) do
+		result_inventory:AddItem(v)
+	end
 
 end
 
@@ -519,11 +529,10 @@ function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
     resultItem:getVisual():setTextureChoice(1);
 end
 
-function Recipe.OnTest.IsNotBlackArmyPack(item)
-    if instanceof(item, "InventoryContainer") and item:getType() == 'Bag_ALICEpack_Army' then
-        return item:getVisual():getTextureChoice() ~= 1 
-    end
-    return true
+function Recipe.OnCreate.printArmyPackToArmy(items, resultItem, player)
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
+
+    resultItem:getVisual():setTextureChoice(0);
 end
 
 
@@ -535,9 +544,6 @@ function Recipe.OnTest.IsEmptyBag(item)
 end
 
 
-function Recipe.OnTest.IsNotEquippedBag(item)
-    if instanceof(item, "InventoryContainer") then
-        return not item:isEquipped();
-    end
-    return true
+function Recipe.OnTest.IsNotEquipped(item)
+    return not item:isEquipped()
 end

@@ -10,7 +10,7 @@ module Base
         Bag_ALICEpack_Army,
         PaintBlack,
         
-        OnTest: Recipe.OnTest.IsNotBlackArmyPack,
+        OnTest: Recipe.OnTest.IsNotEquipped,
         OnCreate: Recipe.OnCreate.printArmyPackToBlack,
 
         Result: Bag_ALICEpack_Army,
@@ -23,5 +23,30 @@ module Base
         Sound: Painting,
         Time: 250.0,
         Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
+    }
+
+    recipe Paint Military Backpack Army {
+        keep Paintbrush,
+        Bag_ALICEpack_Army,
+        PaintGreen,
+        PaintBrown,
+        
+        OnTest: Recipe.OnTest.IsNotEquipped,
+        OnCreate: Recipe.OnCreate.printArmyPackToArmy,
+
+        Result: Bag_ALICEpack_Army,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
 }

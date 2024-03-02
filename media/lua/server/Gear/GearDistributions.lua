@@ -5,26 +5,26 @@ require "Vehicles/VehicleDistributions"
 
 local ITEMS_WEIGHT = {
     ["Webbing"] = 1,
-    ["ChestRig"]= 2,
+    ["ChestRig"]= 1,
 	["Flashlight_Military"] = 1,
 	["Canteen"] = 1,
 	["Canteenfull"] = 0.25,
 }
 
 local POLICE_ITEMS_WEIGHT = {
-    ["Webbing_Black"] = 1,
-    ["ChestRig_Black"]= 2,
-	["Flashlight_Military"] = 2,
-	["Canteen"] = 2,
+    ["Webbing"] = 1.5,
+    ["ChestRig"]= 1.5,
+	["Flashlight_Military"] = 1.5,
+	["Canteen"] = 1.5,
 	["Canteenfull"] = 0.5,
 }
 
 local ARMY_ITEMS_WEIGHT = {
-    ["Webbing_Military"] = 1,
-    ["ChestRig_Military"] = 2,
+    ["Webbing"] = 2,
+    ["ChestRig"] = 2,
 	["Flashlight_Military"] = 2,
 	["Canteen"] = 2,
-	["Canteenfull"] = 0.5,
+	["Canteenfull"] = 0.75,
 }
 
 

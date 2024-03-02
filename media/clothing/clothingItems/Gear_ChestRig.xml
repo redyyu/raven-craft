@@ -7,5 +7,7 @@
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone>Bip01_Spine1</m_AttachBone>
-	<textureChoices>Gear/Webbing_Tan</textureChoices>
+	<textureChoices>Gear/webbing</textureChoices>
+	<textureChoices>Gear/webbing_dark</textureChoices>
+	<textureChoices>Gear/webbing_army</textureChoices>
 </clothingItem>

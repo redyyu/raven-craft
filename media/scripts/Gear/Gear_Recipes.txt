@@ -25,14 +25,17 @@ module Base
         Prop2: Flashlight_Military,
     }
 
-    recipe Paint ChestRig Black {
+    recipe Paint ChestRig Brown {
         keep Paintbrush,
         ChestRig,
-        PaintBlack,
+        PaintBrown,
         
-        Result: ChestRig_Black,
+        Result: ChestRig,
         SkillRequired: Tailoring=2,
         CanBeDoneFromFloor: true,
+
+        OnTest: Recipe.OnTest.IsNotEquipped,
+        OnCreate: Recipe.OnCreate.printChestRigToBrown,
 
         AnimNode: RipSheets,
         Prop1: Source=1,
@@ -42,14 +45,17 @@ module Base
         Category: Survivalist,
     }
 
-    recipe Paint Webbing Black {
+    recipe Paint Webbing Brown {
         keep Paintbrush,
         Webbing,
-        PaintBlack,
+        PaintBrown,
         
-        Result: Webbing_Black,
+        Result: Webbing,
         SkillRequired: Tailoring=2,
         CanBeDoneFromFloor: true,
+
+        OnTest: Recipe.OnTest.IsNotEquipped,
+        OnCreate: Recipe.OnCreate.printChestRigToBrown,
 
         AnimNode: RipSheets,
         Prop1: Source=1,
@@ -57,6 +63,98 @@ module Base
         Sound: Painting,
         Time: 250.0,
         Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
+    }
+
+    recipe Paint ChestRig Black {
+        keep Paintbrush,
+        ChestRig,
+        PaintBlack,
+        
+        Result: ChestRig,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        OnTest: Recipe.OnTest.IsNotEquipped,
+        OnCreate: Recipe.OnCreate.printChestRigToBlack,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
+    }
+
+    recipe Paint Webbing Black {
+        keep Paintbrush,
+        Webbing,
+        PaintBlack,
+        
+        Result: Webbing,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        OnTest: Recipe.OnTest.IsNotEquipped,
+        OnCreate: Recipe.OnCreate.printChestRigToBlack,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
+    }
+
+    recipe Paint ChestRig Army {
+        keep Paintbrush,
+        ChestRig,
+        PaintGreen,
+        PaintBrown,
+        
+        Result: ChestRig,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        OnTest: Recipe.OnTest.IsNotEquipped,
+        OnCreate: Recipe.OnCreate.printChestRigToArmy,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
+    }
+
+    recipe Paint Webbing Army {
+        keep Paintbrush,
+        Webbing,
+        PaintGreen,
+        PaintBrown,
+        
+        Result: Webbing,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        OnTest: Recipe.OnTest.IsNotEquipped,
+        OnCreate: Recipe.OnCreate.printChestRigToArmy,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
 
 }
