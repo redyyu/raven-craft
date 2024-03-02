@@ -78,6 +78,15 @@
 		<guid>7532510e-5d5b-408d-82f9-d1d4cce11e27</guid>
 	</files>
 
+	<!-- Flashlight Military -->
+	<files>
+		<path>media/clothing/clothingItems/Gear_FlashlightMilitary_LHand.xml</path>
+		<guid>ce000755-26df-4874-8b1e-c3c6047e93b9</guid>
+	</files>
+	<files>
+		<path>media/clothing/clothingItems/Gear_FlashlightMilitary_RHand.xml</path>
+		<guid>38001a68-1a5c-4fc8-b87d-525a235a5b59</guid>
+	</files>
 
     <!-- Vanilla defaults used in new outfits -->
     <!-- MUST have here, otherwise will not showing up on zombie outfits. -->

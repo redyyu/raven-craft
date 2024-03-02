@@ -1,0 +1,29 @@
+module Base
+{
+    imports {
+	    Base,
+    }
+
+    recipe Remove Battery {
+        keep Flashlight_Military,
+
+        Result: Battery,
+        Time: 30,
+        OnTest: Recipe.OnTest.FlashlightBatteryRemoval,
+        OnCreate: Recipe.OnCreate.FlashlightBatteryRemoval,
+        Prop2: Flashlight_Military,
+    }
+
+  	recipe Insert Battery into Military Flashlight {
+        destroy Flashlight_Military,
+        destroy Battery,
+
+        Result: Flashlight_Military,
+        Time: 30,
+        OnTest: Recipe.OnTest.FlashlightBatteryInsert,
+        OnCreate: Recipe.OnCreate.FlashlightBatteryInsert,
+        Prop2: Flashlight_Military,
+    }
+
+
+}

@@ -1,4 +1,6 @@
 
+require "recipecode"
+
 -- check player is in somewhere have electricity
 function Recipe.OnCanPerform.haveElectricity(recipe, playerObj)
     return isSquarePowered(playerObj:getCurrentSquare())

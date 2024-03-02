@@ -1,0 +1,52 @@
+module Base
+{
+	model GasMask
+    {
+        mesh = gas_mask,
+    }
+
+	model pouch
+    {
+        mesh = pouch,
+    }
+
+	model pouchmed
+    {
+        mesh = pouch,
+        texture = pouchmed,
+    }
+
+
+    model Flashlight_Military {
+		mesh = Static/Gear/flashlight_military,
+		texture = Gear/flashlight_military,
+		attachment world
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 0.0000 0.0000 0.0000,
+		}
+	}
+
+	
+	model Canteen {
+        mesh = Static/Gear/canteen,
+        texture = Gear/canteen,
+		attachment world
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 180.0000 0.0000 0.0000,
+		}
+    }
+	
+	model Canteen_World {
+        mesh = Static/Gear/canteen_ground,
+        texture = Gear/canteen,
+		attachment world
+		{
+			offset = 0.0000 0.0000 0.0000,
+			rotate = 180.0000 0.0000 0.0000,
+		}
+    }
+
+
+}
