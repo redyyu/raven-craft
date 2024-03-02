@@ -1,0 +1,26 @@
+module Base
+{
+    imports
+    {
+        Base,
+    }
+
+    recipe Paint Military Backpack Black {
+        keep Paintbrush,
+        Bag_ALICEpack_Army,
+        PaintBlack,
+        
+        
+
+        Result: Bag_ALICEpack_Army,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+    }
+}

@@ -25,5 +25,38 @@ module Base
         Prop2: Flashlight_Military,
     }
 
+    recipe Paint ChestRig Black {
+        keep Paintbrush,
+        ChestRig,
+        PaintBlack,
+        
+        Result: ChestRig_Black,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+    }
+
+    recipe Paint Webbing Black {
+        keep Paintbrush,
+        Webbing,
+        PaintBlack,
+        
+        Result: Webbing_Black,
+        SkillRequired: Tailoring=2,
+        CanBeDoneFromFloor: true,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: Painting,
+        Time: 250.0,
+        Category: Survivalist,
+    }
 
 }
