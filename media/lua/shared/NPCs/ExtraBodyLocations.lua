@@ -6,6 +6,7 @@
 -- Location IDs must match BodyLocation= and CanBeEquipped= values in items.txt.
 local group = BodyLocations.getGroup("Human")
 
+group:getOrCreateLocation("TorsoRig")
 
 group:getOrCreateLocation("ArmorArms")
 group:getOrCreateLocation("ArmorLegs")

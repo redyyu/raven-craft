@@ -7,8 +7,6 @@ require "ISUI/ISToolTipInv"
 
 local old_ISToolTipInv_render = ISToolTipInv.render
 
-
-
 function ISToolTipInv:render()
 	if not self.item then return false end
 	local item = self.item
@@ -17,8 +15,8 @@ function ISToolTipInv:render()
 	if item
 	and instanceof( item, "Clothing")
 	and item:getBodyLocation()
-	and  player:getWornItem(item:getBodyLocation())
-	and instanceof(  player:getWornItem(item:getBodyLocation()), "InventoryContainer")
+	and player:getWornItem(item:getBodyLocation())
+	and instanceof(player:getWornItem(item:getBodyLocation()), "InventoryContainer")
 	then
 		return false 
 	end
