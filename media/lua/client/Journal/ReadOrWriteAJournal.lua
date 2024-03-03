@@ -70,7 +70,7 @@ SurvivalJournal.getDetail = function(journal)
 
     local journalData = journal:getModData()['RCJournal']
 
-    if journalData then
+    if journalData and journalData['numPages'] > 0 then
         local numPages = journalData['numPages'] or 0
         local readPages = journalData['readPages'] or 0
         local numReadBooks = journalData['AlreadyReadBook'] and #journalData['AlreadyReadBook'] or 0
@@ -140,7 +140,7 @@ SurvivalJournal.doBuildReadMenu = function(player, context, items)
     if journal then
         local journalData = journal:getModData()['RCJournal']
         context:removeOptionByName(getText("ContextMenu_Read"))
-        if not playerObj:HasTrait("Illiterate") and journalData then
+        if not playerObj:HasTrait("Illiterate") and journalData and journalData['numPages'] > 0 then
             option = context:addOptionOnTop(getText("ContextMenu_READ_JOURNAL"), playerObj, SurvivalJournal.onRead, journal)
         end
     end

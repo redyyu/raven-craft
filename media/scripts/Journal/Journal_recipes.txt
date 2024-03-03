@@ -18,7 +18,7 @@ module RavenCraft
         Prop1: Notebook,
         Prop2: Pen,
         Sound: PageFlipBook,
-        Time: 6000.0,
+        Time: 150.0,
 
         Category: Survivalist,
 
@@ -37,7 +37,7 @@ module RavenCraft
         Prop1: Notebook,
         Prop2: Pen,
         Sound: PageFlipBook,
-        Time: 6000.0,
+        Time: 15000.0,
 
         Category: Survivalist,
 
