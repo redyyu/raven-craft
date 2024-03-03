@@ -1,0 +1,4 @@
+UI_EN = {
+    -- Main screen (lua)
+   UI_Loading_Texturepack = "Loading Texturepack",
+}

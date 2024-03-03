@@ -481,3 +481,27 @@ function: createPlayerData -- file: ISPlayerData.lua line # 187 | Vanilla.
 
 use math.floor(n + 0.5) to make round().
 lua sucks.
+
+
+
+### MOD Sandbox options wrong cause Game Crash when Boot
+
+Only got Unhandled Exception, that usual mean is MOD is block starting.
+
+```
+[03-03-24 16:21:08.955] LOG  : Clothing    , 1709454068955> mod "RAVENCRAFT" overrides female outfit "Biker".
+[03-03-24 16:21:08.955] LOG  : Clothing    , 1709454068955> mod "RAVENCRAFT" overrides female outfit "Classy".
+[03-03-24 16:21:08.955] LOG  : Clothing    , 1709454068955> mod "RAVENCRAFT" overrides female outfit "Party".
+[03-03-24 16:21:09.873] LOG  : Lua         , 1709454069873> Loading: media/lua/shared/Sandbox/Apocalypse.lua.
+[03-03-24 16:21:10.038] ERROR: General     , 1709454070038> GameWindow.uncaughtException> Unhandled java.lang.RuntimeException thrown by thread MainThread..
+[03-03-24 16:21:10.039] ERROR: General     , 1709454070039> ExceptionLogger.logException> Exception thrown java.lang.RuntimeException: java.lang.IllegalArgumentException at GameWindow.mainThreadInit line:580. Message: Unhandled java.lang.RuntimeException thrown by thread MainThread..
+[03-03-24 16:21:10.039] ERROR: General     , 1709454070039> DebugLogStream.printException> Stack trace:.
+[03-03-24 16:21:10.040] LOG  : General     , 1709454070040> GameThread exited..
+```
+
+at last checkout the sandbox options. default is large than max. that's problmen cause crash.
+```
+option RavenCraft.SurvivalJournalMultiplierBase {
+	type = integer, min = 1, max = 12, default = 20,
+}
+```
