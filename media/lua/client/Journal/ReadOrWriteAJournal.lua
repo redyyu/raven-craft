@@ -138,8 +138,9 @@ SurvivalJournal.doBuildReadMenu = function(player, context, items)
     end
 
     if journal then
+        local journalData = journal:getModData()['RCJournal']
         context:removeOptionByName(getText("ContextMenu_Read"))
-        if not playerObj:HasTrait("Illiterate") and journal:getModData()['RCJournal'] then
+        if not playerObj:HasTrait("Illiterate") and journalData then
             option = context:addOptionOnTop(getText("ContextMenu_READ_JOURNAL"), playerObj, SurvivalJournal.onRead, journal)
         end
     end
