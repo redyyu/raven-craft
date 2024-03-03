@@ -6,8 +6,8 @@ module RavenCraft
 
     recipe Make Survival Journal {
         Notebook/Journal,
-        keep Staples,
         keep Stapler,
+        Staples=1,
         Tarp=1,
         RubberBand=1,
         Twine=2,
