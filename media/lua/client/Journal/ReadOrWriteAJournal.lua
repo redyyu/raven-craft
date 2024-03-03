@@ -1,5 +1,5 @@
 require "TimedActions/ISReadABook"
-require "SurvivalPerks"
+require "Journal/SurvivalPerks"
 
 SurvivalJournal = {}
 
@@ -104,7 +104,7 @@ SurvivalJournal.onRead = function(player, journal)
 		return
 	end
     local journalData = journal:getModData()['RCJournal']
-    if journalDatap['pid'] ~= player:getSteamID() then
+    if journalData['pid'] ~= player:getSteamID() then
         player:Say(getText("IGUI_PlayerText_DontGet"))
     else
 	    ISInventoryPaneContextMenu.transferIfNeeded(player, journal)

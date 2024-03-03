@@ -3,7 +3,7 @@
 --***********************************************************
 
 require "TimedActions/ISBaseTimedAction"
-require "SurvivalPerks"
+require "Journal/SurvivalPerks"
 
 ISReadAJournal = ISBaseTimedAction:derive("ISReadAJournal");
 
@@ -209,7 +209,7 @@ function ISReadAJournal:new(character, item)
 
     local journalData = item:getModData()
     local f = 1 / getGameTime():getMinutesPerDay() / 2
-    time = journalData['numPages'] * o.minutesPerPage / f
+    local time = journalData['numPages'] * o.minutesPerPage / f
 
     if(character:HasTrait("FastReader")) then
         time = time * 0.7;
