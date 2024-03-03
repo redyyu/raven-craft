@@ -32,6 +32,11 @@ Tooltip_NO_AMMO = "You need a loaded gun."
 Tooltip_CURE_INJECTION = "Have a chance to Fights zombification, take it before the symptoms start."
 
 
+-- Weapons
+Tooltip_SilencerPistol = "Reduces sound radius by 80% but slightly lowers range",
+Tooltip_SilencerRifle = "Reduces sound radius by 60% but slightly lowers range",
+Tooltip_SilencerPipe = "Reduces sound radius by 40% but slightly lowers range",
+Tooltip_SilencerBottle = "Reduces sound radius by 20% but lowers range",
 
 -- Recipes
 

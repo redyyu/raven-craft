@@ -1,3 +1,4 @@
+
 -- it will take no effect when those item is overrided by scripts
 
 -- local item = ScriptManager.instance:getItem("Base.Bullets9mmBox")    
@@ -221,3 +222,23 @@ local item = ScriptManager.instance:getItem("Base.EmptyPetrolCan")
 if item then 
     item:DoParam("AttachmentType = Gas")
 end
+
+
+
+-- Silencer No need those, already ovrride firearms by script.
+-- SilencerWeaponTable = {
+-- 	["Silencer"] = {"Base.Pistol", "Base.Pistol2", "Base.Pistol3"}
+-- 	["SilencerPipe"] = {"Base.Pistol", "Base.Pistol2", "Base.Pistol3", "Base.Shotgun", "Base.ShotgunSawnoff"}
+-- 	["SilencerBottle"] = {"Base.Pistol", "Base.Pistol2", "Base.Pistol3", "Base.Shotgun", "Base.ShotgunSawnoff"}
+--     ["SilencerRifle"]= {"Base.VarmintRifle", "Base.AssaultRifle", "Base.AssaultRifle2"},
+-- }
+
+
+-- for siltype, weapons in pairs(SilencerWeaponTable) do
+-- 	for _, wp in ipairs(weapons) do
+-- 		local item = ScriptManager.instance:getItem(wp)
+-- 		if item then 
+-- 			item:DoParam("ModelWeaponPart = " .. siltype .. " " .. siltype .." muzzle muzzle")
+-- 		end
+-- 	end
+-- end

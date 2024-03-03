@@ -1,0 +1,37 @@
+module Base
+{
+
+	recipe Craft Metal Pipe Silencer {
+		keep [Recipe.GetItemTypes.Saw],
+    	MetalPipe=1,
+        Sheet=1,
+		DuctTape=1,
+
+    	Result: SilencerPipe,
+		OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+
+		SkillRequired: MetalWelding=4,
+		AnimNode: Disassemble,
+		Sound: Sawing,
+    	Time: 600.0,
+		Prop1: Source=1,
+      	Prop2: Source=2,
+
+		Category: Survivalist,
+    } 
+
+	recipe Craft Bottle Silencer {
+		keep [Recipe.GetItemTypes.SharpKnife],
+    	WaterBottleEmpty/PopBottleEmpty,
+        Sheet=1,
+		DuctTape=1,
+
+    	Result: SilencerBottle,
+ 
+    	Time: 400.0,
+		Prop1: Source=1,
+      	Prop2: Source=2,
+
+		Category: Survivalist,
+    }
+}
