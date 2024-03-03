@@ -20,13 +20,6 @@ module Base
         scale = 0.01,
     }
 
-    model SilencerPipeBig
-    {
-        mesh = weapons/firearm/SilencerPipeBig,
-        texture = weapons/firearm/SilencerPipe,
-        scale = 0.01,
-    }
-
     model SilencerBottle
     {
         mesh = weapons/firearm/SilencerBottle,
@@ -36,25 +29,25 @@ module Base
 
     model SilencerPistol_Ground
     {
-        mesh = WorldItems/SilencerPistol_Ground,
+        mesh = WorldItems/weapons/firearm/SilencerPistol_Ground,
         texture = weapons/firearm/SilencerPistol,
         scale = 0.015,
     }
     model SilencerRifle_Ground
     {
-        mesh = WorldItems/SilencerRifle_Ground,
+        mesh = WorldItems/weapons/firearm/SilencerRifle_Ground,
         texture = weapons/firearm/SilencerRifle,
         scale = 0.015,
     }
     model SilencerPipe_Ground
     {
-        mesh = WorldItems/SilencerPipe_Ground,
+        mesh = WorldItems/weapons/firearm/SilencerPipe_Ground,
         texture = weapons/firearm/SilencerPipe,
         scale = 0.0045,
     }
     model SilencerBottle_Ground
     {
-        mesh = WorldItems/SilencerBottle_Ground,
+        mesh = WorldItems/weapons/firearm/SilencerBottle_Ground,
         texture = weapons/firearm/SilencerBottle,
         scale = 0.0045,
     }

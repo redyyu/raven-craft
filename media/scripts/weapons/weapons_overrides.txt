@@ -4,6 +4,13 @@ module Base
 
 /** Override Tool/Weapon **/
 
+
+    /***
+        Tips:
+        ModelWeaponPart = ItemType ItemModel attachmentName attachmentParent,
+        ModelWeaponPart = SilencerPipe SilencerPipeBig muzzle muzzle,
+    ***/
+
     item Nightstick {
         DisplayCategory = Weapon,
         MaxRange = 1.2,
@@ -1252,7 +1259,7 @@ module Base
         AttachmentType = Rifle,
         ModelWeaponPart = ChokeTubeFull ChokeTube choketube choketube,
         ModelWeaponPart = ChokeTubeImproved ChokeTube choketube choketube,
-        ModelWeaponPart = SilencerPipeBig SilencerPipeBig muzzle muzzle,
+        ModelWeaponPart = SilencerPipe SilencerPipe muzzle muzzle,
         ModelWeaponPart = SilencerBottle SilencerBottle muzzle muzzle,
         StopPower = 20,
     }
@@ -1328,7 +1335,7 @@ module Base
         RackAfterShoot = TRUE,
         JamGunChance = 2,
         AttachmentType = Rifle,
-        ModelWeaponPart = SilencerPipeBig SilencerPipeBig muzzle muzzle,
+        ModelWeaponPart = SilencerPipe SilencerPipeBig muzzle muzzle,
         ModelWeaponPart = SilencerBottle SilencerBottle muzzle muzzle,
         StopPower = 20,
     }
