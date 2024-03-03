@@ -24,5 +24,14 @@ IGUI_EN = {
     IGUI_FitnessNeedElectricity = " need electricity."
 
     IGUI_FitnessUseDevice = "Use fitness Device"
-    
+
+    IGUI_SURVIVAL_JOURNAL_SOMEONE_S = "%1's Survival Journal"
+    IGUI_SURVIVAL_JOURNAL_READ_BOOKS = "Read Books: "
+    IGUI_SURVIVAL_JOURNAL_KNOWN_RECIPES = "Known Recipes: "
+    IGUI_SURVIVAL_JOURNAL_PAGES = "Number of pages (%1)"
+
+    IGUI_perks_ShortBlunt = "Short Blunt"
+    IGUI_perks_Sneak = "Sneaking"
+    IGUI_perks_Lightfoot = "Light Foot"
+    IGUI_perks_PlantScavenging = "Foraging"
 }

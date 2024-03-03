@@ -367,6 +367,86 @@ end
 
 
 
+function Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem)
+
+    local result_inventory = resultItem:getInventory()
+    local transform_stack = {}
+
+    for i = 0, (items:size()-1) do 
+        local item = items:get(i); 
+        if instanceof(item, "InventoryContainer") then
+            local bag_inventory = item:getInventory()
+            local bag_items = bag_inventory:getItems()
+            if bag_items then
+                for j = 0, (bag_items:size()-1) do
+                    print(j)
+                    local itm = bag_items:get(j)
+                    if itm then
+                        table.insert(transform_stack, itm)
+                    end 
+                end
+            end
+        end
+    end
+
+    for _, v in ipairs(transform_stack) do
+		result_inventory:AddItem(v)
+	end
+
+end
+
+
+function Recipe.OnCreate.RestoreBagItemsWithTexture(items, resultItem, player)
+    
+    local texture;
+
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
+
+    for i = 0, (items:size()-1) do 
+        local item = items:get(i)
+        if instanceof(item, "InventoryContainer") then 
+            texture = item:getTexture()
+            break
+        end
+    end
+    if texture then
+        resultItem:setTexture(texture);
+    end
+end
+
+
+function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
+
+    resultItem:getVisual():setTextureChoice(1);
+end
+
+function Recipe.OnCreate.printArmyPackToArmy(items, resultItem, player)
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
+
+    resultItem:getVisual():setTextureChoice(0);
+end
+
+
+function Recipe.OnTest.IsEmptyBag(item)
+    if instanceof(item, "InventoryContainer") then
+        return item:getInventory():getItems():size() < 1;
+    end
+    return true
+end
+
+
+function Recipe.OnTest.IsNotEquipped(item)
+    return not item:isEquipped()
+end
+
+
+
+
+
+
+
+
 -- function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
 --     local training_type = result:getType();
 --     local perks_type = nil;
@@ -473,77 +553,3 @@ end
 
 
 -- require "TimedActions/ISAttachItemHotbar"
-
-
-function Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem)
-
-    local result_inventory = resultItem:getInventory()
-    local transform_stack = {}
-
-    for i = 0, (items:size()-1) do 
-        local item = items:get(i); 
-        if instanceof(item, "InventoryContainer") then
-            local bag_inventory = item:getInventory()
-            local bag_items = bag_inventory:getItems()
-            if bag_items then
-                for j = 0, (bag_items:size()-1) do
-                    print(j)
-                    local itm = bag_items:get(j)
-                    if itm then
-                        table.insert(transform_stack, itm)
-                    end 
-                end
-            end
-        end
-    end
-
-    for _, v in ipairs(transform_stack) do
-		result_inventory:AddItem(v)
-	end
-
-end
-
-
-function Recipe.OnCreate.RestoreBagItemsWithTexture(items, resultItem, player)
-    
-    local texture;
-
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
-
-    for i = 0, (items:size()-1) do 
-        local item = items:get(i)
-        if instanceof(item, "InventoryContainer") then 
-            texture = item:getTexture()
-            break
-        end
-    end
-    if texture then
-        resultItem:setTexture(texture);
-    end
-end
-
-
-function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
-
-    resultItem:getVisual():setTextureChoice(1);
-end
-
-function Recipe.OnCreate.printArmyPackToArmy(items, resultItem, player)
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
-
-    resultItem:getVisual():setTextureChoice(0);
-end
-
-
-function Recipe.OnTest.IsEmptyBag(item)
-    if instanceof(item, "InventoryContainer") then
-        return item:getInventory():getItems():size() < 1;
-    end
-    return true
-end
-
-
-function Recipe.OnTest.IsNotEquipped(item)
-    return not item:isEquipped()
-end

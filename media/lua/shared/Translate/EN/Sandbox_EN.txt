@@ -1,7 +1,13 @@
 Sandbox_EN = {
 	Sandbox_RavenCraft = "Raven Craft"
-	Sandbox_RavenCraft_SPAWN_CHANCE = "Spawn Chance out of 100"
-	Sandbox_RavenCraft_LOOT_CHANCE = "Loot Chance out of 100"
-	Sandbox_RavenCraft_CURE_CHANCE = "Cure zombification Chance out of 100"
-	Sandbox_RavenCraft_READING_ON_SIT = "% Percent of Reading time when sit"
+	Sandbox_RavenCraft_SPAWN_CHANCE = "Spawn Chance"
+	Sandbox_RavenCraft_SPAWN_CHANCE_tooltip = "Between 1 ~ 100, probability with zombie spawn which is created by this mod."
+	Sandbox_RavenCraft_LOOT_CHANCE = "Loot Chance"
+	Sandbox_RavenCraft_LOOT_CHANCE_tooltip = "Between 1 ~ 100, probability with distributions of items created by this mod."
+	Sandbox_RavenCraft_CURE_CHANCE = "Chance of cure zombification"
+	Sandbox_RavenCraft_CURE_CHANCE_tooltip = "Between 1 ~ 100, lower number will got more fake cure."
+	Sandbox_RavenCraft_READING_ON_SIT = "Reading on sit effective"
+	Sandbox_RavenCraft_READING_ON_SIT_tooltip = "% Percent of Reading time when sit"
+	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_BASE = "XP Multiplier for Survival Journal"
+	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_BASE_tooltip = "This is base number use to multiplier each perks level."
 }

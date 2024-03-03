@@ -1,0 +1,27 @@
+module RavenCraft
+{
+    imports {
+	    Base,
+    }
+
+    /** Journal **/
+
+    item SurvivalJournal {
+        Weight = 0.8,
+        Type = Literature,
+        DisplayName = Survival Journal,
+        DisplayCategory = SkillBook,
+        
+        /* CanStack = false, useless is DEPRECATED */
+
+        Icon = SurvivalJournal,
+
+        DisappearOnUse = False,
+        CanBeWrite = True,
+
+        StaticModel = Book,
+        WorldStaticModel = BookRedPink_Ground,
+    }
+
+
+}

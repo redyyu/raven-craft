@@ -42,5 +42,6 @@ ContextMenu_EN = {
 
   ContextMenu_WearTight = "Wear Tight",
   ContextMenu_WearLoose = "Wear Loose",
+  ContextMenu_READ_JOURNAL = "Read Survival Journal"
 
 }
