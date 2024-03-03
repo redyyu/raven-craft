@@ -65,54 +65,23 @@ SurvivalJournal.onWrite = function(items, result, player)
 end
 
 
-SurvivalJournal.read = function(player, journal)
-    if isDebugEnabled() then
-        print('Read RCJournal ---------------->>')
-    end
-
-    local journalData = journal:getModData()['RCJournal']
-    
-    
-
-    
-
-    if journalData['AlreadyReadBook'] then
-        for _, book in ipairs(journalData['AlreadyReadBook']) do
-            if not player:getAlreadyReadBook():contains(book) then
-                if isDebugEnabled() then
-                    print('Add Read Book: '.. book)
-                end
-                player:getAlreadyReadBook():add(book)
-                -- player:ReadLiterature(book) -- is for magazine, and book must be object not str.
-            end
-        end
-    end
-    
-    if journalData['KnownRecipes'] then
-        for _, recipe in ipairs(journalData['KnownRecipes']) do
-            if not player:isRecipeKnown(recipe) then
-                if isDebugEnabled() then
-                    print('Add Recipe: '.. recipe)
-                end
-                player:getKnownRecipes():add(recipe)
-            end
-        end
-    end
-
-end
-
-
 SurvivalJournal.getDetail = function(journal)
     local info = ''
 
     local journalData = journal:getModData()['RCJournal']
 
     if journalData then
-        info = info .. getText('IGUI_SURVIVAL_JOURNAL_PAGES', journalData['numPages']..' / '..journalData['readPages']) .. '\n'
-        info = info .. getText('IGUI_SURVIVAL_JOURNAL_READ_BOOKS') .. #journalData['AlreadyReadBook'] .. '\n'
-        info = info .. getText('IGUI_SURVIVAL_JOURNAL_KNOWN_RECIPES') .. #journalData['KnownRecipes'] .. '\n'
+        local numPages = journalData['numPages'] or 0
+        local readPages = journalData['readPages'] or 0
+        local numReadBooks = journalData['AlreadyReadBook'] and #journalData['AlreadyReadBook'] or 0
+        local numRecipes = journalData['KnownRecipes'] and #journalData['KnownRecipes'] or 0
+        local skillPerks = journalData['Perks'] and journalData['Perks'] or {}
 
-        for k, v in pairs(journalData['Perks']) do
+        info = info .. getText('IGUI_SURVIVAL_JOURNAL_PAGES', readPages..' / '..numPages) .. '\n'
+        info = info .. getText('IGUI_SURVIVAL_JOURNAL_READ_BOOKS') .. numReadBooks .. '\n'
+        info = info .. getText('IGUI_SURVIVAL_JOURNAL_KNOWN_RECIPES') ..numRecipes .. '\n'
+
+        for k, v in pairs(skillPerks) do
             if v.maxLevel > 0 or isDebugEnabled() then
                 info = info .. getText('IGUI_perks_'..k) .. '  Lv'.. v.maxLevel .. '  (x' .. v.maxMultiplier .. ') \n'
             end
@@ -138,9 +107,9 @@ SurvivalJournal.onRead = function(player, journal)
     if journalDatap['pid'] ~= player:getSteamID() then
         player:Say(getText("IGUI_PlayerText_DontGet"))
     else
-	    ISInventoryPaneContextMenu.transferIfNeeded(playerObj, journal)
+	    ISInventoryPaneContextMenu.transferIfNeeded(player, journal)
 	    -- read
-	    ISTimedActionQueue.add(ISReadAJournal:new(playerObj, journal))
+	    ISTimedActionQueue.add(ISReadAJournal:new(player, journal))
     end
 end
 
@@ -158,7 +127,7 @@ SurvivalJournal.doBuildReadMenu = function(player, context, items)
         end
     end
 
-    if journal and not character:HasTrait("Illiterate") then
+    if journal and not playerObj:HasTrait("Illiterate") then
         context:removeOptionByName(getText("ContextMenu_Read"))
         option = context:addOptionOnTop(getText("ContextMenu_READ_JOURNAL"), playerObj, SurvivalJournal.onRead, journal)
     end

@@ -17,7 +17,6 @@ module RavenCraft
         Icon = SurvivalJournal,
 
         DisappearOnUse = False,
-        CanBeWrite = True,
 
         StaticModel = Book,
         WorldStaticModel = BookRedPink_Ground,
