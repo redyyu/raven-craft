@@ -9,5 +9,7 @@ Sandbox_EN = {
 	Sandbox_RavenCraft_READING_ON_SIT = "Reading on sit effective"
 	Sandbox_RavenCraft_READING_ON_SIT_tooltip = "% Percent of Reading time when sit"
 	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_BASE = "XP Multiplier for Survival Journal"
-	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_BASE_tooltip = "This is base number use to multiplier each perks level."
+	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_BASE_tooltip = "This is base number to multiplier each perks level. etc. 12 as default, Lv 3 Axe will got x36 multiplier at last."
+	Sandbox_RavenCraft_JOURNAL_SELF_READ_ONLY = "Read Survival Journal by self only"
+	Sandbox_RavenCraft_JOURNAL_SELF_READ_ONLY_tooltip = "Player can only read the Survival Journal who created by same SteamID."
 }

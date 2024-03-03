@@ -315,6 +315,13 @@ there is chance to be fake cured base on CureChance option in MOD sandbox settin
 If eat it with out infection, that will be waste, and bad stats will come up too.
 
 
+## Survival Journal
+
+Player can Write A Survival Journal, it will store current Level for Perks, mostly.
+when player character dead, new character can read this Journal to help restore Perks.
+No XP added directly, only huge multipair of Skills, that make level up very quick.
+
+
 ## TV Tap
 
 A New Tv Tap `First Aid Guide 1 - 4` for gain `FristAid` Perk.

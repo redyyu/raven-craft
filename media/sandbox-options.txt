@@ -21,9 +21,15 @@ option RavenCraft.ReadingOnSitEffective {
 }
 
 option RavenCraft.SurvivalJournalMultiplierBase {
-	type = integer, min = 1, max = 12, default = 12,
+	type = integer, min = 1, max = 12, default = 20,
 	page = RavenCraft, translation = RavenCraft_JOURNAL_MULTIPLIER_BASE,
 }
+
+option RavenCraft.SurvivalJournalSelfReadOnly {
+	type = boolean, default = true,
+	page = RavenCraft, translation = RavenCraft_JOURNAL_SELF_READ_ONLY,
+}
+
 
 
 

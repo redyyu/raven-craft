@@ -4,23 +4,23 @@ module RavenCraft
 	    Base,
     }
 
-    recipe Write Survival Journal {
+    recipe Write A Survival Journal {
         Notebook/Journal,
         keep Pen/RedPen/BluePen/Pencil,
         keep Staples,
         keep Stapler,
+        Tarp=1,
         RubberBand=1,
-        Thread=4,
+        Twine=2,
 
         OnCanPerform: SurvivalJournal.canWrite,
         OnCreate: SurvivalJournal.onWrite,
 
         Result: SurvivalJournal,
-        AnimNode: Disassemble,
         Prop1: Notebook,
         Prop2: Pen,
         Sound: PageFlipBook,
-        Time: 50.0,
+        Time: 6000.0,
 
         Category: Survivalist,
 

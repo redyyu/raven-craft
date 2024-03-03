@@ -104,12 +104,22 @@ SurvivalJournal.onRead = function(player, journal)
 		return
 	end
     local journalData = journal:getModData()['RCJournal']
-    if journalData['pid'] ~= player:getSteamID() then
+    local sit_on_ground_modifier = SandboxVars.RavenCraft.ReadingOnSitEffective
+    local self_read_only = SandboxVars.RavenCraft.SurvivalJournalSelfReadOnly
+
+    if journalData['pid'] ~= player:getSteamID() and self_read_only then
         player:Say(getText("IGUI_PlayerText_DontGet"))
     else
+        if journalData['readPages'] >= journalData['numPages'] then
+            player:Say(getText("IGUI_PlayerText_BookObsolete"))
+            player:Say(getText("IGUI_PlayerText_ReReadBook"))
+            journalData['readPages'] = 0
+        end
 	    ISInventoryPaneContextMenu.transferIfNeeded(player, journal)
 	    -- read
-	    ISTimedActionQueue.add(ISReadAJournal:new(player, journal))
+        
+        player:reportEvent("EventSitOnGround")
+	    ISTimedActionQueue.add(ISReadAJournal:new(player, journal, journalData, sit_on_ground_modifier))
     end
 end
 
@@ -127,9 +137,11 @@ SurvivalJournal.doBuildReadMenu = function(player, context, items)
         end
     end
 
-    if journal and not playerObj:HasTrait("Illiterate") then
+    if journal then
         context:removeOptionByName(getText("ContextMenu_Read"))
-        option = context:addOptionOnTop(getText("ContextMenu_READ_JOURNAL"), playerObj, SurvivalJournal.onRead, journal)
+        if not playerObj:HasTrait("Illiterate") then
+            option = context:addOptionOnTop(getText("ContextMenu_READ_JOURNAL"), playerObj, SurvivalJournal.onRead, journal)
+        end
     end
 end
 

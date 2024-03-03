@@ -7,17 +7,17 @@ require "Journal/SurvivalPerks"
 
 ISReadAJournal = ISBaseTimedAction:derive("ISReadAJournal");
 
-ISReadAJournal.checkMultiplier = function(journalData)
-    if journalData['Perks'] then
-        for k, v in pairs(journalData['Perks']) do
+ISReadAJournal.checkMultiplier = function(self)
+    if self.data['Perks'] then
+        for k, v in pairs(self.data['Perks']) do
             -- apply the multiplier to the skill
             local perk = SurvivalPerks[k]
-            local readPercent = (self.item:getAlreadyReadPages() / self.item:getNumberOfPages()) * 100
+            local readPercent = (self.readPages / self.totalPages) * 100
             if readPercent > 100 then
                 readPercent = 100;
             end
             -- apply the multiplier to the skill
-            local multiplier = (math.floor(readPercent/10) * (v.maxMultiplier/10))
+            local multiplier = math.floor((readPercent/10) * (v.maxMultiplier/10))
             if multiplier > self.character:getXp():getMultiplier(perk) and self.character:getPerkLevel(perk) < v.maxLevel then
                 if isDebugEnabled() then
                     print('Multiplier: '..multiplier)
@@ -37,53 +37,52 @@ function ISReadAJournal:isValid()
     if vehicle and vehicle:isDriver(self.character) then
         return not vehicle:isEngineRunning() or vehicle:getSpeed2D() == 0
     end
-    return self.character:getInventory():contains(self.item) and ((self.item:getNumberOfPages() > 0 and self.item:getAlreadyReadPages() <= self.item:getNumberOfPages()) or self.item:getNumberOfPages() < 0);
+    return self.character:getInventory():contains(self.item) and ((self.totalPages > 0 and self.readPages <= self.totalPages) or self.totalPages < 0)
 end
 
 function ISReadAJournal:update()
     self.pageTimer = self.pageTimer + getGameTime():getMultiplier();
     self.item:setJobDelta(self:getJobDelta());
 
-    local journalData = self.item:getModData()['RCJournal']
-
-    if journalData['numPages'] > 0 then
-        journalData['readPages'] = math.floor(journalData['numPages'] * self:getJobDelta())
-        if journalData['readPages'] > journalData['numPages'] then
-            journalData['readPages'] = journalData['numPages']
+    if self.totalPages > 0 then
+        self.readPages = self.lastReadPages + math.floor(self.unreadPages * self:getJobDelta())
+        if self.readPages > self.totalPages then
+            self.readPages = self.totalPages
         end
     end
 
-    if SkillBook[self.item:getSkillTrained()] then
-        if self.character:HasTrait("Illiterate") then
-            if self.pageTimer >= 200 then
-                self.pageTimer = 0;
-                local txtRandom = ZombRand(3);
-                if txtRandom == 0 then
-                    self.character:Say(getText("IGUI_PlayerText_DontGet"))
-                elseif txtRandom == 1 then
-                    self.character:Say(getText("IGUI_PlayerText_TooComplicated"))
-                else
-                    self.character:Say(getText("IGUI_PlayerText_DontUnderstand"))
-                end
-                if journalData['numPages'] > 0 then
-                    journalData['readPages'] = 0 
-                    self:forceStop()
-                end
+    if self.character:HasTrait("Illiterate") then
+        if self.pageTimer >= 200 then
+            self.pageTimer = 0;
+            local txtRandom = ZombRand(3);
+            if txtRandom == 0 then
+                self.character:Say(getText("IGUI_PlayerText_DontGet"))
+            elseif txtRandom == 1 then
+                self.character:Say(getText("IGUI_PlayerText_TooComplicated"))
+            else
+                self.character:Say(getText("IGUI_PlayerText_DontUnderstand"))
             end
-        elseif journalData['readPages'] >= journalData['numPages'] then
-            if self.pageTimer >= 200 then
-                self.pageTimer = 0;
-                local txtRandom = ZombRand(2);
-                if txtRandom == 0 then
-                    self.character:Say(getText("IGUI_PlayerText_KnowSkill"))
-                else
-                    self.character:Say(getText("IGUI_PlayerText_BookObsolete"))
-                end
+            if self.totalPages > 0 then
+                self.readPages = 0 
+                self:forceStop()
             end
-        else
-            ISReadAJournal.checkMultiplier(journalData);
         end
+    elseif self.readPages > self.totalPages then
+        if self.pageTimer >= 200 then
+            self.pageTimer = 0;
+            local txtRandom = ZombRand(2);
+            if txtRandom == 0 then
+                self.character:Say(getText("IGUI_PlayerText_KnowSkill"))
+            else
+                self.character:Say(getText("IGUI_PlayerText_BookObsolete"))
+            end
+        end
+    else
+        ISReadAJournal.checkMultiplier(self);
+        self.data['readPages'] = self.readPages
     end
+
+    
 
     -- Playing with longer day length reduces the effectiveness of morale-boosting
     -- literature, like Comic Book.
@@ -142,26 +141,8 @@ function ISReadAJournal:perform()
     self.item:getContainer():setDrawDirty(true);
     self.item:setJobDelta(0.0);
 
-    local journalData = self.item:getModData()['RCJournal']
-
-    if journalData['Perks'] then
-        for k, v in pairs(journalData['Perks']) do
-            -- apply the multiplier to the skill
-            local perk = SurvivalPerks[k]
-            if v.maxMultiplier > self.character:getXp():getMultiplier(perk) and self.character:getPerkLevel(perk) < v.maxLevel then
-                if isDebugEnabled() then
-                    print('Multiplier: '..v.maxMultiplier)
-                    print('MaxLevel: '..v.maxLevel)
-                    print('CurrentLevel: '..self.character:getPerkLevel(perk))
-                    print('Boost: '.. k)
-                end
-                self.character:getXp():addXpMultiplier(perk, v.maxMultiplier, 1, v.maxLevel);
-            end
-        end
-    end
-
-    if journalData['AlreadyReadBook'] then
-        for _, book in ipairs(journalData['AlreadyReadBook']) do
+    if self.data['AlreadyReadBook'] then
+        for _, book in ipairs(self.data['AlreadyReadBook']) do
             if not self.character:getAlreadyReadBook():contains(book) then
                 if isDebugEnabled() then
                     print('Add Read Book: '.. book)
@@ -172,8 +153,8 @@ function ISReadAJournal:perform()
         end
     end
     
-    if journalData['KnownRecipes'] then
-        for _, recipe in ipairs(journalData['KnownRecipes']) do
+    if self.data['KnownRecipes'] then
+        for _, recipe in ipairs(self.data['KnownRecipes']) do
             if not self.character:isRecipeKnown(recipe) then
                 if isDebugEnabled() then
                     print('Add Recipe: '.. recipe)
@@ -197,7 +178,7 @@ function ISReadAJournal:animEvent(event, parameter)
     end
 end
 
-function ISReadAJournal:new(character, item)
+function ISReadAJournal:new(character, item, data, read_sit_modifier)
     local o = {}
     setmetatable(o, self)
     self.__index = self
@@ -206,16 +187,24 @@ function ISReadAJournal:new(character, item)
     o.stopOnWalk = true
     o.stopOnRun = true
     o.minutesPerPage = 2.0
-
-    local journalData = item:getModData()
+    o.data = data
+    o.totalPages = data['numPages'] or 1
+    o.lastReadPages = data['readPages'] or 0
+    o.readPages = data['readPages'] or 0
+    o.unreadPages = o.totalPages - o.lastReadPages
+    
     local f = 1 / getGameTime():getMinutesPerDay() / 2
-    local time = journalData['numPages'] * o.minutesPerPage / f
+    local time = o.unreadPages * o.minutesPerPage / f
 
     if(character:HasTrait("FastReader")) then
         time = time * 0.7;
     end
     if(character:HasTrait("SlowReader")) then
         time = time * 1.3;
+    end
+
+    if character:isSitOnGround() then
+        time = math.floor(time * read_sit_modifier / 100)
     end
 
     o.ignoreHandsWounds = true;
