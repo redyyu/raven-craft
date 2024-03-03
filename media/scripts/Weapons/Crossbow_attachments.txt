@@ -1,6 +1,9 @@
 module RavenCraft
 { 
- 
+    imports {
+	    Base,
+    }
+
  /************************ Weapon Upgrades ************************/
 
     item Crossbow_IronSight {

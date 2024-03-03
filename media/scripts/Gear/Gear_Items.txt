@@ -1,9 +1,5 @@
 module Base
 {
-    imports {
-     Base,
-    }
-
 
     /** Common gear items might used with other MODs, keep it in Base package. **/
 
