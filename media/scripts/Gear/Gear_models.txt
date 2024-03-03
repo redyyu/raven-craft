@@ -1,19 +1,19 @@
 module Base
 {
-	model GasMask
-    {
-        mesh = gas_mask,
+
+	model GasMask {
+        mesh = Static/Gear/gas_mask,
+		texture = gasmask,
     }
 
-	model pouch
-    {
-        mesh = pouch,
+	model Pouch {
+        mesh = Static/Gear/pouch,
+		texture = Gear/pouch,
     }
 
-	model pouchmed
-    {
-        mesh = pouch,
-        texture = pouchmed,
+	model Pouchmed {
+        mesh = Static/Gear/pouch,
+        texture = Gear/pouchmed,
     }
 
 

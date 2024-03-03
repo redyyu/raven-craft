@@ -452,6 +452,9 @@ module Base
         WorldStaticModel = HandGunAmmoBox,
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 
     item Bullets45Box {
@@ -464,6 +467,9 @@ module Base
         WorldStaticModel = BoxOf45Auto,
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 
     item Bullets44Box {
@@ -476,6 +482,9 @@ module Base
         WorldStaticModel = BoxOf44Magnum,
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 
     item Bullets38Box {
@@ -488,6 +497,9 @@ module Base
         WorldStaticModel = BoxOf38Special,
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 
     item ShotgunShellsBox {
@@ -500,6 +512,9 @@ module Base
         WorldStaticModel = BoxOfShotGunShells,
         PlaceOneSound = BoxOfShellsPlaceOne,
         PlaceMultipleSound = BoxOfShellsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 
     item 223Box {
@@ -513,6 +528,9 @@ module Base
         WorldStaticModel = RifleAmmoBox,
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 
     item 308Box {
@@ -526,6 +544,9 @@ module Base
         WorldStaticModel = RifleAmmoBox,
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 
     item 556Box {
@@ -539,5 +560,8 @@ module Base
         WorldStaticModel = RifleAmmoBox,
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
+
+        StaticModel = Pouch,
+        AttachmentType = Gear,
     }
 }

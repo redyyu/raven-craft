@@ -3,7 +3,7 @@ module Base
 
     /* LongJohns */
 
-	item LongJohns {
+    item LongJohns {
         DisplayCategory = Clothing,
         Type = Clothing,
         DisplayName = Long Johns,
@@ -17,7 +17,7 @@ module Base
         WorldStaticModel = BoilerSuit_Ground,
     }
     
-	item LongJohns_Bottoms {
+    item LongJohns_Bottoms {
         DisplayCategory = Clothing,
         Type = Clothing,
         DisplayName = Long Johns Bottoms,
@@ -49,130 +49,148 @@ module Base
     /* Gloves */
 
     item Gloves_FingerlessGloves {
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Fingerless Gloves,
-		ClothingItem = Gloves_FingerlessGloves,
-		BodyLocation = Hands,
-		BloodLocation = Hands,
-		Icon = GlovesFingerlessWhite,
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Fingerless Gloves,
+        ClothingItem = Gloves_FingerlessGloves,
+        BodyLocation = Hands,
+        BloodLocation = Hands,
+        Icon = GlovesFingerlessWhite,
         ScratchDefense = 5,
         BiteDefense = 10,
-		Weight = 0.1,
+        Weight = 0.1,
         Insulation = 0.25,
         WindResistance = 0.3,
         WorldStaticModel = Gloves_Ground,
-	}
-	item Gloves_LongWomenGloves
-	{
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Long Gloves,
-		ClothingItem = Gloves_LongWomenGloves,
-		BodyLocation = Hands,
-		BloodLocation = Hands;LowerArms,
-		Icon = GlovesLongBlack,
-		ScratchDefense = 5,
+    }
+    item Gloves_LongWomenGloves
+    {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Long Gloves,
+        ClothingItem = Gloves_LongWomenGloves,
+        BodyLocation = Hands,
+        BloodLocation = Hands;LowerArms,
+        Icon = GlovesLongBlack,
+        ScratchDefense = 5,
         BiteDefense = 0,
-		Weight = 0.1,
+        Weight = 0.1,
         Insulation = 0.5,
         WindResistance = 0.5,
         FabricType = Cotton,
         WorldStaticModel = GlovesLong_Ground,
-	}
-	item Gloves_WhiteTINT {
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Gloves,
-		ClothingItem = Gloves_WhiteTINT,
-		BodyLocation = Hands,
-		BloodLocation = Hands,
-		Icon = GlovesWoolyWhite,
+    }
+    item Gloves_WhiteTINT {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Gloves,
+        ClothingItem = Gloves_WhiteTINT,
+        BodyLocation = Hands,
+        BloodLocation = Hands,
+        Icon = GlovesWoolyWhite,
         ScratchDefense = 15,
         BiteDefense = 10,
-		Weight = 0.1,
+        Weight = 0.1,
         Insulation = 1.0,
         WindResistance = 1.0,
         FabricType = Cotton,
         WorldStaticModel = Gloves_Ground,
-	}
-	item Gloves_Surgical {
-	    DisplayCategory = FirstAid,
-		Type = Clothing,
-		DisplayName = Surgical Gloves,
-		ClothingItem = Gloves_Surgical,
-		BodyLocation = Hands,
-		BloodLocation = Hands,
-		Icon = GlovesSurgical,
+    }
+    item Gloves_Surgical {
+        DisplayCategory = FirstAid,
+        Type = Clothing,
+        DisplayName = Surgical Gloves,
+        ClothingItem = Gloves_Surgical,
+        BodyLocation = Hands,
+        BloodLocation = Hands,
+        Icon = GlovesSurgical,
         ScratchDefense = 5,
         BiteDefense = 0,
-		Weight = 0.1,
+        Weight = 0.1,
         Insulation = 0.25,
         WindResistance = 0.3,
         WorldStaticModel = Gloves_Ground,
-	}
+    }
     item Gloves_BoxingRed
-	{
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Boxing Gloves,
-		ClothingItem = Gloves_BoxingRed,
-		BodyLocation = ArmorHands,
-		BloodLocation = Hands,
-		Icon = BoxingGloves_Red,
+    {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Boxing Gloves,
+        ClothingItem = Gloves_BoxingRed,
+        BodyLocation = ArmorHands,
+        BloodLocation = Hands,
+        Icon = BoxingGloves_Red,
         ScratchDefense = 100,
         BiteDefense = 100,
-		Weight = 0.1,
+        Weight = 0.1,
         Insulation = 0.45,
         WindResistance = 0.3,
-		WaterResistance = 1,
+        WaterResistance = 1,
         WorldStaticModel = BoxingGlovesRed_Ground,
-	}
+    }
     item Gloves_BoxingBlue
-	{
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Boxing Gloves,
-		ClothingItem = Gloves_BoxingBlue,
-		BodyLocation = ArmorHands,
-		BloodLocation = Hands,
-		Icon = BoxingGloves_Blue,
+    {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Boxing Gloves,
+        ClothingItem = Gloves_BoxingBlue,
+        BodyLocation = ArmorHands,
+        BloodLocation = Hands,
+        Icon = BoxingGloves_Blue,
         ScratchDefense = 100,
         BiteDefense = 100,
-		Weight = 0.1,
+        Weight = 0.1,
         Insulation = 0.45,
         WindResistance = 0.3,
-		WaterResistance = 1,
+        WaterResistance = 1,
         WorldStaticModel = BoxingGlovesBlue_Ground,
-	}
+    }
 
-	/* Masks */
+    /* Masks */
 
-	item Hat_BalaclavaFace {
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Open Balaclava,
-		ClothingItem = Hat_BalaclavaFace,
-		BodyLocation = TightMask,
-		Icon = BalaclavaOpen,
-		CanHaveHoles = false,
-		BloodLocation = Head,
-		Insulation = 0.8,
-		WindResistance = 0.8,
-		WorldStaticModel = BalaclavaFace_Ground,
-	}
-	item Hat_BalaclavaFull {
-	    DisplayCategory = Accessory,
-		Type = Clothing,
-		DisplayName = Balaclava,
-		ClothingItem = Hat_BalaclavaFull,
-		BodyLocation = TightMask,
-		BloodLocation = Head,
-		Icon = Balaclava,
-		CanHaveHoles = false,
+    item Hat_GasMask {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Gas Mask,
+        ClothingItem = Hat_GasMask,
+        BodyLocation = MaskEyes,
+        Icon = GasMask,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        Insulation = 0.75,
+        WindResistance = 0.60,
+        WaterResistance = 1.0,
+        Tags = GasMask,
+
+		StaticModel = Pouch,
+        AttachmentType = Gear,
+    }
+    
+    item Hat_BalaclavaFace {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Open Balaclava,
+        ClothingItem = Hat_BalaclavaFace,
+        BodyLocation = TightMask,
+        Icon = BalaclavaOpen,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        Insulation = 0.8,
+        WindResistance = 0.8,
+        WorldStaticModel = BalaclavaFace_Ground,
+    }
+    item Hat_BalaclavaFull {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Balaclava,
+        ClothingItem = Hat_BalaclavaFull,
+        BodyLocation = TightMask,
+        BloodLocation = Head,
+        Icon = Balaclava,
+        CanHaveHoles = false,
         Insulation = 1.0,
         WindResistance = 1.0,
         WaterResistance = 0.5,
         WorldStaticModel = BalaclavaFull_Ground,
-	}
+    }
 }

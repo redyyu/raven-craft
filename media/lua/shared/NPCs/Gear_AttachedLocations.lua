@@ -4,6 +4,11 @@
 
 local group = AttachedLocations.getGroup("Human")
 
+group:getOrCreateLocation("Gear Belt Right"):setAttachmentName("gear_belt_right")
+group:getOrCreateLocation("Gear Belt Left"):setAttachmentName("gear_belt_left")
+group:getOrCreateLocation("Canteen Belt Right"):setAttachmentName("canteen_belt_right")
+group:getOrCreateLocation("Canteen Belt Left"):setAttachmentName("canteen_belt_left")
+
 group:getOrCreateLocation("Chest Rig Mag Left"):setAttachmentName("chest_rig_mag_left")
 group:getOrCreateLocation("Chest Rig Mag Right"):setAttachmentName("chest_rig_mag_right")
 
