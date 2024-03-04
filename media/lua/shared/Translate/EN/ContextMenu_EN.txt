@@ -29,6 +29,10 @@ ContextMenu_EN = {
   ContextMenu_USE_EXER_TREADMILL = "Use Treadmill fitness (%1)"
   ContextMenu_USE_EXER_BENCH = "Use Bench Press (%1)"
 
+  -- Silencer
+  ContextMenu_Add_Silencer_Upgrade = "Attach Silencer"
+  ContextMenu_Remove_Silencer_Upgrade = "Remove Silencer"
+  
   -- UI
   ContextMenu_TAKE_BARREL = "Take Barrel"
   ContextMenu_WORKBENCH = "Workbench"

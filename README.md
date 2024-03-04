@@ -321,6 +321,13 @@ Player can Write A Survival Journal, it will store current Level for Perks, most
 when player character dead, new character can read this Journal to help restore Perks.
 No XP added directly, only huge multipair of Skills, that make level up very quick.
 
+## Silencers
+
+Some firearm can attach Silencer, work with or without Screwdriver.
+
+There is Silencer for Pistol and Rifle, also can craft hand-made silencers, but not for every firearms. 
+Silencers is on Base package, incase some other MOD need it.
+
 
 ## TV Tap
 

@@ -8,6 +8,9 @@ IGUI_EN = {
     IGUI_Hair_HatLongCurly = "Hat Long Curly"
     IGUI_Hair_HatLongBraided = "Hat Long Braided"
 
+    IGUI_HotbarAttachment_ChestRig = "Hoslter"
+    IGUI_HotbarAttachment_HarnessRig = "Harness"
+
     IGUI_PLAYER_TEXT_CANT_REACH_VEHICLE = "Can't reach the vehicle"
     IGUI_PLAYER_TEXT_TREADMILL_NEED_ELC = "The treadmill needs electricity to run"
     IGUI_PLAYER_TEXT_TOO_EXHAUSTED = "Too exhausted to use"

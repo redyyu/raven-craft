@@ -12,6 +12,7 @@ module Base
         MountOn = Pistol; Pistol2; Pistol3,
         Tooltip = Tooltip_SilencerPistol,
         WorldStaticModel = SilencerPistol_Ground,
+        Tags = Silencer,
     }
 
     item SilencerRifle {
@@ -26,6 +27,7 @@ module Base
         MountOn = VarmintRifle; HuntingRifle; AssaultRifle; AssaultRifle2,
         Tooltip = Tooltip_SilencerRifle,
         WorldStaticModel = SilencerRifle_Ground,
+        Tags = Silencer,
     }
 
     item SilencerPipe {
@@ -40,6 +42,7 @@ module Base
         MountOn = Pistol; Pistol2; Pistol3; Shotgun; ShotgunSawnoff,
         Tooltip = Tooltip_SilencerPipe,
         WorldStaticModel = SilencerPipe_Ground,
+        Tags = Silencer,
     }
 
     item SilencerBottle {
@@ -54,6 +57,7 @@ module Base
         MountOn = Pistol; Pistol2; Pistol3; Shotgun; ShotgunSawnoff,
         Tooltip = Tooltip_SilencerBottle,
         WorldStaticModel = SilencerBottle_Ground,
+        Tags = Silencer,
     }
     
 }
