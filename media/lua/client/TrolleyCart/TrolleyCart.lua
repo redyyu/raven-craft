@@ -191,11 +191,12 @@ local function TrolleyOnFillWorldObjectContextMenu(player, context, worldobjects
 		for _, obj in ipairs(worldObjTable) do
 			local trolleyName = obj:getItem():getFullType()
 			if hasTrollyName(trolleyName) then
-				local old_option_update = context:getOptionFromName(getText("ContextMenu_Grab"))
-				if old_option_update then
-					context:updateOptionTsar(old_option_update.id, getText("ContextMenu_TAKE_CART"), playerObj, onEquipTrolley, obj)
+				local old_option = context:getOptionFromName(getText("ContextMenu_Grab"))
+				if old_option then
+					context:removeOptionByName(old_option.id)
+					context:addOptionOnTop(getText("ContextMenu_TAKE_CART"), playerObj, onEquipTrolley, obj)
 					return
-				end				
+				end		
 			end
 		end
 	end
@@ -223,13 +224,14 @@ local function TrolleyInventoryContextMenu(playerNumber, context, items)
 		if item and hasTrollyName(item:getFullType()) then
 			context:removeOptionByName(getText("ContextMenu_Equip_Two_Hands"))
 			context:removeOptionByName(getText("ContextMenu_Unequip"))
-			local old_option_update = context:getOptionFromName(getText("ContextMenu_Grab"))
-			if old_option_update then
+			local old_option = context:getOptionFromName(getText("ContextMenu_Grab"))
+			if old_option then
+				context:removeOptionByName(old_option.id)
 				if item:getContainer():getType() == "floor" then
-					context:updateOptionTsar(old_option_update.id, getText("ContextMenu_TAKE_CART"), playerObj, onEquipTrolley, item:getWorldItem())
+					context:addOptionOnTop(getText("ContextMenu_TAKE_CART"), playerObj, onEquipTrolley, item:getWorldItem())
 					return
 				else
-					context:updateOptionTsar(old_option_update.id, getText("ContextMenu_GRAB_CONTAINER"), playerObj, onGrabTrolleyFromContainer, item)
+					context:addOptionOnTop(getText("ContextMenu_GRAB_CONTAINER"), playerObj, onGrabTrolleyFromContainer, item)
 					return
 				end
 			end
