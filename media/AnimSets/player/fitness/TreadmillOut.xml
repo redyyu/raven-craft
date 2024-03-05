@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<animNode x_extends="UseBenchPressVanilla.xml">
-	<m_Name>benchpressout</m_Name>
-	<m_AnimName>BenchOut</m_AnimName>
+<animNode x_extends="Treadmill.xml">
+	<m_Name>treadmillout</m_Name>
+	<m_AnimName>Exercises_Run</m_AnimName>
 	<m_Looped>false</m_Looped>
-	<m_SpeedScale>1.00</m_SpeedScale>
 	<m_Conditions />
 	<m_Conditions>
 		<m_Name>ExerciseEnded</m_Name>

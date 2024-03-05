@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<animNode x_extends="UseBenchPressVanilla.xml">
+<animNode x_extends="BenchPress.xml">
 	<m_Name>benchpressin</m_Name>
 	<m_AnimName>BenchIn</m_AnimName>
 	<m_SpeedScale>01.0</m_SpeedScale> <!-- Speed animation -->

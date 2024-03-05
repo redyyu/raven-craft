@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<animNode x_extends="UseTreadmillVanilla.xml">
+<animNode x_extends="Treadmill.xml">
 	<m_Name>treadmillin</m_Name>
 	<m_AnimName>Exercises_Run</m_AnimName>
 	<m_Looped>false</m_Looped>

@@ -407,21 +407,21 @@ dark texture also work, but most time tint to more darkness.
 
 ```
 <clothingItem>
-	<m_MaleModel>media\models_X\Static\Clothes\fancyshoes_male.fbx</m_MaleModel>
-	<m_FemaleModel>media\models_X\Static\Clothes\fancyshoes_female.fbx</m_FemaleModel>
-	<m_GUID>b87c05cc-9a93-4572-99f8-005e350ee723</m_GUID>
-	<m_Static>false</m_Static>
-	<m_AllowRandomHue>true</m_AllowRandomHue>
-	<m_AllowRandomTint>true</m_AllowRandomTint>
-	<m_AttachBone></m_AttachBone>
-	<m_Masks>11</m_Masks>
-	<m_MasksFolder></m_MasksFolder>
-	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancyshoes</m_UnderlayMasksFolder>
-	<textureChoices>clothes/Shoes/shoes_white</textureChoices>
-	<textureChoices>clothes/Shoes/shoes_brown</textureChoices>
-	<textureChoices>clothes/Shoes/shoes_red</textureChoices>
-	<textureChoices>clothes/Shoes/shoes_pale</textureChoices>
-	<textureChoices>clothes/Shoes/shoes_pink</textureChoices>
+    <m_MaleModel>media\models_X\Static\Clothes\fancyshoes_male.fbx</m_MaleModel>
+    <m_FemaleModel>media\models_X\Static\Clothes\fancyshoes_female.fbx</m_FemaleModel>
+    <m_GUID>b87c05cc-9a93-4572-99f8-005e350ee723</m_GUID>
+    <m_Static>false</m_Static>
+    <m_AllowRandomHue>true</m_AllowRandomHue>
+    <m_AllowRandomTint>true</m_AllowRandomTint>
+    <m_AttachBone></m_AttachBone>
+    <m_Masks>11</m_Masks>
+    <m_MasksFolder></m_MasksFolder>
+    <m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancyshoes</m_UnderlayMasksFolder>
+    <textureChoices>clothes/Shoes/shoes_white</textureChoices>
+    <textureChoices>clothes/Shoes/shoes_brown</textureChoices>
+    <textureChoices>clothes/Shoes/shoes_red</textureChoices>
+    <textureChoices>clothes/Shoes/shoes_pale</textureChoices>
+    <textureChoices>clothes/Shoes/shoes_pink</textureChoices>
 </clothingItem>
 ```
 
@@ -478,15 +478,15 @@ both male or female, model file could be same. `/` or `\` seems dosn't matter.
 path starts from *media/models_x*. also no matter uppercase or not.
 ```
 <clothingItem>
-	<m_MaleModel>skinned\clothes\bob_hazmat</m_MaleModel>
-	<m_FemaleModel>skinned\clothes\kate_hazmat</m_FemaleModel>
-	<m_GUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</m_GUID>
-	<m_Static>false</m_Static>
-	<m_AllowRandomHue>false</m_AllowRandomHue>
-	<m_AllowRandomTint>false</m_AllowRandomTint>
-	<m_AttachBone></m_AttachBone>
-	<m_MasksFolder></m_MasksFolder>
-	<textureChoices>clothes/ArmorPads/ElbowPads</textureChoices>
+    <m_MaleModel>skinned\clothes\bob_hazmat</m_MaleModel>
+    <m_FemaleModel>skinned\clothes\kate_hazmat</m_FemaleModel>
+    <m_GUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</m_GUID>
+    <m_Static>false</m_Static>
+    <m_AllowRandomHue>false</m_AllowRandomHue>
+    <m_AllowRandomTint>false</m_AllowRandomTint>
+    <m_AttachBone></m_AttachBone>
+    <m_MasksFolder></m_MasksFolder>
+    <textureChoices>clothes/ArmorPads/ElbowPads</textureChoices>
 </clothingItem>
 ```
 
@@ -507,29 +507,29 @@ for the block of **model**:
 
 ```
 model Canteen {
-	mesh = Static/Gear/canteen,
-	texture = Gear/canteen,
-	attachment world
-	{
-		offset = 0.0000 0.0000 0.0000,
-		rotate = 180.0000 0.0000 0.0000,
-	}
+    mesh = Static/Gear/canteen,
+    texture = Gear/canteen,
+    attachment world
+    {
+        offset = 0.0000 0.0000 0.0000,
+        rotate = 180.0000 0.0000 0.0000,
+    }
 }
 
 item Canteen {
-	Weight = 0.1,
-	CanStoreWater =TRUE,
-	Type = Normal,
-	DisplayName = Canteen,
-	ReplaceOnUseOn = WaterSource-Canteenfull,
-	icon = Canteen,
-	RainFactor = 1,
-	Tooltip = Tooltip_item_RainFromGround,
-	
-	AttachmentType = Canteen,
+    Weight = 0.1,
+    CanStoreWater =TRUE,
+    Type = Normal,
+    DisplayName = Canteen,
+    ReplaceOnUseOn = WaterSource-Canteenfull,
+    icon = Canteen,
+    RainFactor = 1,
+    Tooltip = Tooltip_item_RainFromGround,
+    
+    AttachmentType = Canteen,
 
-	StaticModel = Canteen,
-	WorldStaticModel = Canteen_Ground,
+    StaticModel = Canteen,
+    WorldStaticModel = Canteen_Ground,
 }
 ```
 
@@ -546,6 +546,83 @@ AnimationSet Trolley_Idle {...}
 for .fbx, seems the animationSet name is the animation node name (part after the `|` ) in the fbx file. etc. `Dummy01|BenchIn`
 *import a fbx anims_x file to blender, you will see the animation node.*
 *Looks like zombiod engine will load all 3dModel in anims_x folder, whatever what is it. than place it in same stack, find it by animationSet name when use it.*
+
+for example
+
+*file: Treadmill.xml*
+```
+<?xml version="1.0" encoding="utf-8"?>
+<animNode>
+    <m_Name>treadmill</m_Name>
+    <m_AnimName>Exercises_Run</m_AnimName>
+    <m_deferredBoneAxis>Z</m_deferredBoneAxis>
+    <m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
+    <m_SpeedScale>1.00</m_SpeedScale>
+    <m_BlendTime>0.40</m_BlendTime>
+    <m_Conditions>
+        <m_Name>ExerciseType</m_Name>
+        <m_Type>STRING</m_Type>
+        <m_StringValue>treadmill</m_StringValue>
+    </m_Conditions>
+
+    <m_SubStateBoneWeights>
+        <boneName>Dummy01</boneName>
+    </m_SubStateBoneWeights>
+    <m_SubStateBoneWeights>
+        <boneName>Translation_Data</boneName>
+    </m_SubStateBoneWeights>
+</animNode>
+```
+`<m_Name>treadmill</m_Name>`: is the animation set name, it is trigger by `<m_Conditions>`, see this:
+```
+<m_Conditions>
+    <m_Name>ExerciseType</m_Name>
+    <m_Type>STRING</m_Type>
+    <m_StringValue>treadmill</m_StringValue>
+</m_Conditions>
+```
+*When ExerciseType == treadmill, this animation will be trigger, which will set by lua code.*
+
+
+`<m_AnimName>Exercises_Run</m_AnimName>`: the anims_X name used for this animation,
+remember is not file name, is the `AnimationSet <name>`.(name after ` | ` in animation node if fbx.)
+
+*file: TreadmillOut.xml*
+```
+<?xml version="1.0" encoding="utf-8"?>
+<animNode x_extends="Treadmill.xml">
+    <m_Name>treadmillout</m_Name>
+    <m_AnimName>Exercises_Run</m_AnimName>
+    <m_Looped>false</m_Looped>
+    <m_Conditions />
+    <m_Conditions>
+        <m_Name>ExerciseEnded</m_Name>
+        <m_Type>BOOL</m_Type>
+        <m_BoolValue>true</m_BoolValue>
+    </m_Conditions>
+    <m_Events>
+        <m_EventName>SetVariable</m_EventName>
+        <m_Time>End</m_Time>
+        <m_ParameterValue>FitnessFinished=TRUE</m_ParameterValue>
+    </m_Events>
+</animNode>
+```
+
+`<m_Name>treadmillout</m_Name>`: the name here is animation set name too,
+this animation is trigger by `<m_Conditions>` too, see this:
+
+```
+<m_Conditions>
+    <m_Name>ExerciseEnded</m_Name>
+    <m_Type>BOOL</m_Type>
+    <m_BoolValue>true</m_BoolValue>
+</m_Conditions>
+```
+
+* When ExerciseEnded (toggle by lua or java somewhere), this animation will play.*
+**but how know that's end of treadmill? see this:**
+`<animNode x_extends="Treadmill.xml">` this is mean extands from `Treadmill.xml`, the ExerciseType is defined there.
+
 
 folders in the **AnimSets**, is really matter. those folder is defined by game as default.
 It is separate folders for different character events. seems you won't easy to create new one.
@@ -613,6 +690,6 @@ Only got Unhandled Exception, that usual mean is MOD is block starting.
 at last checkout the sandbox options. default is large than max. that's problmen cause crash.
 ```
 option RavenCraft.SurvivalJournalMultiplierBase {
-	type = integer, min = 1, max = 12, default = 20,
+    type = integer, min = 1, max = 12, default = 20,
 }
 ```
