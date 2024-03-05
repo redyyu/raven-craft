@@ -166,6 +166,9 @@ function ISReloadCrossbowAction:animEvent(event, parameter)
 		if ZombRand(3) == 0 then
 			self.character:getXp():AddXP(Perks.Reloading, 2);
 		end
+		
+		-- IMPORTANT!! when setWeaponSprite to a bugge sprite, must trigger the setWeaponSprites agian.
+		-- otherwise is no change when ReStrat game or change Script.
 		if crossbow_type then self.gun:setWeaponSprite(crossbow_type.sprite_drawn); end
 		self.character:resetEquippedHandsModels();
 	end
@@ -234,7 +237,11 @@ function ISReloadCrossbowAction:rackBullet()
 		self.gun:setCurrentAmmoCount(self.gun:getCurrentAmmoCount() - self.gun:getAmmoPerShoot());
 	end
 	local crossbow_type = CrossbowTypes[self.gun:getType()]
+
+	-- IMPORTANT!! when setWeaponSprite to a bugge sprite, must trigger the setWeaponSprites agian.
+	-- otherwise is no change when ReStrat game or change Script.
 	if crossbow_type then self.gun:setWeaponSprite(crossbow_type.sprite); end
+
 	self.character:resetEquippedHandsModels();
 end
 
