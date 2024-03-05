@@ -549,7 +549,15 @@ no matter the .X file name, in the file have a attribute `AnimationSet <name>`, 
 AnimationSet Trolley_Idle {...}
 ```
 
-for .fbx, seems the animationSet name is the animation node name (part after the `|` ) in the fbx file. etc. `Dummy01|BenchIn`
+for .fbx, seems the animationSet name is set by Track's name, in `Nolinear Animation` Panel (which is switch by little button top left of current panel)
+in the timeline of NLATracks, right click and rename it. if no NLATrack exsit, try select the animate action you want than click on the menu `Add -> Add Tracks`.
+
+when export set the transform to `-Z forward / Y up` and armature primary bone `X aixs`, secondary bone `Y aixs`.
+sometime the exported model is messup, try reverse the those options, might be problem may solved.
+
+*better to learn more about blender anyway.*
+
+the etc. `Dummy01|BenchIn`
 *import a fbx anims_x file to blender, you will see the animation node.*
 *Looks like zombiod engine will load all 3dModel in anims_x folder, whatever what is it. than place it in same stack, find it by animationSet name when use it.*
 
