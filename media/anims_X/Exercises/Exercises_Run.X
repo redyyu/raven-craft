@@ -9929,7 +9929,7 @@ AnimTicksPerSecond  {
  4800;
 }
 
-AnimationSet RunTreadmill {
+AnimationSet Exercises_Run {
  
 
  Animation {
