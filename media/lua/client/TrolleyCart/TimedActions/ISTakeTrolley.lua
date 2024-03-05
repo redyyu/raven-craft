@@ -10,7 +10,7 @@ function ISTakeTrolley:isValid()
 	-- Check that the item wasn't picked up by a preceding action
 	if self.item == nil or self.item:getSquare() == nil then return false end
 	-- no need check player has trolley in inventory here,
-	-- multiple trolly will drop anyway, from `onTrolleyTick`.
+	-- multiple trolley will drop anyway, from `onTrolleyTick`.
 	return true
 end
 
