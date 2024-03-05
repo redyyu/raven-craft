@@ -115,32 +115,39 @@ if item then
     item:DoParam("AttachmentType = Bottle")
 end
 
+-- Shall not Glass bottle on bag
 
-local item = ScriptManager.instance:getItem("Base.Wine")
-if item then
-    item:DoParam("AttachmentType = Bottle")
-end
-local item = ScriptManager.instance:getItem("Base.Wine2")
-if item then
-    item:DoParam("AttachmentType = Bottle")
-end
-local item = ScriptManager.instance:getItem("Base.WineEmpty")
-if item then 
-    item:DoParam("AttachmentType = Bottle")
-end
-local item = ScriptManager.instance:getItem("Base.WineEmpty2")
-if item then 
-    item:DoParam("AttachmentType = Bottle")
-end
-local item = ScriptManager.instance:getItem("Base.WineWaterFull")
-if item then
-    item:DoParam("AttachmentType = Bottle")
-end
-local item = ScriptManager.instance:getItem("Base.WinePetrol")
-if item then 
-    item:DoParam("AttachmentType = Bottle")
-end
+-- local item = ScriptManager.instance:getItem("Base.Wine")
+-- if item then
+--     item:DoParam("AttachmentType = Bottle")
+-- end
+-- local item = ScriptManager.instance:getItem("Base.Wine2")
+-- if item then
+--     item:DoParam("AttachmentType = Bottle")
+-- end
+-- local item = ScriptManager.instance:getItem("Base.WineEmpty")
+-- if item then 
+--     item:DoParam("AttachmentType = Bottle")
+-- end
+-- local item = ScriptManager.instance:getItem("Base.WineEmpty2")
+-- if item then 
+--     item:DoParam("AttachmentType = Bottle")
+-- end
+-- local item = ScriptManager.instance:getItem("Base.WineWaterFull")
+-- if item then
+--     item:DoParam("AttachmentType = Bottle")
+-- end
+-- local item = ScriptManager.instance:getItem("Base.WinePetrol")
+-- if item then 
+--     item:DoParam("AttachmentType = Bottle")
+-- end
 
+
+
+local item = ScriptManager.instance:getItem("Base.Molotov")
+if item then
+    item:DoParam("AttachmentType = Bottle")
+end
 
 local item = ScriptManager.instance:getItem("Base.WhiskeyFull")
 if item then
