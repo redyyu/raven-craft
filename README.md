@@ -537,12 +537,15 @@ item Canteen {
 
 3D model files in place in **anims_X**, no matter folder, just remember the right path is start from *anims_x/*.
 It could be DirectX (.X) file or fbx. 
+
 the .X file seems could use txt format, that mean you can edit by text editor, if you understand what are you doing.
 no matter the .X file name, in the file have a attribute `AnimationSet <name>`, this name is used in **AnimSets**
 ```
 AnimationSet Trolley_Idle {...}
 ```
-for .fbx, seems just by filename.
+for .fbx, seems the animationSet name is the animation node name (part after the `|` ) in the fbx file. etc. `Dummy01|BenchIn`
+*import a fbx anims_x file to blender, you will see the animation node.*
+*Looks like zombiod engine will load all 3dModel in anims_x folder, whatever what is it. than place it in same stack, find it by animationSet name when use it.*
 
 folders in the **AnimSets**, is really matter. those folder is defined by game as default.
 It is separate folders for different character events. seems you won't easy to create new one.
