@@ -460,6 +460,107 @@ that's hacking way, might cause other problem don't know yet.
 `<m_UnderlayMasksFolder>` seems only work when `m_masks` setted.
 
 
+## 3D Model with animation
+
+### Models_X
+
+Seems folders id dosn't really matter.
+different folder for easy to separate different models.
+
+**Skinned/**: for hair, clothing, include bags. models must have skinned info.
+**Static/**: for gears or shoes.
+**Weapons/**: for weapons.
+**Worlditems/**: for Items when drop on the floor.
+*others can custom folder*
+
+Define models with *clothingItem*, only have to give right path to the model file.
+both male or female, model file could be same. `/` or `\` seems dosn't matter. 
+path starts from *media/models_x*. also no matter uppercase or not.
+```
+<clothingItem>
+	<m_MaleModel>skinned\clothes\bob_hazmat</m_MaleModel>
+	<m_FemaleModel>skinned\clothes\kate_hazmat</m_FemaleModel>
+	<m_GUID>c8e9ccd6-1a04-4211-a604-4e82e627cc0f</m_GUID>
+	<m_Static>false</m_Static>
+	<m_AllowRandomHue>false</m_AllowRandomHue>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
+	<m_AttachBone></m_AttachBone>
+	<m_MasksFolder></m_MasksFolder>
+	<textureChoices>clothes/ArmorPads/ElbowPads</textureChoices>
+</clothingItem>
+```
+
+Define models by `<name>_models` in scripts.
+`model <Name> {...}` for static model. name better to Capitalized.
+`model <Name>_Ground {...}` for Worlditems model. name better to Capitalized.
+
+in `<name>_items` scripts, `StaticModel = ` is for the item self, `WorldStaticModel = ` is for item when drop on floor (Worlditems),
+
+there is no need write theme in separate script file, could be same one.
+
+for the block of **model**:
+
+`mesh =` is the path of model file, starts from *media/models_x*, better to use fbx. 
+`texture` is path for texture, starts from *media/texutre*
+
+*for example:*
+
+```
+model Canteen {
+	mesh = Static/Gear/canteen,
+	texture = Gear/canteen,
+	attachment world
+	{
+		offset = 0.0000 0.0000 0.0000,
+		rotate = 180.0000 0.0000 0.0000,
+	}
+}
+
+item Canteen {
+	Weight = 0.1,
+	CanStoreWater =TRUE,
+	Type = Normal,
+	DisplayName = Canteen,
+	ReplaceOnUseOn = WaterSource-Canteenfull,
+	icon = Canteen,
+	RainFactor = 1,
+	Tooltip = Tooltip_item_RainFromGround,
+	
+	AttachmentType = Canteen,
+
+	StaticModel = Canteen,
+	WorldStaticModel = Canteen_Ground,
+}
+```
+
+### anims_X and AnimSets
+
+3D model files in place in **anims_X**, no matter folder, just remember the right path is start from *anims_x/*.
+It could be DirectX (.X) file or fbx. 
+the .X file seems could use txt format, that mean you can edit by text editor, if you understand what are you doing.
+no matter the .X file name, in the file have a attribute `AnimationSet <name>`, this name is used in **AnimSets**
+```
+AnimationSet Trolley_Idle {...}
+```
+for .fbx, seems just by filename.
+
+folders in the **AnimSets**, is really matter. those folder is defined by game as default.
+It is separate folders for different character events. seems you won't easy to create new one.
+those events is trigger by many other ways, such as player state and conditions. etc. `climbSheetRope`.
+
+for items, might set by `ReplaceInPrimaryHand = <clothingItem> <animtionset name>, `
+like this
+```
+ReplaceInPrimaryHand = none holdingtrolleyright, /* no clothingItem need, just give nothing. */
+```
+
+`holdingtrolleyright` is anim set name.
+the clotingItem is replace by none here, because there is no need clothingItem.
+
+if need, just give a clothingItem name, and set model and texture in the clothingItem file.
+just like all the bags from vanilla.
+
+
 
 
 ## Strange Errors

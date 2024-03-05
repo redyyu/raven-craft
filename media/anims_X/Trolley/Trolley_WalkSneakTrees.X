@@ -7659,7 +7659,7 @@ Frame Body {
  }
 }
 
-AnimationSet Trolley_WalkSneakTrees {
+AnimationSet Bob_WalkSneakTrees_Trolley {
  
 
  Animation {

@@ -9929,7 +9929,7 @@ AnimTicksPerSecond  {
  4800;
 }
 
-AnimationSet Bob_Run {
+AnimationSet RunTreadmill {
  
 
  Animation {

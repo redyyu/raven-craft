@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <animNode>
 	<m_Name>idlesneaktrolleyright</m_Name>
-	<m_AnimName>Bob_IdleSneak_Trolley_ArmRaise</m_AnimName>
+	<m_AnimName>Trolley_IdleSneak</m_AnimName>
 	<m_BlendTime>0.50</m_BlendTime>
 	<m_Priority>10</m_Priority>
 	<m_deferredBoneAxis>Y</m_deferredBoneAxis>

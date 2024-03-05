@@ -3,16 +3,16 @@ module RavenCraft
 	
 	model TrolleyCart
 	{
-		mesh = trolley|cart,
-		texture = cart,
+		mesh = TrolleyCart/trolley|cart,
+		texture = TrolleyCart/cart,
 		scale = 1,
 		static = true,
 	}
 
 	model TrolleyCart_Ground
 	{
-		mesh = trolley|cart,
-		texture = cart,
+		mesh = TrolleyCart/trolley|cart,
+		texture = TrolleyCart/cart,
 		scale = 1,
 		invertX = false,
 		attachment world /* attachment world seems only work for WorldStaticModel */

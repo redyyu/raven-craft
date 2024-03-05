@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <animNode>
 	<m_Name>treadmill</m_Name>
-	<m_AnimName>Bob_Run</m_AnimName>
+	<m_AnimName>Exercises_Run</m_AnimName>
 	<m_deferredBoneAxis>Z</m_deferredBoneAxis>
 	<m_SyncTrackingEnabled>false</m_SyncTrackingEnabled>
 	<m_SpeedScale>1.00</m_SpeedScale>
