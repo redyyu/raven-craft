@@ -3,7 +3,7 @@ module RavenCraft
 	
 	model TrolleyCart
 	{
-		mesh = TrolleyCart/trolley|cart,
+		mesh = TrolleyCart/trolley,
 		texture = TrolleyCart/cart,
 		scale = 1,
 		static = true,
@@ -11,7 +11,7 @@ module RavenCraft
 
 	model TrolleyCart_Ground
 	{
-		mesh = TrolleyCart/trolley|cart,
+		mesh = TrolleyCart/trolley,
 		texture = TrolleyCart/cart,
 		scale = 1,
 		invertX = false,

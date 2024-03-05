@@ -502,6 +502,7 @@ for the block of **model**:
 
 `mesh =` is the path of model file, starts from *media/models_x*, better to use fbx. 
 `texture` is path for texture, starts from *media/texutre*
+*in mesh = <model_file_name_>|<object_name>, No need use `|` if export by selected Object from blender. this is use to separate multiple different object in same .fbx files*
 
 *for example:*
 
