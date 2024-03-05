@@ -652,6 +652,7 @@ if need, just give a clothingItem name, and set model and texture in the clothin
 just like all the bags from vanilla.
 
 
+**IMPORTANT: probably you need restart the game, when animSets is chagned.
 
 
 ## Strange Errors
