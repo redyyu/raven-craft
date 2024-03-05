@@ -1,29 +1,32 @@
 module RavenCraft
 {
-	imports {
-		Base
-	}
+    imports {
+        Base
+    }
 
-	item CartContainer {
-		Weight = 4,
-		Type = Container,
-		DisplayCategory = Container,
-		Capacity = 32,
-		WeightReduction = 98,
-		DisplayName = Trolley Cart,
-		Icon = TrolleyCart,
+    item CartContainer {
+        Weight = 4,
+        Type = Container,
+        DisplayCategory = Container,
+        Capacity = 32,
+        WeightReduction = 98,
+        DisplayName = Trolley Cart,
+        Icon = TrolleyCart,
 
-		PutInSound = PutItemInBag,
+        PutInSound = PutItemInBag,
 
-		SurvivalGear  = TRUE,
-		EquippedNoSprint = TRUE,
-		RequiresEquippedBothHands = TRUE,
-		RunSpeedModifier = 0.75,
+        SurvivalGear  = TRUE,
+        EquippedNoSprint = TRUE,
+        RequiresEquippedBothHands = TRUE,
+        RunSpeedModifier = 0.45,
         MetalValue = 40,
 
-		StaticModel = CartModel,
-		WorldStaticModel = CartModel,
-		ReplaceInPrimaryHand = Bag_CartModel_RHand holdingtrolleyright,
+        StaticModel = TrolleyCart,
+        WorldStaticModel = TrolleyCart_Ground,
+
+        ReplaceInPrimaryHand = none holdingtrolleyright, /* no clothingItem need, just give nothing. */
+
+        Tags = Trolley,
     }
 
 }
