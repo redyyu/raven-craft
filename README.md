@@ -535,19 +535,24 @@ item Canteen {
 
 ### anims_X and AnimSets
 
-3D model files in place in **anims_X**, no matter folder, just remember the right path is start from *anims_x/*.
-It could be DirectX (.X) file or fbx. 
+3D model files in place in **anims_X**, It could be DirectX (.X) file or fbx. 
+no matter folder or file name, no file path need too.
+
+the `anims_X` or `animSets` name is defined in the file. engine will loaded all files,
+and put in some stack, use theme must by name defined in those files.
 
 the .X file seems could use txt format, that mean you can edit by text editor, if you understand what are you doing.
-no matter the .X file name, in the file have a attribute `AnimationSet <name>`, this name is used in **AnimSets**
+no matter the .X file name, in the file have a attribute `AnimationSet <name>`, this name is used for `<m_AnimName>` in **AnimSets**
+
 ```
 AnimationSet Trolley_Idle {...}
 ```
+
 for .fbx, seems the animationSet name is the animation node name (part after the `|` ) in the fbx file. etc. `Dummy01|BenchIn`
 *import a fbx anims_x file to blender, you will see the animation node.*
 *Looks like zombiod engine will load all 3dModel in anims_x folder, whatever what is it. than place it in same stack, find it by animationSet name when use it.*
 
-for example
+For `AnimSets` file, see a example of Fitness Exercises with Treadmill.
 
 *file: Treadmill.xml*
 ```
@@ -573,6 +578,7 @@ for example
     </m_SubStateBoneWeights>
 </animNode>
 ```
+
 `<m_Name>treadmill</m_Name>`: is the animation set name, it is trigger by `<m_Conditions>`, see this:
 ```
 <m_Conditions>
@@ -581,7 +587,7 @@ for example
     <m_StringValue>treadmill</m_StringValue>
 </m_Conditions>
 ```
-*When ExerciseType == treadmill, this animation will be trigger, which will set by lua code.*
+*When set player's ExerciseType == treadmill (in lua or java), this animation will be trigger.*
 
 
 `<m_AnimName>Exercises_Run</m_AnimName>`: the anims_X name used for this animation,
@@ -619,9 +625,13 @@ this animation is trigger by `<m_Conditions>` too, see this:
 </m_Conditions>
 ```
 
-* When ExerciseEnded (toggle by lua or java somewhere), this animation will play.*
+*When ExerciseEnded (toggle by lua or java somewhere), this animation will play.*
+
 **but how know that's end of treadmill? see this:**
-`<animNode x_extends="Treadmill.xml">` this is mean extands from `Treadmill.xml`, the ExerciseType is defined there.
+`<animNode x_extends="Treadmill.xml">` that mean is this xml is extands from `Treadmill.xml`, the ExerciseType is defined there.
+
+the animation goes to `Treadmill.xml` first, then conditions change and match with the on in TreadmillOut.xml.
+that's how animation works, I guess.
 
 
 folders in the **AnimSets**, is really matter. those folder is defined by game as default.
