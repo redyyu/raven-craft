@@ -1,0 +1,99 @@
+module RavenCraft
+{
+    sound CrossbowBreak  {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowBreak.ogg,
+        }
+    }
+
+    sound CrossbowCompoundShot {
+        category = Item,
+        maxInstancesPerEmitter = 2,
+        clip {
+            file = media/sound/CrossbowLongShot.ogg,
+            /* distanceMax = 20, */
+        }
+    }
+    
+    sound CrossbowCompoundInsert {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowLongReload.ogg,
+        }
+    }
+
+    sound CrossbowCompoundEject {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowLongRack.ogg,
+        }
+    }
+
+    sound CrossbowCompoundRack {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowLongRack.ogg,
+        }
+    }
+
+    sound CrossbowWoodenShot {
+        category = Item,
+        maxInstancesPerEmitter = 2,
+        clip {
+            file = media/sound/CrossbowLongShot.ogg,
+            /* distanceMax = 20, */
+        }
+    }
+    
+    sound CrossbowWoodenInsert {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowLongReload.ogg,
+        }
+    }
+
+    sound CrossbowWoodenEject {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowLongRack.ogg,
+        }
+    }
+
+    sound CrossbowWoodenRack {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowLongRack.ogg,
+        }
+    }
+
+	sound CrossbowHandShot {
+        category = Item,
+        maxInstancesPerEmitter = 2,
+        clip {
+            file = media/sound/CrossbowHandShot.ogg,
+        }
+    }
+
+    sound CrossbowHandInsert {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowInsert.ogg,
+        }
+    }
+
+    sound CrossbowHandEject {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowInsert.ogg,
+        }
+    }
+
+    sound CrossbowHandRack {
+        category = Item,
+        clip {
+            file = media/sound/CrossbowHandRack.ogg,
+        }
+    }
+
+}

@@ -4,22 +4,22 @@ require 'TimedActions/ISRemoveSilencerUpgrade'
 
 local SilencedMap = {
     ['Base.SilencerPistol'] = {
-        sound = 'silenced_shot',
+        sound = 'SilencedShot',
         volume = 0.2,
         radius = 0.2,
     },
     ['Base.SilencerRifle'] = {
-        sound = 'silenced_shot',
+        sound = 'SilencedShot',
         volume = 0.4,
         radius = 0.3,
     },
     ['Base.SilencerPipe'] = {
-        sound = 'metal_silenced_shot',
+        sound = 'SilencedPipeShot',
         volume = 0.6,
         radius = 0.5,
     },
     ['Base.SilencerBottle'] = {
-        sound = 'crafted_silenced_shot',
+        sound = 'SilencedBottleShot',
         volume = 0.8,
         radius = 0.8,
     },
