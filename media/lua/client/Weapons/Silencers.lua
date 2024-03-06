@@ -65,12 +65,14 @@ local silencerOnUpgradeSilencer = function(weapon, part, player)
     ISInventoryPaneContextMenu.transferIfNeeded(player, weapon)
     ISInventoryPaneContextMenu.transferIfNeeded(player, part)
     ISInventoryPaneContextMenu.equipWeapon(part, false, false, player:getPlayerNum())
+    ISTimedActionQueue.add(ISUnequipAction:new(player, weapon, 50));
     ISTimedActionQueue.add(ISUpgradeSilencer:new(player, weapon, part, 50))
 end
 
-local silencerOnRemoveUpgradeSilencer = function(weapon, part, playerObj)
-    ISInventoryPaneContextMenu.transferIfNeeded(playerObj, weapon)
-    ISTimedActionQueue.add(ISRemoveSilencerUpgrade:new(playerObj, weapon, part, 50));
+local silencerOnRemoveUpgradeSilencer = function(weapon, part, player)
+    ISInventoryPaneContextMenu.transferIfNeeded(player, weapon)
+    ISTimedActionQueue.add(ISUnequipAction:new(player, weapon, 50));
+    ISTimedActionQueue.add(ISRemoveSilencerUpgrade:new(player, weapon, part, 50));
 end
 
 
@@ -111,14 +113,14 @@ local silencerWithOutScrewdriverContextMenu = function(playerNum, context, items
             end
         end
         if doIt then
-            local upgradeOption = context:addOption(getText("ContextMenu_Add_Silencer_Upgrade"), items, nil);
+            local upgradeOption = context:addOptionOnTop(getText("ContextMenu_Add_Silencer_Upgrade"), items, nil);
             context:addSubMenu(upgradeOption, subMenuUp);
         end
     end
 
     -- remove parts
     if gun:getCanon() and gun:getCanon():hasTag('Silencer') then
-        local removeUpgradeOption = context:addOption(getText("ContextMenu_Remove_Silencer_Upgrade"), items, nil);
+        local removeUpgradeOption = context:addOptionOnTop(getText("ContextMenu_Remove_Silencer_Upgrade"), items, nil);
         local subMenuRemove = context:getNew(context);
         context:addSubMenu(removeUpgradeOption, subMenuRemove);
         subMenuRemove:addOption(gun:getCanon():getName(), gun, silencerOnRemoveUpgradeSilencer, gun:getCanon(), playerObj)

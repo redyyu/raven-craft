@@ -19,7 +19,7 @@ module RavenCraft
     sound CrossbowCompoundInsert {
         category = Item,
         clip {
-            file = media/sound/CrossbowLongReload.ogg,
+            file = media/sound/CrossbowLongInsert.ogg,
         }
     }
 
@@ -49,7 +49,7 @@ module RavenCraft
     sound CrossbowWoodenInsert {
         category = Item,
         clip {
-            file = media/sound/CrossbowLongReload.ogg,
+            file = media/sound/CrossbowLongInsert.ogg,
         }
     }
 
@@ -78,14 +78,14 @@ module RavenCraft
     sound CrossbowHandInsert {
         category = Item,
         clip {
-            file = media/sound/CrossbowInsert.ogg,
+            file = media/sound/CrossbowHandInsert.ogg,
         }
     }
 
     sound CrossbowHandEject {
         category = Item,
         clip {
-            file = media/sound/CrossbowInsert.ogg,
+            file = media/sound/CrossbowHandRack.ogg,
         }
     }
 
