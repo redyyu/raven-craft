@@ -713,3 +713,27 @@ option RavenCraft.SurvivalJournalMultiplierBase {
     type = integer, min = 1, max = 12, default = 20,
 }
 ```
+
+
+
+## Generator window buggey
+
+*This problem is not related with this mod.*
+windows in Vanilla game might buggey, like generator info window.
+go `zomboid` folder which contain `save` folder,
+in `zomboid/lua/layout.ini` could fix that. just change the size.
+```
+ISSearchWindow x=120 y=300 visible=false pin=true width=300 height=180
+charinfowindow x=1274 y=104 visible=false pin=true tabs=info,skills,health,clothingIns,protection current=info
+inventory0 x=322 y=0 width=640 height=360 visible=true pin=false column2=240 sortBy=nameInc
+loot0 x=964 y=0 width=662 height=360 visible=true pin=false column2=321 sortBy=catDesc
+crafting0 x=1042 y=412 width=878 height=606 visible=false pin=true
+mechanics0 x=1120 y=181 width=800 height=600 visible=false pin=true
+miniMap0 x=1720 y=866 visible=true userPosition=true
+survivalguide visible=false
+furnace x=395 y=94 visible=true pin=true width=394 height=178
+radiotelevisionIso x=1361 y=382 visible=false pin=true width=300 height=337
+generator x=70 y=50 visible=true pin=true width=240 height=121
+farming x=1305 y=112 visible=false pin=true width=254 height=210
+literature x=136 y=21 width=400 height=980 visible=true pin=true
+```
