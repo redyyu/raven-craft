@@ -78,11 +78,10 @@ function ISReadAJournal:update()
             end
         end
     else
-        ISReadAJournal.checkMultiplier(self);
-        self.data['readPages'] = self.readPages
+        ISReadAJournal.checkMultiplier(self)
+        print(self.readed_data[self.data['id']])
+        self.readed_data[self.data['id']] = self.readPages
     end
-
-    
 
     -- Playing with longer day length reduces the effectiveness of morale-boosting
     -- literature, like Comic Book.
@@ -178,7 +177,7 @@ function ISReadAJournal:animEvent(event, parameter)
     end
 end
 
-function ISReadAJournal:new(character, item, data, read_sit_modifier)
+function ISReadAJournal:new(character, item, data, readed_data, read_sit_modifier)
     local o = {}
     setmetatable(o, self)
     self.__index = self
@@ -188,9 +187,10 @@ function ISReadAJournal:new(character, item, data, read_sit_modifier)
     o.stopOnRun = true
     o.minutesPerPage = 2.0
     o.data = data
+    o.readed_data = readed_data
     o.totalPages = data['numPages'] or 1
-    o.lastReadPages = data['readPages'] or 0
-    o.readPages = data['readPages'] or 0
+    o.readPages = readed_data[data['id']] or 0
+    o.lastReadPages = o.readPages
     o.unreadPages = o.totalPages - o.lastReadPages
     
     local f = 1 / getGameTime():getMinutesPerDay() / 2

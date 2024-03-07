@@ -11,9 +11,9 @@ end
 SurvivalJournal.onWrite = function(items, result, player)
     local baseMultiplier = SandboxVars.RavenCraft.SurvivalJournalMultiplierBase
     local journalData = {
+        ['id'] = tostring(result:getID()),
         ['pid'] = player:getSteamID(),
         ['numPages'] = 0,
-        ['readPages'] = 0,
         ['Perks'] = {},
         ['AlreadyReadBook'] = {},
         ['KnownRecipes'] = {},
@@ -52,6 +52,7 @@ SurvivalJournal.onWrite = function(items, result, player)
     end
 
     result:getModData()['RCJournal'] = journalData
+    SurvivalJournal.setReaded(player, journalData['id'], 0)
     
     local journal_name = getText('IGUI_SURVIVAL_JOURNAL_SOMEONE_S', player:getDescriptor():getSurname())
 
@@ -61,7 +62,41 @@ SurvivalJournal.onWrite = function(items, result, player)
     -- result:addPage(0, info) -- not working
 
     -- SurvivalJournal.setTooltip(result)
-    
+end
+
+
+SurvivalJournal.ensureReadedTable = function(player)
+    if not player:getModData()['RCJournal'] then
+        player:getModData()['RCJournal'] = {}
+    elseif not player:getModData()['RCJournal']['readed'] then
+        player:getModData()['RCJournal']['readed'] = {}
+    end
+end
+
+SurvivalJournal.getReadedTable = function(player)
+    SurvivalJournal.ensureReadedTable(player)
+    return player:getModData()['RCJournal']['readed']
+end
+
+
+SurvivalJournal.getReaded = function(player, journa_id)
+    SurvivalJournal.ensureReadedTable(player)
+    local readPages = 0
+    local readed_table = player:getModData()['RCJournal']['readed']
+    if readed_table and journa_id then
+        readPages = readed_table[journa_id] or 0
+    end
+    return readPages
+end
+
+
+SurvivalJournal.setReaded = function(player, journal_id, num)
+    SurvivalJournal.ensureReadedTable(player)
+    local readed_table = player:getModData()['RCJournal']['readed']
+    if readed_table and journal_id then
+        player:getModData()['RCJournal']['readed'][journa_id] = num
+    end
+    return num
 end
 
 
@@ -72,7 +107,7 @@ SurvivalJournal.getDetail = function(journal)
 
     if journalData and journalData['numPages'] > 0 then
         local numPages = journalData['numPages'] or 0
-        local readPages = journalData['readPages'] or 0
+        local readPages = SurvivalJournal.getReaded(getPlayer(), journalData['id'])
         local numReadBooks = journalData['AlreadyReadBook'] and #journalData['AlreadyReadBook'] or 0
         local numRecipes = journalData['KnownRecipes'] and #journalData['KnownRecipes'] or 0
         local skillPerks = journalData['Perks'] and journalData['Perks'] or {}
@@ -103,23 +138,28 @@ SurvivalJournal.onRead = function(player, journal)
     if journal:getContainer() == nil then
 		return
 	end
-    local journalData = journal:getModData()['RCJournal']
+    local journalData = journal:getModData()['RCJournal'] or {}
     local sit_on_ground_modifier = SandboxVars.RavenCraft.ReadingOnSitEffective
     local self_read_only = SandboxVars.RavenCraft.SurvivalJournalSelfReadOnly
+    local readPages = SurvivalJournal.getReaded(player, journalData['id'])
 
     if journalData['pid'] ~= player:getSteamID() and self_read_only then
         player:Say(getText("IGUI_PlayerText_DontGet"))
     else
-        if journalData['readPages'] >= journalData['numPages'] then
+        -- if readPages >= journalData['numPages'] then
+        --     player:Say(getText("IGUI_PlayerText_BookObsolete"))
+        --     player:Say(getText("IGUI_PlayerText_ReReadBook"))
+        --     SurvivalJournal.setReaded(player, journalData['id'], 0)
+        -- end
+        if readPages < journalData['numPages'] then
+            ISInventoryPaneContextMenu.transferIfNeeded(player, journal)
+            -- read
+            player:reportEvent("EventSitOnGround")
+            local readed_data = SurvivalJournal.getReadedTable(player)
+            ISTimedActionQueue.add(ISReadAJournal:new(player, journal, journalData, readed_data, sit_on_ground_modifier))
+        else
             player:Say(getText("IGUI_PlayerText_BookObsolete"))
-            player:Say(getText("IGUI_PlayerText_ReReadBook"))
-            journalData['readPages'] = 0
         end
-	    ISInventoryPaneContextMenu.transferIfNeeded(player, journal)
-	    -- read
-        
-        player:reportEvent("EventSitOnGround")
-	    ISTimedActionQueue.add(ISReadAJournal:new(player, journal, journalData, sit_on_ground_modifier))
     end
 end
 
@@ -146,5 +186,4 @@ SurvivalJournal.doBuildReadMenu = function(player, context, items)
     end
 end
 
-Events.OnFillInventoryObjectContextMenu.Add(SurvivalJournal.doBuildReadMenu);
-
+Events.OnFillInventoryObjectContextMenu.Add(SurvivalJournal.doBuildReadMenu)
