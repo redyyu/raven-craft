@@ -1,25 +1,25 @@
 module RavenCraft
 {
-	
-	model TrolleyCart
-	{
-		mesh = TrolleyCart/trolley,
-		texture = TrolleyCart/cart,
-		scale = 1,
-		static = true,
-	}
+    
+    model TrolleyCart
+    {
+        mesh = TrolleyCart/trolley,
+        texture = TrolleyCart/cart,
+        scale = 1,
+        static = true,
+    }
 
-	model TrolleyCart_Ground
-	{
-		mesh = TrolleyCart/trolley,
-		texture = TrolleyCart/cart,
-		scale = 1,
-		invertX = false,
-		attachment world /* attachment world seems only work for WorldStaticModel */
-		{
-			offset = 0.0000 0.0000 0.0000,
-			rotate = 0.0000 0.0000 0.0000,
-		}
-	}
+    model TrolleyCart_Ground
+    {
+        mesh = TrolleyCart/trolley,
+        texture = TrolleyCart/cart,
+        scale = 1,
+        invertX = false,
+        attachment world /* attachment world seems only work for WorldStaticModel */
+        {
+            offset = 0.0000 0.0000 0.0000,
+            rotate = 0.0000 0.0000 0.0000,
+        }
+    }
 
 }
