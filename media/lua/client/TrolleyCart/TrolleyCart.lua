@@ -45,9 +45,6 @@ local function onTrolleyTick()
     local playersSum = getNumActivePlayers()
     for playerNum = 0, playersSum - 1 do
         local playerObj = getSpecificPlayer(playerNum)
-        
-        -- DO NOT switch item to present the cart is full or empty any more.
-        -- just use another neutralized 3d model to present (cant even tell) both full or empty.
 
         if playerObj then
 
