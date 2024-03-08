@@ -349,10 +349,6 @@ Combine better shoes models.
 Combine Drink packs. pack up 6 or 12 Bottle or Pop Can into one.
 
 
-## Trolley Cart
-
-Combine Trolley Cart. A equipment container for both hands. It will slow the movement speed.
-
 ## Fishing Net
 
 Make better Fishing Net, could cacth more than `BaitFish`, base on character fishing skill and lucky.
@@ -546,7 +542,7 @@ the .X file seems could use txt format, that mean you can edit by text editor, i
 no matter the .X file name, in the file have a attribute `AnimationSet <name>`, this name is used for `<m_AnimName>` in **AnimSets**
 
 ```
-AnimationSet Trolley_Idle {...}
+AnimationSet SOMETHINE_Idle {...}
 ```
 
 for .fbx, seems the animationSet name is set by Track's name, in `Nolinear Animation` Panel (which is switch by little button top left of current panel)
@@ -650,10 +646,10 @@ those events is trigger by many other ways, such as player state and conditions.
 for items, might set by `ReplaceInPrimaryHand = <clothingItem> <animtionset name>, `
 like this
 ```
-ReplaceInPrimaryHand = none holdingtrolleyright, /* no clothingItem need, just give nothing. */
+ReplaceInPrimaryHand = none holdingbikeright, /* no clothingItem need, just give nothing. */
 ```
 
-`holdingtrolleyright` is anim set name.
+`holdingbikeright` is anim set name.
 the clotingItem is replace by none here, because there is no need clothingItem.
 
 if need, just give a clothingItem name, and set model and texture in the clothingItem file.

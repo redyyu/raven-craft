@@ -40,10 +40,6 @@ ContextMenu_EN = {
   ContextMenu_TAKE_INJECTION = "Take Injection"
   ContextMenu_CLIMB_LADDER = "Climb Ladder"
   
-  ContextMenu_TAKE_CART = "Take Cart",
-	ContextMenu_DROP_CART = "Drop Cart",
-	ContextMenu_GRAB_CART = "Grab Cart"
-
   ContextMenu_WearTight = "Wear Tight",
   ContextMenu_WearLoose = "Wear Loose",
   ContextMenu_READ_JOURNAL = "Read Survival Journal"

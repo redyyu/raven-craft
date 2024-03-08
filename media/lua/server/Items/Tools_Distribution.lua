@@ -14,7 +14,6 @@ local LITERATURES_WEIGHT = {
 local TOOLS_WEIGHT = {
     ["Tongs"] = 1.5,
     ["Bellows"] = 1.5,
-    [".CartContainer"] = 1,
 }
 
 local MATERIALS_WEIGHT = {
