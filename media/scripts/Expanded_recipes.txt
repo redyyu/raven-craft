@@ -111,8 +111,8 @@ module RavenCraft
     /** Carpentry **/
 
     recipe Blend Concrete {
-        destroy BucketEmpty,
-        Water=15,
+        destroy BucketEmpty/BucketWaterFull,
+        Water=5,
         ConcretePowder,
         
         Result: BucketConcreteFull,

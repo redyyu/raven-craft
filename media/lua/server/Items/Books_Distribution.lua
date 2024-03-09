@@ -4,14 +4,14 @@ require "Vehicles/VehicleDistributions"
 
 
 local BOOKS_WEIGHT = {
-    [".BookWeaponAiming"] = 102,
-    [".BookWeaponReloading"] = 102,
-    [".BookWeaponLongBlade"] = 102,
-    [".BookWeaponSmallBlade"] = 100.1,
-    [".BookWeaponBlunt"] = 102,
-    [".BookWeaponSmallBlunt"] = 102,
-    [".BookWeaponAxe"] = 102,
-    [".BookWeaponSmallSpear"] = 102,
+    [".BookWeaponAiming"] = 1,
+    [".BookWeaponReloading"] = 1,
+    [".BookWeaponLongBlade"] = 1,
+    [".BookWeaponSmallBlade"] = 1,
+    [".BookWeaponBlunt"] = 1,
+    [".BookWeaponSmallBlunt"] = 1,
+    [".BookWeaponAxe"] = 1,
+    [".BookWeaponSpear"] = 1,
 }
 
 
