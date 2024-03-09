@@ -1,0 +1,37 @@
+RecMedia = RecMedia or {}
+
+-- Media: Retail VHS: Blade Master
+RecMedia["742453ab-2493-454a-8e50-669adcd00136"] = {
+	itemDisplayName = "RM_3301f37a-148d-40a4-8787-73401eb8ddfc",
+	title = "RM_410a559c-f424-41ac-ae56-7293d8f904a0",
+	subtitle = "RM_044cd442-8ab6-4841-802f-2e9a50e0505e",
+	author = nil,
+	extra = nil,
+	spawning = 1,
+	category = "Retail-VHS",
+	lines = {
+		{ text = "RM_f9d89107-5647-4154-90e7-1cff854ae214", r = 0.00, g = 0.69, b = 0.94, codes = "BOR-1" },
+		{ text = "RM_53ccaa37-accb-41bf-9e5a-2de84b54516d", r = 0.00, g = 0.69, b = 0.94, codes = "BOR-1" },
+		{ text = "RM_f0104c98-7989-4927-b8df-d7dd5e84e035", r = 0.00, g = 0.69, b = 0.94, codes = "LBA+1" },
+		{ text = "RM_a11799a6-591b-4344-b127-a45eea15304d", r = 0.00, g = 0.69, b = 0.94, codes = "BOR-1" },
+		{ text = "RM_c2492407-4687-4047-9500-013642dd88cd", r = 0.00, g = 0.69, b = 0.94, codes = "LBA+1" },
+		{ text = "RM_3026283b-df59-4bf9-b28a-04d5561569ff", r = 1.00, g = 1.00, b = 1.00, codes = "BOR-1" },
+		{ text = "RM_1534c867-fea5-443d-a898-7f00f7f0b0bf", r = 0.00, g = 0.69, b = 0.94, codes = "LBA+1" },
+		{ text = "RM_117fe8d8-1d6a-41b3-82a8-df617d97240d", r = 0.00, g = 0.69, b = 0.94, codes = "BOR-1" },
+		{ text = "RM_570e20b6-39dd-4e94-885f-604997f51f67", r = 0.00, g = 0.69, b = 0.94, codes = "SBA+1" },
+		{ text = "RM_4835b260-9b9f-4378-ac93-cfba340acfe5", r = 0.00, g = 0.69, b = 0.94, codes = "SBA+1" },
+		{ text = "RM_95bf5df4-4c96-4476-9b9f-e3170abc49f5", r = 0.00, g = 0.69, b = 0.94, codes = "BOR-1" },
+		{ text = "RM_d6944882-6f88-4831-b79f-b9e14e91d32b", r = 1.00, g = 1.00, b = 1.00, codes = "LBA+1" },
+		{ text = "RM_0411d201-ed82-4988-96c1-865e5cfebfa6", r = 0.00, g = 0.69, b = 0.94, codes = "SBA+1" },
+		{ text = "RM_07c7791d-4a6c-4113-aac9-18dfcdf2b764", r = 0.00, g = 0.69, b = 0.94, codes = "SBA+1" },
+		{ text = "RM_eda1997c-fe8f-4189-a1db-e487ea1934a2", r = 0.00, g = 0.69, b = 0.94, codes = "BOR-1" },
+		{ text = "RM_ebe55f40-36fa-4b70-8841-6a3d0e9e4ce8", r = 0.00, g = 0.69, b = 0.94, codes = "LBA+1" },
+		{ text = "RM_6da825cf-03f9-4806-a05e-c639f392425c", r = 0.00, g = 0.69, b = 0.94, codes = "BOR-1" },
+		{ text = "RM_28db81d3-112d-4535-b810-60422d30d8b1", r = 1.00, g = 1.00, b = 1.00, codes = "BOR-1" },
+		{ text = "RM_a23cac69-e2b0-48b4-80c8-bae8db596230", r = 1.00, g = 1.00, b = 1.00, codes = "LBA-1" },
+		{ text = "RM_88cb5543-a0ce-4f83-8e28-17df25a9df6a", r = 1.00, g = 1.00, b = 1.00, codes = "SBA+1" },
+		{ text = "RM_d74fc335-c103-4ef8-8012-1dcca55906ed", r = 1.00, g = 1.00, b = 1.00, codes = "BOR-1" },
+		{ text = "RM_6072369a-ab27-47b6-aea4-2ade11f58708", r = 1.00, g = 1.00, b = 1.00, codes = "SBA+1" },
+		{ text = "RM_ff43c18a-4db5-4258-844e-4b43419d4193", r = 1.00, g = 1.00, b = 1.00, codes = "LBA-1" },
+	},
+};
