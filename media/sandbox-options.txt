@@ -20,9 +20,15 @@ option RavenCraft.ReadingOnSitEffective {
 	page = RavenCraft, translation = RavenCraft_READING_ON_SIT,
 }
 
-option RavenCraft.SurvivalJournalMultiplierBase {
-	type = integer, min = 1, max = 20, default = 12,
-	page = RavenCraft, translation = RavenCraft_JOURNAL_MULTIPLIER_BASE,
+option RavenCraft.SkillBookMultiplierModifier {
+	type = integer, min = 2, max = 12, default = 6,
+	page = RavenCraft, translation = RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER,
+}
+
+
+option RavenCraft.SurvivalJournalMultiplierModifier {
+	type = integer, min = 1, max = 12, default = 12,
+	page = RavenCraft, translation = RavenCraft_JOURNAL_MULTIPLIER_MODIFIER,
 }
 
 option RavenCraft.SurvivalJournalSelfReadOnly {

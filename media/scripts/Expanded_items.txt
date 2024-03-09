@@ -68,82 +68,116 @@ module RavenCraft
 
  /** Skill Books **/
 
-    item BookWeaponAiming1 {
-        NumberOfPages = 440,
+    item BookWeaponAiming {
+        NumberOfPages = 660,
         Weight = 0.8,
         Type = Literature,
-        DisplayName = Hunter's Guide,
+        DisplayCategory = SkillBook,
+        DisplayName = Tactical Shooting,
         SkillTrained = Aiming,
         LvlSkillTrained = 1,
         NumLevelsTrained = 4,
         Icon = BookAiming,
         StaticModel = Book,
-        WorldStaticModel = BookDarkCyan_Ground,
+        WorldStaticModel = BookGrey_Ground,
     }
 
-    item BookWeaponAiming2 {
-        NumberOfPages = 300,
+    item BookWeaponReloading {
+        NumberOfPages = 660,
         Weight = 0.8,
         Type = Literature,
-        DisplayName = Special Warfare Sniper,
-        SkillTrained = Aiming,
-        LvlSkillTrained = 5,
-        NumLevelsTrained = 2,
-        Icon = BookAimingMaster,
-        StaticModel = Book,
-        WorldStaticModel = BookClosedDarkCyan_Ground,
-    }
-
-    item BookWeaponReloading1 {
-        NumberOfPages = 440,
-        Weight = 0.8,
-        Type = Literature,
-        DisplayName = Tactical Reload,
+        DisplayCategory = SkillBook,
+        DisplayName = Tactical Reloading,
         SkillTrained = Reloading,
         LvlSkillTrained = 1,
         NumLevelsTrained = 4,
         Icon = BookReloading,
         StaticModel = Book,
-        WorldStaticModel = BookRedPink_Ground,
+        WorldStaticModel = BookGrey_Ground,
     }
 
-    item BookWeaponLongBlade1 {
-        NumberOfPages = 440,
+    item BookWeaponLongBlade {
+        NumberOfPages = 660,
         Weight = 0.8,
         Type = Literature,
-        DisplayName = Blade Training Guide,
+        DisplayCategory = SkillBook,
+        DisplayName = Blade of Ward Off Evil,
         SkillTrained = LongBlade,
         LvlSkillTrained = 1,
         NumLevelsTrained = 4,
         Icon = BookLongBlade,
         StaticModel = Book,
-        WorldStaticModel = BookYellowBrown_Ground,
+        WorldStaticModel = BookBlue_Ground,
     }
 
-    item BookWeaponLongBlade2 {
-        NumberOfPages = 300,
+    item BookWeaponSmallBlade {
+        NumberOfPages = 660,
         Weight = 0.8,
         Type = Literature,
-        DisplayName = Blade of Ward Off Evil,
-        SkillTrained = LongBlade,
-        LvlSkillTrained = 5,
-        NumLevelsTrained = 2,
-        Icon = BookLongBladeMaster,
-        StaticModel = Book,
-        WorldStaticModel = BookClosedYellowBrown_Ground,
-    }
-
-    item BookWeaponSmallBlade1 {
-        NumberOfPages = 440,
-        Weight = 0.8,
-        Type = Literature,
-        DisplayName = Hunting Knife Guide,
+        DisplayCategory = SkillBook,
+        DisplayName = Hunting in The Wild,
         SkillTrained = SmallBlade,
         LvlSkillTrained = 1,
         NumLevelsTrained = 4,
         Icon = BookSmallBlade,
         StaticModel = Book,
-        WorldStaticModel = BookYellowBrown_Ground,
+        WorldStaticModel = BookBrown_Ground,
+    }
+
+    item BookWeaponAxe {
+        NumberOfPages = 660,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayCategory = SkillBook,
+        DisplayName = Firemaster's Guide,
+        SkillTrained = Aex,
+        LvlSkillTrained = 1,
+        NumLevelsTrained = 4,
+        Icon = BookAxe,
+        StaticModel = Book,
+        WorldStaticModel = BookRedPink_Ground,
+    }
+
+    item BookWeaponSpear {
+        NumberOfPages = 660,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayCategory = SkillBook,
+        DisplayName = Savages are Crazy,
+        SkillTrained = Spear,
+        LvlSkillTrained = 1,
+        NumLevelsTrained = 4,
+        Icon = BookSpear,
+        StaticModel = Book,
+        WorldStaticModel = BookGrey_Ground,
+    }
+
+    item BookWeaponBlunt {
+        NumberOfPages = 660,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayCategory = SkillBook,
+        DisplayName = Mr.Baseball,
+        SkillTrained = Blunt,
+        LvlSkillTrained = 1,
+        NumLevelsTrained = 4,
+        Icon = BookBlunt,
+        StaticModel = Book,
+        WorldStaticModel = BookGreen_Ground,
+    }
+
+    item BookWeaponSmallBlunt {
+        NumberOfPages = 660,
+        Weight = 0.8,
+        Type = Literature,
+        DisplayCategory = SkillBook,
+        DisplayName = Best Weapon of Stone Age,
+        SkillTrained = SmallBlunt,
+        LvlSkillTrained = 1,
+        NumLevelsTrained = 4,
+        Icon = BookSmallBlunt,
+        StaticModel = Book,
+        WorldStaticModel = BookBrown_Ground,
     }
 
 

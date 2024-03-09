@@ -28,6 +28,7 @@ those knowledge is become my treasure, Thank you very much.
 15. 5 x Armor Pads for different positions.
 16. Backpacks and HikingBags have attachments by default. (no need Tailoring it any more.)
 17. Add Canteen, Flashlight and ChestRig. (No nead G.E.A.R)
+18. New Skill Books for weapons.
 
 
 ### Added new Carpentry Expands:
@@ -705,7 +706,7 @@ Only got Unhandled Exception, that usual mean is MOD is block starting.
 
 at last checkout the sandbox options. default is large than max. that's problmen cause crash.
 ```
-option RavenCraft.SurvivalJournalMultiplierBase {
+option RavenCraft.SurvivalJournalMultiplierModifier{
     type = integer, min = 1, max = 12, default = 20,
 }
 ```

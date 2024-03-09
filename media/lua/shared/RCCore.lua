@@ -1,7 +1,7 @@
 PACKAGE_NAME = "RavenCraft";
 
-local loot_chance = SandboxVars.RavenCraft.LootChance;
-local loot_chance_percent = loot_chance / 100;
+local loot_chance = SandboxVars.RavenCraft.LootChance
+local loot_chance_percent = loot_chance / 100
 
 
 getPackageName = function()

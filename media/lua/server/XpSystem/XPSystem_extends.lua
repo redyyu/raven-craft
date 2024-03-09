@@ -1,17 +1,77 @@
+require "XpSystem/XPSystem_SkillBook"
 
-SkillBook["Aiming"] = {};
-SkillBook["Aiming"].perk = Perks.Aiming;
-SkillBook["Aiming"].maxMultiplier1 = 3;
-SkillBook["Aiming"].maxMultiplier2 = 5;
-SkillBook["Aiming"].maxMultiplier3 = 8;
-SkillBook["Aiming"].maxMultiplier4 = 12;
-SkillBook["Aiming"].maxMultiplier5 = 16;
+local modifier = SandboxVars.RavenCraft.SkillBookMultiplierModifier
 
-SkillBook["Reloading"] = {};
-SkillBook["Reloading"].perk = Perks.Reloading;
-SkillBook["Reloading"].maxMultiplier1 = 3;
-SkillBook["Reloading"].maxMultiplier2 = 5;
-SkillBook["Reloading"].maxMultiplier3 = 8;
-SkillBook["Reloading"].maxMultiplier4 = 12;
-SkillBook["Reloading"].maxMultiplier5 = 16;
+SkillBook["Aiming"] = {
+    perk = Perks.Aiming,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}
 
+SkillBook["Reloading"] = {
+    perk = Perks.Reloading,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}
+
+SkillBook["LongBlade"] = {
+    perk = Perks.LongBlade,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}
+
+
+SkillBook["SmallBlade"] = {
+    perk = Perks.SmallBlade,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}
+
+SkillBook["SmallBlunt"] = {
+    perk = Perks.SmallBlunt,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}
+
+SkillBook["Blunt"] = {
+    perk = Perks.Blunt,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}
+
+
+SkillBook["Axe"] = {
+    perk = Perks.Axe,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}
+
+SkillBook["Spear"] = {
+    perk = Perks.Spear,
+    maxMultiplier1 = 1 * modifier,
+    maxMultiplier2 = 1 * modifier,
+    maxMultiplier3 = 1 * modifier,
+    maxMultiplier4 = 1 * modifier,
+    maxMultiplier5 = 1 * modifier,
+}

@@ -9,7 +9,6 @@ end
 
 
 SurvivalJournal.onWrite = function(items, result, player)
-    local baseMultiplier = SandboxVars.RavenCraft.SurvivalJournalMultiplierBase
     local journalData = {
         ['id'] = tostring(result:getID()),
         ['pid'] = player:getSteamID(),
@@ -37,9 +36,10 @@ SurvivalJournal.onWrite = function(items, result, player)
         player:getKnownRecipes():clear()
     end
 
+    local modifier = SandboxVars.RavenCraft.SurvivalJournalMultiplierModifier
     for k, v in pairs(SurvivalPerks) do
         local perks_lv = player:getPerkLevel(v)
-        local perks_multiplier = perks_lv * baseMultiplier
+        local perks_multiplier = perks_lv * modifier
         journalData['Perks'][k] = {
             ['maxLevel'] = perks_lv,
             ['maxMultiplier'] = perks_multiplier,
