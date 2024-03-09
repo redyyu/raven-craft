@@ -40,6 +40,8 @@ module Base
         Sound: Painting,
         Time: 250.0,
         Category: Survivalist,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
 
     recipe Paint Webbing Brown {

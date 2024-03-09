@@ -235,9 +235,9 @@ ISBuildMenu.doBuildMenu = function(player, context, worldobjects, test)
 	ISContextMenu.addSubMenu = oldaddSubMenu
 
 	if menu and (playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) or playerInv:containsTagEvalRecurse("DigPlow", predicateNotBroken) or ISBuildMenu.cheat) then
-		local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
-		local subMenuExpands = menu:getNew(menu);
-		context:addSubMenu(expandsOption, subMenuExpands);
+		local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil)
+		local subMenuExpands = menu:getNew(menu)
+		context:addSubMenu(expandsOption, subMenuExpands)
 		buildExpanedsMenu(subMenuExpands, expandsOption, player)
 	end
 	return unpack(ret)
