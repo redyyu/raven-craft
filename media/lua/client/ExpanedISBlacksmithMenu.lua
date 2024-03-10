@@ -1,9 +1,5 @@
 require 'Blacksmith/ISUI/ISBlacksmithMenu'
 
-Events.OnFillWorldObjectContextMenu.Remove(ISBlacksmithMenu.doBuildMenu)
-
-local oldDoBuild = ISBlacksmithMenu.doBuildMenu
-
 
 local function onMetalDoor(worldobjects, player)
     local fence = ISWoodenDoor:new("fixtures_doors_01_52", "fixtures_doors_01_53", "fixtures_doors_01_54", "fixtures_doors_01_55");
@@ -296,8 +292,7 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
 end
 
 
--- Parent menu
-ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
+local doBuildMenu = function(player, context, worldobjects, test)
     if test and ISWorldObjectContextMenu.Test then return true end
 
     if getCore():getGameMode()=="LastStand" then
@@ -311,25 +306,17 @@ ISBlacksmithMenu.doBuildMenu = function(player, context, worldobjects, test)
     
     if playerObj:getVehicle() then return; end
 
-    local oldaddSubMenu = ISContextMenu.addSubMenu
-    local menu = nil
-    ISContextMenu.addSubMenu = function(self, option, submenu)
-        menu = menu ~= nil and menu or option == context:getOptionFromName(getText("ContextMenu_MetalWelding")) and submenu
-        return oldaddSubMenu(self, option, submenu)
-    end
-    local ret = {oldDoBuild(player, context, worldobjects, test)}
-    ISContextMenu.addSubMenu = oldaddSubMenu
-    
-    if menu then
-        local expandsOption = menu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil);
-        local subMenuExpands = menu:getNew(menu);
-        context:addSubMenu(expandsOption, subMenuExpands);
-        buildExpanedsMenu(subMenuExpands, expandsOption, player, worldobjects);
-    end
+    local option = context:getOptionFromName(getText("ContextMenu_MetalWelding"))
 
-    return unpack(ret)
+    if option then
+        local weldingMenu = context:getSubMenu(option.subOption)
+        local expandsOption = weldingMenu:addOption(getText("ContextMenu_EXPANDS"), worldobjects, nil)
+        local expandsMenu = ISContextMenu:getNew(weldingMenu)
+        weldingMenu:addSubMenu(expandsOption, expandsMenu)
+        buildExpanedsMenu(expandsMenu, expandsOption, player)
+    end
 
 end
 
 
-Events.OnFillWorldObjectContextMenu.Add(ISBlacksmithMenu.doBuildMenu)
+Events.OnFillWorldObjectContextMenu.Add(doBuildMenu)

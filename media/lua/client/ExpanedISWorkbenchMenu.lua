@@ -1,4 +1,5 @@
 require 'BuildingObjects/ISUI/ISBuildMenu'
+require 'Blacksmith/ISUI/ISBlacksmithMenu'
 
 local ISBuildBenchMenu = {};
 
@@ -45,7 +46,7 @@ local function onStoneFurnace(worldobjects, player)
     furnace.modData["need:Base.Stone"]= 30;
     furnace.player = player;
     furnace.completionSound = "BuildFenceGravelbag";
-    furnace.maxTime = 2000;
+    furnace.maxTime = 1200;
     getCell():setDrag(furnace, player);
 end
 
@@ -59,7 +60,7 @@ local function onAnvil(worldobjects, player)
     anvil.craftingBank = "Hammering";
     anvil.modData["use:Base.IronIngot"]= 500;
     anvil.player = player;
-    anvil.maxTime = 1000;
+    anvil.maxTime = 600;
     anvil.completionSound = "BuildMetalStructureMedium";
     getCell():setDrag(anvil, player);
 end
@@ -83,7 +84,7 @@ local function onWaterWell(worldobjects, player)
     well.craftingBank = "DigFurrowWithShovel";
 	-- well.actionAnim = "DigShovel";
 	well.player = player;
-    well.maxTime = 2000;
+    well.maxTime = 1200;
 	well.completionSound = "BuildFenceGravelbag";
 	getCell():setDrag(well, player);
 end
@@ -249,7 +250,7 @@ local function buildBenchMenu(workbenchMenu, option, player)
 end
 
 
-ISBuildBenchMenu.doBuildMenu = function(player, context, worldobjects, test)
+local doBuildMenu = function(player, context, worldobjects, test)
 	if test and ISWorldObjectContextMenu.Test then return true end
 
     if getCore():getGameMode()=="LastStand" then
@@ -273,4 +274,4 @@ ISBuildBenchMenu.doBuildMenu = function(player, context, worldobjects, test)
 end
 
 
-Events.OnFillWorldObjectContextMenu.Add(ISBuildBenchMenu.doBuildMenu)
+Events.OnFillWorldObjectContextMenu.Add(doBuildMenu)
