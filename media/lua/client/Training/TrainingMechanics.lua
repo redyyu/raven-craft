@@ -252,62 +252,25 @@ local function installVehiclePart(part_name, playerObj, vehicle, screwdriver, wr
     if not part then 
         return
     end
-
-    local playerInv = playerObj:getInventory()
-    local item = nil
-    for i=0, part:getItemType():size() - 1 do
-        local item_type = part:getItemType():get(i)
-        item = playerInv:getFirstTypeRecurse(item_type)
-        if item then
-            break
-        end
-    end
-
-    if not item then 
-        return
-    end
-
-    local partTable = part:getTable('install')
-    local area = partTable.area or part:getArea()
-    ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, part:getVehicle(), area))
-
-    local prepared_part = preparePart(partTable, playerObj, screwdriver, wrench, lug_wrench, jack) 
-    if not prepared_part then
-        return
-    end
-    local time = tonumber(partTable.time) or 50
-    ISTimedActionQueue.add(ISInstallVehiclePart:new(playerObj, part, item, time))
-    if isDebugEnabled() then
-        print('Install: '.. part_name ..' with '.. item:getDisplayName()) 
-    end
+    ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, part:getArea()))
+    ISTimedActionQueue.add(
+        ISTrainingMechanicsAction:new(playerObj, part, true, screwdriver, wrench, lug_wrench, jack))
 end
 
 
 local function uninstallVehiclePart(part_name, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
     local part = vehicle:getPartById(part_name)
-    if not part or not part:getInventoryItem() then 
+    if not part then 
         return
     end
+    ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, part:getArea()))
+    ISTimedActionQueue.add(
+        ISTrainingMechanicsAction:new(playerObj, part, false, screwdriver, wrench, lug_wrench, jack))
 
-    local partTable = part:getTable('uninstall')
-    local area = partTable.area or part:getArea()
-    ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, part:getVehicle(), area))
-
-    local prepared_part = preparePart(partTable, playerObj, screwdriver, wrench, lug_wrench, jack) 
-    if not prepared_part then
-        return
-    end
-    local time = tonumber(partTable.time) or 50
-    ISTimedActionQueue.add(ISUninstallVehiclePart:new(playerObj, part, time))
-
-    if isDebugEnabled() then
-        print('Uninstall: '.. part_name) 
-    end
 end
 
 
 local function onTrainingMechanics(playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
-    
     ISInventoryPaneContextMenu.transferIfNeeded(playerObj, screwdriver)
     local player_perk_lv = playerObj:getPerkLevel(Perks.Mechanics) or 0
     for part_name, process in pairs(PARTS_ORDERS) do

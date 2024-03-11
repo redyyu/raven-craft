@@ -3,24 +3,9 @@ require "TimedActions/ISBaseTimedAction"
 ISTrainingMechanicsAction = ISBaseTimedAction:derive("ISTrainingMechanicsAction")
 
 
-function ISTrainingMechanicsAction:getTablePart()
-    if self.part then
-        if self.is_install then
-            return part:getTable('install')
-        else
-            return part:getTable('uninstall')
-        end
-    end
-    return nil
-end
-
 function ISTrainingMechanicsAction:checkPrekLevelReached()
-    if not self.part or not self.partTable then
-        return false
-    end
-
     if self.partTable.skills and self.partTable.skills ~= "" then
-        for _, prek_str in ipairs(perks_str:split(";")) do
+        for _, prek_str in ipairs(self.partTable.skills:split(";")) do
             local name, lv = VehicleUtils.split(prek_str, ":")
             if self.character:getPerkLevel(Perks.FromString(name)) < tonumber(lv) then
                 return false
@@ -31,8 +16,8 @@ function ISTrainingMechanicsAction:checkPrekLevelReached()
 end
 
 
-function ISTrainingMechanicsAction:preparePart()
-    if not self.partTable or not self:checkPrekLevelReached() then
+function ISTrainingMechanicsAction:prepareProcessPart()
+    if not self:checkPrekLevelReached() then
         return false
     end
 
@@ -73,91 +58,126 @@ function ISTrainingMechanicsAction:preparePart()
 end
 
 function ISTrainingMechanicsAction:isValid()
-    return self.clothing and 
-       self.clothing:getFabricType() == "Cotton" and
-       self.inventory:contains(self.clothing) and
-       self.inventory:contains(self.needle)
+    -- no vehicle or part or part InventoryItem check here
+    -- this action must be do nothing and pass to next, if get something unexcpeted.
+    -- DO NOT break the ISTimedActionQueue if not valid.
+    return self.part and 
+        self.inventory:containsRecursive(self.screwdriver) and
+        self.inventory:containsRecursive(self.wrench) and
+        self.inventory:containsRecursive(self.lug_wrench) and
+        self.inventory:containsRecursive(self.jack)
 end
 
 function ISTrainingMechanicsAction:update()
-    self.clothing:setJobDelta(self:getJobDelta())
+	self.character:faceThisObject(self.vehicle)
+    self.character:setMetabolicTarget(Metabolics.MediumWork);
 end
 
-function ISTrainingMechanicsAction:create()
-    ISBaseTimedAction.create(self)
-    self.action:setUseProgressBar(false)
+function ISTrainingMechanicsAction:start()
+	if self.part:getWheelIndex() ~= -1 or self.part:getId():contains("Brake") then
+		self:setActionAnim("VehicleWorkOnTire")
+	else
+		self:setActionAnim("VehicleWorkOnMid")
+	end
+end
+
+function ISTrainingMechanicsAction:stop()
+    ISBaseTimedAction.stop(self)
 end
 
 function ISTrainingMechanicsAction:waitToStart()
-    local area = 'Engine'
-    if self.partTable then
-        area = self.partTable.area or self.part:getArea()
-    elseif self.part then
-        area = self.part:getArea()
-    end
-    ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(self.character, part:getVehicle(), area))
+	self.character:faceThisObject(self.vehicle)
+	return self.character:shouldBeTurning()
 end
 
-function ISTrainingMechanicsAction:perform()
-    if self.part and self.partTable and self.part:getInventoryItem() then
-        if self.is_install then
-            local playerInv = self.character:getInventory()
-            local item = nil
-            for i=0, self.part:getItemType():size() - 1 do
-                local item_type = self.part:getItemType():get(i)
-                item = playerInv:getFirstTypeRecurse(item_type)
-                if item then
-                    break
-                end
-            end
+-- function ISTrainingMechanicsAction:create()
+--     ISBaseTimedAction.create(self)
+--     self.action:setUseProgressBar(false)
+-- end
 
-            if not item then 
-                return
+
+function ISTrainingMechanicsAction:perform()
+    local perksTable = VehicleUtils.getPerksTableForChr(self.partTable.skills, self.character)
+    
+    if self.is_install then
+        local item = nil
+        for i=0, self.part:getItemType():size() - 1 do
+            local item_type = self.part:getItemType():get(i)
+            item = self.inventory:getFirstTypeRecurse(item_type)
+            if item then
+                break
+            end
+        end
+
+        if item and self:prepareProcessPart() and self.vehicle:canInstallPart(self.character, self.part) then
+            self.inventory:DoRemoveItem(item)
+            
+            local args = { 
+                vehicle = self.vehicle:getId(), 
+                part = self.part:getId(),
+                item = item,
+                perks = perksTable,
+                mechanicSkill = self.character:getPerkLevel(Perks.Mechanics)
+            }
+            sendClientCommand(self.character, 'vehicle', 'installPart', args)
+
+            local pdata = getPlayerData(self.character:getPlayerNum());
+            if pdata ~= nil then
+                pdata.playerInventory:refreshBackpacks();
+                pdata.lootInventory:refreshBackpacks();
             end
             
-            local prepared_part = self:preparePart() 
-            if not prepared_part then
-                return
-            end
-            local time = tonumber(self.partTable.time) or 50
-            ISTimedActionQueue.add(ISInstallVehiclePart:new(self.character, self.part, item, time))
             if isDebugEnabled() then
-                print('Install: '.. part_name ..' with '.. item:getDisplayName()) 
+                print('Install: '.. self.part:getId() ..' with '.. item:getDisplayName()) 
             end
-        else
-            local prepared_part = self:preparePart() 
-            if not prepared_part then
-                return
-            end
-            local time = tonumber(self.partTable.time) or 50
-            ISTimedActionQueue.add(ISUninstallVehiclePart:new(self.character, self.part, time))
+        end
+    else
+        if self.part:getInventoryItem() and self:prepareProcessPart() and self.vehicle:canUninstallPart(self.character, self.part) then
+	        local args = {
+                    vehicle = self.vehicle:getId(), 
+                    part = self.part:getId(),
+					perks = perksTable,
+					mechanicSkill = self.character:getPerkLevel(Perks.Mechanics),
+					contentAmount = self.part:getContainerContentAmount()
+             }
+	        sendClientCommand(self.character, 'vehicle', 'uninstallPart', args)
 
             if isDebugEnabled() then
-                print('Uninstall: '.. part_name) 
+                print('Uninstall: '.. self.part:getId()) 
             end
         end
     end
+
+    -- needed to remove from queue / start next.
     ISBaseTimedAction.perform(self)
 end
 
-function ISTrainingMechanicsAction:new(character, vehicle, part_name, is_install, screwdriver, wrench, lug_wrench, jack)
+function ISTrainingMechanicsAction:new(character, part, is_install, screwdriver, wrench, lug_wrench, jack)
     local o = {}
     setmetatable(o, self)
     self.__index = self
     o.character = character
     o.inventory = character:getInventory()
-    o.maxTime = 0
     o.stopOnWalk = true
     o.stopOnRun = true
-    o.vehicle = vehicle
-    o.parts = parts
     o.screwdriver = screwdriver
     o.wrench = wrench
     o.lug_wrench = lug_wrench
     o.jack = jack
-    o.part = vehicle:getPartById(part_name)
-    o.partTable = self:getTablePart()
+    o.part = part
+    o.vehicle = part:getVehicle()
     o.is_install = is_install
     o.loopedAction = false
+    if is_install then
+        o.partTable = part:getTable('install')
+    else
+        o.partTable = part:getTable('uninstall')
+    end
+    
+    local time = tonumber(o.partTable.time) or 50
+    o.maxTime = time - (character:getPerkLevel(Perks.Mechanics) * (time/15));
+	if character:isTimedActionInstant() then
+		o.maxTime = 1;
+	end
     return o
 end
