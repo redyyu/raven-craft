@@ -277,6 +277,9 @@ local function installVehiclePart(part_name, playerObj, vehicle, screwdriver, wr
     end
     local time = tonumber(partTable.time) or 50
     ISTimedActionQueue.add(ISInstallVehiclePart:new(playerObj, part, item, time))
+    if isDebugEnabled() then
+        print('Install: '.. part_name ..' with '.. item:getDisplayName()) 
+    end
 end
 
 
@@ -296,6 +299,10 @@ local function uninstallVehiclePart(part_name, playerObj, vehicle, screwdriver, 
     end
     local time = tonumber(partTable.time) or 50
     ISTimedActionQueue.add(ISUninstallVehiclePart:new(playerObj, part, time))
+
+    if isDebugEnabled() then
+        print('Uninstall: '.. part_name) 
+    end
 end
 
 
