@@ -361,6 +361,7 @@ To activate training action by click on the context menu. etc, right click cloth
 
 **Tailoring**: just like others MOD `AutoSewing`, but mine is totally base on TimedAction not dirty override or hooking.
 it will random choose part of clothing, remove patch if have one, add path it if available whatever is have hole or not.
+*only FabricType is "Cotton" can use for training.*
 
 **Mechanics**: just like others MOD `AutoMechanics`, but mine is totally base on TimedAction no override and hooking,
 and most important is, mine is choose to uninstall and install each part once at time, 
