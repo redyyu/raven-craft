@@ -2,170 +2,64 @@
 
 local PARTS_ORDERS = {
     -- Front
-    ["Battery"] = {
-        skill = 0,
-    }, 
-    ["Radio"] = {
-        skill = 0,
-    },  
-    ["HeadlightLeft"] = {
-        skill = 0,
-    },  
-    ["HeadlightRight"] = {
-        skill = 0,
-    },  
-
-    ["EngineDoor"] = {
-        skill = 3,
-    }, 
-    ["Windshield"] = {
-        skill = 5,
-    }, 
+    ["Battery"] = true,
+    ["Radio"] = true,
+    ["HeadlightLeft"] = true,
+    ["HeadlightRight"] = true,
+    ["EngineDoor"] = true,
+    ["Windshield"] = true,
     
     -- Left
-    ["SeatFrontLeft"] = {
-        skill = 1,
-    }, 
     ["TireFrontLeft"] = {
-        skill = 1,
-        children = {
-            ["BrakeFrontLeft"] = {
-                skill = 3,
-            }, 
-            ["SuspensionFrontLeft"] = {
-                skill = 3,
-            }, 
-        }
-    }, 
-    
+        "BrakeFrontLeft", "SuspensionFrontLeft",
+    },
     ["WindowFrontLeft"] = {
-        skill = 3,
-        children = {
-            ["DoorFrontLeft"] = {
-                skill = 4,
-            },
-        }
-    }, 
+        "DoorFrontLeft",
+    },
+    ["SeatFrontLeft"] = true,
     
+    ["WindowMiddleLeft"] = true,
+    ["DoorMiddleLeft"] = true,
+    ["SeatMiddleLeft"] = true,
     
-    ["SeatMiddleLeft"] = {
-        skill = 1,
-    }, 
-    ["WindowMiddleLeft"] = {
-        skill = 3,
-    }, 
-    ["DoorMiddleLeft"] = {
-        skill = 4,
-    }, 
-    
-    ["SeatRearLeft"] = {
-        skill = 1,
-    }, 
     ["TireRearLeft"] = {
-        skill = 1,
-        children = {
-            ["BrakeRearLeft"] = {
-                skill = 3,
-            }, 
-            ["SuspensionRearLeft"] = {
-                skill = 3,
-            }, 
-        }
+        "BrakeRearLeft", "SuspensionRearLeft",
     }, 
-    
     ["WindowRearLeft"] = {
-        skill = 3,
-        children = {
-            ["DoorRearLeft"] = {
-                skill = 4,
-            }, 
-        }
-    }, 
-    
-    
+        "DoorRearLeft",
+    },
+    ["SeatRearLeft"] = true,
+
     -- Rear
-    ["GasTank"] = {
-        skill = 5,
-    }, 
-    ["WindshieldRear"] = {
-        skill = 5,
-    }, 
-    ["TrunkDoor"] = {
-        skill = 3,
-    }, 
-    ["DoorRear"] = {
-        skill = 4,
-    }, 
-    ["Muffler"] = {
-        skill = 4,
-    }, 
-    ["HeadlightRearRight"] = {
-        skill = 0,
-    }, 
-    ["HeadlightRearLeft"] = {
-        skill = 0,
-    }, 
+    ["GasTank"] = true,
+    ["WindshieldRear"] = true,
+    ["TrunkDoor"] = true,
+    ["DoorRear"] = true,
+    ["Muffler"] = true,
+    ["HeadlightRearRight"] = true,
+    ["HeadlightRearLeft"] = true, 
 
     -- Right
-    ["SeatRearRight"] = {
-        skill = 1,
-    }, 
     ["TireRearRight"] = {
-        skill = 1,
-        children = {
-            ["BrakeRearRight"] = {
-                skill = 3,
-            }, 
-            ["SuspensionRearRight"] = {
-                skill = 3,
-            }, 
-        }
-    }, 
-    
+        "BrakeRearRight", "SuspensionRearRight", 
+    },
     ["WindowRearRight"] = {
-        skill = 3,
-        children = {
-            ["DoorRearRight"] = {
-                skill = 4,
-            }, 
-        }
-    }, 
+        "DoorRearRight",
+    },
+    ["SeatRearRight"] = true, 
     
-    ["SeatMiddleRight"] = {
-        skill = 1,
-    }, 
-    ["WindowMiddleRight"] = {
-        skill = 3,
-    }, 
-    ["DoorMiddleRight"] = {
-        skill = 4,
-    }, 
+    ["WindowMiddleRight"] = true, 
+    ["DoorMiddleRight"] = true,
+    ["SeatMiddleRight"] = true, 
 
-    ["SeatFrontRight"] = {
-        skill = 1,
-    }, 
     ["TireFrontRight"] = {
-        skill = 1,
-        children = {
-            ["BrakeFrontRight"] = {
-                skill = 3,
-            }, 
-            ["SuspensionFrontRight"] = {
-                skill = 3,
-            }, 
-        }
+        "BrakeFrontRight", "SuspensionFrontRight",
     }, 
-    
     ["WindowFrontRight"] = {
-        skill = 3,
-        children = {
-            ["DoorFrontRight"] = {
-                skill = 4,
-            }, 
-        }
-    }, 
-    
-    
+        "DoorFrontRight"
+    },
+    ["SeatFrontRight"] = true, 
+
 }
 
 
@@ -191,10 +85,15 @@ local function getUnknowRecipeVehicleType(playerObj, vehicle)
 end
 
 
-local function checkPrekLevelReached(playerObj, perks_str)
-    if perks_str and perks_str ~= "" then
-        for _, prek_str in ipairs(perks_str:split(";")) do
+local function isPrekQualified(playerObj, partTable)
+    if not partTable then
+        return false
+    end
+
+    if partTable.skills and partTable.skills ~= "" then
+        for _, prek_str in ipairs(partTable.skills:split(";")) do
             local name, lv = VehicleUtils.split(prek_str, ":")
+
             if playerObj:getPerkLevel(Perks.FromString(name)) < tonumber(lv) then
                 -- playerObj:Say(getText("IGUI_PlayerText_Require_level", lv))
                 return false
@@ -205,15 +104,8 @@ local function checkPrekLevelReached(playerObj, perks_str)
 end
 
 
-local function preparePart(partTable, playerObj, screwdriver, wrench, lug_wrench, jack)
-    if not checkPrekLevelReached(playerObj, partTable.skills) then
-        return false
-    end
-
-    if partTable.recipes and not playerObj:isRecipeKnown(partTable.recipes) then
-        playerObj:Say(getText("IGUI_PlayerText_Unknow_Recipe_For_Vehicle"))
-        return false
-    end
+local function equipToolsForPart(partTable, playerObj, screwdriver, wrench, lug_wrench, jack)
+    if not partTable or not partTable.items then return end
 
     for _, itm in ipairs(partTable.items) do
         local is_priamry = nil
@@ -238,32 +130,22 @@ local function preparePart(partTable, playerObj, screwdriver, wrench, lug_wrench
 
         if equip_item then
             ISWorldObjectContextMenu.equip(playerObj, hand_item, equip_item, is_priamry)
-        else
-            return false
         end
     end
-
-    return true
 end
 
 
-local function installVehiclePart(part_name, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
-    local part = vehicle:getPartById(part_name)
-    if not part then 
-        return
-    end
+local function installVehiclePart(part, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
     ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, part:getArea()))
+    equipToolsForPart(part:getTable('install'), playerObj, screwdriver, wrench, lug_wrench, jack)
     ISTimedActionQueue.add(
         ISTrainingMechanicsAction:new(playerObj, part, true, screwdriver, wrench, lug_wrench, jack))
 end
 
 
-local function uninstallVehiclePart(part_name, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
-    local part = vehicle:getPartById(part_name)
-    if not part then 
-        return
-    end
+local function uninstallVehiclePart(part, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
     ISTimedActionQueue.add(ISPathFindAction:pathToVehicleArea(playerObj, vehicle, part:getArea()))
+    equipToolsForPart(part:getTable('uninstall'), playerObj, screwdriver, wrench, lug_wrench, jack)
     ISTimedActionQueue.add(
         ISTrainingMechanicsAction:new(playerObj, part, false, screwdriver, wrench, lug_wrench, jack))
 
@@ -274,17 +156,32 @@ local function onTrainingMechanics(playerObj, vehicle, screwdriver, wrench, lug_
     ISInventoryPaneContextMenu.transferIfNeeded(playerObj, screwdriver)
     local player_perk_lv = playerObj:getPerkLevel(Perks.Mechanics) or 0
     for part_name, process in pairs(PARTS_ORDERS) do
-        if player_perk_lv >= process.skill then
-            uninstallVehiclePart(part_name, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
-            if process.children then
-                for child_part_name, child_process in pairs(process.children) do
-                    if player_perk_lv >= child_process.skill then
-                        uninstallVehiclePart(child_part_name, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
-                        installVehiclePart(child_part_name, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
+        local part = vehicle:getPartById(part_name)
+        if part then
+            local part_install_table = part:getTable('install')
+            local part_uninstall_table = part:getTable('uninstall')
+            
+            if isPrekQualified(playerObj, part_uninstall_table) then
+                uninstallVehiclePart(part, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
+            end
+            if type(process) == 'table' then
+                for _, child_part_name in ipairs(process) do
+                    local child_part = vehicle:getPartById(child_part_name)
+                    if child_part then
+                        local child_part_install_table = child_part:getTable('install')
+                        local child_part_uninstall_table = child_part:getTable('uninstall')
+                        if isPrekQualified(playerObj, child_part_uninstall_table) then
+                            uninstallVehiclePart(child_part, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
+                        end
+                        if isPrekQualified(playerObj, child_part_install_table) then
+                            installVehiclePart(child_part, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
+                        end
                     end
                 end
             end
-            installVehiclePart(part_name, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
+            if isPrekQualified(playerObj, part_uninstall_table) then
+                installVehiclePart(part, playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
+            end
         end
     end
 

@@ -354,6 +354,16 @@ Combine Drink packs. pack up 6 or 12 Bottle or Pop Can into one.
 
 Make better Fishing Net, could cacth more than `BaitFish`, base on character fishing skill and lucky.
 
+## Training
+
+All training action will not pause the game if it is stopped. Did it on purpose, decide to not leave the game too long.
+
+**Tailoring**: just like others MOD `AutoSewing`, but mine is totally base on TimedAction not dirty override or hooking.
+it will random choose part of clothing, remove patch if have one, add path it if available whatever is have hole or not.
+**Mechanics**: just like others MOD `AutoMechanics`, but mine is totally base on TimedAction no override and hooking,
+and most important is, mine is choose to uninstall and install each part once at time, 
+also it will skip parts which is beyond player's current perk level.
+
 
 ## GunSuicide
 

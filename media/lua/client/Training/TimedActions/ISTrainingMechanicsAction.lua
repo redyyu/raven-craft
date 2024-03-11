@@ -61,7 +61,7 @@ function ISTrainingMechanicsAction:isValid()
     -- no vehicle or part or part InventoryItem check here
     -- this action must be do nothing and pass to next, if get something unexcpeted.
     -- DO NOT break the ISTimedActionQueue if not valid.
-    return self.part and 
+    return self.part and self.partTable and  -- shall not have not part or parttable, if that stop the queue.
         self.inventory:containsRecursive(self.screwdriver) and
         self.inventory:containsRecursive(self.wrench) and
         self.inventory:containsRecursive(self.lug_wrench) and
