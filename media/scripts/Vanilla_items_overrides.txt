@@ -55,4 +55,37 @@ module Base
         WorldStaticModel = Stone,
     }
 
+/** Override Junks **/
+
+    /* Cigarettes */
+    item Cigarettes {
+        DisplayCategory = Junk,
+        Count = 20,
+        HungerChange = 0,
+        Weight = 0.005,
+        RequireInHandOrInventory = Matches/Lighter,
+        Type = Food,
+        DisplayName = Cigarettes,
+        StressChange = -5,
+        Icon = Cigarettes,
+        CustomContextMenu = Smoke,
+        CantBeFrozen = TRUE,
+        OnEat = OnEat_Cigarettes,
+        StaticModel = Cigarette,
+        EatType = Cigarettes,
+        WorldStaticModel = CigarettePack_Ground,
+        CustomEatSound = ,
+    }
+
+    item CigarettesPack {
+        DisplayCategory = Junk,
+        HungerChange = 0,
+        Weight = 0.1,
+        Type = Food,
+        DisplayName = Cigarettes Pack,
+        Icon = IckySticks,
+        CantBeFrozen = TRUE,
+        StaticModel = Cigarette,
+        WorldStaticModel = CigarettePack_Ground,
+    }
 }

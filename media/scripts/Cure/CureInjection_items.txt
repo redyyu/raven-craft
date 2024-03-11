@@ -18,6 +18,9 @@ module RavenCraft
         Tooltip = Tooltip_CURE_INJECTION,
         Medical = TRUE,
         WorldStaticModel = Tweezers,
+
+        EatType = Bourbon,
+        CustomEatSound = DrinkingFromBottleGlass,
     }
 
 

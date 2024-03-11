@@ -29,6 +29,7 @@ those knowledge is become my treasure, Thank you very much.
 16. Backpacks and HikingBags have attachments by default. (no need Tailoring it any more.)
 17. Add Canteen, Flashlight and ChestRig. (No nead G.E.A.R)
 18. New Skill Books for weapons.
+18. Cigarettes Pack for 20 Cigarettes.
 
 
 ### Added new Carpentry Expands:

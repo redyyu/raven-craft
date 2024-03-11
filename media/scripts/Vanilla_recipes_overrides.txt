@@ -1,6 +1,24 @@
 module Base
 {
 
+/* Override Open / PutIn CigarettesPack */
+
+   recipe Open a pack of Cigarettes {
+       CigarettesPack,
+
+       Result: Cigarettes,
+       Time: 5.0,
+       Sound: PZ_PutInBag,
+    }
+
+    recipe Pack Cigarettes {
+       Cigarettes,
+
+       Result: Cigarettes,
+       Time: 5.0,
+       Sound: PZ_PutInBag,
+    }
+
 
 /* Override Open Foods */
     
@@ -9,7 +27,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:DogfoodOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -21,7 +39,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedMilkOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -33,7 +51,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:TinnedSoupOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -45,7 +63,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedFruitCocktailOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -57,7 +75,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedPeachesOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -69,7 +87,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedPineappleOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -81,7 +99,7 @@ module Base
 	   keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
 	   Result:OpenBeans,
-	   Time:80.0,
+	   Time: 80.0,
 	   Category:Cooking,
 	   OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -93,7 +111,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedCornOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -105,7 +123,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedBologneseOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -117,7 +135,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedChiliOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -129,7 +147,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedMushroomSoupOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -141,7 +159,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedPeasOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -153,7 +171,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedPotatoOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -165,7 +183,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedTomatoOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,
@@ -177,7 +195,7 @@ module Base
        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
        Result:CannedCarrotsOpen,
-       Time:80.0,
+       Time: 80.0,
        Category:Cooking,
        OnGiveXP:Recipe.OnGiveXP.None,
        Sound:OpenCannedFood,

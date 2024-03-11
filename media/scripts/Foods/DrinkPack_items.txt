@@ -10,7 +10,7 @@ module RavenCraft
 		DisplayName = 6 Pack of Beer,
 		Weight = 1.8,
 		Icon = BeerPack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Beer_Can_Pack,
 	}
 
@@ -18,7 +18,7 @@ module RavenCraft
 		DisplayName = 6 Pack of Beer Bottled,
 		Weight = 2.4,
 		Icon = BeerBottledPack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Beer_Bottle_Pack,
 	}
 
@@ -27,7 +27,7 @@ module RavenCraft
 		DisplayName = 6 Pack of Pop,
 		Weight = 1.8,
 		Icon = DietPopPack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Diet_Pop_Pack,
 	}
 
@@ -35,7 +35,7 @@ module RavenCraft
 		DisplayName = 6 Pack of Pop,
 		Weight = 1.8,
 		Icon = PopPack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Pop_Pack,
 	}
 
@@ -43,7 +43,7 @@ module RavenCraft
 		DisplayName = 6 Pack of Pop,
 		Weight = 1.8,
 		Icon = FizzPopPack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Fizz_Pop_Pack,
 	}
 
@@ -51,7 +51,7 @@ module RavenCraft
 		DisplayName = 12 Pack of Whiskey Bottled,
 		Weight = 8.4,
 		Icon = WhiskeyBottledPack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Whiskey_Bottled_Pack,
 	}
 
@@ -59,7 +59,7 @@ module RavenCraft
 		DisplayName = 12 Pack of Chardonnay,
 		Weight = 12.0,
 		Icon = WineBottledPack1,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Wine_Bottled_Pack_1,
 	}
 
@@ -67,7 +67,7 @@ module RavenCraft
 		DisplayName = 12 Pack of Red Wine,
 		Weight = 12.0,
 		Icon = WineBottledPack2,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Wine_Bottled_Pack_2,
 	}
 
@@ -75,7 +75,7 @@ module RavenCraft
 		DisplayName = 12 Pack of Orange Soda,
 		Weight = 9,
 		Icon = PopBottlePack,
-		DisplayCategory =Food,
+		DisplayCategory = Food,
 		WorldStaticModel = Pop_Bottle_Pack,
 	}
 
