@@ -35,15 +35,15 @@ function BenchPressMenu.onUseBench(worldobjects, player, benchMachine, benchExer
     forceDropHeavyItems(player)
     
     if not player:getInventory():contains("Base.BarBell", true) then
-        player:Say(getText("IGUI_PLAYER_TEXT_NEED_BARBELL"))
+        player:Say(getText("IGUI_PlayerText_Need_Barbell"))
         return
     end
     if player:getMoodles():getMoodleLevel(MoodleType.Endurance) > 2 then
-        player:Say(getText("IGUI_PLAYER_TEXT_TOO_EXHAUSTED"))
+        player:Say(getText("IGUI_PlayerText_Too_Exhausted"))
         return
     end
     if player:getMoodles():getMoodleLevel(MoodleType.Pain) > 3 then
-        player:Say(getText("IGUI_PLAYER_TEXT_TOO_PAIN"))
+        player:Say(getText("IGUI_PlayerText_Too_Pain"))
         return
     end
     
@@ -56,7 +56,7 @@ function BenchPressMenu.onUseBench(worldobjects, player, benchMachine, benchExer
     end
     
     if player:getMoodles():getMoodleLevel(MoodleType.HeavyLoad) > 2 then
-        player:Say(getText("IGUI_PLAYER_TEXT_TOO_HEAVY"))
+        player:Say(getText("IGUI_PlayerText_Too_Heavy"))
         return
     end
         

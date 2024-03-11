@@ -54,7 +54,7 @@ Tooltip_EN = {
 
     -- Training
     Tooltip_TRAINING_READY_FOR = "Ready for Training."
-    Tooltip_TRANING_NO_MATERIALS_FOR = "Not enough materials for Training."
+    Tooltip_TRANING_NO_ITEMS_FOR = "No Tools or not enough materials for Training."
     
 
     -- Items

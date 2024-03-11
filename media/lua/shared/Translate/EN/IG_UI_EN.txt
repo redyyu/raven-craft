@@ -11,12 +11,14 @@ IGUI_EN = {
     IGUI_HotbarAttachment_ChestRig = "Hoslter"
     IGUI_HotbarAttachment_HarnessRig = "Harness"
 
-    IGUI_PLAYER_TEXT_CANT_REACH_VEHICLE = "Can't reach the vehicle"
-    IGUI_PLAYER_TEXT_TREADMILL_NEED_ELC = "The treadmill needs electricity to run"
-    IGUI_PLAYER_TEXT_TOO_EXHAUSTED = "Too exhausted to use"
-    IGUI_PLAYER_TEXT_TOO_PAIN = "Too much pain to use"
-    IGUI_PLAYER_TEXT_TOO_HEAVY = "Too heavy to use"
-    IGUI_PLAYER_TEXT_NEED_BARBELL = "I need a barbell to do this exercise"
+    IGUI_PlayerText_Can_Reach_Vehicle = "Can't reach the vehicle"
+    IGUI_PlayerText_Treadmill_Need_Electricity = "The treadmill needs electricity to run"
+    IGUI_PlayerText_Too_Exhausted = "Too exhausted to use"
+    IGUI_PlayerText_Too_Pain = "Too much pain to use"
+    IGUI_PlayerText_Too_Heavy = "Too heavy to use"
+    IGUI_PlayerText_Need_Barbell = "I need a barbell to do this exercise"
+    IGUI_PlayerText_Well_Done = "Well done!"
+
     IGUI_PlayerText_ReReadBook = "I have to reading it agian anyway."
 
     IGUI_BenchPress = "BenchPress"

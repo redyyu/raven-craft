@@ -40,7 +40,7 @@ local function doTrainingTailoringMenu(player, context, items)
             toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_RippedSheets") .. "<LINE> "
         else
             option.notAvailable = true
-            toolTip.description = TextColor.bhs .. getText("Tooltip_TRANING_NO_MATERIALS_FOR") .." <LINE><LINE> "
+            toolTip.description = TextColor.bhs .. getText("Tooltip_TRANING_NO_ITEMS_FOR") .." <LINE><LINE> "
             
             if not needle then
                 toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Needle") .." 0/1 <LINE> "

@@ -41,11 +41,11 @@ TreadmillMenu.onUseTreadmill = function(worldobjects, player, treadmillMachine, 
     player:setSecondaryHandItem(nil)
     
     if player:getMoodles():getMoodleLevel(MoodleType.Endurance) > 2 then
-        player:Say(getText("IGUI_PLAYER_TEXT_TOO_EXHAUSTED"))
+        player:Say(getText("IGUI_PlayerText_Too_Exhausted"))
         return
     end
     if player:getMoodles():getMoodleLevel(MoodleType.Pain) > 3 then
-        player:Say(getText("IGUI_PLAYER_TEXT_TOO_PAIN"))
+        player:Say(getText("IGUI_PlayerText_Too_Pain"))
         return
     end
             
@@ -58,7 +58,7 @@ TreadmillMenu.onUseTreadmill = function(worldobjects, player, treadmillMachine, 
     end
     
     if player:getMoodles():getMoodleLevel(MoodleType.HeavyLoad) > 2 then
-        player:Say(getText("IGUI_PLAYER_TEXT_TOO_HEAVY"))
+        player:Say(getText("IGUI_PlayerText_Too_Heavy"))
         return
     end
     

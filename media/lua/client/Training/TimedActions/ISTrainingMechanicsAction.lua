@@ -1,44 +1,37 @@
 require "TimedActions/ISBaseTimedAction"
 
-ISTrainingTailoringAction = ISBaseTimedAction:derive("ISTrainingTailoringAction")
+ISTrainingMechanicsAction = ISBaseTimedAction:derive("ISTrainingMechanicsAction")
 
-
-local chanceToGetPatchBack = function(character)
-	local baseChance = 10
-	baseChance = baseChance + (character:getPerkLevel(Perks.Tailoring) * 5)
-	return baseChance
-end
-
-function ISTrainingTailoringAction:isValid()
+function ISTrainingMechanicsAction:isValid()
     return self.clothing and 
        self.clothing:getFabricType() == "Cotton" and
        self.inventory:contains(self.clothing) and
        self.inventory:contains(self.needle)
 end
 
-function ISTrainingTailoringAction:update()
+function ISTrainingMechanicsAction:update()
     self.clothing:setJobDelta(self:getJobDelta())
 end
 
--- function ISTrainingTailoringAction:create()
+-- function ISTrainingMechanicsAction:create()
 --     ISBaseTimedAction.create(self)
 --     self.action:setUseProgressBar(false)
 -- end
 
-function ISTrainingTailoringAction:start()
+function ISTrainingMechanicsAction:start()
 	self:setActionAnim(CharacterActionAnims.Craft);
 end
 
-function ISTrainingTailoringAction:stop()
+function ISTrainingMechanicsAction:stop()
     self.clothing:setJobDelta(0.0)
     ISBaseTimedAction.stop(self)
 end
 
--- function ISTrainingTailoringAction:waitToStart()
+-- function ISTrainingMechanicsAction:waitToStart()
     
 -- end
 
-function ISTrainingTailoringAction:perform()
+function ISTrainingMechanicsAction:perform()
     local thread = self.inventory:getFirstTypeRecurse("Thread")
     local fabric = self.inventory:getFirstTypeRecurse("RippedSheets")
     
@@ -72,25 +65,27 @@ function ISTrainingTailoringAction:perform()
     else
         self.action:stopTimedActionAnim()
         self.action:setLoopedAction(false)
-        self.character:Say(getText("IGUI_PlayerText_Well_Done"))
         -- needed to remove from queue / start next.
         ISBaseTimedAction.perform(self)
     end
 end
 
-function ISTrainingTailoringAction:new(character, clothing, needle)
+function ISTrainingMechanicsAction:new(character, vehicle, screwdriver, wrench, lug_wrench, jack)
     local o = {}
     setmetatable(o, self)
     self.__index = self
     o.character = character
     o.inventory = character:getInventory()
-    o.maxTime = 150 - (character:getPerkLevel(Perks.Tailoring) * 6)
+    o.maxTime = 150 - (character:getPerkLevel(Perks.Mechanics) * 6)
 	if o.character:isTimedActionInstant() then o.maxTime = 1 end
     o.stopOnWalk = true
     o.stopOnRun = true
-    o.clothing = clothing
+    o.vehicle = vehicle
     o.parts = parts
-    o.needle = needle
-    o.loopedAction = true
+    o.screwdriver = screwdriver
+    o.wrench = wrench
+    o.lug_wrench = lug_wrench
+    o.jack = jack
+    o.loopedAction = false
     return o
 end
