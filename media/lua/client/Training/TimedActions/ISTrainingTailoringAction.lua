@@ -1,6 +1,6 @@
 require "TimedActions/ISBaseTimedAction"
 
-ISTailoringTrainingAction = ISBaseTimedAction:derive("ISTailoringTrainingAction")
+ISTrainingTailoringAction = ISBaseTimedAction:derive("ISTrainingTailoringAction")
 
 
 local chanceToGetPatchBack = function(character)
@@ -9,34 +9,36 @@ local chanceToGetPatchBack = function(character)
 	return baseChance
 end
 
-function ISTailoringTrainingAction:isValid()
+function ISTrainingTailoringAction:isValid()
     return self.clothing and 
        self.clothing:getFabricType() == "Cotton" and
        self.inventory:contains(self.clothing) and
        self.inventory:contains(self.needle)
 end
 
-function ISTailoringTrainingAction:update()
+function ISTrainingTailoringAction:update()
     self.clothing:setJobDelta(self:getJobDelta())
 end
 
--- function ISTailoringTrainingAction:create()
+-- function ISTrainingTailoringAction:create()
 --     ISBaseTimedAction.create(self)
 --     self.action:setUseProgressBar(false)
 -- end
 
-function ISTailoringTrainingAction:start()
+function ISTrainingTailoringAction:start()
 	self:setActionAnim(CharacterActionAnims.Craft);
 end
 
-function ISTailoringTrainingAction:stop()
+function ISTrainingTailoringAction:stop()
     self.clothing:setJobDelta(0.0)
     ISBaseTimedAction.stop(self)
 end
 
+-- function ISTrainingTailoringAction:waitToStart()
+    
+-- end
 
-
-function ISTailoringTrainingAction:perform()
+function ISTrainingTailoringAction:perform()
     local thread = self.inventory:getFirstTypeRecurse("Thread")
     local fabric = self.inventory:getFirstTypeRecurse("RippedSheets")
     
@@ -55,12 +57,10 @@ function ISTailoringTrainingAction:perform()
                 self.character:getInventory():addItem(item)
                 self.character:getXp():AddXP(Perks.Tailoring, 3)
             end
-            
             self.character:getXp():AddXP(Perks.Tailoring, 1)
             self.clothing:removePatch(part)
         else
             -- add patch if don't have
-
             self.clothing:addPatch(self.character, part, fabric)
             self.character:getInventory():Remove(fabric)
             thread:Use()
@@ -77,7 +77,7 @@ function ISTailoringTrainingAction:perform()
     end
 end
 
-function ISTailoringTrainingAction:new(character, clothing, needle)
+function ISTrainingTailoringAction:new(character, clothing, needle)
     local o = {}
     setmetatable(o, self)
     self.__index = self
@@ -93,7 +93,3 @@ function ISTailoringTrainingAction:new(character, clothing, needle)
     o.loopedAction = true
     return o
 end
-
-
-
-
