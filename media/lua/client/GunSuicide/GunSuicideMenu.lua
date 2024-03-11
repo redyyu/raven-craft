@@ -53,7 +53,7 @@ local function onHandGunSuicide(playerObj, item)
     local pos_y = getCore():getScreenHeight()/2 - MODAL_HEIGHT/2;
     
 	local modal = ISModalDialog:new(pos_x, pos_y, MODAL_WIDTH, MODAL_HEIGHT, getText("Tooltip_SUICIDE_CONFIRM"),
-		true, nil, doHandGunSuicide, playerNum, playerObj, item);
+		                            true, nil, doHandGunSuicide, playerNum, playerObj, item)
 
 	modal:initialise()
 	modal.prevFocus = getPlayerMechanicsUI(playerNum)
@@ -65,7 +65,7 @@ local function onHandGunSuicide(playerObj, item)
 end
 
 
-local function doBuildSuicideMenu(player, context, items)
+local function doSuicideMenu(player, context, items)
     local playerObj = getSpecificPlayer(player)
 
     local items = ISInventoryPane.getActualItems(items)
@@ -91,21 +91,21 @@ local function doBuildSuicideMenu(player, context, items)
     local option = nil
 
     if two_hand_gun then
-        option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onTwoHandGunSuicide, two_hand_gun); 
+        option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onTwoHandGunSuicide, two_hand_gun)
     elseif one_hand_gun then
-        option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onHandGunSuicide, one_hand_gun);   
+        option = context:addOption(getText("ContextMenu_GUN_SUICIDE"), playerObj, onHandGunSuicide, one_hand_gun)
     end
 
     if option and not is_loaded_gun then
-        local toolTip = ISToolTip:new();
+        local toolTip = ISToolTip:new()
         toolTip:initialise();
         
         option.toolTip = toolTip;
         option.notAvailable = true;
 
-        toolTip:setName(getText("ContextMenu_GUN_SUICIDE"));
-        toolTip.description = getText("Tooltip_NO_AMMO");
+        toolTip:setName(getText("ContextMenu_GUN_SUICIDE"))
+        toolTip.description = getText("Tooltip_NO_AMMO")
     end
 end
 
-Events.OnFillInventoryObjectContextMenu.Add(doBuildSuicideMenu);
+Events.OnFillInventoryObjectContextMenu.Add(doSuicideMenu)

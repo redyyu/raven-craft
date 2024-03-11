@@ -33,6 +33,9 @@ ContextMenu_EN = {
   ContextMenu_Add_Silencer_Upgrade = "Attach Silencer"
   ContextMenu_Remove_Silencer_Upgrade = "Remove Silencer"
   
+  -- Training
+  ContextMenu_TRAIN_TAILORING = "Training Tailoring Skill"
+
   -- UI
   ContextMenu_TAKE_BARREL = "Take Barrel"
   ContextMenu_WORKBENCH = "Workbench"

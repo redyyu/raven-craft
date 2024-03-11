@@ -3,6 +3,10 @@ PACKAGE_NAME = "RavenCraft";
 local loot_chance = SandboxVars.RavenCraft.LootChance
 local loot_chance_percent = loot_chance / 100
 
+TextColor = {}
+TextColor.ghs = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
+TextColor.bhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
+
 
 getPackageName = function()
     return PACKAGE_NAME
