@@ -2,8 +2,8 @@ ItemName_EN = {
     -- fix Vanilla items
     ItemName_Base.Trousers_SuitTEXTURE = "Tight Suit Pants"
     ItemName_Base.Trousers_WhiteTEXTURE = "White Tight Pants"
-    ItemName_Base.Trousers_DefaultTEXTURE = "Tight Pants"
-    ItemName_Base.Trousers_DefaultTEXTURE_HUE = "Tight Pants"
+    ItemName_Base.Trousers_DefaultTEXTURE = "Tight Jeans"
+    ItemName_Base.Trousers_DefaultTEXTURE_HUE = "Tight Jeans"
     ItemName_Base.Trousers_DefaultTEXTURE_TINT = "Tight Pants"
     ItemName_Base.Gloves_LeatherGlovesBlack = "Black Leather Gloves"
     ItemName_Base.BeerEmpty = "Empty Beer Bottle"

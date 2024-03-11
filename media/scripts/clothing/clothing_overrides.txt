@@ -45,6 +45,50 @@ module Base
         WorldStaticModel = Trousers_Ground,
     }
 
+    /* Pants */
+    item Trousers_DefaultTEXTURE {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Tight Jeans,
+        ClothingItem = Trousers_DefaultTEXTURE,
+        BodyLocation = Pants,
+        Icon = TrouserTightDenim,
+        BloodLocation = Trousers,
+        Insulation = 0.6,
+        WindResistance = 0.3,
+        BiteDefense = 10,
+        ScratchDefense = 20,
+        FabricType = Denim,
+        WorldStaticModel = Trousers_Ground,
+    }
+    item Trousers_DefaultTEXTURE_HUE {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Tight Jeans,
+        ClothingItem = Trousers_DefaultTEXTURE_HUE,
+        BodyLocation = Pants,
+        Icon = TrouserTightDenimBlack,
+        BloodLocation = Trousers,
+        Insulation = 0.6,
+        WindResistance = 0.3,
+        BiteDefense = 10,
+        ScratchDefense = 20,
+        FabricType = Denim,
+        WorldStaticModel = Trousers_Ground,
+    }
+    item Trousers_DefaultTEXTURE_TINT {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Tight Pants,
+        ClothingItem = Trousers_DefaultTEXTURE_TINT,
+        BodyLocation = Pants,
+        Icon = TrouserTight,
+        BloodLocation = Trousers,
+        Insulation = 0.5,
+        WindResistance = 0.25,
+        FabricType = Cotton,
+        WorldStaticModel = Trousers_Ground,
+    }
 
     /* Gloves */
 
