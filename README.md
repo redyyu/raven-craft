@@ -357,6 +357,7 @@ Make better Fishing Net, could cacth more than `BaitFish`, base on character fis
 ## Training
 
 All training action will not pause the game if it is stopped. Did it on purpose, decide to not leave the game too long.
+To activate training action by click on the context menu. etc, right click clothing, or right click vehicle.
 
 **Tailoring**: just like others MOD `AutoSewing`, but mine is totally base on TimedAction not dirty override or hooking.
 it will random choose part of clothing, remove patch if have one, add path it if available whatever is have hole or not.
@@ -365,6 +366,7 @@ it will random choose part of clothing, remove patch if have one, add path it if
 and most important is, mine is choose to uninstall and install each part once at time, 
 also it will skip parts which is beyond player's current perk level.
 you have to learn recipe for each type of cars, and car doors should not be locked.
+
 
 
 ## GunSuicide
