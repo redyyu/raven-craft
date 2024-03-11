@@ -69,7 +69,10 @@ function ISTrainingMechanicsAction:isValid()
 end
 
 function ISTrainingMechanicsAction:update()
-	self.character:faceThisObject(self.vehicle)
+    self.character:faceThisObject(self.vehicle)
+    if self.item then
+	    self.item:setJobDelta(self:getJobDelta())
+    end
     self.character:setMetabolicTarget(Metabolics.MediumWork);
 end
 
@@ -82,10 +85,43 @@ function ISTrainingMechanicsAction:start()
 end
 
 function ISTrainingMechanicsAction:stop()
+    if self.item then
+	    self.item:setJobDelta(0.0)
+    end
     ISBaseTimedAction.stop(self)
 end
 
 function ISTrainingMechanicsAction:waitToStart()
+    if self.is_install then
+        item = nil
+        for i=0, self.part:getItemType():size() - 1 do
+            local item_type = self.part:getItemType():get(i)
+            item = self.inventory:getFirstTypeRecurse(item_type)
+            if item then
+                self.item = item
+                break
+            end
+        end
+        if not self.item or not self.vehicle:canInstallPart(self.character, self.part) then
+            self.action:setTime(0)
+            self.action:setUseProgressBar(false)
+            if isDebugEnabled() then
+                print(' ---------------- Training Mechanics ----------------') 
+                print('Skip Install: '.. self.part:getId())
+                print(' ----------------------------------------------------')
+            end
+        end
+    else
+        if not self.part:getInventoryItem() or not self.vehicle:canUninstallPart(self.character, self.part) then
+            self.action:setTime(0)
+            self.action:setUseProgressBar(false)
+            if isDebugEnabled() then
+                print(' ---------------- Training Mechanics ----------------')
+                print('Skip Uninstall: '.. self.part:getId())
+                print(' ----------------------------------------------------')
+            end
+        end
+    end
 	self.character:faceThisObject(self.vehicle)
 	return self.character:shouldBeTurning()
 end
@@ -100,22 +136,13 @@ function ISTrainingMechanicsAction:perform()
     local perksTable = VehicleUtils.getPerksTableForChr(self.partTable.skills, self.character)
     
     if self.is_install then
-        local item = nil
-        for i=0, self.part:getItemType():size() - 1 do
-            local item_type = self.part:getItemType():get(i)
-            item = self.inventory:getFirstTypeRecurse(item_type)
-            if item then
-                break
-            end
-        end
-
-        if item and self:prepareProcessPart() and self.vehicle:canInstallPart(self.character, self.part) then
-            self.inventory:DoRemoveItem(item)
+        if self.item and self:prepareProcessPart() and self.vehicle:canInstallPart(self.character, self.part) then
+            self.inventory:DoRemoveItem(self.item)
             
             local args = { 
                 vehicle = self.vehicle:getId(), 
                 part = self.part:getId(),
-                item = item,
+                item = self.item,
                 perks = perksTable,
                 mechanicSkill = self.character:getPerkLevel(Perks.Mechanics)
             }
@@ -128,7 +155,9 @@ function ISTrainingMechanicsAction:perform()
             end
             
             if isDebugEnabled() then
-                print('Install: '.. self.part:getId() ..' with '.. item:getDisplayName()) 
+                print(' ---------------- Training Mechanics ----------------') 
+                print('Install: '.. self.part:getId() ..' with '.. self.item:getDisplayName())
+                print(' ----------------------------------------------------')
             end
         end
     else
@@ -143,13 +172,18 @@ function ISTrainingMechanicsAction:perform()
 	        sendClientCommand(self.character, 'vehicle', 'uninstallPart', args)
 
             if isDebugEnabled() then
-                print('Uninstall: '.. self.part:getId()) 
+                print(' ---------------- Training Mechanics ----------------')
+                print('Uninstall: '.. self.part:getId())
+                print(' ----------------------------------------------------')
             end
         end
     end
 
     -- needed to remove from queue / start next.
     ISBaseTimedAction.perform(self)
+    if self.item then
+	    self.item:setJobDelta(0.0)
+    end
 end
 
 function ISTrainingMechanicsAction:new(character, part, is_install, screwdriver, wrench, lug_wrench, jack)
@@ -166,6 +200,7 @@ function ISTrainingMechanicsAction:new(character, part, is_install, screwdriver,
     o.jack = jack
     o.part = part
     o.vehicle = part:getVehicle()
+    o.item = nil
     o.is_install = is_install
     o.loopedAction = false
     if is_install then
