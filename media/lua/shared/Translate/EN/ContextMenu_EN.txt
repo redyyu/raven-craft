@@ -35,6 +35,7 @@ ContextMenu_EN = {
   
   -- Training
   ContextMenu_TRAIN_TAILORING = "Training Tailoring Skill"
+  ContextMenu_TRAIN_MECHANICS = "Training Mechanics Skill"
 
   -- UI
   ContextMenu_TAKE_BARREL = "Take Barrel"

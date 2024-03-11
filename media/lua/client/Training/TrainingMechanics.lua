@@ -47,16 +47,16 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
         toolTip.description = TextColor.bhs .. getText("Tooltip_TRANING_NO_ITEMS_FOR") .." <LINE><LINE> "
         
         if not screwdriver then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Screwdriver") .." 0/1 <LINE> "
+            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Screwdriver") .."  0/1 <LINE> "
         end
         if not wrench then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Wrench") .." 0/1 unit <LINE> "
+            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Wrench") .."  0/1 unit <LINE> "
         end
         if not lug_wrench then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_LugWrench") .. " 0/1 <LINE> "
+            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_LugWrench") .. "  0/1 <LINE> "
         end
         if not jack then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Jack") .. " 0/1 <LINE> "
+            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Jack") .. "  0/1 <LINE> "
         end
     end
 end
@@ -93,10 +93,9 @@ local function onTrainingMechanicsMenuOutsideVehicle(player, context, worldobjec
         
         vehicle = IsoObjectPicker.Instance:PickVehicle(getMouseXScaled(), getMouseYScaled())
         if vehicle then
-            print('=========#@$!!!!!!!$$$$$$$$$$$$$$$$$$')
             return doTrainingMechanicsMenu(playerObj, context, vehicle, test)
         end
     end
 end
 
-Events.OnFillInventoryObjectContextMenu.Add(onTrainingMechanicsMenuOutsideVehicle)
+Events.OnFillWorldObjectContextMenu.Add(onTrainingMechanicsMenuOutsideVehicle)

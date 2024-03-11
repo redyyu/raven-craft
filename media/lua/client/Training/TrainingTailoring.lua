@@ -43,13 +43,13 @@ local function doTrainingTailoringMenu(player, context, items)
             toolTip.description = TextColor.bhs .. getText("Tooltip_TRANING_NO_ITEMS_FOR") .." <LINE><LINE> "
             
             if not needle then
-                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Needle") .." 0/1 <LINE> "
+                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Needle") .."  0/1 <LINE> "
             end
             if not thread then
-                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Thread") .." 0/1 unit <LINE> "
+                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Thread") .."  0/1 unit <LINE> "
             end
             if not has_fabric then
-                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_RippedSheets") .. " 0/1 <LINE> "
+                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_RippedSheets") .. "  0/1 <LINE> "
             end
         end
     end
