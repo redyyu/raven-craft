@@ -218,7 +218,7 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
         toolTip.description = TextColor.bhs .. getText("Tooltip_TRAINING_NO_ITEMS_FOR") .." <LINE><LINE> "
         
         if unknow_recipe then
-            local recipe_name = getText("Tooltip_Recipe"..unknow_recipe)
+            local recipe_name = getText("Tooltip_Recipe_"..unknow_recipe)
             toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_TRAINING_NEED_LEARN", recipe_name) .." <LINE> "
         end
 

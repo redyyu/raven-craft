@@ -60,7 +60,7 @@ Tooltip_EN = {
     Tooltip_TRAINING_READY_FOR = "Ready for Training."
     Tooltip_TRAINING_NO_ITEMS_FOR = "No Tools or not enough materials for Training."
     Tooltip_ONE_OF_DOOR_IS_LOCKED = "One of door is locked."
-    Tooltip_TRAINING_NEED_LEARN = "Need Learn % first."
+    Tooltip_TRAINING_NEED_LEARN = "Need Learn %1 first."
     
     
 
