@@ -4,25 +4,32 @@ require "Vehicles/VehicleDistributions"
 
 
 for k, v in pairs(ProceduralDistributions.list) do
-    for i=1, #v.items do
-        if v.items[i] == 'Cigarettes' then
-            v.items[i] = 'CigarettesPack'
+    if v.items and type(v.items) == 'table' then
+        for i=1, #v.items do
+            if v.items[i] == 'Cigarettes' then
+                v.items[i] = 'CigarettesPack'
+            end
         end
     end
 end
 
 for k, v in pairs(VehicleDistributions) do
-    for i=1, #v.items do
-        if v.items[i] == 'Cigarettes' then
-            v.items[i] = 'CigarettesPack'
+    
+    if v.items and type(v.items) == 'table' then
+        for i=1, #v.items do
+            if v.items[i] == 'Cigarettes' then
+                v.items[i] = 'CigarettesPack'
+            end
         end
     end
 end
 
 for k, v in pairs(SuburbsDistributions.all) do
-    for i=1, #v.items do
-        if v.items[i] == 'Cigarettes' then
-            v.items[i] = 'CigarettesPack'
+    if v.items and type(v.items) == 'table' then
+        for i=1, #v.items do
+            if v.items[i] == 'Cigarettes' then
+                v.items[i] = 'CigarettesPack'
+            end
         end
     end
 end

@@ -4,7 +4,7 @@ ISRefillCigarettesPackAction = ISBaseTimedAction:derive("ISRefillCigarettesPackA
 
 
 function ISRefillCigarettesPackAction:isValid()
-    return self.cigarettes_pack and self.cigarettes_pack:getUsedDelta() > 0.0
+    return self.cigarettes_pack and self.cigarettes_pack:getUsedDelta() > 0.0 and self.cigarettes:size()
 end
 
 function ISRefillCigarettesPackAction:update()
@@ -39,7 +39,6 @@ function ISRefillCigarettesPackAction:perform()
     end
     local refilled_delta = math.min(refill_count * self.cigarettes_pack:getUseDelta(), 1.0)
     self.cigarettes_pack:setUsedDelta(self.cigarettes_pack:getUsedDelta() + refilled_delta)
-
 	self.cigarettes_pack:setJobDelta(0.0)
 	ISBaseTimedAction.perform(self)
 end

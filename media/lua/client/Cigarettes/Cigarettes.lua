@@ -25,7 +25,7 @@ end
 
 local function onRefillCigarettesPack(playerObj, cigarettes_pack, cigarettes)
     ISInventoryPaneContextMenu.transferIfNeeded(playerObj, cigarettes_pack)
-    ISTimedActionQueue.add(ISRefillCigarettesPackAction:new(playerObj, cigarettes_pack))
+    ISTimedActionQueue.add(ISRefillCigarettesPackAction:new(playerObj, cigarettes_pack, cigarettes))
 end
 
 
@@ -37,14 +37,16 @@ local function doRefillCigarettesPackMenu(player, context, items)
     local cigarettes_pack = nil
 
     for _, item in ipairs(items) do
-        if instanceof(item, "Drainable") and item:getFullType() == 'Base.CigarettesPack' then
+        if instanceof(item, "Drainable") and item:getFullType() == 'Base.CigarettesPack' and item:getUsedDelta() < 1.0 then
             cigarettes_pack = item
             break
         end
 	end
-    local cigarettes = playerInv:getAllType("Base.Cigarettes")
-    if cigarettes_pack and cigarettes:size() > 0 then
-        option = context:addOption(getText("ContextMenu_Refill_CigarettesPack"), playerObj, onRefillCigarettesPack, cigarettes_pack, cigarettes)
+    if cigarettes_pack then
+        local cigarettes = playerInv:getAllType("Base.Cigarettes")
+        if cigarettes:size() > 0 then
+            option = context:addOption(getText("ContextMenu_Refill_CigarettesPack"), playerObj, onRefillCigarettesPack, cigarettes_pack, cigarettes)
+        end
     end
  end
 
