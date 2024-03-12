@@ -28,7 +28,7 @@ local function doTrainingTailoringMenu(player, context, items)
         local toolTip = ISToolTip:new()
         toolTip:initialise()
 
-        option = context:addOption(getText("ContextMenu_TRAIN_TAILORING"), playerObj, onTrainingTailoring, clothing, needle)
+        local option = context:addOption(getText("ContextMenu_TRAIN_TAILORING"), playerObj, onTrainingTailoring, clothing, needle)
         option.toolTip = toolTip
 
         toolTip:setName(getText("ContextMenu_TRAIN_TAILORING"))

@@ -32,9 +32,13 @@ end
 function ISSmokeCigarettesPackAction:perform()
 	local cigarettes = InventoryItemFactory.CreateItem("Base.Cigarettes")
     self.character:getInventory():AddItem(cigarettes)
-    ISInventoryPaneContextMenu.eatItem(cigarettes, 1, self.character:getPlayerNum())
     self.cigarettes_pack:Use()
 	self.cigarettes_pack:setJobDelta(0.0)
+
+    if isRequireInHandOrInventory(self.character, self.cigarettes_pack) then
+        ISInventoryPaneContextMenu.eatItem(cigarettes, 1, self.character:getPlayerNum())
+    end
+
 	ISBaseTimedAction.perform(self)
 end
 

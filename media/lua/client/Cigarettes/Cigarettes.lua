@@ -18,7 +18,7 @@ local function doCigarettesPackMenu(player, context, items)
 	end
 
     if cigarettes_pack then
-        context:addOption(getText("ContextMenu_Smoke"), playerObj, onSmokeCigarettesPack, cigarettes_pack)
+        context:addOptionOnTop(getText("ContextMenu_Draw_One_for_Smoke"), playerObj, onSmokeCigarettesPack, cigarettes_pack)
     end
 end
 
@@ -35,7 +35,7 @@ local function doRefillCigarettesPackMenu(player, context, items)
 
     local items = ISInventoryPane.getActualItems(items)
     local cigarettes_pack = nil
-
+    
     for _, item in ipairs(items) do
         if instanceof(item, "Drainable") and item:getFullType() == 'Base.CigarettesPack' and item:getUsedDelta() < 1.0 then
             cigarettes_pack = item
@@ -45,7 +45,7 @@ local function doRefillCigarettesPackMenu(player, context, items)
     if cigarettes_pack then
         local cigarettes = playerInv:getAllType("Base.Cigarettes")
         if cigarettes:size() > 0 then
-            option = context:addOption(getText("ContextMenu_Refill_CigarettesPack"), playerObj, onRefillCigarettesPack, cigarettes_pack, cigarettes)
+            context:addOption(getText("ContextMenu_Refill_CigarettesPack"), playerObj, onRefillCigarettesPack, cigarettes_pack, cigarettes)
         end
     end
  end

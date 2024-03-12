@@ -372,7 +372,7 @@ you have to learn recipe for each type of cars, and car doors should not be lock
 
 ## Cigarettes
 
-Cigarettes Pack for 20 Cigarettes. all distribution for Cigarettes is changed to Cigarettes Pack.
+Cigarettes Pack for 20 Cigarettes. all distribution decide chance to make `CigarettesPack` to replace `Cigarettes`.
 Cigarettes Pack can refill with numbers of Cigarettes. When smoke with Cigarettes Pack, 1 Cigarettes will draw out and smoking.
 
 

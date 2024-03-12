@@ -202,7 +202,7 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
     local toolTip = ISToolTip:new()
     toolTip:initialise()
 
-    option = context:addOption(getText("ContextMenu_TRAIN_MECHANICS"), playerObj, onTrainingMechanics, vehicle, screwdriver, wrench, lug_wrench, jack)
+    local option = context:addOption(getText("ContextMenu_TRAIN_MECHANICS"), playerObj, onTrainingMechanics, vehicle, screwdriver, wrench, lug_wrench, jack)
     option.toolTip = toolTip
 
     toolTip:setName(getText("ContextMenu_TRAIN_MECHANICS"))

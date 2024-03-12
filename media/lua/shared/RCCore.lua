@@ -96,6 +96,17 @@ isSquarePowered = function(square)
 end
 
 
+isRequireInHandOrInventory = function(character, item)
+    local required_items = item:getRequireInHandOrInventory()
+    for i=0, required_items:size() - 1 do
+        if character:getInventory():containsTypeRecurse(required_items:get(i)) then
+            return true
+        end
+    end
+    return false
+end
+
+
 enum = function (tbl)
     local length = #tbl
     for i = 1, length do

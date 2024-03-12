@@ -6,7 +6,7 @@ require "Vehicles/VehicleDistributions"
 for k, v in pairs(ProceduralDistributions.list) do
     if v.items and type(v.items) == 'table' then
         for i=1, #v.items do
-            if v.items[i] == 'Cigarettes' then
+            if v.items[i] == 'Cigarettes' and ZombRand(5) == 0 then
                 v.items[i] = 'CigarettesPack'
             end
         end
@@ -17,7 +17,7 @@ for k, v in pairs(VehicleDistributions) do
     
     if v.items and type(v.items) == 'table' then
         for i=1, #v.items do
-            if v.items[i] == 'Cigarettes' then
+            if v.items[i] == 'Cigarettes' and ZombRand(5) == 0 then
                 v.items[i] = 'CigarettesPack'
             end
         end
@@ -27,7 +27,7 @@ end
 for k, v in pairs(SuburbsDistributions.all) do
     if v.items and type(v.items) == 'table' then
         for i=1, #v.items do
-            if v.items[i] == 'Cigarettes' then
+            if v.items[i] == 'Cigarettes' and ZombRand(5) == 0 then
                 v.items[i] = 'CigarettesPack'
             end
         end

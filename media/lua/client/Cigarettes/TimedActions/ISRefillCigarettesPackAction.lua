@@ -4,7 +4,7 @@ ISRefillCigarettesPackAction = ISBaseTimedAction:derive("ISRefillCigarettesPackA
 
 
 function ISRefillCigarettesPackAction:isValid()
-    return self.cigarettes_pack and self.cigarettes_pack:getUsedDelta() > 0.0 and self.cigarettes:size()
+    return self.cigarettes_pack and self.cigarettes:size() > 0
 end
 
 function ISRefillCigarettesPackAction:update()
