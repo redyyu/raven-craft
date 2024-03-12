@@ -29,7 +29,7 @@ those knowledge is become my treasure, Thank you very much.
 16. Backpacks and HikingBags have attachments by default. (no need Tailoring it any more.)
 17. Add Canteen, Flashlight and ChestRig. (No nead G.E.A.R)
 18. New Skill Books for weapons.
-18. Cigarettes Pack for 20 Cigarettes.
+
 
 
 ### Added new Carpentry Expands:
@@ -369,6 +369,11 @@ and most important is, mine is choose to uninstall and install each part once at
 also it will skip parts which is beyond player's current perk level.
 you have to learn recipe for each type of cars, and car doors should not be locked.
 
+
+## Cigarettes
+
+Cigarettes Pack for 20 Cigarettes. all distribution for Cigarettes is changed to Cigarettes Pack.
+Cigarettes Pack can refill with numbers of Cigarettes. When smoke with Cigarettes Pack, 1 Cigarettes will draw out and smoking.
 
 
 ## GunSuicide

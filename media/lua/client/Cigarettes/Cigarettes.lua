@@ -1,9 +1,7 @@
 
 local function onSmokeCigarettesPack(playerObj, cigarettes_pack)
-    local cigarettes = InventoryItemFactory.CreateItem("Base.Cigarettes")
-    playerObj:getInventory():AddItem(cigarettes)
-    ISInventoryPaneContextMenu.eatItem(cigarettes, 1, playerObj:getPlayerNum())
-    cigarettes_pack:Use()
+    ISInventoryPaneContextMenu.transferIfNeeded(playerObj, cigarettes_pack)
+    ISTimedActionQueue.add(ISSmokeCigarettesPackAction:new(playerObj, cigarettes_pack))
 end
 
 
@@ -26,16 +24,8 @@ end
 
 
 local function onRefillCigarettesPack(playerObj, cigarettes_pack, cigarettes)
-    local playerInv = playerObj:getInventory()
-    local refill_count = (1.0 - cigarettes_pack:getUsedDelta()) / cigarettes_pack:getUseDelta()
-    if refill_count > cigarettes:size() then
-        refill_count = cigarettes:size()
-    end
-    for i=0, refill_count -1 do
-        playerInv:Remove(cigarettes:get(i))
-    end
-    local refilled_delta = math.min(refill_count * cigarettes_pack:getUseDelta(), 1.0)
-    cigarettes_pack:setUsedDelta(cigarettes_pack:getUsedDelta() + refilled_delta)
+    ISInventoryPaneContextMenu.transferIfNeeded(playerObj, cigarettes_pack)
+    ISTimedActionQueue.add(ISRefillCigarettesPackAction:new(playerObj, cigarettes_pack))
 end
 
 
