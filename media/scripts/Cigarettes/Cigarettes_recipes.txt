@@ -12,7 +12,7 @@ module Base
 
         Result: Cigarettes,
         Time: 5.0,
-        Sound: PZ_PutInBag,
+        Sound: PutItemInBag,
     }
 
     recipe Pack Cigarettes {
@@ -23,7 +23,7 @@ module Base
         StopOnWalk: false,
         
         Time: 5.0,
-        Sound: PZ_PutInBag,
+        Sound: PutItemInBag,
     }
 
     /* Its work but not good usability, replace with lua code
@@ -39,7 +39,7 @@ module Base
         StopOnWalk: false,
 
         Time: 5.0,
-        Sound: PZ_PutInBag,
+        Sound: PutItemInBag,
         IsHidden: true,
     }
     */
@@ -54,7 +54,7 @@ module Base
         StopOnWalk: false,
 
         Time: 5.0,
-        Sound: PZ_PutInBag,
+        Sound: PutItemInBag,
         IsHidden: true,
     }
     */

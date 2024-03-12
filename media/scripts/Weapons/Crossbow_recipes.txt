@@ -11,7 +11,7 @@ module RavenCraft
 		CrossbowBoltBox,
 
 		Result: CrossbowBolt = 24,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,
 		Time: 5,
 		AnimNode: Craft,
 	}
@@ -20,7 +20,7 @@ module RavenCraft
 		CrossbowBolt = 24,
 				
 		Result: CrossbowBoltBox,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,
 		Time: 5,
 		AnimNode: Craft,
 	}

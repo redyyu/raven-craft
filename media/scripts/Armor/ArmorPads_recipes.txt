@@ -121,7 +121,7 @@ module RavenCraft
         SkillRequired: Tailoring=1,
         AnimNode: RipSheets,
         Prop1: Source=1,
-        Sound: PZ_PutInBag,
+        Sound: PutItemInBag,
         Time: 100.0,
         Category: Survivalist,
 
@@ -141,7 +141,7 @@ module RavenCraft
         SkillRequired: Tailoring=1,
         AnimNode: RipSheets,
         Prop1: Source=1,
-        Sound: PZ_PutInBag,
+        Sound: PutItemInBag,
         Time: 100.0,
         Category: Survivalist,
 

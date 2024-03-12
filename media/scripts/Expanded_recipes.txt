@@ -172,25 +172,24 @@ module RavenCraft
         Result: Gravelbag,
         Time: 200.0,
         SkillRequired: Woodwork = 4,
-        AnimNode: BuildLow,
+        AnimNode: Forage,
         Prop1: Source=1,
-        Sound: Hammering,
+        Sound: PutItemInBag,
         CanBeDoneFromFloor: true,
         Category: Carpentry,
     }
 
     recipe Open Gravel bag {
-        Gravelbag,
-        EmptySandbag,
+        destroy Gravelbag,
 
         OnCreate: Recipe.OnCreate.OpenSackProduce,
 
         Result: Stone=6,
         Time: 200.0,
         SkillRequired: Woodwork = 4,
-        AnimNode: BuildLow,
+        AnimNode: Forage,
         Prop1: Source=1,
-        Sound: Hammering,
+        Sound: PutItemInBag,
         CanBeDoneFromFloor: true,
         Category: Carpentry,
     }

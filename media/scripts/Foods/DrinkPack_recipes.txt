@@ -7,7 +7,7 @@ module RavenCraft
 	recipe Pack Beer {
 		BeerCan=6,
 		Result:BeerPack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -16,7 +16,7 @@ module RavenCraft
 	recipe Open a Pack of Beer {
 		BeerPack,
 		Result:BeerCan=6,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -25,7 +25,7 @@ module RavenCraft
 	recipe Pack Beer bottle {
 		BeerBottle=6,
 		Result:BeerBottlePack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -34,7 +34,7 @@ module RavenCraft
 	recipe Open a Pack of Beer bottle {
 		BeerBottlePack,
 		Result:BeerBottle=6,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -43,7 +43,7 @@ module RavenCraft
 	recipe Pack Pop {
 		Pop=6,
 		Result:PopPack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -52,7 +52,7 @@ module RavenCraft
 	recipe Open a Pack of Pop {
 		PopPack,
 		Result:Pop=6,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -61,7 +61,7 @@ module RavenCraft
 	recipe Pack Pop {
 		Pop2=6,
 		Result:Pop2Pack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -70,7 +70,7 @@ module RavenCraft
 	recipe Open a Pack of Pop {
 		Pop2Pack,
 		Result:Pop2=6,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -79,7 +79,7 @@ module RavenCraft
 	recipe Pack Pop {
 		Pop3=6,
 		Result:Pop3Pack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -88,7 +88,7 @@ module RavenCraft
 	recipe Open a Pack of Pop {
 		Pop3Pack,
 		Result:Pop3=6,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -97,7 +97,7 @@ module RavenCraft
 	recipe Pack Whiskey bottle {
 		WhiskeyFull=12,
 		Result:WhiskeyBottledPack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -106,7 +106,7 @@ module RavenCraft
 	recipe Open a Pack of Whiskey bottle {
 		WhiskeyBottledPack,
 		Result:WhiskeyFull=12,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -115,7 +115,7 @@ module RavenCraft
 	recipe Pack Chardonnay bottle {
 		Wine=12,
 		Result:WineBottledPack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -124,7 +124,7 @@ module RavenCraft
 	recipe Open a Pack of Chardonnay bottle {
 		WineBottledPack,
 		Result:Wine=12,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -133,7 +133,7 @@ module RavenCraft
 	recipe Pack Red Wine bottle {
 		Wine2=12,
 		Result:Wine2BottledPack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -142,7 +142,7 @@ module RavenCraft
 	recipe Open a Pack of Red Wine bottle {
 		Wine2BottledPack,
 		Result:Wine2=12,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -151,7 +151,7 @@ module RavenCraft
 	recipe Pack Orange Soda {
 		PopBottle=12,
 		Result:PopBottlePack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -160,7 +160,7 @@ module RavenCraft
 	recipe Open a Pack of Orange Soda {
 		PopBottlePack,
 		Result:PopBottle=12,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		CanBeDoneFromFloor: true,
@@ -169,7 +169,7 @@ module RavenCraft
 	recipe Pack Water Bottle {
 		destroy WaterBottleFull=12,  /* Water is by unit */
 		Result:WaterBottlePack,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 
 		OnTest: Recipe.OnTest.IsFullWaterBottle,
@@ -180,7 +180,7 @@ module RavenCraft
 	recipe Open a Pack of Water Bottle {
 		WaterBottlePack,
 		Result:WaterBottleFull=12,
-		Sound: PZ_PutInBag,
+		Sound: PutItemInBag,  /* PZ_PutInBag  is too Loud */
 		Time: 15,
 		
 		CanBeDoneFromFloor: true,
