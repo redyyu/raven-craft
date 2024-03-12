@@ -43,7 +43,7 @@ local function onStoneFurnace(worldobjects, player)
     -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
     furnace.modData["xp:Woodwork"] = 30;
     furnace.craftingBank = "Hammering";
-    furnace.modData["need:Base.Stone"]= 30;
+    furnace.modData["need:Base.Stone"]= 50;
     furnace.player = player;
     furnace.completionSound = "BuildFenceGravelbag";
     furnace.maxTime = 1200;
