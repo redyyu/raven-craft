@@ -165,12 +165,27 @@ module RavenCraft
         Category: Carpentry,
     }
 
-    recipe Self-made Gravel Bag {
-        keep [Recipe.GetItemTypes.Hammer],
-        Stone=2,
+    recipe Put Stone to Bag {
+        Stone=6,
         EmptySandbag,
 
         Result: Gravelbag,
+        Time: 200.0,
+        SkillRequired: Woodwork = 4,
+        AnimNode: BuildLow,
+        Prop1: Source=1,
+        Sound: Hammering,
+        CanBeDoneFromFloor: true,
+        Category: Carpentry,
+    }
+
+    recipe Open Gravel bag {
+        Gravelbag,
+        EmptySandbag,
+
+        OnCreate: Recipe.OnCreate.OpenSackProduce,
+
+        Result: Stone=6,
         Time: 200.0,
         SkillRequired: Woodwork = 4,
         AnimNode: BuildLow,
