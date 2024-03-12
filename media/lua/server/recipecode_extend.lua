@@ -201,6 +201,48 @@ function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
 end
 
 
+-- In Vanilla, recipe with Cigarettes = 20, will cause result x20 (800),
+-- but Cigarettes=1 will only get 1. thats because item `Cigarettes` is count 20,
+-- when use AddItems /AddItem with String type name will effect by the count. I guess.
+--[[ 
+   (in DOCS https://pzwiki.net/wiki/Scripts_guide/Item_Script_Parameters/Count)
+   Count:
+   Determines how many items of this type will appear when spawning/crafting this type of item.
+--]]
+-- try DO NOT override the item script `Count`, otherwise will effect numbers when distribution.
+function Recipe.OnCreate.OpenCigarettesPack(items, result, player)
+   if result:getFullType() == "Base.Cigarettes" then
+        for i=0, items:size() -1 do
+            local item = items:get(i)
+            if item:getType() == 'CigarettesPack' then
+                -- In Recipoe `Result: Cigarettes,`
+                -- result have only 1 Cigarettes
+
+                -- AddItem or AddItems with String name will trigger the `Count`
+                -- player:getInventory():AddItem("Base.Cigarettes")
+                -- -- addItem for Cigarettes, now will be 21,
+                -- player:getInventory():RemoveOneOf("Base.Cigarettes")
+                -- -- remove one of it, now will be 20.
+
+                local count = math.floor(item:getUsedDelta() / item:getUseDelta() + 0.5)
+
+                print(count)
+                print(item:getUsedDelta())
+                print(item:getUses())
+                print(item:getCurrentUses())
+                print(item:getUseDelta())
+                print('-----------count--------------------')
+                for j=1, count - 1 do -- remember recipe will create one.
+                    local cigarettes = InventoryItemFactory.CreateItem("Base.Cigarettes")
+                    -- AddItem with InventoryItem will be fine.  AddItems will not
+                    player:getInventory():AddItem(cigarettes)
+                end
+            end
+        end
+   end
+end
+
+
 -- set the age of the food to the can, you need to cook it to have a 2-3 months preservation
 function Recipe.OnCreate.CannedFood(items, result, player)
     -- OVERRIDE the vanilla CannedFood code. because it is Bugging.
@@ -441,6 +483,12 @@ function Recipe.OnTest.IsNotEquipped(item)
 end
 
 
+function Recipe.OnTest.IsNotFullPack(item)
+    if instanceof(item, "Drainable") or instanceof(item, "DrainableComboItem") then
+        return item:getUsedDelta() < 1
+    end
+    return true
+end
 
 
 

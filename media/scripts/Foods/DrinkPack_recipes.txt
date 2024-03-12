@@ -8,16 +8,16 @@ module RavenCraft
 		BeerCan=6,
 		Result:BeerPack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Beer {
+	recipe Open a Pack of Beer {
 		BeerPack,
 		Result:BeerCan=6,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -26,16 +26,16 @@ module RavenCraft
 		BeerBottle=6,
 		Result:BeerBottlePack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Beer bottle {
+	recipe Open a Pack of Beer bottle {
 		BeerBottlePack,
 		Result:BeerBottle=6,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -44,16 +44,16 @@ module RavenCraft
 		Pop=6,
 		Result:PopPack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Pop {
+	recipe Open a Pack of Pop {
 		PopPack,
 		Result:Pop=6,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -62,16 +62,16 @@ module RavenCraft
 		Pop2=6,
 		Result:Pop2Pack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Pop {
+	recipe Open a Pack of Pop {
 		Pop2Pack,
 		Result:Pop2=6,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -80,16 +80,16 @@ module RavenCraft
 		Pop3=6,
 		Result:Pop3Pack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Pop {
+	recipe Open a Pack of Pop {
 		Pop3Pack,
 		Result:Pop3=6,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -98,16 +98,16 @@ module RavenCraft
 		WhiskeyFull=12,
 		Result:WhiskeyBottledPack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Whiskey bottle {
+	recipe Open a Pack of Whiskey bottle {
 		WhiskeyBottledPack,
 		Result:WhiskeyFull=12,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -116,16 +116,16 @@ module RavenCraft
 		Wine=12,
 		Result:WineBottledPack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Chardonnay bottle {
+	recipe Open a Pack of Chardonnay bottle {
 		WineBottledPack,
 		Result:Wine=12,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -134,16 +134,16 @@ module RavenCraft
 		Wine2=12,
 		Result:Wine2BottledPack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Red Wine bottle {
+	recipe Open a Pack of Red Wine bottle {
 		Wine2BottledPack,
 		Result:Wine2=12,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -152,16 +152,16 @@ module RavenCraft
 		PopBottle=12,
 		Result:PopBottlePack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Orange Soda {
+	recipe Open a Pack of Orange Soda {
 		PopBottlePack,
 		Result:PopBottle=12,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		CanBeDoneFromFloor: true,
 	}
@@ -170,18 +170,18 @@ module RavenCraft
 		destroy WaterBottleFull=12,  /* Water is by unit */
 		Result:WaterBottlePack,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 
 		OnTest: Recipe.OnTest.IsFullWaterBottle,
 
 		CanBeDoneFromFloor: true,
 	}
 
-	recipe Open a pack of Water Bottle {
+	recipe Open a Pack of Water Bottle {
 		WaterBottlePack,
 		Result:WaterBottleFull=12,
 		Sound: PZ_PutInBag,
-		Time:3.0,
+		Time: 15,
 		
 		CanBeDoneFromFloor: true,
 	}

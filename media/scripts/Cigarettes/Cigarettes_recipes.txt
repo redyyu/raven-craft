@@ -1,0 +1,62 @@
+module Base
+{
+
+    /* Override Open / PutIn CigarettesPack */
+
+    recipe Open a Pack of Cigarettes {
+        destroy CigarettesPack,
+
+        OnCreate: Recipe.OnCreate.OpenCigarettesPack,
+        OnGiveXP: Recipe.OnGiveXP.None,
+        StopOnWalk: false,
+
+        Result: Cigarettes,
+        Time: 5.0,
+        Sound: PZ_PutInBag,
+    }
+
+    recipe Pack Cigarettes {
+        Cigarettes=20,
+
+        Result: CigarettesPack,
+        OnGiveXP: Recipe.OnGiveXP.None,
+        StopOnWalk: false,
+        
+        Time: 5.0,
+        Sound: PZ_PutInBag,
+    }
+
+    /* Its work but not good usability, replace with lua code
+    recipe Refill Cigarettes Pack {
+        Cigarettes,
+        destroy CigarettesPack,
+        
+        OnTest: Recipe.OnTest.IsNotFullPack,
+        OnCreate: Recipe.OnCreate.RefillCigarettesPack,
+
+        Result: CigarettesPack,
+        OnGiveXP: Recipe.OnGiveXP.None,
+        StopOnWalk: false,
+
+        Time: 5.0,
+        Sound: PZ_PutInBag,
+        IsHidden: true,
+    }
+    */
+
+
+    /*
+    recipe Draw One Cigarettes from Pack {
+        CigarettesPack,
+
+        Result: Cigarettes,
+        OnGiveXP: Recipe.OnGiveXP.None,
+        StopOnWalk: false,
+
+        Time: 5.0,
+        Sound: PZ_PutInBag,
+        IsHidden: true,
+    }
+    */
+
+}

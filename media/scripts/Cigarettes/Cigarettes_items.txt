@@ -1,0 +1,52 @@
+module Base
+{
+
+    /* Override Vanilla Cigarettes */
+
+    item Cigarettes {
+        DisplayCategory = Junk,
+        Count = 20, 
+        /* 
+            Count is Determines how many items of this type will appear when spawning/crafting this type of item.
+            effect Additem / Additems too. Can do add Item and remove something on recipecode.
+        */
+        HungerChange = 0,
+        Weight = 0.005,
+        RequireInHandOrInventory = Matches/Lighter,
+        Type = Food,
+        DisplayName = Cigarettes,
+        StressChange = -5,
+        Icon = Cigarettes,
+        CustomContextMenu = Smoke,
+        CantBeFrozen = TRUE,
+        OnEat = OnEat_Cigarettes,
+        StaticModel = Cigarette,
+        EatType = Cigarettes,
+        WorldStaticModel = CigarettePack_Ground,
+        CustomEatSound = ,
+    }
+
+    /* Cigarettes Pack */
+
+    item CigarettesPack {
+        DisplayCategory = Junk,
+        DisplayName = Cigarettes Pack,
+
+		Type = Drainable,
+        Weight = 0.1,
+		RequireInHandOrInventory = Matches/Lighter,
+		
+		Icon = IckySticks,
+		
+		CantBeFrozen = TRUE,
+
+		EatType = Cigarettes,
+
+        UseDelta = 0.05,
+        UseWhileEquipped = FALSE,
+
+        StaticModel = Cigarette,
+        WorldStaticModel = CigarettePack_Ground,
+    }
+
+}

@@ -40,12 +40,16 @@ ContextMenu_EN = {
   -- UI
   ContextMenu_TAKE_BARREL = "Take Barrel"
   ContextMenu_WORKBENCH = "Workbench"
+
   ContextMenu_GUN_SUICIDE = "Suicide by Gun"
   ContextMenu_TAKE_INJECTION = "Take Injection"
   ContextMenu_CLIMB_LADDER = "Climb Ladder"
   
   ContextMenu_WearTight = "Wear Tight",
   ContextMenu_WearLoose = "Wear Loose",
+
   ContextMenu_READ_JOURNAL = "Read Survival Journal"
+
+  ContextMenu_Refill_CigarettesPack = "Refill Cigarettes Pack"
 
 }

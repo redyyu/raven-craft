@@ -1,97 +1,78 @@
 module Base
 {
 
-/* Override Open / PutIn CigarettesPack */
-
-   recipe Open a pack of Cigarettes {
-       CigarettesPack,
-
-       Result: Cigarettes,
-       Time: 5.0,
-       Sound: PZ_PutInBag,
-    }
-
-    recipe Pack Cigarettes {
-       Cigarettes,
-
-       Result: Cigarettes,
-       Time: 5.0,
-       Sound: PZ_PutInBag,
-    }
-
-
 /* Override Open Foods */
     
 	recipe Open Dog Food {
-       Dogfood,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        Dogfood,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:DogfoodOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:DogfoodOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
    recipe Open Condensed Milk {
-       CannedMilk,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedMilk,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedMilkOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedMilkOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
 	recipe Open Canned Soup {
-       TinnedSoup,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        TinnedSoup,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:TinnedSoupOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:TinnedSoupOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Fruit Cocktail {
-       CannedFruitCocktail,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedFruitCocktail,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedFruitCocktailOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedFruitCocktailOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Peaches {
-       CannedPeaches,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedPeaches,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedPeachesOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedPeachesOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Pineapple {
-       CannedPineapple,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedPineapple,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedPineappleOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedPineappleOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Beans {
@@ -102,104 +83,104 @@ module Base
 	   Time: 80.0,
 	   Category:Cooking,
 	   OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Sound:OpenCannedFood,
+        Override:true
 	}
 
     recipe Open Canned Corn {
-       CannedCorn,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedCorn,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedCornOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedCornOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Bolognese {
-       CannedBolognese,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedBolognese,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedBologneseOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedBologneseOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Chili {
-       CannedChili,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedChili,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedChiliOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedChiliOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Mushroom Soup {
-       CannedMushroomSoup,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedMushroomSoup,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedMushroomSoupOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedMushroomSoupOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Peas {
-       CannedPeas,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedPeas,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedPeasOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedPeasOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Potato {
-       CannedPotato2,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedPotato2,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedPotatoOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedPotatoOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Tomato {
-       CannedTomato2,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedTomato2,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedTomatoOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedTomatoOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
     recipe Open Canned Carrots {
-       CannedCarrots2,
-       keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
+        CannedCarrots2,
+        keep [Recipe.GetItemTypes.CanOpener]/[Recipe.GetItemTypes.SharpKnife]/[Recipe.GetItemTypes.Fork],
 
-       Result:CannedCarrotsOpen,
-       Time: 80.0,
-       Category:Cooking,
-       OnGiveXP:Recipe.OnGiveXP.None,
-       Sound:OpenCannedFood,
-       Override:true
+        Result:CannedCarrotsOpen,
+        Time: 80.0,
+        Category:Cooking,
+        OnGiveXP:Recipe.OnGiveXP.None,
+        Sound:OpenCannedFood,
+        Override:true
     }
 
 }
