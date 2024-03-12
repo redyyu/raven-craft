@@ -27,7 +27,7 @@ local function countUses(playerObj, item_type, amount)
             if item:getType() == item_type then
                 count = count + item:getUsedDelta() / item:getUseDelta();
                 if count >= amount then
-                    return round(count ,0);
+                    return round(count, 0) -- round is defined in luautils
                 end
             end
         end

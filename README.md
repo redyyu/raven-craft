@@ -755,3 +755,43 @@ generator x=70 y=50 visible=true pin=true width=240 height=121
 farming x=1305 y=112 visible=false pin=true width=254 height=210
 literature x=136 y=21 width=400 height=980 visible=true pin=true
 ```
+
+
+## AddItem with Count in script
+
+In Vanilla, recipe with Cigarettes = 20, will cause result x20 (800),
+but Cigarettes=1 will only get 1. thats because item `Cigarettes` is count 20,
+when use AddItems /AddItem with String type name will effect by the count. I guess.
+```
+   (in DOCS https://pzwiki.net/wiki/Scripts_guide/Item_Script_Parameters/Count)
+   Count:
+   Determines how many items of this type will appear when spawning/crafting this type of item.
+```
+try DO NOT override the item script `Count`, otherwise will effect numbers when distribution.
+
+```
+function Recipe.OnCreate.OpenCigarettesPack(items, result, player)
+   if result:getFullType() == "Base.Cigarettes" then
+        for i=0, items:size() -1 do
+            local item = items:get(i)
+            if item:getType() == 'CigarettesPack' then
+                -- In Recipoe `Result: Cigarettes,`
+                -- result have only 1 Cigarettes
+
+                -- AddItem or AddItems with String name will trigger the `Count`
+                -- player:getInventory():AddItem("Base.Cigarettes")
+                -- -- addItem for Cigarettes, now will be 21,
+                -- player:getInventory():RemoveOneOf("Base.Cigarettes")
+                -- -- remove one of it, now will be 20.
+
+                local count = math.floor(item:getUsedDelta() / item:getUseDelta() + 0.5)
+                for j=1, count - 1 do -- remember recipe will create one.
+                    local cigarettes = InventoryItemFactory.CreateItem("Base.Cigarettes")
+                    -- AddItem with InventoryItem will be fine.  AddItems will not
+                    player:getInventory():AddItem(cigarettes)
+                end
+            end
+        end
+   end
+end
+```

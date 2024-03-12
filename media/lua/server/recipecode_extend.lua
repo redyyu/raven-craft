@@ -223,15 +223,11 @@ function Recipe.OnCreate.OpenCigarettesPack(items, result, player)
                 -- -- addItem for Cigarettes, now will be 21,
                 -- player:getInventory():RemoveOneOf("Base.Cigarettes")
                 -- -- remove one of it, now will be 20.
+                    
+                -- local count = math.floor(item:getUsedDelta() / item:getUseDelta() + 0.5)
+                -- round is defined in luautils.
+                local count = round(item:getUsedDelta() / item:getUseDelta())
 
-                local count = math.floor(item:getUsedDelta() / item:getUseDelta() + 0.5)
-
-                print(count)
-                print(item:getUsedDelta())
-                print(item:getUses())
-                print(item:getCurrentUses())
-                print(item:getUseDelta())
-                print('-----------count--------------------')
                 for j=1, count - 1 do -- remember recipe will create one.
                     local cigarettes = InventoryItemFactory.CreateItem("Base.Cigarettes")
                     -- AddItem with InventoryItem will be fine.  AddItems will not
