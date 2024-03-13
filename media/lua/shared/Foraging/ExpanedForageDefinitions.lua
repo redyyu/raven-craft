@@ -19,14 +19,14 @@ ForagingDefs.Corest = {
         getPackageItemType(".Corset_BodysuitBlack"),
         getPackageItemType(".Corset_BodysuitRed"),
         getPackageItemType(".Corset_BodysuitTINT"),
-        getPackageItemType(".Corset_ToplessBodysuitTINT"),
-        getPackageItemType(".Corset_ToplessTINT"),
+        getPackageItemType(".Corset_TeddiesBodysuitTINT"),
+        getPackageItemType(".Corset_TeddiesTINT"),
     }
 }
 
 ForagingExpaned.onAddForageDefs = function ()
     
-    for k, v in pairs(FORAGING_DEFS) do
+    for k, v in pairs(ForagingDefs) do
 
         for _, itemFullType in ipairs(v.items) do
             forageSystem.addItemDef({

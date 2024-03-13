@@ -34,8 +34,8 @@ ItemName_EN = {
     ItemName_RavenCraft.Corset_BodysuitBlack = "Black Corset Bodysuit",
     ItemName_RavenCraft.Corset_BodysuitRed = "Red Corset Bodysuit",
     ItemName_RavenCraft.Corset_BodysuitTINT = "Corset Bodysuit",
-    ItemName_RavenCraft.Corset_ToplessBodysuitTINT = "Topless Corset Bodysuit",
-    ItemName_RavenCraft.Corset_ToplessTINT = "Topless Corset",
+    ItemName_RavenCraft.Corset_ToplessBodysuitTINT = "Sexy Teddy Bodysuit Bodysuit",
+    ItemName_RavenCraft.Corset_ToplessTINT = "Sexy Teddy Bodysuit",
 
 
     -- Cigarettes

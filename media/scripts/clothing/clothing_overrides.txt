@@ -45,6 +45,53 @@ module Base
         WorldStaticModel = Trousers_Ground,
     }
 
+    /* Corset */
+
+    item Corset_Black {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Black Corset,
+        ClothingItem = Corset_Black,
+        BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
+        Icon = CorsetBlack,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Black_Ground,
+    }
+    item Corset_Red {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Red Corset,
+        ClothingItem = Corset_Red,
+        BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
+        Icon = CorsetRed,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Red_Ground,
+    }
+    item Corset {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Corset,
+        ClothingItem = Corset,
+        BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
+        Icon = CorsetWhite,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Ground,
+    }
+    item Corset_Medical {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Medical Corset,
+        ClothingItem = Corset_Medical,
+        BodyLocation = Underwear,  /* only switch with bikini or Swimsuit */ 
+        Icon = CorsetMedical,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Medical_Ground,
+    }
+
 
     /* Pants */
     item Trousers_DefaultTEXTURE {
