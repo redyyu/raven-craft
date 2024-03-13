@@ -44,7 +44,7 @@ module RavenCraft
     item Corset_ToplessBodysuitTINT {
         DisplayCategory = Clothing,
         Type = Clothing,
-        DisplayName = Sexy Teddy Bodysuit Bodysuit,
+        DisplayName = Spicy Corset Bodysuit,
         ClothingItem = Corset_ToplessBodysuitTINT,
         BodyLocation = Underwear,
         Icon = CorsetToplessBodysuitTINT,
@@ -55,7 +55,7 @@ module RavenCraft
     item Corset_ToplessTINT {
         DisplayCategory = Clothing,
         Type = Clothing,
-        DisplayName = Sexy Teddy Bodysuit,
+        DisplayName = Spicy Corset,
         ClothingItem = Corset_ToplessTINT,
         BodyLocation = Underwear,
         Icon = CorsetToplessTINT,
