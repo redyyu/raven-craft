@@ -30,7 +30,7 @@ module RavenCraft
         Time: 300.0,
         NeedToBeLearn: true,
         SkillRequired: Doctor=2;Farming=8;Woodwork=6,
-        Category:Ammo,
+        Category: Ammo,
     }
 
     recipe Craft Gunpowder {
@@ -45,7 +45,7 @@ module RavenCraft
         Time: 300.0,
         NeedToBeLearn: true,
         SkillRequired: Doctor=2;Farming=8;Woodwork=6,
-        Category:Ammo,
+        Category: Ammo,
     }
 
 

@@ -22,7 +22,7 @@ module RavenCraft
         Sound: ClothesRipping,
         Time: 600.0,
         NeedToBeLearn: true,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Craft Knee Pads {
@@ -43,7 +43,7 @@ module RavenCraft
         Sound: ClothesRipping,
         Time: 600.0,
         NeedToBeLearn: true,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Craft Shoulder Pads {
@@ -64,7 +64,7 @@ module RavenCraft
         Sound: ClothesRipping,
         Time: 900.0,
         NeedToBeLearn: true,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Craft Hand Pads {
@@ -84,7 +84,7 @@ module RavenCraft
         Sound: ClothesRipping,
         Time: 600.0,
         NeedToBeLearn: true,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Craft Neck Pads {
@@ -104,7 +104,7 @@ module RavenCraft
         Sound: ClothesRipping,
         Time: 600.0,
         NeedToBeLearn: true,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Assembly Aromr Pads Suit {
@@ -123,7 +123,7 @@ module RavenCraft
         Prop1: Source=1,
         Sound: PutItemInBag,
         Time: 100.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         NoBrokenItems:true,
         IsHidden: true,
@@ -143,7 +143,7 @@ module RavenCraft
         Prop1: Source=1,
         Sound: PutItemInBag,
         Time: 100.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         NoBrokenItems:true,
         IsHidden: true,

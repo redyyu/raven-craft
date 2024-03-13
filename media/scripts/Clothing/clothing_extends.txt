@@ -7,6 +7,29 @@ module RavenCraft
     
     /* Corset */
 
+    item Corset_Pink {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Pink Corset,
+        ClothingItem = Corset_Pink,
+        BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
+        Icon = CorsetPink,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Red_Ground,
+    }
+    item Corset_BodysuitPink {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Pink Corset,
+        ClothingItem = Corset_BodysuitPink,
+        BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
+        Icon = CorsetBodysuitPink,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Red_Ground,
+    }
+
     item Corset_BodysuitBlack {
         DisplayCategory = Clothing,
         Type = Clothing,

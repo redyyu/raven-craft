@@ -38,34 +38,46 @@
     </files>
 
 	
-	<!-- Corset_BodysuitBlack -->
+	<!-- Corset Bodysuit Black -->
     <files>
         <path>media/clothing/clothingItems/Corset_BodysuitBlack.xml</path>
         <guid>42efdd00-2e8c-485a-9eb5-5c97c9bc0bc5</guid>
     </files>
 
-	<!-- Corset_BodysuitRed -->
+	<!-- Corset Bodysuit Red -->
     <files>
         <path>media/clothing/clothingItems/Corset_BodysuitRed.xml</path>
         <guid>743bd177-50af-4273-abec-9599910baa7c</guid>
     </files>
 
-	<!-- Corset_BodysuitTINT -->
+	<!-- Corset Bodysuit TINT -->
     <files>
         <path>media/clothing/clothingItems/Corset_BodysuitTINT.xml</path>
         <guid>2455b3e5-5f29-4806-8b30-53d5be7f2d52</guid>
     </files>
 
-	<!-- Corset_ToplessBodysuit -->
+	<!-- Corset Topless Bodysuit -->
     <files>
         <path>media/clothing/clothingItems/Corset_ToplessBodysuitTINT.xml</path>
         <guid>c6197e8a-74e1-4807-954e-03dc35c2dc39</guid>
     </files>
 
-	<!-- Corset_Topless -->
+	<!-- Corset Topless -->
     <files>
         <path>media/clothing/clothingItems/Corset_ToplessTINT.xml</path>
         <guid>28210582-349d-4f8c-b8c8-fd2687752ee2</guid>
+    </files>
+
+	<!-- Corset Pink -->
+    <files>
+        <path>media/clothing/clothingItems/Corset_Pink.xml</path>
+        <guid>e08b2297-013b-4017-935e-6a5153a105a9</guid>
+    </files>
+
+	<!-- Corset Bodysuit Pink -->
+    <files>
+        <path>media/clothing/clothingItems/Corset_BodysuitPink.xml</path>
+        <guid>9604fceb-55c5-4e45-9167-65927149d4d6</guid>
     </files>
 
 

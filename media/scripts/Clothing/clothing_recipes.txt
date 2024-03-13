@@ -1,0 +1,94 @@
+module RavenCraft
+{
+
+    imports {
+		Base,
+	}
+
+    recipe Make Black Corset Bodysuit {
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        Corset_Black,
+        FrillyUnderpants_Black,
+        Thread,
+        
+        OnTest: Recipe.OnTest.IsNotEquipped,
+
+        Result: Corset_BodysuitBlack,
+        SkillRequired: Tailoring=8,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 250.0,
+        Category: Tailoring,
+
+    }
+
+    recipe Make Red Corset Bodysuit {
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        Corset_Red,
+        FrillyUnderpants_Red,
+        Thread,
+        
+        OnTest: Recipe.OnTest.IsNotEquipped,
+
+        Result: Corset_BodysuitRed,
+        SkillRequired: Tailoring=8,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 250.0,
+        Category: Tailoring,
+
+    }
+
+
+    recipe Make Pink Corset Bodysuit {
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        Corset_Pink,
+        FrillyUnderpants_Pink,
+        Thread,
+        
+        OnTest: Recipe.OnTest.IsNotEquipped,
+
+        Result: Corset_BodysuitPink,
+        SkillRequired: Tailoring=8,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 250.0,
+        Category: Tailoring,
+
+    }
+
+     recipe Make Corset Bodysuit {
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        Corset_White,
+        Underpants_White,
+        Thread,
+        
+        OnTest: Recipe.OnTest.IsNotEquipped,
+
+        Result: Corset_Bodysuit,
+        SkillRequired: Tailoring=8,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 250.0,
+        Category: Tailoring,
+
+        Tooltip: Tooltip_CRAFT_RESULT_WIll_RANDOM_TINT,
+    }
+
+}

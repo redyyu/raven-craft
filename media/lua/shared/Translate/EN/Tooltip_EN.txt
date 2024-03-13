@@ -49,6 +49,7 @@ Tooltip_EN = {
     Tooltip_CRAFT_REQUIRED_FIRE_OR_FURNACE = "Required nearby Campfire or Stone Furnace."
     Tooltip_CRAFT_REQUIRED_CANT_BROKEN = "Can't use items which is have hole or broken."
     Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING = "Required not equipping."
+    Tooltip_CRAFT_RESULT_WIll_RANDOM_TINT = "Result item's color will be random."
 
     Tooltip_SURVIVAL_JOURNAL_NOT_ILLITERATE = "Required not Illiterate."
 

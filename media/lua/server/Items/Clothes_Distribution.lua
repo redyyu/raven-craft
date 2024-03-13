@@ -20,11 +20,11 @@ insertDistTable(ProceduralDistributions.list["FactoryLockers"], SHOES_WEIGHT, 4)
 insertDistTable(VehicleDistributions["ClothingTruckBed"], SHOES_WEIGHT, 0.6)
 
 
-
-
 local CORSET_WEIGHT = {
+    [".Corset_Pink"] = 2,
     [".Corset_BodysuitBlack"] = 2,
     [".Corset_BodysuitRed"] = 2,
+    [".Corset_BodysuitPink"] = 2,
     [".Corset_BodysuitTINT"] = 2,
     [".Corset_ToplessBodysuitTINT"] = 1,
     [".Corset_ToplessTINT"] = 1,

@@ -63,8 +63,9 @@ module RavenCraft
     }
 
     recipe Craft Empty Sack {
-        DenimStrips=6,
-        Thread=5,
+        DenimStrips=12,
+        Thread=10,
+        Twine=5,
         keep Scissors,
         keep Needle,
 
@@ -74,7 +75,7 @@ module RavenCraft
         AnimNode: RipSheets,
         Prop1: Source=1,
         Sound: ClothesRipping,
-        Category: Carpentry,
+        Category: Tailoring,
     }
 
     /* Health */
@@ -818,7 +819,7 @@ module RavenCraft
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 200.0,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Self-made Double Holster {
@@ -836,7 +837,7 @@ module RavenCraft
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 250.0,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Self-made Nuclear Biochemical Mask {
@@ -855,7 +856,7 @@ module RavenCraft
         Prop2: Source=2,
         Sound: ClothesRipping,
         Time: 500.0,
-        Category: Survivalist,
+        Category: Tailoring,
     }
 
     recipe Quick make Charcoal {
@@ -872,7 +873,7 @@ module RavenCraft
         Prop1: Source=1,
         Prop2: Source=2,
         NeedToBeLearn: true,
-        Category: Survivalist,
+        Category: Carpentry,
     }
 
 

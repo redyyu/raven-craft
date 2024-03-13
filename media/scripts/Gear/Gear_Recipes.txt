@@ -39,7 +39,7 @@ module Base
         Prop2: Source=2,
         Sound: Painting,
         Time: 250.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
@@ -61,7 +61,7 @@ module Base
         Prop2: Source=2,
         Sound: Painting,
         Time: 250.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
@@ -83,7 +83,7 @@ module Base
         Prop2: Source=2,
         Sound: Painting,
         Time: 250.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
@@ -105,7 +105,7 @@ module Base
         Prop2: Source=2,
         Sound: Painting,
         Time: 250.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
@@ -128,7 +128,7 @@ module Base
         Prop2: Source=2,
         Sound: Painting,
         Time: 250.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
@@ -151,7 +151,7 @@ module Base
         Prop2: Source=2,
         Sound: Painting,
         Time: 250.0,
-        Category: Survivalist,
+        Category: Tailoring,
 
         Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING,
     }
