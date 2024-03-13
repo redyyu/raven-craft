@@ -356,19 +356,22 @@ module RavenCraft
         Category: Welding,
     }
 
-    recipe Cut Metal Can {
-        Pot/Kettle/Bucket/PaintbucketEmpty/BucketEmpty/WateredCan,
+    recipe Cut Metal Kitchenware {
+        Pot/Kettle/PaintbucketEmpty/BucketEmpty/Saucepan/RoastingPan/BakingTray,
         BlowTorch=1,
         keep WeldingMask,
 
-        Result: SmallSheetMetal=2,
+        Result: SmallSheetMetal,
         SkillRequired: MetalWelding=3,
-        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
+
+        OnCreate: Recipe.OnCreate.ExtraResultBuyMetalValue,
+        OnGiveXP: Recipe.OnGiveXP.MetalWelding10,
+
         Sound: BlowTorch,
         AnimNode: BlowTorch,
         Prop1: BlowTorch,
         Prop2: Source=1,
-        Time: 100.0,
+        Time: 250.0,
         Category: Welding,
     }
 

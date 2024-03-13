@@ -268,6 +268,22 @@ function Recipe.OnCreate.CannedFood(items, result, player)
 end
 
 
+function Recipe.OnCreate.ExtraResultBuyMetalValue(items, result, player)
+    local item_count = 0
+    local result_metal_value = result:getMetalValue() or 0
+    for i=0, items:size() - 1 do
+        local item = items:get(i)
+        if item:getMetalValue() > 0 then
+           item_count = result_metal_value / item:getMetalValue()
+        end
+    end
+    item_count = item_count - 1  -- result have one.
+    if item_count > 0 then
+        player:getInventory():AddItems(result:getFullType(), item_count)
+    end
+end
+
+
 -- function Recipe.OnTest.PaintBucketWater(item)
 --     if item:getType() ==  "WaterPaintbucket" then
 --         return item:getUsedDelta() >= 0.8;
