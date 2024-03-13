@@ -20,4 +20,8 @@ Recipes_EN = {
 	Recipe_Open_a_Pack_of_Cigarettes = "Open a Pack of Cigarettes",
 	Recipe_Pack_Cigarettes = "Pack Cigarettes",
 	Recipe_Draw_One_Cigarettes_from_Pack = "Draw One Cigarettes from Pack",
+
+	Recipe_Make_Black_Corset_Bodysuit = "Make Black Corset Bodysuit"
+	Recipe_Make_Red_Corset_Bodysuit = "Make Red Corset Bodysuit"
+	Recipe_Make_Pink_Corset_Bodysuit = "Make Pink Corset Bodysuit"
 }
