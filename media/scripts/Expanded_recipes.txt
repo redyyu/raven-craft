@@ -361,8 +361,9 @@ module RavenCraft
         BlowTorch=1,
         keep WeldingMask,
 
-        Result: SmallSheetMetal,
+        Result: SmallSheetMetal=2,
         SkillRequired: MetalWelding=3,
+        OnGiveXP:Recipe.OnGiveXP.MetalWelding10,
         Sound: BlowTorch,
         AnimNode: BlowTorch,
         Prop1: BlowTorch,
