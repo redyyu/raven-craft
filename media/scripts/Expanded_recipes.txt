@@ -867,7 +867,7 @@ module RavenCraft
 
         Result: Charcoal,
         Time: 500.0,
-        SkillRequired: Woodwork=6;MetalWelding=4,
+        SkillRequired: Woodwork=8;Farming=8;MetalWelding=4,
         Sound: BlowTorch,
         AnimNode: BlowTorch,
         Prop1: Source=1,
