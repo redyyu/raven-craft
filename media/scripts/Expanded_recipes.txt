@@ -356,6 +356,21 @@ module RavenCraft
         Category: Welding,
     }
 
+    recipe Cut Metal Can {
+        Pot/Kettle/Bucket/PaintbucketEmpty/BucketEmpty/WateredCan,
+        BlowTorch=1,
+        keep WeldingMask,
+
+        Result: SmallSheetMetal,
+        SkillRequired: MetalWelding=3,
+        Sound: BlowTorch,
+        AnimNode: BlowTorch,
+        Prop1: BlowTorch,
+        Prop2: Source=1,
+        Time: 100.0,
+        Category: Welding,
+    }
+
     recipe Cut Barbed Wire {
         keep [Recipe.GetItemTypes.SharpKnife],
         Wire,
