@@ -14,7 +14,7 @@ local function processDistributionsTable(tableList)
                 end
             end
             if have_cig then -- add back cigarettes with lower weight.
-                insertDistTable(v, 'Cigarettes', 5)
+                insertDistTable(v, 'Cigarettes', 2)
             end
         end
     end
