@@ -5,26 +5,20 @@ UnderwearDefinition = UnderwearDefinition or {};
 -- UnderwearDefinition.baseChance = 70;
 
 -- outfit name
-UnderwearDefinition.Female_Corset_Bodysuit = {
-	chanceToSpawn = 1, -- weighted chance, can exced 100
-	gender = "female",
-	top = {
-		{name="Corset_BodysuitBlack", chance=34},
-		{name="Corset_BodysuitRed", chance=33},
-		{name="Corset_BodysuitTINT", chance=33},
-	},
-	-- bottom = "FrillyUnderpants_Black",
-}
-
 UnderwearDefinition.Female_Corset = {
 	chanceToSpawn = 1, -- weighted chance, can exced 100
 	gender = "female",
 	top = {
-		{name="Corset", chance=50},
-		{name="Corset_ToplessBodysuitTINT", chance=25},
-		{name="Corset_ToplessTINT", chance=25},
+		{name="Corset", chance=15},
+		{name="Corset_Black", chance=15},
+		{name="Corset_Red", chance=15},
+		{name="RavenCraft.Corset_ToplessBodysuitTINT", chance=5},
+		{name="RavenCraft.Corset_ToplessTINT", chance=5},
+		{name="RavenCraft.Corset_BodysuitBlack", chance=15},
+		{name="RavenCraft.Corset_BodysuitRed", chance=15},
+		{name="RavenCraft.Corset_BodysuitTINT", chance=15},
 	},
-	-- bottom = "Underpants_White",
+	bottom = "Underpants_White",
 }
 
 -- UnderwearDefinition.Female_FrillyRed = {

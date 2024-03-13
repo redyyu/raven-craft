@@ -3,36 +3,27 @@ require "Items/ProceduralDistributions"
 require "Vehicles/VehicleDistributions"
 
 
-for k, v in pairs(ProceduralDistributions.list) do
-    if v.items and type(v.items) == 'table' then
-        for i=1, #v.items do
-            if v.items[i] == 'Cigarettes' and ZombRand(5) == 0 then
-                v.items[i] = 'CigarettesPack'
+local function processDistributionsTable(tableList)
+    for k, v in pairs(tableList) do
+        if v.items and type(v.items) == 'table' then
+            local have_cig = false
+            for i=1, #v.items do
+                if v.items[i] == 'Cigarettes' then
+                    v.items[i] = 'CigarettesPack'
+                    have_cig = true
+                end
+            end
+            if have_cig then -- add back cigarettes with lower weight.
+                insertDistTable(v, 'Cigarettes', 1)
             end
         end
     end
 end
 
-for k, v in pairs(VehicleDistributions) do
-    
-    if v.items and type(v.items) == 'table' then
-        for i=1, #v.items do
-            if v.items[i] == 'Cigarettes' and ZombRand(5) == 0 then
-                v.items[i] = 'CigarettesPack'
-            end
-        end
-    end
-end
 
-for k, v in pairs(SuburbsDistributions.all) do
-    if v.items and type(v.items) == 'table' then
-        for i=1, #v.items do
-            if v.items[i] == 'Cigarettes' and ZombRand(5) == 0 then
-                v.items[i] = 'CigarettesPack'
-            end
-        end
-    end
-end
+processDistributionsTable(ProceduralDistributions.list)
+processDistributionsTable(VehicleDistributions)
+processDistributionsTable(SuburbsDistributions.all)
 
 -- Cigarettes
 
