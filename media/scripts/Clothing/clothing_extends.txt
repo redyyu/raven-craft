@@ -14,7 +14,7 @@ module RavenCraft
         ClothingItem = Corset_Pink,
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetPink,
-        Weight = 0.2,
+        Weight = 0.3,
         CanHaveHoles = false,
         WorldStaticModel = Corset_Red_Ground,
     }
@@ -25,7 +25,7 @@ module RavenCraft
         ClothingItem = Corset_BodysuitPink,
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetBodysuitPink,
-        Weight = 0.2,
+        Weight = 0.3,
         CanHaveHoles = false,
         WorldStaticModel = Corset_Red_Ground,
     }
@@ -37,7 +37,7 @@ module RavenCraft
         ClothingItem = Corset_BodysuitBlack,
         BodyLocation = Underwear,
         Icon = CorsetBodysuitBlack,
-        Weight = 0.2,
+        Weight = 0.3,
         CanHaveHoles = false,
         WorldStaticModel = Corset_Black_Ground,
     }
@@ -48,7 +48,7 @@ module RavenCraft
         ClothingItem = Corset_BodysuitRed,
         BodyLocation = Underwear,
         Icon = CorsetBodysuitRed,
-        Weight = 0.2,
+        Weight = 0.3,
         CanHaveHoles = false,
         WorldStaticModel = Corset_Red_Ground,
     }
@@ -59,7 +59,7 @@ module RavenCraft
         ClothingItem = Corset_BodysuitTINT,
         BodyLocation = Underwear,
         Icon = CorsetBodysuitTINT,
-        Weight = 0.2,
+        Weight = 0.3,
         CanHaveHoles = false,
         WorldStaticModel = Corset_Ground,
     }
