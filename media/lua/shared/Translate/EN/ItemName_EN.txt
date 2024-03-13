@@ -31,8 +31,16 @@ ItemName_EN = {
     ItemName_Base.Bag_SurvivorBag = "Survivor Bag",
     ItemName_Base.Bag_Military = "Military Duffel Bag",
 
+    ItemName_RavenCraft.Corset_BodysuitBlack = "Black Corset Bodysuit",
+    ItemName_RavenCraft.Corset_BodysuitRed = "Red Corset Bodysuit",
+    ItemName_RavenCraft.Corset_BodysuitTINT = "Corset Bodysuit",
+    ItemName_RavenCraft.Corset_ToplessBodysuitTINT = "Topless Corset Bodysuit",
+    ItemName_RavenCraft.Corset_ToplessTINT = "Topless Corset",
+
+
     -- Cigarettes
     ItemName_RavenCraft.CigarettesPack = "Cigarettes Pack"
+
     -- Drink packs
 	ItemName_RavenCraft.BeerPack = "6 Pack of Beer",
 	ItemName_RavenCraft.Pop2Pack = "6 Pack of Pop",

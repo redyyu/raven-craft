@@ -38,6 +38,37 @@
     </files>
 
 	
+	<!-- Corset_BodysuitBlack -->
+    <files>
+        <path>media/clothing/clothingItems/Corset_BodysuitBlack.xml</path>
+        <guid>42efdd00-2e8c-485a-9eb5-5c97c9bc0bc5</guid>
+    </files>
+
+	<!-- Corset_BodysuitRed -->
+    <files>
+        <path>media/clothing/clothingItems/Corset_BodysuitRed.xml</path>
+        <guid>743bd177-50af-4273-abec-9599910baa7c</guid>
+    </files>
+
+	<!-- Corset_BodysuitTINT -->
+    <files>
+        <path>media/clothing/clothingItems/Corset_BodysuitTINT.xml</path>
+        <guid>2455b3e5-5f29-4806-8b30-53d5be7f2d52</guid>
+    </files>
+
+	<!-- Corset_ToplessBodysuit -->
+    <files>
+        <path>media/clothing/clothingItems/Corset_ToplessBodysuitTINT.xml</path>
+        <guid>c6197e8a-74e1-4807-954e-03dc35c2dc39</guid>
+    </files>
+
+	<!-- Corset_Topless -->
+    <files>
+        <path>media/clothing/clothingItems/Corset_ToplessTINT.xml</path>
+        <guid>28210582-349d-4f8c-b8c8-fd2687752ee2</guid>
+    </files>
+
+
     <!-- Boots (TINT)-->
     <files>
         <path>media/clothing/clothingItems/Shoes_BootsTINT.xml</path>

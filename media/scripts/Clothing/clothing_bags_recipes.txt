@@ -1,5 +1,9 @@
-module Base
+module RavenCraft
 {
+
+    imports {
+		Base,
+	}
 
     recipe Paint Military Backpack Black {
         keep Paintbrush,

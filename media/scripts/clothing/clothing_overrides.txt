@@ -45,6 +45,7 @@ module Base
         WorldStaticModel = Trousers_Ground,
     }
 
+
     /* Pants */
     item Trousers_DefaultTEXTURE {
         DisplayCategory = Clothing,

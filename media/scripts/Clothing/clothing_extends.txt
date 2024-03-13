@@ -1,0 +1,66 @@
+module RavenCraft
+{
+
+    imports {
+	    Base,
+	}
+    
+    /* Corset */
+
+    item Corset_BodysuitBlack {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Black Corset Bodysuit,
+        ClothingItem = Corset_BodysuitBlack,
+        BodyLocation = UnderwearTop,
+        Icon = CorsetBodysuitBlack,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Black_Ground,
+    }
+    item Corset_BodysuitRed {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Red Corset Bodysuit,
+        ClothingItem = Corset_BodysuitRed,
+        BodyLocation = UnderwearTop,
+        Icon = CorsetBodysuitRed,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Red_Ground,
+    }
+    item Corset_BodysuitTINT {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Corset Bodysuit,
+        ClothingItem = Corset_BodysuitTINT,
+        BodyLocation = UnderwearTop,
+        Icon = CorsetBodysuitTINT,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Ground,
+    }
+    item Corset_ToplessBodysuitTINT {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Topless Corset Bodysuit,
+        ClothingItem = Corset_ToplessBodysuitTINT,
+        BodyLocation = UnderwearTop,
+        Icon = CorsetToplessBodysuitTINT,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Ground,
+    }
+    item Corset_ToplessTINT {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Topless Corset,
+        ClothingItem = Corset_ToplessTINT,
+        BodyLocation = UnderwearTop,
+        Icon = CorsetToplessTINT,
+        Weight = 0.2,
+        CanHaveHoles = false,
+        WorldStaticModel = Corset_Ground,
+    }
+
+}
