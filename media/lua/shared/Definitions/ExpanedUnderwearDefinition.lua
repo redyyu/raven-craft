@@ -6,30 +6,30 @@ UnderwearDefinition = UnderwearDefinition or {};
 
 -- outfit name
 UnderwearDefinition.Female_Corset = {
-	chanceToSpawn = 2, -- weighted chance, can exced 100
-	gender = "female",
-	top = {
-		{name="Corset", chance=15},
-		{name="Corset_Black", chance=15},
-		{name="Corset_Red", chance=15},
-		{name="RavenCraft.Corset_ToplessBodysuitTINT", chance=5},
-		{name="RavenCraft.Corset_ToplessTINT", chance=5},
-		{name="RavenCraft.Corset_Pink", chance=10},
-		{name="RavenCraft.Corset_BodysuitPink", chance=10},
-		{name="RavenCraft.Corset_BodysuitBlack", chance=10},
-		{name="RavenCraft.Corset_BodysuitRed", chance=10},
-		{name="RavenCraft.Corset_BodysuitTINT", chance=10},
-	},
-	bottom = "Underpants_White",
+    chanceToSpawn = 2, -- weighted chance, can exced 100
+    gender = "female",
+    top = {
+        {name="Corset", chance=15},
+        {name="Corset_Black", chance=15},
+        {name="Corset_Red", chance=15},
+        {name=getPackageItemType(".Corset_Pink"), chance=15},
+        {name=getPackageItemType(".Corset_BodysuitPink"), chance=10},
+        {name=getPackageItemType(".Corset_BodysuitBlack"), chance=10},
+        {name=getPackageItemType(".Corset_BodysuitRed"), chance=10},
+        {name=getPackageItemType(".Corset_BodysuitTINT"), chance=10},
+        {name=getPackageItemType(".Corset_ToplessTINT"), chance=5},
+        {name=getPackageItemType(".Corset_ToplessBodysuitTINT"), chance=5},
+    },
+    bottom = 'Underpants_White',
 }
 
 -- UnderwearDefinition.Female_FrillyRed = {
--- 	chanceToSpawn = 5,
--- 	gender = "female",
--- 	top = {
--- 		{name="Bra_Straps_FrillyRed", chance=50},
--- 		{name="Bra_Strapless_FrillyRed", chance=50},
--- 		{name="Corset_Red", chance=5},
--- 	},
--- 	bottom = "FrillyUnderpants_Red",
+--     chanceToSpawn = 5,
+--     gender = "female",
+--     top = {
+--         {name="Bra_Straps_FrillyRed", chance=50},
+--         {name="Bra_Strapless_FrillyRed", chance=50},
+--         {name="Corset_Red", chance=5},
+--     },
+--     bottom = "FrillyUnderpants_Red",
 -- }

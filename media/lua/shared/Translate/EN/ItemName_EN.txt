@@ -33,6 +33,8 @@ ItemName_EN = {
 
     ItemName_RavenCraft.Corset_BodysuitBlack = "Black Corset Bodysuit",
     ItemName_RavenCraft.Corset_BodysuitRed = "Red Corset Bodysuit",
+    ItemName_RavenCraft.Corset_PinkBodysuit = "Pink Corset Bodysuit",
+    ItemName_RavenCraft.Corset_Pink = "Pink Corset",
     ItemName_RavenCraft.Corset_BodysuitTINT = "Corset Bodysuit",
     ItemName_RavenCraft.Corset_ToplessBodysuitTINT = "Spicy Corset Bodysuit",
     ItemName_RavenCraft.Corset_ToplessTINT = "Spicy Corset",

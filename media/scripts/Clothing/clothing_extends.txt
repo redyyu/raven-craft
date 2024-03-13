@@ -21,7 +21,7 @@ module RavenCraft
     item Corset_BodysuitPink {
         DisplayCategory = Clothing,
         Type = Clothing,
-        DisplayName = Pink Corset,
+        DisplayName = Pink Corset Bodysuit,
         ClothingItem = Corset_BodysuitPink,
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetBodysuitPink,

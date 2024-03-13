@@ -5,7 +5,7 @@
 	<m_GUID>e08b2297-013b-4017-935e-6a5153a105a9</m_GUID>
 	<m_Static>false</m_Static>
 	<m_AllowRandomHue>false</m_AllowRandomHue>
-	<m_AllowRandomTint>true</m_AllowRandomTint>
+	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_AttachBone></m_AttachBone>
 	<m_BaseTextures>clothes\underwear\Corset_Pink</m_BaseTextures>
 </clothingItem>

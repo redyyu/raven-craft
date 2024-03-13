@@ -69,26 +69,4 @@ module RavenCraft
 
     }
 
-     recipe Make Corset Bodysuit {
-        keep Needle/SutureNeedle,
-        keep Scissors,
-        Corset_White,
-        Underpants_White,
-        Thread,
-        
-        OnTest: Recipe.OnTest.IsNotEquipped,
-
-        Result: Corset_Bodysuit,
-        SkillRequired: Tailoring=8,
-
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: ClothesRipping,
-        Time: 250.0,
-        Category: Tailoring,
-
-        Tooltip: Tooltip_CRAFT_RESULT_WIll_RANDOM_TINT,
-    }
-
 }

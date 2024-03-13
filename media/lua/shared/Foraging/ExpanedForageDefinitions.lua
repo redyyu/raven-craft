@@ -16,11 +16,18 @@ ForagingDefs.Corest = {
     },
     spawnFuncs = {doClothingItemSpawn},
     items = {
+        "Corset",
+        "Corset_Black",
+        "Corset_Red",
+        getPackageItemType(".Corset_Pink"),
+        
         getPackageItemType(".Corset_BodysuitBlack"),
         getPackageItemType(".Corset_BodysuitRed"),
         getPackageItemType(".Corset_BodysuitTINT"),
-        getPackageItemType(".Corset_TeddiesBodysuitTINT"),
-        getPackageItemType(".Corset_TeddiesTINT"),
+        getPackageItemType(".Corset_BodysuitPink"),
+
+        getPackageItemType(".Corset_ToplessTINT"),
+        getPackageItemType(".Corset_ToplessBodysuitTINT"),
     }
 }
 
