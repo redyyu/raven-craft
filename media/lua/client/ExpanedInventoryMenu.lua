@@ -26,11 +26,21 @@ end
 
 
 local function onTransferToContainer(playerObj, container, items)
+    local capacity_remained = container:getCapacity() - container:getContentsWeight()
+    local is_too_havey = true
+
     for _, item in ipairs(items) do
         if not container:getInventory():contains(item) then
-            ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), container:getInventory()))
+            if item:getWeight() <= capacity_remained then
+                capacity_remained = capacity_remained - item:getWeight()
+                ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), container:getInventory()))
+                is_too_havey = false
+            end
         end
 	end
+    if is_too_havey then
+        playerObj:Say(getText("IGUI_PlayerText_Too_Havey"))
+    end
 end
 
 
@@ -48,6 +58,15 @@ local function getEquippedContainers(playerObj)
     return equipped_containers
 end
 
+
+local function getCurrentInventory(items)
+    for _, itm in ipairs(items) do
+        if itm:getContainer() then
+            return itm:getContainer()
+        end
+    end
+    return nil
+end
 
 
 local function doExtraInventoryMenu(player, context, items)
@@ -71,13 +90,24 @@ local function doExtraInventoryMenu(player, context, items)
     end
 
     if #transfer_containers > 0 then
-        local transferOption = context:addOption(getText("ContextMenu_Transfer_to"))
+        local transferOption = context:addOption(getText("ContextMenu_Move_to"))
         local transferMenu = ISContextMenu:getNew(context)
         context:addSubMenu(transferOption, transferMenu)
 
         for _, trans_to in ipairs(transfer_containers) do
             transferMenu:addOption(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
         end
+    end
+
+
+    -- Transfer items to ground
+    local curr_inventory = getCurrentInventory(items)
+    if curr_inventory and playerObj:getJoypadBind() == -1 and
+       curr_inventory:getType() ~= "floor" and
+       not curr_inventory:isInCharacterInventory(playerObj) and
+       not ISInventoryPaneContextMenu.isAllFav(items) and
+       not ISInventoryPaneContextMenu.isAllNoDropMoveable(items) then
+        context:addOption(getText("ContextMenu_Grab_to_Ground"), items, ISInventoryPaneContextMenu.onDropItems, player);
     end
 
  end
