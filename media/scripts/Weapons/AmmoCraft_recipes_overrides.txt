@@ -1,13 +1,28 @@
 module Base
 {
 
+/* Override Gatherpowder */
+
+    /* Gatherpowder is calculated with Gunpowder usage */
+
+    recipe Gather Gunpowder {
+        Bullets38/Bullets45/Bullets9mm/223Bullets/308Bullets/Bullets44/556Bullets/ShotgunShells,
+
+        OnCreate: Recipe.OnCreate.GatherGunpowder,
+
+        Result: GunPowder,
+        Time: 30.0,
+        Override:true,
+    }
+
+
 
 /** Override Open Ammo Box **/
 
     recipe Open Box of 9mm Bullets {
         Bullets9mmBox,
 
-        Result:Bullets9mm=9,
+        Result: Bullets9mm=9,  /* 45 bullets */
         Sound:BoxOfRoundsOpenOne,
         Time:15.0,
         Override:true
@@ -16,7 +31,7 @@ module Base
     recipe Open Box of .45 Auto Bullets {
         Bullets45Box,
 
-        Result:Bullets45=9,
+        Result: Bullets45=9, /* 45 bullets */
         Sound:BoxOfRoundsOpenOne,
         Time:15.0,
         Override:true
@@ -25,7 +40,7 @@ module Base
     recipe Open Box of .38 Special Bullets {
         Bullets38Box,
 
-        Result:Bullets38=9,
+        Result: Bullets38=9, /* 45 bullets */
         Sound:BoxOfRoundsOpenOne,
         Time:15.0,
         Override:true
@@ -34,7 +49,7 @@ module Base
     recipe Open Box of .44 Magnum Bullets {
         Bullets44Box,
 
-        Result:Bullets44=6,
+        Result: Bullets44=6, /* 18 bullets */
         Sound:BoxOfRoundsOpenOne,
         Time:15.0,
         Override:true
@@ -43,7 +58,7 @@ module Base
     recipe Open Box of .223 Ammo {
         223Box,
 
-        Result:223Bullets=12,
+        Result:223Bullets=12, /* 60 bullets */
         Sound:BoxOfRoundsOpenOne,
         Time:15.0,
         Override:true
@@ -52,7 +67,7 @@ module Base
     recipe Open Box of .308 Ammo {
         308Box,
 
-        Result:308Bullets=12,
+        Result:308Bullets=12, /* 60 bullets */
         Sound:BoxOfRoundsOpenOne,
         Time:15.0,
         Override:true
@@ -61,7 +76,7 @@ module Base
     recipe Open Box of Shotgun Shells {
         ShotgunShellsBox,
 
-        Result:ShotgunShells=6,
+        Result:ShotgunShells=6, /* 36 bullets */
         Sound:BoxOfShellsOpenOne,
         Time:15.0,
         Override:true
@@ -70,7 +85,7 @@ module Base
     recipe Open Box of .556 Ammo {
         556Box,
 
-        Result:556Bullets=18,
+        Result:556Bullets=18, /* 90 bullets */
         Sound:BoxOfRoundsOpenOne,
         Time:15.0,
         Override:true
@@ -147,4 +162,5 @@ module Base
         Time:15.0,
         Override:true
     }
+
 }

@@ -67,9 +67,9 @@ module RavenCraft
         keep ShotgunShellsMold,
         keep Tongs,
         IronIngot=25,
-        GunPowder=3,
+        GunPowder=6,
 
-        Result: ShotgunShells=2,  /* 10 bullets */
+        Result: ShotgunShells=2,  /* 12 bullets */
 
         OnCanPerform: Recipe.OnCanPerform.NearFurnaceFire,
         OnGiveXP: Recipe.OnGiveXP.Reloading5,
@@ -176,7 +176,7 @@ module RavenCraft
 	recipe Craft .44 Magnum Bullets {
         keep 44MagnumBulletsMold,
         keep Tongs,
-        GunPowder=2,
+        GunPowder=3,
         IronIngot=20,
 
         Result: Bullets44=2,  /* 6 bullets */

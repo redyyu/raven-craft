@@ -453,9 +453,9 @@ end
 
 function Recipe.OnCreate.RestoreBagItemsWithTexture(items, resultItem, player)
     
-    local texture;
+    local texture
 
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
 
     for i = 0, (items:size()-1) do 
         local item = items:get(i)
@@ -471,23 +471,71 @@ end
 
 
 function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
 
-    resultItem:getVisual():setTextureChoice(1);
+    resultItem:getVisual():setTextureChoice(1)
 end
 
 function Recipe.OnCreate.printArmyPackToArmy(items, resultItem, player)
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player);
+    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
 
-    resultItem:getVisual():setTextureChoice(0);
+    resultItem:getVisual():setTextureChoice(0)
 end
 
 
 function Recipe.OnTest.IsEmptyBag(item)
     if instanceof(item, "InventoryContainer") then
-        return item:getInventory():getItems():size() < 1;
+        return item:getInventory():getItems():size() < 1
     end
     return true
+end
+
+
+-- DO NOT change the value, unless know what doing.
+-- Gatherpowder for each bullet is calculated with Gunpowder usage when craft.
+local AMMO_TYPE = {
+    ["Bullets9mm"] = 0.02,
+    ["Bullets38"] = 0.02,
+    ["ShotgunShells"] = 0.05,
+    ["308Bullets"] = 0.02,
+    ["223Bullets"] = 0.02,
+    ["556Bullets"] = 0.03,
+    ["Bullets44"] = 0.05,
+    ["Bullets45"] = 0.02,
+}
+
+local function getNoFullGunpowder(player)
+    local gunpowders = player:getInventory():getItemsFromFullType('Base.GunPowder')
+    for i=0, gunpowders:size() -1 do
+        local gp = gunpowders:get(i)
+        if gp:getUsedDelta() < 1.0 then
+            return gp
+        end
+    end
+    return nil
+end
+
+function Recipe.OnCreate.GatherGunpowder(items, resultItem, player)
+    local powderDelta = 0.0
+    for i = 0, (items:size()-1) do 
+        local item = items:get(i)
+        if AMMO_TYPE[item:getType()] then 
+            powderDelta = powderDelta + AMMO_TYPE[item:getType()]
+            break
+        end
+    end
+    local gunpowder = getNoFullGunpowder(player)
+    if gunpowder then
+        local cal_delta = powderDelta + gunpowder:getUsedDelta()
+        if cal_delta > 1.0 then
+            powderDelta = cal_delta - 1.0
+            gunpowder:setUsedDelta(1.0)
+        else
+            powderDelta = cal_delta
+            player:getInventory():Remove(gunpowder)
+        end
+    end
+    resultItem:setUsedDelta(powderDelta)
 end
 
 
