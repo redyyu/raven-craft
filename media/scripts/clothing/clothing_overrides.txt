@@ -55,7 +55,12 @@ module Base
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetBlack,
         Weight = 0.2,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Black_Ground,
     }
     item Corset_Red {
@@ -66,7 +71,12 @@ module Base
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetRed,
         Weight = 0.2,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Red_Ground,
     }
     item Corset {
@@ -77,7 +87,12 @@ module Base
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetWhite,
         Weight = 0.2,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Ground,
     }
     item Corset_Medical {
@@ -88,7 +103,12 @@ module Base
         BodyLocation = Underwear,  /* only switch with bikini or Swimsuit */ 
         Icon = CorsetMedical,
         Weight = 0.2,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Medical_Ground,
     }
 

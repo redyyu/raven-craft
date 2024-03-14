@@ -15,7 +15,12 @@ module RavenCraft
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetPink,
         Weight = 0.3,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Red_Ground,
     }
     item Corset_BodysuitPink {
@@ -26,7 +31,12 @@ module RavenCraft
         BodyLocation = Underwear, /* only switch with bikini or Swimsuit */ 
         Icon = CorsetBodysuitPink,
         Weight = 0.3,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody;Groin,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Red_Ground,
     }
 
@@ -38,7 +48,12 @@ module RavenCraft
         BodyLocation = Underwear,
         Icon = CorsetBodysuitBlack,
         Weight = 0.3,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody;Groin,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Black_Ground,
     }
     item Corset_BodysuitRed {
@@ -49,7 +64,12 @@ module RavenCraft
         BodyLocation = Underwear,
         Icon = CorsetBodysuitRed,
         Weight = 0.3,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody;Groin,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Red_Ground,
     }
     item Corset_BodysuitTINT {
@@ -60,7 +80,12 @@ module RavenCraft
         BodyLocation = Underwear,
         Icon = CorsetBodysuitTINT,
         Weight = 0.3,
-        CanHaveHoles = false,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody;Groin,
+        Insulation = 0.1,
+        WindResistance = 0.05,
+        BiteDefense = 5,
+        ScratchDefense = 5,
         WorldStaticModel = Corset_Ground,
     }
 
@@ -71,8 +96,13 @@ module RavenCraft
         ClothingItem = Corset_ToplessBodysuitTINT,
         BodyLocation = Underwear,
         Icon = CorsetToplessBodysuitTINT,
-        Weight = 0.2,
-        CanHaveHoles = false,
+        Weight = 0.15,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody;Groin,
+        Insulation = 0.05,
+        WindResistance = 0,
+        BiteDefense = 2,
+        ScratchDefense = 2,
         WorldStaticModel = Corset_Ground,
     }
     item Corset_ToplessTINT {
@@ -82,8 +112,13 @@ module RavenCraft
         ClothingItem = Corset_ToplessTINT,
         BodyLocation = Underwear,
         Icon = CorsetToplessTINT,
-        Weight = 0.2,
-        CanHaveHoles = false,
+        Weight = 0.15,
+        /* CanHaveHoles = false, */
+        BloodLocation = LowerBody,
+        Insulation = 0.05,
+        WindResistance = 0,
+        BiteDefense = 2,
+        ScratchDefense = 2,
         WorldStaticModel = Corset_Ground,
     }
 
