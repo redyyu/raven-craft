@@ -4,20 +4,8 @@ module RavenCraft
 	    Base,
     }
 
-    /***** Gunpowder *****/
-
-    /* Override Vanilla recipe */
-
-    /* Gatherpowder is calculated with Gunpowder usage */
-    recipe Gather Gunpowder {
-        Bullets38/Bullets45/Bullets9mm/223Bullets/308Bullets/Bullets44/556Bullets/ShotgunShells=50,
-
-        Result:GunPowder,
-        Time:100.0,
-        Override:true,
-    }
-
     /* Craft Gunpowder */
+
     recipe Craft Gunpowder {
         keep MortarPestle,
         Fertilizer=2,
