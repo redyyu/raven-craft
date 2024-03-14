@@ -26,15 +26,14 @@ end
 
 
 local function onTransferToContainer(playerObj, container, items)
-    local capacity_remained = container:getCapacity() - container:getContentsWeight()
     local is_too_havey = true
+    local inventory = container:getInventory()
 
     for _, item in ipairs(items) do
-        if not container:getInventory():contains(item) then
-            if item:getWeight() <= capacity_remained then
-                capacity_remained = capacity_remained - item:getWeight()
-                ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), container:getInventory()))
-                is_too_havey = false
+        if not inventory:contains(item) then
+            if inventory:hasRoomFor(playerObj, item) then
+                ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), inventory))
+                is_too_havey = false  -- will say nothing if one of the item is good for go.
             end
         end
 	end
@@ -51,7 +50,7 @@ local function getEquippedContainers(playerObj)
     for i=0, containers:size() - 1  do
         local container = containers:get(i)
         -- bag:canBeEquipped() == 'Back', getBodyLocation() == 'Back' is for wear.
-        if container:isEquipped() then -- 
+        if container:getInventory():isInCharacterInventory(playerObj) and container:isEquipped() then
             table.insert(equipped_containers, container)
         end
     end
@@ -74,37 +73,39 @@ local function doExtraInventoryMenu(player, context, items)
     local playerInv = playerObj:getInventory()
 
     local items = ISInventoryPane.getActualItems(items)
+    local currInventory = getCurrentInventory(items)
+
+    if not currInventory then return end
 
     -- Transfer items between equipped containers
+    if currInventory:isInCharacterInventory(playerObj) then
+        local containers = playerInv:getItemsFromCategory("Container")
+        local equipped_containers = getEquippedContainers(playerObj)
+        local transfer_containers = {}
+        if #equipped_containers > 0 then
+            for _, container in ipairs(equipped_containers) do
+                if not isSelectedItem(container, items) and 
+                not isAnyItemInInventory(items, container:getInventory()) then
+                    table.insert(transfer_containers, container)
+                end
+            end
+        end
 
-    local containers = playerInv:getItemsFromCategory("Container")
-    local equipped_containers = getEquippedContainers(playerObj)
-    local transfer_containers = {}
+        if #transfer_containers > 0 then
+            local transferOption = context:addOption(getText("ContextMenu_Pack_to"))
+            local transferMenu = ISContextMenu:getNew(context)
+            context:addSubMenu(transferOption, transferMenu)
 
-    if #equipped_containers > 0 then
-        for _, container in ipairs(equipped_containers) do
-            if not isSelectedItem(container, items) and not isAnyItemInInventory(items, container:getInventory()) then
-                table.insert(transfer_containers, container)
+            for _, trans_to in ipairs(transfer_containers) do
+                transferMenu:addOption(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
             end
         end
     end
 
-    if #transfer_containers > 0 then
-        local transferOption = context:addOption(getText("ContextMenu_Move_to"))
-        local transferMenu = ISContextMenu:getNew(context)
-        context:addSubMenu(transferOption, transferMenu)
-
-        for _, trans_to in ipairs(transfer_containers) do
-            transferMenu:addOption(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
-        end
-    end
-
-
     -- Transfer items to ground
-    local curr_inventory = getCurrentInventory(items)
-    if curr_inventory and playerObj:getJoypadBind() == -1 and
-       curr_inventory:getType() ~= "floor" and
-       not curr_inventory:isInCharacterInventory(playerObj) and
+    
+    if currInventory:getType() ~= "floor" and playerObj:getJoypadBind() == -1 and
+       not currInventory:isInCharacterInventory(playerObj) and
        not ISInventoryPaneContextMenu.isAllFav(items) and
        not ISInventoryPaneContextMenu.isAllNoDropMoveable(items) then
         context:addOption(getText("ContextMenu_Grab_to_Ground"), items, ISInventoryPaneContextMenu.onDropItems, player);

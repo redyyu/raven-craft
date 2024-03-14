@@ -53,7 +53,7 @@ ContextMenu_EN = {
   ContextMenu_Refill_CigarettesPack = "Refill Cigarettes Pack"
   ContextMenu_Draw_One_for_Smoke = "Take One for Smoking"
 
-  ContextMenu_Move_to = "Move to"
+  ContextMenu_Pack_to = "Pack to"
   ContextMenu_Grab_to_Ground = "Grab to Ground"
 
 }
