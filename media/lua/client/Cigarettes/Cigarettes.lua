@@ -18,7 +18,7 @@ local function doCigarettesPackMenu(player, context, items)
 	end
 
     if cigarettes_pack then
-        context:addOptionOnTop(getText("ContextMenu_Draw_One_for_Smoke"), playerObj, onSmokeCigarettesPack, cigarettes_pack)
+        context:addOptionOnTop(getText("ContextMenu_Smoke_CigarettesPack"), playerObj, onSmokeCigarettesPack, cigarettes_pack)
     end
 end
 
