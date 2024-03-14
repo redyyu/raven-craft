@@ -51,6 +51,8 @@ ContextMenu_EN = {
   ContextMenu_READ_JOURNAL = "Read Survival Journal"
 
   ContextMenu_Refill_CigarettesPack = "Refill Cigarettes Pack"
-  ContextMenu_Draw_One_for_Smoke = "Draw One for Smoke"
+  ContextMenu_Draw_One_for_Smoke = "Take One for Smoking"
+
+  ContextMenu_Transfer_to = "Transfer to"
 
 }
