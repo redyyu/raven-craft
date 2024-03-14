@@ -69,4 +69,50 @@ module RavenCraft
 
     }
 
+
+    recipe Make Corset Bodysuit {
+        Corset,
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        Underpants_White/Underpants_Black,
+        Thread,
+        
+        OnCreate: Recipe.OnCreate.CopyTintForClothing,
+        OnTest: Recipe.OnTest.IsNotEquipped,
+
+        Result: Corset_BodysuitTINT,
+        SkillRequired: Tailoring=8,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 450.0,
+        Category: Tailoring,
+
+    }
+
+
+    recipe Make Corset Bodysuit {
+        Corset_ToplessTINT,
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        Underpants_White/Underpants_Black,
+        Thread,
+        
+        OnCreate: Recipe.OnCreate.CopyTintForClothing,
+        OnTest: Recipe.OnTest.IsNotEquipped,
+
+        Result: Corset_ToplessBodysuitTINT,
+        SkillRequired: Tailoring=9,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 450.0,
+        Category: Tailoring,
+
+    }
+
 }

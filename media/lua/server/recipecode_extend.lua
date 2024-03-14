@@ -539,6 +539,38 @@ function Recipe.OnCreate.GatherGunpowder(items, resultItem, player)
 end
 
 
+function Recipe.OnCreate.CopyTintForClothing(items, resultItem, player)
+    local srcItem = nil
+    for i = 0, (items:size()-1) do 
+        local item = items:get(i)
+        if instanceof(item, "Clothing") then
+            srcItem = item
+            break
+        end
+    end
+
+    if srcItem then
+        local visual = srcItem:getVisual()
+        local newVisual = resultItem:getVisual()
+        newVisual:setTint(visual:getTint(srcItem:getClothingItem()))
+        newVisual:setBaseTexture(visual:getBaseTexture())
+        newVisual:setTextureChoice(visual:getTextureChoice())
+        newVisual:setDecal(visual:getDecal(srcItem:getClothingItem()))
+        -- if newItem:IsInventoryContainer() and srcItem:IsInventoryContainer() then
+        --     newItem:getItemContainer():setItems(srcItem:getItemContainer():getItems())
+        --     -- Handle renamed bag
+        --     if srcItem:getName() ~= srcItem:getScriptItem():getDisplayName() then
+        --         newItem:setName(srcItem:getName())
+        --     end
+        -- end
+        -- newItem:setDirtyness(item:getDirtyness())
+        --    newItem:setTexture(item:getTexture())
+        resultItem:setColor(srcItem:getColor())
+    end
+
+end
+
+
 function Recipe.OnTest.IsNotEquipped(item)
     return not item:isEquipped()
 end
