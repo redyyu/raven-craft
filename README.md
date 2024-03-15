@@ -228,7 +228,7 @@ DO NOT waste bullets anyaway.
 
 ### Vanilla Overrides:
 
-1. **Gather Gunpowder**: After calculation gunpowder uses when make bullets. I decide change to 50 bullets gather 1 bollet gunpowder. 
+1. **Gather Gunpowder**: After calculation gunpowder uses when make bullets. It will effect by `Perk.Reloading`. 
 
 
 ### Added Items Expands:

@@ -66,22 +66,22 @@ end
 
 -- get the weapon, lower its condition according to Maintenance perk level
 function Recipe.OnCreate.CraftWeapon(items, result, player)
-    local conditionMax = player:getPerkLevel(Perks.Maintenance);
-    conditionMax = ZombRand(0, conditionMax * 2);
+    local conditionMax = player:getPerkLevel(Perks.Maintenance)
+    conditionMax = ZombRand(0, conditionMax * 2)
     if conditionMax > result:getConditionMax() then
-        conditionMax = result:getConditionMax();
+        conditionMax = result:getConditionMax()
     end
     if conditionMax < 0 then
-        conditionMax = 0;
+        conditionMax = 0
     end
     result:setCondition(conditionMax)
 end
 
 
 function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
-    local condition_ratio = 1;
-    local dirtyness = 0;
-    local bloodlevel = 0;
+    local condition_ratio = 1
+    local dirtyness = 0
+    local bloodlevel = 0
     local wetness = 0
     
     local suitPartMap = {}
@@ -535,9 +535,20 @@ function Recipe.OnCreate.GatherGunpowder(items, resultItem, player)
             player:getInventory():Remove(gunpowder)
         end
     end
+    local reloading_lv = player:getPerkLevel(Perk.Reloading) or 0
+    local gather_percent = 0.5 + 0.5 * (reloading_lv / 10)
+    powderDelta = match.floor((powderDelta * gather_percent) * 100) / 100
     resultItem:setUsedDelta(powderDelta)
 end
 
+
+function Recipe.OnGiveXP.GatherGunpowder(recipe, ingredients, result, player)
+    if player:getPerkLevel(Perks.Reloading) <= 3 then
+        player:getXp():AddXP(Perks.Reloading, 3);
+    else
+        player:getXp():AddXP(Perks.Reloading, 1);
+    end
+end
 
 function Recipe.OnCreate.CopyTintForClothing(items, resultItem, player)
     local srcItem = nil

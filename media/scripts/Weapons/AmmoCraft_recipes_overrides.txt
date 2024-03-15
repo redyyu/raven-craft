@@ -9,7 +9,7 @@ module Base
         Bullets38/Bullets45/Bullets9mm/223Bullets/308Bullets/Bullets44/556Bullets/ShotgunShells,
 
         OnCreate: Recipe.OnCreate.GatherGunpowder,
-
+        OnGiveXP: Recipe.OnGiveXP.GatherGunpowder,
         Result: GunPowder,
         Time: 30.0,
         Override:true,
