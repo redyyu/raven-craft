@@ -200,7 +200,7 @@ module RavenCraft
         keep Paintbrush,
         keep [Recipe.GetItemTypes.SharpKnife],
         Hat_HockeyMask/Hat_TacticalMask_TINT,
-        PaintGray,
+        PaintGrey,
         Thread,
 
         Result: Hat_TacticalMask_Carbon,
