@@ -228,7 +228,7 @@ DO NOT waste bullets anyaway.
 
 ### Vanilla Overrides:
 
-1. **Gather Gunpowder**: After calculation gunpowder uses when make bullets. It will effect by `Perk.Reloading`. 
+1. **Gather Gunpowder**: After calculation gunpowder uses when make bullets. It will effect by `Perks.Reloading`. 
 
 
 ### Added Items Expands:

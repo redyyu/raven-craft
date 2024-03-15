@@ -524,6 +524,17 @@ function Recipe.OnCreate.GatherGunpowder(items, resultItem, player)
             break
         end
     end
+    
+    local reloading_lv = player:getPerkLevel(Perks.Reloading) or 0
+    local gather_percent = 0.5 + 0.5 * (reloading_lv / 10)
+    powderDelta = math.floor(powderDelta * gather_percent * 1000) / 1000
+
+    if isDebugEnabled() then
+        print('GatherGunpowder: -----------------')
+        print('PowderDelta: '.. powderDelta)
+        print('Reloading Lv: '.. reloading_lv .. "  Gather: ".. gather_percent)
+    end
+
     local gunpowder = getNoFullGunpowder(player)
     if gunpowder then
         local cal_delta = powderDelta + gunpowder:getUsedDelta()
@@ -535,18 +546,18 @@ function Recipe.OnCreate.GatherGunpowder(items, resultItem, player)
             player:getInventory():Remove(gunpowder)
         end
     end
-    local reloading_lv = player:getPerkLevel(Perk.Reloading) or 0
-    local gather_percent = 0.5 + 0.5 * (reloading_lv / 10)
-    powderDelta = match.floor((powderDelta * gather_percent) * 100) / 100
+    
     resultItem:setUsedDelta(powderDelta)
 end
 
 
 function Recipe.OnGiveXP.GatherGunpowder(recipe, ingredients, result, player)
-    if player:getPerkLevel(Perks.Reloading) <= 3 then
-        player:getXp():AddXP(Perks.Reloading, 3);
-    else
-        player:getXp():AddXP(Perks.Reloading, 1);
+    local reloading_lv = player:getPerkLevel(Perks.Reloading)
+    if ZombRand(reloading_lv) == 0 then
+        if isDebugEnabled() then
+            print('GatherGunpowder: -------------- Reloading XP +1')
+        end
+        player:getXp():AddXP(Perks.Reloading, 1)
     end
 end
 
