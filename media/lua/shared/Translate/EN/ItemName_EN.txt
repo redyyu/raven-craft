@@ -21,38 +21,39 @@ ItemName_EN = {
     ItemName_farming.MayonnaiseWaterFull = "Mayonnaise Bottle of Water"
     ItemName_farming.RemouladeEmpty = "Empty Remoulade Bottle"
     ItemName_farming.RemouladeWaterFull = "Remoulade Bottle of Water"
-    ItemName_Base.Shoes_BlackBoots = "Black Boots",
-    ItemName_Base.Shoes_BootsTINT = "Boots",
-    ItemName_Base.Shoes_FancyBoots = "Fancy Boots",
-    ItemName_Base.Shoes_BlueTrainers = "Blue Sneakers",
-    ItemName_Base.Shoes_RedTrainers = "Red Sneakers",
-    ItemName_Base.Shoes_Black = "Black Shoes",
-    ItemName_Base.Shoes_Brown = "Brown Shoes",
-    ItemName_Base.Bag_SurvivorBag = "Survivor Bag",
-    ItemName_Base.Bag_Military = "Military Duffel Bag",
+    ItemName_Base.Shoes_BlackBoots = "Black Boots"
+    ItemName_Base.Shoes_BootsTINT = "Boots"
+    ItemName_Base.Shoes_FancyBoots = "Fancy Boots"
+    ItemName_Base.Shoes_BlueTrainers = "Blue Sneakers"
+    ItemName_Base.Shoes_RedTrainers = "Red Sneakers"
+    ItemName_Base.Shoes_Black = "Black Shoes"
+    ItemName_Base.Shoes_Brown = "Brown Shoes"
+    ItemName_Base.Bag_SurvivorBag = "Survivor Bag"
+    ItemName_Base.Bag_Military = "Military Duffel Bag"
+    ItemName_Base.Cigarettes = "Cigarette"
 
-    ItemName_RavenCraft.Corset_BodysuitBlack = "Black Corset Bodysuit",
-    ItemName_RavenCraft.Corset_BodysuitRed = "Red Corset Bodysuit",
-    ItemName_RavenCraft.Corset_PinkBodysuit = "Pink Corset Bodysuit",
-    ItemName_RavenCraft.Corset_Pink = "Pink Corset",
-    ItemName_RavenCraft.Corset_BodysuitTINT = "Corset Bodysuit",
-    ItemName_RavenCraft.Corset_ToplessBodysuitTINT = "Spicy Corset Bodysuit",
-    ItemName_RavenCraft.Corset_ToplessTINT = "Spicy Corset",
+    ItemName_RavenCraft.Corset_BodysuitBlack = "Black Corset Bodysuit"
+    ItemName_RavenCraft.Corset_BodysuitRed = "Red Corset Bodysuit"
+    ItemName_RavenCraft.Corset_PinkBodysuit = "Pink Corset Bodysuit"
+    ItemName_RavenCraft.Corset_Pink = "Pink Corset"
+    ItemName_RavenCraft.Corset_BodysuitTINT = "Corset Bodysuit"
+    ItemName_RavenCraft.Corset_ToplessBodysuitTINT = "Spicy Corset Bodysuit"
+    ItemName_RavenCraft.Corset_ToplessTINT = "Spicy Corset"
 
 
     -- Cigarettes
     ItemName_RavenCraft.CigarettesPack = "Cigarettes Pack"
 
     -- Drink packs
-	ItemName_RavenCraft.BeerPack = "6 Pack of Beer",
-	ItemName_RavenCraft.Pop2Pack = "6 Pack of Pop",
-	ItemName_RavenCraft.Pop3Pack = "6 Pack of Pop",
-	ItemName_RavenCraft.PopPack = "6 Pack of Pop",
+	ItemName_RavenCraft.BeerPack = "6 Pack of Beer"
+	ItemName_RavenCraft.Pop2Pack = "6 Pack of Pop"
+	ItemName_RavenCraft.Pop3Pack = "6 Pack of Pop"
+	ItemName_RavenCraft.PopPack = "6 Pack of Pop"
 
-    ItemName_RavenCraft.BeerBottlePack = "6 Pack of Beer Bottled",
-	ItemName_RavenCraft.WhiskeyBottledPack = "12 Pack of Whiskey Bottled",
-	ItemName_RavenCraft.Wine2BottledPack = "12 Pack of Red Wine",
-	ItemName_RavenCraft.WineBottledPack = "12 Pack of Chardonnay",
-	ItemName_RavenCraft.PopBottlePack = "12 Pack of Orange Soda",
-	ItemName_RavenCraft.WaterBottlePack = "12 Pack of Water Bottle",
+    ItemName_RavenCraft.BeerBottlePack = "6 Pack of Beer Bottled"
+	ItemName_RavenCraft.WhiskeyBottledPack = "12 Pack of Whiskey Bottled"
+	ItemName_RavenCraft.Wine2BottledPack = "12 Pack of Red Wine"
+	ItemName_RavenCraft.WineBottledPack = "12 Pack of Chardonnay"
+	ItemName_RavenCraft.PopBottlePack = "12 Pack of Orange Soda"
+	ItemName_RavenCraft.WaterBottlePack = "12 Pack of Water Bottle"
 }
