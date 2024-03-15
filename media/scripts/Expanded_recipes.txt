@@ -70,7 +70,7 @@ module RavenCraft
         keep Needle,
 
         Result: EmptySandbag,
-        SkillRequired: Tailoring=3,
+        SkillRequired: Tailoring=6,
         Time: 300.0,
         AnimNode: RipSheets,
         Prop1: Source=1,
@@ -832,7 +832,7 @@ module RavenCraft
         Thread=5,
 
         Result: Sling,
-        SkillRequired: Tailoring=2,
+        SkillRequired: Tailoring=4,
         AnimNode: RipSheets,
         Prop1: Source=1,
         Prop2: Source=2,
@@ -850,7 +850,7 @@ module RavenCraft
         Thread=5,
 
         Result: HolsterDouble,
-        SkillRequired: Tailoring=4,
+        SkillRequired: Tailoring=5,
         AnimNode: RipSheets,
         Prop1: Source=1,
         Prop2: Source=2,
@@ -868,8 +868,8 @@ module RavenCraft
         Hat_GasMask,
         Sheet,
 
-        Result: Hat_NBCMask,
-        SkillRequired: Tailoring=6,
+        Result: Hat_NBCmask,
+        SkillRequired: Tailoring=7,
         AnimNode: RipSheets,
         Prop1: Source=1,
         Prop2: Source=2,

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <clothingItem>
-	<m_MaleModel>media\models_X\Static\Clothes\bootsheels_male.fbx</m_MaleModel>
-	<m_FemaleModel>media\models_X\Static\Clothes\bootsheels_female.fbx</m_FemaleModel>
+	<m_MaleModel>media\models_X\Static\Clothes\Shoes\bootsheels_male.fbx</m_MaleModel>
+	<m_FemaleModel>media\models_X\Static\Clothes\Shoes\bootsheels_female.fbx</m_FemaleModel>
 	<m_GUID>c72a5755-5aef-4499-ba73-48b6416d0b00</m_GUID>
 	<m_Static>true</m_Static>
 	<m_AllowRandomTint>false</m_AllowRandomTint>

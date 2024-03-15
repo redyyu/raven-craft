@@ -37,6 +37,41 @@
         <guid>eb12ee0f-fbb7-4412-af95-05487a4b10db</guid>
     </files>
 
+	<!-- Tactical Mask -->
+    <files>
+        <path>media/clothing/clothingItems/Hat_TacticalMask_TINT.xml</path>
+        <guid>9aac09e8-0033-4b71-95f4-359e4e1a0fac</guid>
+    </files>
+
+	<!-- Tactical Mask Cat -->
+    <files>
+        <path>media/clothing/clothingItems/Hat_TacticalMask_CatTINT.xml</path>
+        <guid>0e1bf115-5054-48aa-9dd3-a652afb4c4cd</guid>
+    </files>
+
+	<!-- Tactical Mask Spider -->
+    <files>
+        <path>media/clothing/clothingItems/Hat_TacticalMask_Spider.xml</path>
+        <guid>2c438db1-89b3-480d-b163-d33885a08c9a</guid>
+    </files>
+
+	<!-- Tactical Mask Jason -->
+    <files>
+        <path>media/clothing/clothingItems/Hat_TacticalMask_Jason.xml</path>
+        <guid>8a55601f-1873-4df9-9ede-23886c65f174</guid>
+    </files>
+	
+	<!-- Tactical Mask Carbon -->
+    <files>
+        <path>media/clothing/clothingItems/Hat_TacticalMask_Carbon.xml</path>
+        <guid>27f3da61-81e8-4e0e-87d9-58d151280513</guid>
+    </files>
+
+	<!-- Tactical Mask Punisher -->
+    <files>
+        <path>media/clothing/clothingItems/Hat_TacticalMask_Punisher.xml</path>
+        <guid>0c502db8-c673-48ba-b402-bfc3902592f4</guid>
+    </files>
 	
 	<!-- Corset Bodysuit Black -->
     <files>

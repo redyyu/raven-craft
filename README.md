@@ -734,7 +734,7 @@ option RavenCraft.SurvivalJournalMultiplierModifier{
 
 
 
-## Generator window buggey
+## Generator UI window buggey
 
 *This problem is not related with this mod.*
 windows in Vanilla game might buggey, like generator info window.
@@ -795,3 +795,18 @@ function Recipe.OnCreate.OpenCigarettesPack(items, result, player)
    end
 end
 ```
+
+
+## Modelling with Blender
+
+export `.fbx` file for now. `X` is too old.
+if make **Static** model, like shoes / mask/ hat, can bind bone in **ClothingItem** or make to skinned bind in model both work.
+if make skinned model might use the template with bone from `_assets/`.
+
+when export Staic model to `.fbx`, should take care of the **Transform** settings *Up* and *Forward*.
+Can also just move or rotate the model to right position in model, and leave the default settings and export.
+try not select **Armature** and **Bake Animation**. not sure what happen, maybe nothing.
+
+*Becareful the size of model*. most time the model in game is really small, must set scale to very small in export settings. etc. `0.01`
+but could be any size when modeling, bigger enough too operate.
+

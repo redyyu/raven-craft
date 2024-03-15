@@ -4,6 +4,8 @@ module RavenCraft
 	    Base,
     }
 
+/* Armor Pads */
+
     recipe Craft Elbow Pads {
         keep Scissors,
         keep Needle/SutureNeedle,
@@ -149,6 +151,87 @@ module RavenCraft
         IsHidden: true,
         
         Tooltip: Tooltip_CRAFT_REQUIRED_CANT_BROKEN,
+    }
+
+
+/* Masks */
+
+    recipe Craft Jason Mask {
+        keep Scissors,
+        keep Paintbrush,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        Hat_HockeyMask,
+        PaintRed,
+        LeatherStrips,
+
+        Result: Hat_TacticalMask_Jason,
+        SkillRequired: Tailoring=7,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 600.0,
+        NeedToBeLearn: true,
+        Category: Tailoring,
+    }
+
+    recipe Craft Punisher Mask {
+        keep Scissors,
+        keep Paintbrush,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        Hat_HockeyMask/Hat_TacticalMask_TINT,
+        PaintBlack,
+        PaintWhite,
+        Thread,
+
+        Result: Hat_TacticalMask_Punisher,
+        SkillRequired: Tailoring=6,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 600.0,
+        NeedToBeLearn: true,
+        Category: Tailoring,
+    }
+
+    recipe Craft Carbon Mask {
+        keep Scissors,
+        keep Paintbrush,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        Hat_HockeyMask/Hat_TacticalMask_TINT,
+        PaintGray,
+        Thread,
+
+        Result: Hat_TacticalMask_Carbon,
+        SkillRequired: Tailoring=6,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 600.0,
+        NeedToBeLearn: true,
+        Category: Tailoring,
+    }
+    
+    recipe Craft Spider Mask {
+        keep Scissors,
+        keep Paintbrush,
+        keep [Recipe.GetItemTypes.SharpKnife],
+        Hat_HockeyMask/Hat_TacticalMask_TINT,
+        PaintRed,
+        PaintBlack,
+        Thread,
+
+        Result: Hat_TacticalMask_Spider,
+        SkillRequired: Tailoring=6,
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 600.0,
+        NeedToBeLearn: true,
+        Category: Tailoring,
     }
 
 }

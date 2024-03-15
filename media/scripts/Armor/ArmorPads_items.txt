@@ -1,26 +1,29 @@
 module RavenCraft
 {
-	imports {
-	    Base,
+    imports {
+        Base,
     }
-	
-	/* 
-		Added blood clothing type to every possible body location, so you can easily mod a new clothing to protect X or Y parts:
-		Example, i want to do metal socks that protect both feet and lower legs, i'll simply add a BloodLocation = Feet;LowerLegs, in the item script.
-		Full list of per-bodypart location:
+    
+    /* 
+        Added blood clothing type to every possible body location, so you can easily mod a new clothing to protect X or Y parts:
+        Example, i want to do metal socks that protect both feet and lower legs, i'll simply add a BloodLocation = Feet;LowerLegs, in the item script.
+        Full list of per-bodypart location:
 
-		Bag (back), Hands, Head, Neck, UpperBody, LowerBody, LowerLegs, UpperLegs, LowerArms, UpperArms, Groin.
+        Bag (back), Hands, Head, Neck, UpperBody, LowerBody, LowerLegs, UpperLegs, LowerArms, UpperArms, Groin.
 
-		Each location will cover both left and right parts if needed.
-	*/
+        Each location will cover both left and right parts if needed.
+    */
 
-	item ArmorPadsMakerMag {
+
+/* Aromor Pads */
+
+    item ArmorPadsMakerMag {
         DisplayCategory = SkillBook,
         Weight = 0.1,
         Type = Literature,
-        DisplayName	= The Art of Defense,
+        DisplayName    = The Art of Defense,
         Icon = MagazineArmorPadsMakerMag,
-        TeachedRecipes = Craft Elbow Pads;Craft Knee Pads;Craft Shoulder Pads;Craft Hand Pads;Craft Neck Pads,
+        TeachedRecipes = Craft Elbow Pads;Craft Knee Pads;Craft Shoulder Pads;Craft Hand Pads;Craft Neck Pads;Craft Jason Mask;Craft Punisher Mask;Craft Carbon Mask;Craft Spider Mask,
         ReplaceOnUse = ArmorPadsMakerMag,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,
@@ -28,114 +31,207 @@ module RavenCraft
 
 
     item ElbowPads {
-		Type = Clothing,
-		DisplayName = Elbow Pads,
-		ClothingItem = ArmorPads_Elbow,
-		BodyLocation = ArmorArms,
-		BloodLocation = LowerArms,
-		Icon = ElbowPads,
-		Weight = 0.3,
-		ConditionLowerChanceOneIn = 15,
-		ConditionMax = 10,
-		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
-		ScratchDefense = 35,
-		BiteDefense = 30,
-		BulletDefense = 25,
-		ChanceToSpawnDamaged = 25,
-		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
-	}
+        Type = Clothing,
+        DisplayName = Elbow Pads,
+        ClothingItem = ArmorPads_Elbow,
+        BodyLocation = ArmorArms,
+        BloodLocation = LowerArms,
+        Icon = ElbowPads,
+        Weight = 0.3,
+        ConditionLowerChanceOneIn = 15,
+        ConditionMax = 10,
+        /* RemoveOnBroken = true, item will remove from the game if set it true. */
+        CanHaveHoles = true,  /* vanilla's default is true, false will never broken. */
+        ScratchDefense = 35,
+        BiteDefense = 30,
+        BulletDefense = 25,
+        ChanceToSpawnDamaged = 25,
+        WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
+    }
 
 
     item KneePads {
-		Type = Clothing,
-		DisplayName = Knee Pads,
-		ClothingItem = ArmorPads_Knee,
-		BodyLocation = ArmorLegs,
-		BloodLocation = LowerLegs,
-		Icon = KneePads,
-		Weight = 0.3,
-		ConditionLowerChanceOneIn = 15,
-		ConditionMax = 10,
-		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 40,
-		BiteDefense = 35,
-		BulletDefense = 25,
-		ChanceToSpawnDamaged = 25,
-		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
-	}
+        Type = Clothing,
+        DisplayName = Knee Pads,
+        ClothingItem = ArmorPads_Knee,
+        BodyLocation = ArmorLegs,
+        BloodLocation = LowerLegs,
+        Icon = KneePads,
+        Weight = 0.3,
+        ConditionLowerChanceOneIn = 15,
+        ConditionMax = 10,
+        /* RemoveOnBroken = true, item will remove from the game if set it true. */
+        ScratchDefense = 40,
+        BiteDefense = 35,
+        BulletDefense = 25,
+        ChanceToSpawnDamaged = 25,
+        WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
+    }
 
     item ShoulderPads {
-		Type = Clothing,
-		DisplayName = Shoulder Pads,
-		ClothingItem = ArmorPads_Shoulder,
-		BodyLocation = ArmorShoulder,
-		BloodLocation = UpperArms,
-		Icon = ShoulderPads,
-		Weight = 0.6,
-		ConditionLowerChanceOneIn = 15,
-		ConditionMax = 10,
-		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		CombatSpeedModifier = 0.95,
-		ScratchDefense = 50,
-		BiteDefense = 40,
-		BulletDefense = 25,
-		ChanceToSpawnDamaged = 25,
-		WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
-	}
+        Type = Clothing,
+        DisplayName = Shoulder Pads,
+        ClothingItem = ArmorPads_Shoulder,
+        BodyLocation = ArmorShoulder,
+        BloodLocation = UpperArms,
+        Icon = ShoulderPads,
+        Weight = 0.6,
+        ConditionLowerChanceOneIn = 15,
+        ConditionMax = 10,
+        /* RemoveOnBroken = true, item will remove from the game if set it true. */
+        CombatSpeedModifier = 0.95,
+        ScratchDefense = 50,
+        BiteDefense = 40,
+        BulletDefense = 25,
+        ChanceToSpawnDamaged = 25,
+        WorldStaticModel = BoilerSuit_Ground, /* few vanilla WorldStaticModel only re-scale the item model texture. */
+    }
 
-	item HandPads {
-		Type = Clothing,
-		DisplayName = Hand Pads,
-		ClothingItem = ArmorPads_Hand,
-		BodyLocation = ArmorHands,
-		BloodLocation = Hands,
-		Icon = HandPads,
-		Weight = 0.2,
-		ConditionLowerChanceOneIn = 15,
-		ConditionMax = 10,
-		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 45,
-		BiteDefense = 40,
-		BulletDefense = 25,
-		ChanceToSpawnDamaged = 25,
-		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
-	}
+    item HandPads {
+        Type = Clothing,
+        DisplayName = Hand Pads,
+        ClothingItem = ArmorPads_Hand,
+        BodyLocation = ArmorHands,
+        BloodLocation = Hands,
+        Icon = HandPads,
+        Weight = 0.2,
+        ConditionLowerChanceOneIn = 15,
+        ConditionMax = 10,
+        /* RemoveOnBroken = true, item will remove from the game if set it true. */
+        ScratchDefense = 45,
+        BiteDefense = 40,
+        BulletDefense = 25,
+        ChanceToSpawnDamaged = 25,
+        WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
+    }
 
-	item NeckPads {
-		Type = Clothing,
-		DisplayName = Neck Pads,
-		ClothingItem = ArmorPads_Neck,
-		BodyLocation = ArmorNeck,
-		BloodLocation = Neck,
-		Icon = NeckPads,
-		Weight = 0.2,
-		ConditionLowerChanceOneIn = 15,
-		ConditionMax = 10,
-		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 45,
-		BiteDefense = 30,
-		BulletDefense = 25,
-		ChanceToSpawnDamaged = 25,
-		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
-	}
+    item NeckPads {
+        Type = Clothing,
+        DisplayName = Neck Pads,
+        ClothingItem = ArmorPads_Neck,
+        BodyLocation = ArmorNeck,
+        BloodLocation = Neck,
+        Icon = NeckPads,
+        Weight = 0.2,
+        ConditionLowerChanceOneIn = 15,
+        ConditionMax = 10,
+        /* RemoveOnBroken = true, item will remove from the game if set it true. */
+        ScratchDefense = 45,
+        BiteDefense = 30,
+        BulletDefense = 25,
+        ChanceToSpawnDamaged = 25,
+        WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
+    }
 
-	item SuitPads {
-		Type = Clothing,
-		DisplayName = Armor Pads Suit,
-		ClothingItem = ArmorPads_Suit,
-		BodyLocation = ArmorFull,
-		BloodLocation = Neck;Hands;UpperArms;LowerArms;LowerLegs,
-		Icon = SuitPads,
-		Weight = 1.0,
-		ConditionLowerChanceOneIn = 15,
-		ConditionMax = 15,
-		/* RemoveOnBroken = true, item will remove from the game if set it true. */
-		ScratchDefense = 40,
-		BiteDefense = 30,
-		BulletDefense = 25,
-		ChanceToSpawnDamaged = 25,
-		WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
-	}
+    item SuitPads {
+        Type = Clothing,
+        DisplayName = Armor Pads Suit,
+        ClothingItem = ArmorPads_Suit,
+        BodyLocation = ArmorFull,
+        BloodLocation = Neck;Hands;UpperArms;LowerArms;LowerLegs,
+        Icon = SuitPads,
+        Weight = 1.0,
+        ConditionLowerChanceOneIn = 15,
+        ConditionMax = 15,
+        /* RemoveOnBroken = true, item will remove from the game if set it true. */
+        ScratchDefense = 40,
+        BiteDefense = 30,
+        BulletDefense = 25,
+        ChanceToSpawnDamaged = 25,
+        WorldStaticModel = Hazmat_Ground,  /* few vanilla WorldStaticModel only re-scale the item model texture. */
+    }
+
+
+/* Masks */
+
+    item Hat_TacticalMask_TINT {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Tactical Mask,
+        ClothingItem = Hat_TacticalMask_TINT,
+        BodyLocation = MaskEyes,
+        Icon = TacticalMaskTINT,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 30,
+        ScratchDefense = 50,
+        Insulation = 0.25,
+        WindResistance = 0.55,
+    }
+
+    item Hat_TacticalMask_CatTINT {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Tactical Cat Mask,
+        ClothingItem = Hat_TacticalMask_CatTINT,
+        BodyLocation = MaskEyes,
+        Icon = TacticalMaskCatTINT,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 15,
+        ScratchDefense = 25,
+        Insulation = 0.10,
+        WindResistance = 0.25,
+    }
+
+    item Hat_TacticalMask_Carbon {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Tactical Carbon Mask,
+        ClothingItem = Hat_TacticalMask_Carbon,
+        BodyLocation = MaskEyes,
+        Icon = TacticalMaskCarbon,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 30,
+        ScratchDefense = 50,
+        Insulation = 0.25,
+        WindResistance = 0.55,
+    }
+
+    item Hat_TacticalMask_Punisher {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Tactical Punisher Mask,
+        ClothingItem = Hat_TacticalMask_Punisher,
+        BodyLocation = MaskEyes,
+        Icon = TacticalMaskPunisher,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 30,
+        ScratchDefense = 50,
+        Insulation = 0.25,
+        WindResistance = 0.55,
+    }
+
+    item Hat_TacticalMask_Spider {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Tactical Spider Mask,
+        ClothingItem = Hat_TacticalMask_Spider,
+        BodyLocation = MaskEyes,
+        Icon = TacticalMaskSpider,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 30,
+        ScratchDefense = 50,
+        Insulation = 0.25,
+        WindResistance = 0.55,
+    }
+
+    item Hat_TacticalMask_Jason {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Tactical Jason Mask,
+        ClothingItem = Hat_TacticalMask_Jason,
+        BodyLocation = MaskEyes,
+        Icon = TacticalMaskJason,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 30,
+        ScratchDefense = 50,
+        Insulation = 0.25,
+        WindResistance = 0.55,
+    }
 
 }

@@ -10,6 +10,12 @@ local ITEMS_WEIGHT = {
     [".ShoulderPads"] = 1,
     [".HandPads"] = 1,
     [".NeckPads"] = 1,
+    [".Hat_TacticalMask_TINT"] = 0.5,
+    [".Hat_TacticalMask_CatTINT"] = 0.5,
+    [".Hat_TacticalMask_Carbon"] = 0.25,
+    [".Hat_TacticalMask_Jason"] = 0.25,
+    [".Hat_TacticalMask_Spider"] = 0.25,
+    [".Hat_TacticalMask_Punisher"] = 0.25,
 }
 
 local LITERATURES_WEIGHT = {
