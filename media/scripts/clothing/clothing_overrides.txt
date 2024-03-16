@@ -130,13 +130,12 @@ module Base
         WorldStaticModel = Trousers_Ground,
     }
     item Trousers_DefaultTEXTURE_HUE {
-        /* leave the item name _HUE is for override vanilla, is not really HUE in overrided clothingItem.*/
         DisplayCategory = Clothing,
         Type = Clothing,
         DisplayName = Tight Jeans,
         ClothingItem = Trousers_DefaultTEXTURE_HUE,
         BodyLocation = Pants,
-        Icon = TrouserTightDenimTINT,
+        Icon = TrouserTightDenimHUE,
         BloodLocation = Trousers,
         Insulation = 0.6,
         WindResistance = 0.3,

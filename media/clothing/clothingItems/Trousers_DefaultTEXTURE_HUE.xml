@@ -4,10 +4,8 @@
     <m_FemaleModel></m_FemaleModel>
     <m_GUID>5b07d45e-84c9-4ddf-ad6e-4bc2f27cace7</m_GUID>
     <m_Static>false</m_Static>
-    <!-- USE Tint to ovrride vanilla HUE, make more color this way. -->
-    <!-- BUT, not change file name and id, just easy ovrride it. -->
-    <m_AllowRandomHue>false</m_AllowRandomHue>
-    <m_AllowRandomTint>true</m_AllowRandomTint>
+    <m_AllowRandomHue>true</m_AllowRandomHue>
+    <m_AllowRandomTint>false</m_AllowRandomTint>
     <m_AttachBone></m_AttachBone>
-    <m_BaseTextures>clothes/Trousers/TrousersTightDenimTINT</m_BaseTextures>
+    <m_BaseTextures>clothes/Trousers/TrousersTightDenimHUE</m_BaseTextures>
 </clothingItem>
