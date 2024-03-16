@@ -66,15 +66,54 @@ end
 
 -- get the weapon, lower its condition according to Maintenance perk level
 function Recipe.OnCreate.CraftWeapon(items, result, player)
-    local conditionMax = player:getPerkLevel(Perks.Maintenance)
-    conditionMax = ZombRand(0, conditionMax * 2)
-    if conditionMax > result:getConditionMax() then
-        conditionMax = result:getConditionMax()
+    local mintenance_lv = player:getPerkLevel(Perks.Maintenance) or 0
+    -- this is rand twice, lower broken chance when high perks lv.
+    -- local condition_percent = ZombRand(0, mintenance_lv) / 10
+    -- local condition = math.floor(result:getConditionMax() * condition_percent) + ZombRand(0, mintenance_lv)
+    
+    -- chance to damage the source item
+    local sample_item = nil
+    for i=0, items:size() - 1 do
+        local item = items:get(i)
+        if item:getFullType() == result:getFullType() then
+            sample_item = item
+        end
     end
-    if conditionMax < 0 then
-        conditionMax = 0
+
+    if sample_item and ZombRand(0, mintenance_lv) < 1 then
+        local sample_condition = sample_item:getCondition()
+        if sample_condition > 1 then
+            sample_item:setCondition(sample_condition - 1)
+        else
+            sample_item:setCondition(0)
+        end
     end
-    result:setCondition(conditionMax)
+
+    -- rand once, higher a bit broken chance when hight perks lv.
+    local modifier = ZombRand(0, mintenance_lv)
+    local condition = math.floor(result:getConditionMax() * modifier / 10  + modifier / 2)
+
+    if condition > result:getConditionMax() then
+        condition = result:getConditionMax()
+    end
+    if condition < 0 then
+        condition = 0
+    end
+    result:setCondition(condition)
+end
+
+
+function Recipe.OnCreate.RemainCondition(items, result, player)
+    if not result:getCondition() then return end
+
+    local condition = result:getCondition()
+    for i=0, items:size() - 1 do
+        local item = items:get(i)
+        if condition > item:getCondition() then
+            condition = item:getCondition()
+        end
+    end
+    result:setCondition(condition)
 end
 
 

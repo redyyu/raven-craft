@@ -117,7 +117,7 @@ module Base
     item Trousers_DefaultTEXTURE {
         DisplayCategory = Clothing,
         Type = Clothing,
-        DisplayName = Tight Jeans,
+        DisplayName = Tight Jeans Classic,
         ClothingItem = Trousers_DefaultTEXTURE,
         BodyLocation = Pants,
         Icon = TrouserTightDenim,
@@ -130,12 +130,13 @@ module Base
         WorldStaticModel = Trousers_Ground,
     }
     item Trousers_DefaultTEXTURE_HUE {
+        /* leave the item name _HUE is for override vanilla, is not really HUE in overrided clothingItem.*/
         DisplayCategory = Clothing,
         Type = Clothing,
         DisplayName = Tight Jeans,
         ClothingItem = Trousers_DefaultTEXTURE_HUE,
         BodyLocation = Pants,
-        Icon = TrouserTightDenimBlack,
+        Icon = TrouserTightDenimTINT,
         BloodLocation = Trousers,
         Insulation = 0.6,
         WindResistance = 0.3,
@@ -150,7 +151,7 @@ module Base
         DisplayName = Tight Pants,
         ClothingItem = Trousers_DefaultTEXTURE_TINT,
         BodyLocation = Pants,
-        Icon = TrouserTight,
+        Icon = TrouserTightTINT,
         BloodLocation = Trousers,
         Insulation = 0.5,
         WindResistance = 0.25,

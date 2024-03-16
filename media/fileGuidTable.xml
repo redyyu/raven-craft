@@ -115,6 +115,23 @@
         <guid>9604fceb-55c5-4e45-9167-65927149d4d6</guid>
     </files>
 
+	<!-- Tight Jeans -->
+    <files>
+        <path>media/clothing/clothingItems/Trousers_DefaultTEXTURE_HUE.xml</path>
+        <guid>5b07d45e-84c9-4ddf-ad6e-4bc2f27cace7</guid>
+    </files>
+
+	<!-- Tight Jeans Black -->
+    <files>
+        <path>media/clothing/clothingItems/Trousers_DefaultTEXTURE.xml</path>
+        <guid>e4b71599-604d-4cc7-9ce4-7723a7e37d8a</guid>
+    </files>
+
+	<!-- Tight Pants -->
+    <files>
+        <path>media/clothing/clothingItems/Trousers_DefaultTEXTURE_TINT.xml</path>
+        <guid>1e2ed52f-9ee7-464b-9581-a450f2fbb403</guid>
+    </files>
 
     <!-- Boots (TINT)-->
     <files>

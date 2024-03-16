@@ -1,0 +1,58 @@
+module RavenCraft
+{
+    imports {
+	    Base,
+	}
+    
+
+/*** Refresh Items for modification of MOD ***/
+
+    recipe Refresh Wrench {
+        Wrench,
+        
+        OnCreate: Recipe.OnCreate.RemainCondition,
+        Result: Wrench,
+        Time: 5.0,
+    }
+
+    recipe Refresh PipeWWrench {
+        PipeWrench,
+        
+        OnCreate: Recipe.OnCreate.RemainCondition,
+        Result: PipeWrench,
+        Time: 5.0,
+    }
+
+    recipe Refresh Crowbar {
+        Crowbar,
+        
+        OnCreate: Recipe.OnCreate.RemainCondition,
+        Result: Crowbar,
+        Time: 5.0,
+    }
+
+    recipe Refresh Hammer {
+        Hammer,
+        
+        OnCreate: Recipe.OnCreate.RemainCondition,
+        Result: Hammer,
+        Time: 5.0,
+    }
+
+    recipe Refresh BallPeenHammer {
+        BallPeenHammer,
+        
+        OnCreate: Recipe.OnCreate.RemainCondition,
+        Result: BallPeenHammer,
+        Time: 5.0,
+    }
+
+    recipe Refresh Nightstick {
+        Nightstick,
+        
+        OnCreate: Recipe.OnCreate.RemainCondition,
+        Result: Nightstick,
+        Time: 5.0,
+    }
+
+}

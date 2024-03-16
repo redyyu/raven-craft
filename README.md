@@ -98,7 +98,7 @@ those knowledge is become my treasure, Thank you very much.
 
 5. **The Gospel Of Smoker**: Teach `Self-made Matches`, `Self-made Cigarettes`, `Self-made Newspaper Cigarettes`
 
-*Recipes make weapones need to close Anvil, and required kind of weapone skill, ex. Craft Axe, required Axe skill, also Maintenace skill will effect the Condition of you made, ex. Maintenace lv0, most result will be broken.*
+*Recipes make weapones need to close Anvil, and required kind of weapone skill, ex. Craft Axe, required Axe skill as sample, also Maintenace skill will effect the Condition of you made, ex. Maintenace lv0, most result will be broken. And there is chance to damage sample item base on level of Maintenace.*
 
 ### Added Recipe Expands:
 
@@ -281,7 +281,6 @@ and modified some Vanilla Weapons or tools.
 **Bigger PropaneTank**: `PropaneTank` double the useDelta.
 
 All changes are balanced with a vanilla game.
-Btw., Remove all fixing for metal melee weapon tools.
 
 
 

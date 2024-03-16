@@ -2,70 +2,70 @@ module RavenCraft
 {
 
     fixing Fix Nightstick {
-	   Require : Nightstick,
-	   ConditionModifier : 1,
+       Require : Nightstick,
+       ConditionModifier : 0.75,
 
-	   Fixer : Woodglue; Woodwork=6,
-	}
+       Fixer : Woodglue=2; Woodwork=4,
+       Fixer : DuctTape=2,
+       Fixer : Glue=2,
+       Fixer : Scotchtape=4,
+    }
 
+    fixing Fix Pipe {
+       Require : Pipe,
+       ConditionModifier : 0.75,
+       
+       Fixer : DuctTape=2,
+       Fixer : Glue=2,
+       Fixer : Scotchtape=4,
+    }
 
-	/** No fixing full metal Weapons or tools
+    fixing Fix Lead Pipe {
+       Require : LeadPipe,
+       GlobalItem : BlowTorch=2,
+       ConditionModifier : 0.75,
 
-	fixing Fix Lead Pipe {
-	   Require : LeadPipe,
-	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.45,
+       Fixer : WeldingRods=4;MetalWelding=4,
+    }
+    
+    fixing Fix Crowbar {
+       Require : Crowbar,
+       GlobalItem : BlowTorch=2,
+       ConditionModifier : 0.75,
+       
+       Fixer : WeldingRods=4;MetalWelding=4,
+    }
 
-	   Fixer : WeldingRods=4;MetalWelding=4,
-	}
-	
-	fixing Fix Crowbar {
-	   Require : Crowbar,
-	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.45,
-	   
-	   Fixer : WeldingRods=4;MetalWelding=4,
-	}
+    fixing Fix Wrench {
+       Require : Wrench,
+       GlobalItem : BlowTorch=2,
+       ConditionModifier : 0.75,
+       
+       Fixer : WeldingRods=3; MetalWelding=4,
+    }
 
-	fixing Fix Pipe Wrench {
-	   Require : PipeWrench,
-	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.45,
-	   
-	   Fixer : WeldingRods=4; MetalWelding=4,
-	}
+    fixing Fix Metal Bar {
+       Require : MetalBar,
+       GlobalItem : BlowTorch=2,
+       ConditionModifier : 0.75,
+       
+       Fixer : WeldingRods=2;MetalWelding=3,
+    }
 
+    fixing Fix Metal Pipe {
+       Require : MetalPipe,
+       GlobalItem : BlowTorch=2,
+       ConditionModifier : 0.75,
+       
+       Fixer : WeldingRods=2;MetalWelding=2,
+    }
 
-	fixing Fix Metal Bar {
-	   Require : MetalBar,
-	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.45,
-	   
-	   Fixer : WeldingRods=3;MetalWelding=3,
-	}
+    fixing Fix Pan {
+       Require : Pan/SaucePan/GridlePan,
+       GlobalItem : BlowTorch=2,
+       ConditionModifier : 0.75,
+       
+       Fixer : WeldingRods=1;MetalWelding=2,
+    }
 
-	fixing Fix Metal Pipe {
-	   Require : MetalPipe,
-	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.45,
-	   
-	   Fixer : WeldingRods=2;MetalWelding=2,
-	}
-
-	fixing Fix Pipe {
-	   Require : Pipe,
-	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.45,
-	   
-	   Fixer : WeldingRods=4;MetalWelding=4,
-	}
-
-	fixing Fix Pan {
-	   Require : Pan/SaucePan/GridlePan,
-	   GlobalItem : BlowTorch=2,
-	   ConditionModifier : 0.45,
-	   
-	   Fixer : WeldingRods=2;MetalWelding=3,
-	}
-	**/
 }

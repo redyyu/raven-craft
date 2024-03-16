@@ -519,11 +519,10 @@ module RavenCraft
     }
 
     recipe Craft Hunting Knife {
-        BlowTorch=1,
         keep Tongs,
         keep [Recipe.GetItemTypes.Hammer],
-
         keep HuntingKnife,
+        
         IronIngot=50,
         LeatherStrips,
         Woodglue=2,
