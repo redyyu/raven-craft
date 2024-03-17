@@ -1862,10 +1862,8 @@ module RavenCraft
     recipe Make Mixed Vegetables {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep [Recipe.GetItemTypes.SharpKnife],
-        Corn/Potato/RedRadish/Carrots/Cabbage/Broccoli/BellPepper/PepperHabanero/PepperJalapeno/Leek/Lettuce/Onion/Tomato/Zucchini/Daikon/Edamame/Eggplant;6,
-        Corn/Potato/RedRadish/Carrots/Cabbage/Broccoli/BellPepper/PepperHabanero/PepperJalapeno/Leek/Lettuce/Onion/Tomato/Zucchini/Daikon/Edamame/Eggplant;6,
-        Corn/Potato/RedRadish/Carrots/Cabbage/Broccoli/BellPepper/PepperHabanero/PepperJalapeno/Leek/Lettuce/Onion/Tomato/Zucchini/Daikon/Edamame/Eggplant;6,
-        Corn/Potato/RedRadish/Carrots/Cabbage/Broccoli/BellPepper/PepperHabanero/PepperJalapeno/Leek/Lettuce/Onion/Tomato/Zucchini/Daikon/Edamame/Eggplant;6,
+        Potato/Carrots/Lettuce/Tomato/Broccoli;12,
+        Cabbage/Corn/ZucchiniEdamame/Eggplant;12,
         Plasticbag/GroceryBag1/GroceryBag2/GroceryBag3/GroceryBag4/GroceryBag5,
 
         Result: CornFrozen,
