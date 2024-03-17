@@ -651,10 +651,6 @@ function Recipe.OnTest.IsNotFullPack(item)
 end
 
 
-
-
-
-
 -- function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
 --     local training_type = result:getType();
 --     local perks_type = nil;
