@@ -665,13 +665,15 @@ local MIXABLE_VEGE_TYPES = {
 
 function Recipe.OnCanPerform.haveMixableVegetables(recipe, playerObj)
     local playerInv = playerObj:getInventory()
-    local total_hunger_change = 0
+    local total_hunger_change = 0.01 -- in recipe already have 1.
     for _, vege_type in ipairs(MIXABLE_VEGE_TYPES) do
         local vege_items = playerInv:getAllTypeRecurse(vege_type)
         for i=0, vege_items:size() -1 do
             local vege = vege_items:get(i)
-            if vege:getHungerChange() > -0.04 and not vege:isRotten() then  -- HungerChange is negative number.
-                total_hunger_change = total_hunger_change + vege:getHungerChange()
+            if instanceof(vege, 'Food') then
+                if vege:getHungerChange() > -0.04 and not vege:isRotten() then  -- HungerChange is negative number.
+                    total_hunger_change = total_hunger_change + vege:getHungerChange()
+                end
             end
         end
         if total_hunger_change <= -0.10 then  -- HungerChange is negative number.
@@ -684,19 +686,25 @@ end
 
 function Recipe.OnCreate.mixVegetables(items, result, playerObj)
     local playerInv = playerObj:getInventory()
-    local total_hunger_change = 0
+    local total_hunger_change = 0.01 -- in recipe already have 1.
+    local food_age = nil
     for _, vege_type in ipairs(MIXABLE_VEGE_TYPES) do
         local vege_items = playerInv:getAllTypeRecurse(vege_type)
         for i=0, vege_items:size() -1 do
             local vege = vege_items:get(i)
-            if vege:getHungerChange() > -0.04 and not vege:isRotten() then -- HungerChange is negative number.
-                total_hunger_change = total_hunger_change + vege:getHungerChange()
-                vege:Use() 
-                -- use `:Use` to consume the vegetable, not `:Remove()`, 
-                -- seems that need much more coding to make it safe to remove.
-            end
-            if total_hunger_change <= -0.30 then -- HungerChange is negative number.
-                break
+            if instanceof(vege, 'Food') then
+                if vege:getHungerChange() > -0.04 and not vege:isRotten() then -- HungerChange is negative number.
+                    total_hunger_change = total_hunger_change + vege:getHungerChange()
+                    vege:Use() 
+                    -- use `:Use` to consume the vegetable, not `:Remove()`, 
+                    -- seems that need much more coding to make it safe to remove.
+                    if not food_age or vege:getAge() > food_age then
+                        food_age = vege:getAge()
+                    end
+                end
+                if total_hunger_change <= -0.30 then -- HungerChange is negative number.
+                    break
+                end
             end
         end
 
@@ -706,6 +714,9 @@ function Recipe.OnCreate.mixVegetables(items, result, playerObj)
     end
     if total_hunger_change >= 0 then -- make sure HungerChange is not 0.
         total_hunger_change = -0.001
+    end
+    if food_age > 0 then
+        result:setAge(food_age)
     end
     result:setHungChange(total_hunger_change)
 end

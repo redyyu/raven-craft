@@ -1866,13 +1866,19 @@ module RavenCraft
         OnCanPerform: Recipe.OnCanPerform.haveMixableVegetables,
         OnCreate: Recipe.OnCreate.mixVegetables,
 
-        Result: CornFrozen,
+        Result: MixedVegetables,
         SkillRequired: Cooking=6,
         Time: 150.0,
         Sound: Plastering,
         Category: Cooking,
 
-        IsHidden: true, /* Vegetables are take form inventory, not showing up in recipe, that looks bad. */
+        AllowOnlyOne: true,
+        IsHidden: true, 
+        /* Vegetables are take form inventory by lua recipecode, 
+           no Vegetables showing up in recipe, that looks confused.
+           that's why hidden it from Crafting list. */
+
+        Tooltip: Tooltip_MAKE_MIXED_VEGETABLES,
     }
 
     recipe Pickle Rabbit Meat {
