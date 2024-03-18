@@ -1,4 +1,4 @@
-
+require "TimedActions/ISChangeGameSpeed"
 
 local PARTS_ORDERS = {
     -- Front
@@ -184,7 +184,7 @@ local function onTrainingMechanics(playerObj, vehicle, screwdriver, wrench, lug_
             end
         end
     end
-
+    ISTimedActionQueue.add(ISChangeGameSpeed:new(1))
 end
 
 

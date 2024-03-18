@@ -356,7 +356,7 @@ Make better Fishing Net, could cacth more than `BaitFish`, base on character fis
 
 ## Training
 
-All training action will not pause the game if it is stopped. Did it on purpose, decide to keep eyes open.
+All training action will not pause the game when training is stopped. Did it on purpose, decide to keep eyes open.
 To activate training action by click on the context menu. etc, right click clothing, or right click vehicle.
 
 **Tailoring**: just like others MOD `AutoSewing`, but mine is totally base on TimedAction not dirty override or hooking.

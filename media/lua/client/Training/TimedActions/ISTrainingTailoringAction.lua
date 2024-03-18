@@ -73,6 +73,9 @@ function ISTrainingTailoringAction:perform()
         self.action:stopTimedActionAnim()
         self.action:setLoopedAction(false)
         self.character:Say(getText("IGUI_PlayerText_Well_Done"))
+        
+        UIManager.getSpeedControls():SetCurrentGameSpeed(1)
+
         -- needed to remove from queue / start next.
         ISBaseTimedAction.perform(self)
     end

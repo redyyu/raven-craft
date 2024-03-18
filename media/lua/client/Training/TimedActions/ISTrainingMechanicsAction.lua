@@ -92,7 +92,7 @@ function ISTrainingMechanicsAction:stop()
 end
 
 function ISTrainingMechanicsAction:waitToStart()
-    if self.is_install then
+    if self.isInstall then
         item = nil
         for i=0, self.part:getItemType():size() - 1 do
             local item_type = self.part:getItemType():get(i)
@@ -135,7 +135,7 @@ end
 function ISTrainingMechanicsAction:perform()
     local perksTable = VehicleUtils.getPerksTableForChr(self.partTable.skills, self.character)
     
-    if self.is_install then
+    if self.isInstall then
         if self.item and self:prepareProcessPart() and self.vehicle:canInstallPart(self.character, self.part) then
             self.inventory:DoRemoveItem(self.item)
             
@@ -184,6 +184,7 @@ function ISTrainingMechanicsAction:perform()
     if self.item then
 	    self.item:setJobDelta(0.0)
     end
+
 end
 
 function ISTrainingMechanicsAction:new(character, part, is_install, screwdriver, wrench, lug_wrench, jack)
@@ -201,7 +202,7 @@ function ISTrainingMechanicsAction:new(character, part, is_install, screwdriver,
     o.part = part
     o.vehicle = part:getVehicle()
     o.item = nil
-    o.is_install = is_install
+    o.isInstall = is_install
     o.loopedAction = false
     if is_install then
         o.partTable = part:getTable('install')
@@ -214,5 +215,6 @@ function ISTrainingMechanicsAction:new(character, part, is_install, screwdriver,
 	if character:isTimedActionInstant() then
 		o.maxTime = 1;
 	end
+
     return o
 end
