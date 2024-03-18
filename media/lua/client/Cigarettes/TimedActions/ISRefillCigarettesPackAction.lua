@@ -35,8 +35,7 @@ function ISRefillCigarettesPackAction:perform()
         refill_count = self.cigarettes:size()
     end
     for i=0, refill_count -1 do
-        -- self.character:getInventory():Remove(self.cigarettes:get(i))
-        self.cigarettes:Use()
+        self.character:getInventory():Remove(self.cigarettes:get(i))
     end
     local refilled_delta = math.min(refill_count * self.cigarettes_pack:getUseDelta(), 1.0)
     self.cigarettes_pack:setUsedDelta(self.cigarettes_pack:getUsedDelta() + refilled_delta)
