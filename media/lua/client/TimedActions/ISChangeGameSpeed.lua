@@ -37,5 +37,6 @@ function ISRestoreGameSpeed:new(game_speed)
 	else
 		game_speed = math.floor(game_speed)
 		o.gameSpeed = math.max(math.min(game_speed, 3), 0)
+	end
 	return o
 end
