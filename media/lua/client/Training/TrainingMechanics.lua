@@ -184,7 +184,8 @@ local function onTrainingMechanics(playerObj, vehicle, screwdriver, wrench, lug_
             end
         end
     end
-    ISTimedActionQueue.add(ISChangeGameSpeed:new(1))
+
+    ISTimedActionQueue.add(ISChangeGameSpeed:new(playerObj, 1))
 end
 
 

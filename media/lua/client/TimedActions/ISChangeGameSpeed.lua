@@ -1,33 +1,34 @@
 require "TimedActions/ISBaseTimedAction"
 
 
-ISRestoreGameSpeed = ISBaseTimedAction:derive("ISRestoreGameSpeed")
+ISChangeGameSpeed = ISBaseTimedAction:derive("ISChangeGameSpeed")
 
 
-function ISRestoreGameSpeed:isValid()
+function ISChangeGameSpeed:isValid()
 	return true
 end
 
-function ISRestoreGameSpeed:stop()
+function ISChangeGameSpeed:stop()
 	ISBaseTimedAction.stop(self)
 end
 
-function ISRestoreGameSpeed:perform()
+function ISChangeGameSpeed:perform()
 	UIManager.getSpeedControls():SetCurrentGameSpeed(self.gameSpeed)
 	-- needed to remove from queue / start next.
 	ISBaseTimedAction.perform(self)
 end
 
-function ISRestoreGameSpeed:create()
+function ISChangeGameSpeed:create()
 	ISBaseTimedAction.create(self)
 	self.action:setUseProgressBar(false)
 end
 
-function ISRestoreGameSpeed:new(game_speed)
+function ISChangeGameSpeed:new(character, game_speed)
 	local o = {}
 	setmetatable(o, self)
 	self.__index = self
 	o.maxTime = 0
+	o.character = character
 	o.stopOnWalk = false
 	o.stopOnRun = false
 	if game_speed == nil or game_speed == true then
