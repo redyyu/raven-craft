@@ -809,3 +809,38 @@ try not select **Armature** and **Bake Animation**. not sure what happen, maybe 
 *Becareful the size of model*. most time the model in game is really small, must set scale to very small in export settings. etc. `0.01`
 but could be any size when modeling, bigger enough too operate.
 
+
+
+## TimedAction
+
+
+### isValidStart only trigger when after another action completed.
+
+`perform` must before the `eatItem`, because in `ISEatFoodAction` have `isValidStart()`
+it will check MoodleLevel of Eaten, when character is too full, will stop the queue,
+but `isValidStart()` only trigger when a queue action onComplete, it's not trigger by first action.
+
+** in `ISEatFoodAction` **
+```
+function ISEatFoodAction:isValidStart()
+    return self.character:getMoodles():getMoodleLevel(MoodleType.FoodEaten) < 3 or self.character:getNutrition():getCalories() < 1000
+end
+```
+** in `ISTimedActionQueue` **
+```
+function ISTimedActionQueue:onCompleted(action)
+    self:removeFromQueue(action)
+
+    self.current = self.queue[1]
+
+    if self.current then
+        if self.current:isValidStart() then
+            self.current:begin()
+        else
+            print('bugged action, cleared queue ', self.current.Type or "???")
+            self:resetQueue()
+            return
+        end
+    end
+end
+```
