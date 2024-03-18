@@ -36,6 +36,7 @@ function ISRefillCigarettesPackAction:perform()
     end
     for i=0, refill_count -1 do
         self.character:getInventory():Remove(self.cigarettes:get(i))
+        -- DO not use `:Use`, Cigarettes is not real a food.
     end
     local refilled_delta = math.min(refill_count * self.cigarettes_pack:getUseDelta(), 1.0)
     self.cigarettes_pack:setUsedDelta(self.cigarettes_pack:getUsedDelta() + refilled_delta)
