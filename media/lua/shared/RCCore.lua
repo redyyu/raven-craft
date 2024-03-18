@@ -3,23 +3,25 @@ PACKAGE_NAME = "RavenCraft";
 local loot_chance = SandboxVars.RavenCraft.LootChance
 local loot_chance_percent = loot_chance / 100
 
-TextColor = {}
-TextColor.ghs = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
-TextColor.bhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
+RC = {}
+
+RC.TextColor = {}
+RC.TextColor.ghs = " <RGB:" .. getCore():getGoodHighlitedColor():getR() .. "," .. getCore():getGoodHighlitedColor():getG() .. "," .. getCore():getGoodHighlitedColor():getB() .. "> "
+RC.TextColor.bhs = " <RGB:" .. getCore():getBadHighlitedColor():getR() .. "," .. getCore():getBadHighlitedColor():getG() .. "," .. getCore():getBadHighlitedColor():getB() .. "> "
 
 
-getPackageName = function()
+RC.getPackageName = function()
     return PACKAGE_NAME
 end
 
-getPackageItemType = function(item_name)
+RC.getPackageItemType = function(item_name)
     if item_name:find(".", 1, true) == 1 then
         item_name = PACKAGE_NAME..item_name
     end
     return item_name
 end
 
-getLootChance = function(character)
+RC.getLootChance = function(character)
     local modifier = 1
     if character then
         if character:getTraits():contains("Lucky") then
@@ -33,7 +35,7 @@ getLootChance = function(character)
 end
 
 
-predicateLootChance = function(character, rand, rand_2)
+RC.predicateLootChance = function(character, rand, rand_2)
     if rand == nil then
         rand = ZombRand(1, 100)
     end
@@ -52,7 +54,7 @@ predicateLootChance = function(character, rand, rand_2)
 end
 
 
-insertDistTable = function(table_obj, group_or_key, weight)
+RC.insertDistTable = function(table_obj, group_or_key, weight)
 
     if weight == nil and weight ~= 0 then  -- could be 0, but 0 == nil
         weight = 1
@@ -86,17 +88,17 @@ insertDistTable = function(table_obj, group_or_key, weight)
 end 
 
 
-isBeforeElecShut = function()
+RC.isBeforeElecShut = function()
     return (SandboxVars.ElecShutModifier < 0 or GameTime:getInstance():getNightsSurvived() < SandboxVars.ElecShutModifier)
 end
 
 
-isSquarePowered = function(square)
-    return isBeforeElecShut() or square:haveElectricity()
+RC.isSquarePowered = function(square)
+    return RC.isBeforeElecShut() or square:haveElectricity()
 end
 
 
-isRequireInHandOrInventory = function(character, item)
+RC.isRequireInHandOrInventory = function(character, item)
     local required_items = item:getRequireInHandOrInventory()
     for i=0, required_items:size() - 1 do
         if character:getInventory():containsTypeRecurse(required_items:get(i)) then

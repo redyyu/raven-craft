@@ -172,7 +172,7 @@ SurvivalJournal.doBuildReadMenu = function(player, context, items)
     local journal = nil
 
     for _, item in ipairs(items) do
-        if item:getFullType() == getPackageItemType('.SurvivalJournal') then
+        if item:getFullType() == RC.getPackageItemType('.SurvivalJournal') then
             journal = item
         end
     end

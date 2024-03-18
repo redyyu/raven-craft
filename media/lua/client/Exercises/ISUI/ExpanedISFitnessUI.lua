@@ -60,7 +60,7 @@ function ISFitnessUI:addExerciseToList(exerType, data)
     if data.nearby and not findDeviceNearby(self.player, data.nearby.sprites) then
         enabled = false
         text = text .. getText("IGUI_FitnessNeedNerbyDevice")
-    elseif data.electricity and not isSquarePowered(square) then
+    elseif data.electricity and not RC.isSquarePowered(square) then
         enabled = false
         text = text .. getText("IGUI_FitnessNeedElectricity")
     end
@@ -81,7 +81,7 @@ function ISFitnessUI:updateButtons(currentAction)
         self.ok.tooltip = self.exeData.name..getText("IGUI_FitnessNeedNerbyDevice")
     end
     
-    if self.exeData.electricity and not isSquarePowered(self.player:getCurrentSquare()) then
+    if self.exeData.electricity and not RC.isSquarePowered(self.player:getCurrentSquare()) then
         self.ok.enable = false
         self.ok.tooltip = self.exeData.name..getText("IGUI_FitnessNeedElectricity")
     end
@@ -123,7 +123,7 @@ function ISFitnessUI:onClick(button)
             end
         end
         
-        if self.exeData.electricity and not isSquarePowered(self.player:getCurrentSquare()) then
+        if self.exeData.electricity and not RC.isSquarePowered(self.player:getCurrentSquare()) then
             self.player:Say(self.exeData.name..getText("IGUI_FitnessNeedElectricity"))
             return
         end

@@ -18,7 +18,7 @@ function ISToolTipInv:render()
 	   and instanceof(player:getWornItem(item:getBodyLocation()), "InventoryContainer")
 	then
 		return false
-	elseif item:getFullType() == getPackageItemType('.SurvivalJournal') then
+	elseif item:getFullType() == RC.getPackageItemType('.SurvivalJournal') then
 		SurvivalJournal.setTooltip(item)
 	end
 

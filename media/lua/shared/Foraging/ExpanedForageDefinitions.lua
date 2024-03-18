@@ -19,15 +19,15 @@ ForagingDefs.Corest = {
         "Corset",
         "Corset_Black",
         "Corset_Red",
-        getPackageItemType(".Corset_Pink"),
+        RC.getPackageItemType(".Corset_Pink"),
         
-        getPackageItemType(".Corset_BodysuitBlack"),
-        getPackageItemType(".Corset_BodysuitRed"),
-        getPackageItemType(".Corset_BodysuitTINT"),
-        getPackageItemType(".Corset_BodysuitPink"),
+        RC.getPackageItemType(".Corset_BodysuitBlack"),
+        RC.getPackageItemType(".Corset_BodysuitRed"),
+        RC.getPackageItemType(".Corset_BodysuitTINT"),
+        RC.getPackageItemType(".Corset_BodysuitPink"),
 
-        getPackageItemType(".Corset_ToplessTINT"),
-        getPackageItemType(".Corset_ToplessBodysuitTINT"),
+        RC.getPackageItemType(".Corset_ToplessTINT"),
+        RC.getPackageItemType(".Corset_ToplessBodysuitTINT"),
     }
 }
 

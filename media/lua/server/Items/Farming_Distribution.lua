@@ -28,29 +28,29 @@ local ITEMS_WEIGHT = {
     [".PeachSeedBagSeed"] = 2,
 }
 
-insertDistTable(ProceduralDistributions.list["CrateFarming"], ITEMS_WEIGHT, 8);
-insertDistTable(ProceduralDistributions.list["GardenStoreMisc"], ITEMS_WEIGHT, 20);
-insertDistTable(ProceduralDistributions.list["GigamartFarming"], ITEMS_WEIGHT, 8);
-insertDistTable(ProceduralDistributions.list["Homesteading"], ITEMS_WEIGHT, 20);
-insertDistTable(ProceduralDistributions.list["ToolStoreFarming"], ITEMS_WEIGHT, 8);
+RC.insertDistTable(ProceduralDistributions.list["CrateFarming"], ITEMS_WEIGHT, 8);
+RC.insertDistTable(ProceduralDistributions.list["GardenStoreMisc"], ITEMS_WEIGHT, 20);
+RC.insertDistTable(ProceduralDistributions.list["GigamartFarming"], ITEMS_WEIGHT, 8);
+RC.insertDistTable(ProceduralDistributions.list["Homesteading"], ITEMS_WEIGHT, 20);
+RC.insertDistTable(ProceduralDistributions.list["ToolStoreFarming"], ITEMS_WEIGHT, 8);
 
-insertDistTable(VehicleDistributions["FarmerGloveBox"], ITEMS_WEIGHT, 8);
-insertDistTable(VehicleDistributions["FarmerTruckBed"], ITEMS_WEIGHT, 8);
+RC.insertDistTable(VehicleDistributions["FarmerGloveBox"], ITEMS_WEIGHT, 8);
+RC.insertDistTable(VehicleDistributions["FarmerTruckBed"], ITEMS_WEIGHT, 8);
 
 
 -- SackProduce
 
-insertDistTable(ProceduralDistributions.list["GroceryStorageCrate1"], ".SackProduce_Wheat", 0.1)
-insertDistTable(ProceduralDistributions.list["GroceryStorageCrate2"], ".SackProduce_Wheat", 4)
-insertDistTable(ProceduralDistributions.list["GroceryStorageCrate3"], ".SackProduce_Wheat", 10)
-insertDistTable(ProceduralDistributions.list["ProduceStorageCorn"], ".SackProduce_Wheat", 5)
-insertDistTable(ProceduralDistributions.list["ProduceStorageLettuce"], ".SackProduce_Wheat", 5)
-insertDistTable(ProceduralDistributions.list["ProduceStorageOnions"], ".SackProduce_Wheat", 5)
-insertDistTable(ProceduralDistributions.list["ProduceStoragePotatoes"], ".SackProduce_Wheat", 5)
-insertDistTable(ProceduralDistributions.list["CrateFarming"], ".SackProduce_Wheat", 2)
+RC.insertDistTable(ProceduralDistributions.list["GroceryStorageCrate1"], ".SackProduce_Wheat", 0.1)
+RC.insertDistTable(ProceduralDistributions.list["GroceryStorageCrate2"], ".SackProduce_Wheat", 4)
+RC.insertDistTable(ProceduralDistributions.list["GroceryStorageCrate3"], ".SackProduce_Wheat", 10)
+RC.insertDistTable(ProceduralDistributions.list["ProduceStorageCorn"], ".SackProduce_Wheat", 5)
+RC.insertDistTable(ProceduralDistributions.list["ProduceStorageLettuce"], ".SackProduce_Wheat", 5)
+RC.insertDistTable(ProceduralDistributions.list["ProduceStorageOnions"], ".SackProduce_Wheat", 5)
+RC.insertDistTable(ProceduralDistributions.list["ProduceStoragePotatoes"], ".SackProduce_Wheat", 5)
+RC.insertDistTable(ProceduralDistributions.list["CrateFarming"], ".SackProduce_Wheat", 2)
 
 
 -- SuburbsDistributions
-insertDistTable(SuburbsDistributions.all.Outfit_Farmer, ITEMS_WEIGHT, 8)
-insertDistTable(SuburbsDistributions.SeedBag, ITEMS_WEIGHT, 20)
+RC.insertDistTable(SuburbsDistributions.all.Outfit_Farmer, ITEMS_WEIGHT, 8)
+RC.insertDistTable(SuburbsDistributions.SeedBag, ITEMS_WEIGHT, 20)
 

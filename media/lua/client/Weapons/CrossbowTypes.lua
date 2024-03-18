@@ -5,15 +5,15 @@ CrossbowTypes = {
 	-- otherwise is no change when ReStrat game or change Script.
 
 	['CrossbowWooden'] = {
-		sprite = getPackageItemType('.CrossbowWooden'),
-		sprite_drawn = getPackageItemType('.CrossbowWoodenDrawn'),
+		sprite = RC.getPackageItemType('.CrossbowWooden'),
+		sprite_drawn = RC.getPackageItemType('.CrossbowWoodenDrawn'),
 	},
 	['CrossbowHand'] = {
-		sprite = getPackageItemType('.CrossbowHand'),
-		sprite_drawn = getPackageItemType('.CrossbowHandDrawn'),
+		sprite = RC.getPackageItemType('.CrossbowHand'),
+		sprite_drawn = RC.getPackageItemType('.CrossbowHandDrawn'),
 	},
 	['CrossbowCompound'] = {
-		sprite = getPackageItemType('.CrossbowCompound'),
-		sprite_drawn = getPackageItemType('.CrossbowCompoundDrawn'),
+		sprite = RC.getPackageItemType('.CrossbowCompound'),
+		sprite_drawn = RC.getPackageItemType('.CrossbowCompoundDrawn'),
 	},
 }

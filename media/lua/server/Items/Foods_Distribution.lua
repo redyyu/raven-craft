@@ -29,25 +29,25 @@ local ALCOHOL_WEIGHT = {
 
 -- Seasoing
 
-insertDistTable(ProceduralDistributions.list["BurgerKitchenButcher"], SEASONING_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["FishChipsKitchenButcher"], SEASONING_WEIGHT, 4);
-insertDistTable(ProceduralDistributions.list["ItalianKitchenButcher"], SEASONING_WEIGHT, 3);
-insertDistTable(ProceduralDistributions.list["JaysKitchenButcher"], SEASONING_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["KitchenDryFood"], SEASONING_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["MexicanKitchenButcher"], SEASONING_WEIGHT, 3);
-insertDistTable(ProceduralDistributions.list["SeafoodKitchenButcher"], SEASONING_WEIGHT, 3);
-insertDistTable(ProceduralDistributions.list["StoreKitchenButcher"], SEASONING_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["WesternKitchenButcher"], SEASONING_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["BurgerKitchenButcher"], SEASONING_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["FishChipsKitchenButcher"], SEASONING_WEIGHT, 4);
+RC.insertDistTable(ProceduralDistributions.list["ItalianKitchenButcher"], SEASONING_WEIGHT, 3);
+RC.insertDistTable(ProceduralDistributions.list["JaysKitchenButcher"], SEASONING_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["KitchenDryFood"], SEASONING_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["MexicanKitchenButcher"], SEASONING_WEIGHT, 3);
+RC.insertDistTable(ProceduralDistributions.list["SeafoodKitchenButcher"], SEASONING_WEIGHT, 3);
+RC.insertDistTable(ProceduralDistributions.list["StoreKitchenButcher"], SEASONING_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["WesternKitchenButcher"], SEASONING_WEIGHT, 2);
 
-insertDistTable(ProceduralDistributions.list["StoreShelfSpices"], SEASONING_WEIGHT, 5);
+RC.insertDistTable(ProceduralDistributions.list["StoreShelfSpices"], SEASONING_WEIGHT, 5);
 
 
 -- Drinks
-insertDistTable(ProceduralDistributions.list["FridgeBottles"], POP_BEER_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["GigamartBottles"], POP_BEER_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["StoreShelfSnacks"], POP_BEER_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["KitchenBottles"], POP_BEER_WEIGHT, 1);
-insertDistTable(VehicleDistributions.Spiffo["TruckBed"], POP_BEER_WEIGHT, 1)
+RC.insertDistTable(ProceduralDistributions.list["FridgeBottles"], POP_BEER_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["GigamartBottles"], POP_BEER_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["StoreShelfSnacks"], POP_BEER_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["KitchenBottles"], POP_BEER_WEIGHT, 1);
+RC.insertDistTable(VehicleDistributions.Spiffo["TruckBed"], POP_BEER_WEIGHT, 1)
 
-insertDistTable(ProceduralDistributions.list["GigamartBottles"], ALCOHOL_WEIGHT, 2);
-insertDistTable(ProceduralDistributions.list["StoreShelfSnacks"], ALCOHOL_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["GigamartBottles"], ALCOHOL_WEIGHT, 2);
+RC.insertDistTable(ProceduralDistributions.list["StoreShelfSnacks"], ALCOHOL_WEIGHT, 2);

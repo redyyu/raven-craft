@@ -3,7 +3,7 @@ require "recipecode"
 
 -- check player is in somewhere have electricity
 function Recipe.OnCanPerform.haveElectricity(recipe, playerObj)
-    return isSquarePowered(playerObj:getCurrentSquare())
+    return RC.isSquarePowered(playerObj:getCurrentSquare())
 end
 
 function Recipe.OnCanPerform.NearFurnaceFire(recipe, playerObj)
@@ -203,7 +203,7 @@ function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
             if wet > wetness then
                 wetness = wet
             end
-            if item:getFullType() == getPackageItemType(".SuitPads") then
+            if item:getFullType() == RC.getPackageItemType(".SuitPads") then
                 suit_clothing = item
             end
         end
@@ -222,7 +222,7 @@ function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
     local result_item = nil
 
     for _, n in ipairs(itemtbl) do
-        local item_type = getPackageItemType(n)
+        local item_type = RC.getPackageItemType(n)
         if item_type ~= result:getFullType() then
             result_item = player:getInventory():AddItem(item_type)
         else

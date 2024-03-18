@@ -28,8 +28,8 @@ fishingNet.checkTrap = function(player, trap, hours)
     if hours >= 12 then
         for k, v in pairs(EXTRA_FISHS) do
             local catch_chance = ZombRand(0, fishing_lv * v)
-            if predicateLootChance(player, catch_chance) then
-                local item_count = math.floor(ZombRand(1, v) * getLootChance(player) * (fishing_lv / 10))
+            if RC.predicateLootChance(player, catch_chance) then
+                local item_count = math.floor(ZombRand(1, v) * RC.getLootChance(player) * (fishing_lv / 10))
                 if item_count then
                     player:getInventory():AddItems(k, item_count)
                     player:getXp():AddXP(Perks.Fishing, getExpGain(item_count, v))

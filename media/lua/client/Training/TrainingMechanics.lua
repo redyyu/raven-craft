@@ -209,34 +209,34 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
 
     if not unknow_recipe and not door_locked and screwdriver and wrench and lug_wrench and jack then
         toolTip.description = getText("Tooltip_TRAINING_READY_FOR") .." <LINE><LINE> "
-        toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_Screwdriver") .." <LINE> "
-        toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_Wrench") .." <LINE> "
-        toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_LugWrench") .. "<LINE> "
-        toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_Jack") .. "<LINE> "
+        toolTip.description = toolTip.description .. RC.TextColor.ghs .. getText("Tooltip_Item_Screwdriver") .." <LINE> "
+        toolTip.description = toolTip.description .. RC.TextColor.ghs .. getText("Tooltip_Item_Wrench") .." <LINE> "
+        toolTip.description = toolTip.description .. RC.TextColor.ghs .. getText("Tooltip_Item_LugWrench") .. "<LINE> "
+        toolTip.description = toolTip.description .. RC.TextColor.ghs .. getText("Tooltip_Item_Jack") .. "<LINE> "
     else
         option.notAvailable = true
-        toolTip.description = TextColor.bhs .. getText("Tooltip_TRAINING_NO_ITEMS_FOR") .." <LINE><LINE> "
+        toolTip.description = RC.TextColor.bhs .. getText("Tooltip_TRAINING_NO_ITEMS_FOR") .." <LINE><LINE> "
         
         if unknow_recipe then
             local recipe_name = getText("Tooltip_Recipe_"..unknow_recipe)
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_TRAINING_NEED_LEARN", recipe_name) .." <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_TRAINING_NEED_LEARN", recipe_name) .." <LINE> "
         end
 
         if door_locked then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_ONE_OF_DOOR_IS_LOCKED") .." <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_ONE_OF_DOOR_IS_LOCKED") .." <LINE> "
         end
 
         if not screwdriver then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Screwdriver") .."  0/1 <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_Item_Screwdriver") .."  0/1 <LINE> "
         end
         if not wrench then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Wrench") .."  0/1 unit <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_Item_Wrench") .."  0/1 unit <LINE> "
         end
         if not lug_wrench then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_LugWrench") .. "  0/1 <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_Item_LugWrench") .. "  0/1 <LINE> "
         end
         if not jack then
-            toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Jack") .. "  0/1 <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_Item_Jack") .. "  0/1 <LINE> "
         end
     end
 end

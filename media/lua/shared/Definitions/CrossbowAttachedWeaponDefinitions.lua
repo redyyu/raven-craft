@@ -16,8 +16,8 @@ AttachedWeaponDefinitions.crossbowBack = {
 	addHoles = true,
 	daySurvived = 14,
 	weapons = {
-		getPackageItemType(".CrossbowWooden"),
-		getPackageItemType(".CrossbowHand"),
-		getPackageItemType(".CrossbowCompound"),
+		RC.getPackageItemType(".CrossbowWooden"),
+		RC.getPackageItemType(".CrossbowHand"),
+		RC.getPackageItemType(".CrossbowCompound"),
 	},
 }

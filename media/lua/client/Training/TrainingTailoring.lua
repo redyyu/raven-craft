@@ -35,21 +35,21 @@ local function doTrainingTailoringMenu(player, context, items)
         
         if thread and needle and has_fabric then
             toolTip.description = getText("Tooltip_TRAINING_READY_FOR") .." <LINE><LINE> "
-            toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_Needle") .." <LINE> "
-            toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_Thread") .." <LINE> "
-            toolTip.description = toolTip.description .. TextColor.ghs .. getText("Tooltip_Item_RippedSheets") .. "<LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.ghs .. getText("Tooltip_Item_Needle") .." <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.ghs .. getText("Tooltip_Item_Thread") .." <LINE> "
+            toolTip.description = toolTip.description .. RC.TextColor.ghs .. getText("Tooltip_Item_RippedSheets") .. "<LINE> "
         else
             option.notAvailable = true
-            toolTip.description = TextColor.bhs .. getText("Tooltip_TRAINING_NO_ITEMS_FOR") .." <LINE><LINE> "
+            toolTip.description = RC.TextColor.bhs .. getText("Tooltip_TRAINING_NO_ITEMS_FOR") .." <LINE><LINE> "
             
             if not needle then
-                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Needle") .."  0/1 <LINE> "
+                toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_Item_Needle") .."  0/1 <LINE> "
             end
             if not thread then
-                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_Thread") .."  0/1 unit <LINE> "
+                toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_Item_Thread") .."  0/1 unit <LINE> "
             end
             if not has_fabric then
-                toolTip.description = toolTip.description .. TextColor.bhs .. getText("Tooltip_Item_RippedSheets") .. "  0/1 <LINE> "
+                toolTip.description = toolTip.description .. RC.TextColor.bhs .. getText("Tooltip_Item_RippedSheets") .. "  0/1 <LINE> "
             end
         end
     end
