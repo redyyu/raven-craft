@@ -654,109 +654,58 @@ function Recipe.OnTest.IsNotFullPack(item)
 end
 
 
--- function Recipe.OnGiveXP.Training(recipe, ingredients, result, player)
---     local training_type = result:getType();
---     local perks_type = nil;
---     local xp_gain = 0;
+-- Mix Vegetables
 
---     if training_type == 'BookFirstAid1' then
---         perks_type = Perks.Doctor;
---         xp_gain = 10;
---     elseif training_type == 'BookFirstAid2' then
---         perks_type = Perks.Doctor;
---         xp_gain = 20;
---     elseif training_type == 'BookFirstAid3' then
---         perks_type = Perks.Doctor;
---         xp_gain = 30;
---     elseif training_type == 'BookFirstAid4' then
---         perks_type = Perks.Doctor;
---         xp_gain = 40;
---     elseif training_type == 'BookFirstAid5' then
---         perks_type = Perks.Doctor;
---         xp_gain = 50;
+local MIXABLE_VEGE_TYPES = {
+    "Potato", "Carrots", "Lettuce", "Tomato", "Broccoli",
+    "Cabbage", "Corn", "Zucchini", "Edamame", "Eggplant",
+    "BellPepper", "PepperHabanero", "PepperJalapeno", "Lettuce",
+    "Daikon", "RedRadish",
+}
 
---     elseif training_type == 'BookTailoring1' then
---         perks_type = Perks.Tailoring;
---         xp_gain = 10;
---     elseif training_type == 'BookTailoring2' then
---         perks_type = Perks.Tailoring;
---         xp_gain = 20;
---     elseif training_type == 'BookTailoring3' then
---         perks_type = Perks.Tailoring;
---         xp_gain = 30;
---     elseif training_type == 'BookTailoring4' then
---         perks_type = Perks.Tailoring;
---         xp_gain = 40;
---     elseif training_type == 'BookTailoring5' then
---         perks_type = Perks.Tailoring;
---         xp_gain = 50;
---     end
-
---     if perks_type and xp_gain ~= 0 then
---         player:getXp():AddXP(perks_type, xp_gain);
---     end
--- end
+function Recipe.OnCanPerform.haveMixableVegetables(recipe, playerObj)
+    local playerInv = playerObj:getInventory()
+    local total_hunger_change = 0
+    for _, vege_type in ipairs(MIXABLE_VEGE_TYPES) do
+        local vege_items = playerInv:getAllTypeRecurse(vege_type)
+        for i=0, vege_items:size() -1 do
+            local vege = vege_items:get(i)
+            if vege:getHungerChange() >= -0.03 and not vege:isRotten() then  -- HungerChange is negative number.
+                total_hunger_change = total_hunger_change + vege:getHungerChange()
+            end
+        end
+        if total_hunger_change <= -0.10 then  -- HungerChange is negative number.
+            return true
+        end
+    end
+    return false
+end
 
 
--- function Recipe.OnGiveXP.TrainingMeleeWeapon(recipe, ingredients, result, player)
---     local training_Categories = result:getCategories();
---     local perks_type = nil;
---     local item = nil;
---     local preks_level = 0;
---     local xp_gain = 1;
---     local condition = 0;
+function Recipe.OnCreate.mixVegetables(items, result, playerObj)
+    local playerInv = playerObj:getInventory()
+    local total_hunger_change = 0
+    for _, vege_type in ipairs(MIXABLE_VEGE_TYPES) do
+        local vege_items = playerInv:getAllTypeRecurse(vege_type)
+        for i=0, vege_items:size() -1 do
+            local vege = vege_items:get(i)
+            if vege:getHungerChange() >= -0.03 and not vege:isRotten() then -- HungerChange is negative number.
+                total_hunger_change = total_hunger_change + vege:getHungerChange()
+                vege:Use() 
+                -- use `:Use` to consume the vegetable, not `:Remove()`, 
+                -- seems that need much more coding to make it safe to remove.
+            end
+            if total_hunger_change <= -0.30 then -- HungerChange is negative number.
+                break
+            end
+        end
 
---     if training_Categories:contains("Axe") then
---         perks_type = Perks.Axe;
---     elseif training_Categories:contains("SmallBlade") then
---         perks_type = Perks.SmallBlade;
---     elseif training_Categories:contains("LongBlade") then
---         perks_type = Perks.LongBlade;
---     elseif training_Categories:contains("SmallBlunt") then
---         perks_type = Perks.SmallBlunt;
---     elseif training_Categories:contains("Blunt") then
---         perks_type = Perks.Blunt;
---     elseif training_Categories:contains("Spear") then
---         perks_type = Perks.Spear;
---     end
-
---     for i=1,ingredients:size() do
---         item = ingredients:get(i-1);
---         if item:getType() == result:getType() then
---             condition = item:getCondition() - 1;
---         end
---     end
-    
---     if condition < 0 then
---         condition = 0;
---     end
---     result:setCondition(condition);
-
---     if perks_type then
---         preks_level = player:getPerkLevel(perks_type);
---         if preks_level <= 3 then
---             xp_gain = (preks_level + 1) * 10 * 2;
---         else
---             xp_gain = 1;
---         end
---         player:getXp():AddXP(perks_type, xp_gain);
---     end
-
---     for i = 1, 6 do
---         player:getInventory():AddItem("Base.UnusableWood");
---     end
--- end
-
-
--- function Recipe.GetItemTypes.Fertilizer(scriptItems)
---     local allScriptItems = getScriptManager():getAllItems()
---     for i=1,allScriptItems:size() do
---         local scriptItem = allScriptItems:get(i-1)
---         if scriptItem:getName() == 'Fertilizer' or scriptItem:getName() == 'CompostBag' then
---             scriptItems:add(scriptItem)
---         end
---     end
--- end
-
-
--- require "TimedActions/ISAttachItemHotbar"
+        if total_hunger_change <= -0.30 then -- HungerChange is negative number.
+            break
+        end
+    end
+    if total_hunger_change >= 0 then -- make sure HungerChange is not 0.
+        total_hunger_change = -0.001
+    end
+    result:setHungChange(total_hunger_change)
+end

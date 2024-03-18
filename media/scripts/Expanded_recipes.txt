@@ -1860,17 +1860,19 @@ module RavenCraft
     }
 
     recipe Make Mixed Vegetables {
-        keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep [Recipe.GetItemTypes.SharpKnife],
-        Potato/Carrots/Lettuce/Tomato/Broccoli;12,
-        Cabbage/Corn/ZucchiniEdamame/Eggplant;12,
         Plasticbag/GroceryBag1/GroceryBag2/GroceryBag3/GroceryBag4/GroceryBag5,
+
+        OnCanPerform: Recipe.OnCanPerform.haveMixableVegetables,
+        OnCreate: Recipe.OnCreate.mixVegetables,
 
         Result: CornFrozen,
         SkillRequired: Cooking=6,
         Time: 150.0,
         Sound: Plastering,
         Category: Cooking,
+
+        IsHidden: true, /* Vegetables are take form inventory, not showing up in recipe, that looks bad. */
     }
 
     recipe Pickle Rabbit Meat {
