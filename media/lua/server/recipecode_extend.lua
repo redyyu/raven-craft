@@ -167,7 +167,7 @@ function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
             end
         end
     end
-    
+    result:synchWithVisual()
     result:setCondition(math.floor(result:getConditionMax() * condition_ratio))
     result:setDirtyness(dirtyness)
     result:setWetness(wetness)
@@ -240,9 +240,9 @@ function Recipe.OnCreate.DisassembleArmorSuit(items, result, player)
                     result_item:getVisual():setHole(p)
                 end
             end
+            result_item:synchWithVisual()
         end
     end
-
 end
 
 
@@ -519,12 +519,14 @@ function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
     Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
 
     resultItem:getVisual():setTextureChoice(1)
+    resultItem:synchWithVisual()
 end
 
 function Recipe.OnCreate.printArmyPackToArmy(items, resultItem, player)
     Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
 
     resultItem:getVisual():setTextureChoice(0)
+    resultItem:synchWithVisual()
 end
 
 
@@ -633,6 +635,7 @@ function Recipe.OnCreate.CopyTintForClothing(items, resultItem, player)
         -- newItem:setDirtyness(item:getDirtyness())
         --    newItem:setTexture(item:getTexture())
         resultItem:setColor(srcItem:getColor())
+        resultItem:synchWithVisual()
     end
 
 end

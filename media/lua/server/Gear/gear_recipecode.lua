@@ -33,7 +33,7 @@ function Recipe.OnCreate.FlashlightBatteryInsert(items, result, player)
 	for i=0, items:size()-1 do
 	  -- we found the battery, we change his used delta according to the battery
 	  if items:get(i):getType() == "Battery" then
-		  result:setUsedDelta(items:get(i):getUsedDelta());
+		  result:setUsedDelta(items:get(i):getUsedDelta())
 	  end
 	end
   end
@@ -42,19 +42,22 @@ function Recipe.OnCreate.FlashlightBatteryInsert(items, result, player)
 -- print chestrig and webbing to different color texture.
 function Recipe.OnCreate.printChestRigToBrown(items, resultItem, player)
 	if resultItem:getType() == 'ChestRig' or resultItem:getType() == 'Webbing' then
-    	resultItem:getVisual():setTextureChoice(0);
+    	resultItem:getVisual():setTextureChoice(0)
+		resultItem:synchWithVisual()
 	end
 end
 
 function Recipe.OnCreate.printChestRigToBlack(items, resultItem, player)
 	if resultItem:getType() == 'ChestRig' or resultItem:getType() == 'Webbing' then
-    	resultItem:getVisual():setTextureChoice(1);
+    	resultItem:getVisual():setTextureChoice(1)
+		resultItem:synchWithVisual()
 	end
 end
 
 function Recipe.OnCreate.printChestRigToArmy(items, resultItem, player)
 	if resultItem:getType() == 'ChestRig' or resultItem:getType() == 'Webbing' then
-    	resultItem:getVisual():setTextureChoice(2);
+    	resultItem:getVisual():setTextureChoice(2)
+		resultItem:synchWithVisual()
 	end
 end
 
