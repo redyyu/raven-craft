@@ -105,20 +105,13 @@ function ISTrainingMechanicsAction:waitToStart()
         if not self.item or not self.vehicle:canInstallPart(self.character, self.part) then
             self.action:setTime(0)
             self.action:setUseProgressBar(false)
-            if isDebugEnabled() then
-                print(' ---------------- Training Mechanics ----------------') 
-                print('Skip Install: '.. self.part:getId())
-                print(' ----------------------------------------------------')
-            end
+            printDebug('Skip Install: '.. self.part:getId(), 'Training Mechanics')
         end
     else
         if not self.part:getInventoryItem() or not self.vehicle:canUninstallPart(self.character, self.part) then
             self.action:setTime(0)
             self.action:setUseProgressBar(false)
-            if isDebugEnabled() then
-                print(' ---------------- Training Mechanics ----------------')
-                print('Skip Uninstall: '.. self.part:getId())
-                print(' ----------------------------------------------------')
+            printDebug('Skip Uninstall: '.. self.part:getId(), 'Training Mechanics')
             end
         end
     end
@@ -154,11 +147,7 @@ function ISTrainingMechanicsAction:perform()
                 pdata.lootInventory:refreshBackpacks();
             end
             
-            if isDebugEnabled() then
-                print(' ---------------- Training Mechanics ----------------') 
-                print('Install: '.. self.part:getId() ..' with '.. self.item:getDisplayName())
-                print(' ----------------------------------------------------')
-            end
+            printDebug('Install: '.. self.part:getId() ..' with '.. self.item:getDisplayName(), 'Training Mechanics')
         end
     else
         if self.part:getInventoryItem() and self:prepareProcessPart() and self.vehicle:canUninstallPart(self.character, self.part) then
@@ -171,10 +160,7 @@ function ISTrainingMechanicsAction:perform()
              }
 	        sendClientCommand(self.character, 'vehicle', 'uninstallPart', args)
 
-            if isDebugEnabled() then
-                print(' ---------------- Training Mechanics ----------------')
-                print('Uninstall: '.. self.part:getId())
-                print(' ----------------------------------------------------')
+            printDebug('Uninstall: '.. self.part:getId(), 'Training Mechanics')
             end
         end
     end

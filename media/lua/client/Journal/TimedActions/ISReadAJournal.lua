@@ -19,12 +19,12 @@ ISReadAJournal.checkMultiplier = function(self)
             -- apply the multiplier to the skill
             local multiplier = math.floor((readPercent/10) * (v.maxMultiplier/10))
             if multiplier > self.character:getXp():getMultiplier(perk) and self.character:getPerkLevel(perk) < v.maxLevel then
-                if isDebugEnabled() then
-                    print('Multiplier: '..multiplier)
-                    print('MaxLevel: '..v.maxLevel)
-                    print('CurrentLevel: '..self.character:getPerkLevel(perk))
-                    print('Boost: '.. k)
-                end
+                printDebug({
+                    'Multiplier: '..multiplier,
+                    'MaxLevel: '..v.maxLevel,
+                    'CurrentLevel: '..self.character:getPerkLevel(perk),
+                    'Boost: '.. k,
+                }, 'Read A Journal')
                 self.character:getXp():addXpMultiplier(perk, multiplier, 1, v.maxLevel);
             end
         end
@@ -143,9 +143,7 @@ function ISReadAJournal:perform()
     if self.data['AlreadyReadBook'] then
         for _, book in ipairs(self.data['AlreadyReadBook']) do
             if not self.character:getAlreadyReadBook():contains(book) then
-                if isDebugEnabled() then
-                    print('Add Read Book: '.. book)
-                end
+                printDebug('Add Read Book: '.. book)
                 self.character:getAlreadyReadBook():add(book)
                 -- self.character:ReadLiterature(book) -- is for magazine, and book must be object not str.
             end
@@ -155,9 +153,7 @@ function ISReadAJournal:perform()
     if self.data['KnownRecipes'] then
         for _, recipe in ipairs(self.data['KnownRecipes']) do
             if not self.character:isRecipeKnown(recipe) then
-                if isDebugEnabled() then
-                    print('Add Recipe: '.. recipe)
-                end
+                printDebug('Add Recipe: '.. recipe)
                 self.character:getKnownRecipes():add(recipe)
             end
         end

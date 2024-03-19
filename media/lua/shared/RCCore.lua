@@ -118,3 +118,29 @@ enum = function (tbl)
 
     return tbl
 end
+
+
+printDebug = function(x, name)
+    if name == true or name == nil then
+        name = "isDebug Print"
+    elseif type(name) ~= 'string' then
+        name = false
+    end
+
+    if type(x) == "string" then
+        x = {x}
+    end
+
+    if isDebugEnabled() then
+        if name then
+            print("=========================== ".. name .." ===========================")
+        end
+
+        for _, x in ipairs(x) do
+            print(x)
+        end
+        if name then
+            print("=====================================================================")
+        end
+    end
+end

@@ -29,9 +29,10 @@ SurvivalJournal.onWrite = function(items, result, player)
     end
 
     if isDebugEnabled() then
-        print('Write RCJournal ---------------->>')
-        print(journalData['AlreadyReadBook'])
-        print(journalData['KnownRecipes'])
+        printDebug({
+            journalData['AlreadyReadBook'],
+            journalData['KnownRecipes'],
+        }, 'Write RCJournal')
         player:getAlreadyReadBook():clear()
         player:getKnownRecipes():clear()
     end
