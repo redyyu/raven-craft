@@ -112,7 +112,6 @@ function ISTrainingMechanicsAction:waitToStart()
             self.action:setTime(0)
             self.action:setUseProgressBar(false)
             printDebug('Skip Uninstall: '.. self.part:getId(), 'Training Mechanics')
-            end
         end
     end
 	self.character:faceThisObject(self.vehicle)
@@ -161,7 +160,6 @@ function ISTrainingMechanicsAction:perform()
 	        sendClientCommand(self.character, 'vehicle', 'uninstallPart', args)
 
             printDebug('Uninstall: '.. self.part:getId(), 'Training Mechanics')
-            end
         end
     end
 

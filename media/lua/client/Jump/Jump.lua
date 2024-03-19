@@ -1,11 +1,11 @@
 
 Jump = {}
 Jump.minZ = 0
-Jump.distanceBase = 1
+Jump.distanceBase = 1.5
 Jump.enduranceLevelThreshold = 2
 Jump.heavyloadLevelThreshold = 2
 Jump.inhibit = false
-Jump.key = 'Crouch'
+Jump.key = 'Shout'
 
 
 Jump.getJumpDistance = function(playerObj)
@@ -18,7 +18,7 @@ Jump.getJumpDistance = function(playerObj)
     if playerObj:isRunning() then
         modifier = (modifier + playerObj:getPerkLevel(Perks.Sprinting)) / 2
     elseif playerObj:isSprinting() then
-        modifier = modifier + playerObj:getPerkLevel(Perks.Sprinting)
+        modifier = (modifier + playerObj:getPerkLevel(Perks.Sprinting)) * 2
     else
         modifier = 0
     end
@@ -56,13 +56,13 @@ Jump.RelatedBodyPart = {
 }
 
 Jump.isBodyDamaged = function(playerObj)
-    local body_damage = playerObj isoPlayer:getBodyDamage()
+    local body_damage = playerObj:getBodyDamage()
     if body_damage then
         for _, bp_type in ipairs(Jump.RelatedBodyPart) do
             local body_part = body_damage:getBodyPart(bp_type)
             if body_part:getFractureTime() > 0.0F or 
                body_part:isDeepWounded() or 
-               bP:getStiffness() >= 50.0 then
+               body_part:getStiffness() >= 50.0 then
                 return true
             end
         end
@@ -89,7 +89,7 @@ Jump.getNextSquareRecurse = function(currSquare, destSquare, direction)
     if not direction.horzBlocked then
         direction.horzBlocked = Jump.isBlocked(currSquare, horz_next_square)
     end
-    if destSquare == horz_next_square and not direction.horzBlocked then
+    if destSquare == horz_next_square and not (direction.horzBlocked or direction.nextHorzBlocked) then
         return horz_next_square
     end
     
@@ -97,26 +97,27 @@ Jump.getNextSquareRecurse = function(currSquare, destSquare, direction)
     if not direction.vertBlocked then
         direction.vertBlocked = Jump.isBlocked(currSquare, vert_next_square)
     end
-    if destSquare == vert_next_square and not direction.vertBlocked then
+    if destSquare == vert_next_square and not (direction.vertBlocked or direction.nextVertBlocked) then
         return vert_next_square
     end
 
     local next_square = nil
     if horz_next_square then
         next_square = horz_next_square:getAdjacentSquare(direction.vertical)
-        if not direction.horzBlocked then
-            direction.horzBlocked = Jump.isBlocked(horz_next_square, next_square)
+        if not direction.nextHorzBlocked then
+            direction.nextHorzBlocked = Jump.isBlocked(horz_next_square, next_square)
         end
     elseif vert_next_square then
         next_square = vert_next_square:getAdjacentSquare(direction.horizontal)
-        if not direction.vertBlocked then
-            direction.vertBlocked = Jump.isBlocked(vert_next_square, next_square)
+        if not direction.nextVertBlocked then
+            direction.nextVertBlocked = Jump.isBlocked(vert_next_square, next_square)
         end
     end
     
     if not next_square or (direction.horzBlocked and direction.vertBlocked) then
         return currSquare
-    elseif next_square == destSquare and not (direction.vertBlocked or direction.horzBlocked) then
+    elseif next_square == destSquare and 
+           not (direction.vertBlocked or direction.horzBlocked or direction.nextHorzBlocked or direction.nextVertBlocked) then
         return next_square
     end
 
@@ -133,15 +134,11 @@ Jump.getDestSquare = function(playerObj, destX, destY)
     local deltaX = destX - playerObj:getX()
     local deltaY = destY - playerObj:getY()
 
-    local curr_square = playerObj:getCurrentSquare()
-    
-    if not curr_square then
-        return nil
-    end
-
     local direction = {
         horzBlocked = false,
+        nextHorzBlocked = false,
         vertBlocked = false,
+        nextVertBlocked = false,
         recurse_limit = 10,
         recurse_count = 0,
     }
@@ -157,19 +154,20 @@ Jump.getDestSquare = function(playerObj, destX, destY)
         direction.vertical = IsoDirections.N
     end
 
-    local to_square = nil
+    local dest_square = nil
     local z = playerObj:getZ()
-    while z >= Jump.minZ and to_square == nil do
-        dest_square = getCell():getGridSquare(targetX, targetY, z)
-        to_square = Jump.getNextSquareRecurse(currSquare, dest_square, direction)
-        if to_square then
+    while z >= Jump.minZ and dest_square == nil do
+        -- to_square = getCell():getGridSquare(destX, destY, z)
+        -- dest_square = Jump.getNextSquareRecurse(curr_square, to_square, direction)
+        dest_square = getCell():getGridSquare(destX, destY, z)
+        if dest_square then
             z = Jump.minZ - 1
         else
             z = z - 1
         end
     end
 
-    return to_square
+    return dest_square
 end
 
 
@@ -181,44 +179,59 @@ function Jump.onPlayerUpdate(playerObj)
         -- refused is not vaild scenes.
         return
     end
-    
-    if playerObj:isCurrentState(IdleState.instance()) then
+
+    if not playerObj:isCurrentState(IdleState.instance()) or playerObj:isbFalling() then
         if not Jump.inhibit then
             Jump.inhibit = true
         end
-    else
-        Jump.inhibit = false
     end
-    
-    printDebug({"Jump.inhibit:", Jump.inhibit, playerObj:isCurrentState(IdleState.instance())})
-    if Jump.inhibit then
-        printDebug({
-            "Running / Sprinting: "..tostring(playerObj:isRunning())..'/'..tostring(playerObj:isSprinting()),
-            "isKeyPressed:", isKeyPressed(getCore():getKey(Jump.key))
-        })
-        --when pressing interaction key while running or sprinting
-        if (playerObj:isRunning() or playerObj:isSprinting()) and
-           isKeyPressed(getCore():getKey(Jump.key)) and
-           not playerObj:hasTimedActions() and 
-           not Jump.isBodyDamaged(playerObj) then
 
-            local distance = Jump.getJumpDistance(playerObj)
-            printDebug(distance, 'Distance')
-            if distance ~= nil then
-                -- Credit: Tchernobill
-                local orient_angle = playerObj:getAnimAngleRadians() 
-                --0 = East, PI/2 = South, -PI/2=North, PI=West
-                local dest_x = math.cos(orient_angle) * distance
-                local dest_y = math.sin(orient_angle) * distance
-                local dest_square = Jump.getDestSquare(playerObj, dest_x, dest_y)
-                printDebug(distance, 'Dest Square')
-                if dest_square then       
-                    ISTimedActionQueue.clear(playerObj)
-                    ISTimedActionQueue.add(ISJumpToAction:new(playerObj, dest_square))
-                end
+    if Jump.inhibit then
+        return
+    end
+
+    if not (playerObj:isRunning() or playerObj:isSprinting()) then
+        printDebug(not (playerObj:isRunning() or playerObj:isSprinting()))
+        return
+    end
+
+    
+    
+    --when pressing interaction key while running or sprinting
+    local joypad_id = playerObj:getJoypadBind()
+    
+    if (isKeyPressed(getCore():getKey(Jump.key)) or isJoypadPressed(joypad_id, Joypad.LBumper)) and
+        not playerObj:hasTimedActions() and 
+        not Jump.isBodyDamaged(playerObj) then
+        
+        local distance = Jump.getJumpDistance(playerObj)
+
+        if distance ~= nil then
+            -- Credit: Tchernobill
+            local orient_angle = playerObj:getAnimAngleRadians() 
+            --0 = East, PI/2 = South, -PI/2=North, PI=West
+            local dest_x = playerObj:getX() + math.cos(orient_angle) * distance
+            local dest_y = playerObj:getY() + math.sin(orient_angle) * distance
+ 
+            local dest_square = Jump.getDestSquare(playerObj, dest_x, dest_y)
+            
+            if dest_square then
+                Jump.inhibit = true
+                ISTimedActionQueue.clear(playerObj)
+                ISTimedActionQueue.add(ISJumpToAction:new(playerObj, dest_square))
             end
         end
     end
+
 end
 
 Events.OnPlayerUpdate.Add(Jump.onPlayerUpdate)
+
+
+Jump.onKeyStartPressed = function(key)
+    if key == getCore():getKey(Jump.key) then
+        Jump.inhibit = false
+    end
+end
+
+Events.OnKeyStartPressed.Add(Jump.onKeyStartPressed)

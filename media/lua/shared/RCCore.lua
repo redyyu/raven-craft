@@ -120,27 +120,26 @@ enum = function (tbl)
 end
 
 
-printDebug = function(x, name)
-    if name == true or name == nil then
-        name = "isDebug Print"
-    elseif type(name) ~= 'string' then
-        name = false
-    end
-
-    if type(x) == "string" then
-        x = {x}
-    end
-
+printDebug = function(contents, name)
     if isDebugEnabled() then
+        if name == true or name == nil then
+            name = "isDebug Print"
+        elseif type(name) ~= 'string' then
+            name = false
+        end
+
+        if type(contents) ~= 'table' then
+            contents = {contents}
+        end
+
         if name then
             print("=========================== ".. name .." ===========================")
         end
-
-        for _, x in ipairs(x) do
+        for _, x in ipairs(contents) do
             print(x)
         end
         if name then
-            print("=====================================================================")
+            print("======================( "..(#contents).." )=========================")
         end
     end
 end
