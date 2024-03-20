@@ -20,10 +20,9 @@ local function doTrainingTailoringMenu(player, context, items)
 	end
 
     if clothing then
-        local thread = playerInv:getFirstTypeRecurse("Thread")
         local needle = playerInv:getFirstTypeRecurse("Needle")
-        -- local count_fabric = playerInv:getCountTypeRecurse("RippedSheets")
-        local has_fabric = playerInv:containsTypeRecurse("RippedSheets")
+        local thread_uses = playerInv:getUsesTypeRecurse("Thread")
+        local count_fabric = playerInv:getCountTypeRecurse("RippedSheets")
 
         local toolTip = ISToolTip:new()
         toolTip:initialise()
@@ -32,25 +31,32 @@ local function doTrainingTailoringMenu(player, context, items)
         option.toolTip = toolTip
 
         toolTip:setName(getText("ContextMenu_TRAIN_TAILORING"))
-        
-        if thread and needle and has_fabric then
+        local threadScriptItem = ScriptManager.instance:getItem("Base.Thread")
+        local needleScriptItem = ScriptManager.instance:getItem("Base.Needle")
+        local ripsheetScriptItem = ScriptManager.instance:getItem("Base.RippedSheets")
+        if needle and thread_uses > 0 and count_fabric > 0 then
             toolTip.description = getText("Tooltip_TRAINING_READY_FOR") .." <LINE><LINE> "
-            toolTip.description = toolTip.description .. RC.Txt.ghs .. getText("Tooltip_Item_Needle") .." <LINE> "
-            toolTip.description = toolTip.description .. RC.Txt.ghs .. getText("Tooltip_Item_Thread") .." <LINE> "
-            toolTip.description = toolTip.description .. RC.Txt.ghs .. getText("Tooltip_Item_RippedSheets") .. "<LINE> "
         else
             option.notAvailable = true
-            toolTip.description = RC.Txt.bhs .. getText("Tooltip_TRAINING_NO_ITEMS_FOR") .." <LINE><LINE> "
-            
-            if not needle then
-                toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_Item_Needle") .."  0/1 <LINE> "
-            end
-            if not thread then
-                toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_Item_Thread") .."  0/1 unit <LINE> "
-            end
-            if not has_fabric then
-                toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_Item_RippedSheets") .. "  0/1 <LINE> "
-            end
+            toolTip.description = getText("Tooltip_TRAINING_NOT_READY_FOR") .." <LINE><LINE> "
+        end
+
+        if needle then
+            toolTip.description = toolTip.description .. RC.Txt.ghs .. needleScriptItem:getDisplayName() .." <LINE> "
+        else
+            toolTip.description = toolTip.description .. RC.Txt.bhs .. needleScriptItem:getDisplayName() .." <LINE> "
+        end
+
+        if thread_uses > 0 then
+            toolTip.description = toolTip.description .. RC.Txt.ghs .. threadScriptItem:getDisplayName() .."  "..thread_uses.."/1 <LINE> "
+        else
+            toolTip.description = toolTip.description .. RC.Txt.bhs .. threadScriptItem:getDisplayName() .."  0/1 unit <LINE> "
+        end
+
+        if count_fabric > 0 then
+            toolTip.description = toolTip.description .. RC.Txt.ghs .. ripsheetScriptItem:getDisplayName() .. "  "..count_fabric.."/1 <LINE> "
+        else
+            toolTip.description = toolTip.description .. RC.Txt.bhs .. ripsheetScriptItem:getDisplayName() .. "  0/1 <LINE> "
         end
     end
 end

@@ -55,24 +55,11 @@ Tooltip_EN = {
 
     Tooltip_SURVIVAL_JOURNAL_NOT_ILLITERATE = "Required not Illiterate."
 
-    Tooltip_Recipe_Basic_Mechanics = "Basic Mechanics"
-    Tooltip_Recipe_Intermediate_Mechanics = "Intermediate Mechanics"
-    Tooltip_Recipe_Advanced_Mechanics = "Advanced Mechanics"
 
     -- Training
     Tooltip_TRAINING_READY_FOR = "Ready for Training."
-    Tooltip_TRAINING_NO_ITEMS_FOR = "No Tools or not enough materials for Training."
+    Tooltip_TRAINING_NOT_READY_FOR = "Training Can't start."
     Tooltip_ONE_OF_DOOR_IS_LOCKED = "One of door is locked."
-    Tooltip_TRAINING_NEED_LEARN = "Need Learn %1 first."
-    
-    
+    Tooltip_TRAINING_NEED_LEARN = "Read %1 "
 
-    -- Items
-    Tooltip_Item_Needle = "Needle"
-    Tooltip_Item_Thread = "Thread"
-    Tooltip_Item_RippedSheets = "Ripped Sheets"
-    Tooltip_Item_Screwdriver = "Screwdriver"
-    Tooltip_Item_Wrench = "Wrench"
-    Tooltip_Item_LugWrench = "Lug Wrench"
-    Tooltip_Item_Jack = "Jack"
 }

@@ -72,16 +72,19 @@ local function getUnknowRecipeVehicleType(playerObj, vehicle)
     --    update = Vehicles.Update.Engine,
     --    checkEngine = Vehicles.CheckEngine.Engine,
     -- }
- 
+    local unknow_recipe = nil
     local vehicle_type = vehicle:getScript():getMechanicType()
     if vehicle_type == 1 and not playerObj:isRecipeKnown("Basic Mechanics") then
-        return "Basic_Mechanics"
+        unknow_recipe = ScriptManager.instance:getItem("Base.MechanicMag1"):getDisplayName()
+
     elseif vehicle_type == 2 and not playerObj:isRecipeKnown("Intermediate Mechanics") then
-        return "Intermediate_Mechanics"
+        unknow_recipe = ScriptManager.instance:getItem("Base.MechanicMag2"):getDisplayName()
+
     elseif vehicle_type == 3 and not playerObj:isRecipeKnown("Advanced Mechanics") then
-        return "Advanced_Mechanics"
+        unknow_recipe = ScriptManager.instance:getItem("Base.MechanicMag3"):getDisplayName()
     end
-    return nil
+
+    return unknow_recipe
 end
 
 
@@ -207,38 +210,46 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
     option.toolTip = toolTip
 
     toolTip:setName(getText("ContextMenu_TRAIN_MECHANICS"))
-
+    local scrdrvScriptItem = ScriptManager.instance:getItem("Base.Screwdriver")
+    local wrenchScriptItem = ScriptManager.instance:getItem("Base.Wrench")
+    local lugwrenchScriptItem = ScriptManager.instance:getItem("Base.LugWrench")
+    local jackScriptItem = ScriptManager.instance:getItem("Base.Jack")
     if not unknow_recipe and not door_locked and screwdriver and wrench and lug_wrench and jack then
         toolTip.description = getText("Tooltip_TRAINING_READY_FOR") .." <LINE><LINE> "
-        toolTip.description = toolTip.description .. RC.Txt.ghs .. getText("Tooltip_Item_Screwdriver") .." <LINE> "
-        toolTip.description = toolTip.description .. RC.Txt.ghs .. getText("Tooltip_Item_Wrench") .." <LINE> "
-        toolTip.description = toolTip.description .. RC.Txt.ghs .. getText("Tooltip_Item_LugWrench") .. "<LINE> "
-        toolTip.description = toolTip.description .. RC.Txt.ghs .. getText("Tooltip_Item_Jack") .. "<LINE> "
     else
         option.notAvailable = true
-        toolTip.description = RC.Txt.bhs .. getText("Tooltip_TRAINING_NO_ITEMS_FOR") .." <LINE><LINE> "
+        toolTip.description = getText("Tooltip_TRAINING_NOT_READY_FOR") .." <LINE><LINE> "
         
-        if unknow_recipe then
-            local recipe_name = getText("Tooltip_Recipe_"..unknow_recipe)
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_TRAINING_NEED_LEARN", recipe_name) .." <LINE> "
-        end
+    if unknow_recipe then
+        toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_TRAINING_NEED_LEARN", unknow_recipe) .." <LINE> "
+    end
 
-        if door_locked then
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_ONE_OF_DOOR_IS_LOCKED") .." <LINE> "
-        end
+    if door_locked then
+        toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_ONE_OF_DOOR_IS_LOCKED") .." <LINE> "
+    end
 
-        if not screwdriver then
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_Item_Screwdriver") .."  0/1 <LINE> "
-        end
-        if not wrench then
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_Item_Wrench") .."  0/1 unit <LINE> "
-        end
-        if not lug_wrench then
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_Item_LugWrench") .. "  0/1 <LINE> "
-        end
-        if not jack then
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_Item_Jack") .. "  0/1 <LINE> "
-        end
+    if screwdriver then
+        toolTip.description = toolTip.description .. RC.Txt.ghs .. scrdrvScriptItem:getDisplayName() .." <LINE> "
+    else
+        toolTip.description = toolTip.description .. RC.Txt.bhs .. scrdrvScriptItem:getDisplayName() .." <LINE> "
+    end
+
+    if wrench then
+        toolTip.description = toolTip.description .. RC.Txt.ghs .. wrenchScriptItem:getDisplayName() .." <LINE> "
+    else
+        toolTip.description = toolTip.description .. RC.Txt.bhs .. wrenchScriptItem:getDisplayName() .." <LINE> "
+    end
+    
+    if lug_wrench then
+        toolTip.description = toolTip.description .. RC.Txt.ghs .. lugwrenchScriptItem:getDisplayName() .. " <LINE> "
+    else
+        toolTip.description = toolTip.description .. RC.Txt.bhs .. lugwrenchScriptItem:getDisplayName() .. " <LINE> "
+    end
+
+    if jack then
+        toolTip.description = toolTip.description .. RC.Txt.ghs .. jackScriptItem:getDisplayName() .. " <LINE> "
+    else
+        toolTip.description = toolTip.description .. RC.Txt.bhs .. jackScriptItem:getDisplayName() .. " <LINE> "
     end
 end
 
