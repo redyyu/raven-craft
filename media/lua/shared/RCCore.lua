@@ -1,8 +1,5 @@
 PACKAGE_NAME = "RavenCraft";
 
-local loot_chance = SandboxVars.RavenCraft.LootChance
-local loot_chance_percent = loot_chance / 100
-
 RC = {}
 
 RC.Txt = {}
@@ -21,6 +18,8 @@ RC.getPackageItemType = function(item_name)
     return item_name
 end
 
+
+
 RC.getLootChance = function(character)
     local modifier = 1
     if character then
@@ -30,8 +29,8 @@ RC.getLootChance = function(character)
             modifier = modifier * 0.75
         end
     end
-    
-    return loot_chance_percent * modifier
+    local loot_chance = SandboxVars.RavenCraft.LootChance
+    return loot_chance / 100 * modifier
 end
 
 
@@ -43,14 +42,10 @@ RC.predicateLootChance = function(character, rand, rand_2)
         rand_2 = ZombRand(1, 100)
     end
     if character then
-        if character:getTraits():contains("Lucky") then
-            rand = rand * 1.25
-        elseif character:getTraits():contains("Unlucky") then
-            rand = rand * 0.75
-        end
+        rand = rand * RC.getLootChance(character)
     end
     
-    return (rand * loot_chance_percent) > rand_2
+    return rand > rand_2
 end
 
 
@@ -59,8 +54,8 @@ RC.insertDistTable = function(table_obj, group_or_key, weight)
     if weight == nil and weight ~= 0 then  -- could be 0, but 0 == nil
         weight = 1
     end
-
-    weight = weight * loot_chance_percent
+    local loot_chance = SandboxVars.RavenCraft.LootChance
+    weight = weight * loot_chance / 100
     if isDebugEnabled() then
         print('Loot Chance: '.. tostring(weight))
     end

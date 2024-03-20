@@ -219,7 +219,8 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
     else
         option.notAvailable = true
         toolTip.description = getText("Tooltip_TRAINING_NOT_READY_FOR") .." <LINE><LINE> "
-        
+    end
+    
     if unknow_recipe then
         toolTip.description = toolTip.description .. RC.Txt.bhs .. getText("Tooltip_TRAINING_NEED_LEARN", unknow_recipe) .." <LINE> "
     end
