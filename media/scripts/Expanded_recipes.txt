@@ -75,7 +75,19 @@ module RavenCraft
         AnimNode: RipSheets,
         Prop1: Source=1,
         Sound: ClothesRipping,
-        Category: Tailoring,
+    }
+
+    recipe Craft Cleaning Liquid {
+        Soap2=20,
+        Water=5,
+        WaterBottleEmpty/PopBottleEmpty,
+
+        Result: CleaningLiquid2,
+        SkillRequired: Cooking=4,
+        Time: 300.0,
+        AnimNode: Craft,
+        Prop1: Source=1,
+        Sound: DrinkingFromBottle,
     }
 
     /* Health */
@@ -113,7 +125,7 @@ module RavenCraft
 
     recipe Blend Concrete {
         destroy BucketEmpty/BucketWaterFull,
-        Water=5,
+        Water=10,
         ConcretePowder,
         
         Result: BucketConcreteFull,
@@ -900,7 +912,7 @@ module RavenCraft
     recipe Blending Black Paint {
         destroy PaintbucketEmpty,
         HairDyeBlack=4,
-        Water=20,
+        Water=10,
 
         Result: PaintBlack,
         SkillRequired: Woodwork=6,
@@ -915,7 +927,7 @@ module RavenCraft
     recipe Blending Blue Paint {
         destroy PaintbucketEmpty,
         HairDyeBlue=4,
-        Water=20,
+        Water=10,
 
         Result: PaintBlue,
         SkillRequired: Woodwork=6,
@@ -931,7 +943,7 @@ module RavenCraft
         destroy PaintbucketEmpty,
         HairDyeGinger=4,
         HairDyeBlack,
-        Water=20,
+        Water=10,
 
         Result: PaintBrown,
         SkillRequired: Woodwork=6,
@@ -948,7 +960,7 @@ module RavenCraft
         HairDyeBlue=2,
         HairDyeWhite=1,
         HairDyeGreen=1,
-        Water=20,
+        Water=10,
 
         Result: PaintCyan,
         SkillRequired: Woodwork=6,
@@ -963,7 +975,7 @@ module RavenCraft
     recipe Blending Green Paint {
         destroy PaintbucketEmpty,
         HairDyeGreen=4,
-        Water=20,
+        Water=10,
 
         Result: PaintGreen,
         SkillRequired: Woodwork=6,
@@ -979,7 +991,7 @@ module RavenCraft
         destroy PaintbucketEmpty,
         HairDyeBlack=2,
         HairDyeWhite=2,
-        Water=20,
+        Water=10,
 
         Result: PaintGrey,
         SkillRequired: Woodwork=6,
@@ -995,7 +1007,7 @@ module RavenCraft
         destroy PaintbucketEmpty,
         HairDyeBlue=2,
         HairDyeWhite=2,
-        Water=20,
+        Water=10,
 
         Result: PaintLightBlue,
         SkillRequired: Woodwork=6,
@@ -1010,7 +1022,7 @@ module RavenCraft
     recipe Blending Light Brown Paint {
         destroy PaintbucketEmpty,
         HairDyeLightBrown=4,
-        Water=20,
+        Water=10,
 
         Result: PaintLightBrown,
         SkillRequired: Woodwork=6,
@@ -1027,7 +1039,7 @@ module RavenCraft
         HairDyeBlonde=2,
         HairDyeRed=1,
         HairDyeWhite=1,
-        Water=20,
+        Water=10,
 
         Result: PaintOrange,
         SkillRequired: Woodwork=6,
@@ -1042,7 +1054,7 @@ module RavenCraft
     recipe Blending Pink Paint {
         destroy PaintbucketEmpty,
         HairDyePink=4,
-        Water=20,
+        Water=10,
 
         Result: PaintPink,
         SkillRequired: Woodwork=6,
@@ -1058,7 +1070,7 @@ module RavenCraft
         destroy PaintbucketEmpty,
         HairDyeRed=2,
         HairDyePink=2,
-        Water=20,
+        Water=10,
 
         Result: PaintPurple,
         SkillRequired: Woodwork=6,
@@ -1073,7 +1085,7 @@ module RavenCraft
     recipe Blending Red Paint {
         destroy PaintbucketEmpty,
         HairDyeRed=4,
-        Water=20,
+        Water=10,
 
         Result: PaintRed,
         SkillRequired: Woodwork=6,
@@ -1090,7 +1102,7 @@ module RavenCraft
         HairDyeWhite=1,
         HairDyeGreen=2,
         HairDyeBlue=1,
-        Water=20,
+        Water=10,
 
         Result: PaintTurquoise,
         SkillRequired: Woodwork=6,
@@ -1105,7 +1117,7 @@ module RavenCraft
     recipe Blending White Paint {
         destroy PaintbucketEmpty,
         HairDyeWhite=4,
-        Water=20,
+        Water=10,
 
         Result: PaintWhite,
         SkillRequired: Woodwork=6,
@@ -1120,7 +1132,7 @@ module RavenCraft
     recipe Blending Yellow Paint {
         destroy PaintbucketEmpty,
         HairDyeYellow=4,
-        Water=20,
+        Water=10,
 
         Result: PaintYellow,
         SkillRequired: Woodwork=6,
@@ -1137,7 +1149,7 @@ module RavenCraft
         keep MortarPestle,
         Bleach,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintWhite,
         SkillRequired: Woodwork=6,
@@ -1153,7 +1165,7 @@ module RavenCraft
         keep MortarPestle,
         BerryGeneric1 = 10,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintRed,
         SkillRequired: Woodwork=6,
@@ -1169,7 +1181,7 @@ module RavenCraft
         keep MortarPestle,
         BerryBlue/BerryGeneric2 = 10,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintBlue,
         SkillRequired: Woodwork=6,
@@ -1185,7 +1197,7 @@ module RavenCraft
         keep MortarPestle,
         BerryGeneric3 = 10,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintYellow,
         SkillRequired: Woodwork=6,
@@ -1201,7 +1213,7 @@ module RavenCraft
         keep MortarPestle,
         BerryGeneric4 = 10,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintOrange,
         SkillRequired: Woodwork=6,
@@ -1217,7 +1229,7 @@ module RavenCraft
         keep MortarPestle,
         BerryGeneric5 = 10,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintPurple,
         SkillRequired: Woodwork=6,
@@ -1233,7 +1245,7 @@ module RavenCraft
         keep MortarPestle,
         BerryBlack/Charcoal = 10,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintBlack,
         SkillRequired: Woodwork=6,
@@ -1249,7 +1261,7 @@ module RavenCraft
         keep MortarPestle,
         BerryPoisonIvy = 5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintBrown,
         SkillRequired: Woodwork=6,
@@ -1266,7 +1278,7 @@ module RavenCraft
         BerryBlue/BerryGeneric2=5,
         BerryPoisonIvy=5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintCyan,
         SkillRequired: Woodwork=6,
@@ -1283,7 +1295,7 @@ module RavenCraft
         BerryBlue/BerryGeneric2 = 5,
         BerryGeneric3 = 5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintGreen,
         SkillRequired: Woodwork=6,
@@ -1300,7 +1312,7 @@ module RavenCraft
         BerryBlack/Charcoal= 5,
         BerryPoisonIvy = 5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintGrey,
         SkillRequired: Woodwork=6,
@@ -1317,7 +1329,7 @@ module RavenCraft
         BerryBlue/BerryGeneric2 = 5,
         BerryPoisonIvy = 5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintLightBlue,
         SkillRequired: Woodwork=6,
@@ -1333,7 +1345,7 @@ module RavenCraft
         keep MortarPestle,
         BerryPoisonIvy = 5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
         
         Result: PaintLightBrown,
         SkillRequired: Woodwork=6,
@@ -1350,7 +1362,7 @@ module RavenCraft
         BerryGeneric1 = 5,
         BerryPoisonIvy = 5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintPink,
         SkillRequired: Woodwork=6,
@@ -1367,7 +1379,7 @@ module RavenCraft
         BerryBlue/BerryGeneric2 = 5,
         BerryPoisonIvy = 5,
         destroy PaintbucketEmpty,
-        Water=20,
+        Water=10,
 
         Result: PaintTurquoise,
         Time: 155.0,
@@ -1393,7 +1405,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Rabbitmeat;90,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarRabbitMeat,
@@ -1417,7 +1429,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Smallanimalmeat;45,
-        Water=10,
+        Water=3,
         Salt;1,
 
         Result: CannedJarSmallanimalmeat,
@@ -1441,7 +1453,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Smallbirdmeat;45,
-        Water=10,
+        Water=3,
         Salt;1,
 
         Result: CannedJarSmallbirdmeat,
@@ -1465,7 +1477,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         FishFillet;100,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarFishFillet,
@@ -1489,7 +1501,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         FishRoe;100,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarFishRoe,
@@ -1513,7 +1525,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Salmon;90,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarSalmon,
@@ -1537,7 +1549,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Shrimp;100,
-        Water=10,
+        Water=3,
         Salt;1,
 
         Result: CannedJarShrimp,
@@ -1561,7 +1573,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Chicken;108,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarChicken,
@@ -1585,7 +1597,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Egg;70,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarEgg,
@@ -1609,7 +1621,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         FrogMeat;50,
-        Water=10,
+        Water=3,
         Salt;1,
 
         Result: CannedJarFrogMeat,
@@ -1633,7 +1645,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         MincedMeat/MeatPatty;120,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarMincedMeat,
@@ -1657,7 +1669,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         MuttonChop;90,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarMuttonChop,
@@ -1681,7 +1693,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         PorkChop;90,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarPorkChop,
@@ -1705,7 +1717,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Steak;120,
-        Water=10,
+        Water=3,
         Salt;2,
 
         Result: CannedJarSteak,
@@ -1729,7 +1741,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Apple=5,
-        Water=10,
+        Water=3,
         [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarApple,
@@ -1753,7 +1765,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Orange=5,
-        Water=10,
+        Water=3,
         [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarOrange,
@@ -1777,7 +1789,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Peach=5,
-        Water=10,
+        Water=3,
         [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarPeach,
@@ -1801,7 +1813,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Pear=5,
-        Water=10,
+        Water=3,
         [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarPear,
@@ -1825,7 +1837,7 @@ module RavenCraft
         EmptyJar,
         JarLid,
         Pineapple=5,
-        Water=10,
+        Water=3,
         [Recipe.GetItemTypes.Sugar];2,
 
         Result: CannedJarPineapple,
@@ -1849,7 +1861,7 @@ module RavenCraft
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
         Blackbeans/DriedBlackBeans/DriedChickpeas/DriedSplitPeas/DriedSplitPeas/DriedWhiteBeans/OpenBeans;10,
-        Water=10,
+        Water=3,
         PancakeMix=1,
 
         Result: Tofu,
