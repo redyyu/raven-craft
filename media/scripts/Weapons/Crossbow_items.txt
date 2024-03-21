@@ -254,7 +254,8 @@ module RavenCraft
 /** Magazines **/
 
     item CrossbowMakerMag {
-        Weight = 0.2,
+        DisplayCategory = SkillBook,
+        Weight = 0.1,
         Type = Literature,
         DisplayName = Doomsday Preppers,
         Icon = MagazineCrossbowMakerMag,
