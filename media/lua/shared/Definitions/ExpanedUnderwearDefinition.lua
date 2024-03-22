@@ -6,7 +6,7 @@ UnderwearDefinition = UnderwearDefinition or {};
 
 -- outfit name
 UnderwearDefinition.Female_Corset = {
-    chanceToSpawn = 1, -- weighted chance, can exced 100
+    chanceToSpawn = 0.25, -- weighted chance, can exced 100
     gender = "female",
     top = {
         {name="Corset", chance=15},

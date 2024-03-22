@@ -155,7 +155,7 @@ module RavenCraft
         BloodLocation = Head,
         BiteDefense = 30,
         ScratchDefense = 50,
-        Insulation = 0.25,
+        Insulation = 0.20,
         WindResistance = 0.55,
     }
 
@@ -185,7 +185,7 @@ module RavenCraft
         BloodLocation = Head,
         BiteDefense = 30,
         ScratchDefense = 50,
-        Insulation = 0.25,
+        Insulation = 0.20,
         WindResistance = 0.55,
     }
 
@@ -200,7 +200,7 @@ module RavenCraft
         BloodLocation = Head,
         BiteDefense = 30,
         ScratchDefense = 50,
-        Insulation = 0.25,
+        Insulation = 0.20,
         WindResistance = 0.55,
     }
 
@@ -215,7 +215,7 @@ module RavenCraft
         BloodLocation = Head,
         BiteDefense = 30,
         ScratchDefense = 50,
-        Insulation = 0.25,
+        Insulation = 0.20,
         WindResistance = 0.55,
     }
 
@@ -230,7 +230,7 @@ module RavenCraft
         BloodLocation = Head,
         BiteDefense = 30,
         ScratchDefense = 50,
-        Insulation = 0.25,
+        Insulation = 0.20,
         WindResistance = 0.55,
     }
 

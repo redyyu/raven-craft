@@ -1,10 +1,5 @@
 VERSION = 1,
 
-option RavenCraft.SpawnChance {
-	type = integer, min = 1, max = 100, default = 50,
-	page = RavenCraft, translation = RavenCraft_SPAWN_CHANCE,
-}
-
 option RavenCraft.LootChance {
 	type = integer, min = 1, max = 100, default = 50,
 	page = RavenCraft, translation = RavenCraft_LOOT_CHANCE,
@@ -21,10 +16,9 @@ option RavenCraft.ReadingOnSitEffective {
 }
 
 option RavenCraft.SkillBookMultiplierModifier {
-	type = integer, min = 2, max = 12, default = 6,
+	type = integer, min = 1, max = 12, default = 1,
 	page = RavenCraft, translation = RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER,
 }
-
 
 option RavenCraft.SurvivalJournalMultiplierModifier {
 	type = integer, min = 1, max = 12, default = 12,

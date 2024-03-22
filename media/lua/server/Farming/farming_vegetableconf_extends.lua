@@ -90,7 +90,7 @@ farming_vegetableconf.props["Corn"].minVegAutorized = 6
 farming_vegetableconf.props["Corn"].maxVegAutorized = 12
 farming_vegetableconf.props["Corn"].vegetableName = "Base.Corn"
 farming_vegetableconf.props["Corn"].seedName = RC.getPackageItemType(".CornSeed")
-farming_vegetableconf.props["Corn"].seedPerVeg = 3
+farming_vegetableconf.props["Corn"].seedPerVeg = 2
 farming_vegetableconf.props["Corn"].harvestSeedOnly = true
 
 farming_vegetableconf.sprite["Corn"] = {

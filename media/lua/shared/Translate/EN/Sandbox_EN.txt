@@ -1,7 +1,5 @@
 Sandbox_EN = {
 	Sandbox_RavenCraft = "Raven Craft"
-	Sandbox_RavenCraft_SPAWN_CHANCE = "Spawn Chance"
-	Sandbox_RavenCraft_SPAWN_CHANCE_tooltip = "Between 1 ~ 100, probability with zombie spawn which is created by this mod."
 	Sandbox_RavenCraft_LOOT_CHANCE = "Loot Chance"
 	Sandbox_RavenCraft_LOOT_CHANCE_tooltip = "Between 1 ~ 100, probability with distributions of items created by this mod."
 	Sandbox_RavenCraft_CURE_CHANCE = "Chance of cure zombification"
@@ -10,10 +8,10 @@ Sandbox_EN = {
 	Sandbox_RavenCraft_READING_ON_SIT_tooltip = "% Percent of Reading time when sit"
 
 	Sandbox_RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER = "XP Multiplier Modifier for New Skill Books"
-	Sandbox_RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER_tooltip = "This is number to multiplier new skill books perks level."
+	Sandbox_RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER_tooltip = "This is number effect multiplier of new skill books perks level. Larger number give more multiplier after read the Skill Book."
 
 	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_MODIFIER = "XP Multiplier Modifier for Survival Journal"
-	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_MODIFIER_tooltip = "This is base number to multiplier each perks level. etc. 12 as default, Lv 3 Axe will got x36 multiplier at last."
+	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_MODIFIER_tooltip = "This is number effect multiplier each perks level. etc. 12 as default, Lv 3 Axe will got x36 multiplier at last."
 	Sandbox_RavenCraft_JOURNAL_SELF_READ_ONLY = "Read Survival Journal by self only"
 	Sandbox_RavenCraft_JOURNAL_SELF_READ_ONLY_tooltip = "Player can only read the Survival Journal who created by same SteamID."
 }

@@ -54,11 +54,6 @@ RC.insertDistTable = function(table_obj, group_or_key, weight)
     if weight == nil and weight ~= 0 then  -- could be 0, but 0 == nil
         weight = 1
     end
-    local loot_chance = SandboxVars.RavenCraft.LootChance
-    weight = weight * loot_chance / 100
-    if isDebugEnabled() then
-        print('Loot Chance: '.. tostring(weight))
-    end
 
     if type(group_or_key) == 'string' then
         local key = group_or_key

@@ -3,15 +3,15 @@ function OnTake_CureInjection(food, player, percent)
     local cured = false
     if bodyDamage:IsInfected() and bodyDamage:getInfectionLevel() > 0 then
         if bodyDamage:getInfectionLevel() <= 25 then
-            cured = ExecCureInjection(player, bodyDamage, 1.0);
+            cured = ExecCureInjection(player, bodyDamage, 1.0)
         else
-            cured = ExecCureInjection(player, bodyDamage, (75 - bodyDamage:getInfectionLevel()) / 100);
+            cured = ExecCureInjection(player, bodyDamage, (75 - bodyDamage:getInfectionLevel()) / 100)
         end
     end
 
     -- whatever cure or not, fake infected anyway.
     if not bodyDamage:IsInfected() then
-        bodyDamage:setIsFakeInfected(true);
+        bodyDamage:setIsFakeInfected(true)
     end
 
     -- whatever cure or not, change to very bad condition anyway.
@@ -21,7 +21,7 @@ function OnTake_CureInjection(food, player, percent)
     player_stats:setFatigue(1.0)
     player_stats:setStress(1.0)
 
-    local cure_chance = SandboxVars.RavenCraft.CureChance;
+    local cure_chance = SandboxVars.RavenCraft.CureChance
 
     if cured or ZombRand(1, 100) > cure_chance then
         -- more stats showing up when cured.
@@ -36,7 +36,7 @@ end
 
 function ExecCureInjection(character, bodyDamage, modifier)
     local rand = ZombRand(1, 100)
-    local cure_chance = SandboxVars.RavenCraft.CureChance;
+    local cure_chance = SandboxVars.RavenCraft.CureChance
     if character:getTraits():contains("Lucky") then
         cure_chance = cure_chance * 1.5
     elseif character:getTraits():contains("Unlucky") then
@@ -53,14 +53,14 @@ function ExecCureInjection(character, bodyDamage, modifier)
     }, 'CureInjection')
 
     if modified_cure_chance > rand then
-        bodyDamage:setInfected(false);
-        bodyDamage:setInfectionMortalityDuration(-1);
-        bodyDamage:setInfectionTime(-1);
-        bodyDamage:setInfectionLevel(0);
-        local bodyParts = bodyDamage:getBodyParts();
+        bodyDamage:setInfected(false)
+        bodyDamage:setInfectionMortalityDuration(-1)
+        bodyDamage:setInfectionTime(-1)
+        bodyDamage:setInfectionLevel(0)
+        local bodyParts = bodyDamage:getBodyParts()
         for i=bodyParts:size()-1, 0, -1  do
-            local bodyPart = bodyParts:get(i);
-            bodyPart:SetInfected(false);
+            local bodyPart = bodyParts:get(i)
+            bodyPart:SetInfected(false)
         end
         return true
     end
