@@ -29,8 +29,7 @@ RC.getLootChance = function(character)
             modifier = modifier * 0.75
         end
     end
-    local loot_chance = SandboxVars.RavenCraft.LootChance
-    return loot_chance / 100 * modifier
+    return modifier
 end
 
 
