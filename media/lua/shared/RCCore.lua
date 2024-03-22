@@ -98,7 +98,7 @@ RC.isRequireInHandOrInventory = function(character, item)
 end
 
 
-RC.printSandbox = function(table_name, option_name)
+RC.printSandboxOptions = function(table_name, option_name)
     local sandboxOpt = getSandboxOptions()
     print('====================== Sandbox Options ======================')
     for i=1, sandboxOpt:getNumOptions() do
@@ -114,12 +114,21 @@ RC.printSandbox = function(table_name, option_name)
 end
 
 
-RC.modifySandbox = function(option_name, option_value)
+RC.modifySandboxOption = function(option_name, option_value)
     local sandboxOpt = getSandboxOptions()
     for i=1, sandboxOpt:getNumOptions() do
 		local option = sandboxOpt:getOptionByIndex(i-1)
         if option:getName() == option_name then
             sandboxOpt:set(option_name, option_value)
+            local cat = option:getTableName()
+            local var = option:getShortName()
+            local val = option:getValue()
+            if cat then
+                SandboxVars[cat][var] = val
+            else
+                SandboxVars[var] = val
+            end
+            print("WARNING: Better to reload game after Sandbox Option has been changed, some option might be loaded before modified.")
             return
         end
 	end
