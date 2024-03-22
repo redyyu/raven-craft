@@ -98,18 +98,35 @@ RC.isRequireInHandOrInventory = function(character, item)
 end
 
 
-enum = function (tbl)
-    local length = #tbl
-    for i = 1, length do
-        local v = tbl[i]
-        tbl[v] = i
-    end
-
-    return tbl
+RC.printSandbox = function(table_name, option_name)
+    local sandboxOpt = getSandboxOptions()
+    print('====================== Sandbox Options ======================')
+    for i=1, sandboxOpt:getNumOptions() do
+		local option = sandboxOpt:getOptionByIndex(i-1)
+        if table_name == nil or table_name == option:getTableName() then
+            print("Table: " .. tostring(option:getTableName()))
+            if option_name == nil or option_name == option_name then
+		        print("Option: " .. tostring(option:getName()) .." = " .. tostring(option:getValue()))
+            end
+        end
+	end
+    print('============================================================')
 end
 
 
-printDebug = function(contents, name)
+RC.modifySandbox = function(option_name, option_value)
+    local sandboxOpt = getSandboxOptions()
+    for i=1, sandboxOpt:getNumOptions() do
+		local option = sandboxOpt:getOptionByIndex(i-1)
+        if option:getName() == option_name then
+            sandboxOpt:set(option_name, option_value)
+            return
+        end
+	end
+end
+
+
+RC.printDebug = function(contents, name)
     if isDebugEnabled() then
         if name == true or name == nil then
             name = "isDebug Print"
@@ -131,4 +148,15 @@ printDebug = function(contents, name)
             print("======================( "..(#contents).." )=========================")
         end
     end
+end
+
+
+enum = function (tbl)
+    local length = #tbl
+    for i = 1, length do
+        local v = tbl[i]
+        tbl[v] = i
+    end
+
+    return tbl
 end

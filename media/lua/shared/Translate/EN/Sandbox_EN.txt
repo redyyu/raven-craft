@@ -7,7 +7,7 @@ Sandbox_EN = {
 	Sandbox_RavenCraft_READING_ON_SIT_tooltip = "% Percent of Reading time when sit"
 
 	Sandbox_RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER = "XP Multiplier Modifier for New Skill Books"
-	Sandbox_RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER_tooltip = "This is number effect multiplier of new skill books perks level. Larger number give more multiplier after read the Skill Book."
+	Sandbox_RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER_tooltip = "This is number effect multiplier of new skill books added to this game. etc. 1 as default, Lv 1 skill book will get x2 XP Multiplier. set to 2 will get x4 XP Multiplier."
 
 	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_MODIFIER = "XP Multiplier Modifier for Survival Journal"
 	Sandbox_RavenCraft_JOURNAL_MULTIPLIER_MODIFIER_tooltip = "This is number effect multiplier of each perks recovery. etc. 12 as default, Lv 3 Axe will got x36 multiplier at last."

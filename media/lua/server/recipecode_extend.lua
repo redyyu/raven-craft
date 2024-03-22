@@ -576,7 +576,7 @@ function Recipe.OnCreate.GatherGunpowder(items, resultItem, player)
     local gather_percent = 0.5 + 0.5 * (reloading_lv / 10)
     powderDelta = math.floor(powderDelta * gather_percent * 1000) / 1000
 
-    printDebug({
+    RC.printDebug({
         'PowderDelta: '.. powderDelta,
         'Reloading Lv: '.. reloading_lv .. "  Gather: ".. gather_percent
     }, 'GatherGunpowder')
@@ -600,7 +600,7 @@ end
 function Recipe.OnGiveXP.GatherGunpowder(recipe, ingredients, result, player)
     local reloading_lv = player:getPerkLevel(Perks.Reloading)
     if ZombRand(reloading_lv) == 0 then
-        printDebug('Reloading XP +1', 'GatherGunpowder')
+        RC.printDebug('Reloading XP +1', 'GatherGunpowder')
         player:getXp():AddXP(Perks.Reloading, 1)
     end
 end

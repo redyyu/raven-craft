@@ -19,7 +19,7 @@ ISReadAJournal.checkMultiplier = function(self)
             -- apply the multiplier to the skill
             local multiplier = math.floor((readPercent/10) * (v.maxMultiplier/10))
             if multiplier > self.character:getXp():getMultiplier(perk) and self.character:getPerkLevel(perk) < v.maxLevel then
-                printDebug({
+                RC.printDebug({
                     'Multiplier: '..multiplier,
                     'MaxLevel: '..v.maxLevel,
                     'CurrentLevel: '..self.character:getPerkLevel(perk),
@@ -143,7 +143,7 @@ function ISReadAJournal:perform()
     if self.data['AlreadyReadBook'] then
         for _, book in ipairs(self.data['AlreadyReadBook']) do
             if not self.character:getAlreadyReadBook():contains(book) then
-                printDebug('Add Read Book: '.. book)
+                RC.printDebug('Add Read Book: '.. book)
                 self.character:getAlreadyReadBook():add(book)
                 -- self.character:ReadLiterature(book) -- is for magazine, and book must be object not str.
             end
@@ -153,7 +153,7 @@ function ISReadAJournal:perform()
     if self.data['KnownRecipes'] then
         for _, recipe in ipairs(self.data['KnownRecipes']) do
             if not self.character:isRecipeKnown(recipe) then
-                printDebug('Add Recipe: '.. recipe)
+                RC.printDebug('Add Recipe: '.. recipe)
                 self.character:getKnownRecipes():add(recipe)
             end
         end

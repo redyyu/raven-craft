@@ -29,7 +29,7 @@ SurvivalJournal.onWrite = function(items, result, player)
     end
 
     if isDebugEnabled() then
-        printDebug({
+        RC.printDebug({
             journalData['AlreadyReadBook'],
             journalData['KnownRecipes'],
         }, 'Write RCJournal')
