@@ -14,7 +14,7 @@ local function processDistributionsTable(tableList)
                 end
             end
             if have_cig then -- add back cigarettes with lower weight.
-                RC.insertDistTable(v, 'Cigarettes', 2)
+                RC.insertDistTable(v, 'Cigarettes', 1)
             end
         end
     end

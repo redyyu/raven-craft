@@ -4,8 +4,8 @@ require "Vehicles/VehicleDistributions"
 
 
 local SHOES_WEIGHT = {
-    ["Shoes_BootsTINT"] = 2,
-    ["Shoes_FancyBoots"] = 2,
+    ["Shoes_BootsTINT"] = 1,
+    ["Shoes_FancyBoots"] = 1,
 }
 
 RC.insertDistTable(ProceduralDistributions.list["BandMerchShelves"], SHOES_WEIGHT, 6)
