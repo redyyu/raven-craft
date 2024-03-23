@@ -845,3 +845,8 @@ function ISTimedActionQueue:onCompleted(action)
     end
 end
 ```
+
+
+# Timed Actions
+
+if character wear item instantly, check the cheat menu, `Timed Action instant` might be turned ON.

@@ -6,7 +6,7 @@
 	<m_Static>true</m_Static>
 	<m_Masks>8</m_Masks>
 	<m_Masks>10</m_Masks>	
-	<m_MasksFolder></m_MasksFolder>
+	<!-- <m_MasksFolder></m_MasksFolder> -->
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<textureChoices>clothes/Shoes/shoes_bowling</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_bowling2</textureChoices>

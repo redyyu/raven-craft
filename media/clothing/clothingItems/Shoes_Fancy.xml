@@ -23,8 +23,8 @@
 		 that's hacking way, might cause other problem don't know yet.
 		<m_Masks>11</m_Masks>
 	<m_UnderlayMasksFolder>media/textures/Clothes/Shoes/Masks/fancy_shoes</m_UnderlayMasksFolder> -->
-	<m_MasksFolder></m_MasksFolder>
-	<m_UnderlayMasksFolder></m_UnderlayMasksFolder>
+	<!-- <m_MasksFolder></m_MasksFolder>
+	<m_UnderlayMasksFolder></m_UnderlayMasksFolder> -->
 	<textureChoices>clothes/Shoes/shoes_white</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_black</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_brown</textureChoices>
