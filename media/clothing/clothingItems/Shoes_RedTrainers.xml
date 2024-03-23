@@ -8,9 +8,9 @@
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 	<m_Masks>8</m_Masks>
 	<m_Masks>10</m_Masks>	
-	<m_MasksFolder></m_MasksFolder>
 	<m_AttachBone></m_AttachBone>
+	<!-- <m_MasksFolder></m_MasksFolder> -->
 	<textureChoices>clothes/Shoes/sneakers_allstarred</textureChoices>
 	<textureChoices>clothes/Shoes/sneakers_allstarred2</textureChoices>
-	<textureChoices>clothes/Shoes/sneakers_allstarred3</textureChoices>
+	<textureChoices>clothes/Shoes/sneakers_allstarpink</textureChoices>
 </clothingItem>	
