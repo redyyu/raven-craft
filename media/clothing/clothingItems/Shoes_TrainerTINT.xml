@@ -9,7 +9,7 @@
 	<m_Masks>8</m_Masks>
 	<m_Masks>10</m_Masks>
 	<m_AttachBone></m_AttachBone>
-	<!-- <m_MasksFolder></m_MasksFolder> -->
+	<m_MasksFolder></m_MasksFolder>
 	<textureChoices>clothes/Shoes/sneakers</textureChoices>
 	<textureChoices>clothes/Shoes/sneakers_allstarwhite</textureChoices>
 	<textureChoices>clothes/Shoes/sneakers_allstarwhite2</textureChoices>

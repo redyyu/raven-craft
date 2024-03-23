@@ -7,8 +7,8 @@
 	<m_AllowRandomHue>false</m_AllowRandomHue>
 	<m_AllowRandomTint>false</m_AllowRandomTint>
 
-	<!-- <m_MasksFolder></m_MasksFolder>
-	<m_UnderlayMasksFolder></m_UnderlayMasksFolder> -->
+	<m_MasksFolder></m_MasksFolder>
+	<m_UnderlayMasksFolder></m_UnderlayMasksFolder>
 	<textureChoices>clothes/Shoes/shoes_black</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_black2</textureChoices>
 	<textureChoices>clothes/Shoes/shoes_black3</textureChoices>
