@@ -566,8 +566,10 @@ no matter the .X file name, in the file have a attribute `AnimationSet <name>`, 
 AnimationSet SOMETHINE_Idle {...}
 ```
 
-for .fbx, seems the animationSet name is set by Track's name, in `Nolinear Animation` Panel (which is switch by little button top left of current panel)
-in the timeline of NLATracks, right click and rename it. if no NLATrack exsit, try select the animate action you want than click on the menu `Add -> Add Tracks`.
+for .fbx, seems the animationSet name is set by `Action Strip` name (the one one the timeline of `NLATracks`),
+in `Nolinear Animation` Panel (which is switch by little button top left of current panel)
+in the timeline of NLATracks, right click and rename it. 
+if no NLATrack exsit, try select the animate action you want than click on the menu `Add -> Add Tracks`.
 
 when export set the transform to `-Z forward / Y up` and armature primary bone `X aixs`, secondary bone `Y aixs`.
 sometime the exported model is messup, try reverse the those options, might be problem may solved.
@@ -613,13 +615,14 @@ For `AnimSets` file, see a example of Fitness Exercises with Treadmill.
     <m_StringValue>treadmill</m_StringValue>
 </m_Conditions>
 ```
-*When set player's ExerciseType == treadmill (in lua or java), this animation will be trigger.*
-
+*When set player's ExerciseType == 'treadmill' (in lua or java), this animation will be trigger.*
+*<m_Name> will also use to <m_Transitions>, explain later.*
 
 `<m_AnimName>Exercises_Run</m_AnimName>`: the anims_X name used for this animation,
-remember is not file name, is the `AnimationSet <name>`.(name after ` | ` in animation node if fbx.)
+remember is not file name, is the `AnimationSet <name>` for .X file. is `Action Strip` name for .fbx.
 
-*file: TreadmillOut.xml*
+
+*file: TreadmillOut.xml, play when leave the treadmill*
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <animNode x_extends="Treadmill.xml">
@@ -653,7 +656,7 @@ this animation is trigger by `<m_Conditions>` too, see this:
 
 *When ExerciseEnded (toggle by lua or java somewhere), this animation will play.*
 
-**but how know that's end of treadmill? see this:**
+**but why there not ExerciseType, how come to know that's end of treadmill? see this:**
 `<animNode x_extends="Treadmill.xml">` that mean is this xml is extands from `Treadmill.xml`, the ExerciseType is defined there.
 
 the animation goes to `Treadmill.xml` first, then conditions change and match with the on in TreadmillOut.xml.
@@ -664,7 +667,7 @@ folders in the **AnimSets**, is really matter. those folder is defined by game a
 It is separate folders for different character events. seems you won't easy to create new one.
 those events is trigger by many other ways, such as player state and conditions. etc. `climbSheetRope`.
 
-for items, might set by `ReplaceInPrimaryHand = <clothingItem> <animtionset name>, `
+for equipable items, might set by `ReplaceInPrimaryHand = <clothingItem> <animtionset name>, `
 like this
 ```
 ReplaceInPrimaryHand = none holdingbikeright, /* no clothingItem need, just give nothing. */
@@ -677,7 +680,73 @@ if need, just give a clothingItem name, and set model and texture in the clothin
 just like all the bags from vanilla.
 
 
-**IMPORTANT: you don't have torestart the game, when animSets is chagned, the game will reload it (few seconds later). but might have restart game when delete or add xml (or x_extends= is changed) for animSets**
+**No need to restart the game, when animSets is chagned, the game will reload it (few seconds later). but better restart game when delete or add xml (or x_extends= is changed) for animSets, incace strange happen.**
+
+when game want animation will go to folders in **AnimSets** to find one matched.
+**Different type animation will go different folder first**
+after that, will find first one match all conditions will be play.
+
+*like this: in idle folder*
+```
+<animNode>
+    <m_Name>idle_Swim</m_Name>
+    <m_AnimName>SwimIdle</m_AnimName>
+    <m_Conditions>
+        <m_Name>isSwimming</m_Name>
+        <m_Type>BOOL</m_Type>
+        <m_BoolValue>true</m_BoolValue>
+    </m_Conditions>
+    <m_Conditions>
+        <m_Name>isMoving</m_Name>
+        <m_Type>BOOL</m_Type>
+        <m_BoolValue>false</m_BoolValue>
+    </m_Conditions>
+</animNode>
+```
+first player character must be idle, that mean go idle folder find one animation.
+condition must be `isMoving=false` and `isSwimming=true`.
+
+```
+<animNode>
+    <m_Name>idle_Swim</m_Name>
+    <m_AnimName>SwimIdle</m_AnimName>
+    <m_Conditions>
+        <m_Name>isSwimming</m_Name>
+        <m_Type>BOOL</m_Type>
+        <m_BoolValue>true</m_BoolValue>
+    </m_Conditions>
+</animNode>
+```
+
+if not condition of `isMoving`, probably play as well.
+because it is idle state, character is not moving anyway.
+But no Condition `isSwimming` will conflict with default `Idle`.
+may not play or cause other problems.
+
+*becareful with state.*
+
+
+#### Transitions (guess)
+
+Defined how to transition between current animation to target animation.
+its no effect which animation should be play with state.
+only the transition.
+
+which state animation to go is driver by game engine.
+
+```
+<m_Transitions>
+    <m_Target>defaultRun</m_Target>
+    <m_AnimName>Bob_Run</m_AnimName>
+    <m_blendInTime>0.3</m_blendInTime>
+    <m_blendOutTime>0.3</m_blendOutTime>
+</m_Transitions>
+```
+
+`<m_Target>` is the anim set name, not file name.
+`<m_AnimName>` the animtion playing while transition. no animation play if not give this option.
+`<m_blendInTime>` and `<m_blendOutTime>` is the time of transition animation.
+
 
 
 
