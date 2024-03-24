@@ -677,7 +677,7 @@ if need, just give a clothingItem name, and set model and texture in the clothin
 just like all the bags from vanilla.
 
 
-**IMPORTANT: you don't have torestart the game, when animSets is chagned, the game will reload it (few seconds later). but might have restart game when delete or add new xml for animSets**
+**IMPORTANT: you don't have torestart the game, when animSets is chagned, the game will reload it (few seconds later). but might have restart game when delete or add xml (or x_extends= is changed) for animSets**
 
 
 
