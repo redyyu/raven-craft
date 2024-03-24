@@ -718,9 +718,10 @@ condition must be `isMoving=false` and `isSwimming=true`.
 </animNode>
 ```
 
-if not condition of `isMoving`, probably play as well.
+if not condition of `isMoving`, seems play as well.
 because it is idle state, character is not moving anyway.
-But no Condition `isSwimming` will conflict with default `Idle`.
+but if the animation might have little bit gap.
+Also if no Condition `isSwimming` will conflict with default `Idle`.
 may not play or cause other problems.
 
 *becareful with state.*
