@@ -11,6 +11,15 @@ module RavenCraft
        Fixer : Scotchtape=4,
     }
 
+    fixing Fix Meat Cleaver {
+       Require : MeatCleaver,
+
+       Fixer : Woodglue=2; Woodwork=4,
+       Fixer : DuctTape=2,
+       Fixer : Glue=2,
+       Fixer : Scotchtape=4,
+    }
+
     fixing Fix Pipe {
        Require : Pipe,
        ConditionModifier : 0.75,
