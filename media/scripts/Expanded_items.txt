@@ -115,7 +115,7 @@ module RavenCraft
         Weight = 0.8,
         Type = Literature,
         DisplayCategory = SkillBook,
-        DisplayName = Hunting in The Wild,
+        DisplayName = Bear G. in Wild,
         SkillTrained = SmallBlade,
         LvlSkillTrained = 1,
         NumLevelsTrained = 4,
