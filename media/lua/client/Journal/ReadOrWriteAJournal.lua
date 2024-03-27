@@ -140,7 +140,6 @@ SurvivalJournal.onRead = function(player, journal)
 		return
 	end
     local journalData = journal:getModData()['RCJournal'] or {}
-    local sit_on_ground_modifier = SandboxVars.RavenCraft.ReadingOnSitEffective
     local self_read_only = SandboxVars.RavenCraft.SurvivalJournalSelfReadOnly
     local readPages = SurvivalJournal.getReaded(player, journalData['id'])
 
@@ -157,7 +156,7 @@ SurvivalJournal.onRead = function(player, journal)
             -- read
             player:reportEvent("EventSitOnGround")
             local readed_data = SurvivalJournal.getReadedTable(player)
-            ISTimedActionQueue.add(ISReadAJournal:new(player, journal, journalData, readed_data, sit_on_ground_modifier))
+            ISTimedActionQueue.add(ISReadAJournal:new(player, journal, journalData, readed_data))
         else
             player:Say(getText("IGUI_PlayerText_BookObsolete"))
         end

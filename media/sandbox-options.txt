@@ -5,11 +5,6 @@ option RavenCraft.CureChance {
 	page = RavenCraft, translation = RavenCraft_CURE_CHANCE,
 }
 
-option RavenCraft.ReadingOnSitEffective {
-	type = integer, min = 1, max = 100, default = 75,
-	page = RavenCraft, translation = RavenCraft_READING_ON_SIT,
-}
-
 option RavenCraft.SkillBookMultiplierModifier {
 	type = integer, min = 1, max = 12, default = 1,
 	page = RavenCraft, translation = RavenCraft_SKILLBOOK_MULTIPLIER_MODIFIER,

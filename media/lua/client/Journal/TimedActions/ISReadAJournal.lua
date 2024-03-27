@@ -173,7 +173,7 @@ function ISReadAJournal:animEvent(event, parameter)
     end
 end
 
-function ISReadAJournal:new(character, item, data, readed_data, read_sit_modifier)
+function ISReadAJournal:new(character, item, data, readed_data)
     local o = {}
     setmetatable(o, self)
     self.__index = self
@@ -197,10 +197,6 @@ function ISReadAJournal:new(character, item, data, readed_data, read_sit_modifie
     end
     if(character:HasTrait("SlowReader")) then
         time = time * 1.3;
-    end
-
-    if character:isSitOnGround() then
-        time = math.floor(time * read_sit_modifier / 100)
     end
 
     o.ignoreHandsWounds = true;
