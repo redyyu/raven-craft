@@ -1,6 +1,6 @@
 local Climb = {}
 
-Climb.climbingJumpingKeyHandler(_keyPressed)
+Climb.climbingJumpingKeyHandler = function(_keyPressed)
 	local player = getPlayer()
 	if not player or not player:isClimbing() then	
 		return

@@ -13,7 +13,7 @@ Cigar.onRefillCigarettesPack = function(playerObj, cigarettes_pack, cigarettes)
 end
 
 
-Cigar.onFillInventoryObjectContextMenu(player, context, items)
+Cigar.onFillInventoryObjectContextMenu = function(player, context, items)
     local playerObj = getSpecificPlayer(player)
     local playerInv = playerObj:getInventory()
     local items = ISInventoryPane.getActualItems(items)
@@ -26,6 +26,8 @@ Cigar.onFillInventoryObjectContextMenu(player, context, items)
         end
 	end
 
+    print(cigarettes_pack)
+    print("==================cigarettes_pack =================")
     if cigarettes_pack then
         context:addOptionOnTop(getText("ContextMenu_Smoke_CigarettesPack"), 
                                        playerObj, Cigar.onSmokeCigarettesPack, cigarettes_pack)

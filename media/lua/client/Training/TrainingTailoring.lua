@@ -8,7 +8,7 @@ Tail.onTrainingTailoring = function(playerObj, clothing, needle)
 end
 
 
-Tail.onFillInventoryObjectContextMenu(player, context, items)
+Tail.onFillInventoryObjectContextMenu = function(player, context, items)
     local playerObj = getSpecificPlayer(player)
     local playerInv = playerObj:getInventory()
 
