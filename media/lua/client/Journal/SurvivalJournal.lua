@@ -1,7 +1,7 @@
 require "TimedActions/ISReadABook"
 require "Journal/SurvivalPerks"
 
-SurvivalJournal = {}
+SurvivalJournal = {}  -- DO NOT `local`, need it somewhere else.
 
 SurvivalJournal.canWrite = function(recipe, player)
     return not player:HasTrait("Illiterate")
@@ -165,7 +165,7 @@ end
 
 
 
-SurvivalJournal.doBuildReadMenu = function(player, context, items)
+SurvivalJournal.onFillInventoryObjectContextMenu = function(player, context, items)
     local playerObj = getSpecificPlayer(player)
 
     local items = ISInventoryPane.getActualItems(items)
@@ -186,4 +186,5 @@ SurvivalJournal.doBuildReadMenu = function(player, context, items)
     end
 end
 
-Events.OnFillInventoryObjectContextMenu.Add(SurvivalJournal.doBuildReadMenu)
+
+Events.OnFillInventoryObjectContextMenu.Add(SurvivalJournal.onFillInventoryObjectContextMenu)

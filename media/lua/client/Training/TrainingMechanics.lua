@@ -155,7 +155,10 @@ local function uninstallVehiclePart(part, playerObj, vehicle, screwdriver, wrenc
 end
 
 
-local function onTrainingMechanics(playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
+local Mech = {}
+
+
+Mech.onTrainingMechanics = function(playerObj, vehicle, screwdriver, wrench, lug_wrench, jack)
     ISInventoryPaneContextMenu.transferIfNeeded(playerObj, screwdriver)
     local player_perk_lv = playerObj:getPerkLevel(Perks.Mechanics) or 0
     for part_name, process in pairs(PARTS_ORDERS) do
@@ -192,7 +195,7 @@ local function onTrainingMechanics(playerObj, vehicle, screwdriver, wrench, lug_
 end
 
 
-local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
+Mech.doTrainingMechanicsMenu = function(playerObj, context, vehicle, test)
     local playerInv = playerObj:getInventory()
     
     local unknow_recipe = getUnknowRecipeVehicleType(playerObj, vehicle)
@@ -206,7 +209,9 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
     local toolTip = ISToolTip:new()
     toolTip:initialise()
 
-    local option = context:addOption(getText("ContextMenu_TRAIN_MECHANICS"), playerObj, onTrainingMechanics, vehicle, screwdriver, wrench, lug_wrench, jack)
+    local option = context:addOption(getText("ContextMenu_TRAIN_MECHANICS"), 
+                                     playerObj, Mech.onTrainingMechanics, 
+                                     vehicle, screwdriver, wrench, lug_wrench, jack)
     option.toolTip = toolTip
 
     toolTip:setName(getText("ContextMenu_TRAIN_MECHANICS"))
@@ -255,7 +260,7 @@ local function doTrainingMechanicsMenu(playerObj, context, vehicle, test)
 end
 
 
-local function onTrainingMechanicsMenuOutsideVehicle(player, context, worldobjects, test)
+Mech.onFillWorldObjectContextMenu = function(player, context, worldobjects, test)
     local playerObj = getSpecificPlayer(player)
     local vehicle = playerObj:getVehicle()
     if not vehicle then
@@ -278,7 +283,7 @@ local function onTrainingMechanicsMenuOutsideVehicle(player, context, worldobjec
             for _, sq in ipairs(sqs) do
                 vehicle = sq:getVehicleContainer()
                 if vehicle then
-                    return doTrainingMechanicsMenu(playerObj, context, vehicle, test)
+                    return Mech.doTrainingMechanicsMenu(playerObj, context, vehicle, test)
                 end
             end
             return
@@ -286,9 +291,9 @@ local function onTrainingMechanicsMenuOutsideVehicle(player, context, worldobjec
         
         vehicle = IsoObjectPicker.Instance:PickVehicle(getMouseXScaled(), getMouseYScaled())
         if vehicle then
-            return doTrainingMechanicsMenu(playerObj, context, vehicle, test)
+            return Mech.doTrainingMechanicsMenu(playerObj, context, vehicle, test)
         end
     end
 end
 
-Events.OnFillWorldObjectContextMenu.Add(onTrainingMechanicsMenuOutsideVehicle)
+Events.OnFillWorldObjectContextMenu.Add(Mech.onFillWorldObjectContextMenu)

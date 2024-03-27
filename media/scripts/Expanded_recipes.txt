@@ -260,7 +260,7 @@ module RavenCraft
         keep [Recipe.GetItemTypes.SharpKnife],
 
         Result: Handle,
-        SkillRequired:Woodwork=4,
+        SkillRequired: Woodwork=4,
         AnimNode: SawLog,
         Prop1: Source=1,
         Prop2: Source=2,

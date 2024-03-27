@@ -1,4 +1,6 @@
-local function SheetRopeClimbingJumpingKeyHandler(_keyPressed)
+local Climb = {}
+
+Climb.climbingJumpingKeyHandler(_keyPressed)
 	local player = getPlayer()
 	if not player or not player:isClimbing() then	
 		return
@@ -37,4 +39,4 @@ local function SheetRopeClimbingJumpingKeyHandler(_keyPressed)
 	end	
 end
 
-Events.OnCustomUIKeyPressed.Add(SheetRopeClimbingJumpingKeyHandler);
+Events.OnCustomUIKeyPressed.Add(Climb.climbingJumpingKeyHandler)

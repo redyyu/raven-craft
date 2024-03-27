@@ -1,12 +1,14 @@
 
-local function onTrainingTailoring(playerObj, clothing, needle)
+local Tail = {}
+
+Tail.onTrainingTailoring = function(playerObj, clothing, needle)
     ISInventoryPaneContextMenu.transferIfNeeded(playerObj, clothing)
     ISInventoryPaneContextMenu.transferIfNeeded(playerObj, needle)
     ISTimedActionQueue.add(ISTrainingTailoringAction:new(playerObj, clothing, needle))
 end
 
 
-local function doTrainingTailoringMenu(player, context, items)
+Tail.onFillInventoryObjectContextMenu(player, context, items)
     local playerObj = getSpecificPlayer(player)
     local playerInv = playerObj:getInventory()
 
@@ -27,7 +29,7 @@ local function doTrainingTailoringMenu(player, context, items)
         local toolTip = ISToolTip:new()
         toolTip:initialise()
 
-        local option = context:addOption(getText("ContextMenu_TRAIN_TAILORING"), playerObj, onTrainingTailoring, clothing, needle)
+        local option = context:addOption(getText("ContextMenu_TRAIN_TAILORING"), playerObj, Tail.onTrainingTailoring, clothing, needle)
         option.toolTip = toolTip
 
         toolTip:setName(getText("ContextMenu_TRAIN_TAILORING"))
@@ -61,4 +63,4 @@ local function doTrainingTailoringMenu(player, context, items)
     end
 end
 
-Events.OnFillInventoryObjectContextMenu.Add(doTrainingTailoringMenu)
+Events.OnFillInventoryObjectContextMenu.Add(Tail.onFillInventoryObjectContextMenu)

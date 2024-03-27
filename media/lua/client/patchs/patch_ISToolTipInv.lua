@@ -3,7 +3,7 @@
 --***********************************************************
 
 require "ISUI/ISToolTipInv"
-require "Journal/ReadOrWriteAJournal"
+require "Journal/SurvivalJournal"
 
 local old_ISToolTipInv_render = ISToolTipInv.render
 

@@ -77,10 +77,6 @@ local function CrossbowOnZombieDead(zombie)
 end
 
 
-
-
-
-
 --------------------------------------------------------
 Events.OnPressReloadButton.Remove(ISReloadWeaponAction.OnPressReloadButton);
 local original_OnPressReloadButton = ISReloadWeaponAction.OnPressReloadButton

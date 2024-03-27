@@ -2,11 +2,9 @@
 -- Very nice coding style. 
 -- Unfortunately, the author's name is not found.
 
+MaintenanceFixers = {}
 
-MaintenanceFixers = {};
-
-
-function MaintenanceFixers.OnGameStart()
+MaintenanceFixers.OnGameStart = function ()
     local allFixing = getScriptManager():getAllFixing(ArrayList:new())
     for i=0,allFixing:size()-1 do
         local fixing = allFixing:get(i)
@@ -46,4 +44,4 @@ function MaintenanceFixers.OnGameStart()
     end
 end
 
-Events.OnGameStart.Add(MaintenanceFixers.OnGameStart);
+Events.OnGameStart.Add(MaintenanceFixers.OnGameStart)

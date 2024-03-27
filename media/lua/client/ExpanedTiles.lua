@@ -1,5 +1,5 @@
 
-local containerTiles = {
+containerTiles = {
     -- Red Mobile Tool Cabinet
     ['location_business_machinery_01_32'] = '40',
     ['location_business_machinery_01_33'] = '40',
@@ -20,7 +20,9 @@ local containerTiles = {
     ['trashcontainers_01_21'] = '15',
 }
 
-setContainerTiles = function(manager)
+local Tilmgr = {}
+
+Tilmgr.onLoadedTileDefinitions = function(manager)
     -- only effect when the tile has been discovered. not work for the others already discovered on map.
     for k, v in pairs(containerTiles) do
         local props = manager:getSprite(k):getProperties()
@@ -34,4 +36,4 @@ setContainerTiles = function(manager)
 
 end
 
-Events.OnLoadedTileDefinitions.Add(setContainerTiles)
+Events.OnLoadedTileDefinitions.Add(Tilmgr.onLoadedTileDefinitions)

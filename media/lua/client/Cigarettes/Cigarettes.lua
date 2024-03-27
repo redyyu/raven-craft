@@ -1,16 +1,25 @@
 
-local function onSmokeCigarettesPack(playerObj, cigarettes_pack)
+local Cigar = {}
+
+Cigar.onSmokeCigarettesPack = function(playerObj, cigarettes_pack)
     ISInventoryPaneContextMenu.transferIfNeeded(playerObj, cigarettes_pack)
     ISTimedActionQueue.add(ISSmokeCigarettesPackAction:new(playerObj, cigarettes_pack))
 end
 
 
-local function doCigarettesPackMenu(player, context, items)
+Cigar.onRefillCigarettesPack = function(playerObj, cigarettes_pack, cigarettes)
+    ISInventoryPaneContextMenu.transferIfNeeded(playerObj, cigarettes_pack)
+    ISTimedActionQueue.add(ISRefillCigarettesPackAction:new(playerObj, cigarettes_pack, cigarettes))
+end
+
+
+Cigar.onFillInventoryObjectContextMenu(player, context, items)
     local playerObj = getSpecificPlayer(player)
-
+    local playerInv = playerObj:getInventory()
     local items = ISInventoryPane.getActualItems(items)
-    local cigarettes_pack = nil
 
+    -- Smoke
+    local cigarettes_pack = nil
     for _, item in ipairs(items) do
         if instanceof(item, "Drainable") and item:getFullType() == 'Base.CigarettesPack' then
             cigarettes_pack = item
@@ -18,38 +27,27 @@ local function doCigarettesPackMenu(player, context, items)
 	end
 
     if cigarettes_pack then
-        context:addOptionOnTop(getText("ContextMenu_Smoke_CigarettesPack"), playerObj, onSmokeCigarettesPack, cigarettes_pack)
+        context:addOptionOnTop(getText("ContextMenu_Smoke_CigarettesPack"), 
+                                       playerObj, Cigar.onSmokeCigarettesPack, cigarettes_pack)
     end
-end
 
-
-local function onRefillCigarettesPack(playerObj, cigarettes_pack, cigarettes)
-    ISInventoryPaneContextMenu.transferIfNeeded(playerObj, cigarettes_pack)
-    ISTimedActionQueue.add(ISRefillCigarettesPackAction:new(playerObj, cigarettes_pack, cigarettes))
-end
-
-
-local function doRefillCigarettesPackMenu(player, context, items)
-    local playerObj = getSpecificPlayer(player)
-    local playerInv = playerObj:getInventory()
-
-    local items = ISInventoryPane.getActualItems(items)
-    local cigarettes_pack = nil
-    
+    -- Refill
+    local refill_cigarettes_pack = nil
     for _, item in ipairs(items) do
         if instanceof(item, "Drainable") and item:getFullType() == 'Base.CigarettesPack' and item:getUsedDelta() < 1.0 then
-            cigarettes_pack = item
+            refill_cigarettes_pack = item
             break
         end
 	end
-    if cigarettes_pack then
+    
+    if refill_cigarettes_pack then
         local cigarettes = playerInv:getAllType("Base.Cigarettes")
         if cigarettes:size() > 0 then
-            context:addOption(getText("ContextMenu_Refill_CigarettesPack"), playerObj, onRefillCigarettesPack, cigarettes_pack, cigarettes)
+            context:addOption(getText("ContextMenu_Refill_CigarettesPack"), 
+                                      playerObj, Cigar.onRefillCigarettesPack, refill_cigarettes_pack, cigarettes)
         end
     end
- end
+end
 
 
-Events.OnFillInventoryObjectContextMenu.Add(doRefillCigarettesPackMenu)
-Events.OnFillInventoryObjectContextMenu.Add(doCigarettesPackMenu)
+Events.OnFillInventoryObjectContextMenu.Add(Cigar.onFillInventoryObjectContextMenu)

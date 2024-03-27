@@ -25,8 +25,36 @@ local SilencedMap = {
     },
 }
 
--- Silencer handler
-local silencerOnEquipPrimary = function(character, inventoryItem)
+local function predicateNotBroken(item)
+	return not item:isBroken()
+end
+
+
+local Silen = {}
+
+Silen.onUpgradeSilencer = function(weapon, part, player)
+    ISInventoryPaneContextMenu.transferIfNeeded(player, weapon)
+    ISInventoryPaneContextMenu.transferIfNeeded(player, part)
+    ISInventoryPaneContextMenu.equipWeapon(part, false, false, player:getPlayerNum())
+    ISTimedActionQueue.add(ISUnequipAction:new(player, weapon, 50))
+    ISTimedActionQueue.add(ISUpgradeSilencer:new(player, weapon, part, 50))
+end
+
+Silen.onRemoveUpgradeSilencer = function(weapon, part, player)
+    ISInventoryPaneContextMenu.transferIfNeeded(player, weapon)
+    ISTimedActionQueue.add(ISUnequipAction:new(player, weapon, 50))
+    ISTimedActionQueue.add(ISRemoveSilencerUpgrade:new(player, weapon, part, 50))
+end
+
+
+-- make sure activated on game start.
+Silen.onGameStart = function()
+    local player = getPlayer()
+    Silen.onEquipPrimary(player, player:getPrimaryHandItem())
+end
+
+-- silencer handler
+Silen.onEquipPrimary = function(character, inventoryItem)
     if inventoryItem ~= nil then
         local scriptItem = inventoryItem:getScriptItem()
         local sound_volumn = scriptItem:getSoundVolume()
@@ -51,32 +79,8 @@ local silencerOnEquipPrimary = function(character, inventoryItem)
     end
 end
 
-local silencerOnEquipPrimaryOnStart = function()
-    local player = getPlayer()
-    silencerOnEquipPrimary(player, player:getPrimaryHandItem())
-end
-
-
-local function predicateNotBroken(item)
-	return not item:isBroken()
-end
-
-local silencerOnUpgradeSilencer = function(weapon, part, player)
-    ISInventoryPaneContextMenu.transferIfNeeded(player, weapon)
-    ISInventoryPaneContextMenu.transferIfNeeded(player, part)
-    ISInventoryPaneContextMenu.equipWeapon(part, false, false, player:getPlayerNum())
-    ISTimedActionQueue.add(ISUnequipAction:new(player, weapon, 50))
-    ISTimedActionQueue.add(ISUpgradeSilencer:new(player, weapon, part, 50))
-end
-
-local silencerOnRemoveUpgradeSilencer = function(weapon, part, player)
-    ISInventoryPaneContextMenu.transferIfNeeded(player, weapon)
-    ISTimedActionQueue.add(ISUnequipAction:new(player, weapon, 50))
-    ISTimedActionQueue.add(ISRemoveSilencerUpgrade:new(player, weapon, part, 50))
-end
-
-
-local silencerWithOutScrewdriverContextMenu = function(playerNum, context, items)
+-- upgrade / remove with out screwdriver
+Silen.onFillInventoryObjectContextMenu = function(playerNum, context, items)
     local playerObj = getSpecificPlayer(playerNum)
     local playerInv = playerObj:getInventory()
 
@@ -107,7 +111,7 @@ local silencerWithOutScrewdriverContextMenu = function(playerNum, context, items
                    and part:getPartType() == "Canon"
                    and not gun:getCanon() then
                     doIt = true
-                    subMenuUp:addOption(weaponParts:get(i):getName(), gun, silencerOnUpgradeSilencer, part, playerObj)
+                    subMenuUp:addOption(weaponParts:get(i):getName(), gun, Silen.onUpgradeSilencer, part, playerObj)
                     alreadyDoneList[part:getName()] = true
                 end
             end
@@ -123,10 +127,10 @@ local silencerWithOutScrewdriverContextMenu = function(playerNum, context, items
         local removeUpgradeOption = context:addOptionOnTop(getText("ContextMenu_Remove_Silencer_Upgrade"), items, nil)
         local subMenuRemove = context:getNew(context);
         context:addSubMenu(removeUpgradeOption, subMenuRemove)
-        subMenuRemove:addOption(gun:getCanon():getName(), gun, silencerOnRemoveUpgradeSilencer, gun:getCanon(), playerObj)
+        subMenuRemove:addOption(gun:getCanon():getName(), gun, Silen.onRemoveUpgradeSilencer, gun:getCanon(), playerObj)
     end
 end
 
-Events.OnEquipPrimary.Add(silencerOnEquipPrimary)
-Events.OnGameStart.Add(silencerOnEquipPrimaryOnStart)
-Events.OnFillInventoryObjectContextMenu.Add(silencerWithOutScrewdriverContextMenu)
+Events.OnEquipPrimary.Add(Silen.onEquipPrimary)
+Events.OnGameStart.Add(Silen.onGameStart)
+Events.OnFillInventoryObjectContextMenu.Add(Silen.onFillInventoryObjectContextMenu)

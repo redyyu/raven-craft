@@ -1,5 +1,21 @@
 module Base
 {
+    /* Hat */
+    
+    item Hat_HardHat_Miner {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Mining Helmet,
+        ClothingItem = Hat_HardHat_Miner,
+        BodyLocation = Hat,
+        Icon = HardHatMiner,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 100,
+        ScratchDefense = 100,
+        Insulation = 0.15,
+        WindResistance = 0.20,
+    }
 
     /* LongJohns */
 
