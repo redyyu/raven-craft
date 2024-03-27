@@ -15,6 +15,7 @@ module Base
         ScratchDefense = 100,
         Insulation = 0.15,
         WindResistance = 0.20,
+        AttachmentsProvided = HeadLamp,
     }
 
     /* LongJohns */

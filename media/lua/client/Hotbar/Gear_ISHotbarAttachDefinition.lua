@@ -5,33 +5,44 @@ if not ISHotbarAttachDefinition then
 end
 
 local ChestRig = {
-	type = "ChestRig",
-	name = "Chest Rig Left",
-	animset = "belt left",
-	attachments = {
-		Mag = "Chest Rig Mag Left",
-		Holster = "Chest Rig",
-		Knife = "Chest Rig Knife",
-		Gear = "Chest Rig Gear",
-		ChestLight = "Chest Light",
-		Walkie = "Chest Rig Walkie",
-		Bottle = "Chest Rig Bottle",
-		Screwdriver  = "Chest Rig Walkie",
-	},
+    type = "ChestRig",
+    name = "Chest Rig Left",
+    animset = "belt left",
+    attachments = {
+        Mag = "Chest Rig Mag Left",
+        Holster = "Chest Rig",
+        Knife = "Chest Rig Knife",
+        Gear = "Chest Rig Gear",
+        ChestLight = "Chest Light",
+        Walkie = "Chest Rig Walkie",
+        Bottle = "Chest Rig Bottle",
+        Screwdriver  = "Chest Rig Walkie",
+    },
 }
-table.insert(ISHotbarAttachDefinition, ChestRig);
+table.insert(ISHotbarAttachDefinition, ChestRig)
 
 local ChestRigRight = {
-	type = "ChestRigRight",
-	name = "Chest Rig Right",
-	animset = "belt right",
-	attachments = {	
-		Mag = "Chest Rig Mag Right",
-		ChestLight = "Chest Light Right",
-		Walkie = "Chest Rig Walkie Right",
-		Bottle = "Chest Rig Bottle Right",
-		Screwdriver  = "Chest Rig Walkie Right",
-		Gear = "Chest Rig Gear Right",
-	},
+    type = "ChestRigRight",
+    name = "Chest Rig Right",
+    animset = "belt right",
+    attachments = {    
+        Mag = "Chest Rig Mag Right",
+        ChestLight = "Chest Light Right",
+        Walkie = "Chest Rig Walkie Right",
+        Bottle = "Chest Rig Bottle Right",
+        Screwdriver  = "Chest Rig Walkie Right",
+        Gear = "Chest Rig Gear Right",
+    },
 }
-table.insert(ISHotbarAttachDefinition, ChestRigRight);
+table.insert(ISHotbarAttachDefinition, ChestRigRight)
+
+
+local HeadLamp = {
+    type = "HeadLamp",
+    name = "Head Lamp",
+    animset = "back",
+    attachments = {
+        HeadLamp = "Head Lamp",
+    },
+}
+table.insert(ISHotbarAttachDefinition, HeadLamp)

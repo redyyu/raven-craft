@@ -4,6 +4,13 @@ module Base
     {
         mesh = Skinned/FemaleBody,
 
+        attachment head_lamp
+        {
+            offset = -0.0570 0.0030 0.0840,
+            rotate = -0.0570 21.0000 -96.0000,
+            bone = Bip01_Head,
+        }
+
         attachment chest_rig_mag_left
         {
             offset = 0.1700 0.0600 0.0550,
@@ -96,7 +103,13 @@ module Base
     {
         mesh = Skinned/MaleBody,
         
-    
+        attachment head_lamp
+        {
+            offset = 0.0000 0.0000 0.0000,
+            rotate = 0.0000 0.0000 0.0000,
+            bone = Bip01_Head,
+        }
+
         attachment chest_rig_mag_left
         {
             offset = 0.1700 0.0600 0.0550,

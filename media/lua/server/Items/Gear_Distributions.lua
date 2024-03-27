@@ -60,3 +60,8 @@ RC.insertDistTable(SuburbsDistributions.Bag_ALICEpack_Army, ARMY_ITEMS_WEIGHT, 1
 
 RC.insertDistTable(ProceduralDistributions.list["CampingStoreGear"], 'Canteen', 1)
 RC.insertDistTable(ProceduralDistributions.list["CampingStoreGear"], 'Canteenfull', 1)
+
+
+RC.insertDistTable(ProceduralDistributions.list["CrateCostume"], 'MiningLamp', 0.5)
+RC.insertDistTable(ProceduralDistributions.list["CrateRandomJunk"], 'MiningLamp', 0.05)
+RC.insertDistTable(ProceduralDistributions.list["ToolStoreAccessories"], 'MiningLamp', 0.5)

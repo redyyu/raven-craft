@@ -24,3 +24,6 @@ group:getOrCreateLocation("Chest Rig Bottle"):setAttachmentName("chest_rig_bottl
 group:getOrCreateLocation("Chest Rig Bottle Right"):setAttachmentName("chest_rig_bottle_right")
 group:getOrCreateLocation("Gear Belt Right"):setAttachmentName("gear_belt_right")
 group:getOrCreateLocation("Gear Belt Left"):setAttachmentName("gear_belt_left")
+
+
+group:getOrCreateLocation("Head Lamp"):setAttachmentName("head_lamp")

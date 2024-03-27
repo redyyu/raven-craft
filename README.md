@@ -533,6 +533,10 @@ item Canteen {
 }
 ```
 
+*Remember change the size when export, If the object not showing up in game, make sure it is not tooooooo big. (cover whole screen)*
+
+
+
 ### anims_X and AnimSets
 
 3D model files in place in **anims_X**, It could be DirectX (.X) file or fbx. 
