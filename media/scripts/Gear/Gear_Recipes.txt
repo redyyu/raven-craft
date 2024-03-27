@@ -1,8 +1,26 @@
 module Base
 {
 
+    recipe Make Mining Lamp {
+        keep Screwdriver,
+        keep Hat_HardHat_Miner,
+        DuctTape = 2,
+        Woodglue = 1,
+        HandTorch/Torch,
+
+        Result: MiningLamp,
+        SkillRequired: Tailoring=5;Electricity=5;,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 350.0,
+        Category: Tailoring,
+    }
+
     recipe Remove Battery {
-        keep Flashlight_Military,
+        keep Flashlight_Military/MiningLamp,
 
         Result: Battery,
         Time: 30,
@@ -20,6 +38,17 @@ module Base
         OnTest: Recipe.OnTest.FlashlightBatteryInsert,
         OnCreate: Recipe.OnCreate.FlashlightBatteryInsert,
         Prop2: Flashlight_Military,
+    }
+
+    recipe Insert Battery into Mining Lamp {
+        destroy MiningLamp,
+        destroy Battery,
+
+        Result: MiningLamp,
+        Time: 30,
+        OnTest: Recipe.OnTest.FlashlightBatteryInsert,
+        OnCreate: Recipe.OnCreate.FlashlightBatteryInsert,
+        Prop2: MiningLamp,
     }
 
     recipe Paint ChestRig Brown {

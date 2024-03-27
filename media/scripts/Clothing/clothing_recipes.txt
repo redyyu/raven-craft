@@ -5,26 +5,6 @@ module RavenCraft
 		Base,
 	}
 
-    /* Het */
-    
-    recipe Make Mining Helmet {
-        DuctTape = 2,
-        Woodglue = 1,
-        HandTorch/Torch,
-        Hat_HardHat,
-
-        Result: Hat_HardHat_Miner,
-        SkillRequired: Tailoring=6;Electricity=6;,
-
-        AnimNode: RipSheets,
-        Prop1: Source=1,
-        Prop2: Source=2,
-        Sound: ClothesRipping,
-        Time: 350.0,
-        Category: Tailoring,
-    }
-
-
     /* Corset */
 
     recipe Make Black Corset Bodysuit {

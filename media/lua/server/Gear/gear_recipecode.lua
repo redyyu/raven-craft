@@ -11,7 +11,7 @@ function Recipe.OnCreate.FlashlightBatteryRemoval(items, result, player)
 	for i=0, items:size()-1 do
 		local item = items:get(i)
 		-- we found the battery, we change his used delta according to the battery
-		if item:getType() == "Flashlight_Military" then
+		if item:isTorchCone() then
 			result:setUsedDelta(item:getUsedDelta());
 			-- then we empty the torch used delta (his energy)
 			item:setUsedDelta(0);
@@ -21,7 +21,7 @@ end
 
 -- Return true if recipe is valid, false otherwise
 function Recipe.OnTest.FlashlightBatteryInsert(sourceItem, result)
-	if sourceItem:getType() == "Flashlight_Military" then
+	if sourceItem:isTorchCone() then
 		return sourceItem:getUsedDelta() == 0; -- Only allow the battery inserting if the flashlight has no battery left in it.
 	end
 	return true -- the battery
