@@ -334,11 +334,6 @@ Silencers is on Base package, incase some other MOD need it.
 
 A New Tv Tap `First Aid Guide 1 - 4` for gain `FristAid` Perk.
 
-## Exercises
-
-Combine Exercises, Bench Press and Treadmill. Those exercises, is work like Vanilla Exercises exactly.
-Character must be near by the device to start exercise, also Treadmill need electricity.
- 
 
 ## Better Shoes
 
@@ -373,19 +368,6 @@ you have to learn recipe for each type of cars, and car doors should not be lock
 
 Cigarettes Pack for 20 Cigarettes. all distribution decide chance to make `CigarettesPack` to replace `Cigarettes`.
 Cigarettes Pack can refill with numbers of Cigarettes. When smoke with Cigarettes Pack, 1 Cigarettes will draw out and smoking.
-
-
-## GunSuicide
-
-Kill your self by a loaded gun, prevent become a zombie.
-
-
-
-
-
-
-
-
 
 
 

@@ -25,10 +25,6 @@ ContextMenu_EN = {
   ContextMenu_ANVIL = "Anvil"
   ContextMenu_WATER_WELL = "Water Well"
 
-  -- Exercises
-  ContextMenu_USE_EXER_TREADMILL = "Use Treadmill fitness (%1)"
-  ContextMenu_USE_EXER_BENCH = "Use Bench Press (%1)"
-
   -- Silencer
   ContextMenu_Add_Silencer_Upgrade = "Attach Silencer"
   ContextMenu_Remove_Silencer_Upgrade = "Remove Silencer"
@@ -41,9 +37,7 @@ ContextMenu_EN = {
   ContextMenu_TAKE_BARREL = "Take Barrel"
   ContextMenu_WORKBENCH = "Workbench"
 
-  ContextMenu_GUN_SUICIDE = "Suicide by Gun"
   ContextMenu_TAKE_INJECTION = "Take Injection"
-  ContextMenu_CLIMB_LADDER = "Climb Ladder"
   
   ContextMenu_WearTight = "Wear Tight",
   ContextMenu_WearLoose = "Wear Loose",
