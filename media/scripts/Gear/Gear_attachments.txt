@@ -6,8 +6,8 @@ module Base
 
         attachment head_lamp
         {
-            offset = -0.0570 0.0030 0.0840,
-            rotate = -0.0570 21.0000 -96.0000,
+            offset = 0.145 0.0000 0.0650,
+            rotate = 0.0000 -80.00 0.0000,
             bone = Bip01_Head,
         }
 
@@ -105,8 +105,8 @@ module Base
         
         attachment head_lamp
         {
-            offset = 0.0000 0.0000 0.0000,
-            rotate = 0.0000 0.0000 0.0000,
+            offset = 0.145 0.0000 0.0650,
+            rotate = 0.0000 -80.00 0.0000,
             bone = Bip01_Head,
         }
 

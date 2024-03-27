@@ -19,7 +19,7 @@ for _,t in pairs(ISHotbarAttachDefinition) do
     if t.type and AttachementExtends[t.type] then
         for k, v in pairs(AttachementExtends[t.type]) do
             if t.attachments and not t.attachments[k] then
-                t.attachments[k] = v;
+                t.attachments[k] = v
             end
         end
     end
@@ -41,7 +41,7 @@ local Hikingbag = {
         --Pan = "Hikingbag Gear",
     },
 }
-table.insert(ISHotbarAttachDefinition, Hikingbag);
+table.insert(ISHotbarAttachDefinition, Hikingbag)
 
 
 local HikingbagLeft = {
@@ -61,7 +61,7 @@ local HikingbagLeft = {
         --Pan = "Hikingbag Left Gear",
     },
 }
-table.insert(ISHotbarAttachDefinition, HikingbagLeft);
+table.insert(ISHotbarAttachDefinition, HikingbagLeft)
 
 
 local HikingbagRight = {
@@ -81,7 +81,7 @@ local HikingbagRight = {
         --Pan = "Hikingbag Right Gear",
     },
 }
-table.insert(ISHotbarAttachDefinition, HikingbagRight);
+table.insert(ISHotbarAttachDefinition, HikingbagRight)
 
 
 local ALICEpackLeft = {
@@ -97,7 +97,7 @@ local ALICEpackLeft = {
         --Pan = "ALICEpack Gear Left",
     },
 }
-table.insert(ISHotbarAttachDefinition, ALICEpackLeft);
+table.insert(ISHotbarAttachDefinition, ALICEpackLeft)
 
 
 local ALICEpack = {
@@ -114,7 +114,7 @@ local ALICEpack = {
         --Pan = "ALICEpack Gear",
     },
 }
-table.insert(ISHotbarAttachDefinition, ALICEpack);
+table.insert(ISHotbarAttachDefinition, ALICEpack)
 
 
 local ALICEpackRight = {
@@ -130,4 +130,49 @@ local ALICEpackRight = {
         --Pan = "ALICEpack Gear Right",
     },
 }
-table.insert(ISHotbarAttachDefinition, ALICEpackRight);
+table.insert(ISHotbarAttachDefinition, ALICEpackRight)
+
+
+local ChestRig = {
+    type = "ChestRig",
+    name = "Chest Rig Left",
+    animset = "belt left",
+    attachments = {
+        Mag = "Chest Rig Mag Left",
+        Holster = "Chest Rig",
+        Knife = "Chest Rig Knife",
+        Gear = "Chest Rig Gear",
+        ChestLight = "Chest Light",
+        Walkie = "Chest Rig Walkie",
+        Bottle = "Chest Rig Bottle",
+        Screwdriver  = "Chest Rig Walkie",
+    },
+}
+table.insert(ISHotbarAttachDefinition, ChestRig)
+
+
+local ChestRigRight = {
+    type = "ChestRigRight",
+    name = "Chest Rig Right",
+    animset = "belt right",
+    attachments = {    
+        Mag = "Chest Rig Mag Right",
+        ChestLight = "Chest Light Right",
+        Walkie = "Chest Rig Walkie Right",
+        Bottle = "Chest Rig Bottle Right",
+        Screwdriver  = "Chest Rig Walkie Right",
+        Gear = "Chest Rig Gear Right",
+    },
+}
+table.insert(ISHotbarAttachDefinition, ChestRigRight)
+
+
+local HeadLamp = {
+    type = "HeadLamp",
+    name = "Head Lamp",
+    animset = "back",
+    attachments = {
+        HeadLamp = "Head Lamp",
+    },
+}
+table.insert(ISHotbarAttachDefinition, HeadLamp)
