@@ -723,6 +723,11 @@
             </subItems>
             <subItems>
                 <probability>0.3</probability>
+                <!-- Hat_BandanaTINT -->
+                <itemGUID>7c0b26d8-8008-448c-a594-79d5309ba993</itemGUID>
+            </subItems>
+            <subItems>
+                <probability>0.3</probability>
                 <!-- Hat_BandanaMask -->
                 <itemGUID>e9e67eaf-4871-4d1d-887e-01f2ef884dee</itemGUID>
             </subItems>
@@ -952,6 +957,11 @@
                 <probability>0.3</probability>
                 <!-- Hat_Bandana -->
                 <itemGUID>0b210a48-3044-4f17-b35a-57d1d119363b</itemGUID>
+            </subItems>
+            <subItems>
+                <probability>0.3</probability>
+                <!-- Hat_BandanaTINT -->
+                <itemGUID>7c0b26d8-8008-448c-a594-79d5309ba993</itemGUID>
             </subItems>
             <subItems>
                 <probability>0.3</probability>
