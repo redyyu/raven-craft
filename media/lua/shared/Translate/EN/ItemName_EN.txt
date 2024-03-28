@@ -21,17 +21,18 @@ ItemName_EN = {
     ItemName_farming.MayonnaiseWaterFull = "Mayonnaise Bottle of Water"
     ItemName_farming.RemouladeEmpty = "Empty Remoulade Bottle"
     ItemName_farming.RemouladeWaterFull = "Remoulade Bottle of Water"
+    
     ItemName_Base.Shoes_BlackBoots = "Black Boots"
-    ItemName_Base.Shoes_BootsTINT = "Boots"
-    ItemName_Base.Shoes_FancyBoots = "Fancy Boots"
     ItemName_Base.Shoes_BlueTrainers = "Blue Sneakers"
     ItemName_Base.Shoes_RedTrainers = "Red Sneakers"
     ItemName_Base.Shoes_Black = "Black Shoes"
     ItemName_Base.Shoes_Brown = "Brown Shoes"
+
     ItemName_Base.Bag_SurvivorBag = "Survivor Bag"
     ItemName_Base.Bag_Military = "Military Duffel Bag"
     ItemName_Base.Cigarettes = "Cigarette"
 
+    -- Corset
     ItemName_RavenCraft.Corset_BodysuitBlack = "Black Corset Bodysuit"
     ItemName_RavenCraft.Corset_BodysuitRed = "Red Corset Bodysuit"
     ItemName_RavenCraft.Corset_PinkBodysuit = "Pink Corset Bodysuit"
