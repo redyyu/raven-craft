@@ -175,6 +175,31 @@ module Base
         WorldStaticModel = Trousers_Ground,
     }
 
+    /* Underwear */
+
+    item BunnySuitBlack {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Bunny Suit,
+        ClothingItem = BunnySuitBlack,
+        BodyLocation = Underwear,
+        Icon = BunnySuitBlack,
+        Weight = 0.1,
+        WorldStaticModel = BunnySuitBlack_Ground,
+    }
+
+    item BunnySuitPink {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Bunny Suit,
+        ClothingItem = BunnySuitPink,
+        BodyLocation = Underwear,
+        Icon = BunnySuitPink,
+        Weight = 0.1,
+        WorldStaticModel = BunnySuitPink_Ground,
+    }
+
+
     /* Gloves */
 
     item Gloves_FingerlessGloves {
