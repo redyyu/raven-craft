@@ -26,8 +26,6 @@ Cigar.onFillInventoryObjectContextMenu = function(player, context, items)
         end
 	end
 
-    print(cigarettes_pack)
-    print("==================cigarettes_pack =================")
     if cigarettes_pack then
         context:addOptionOnTop(getText("ContextMenu_Smoke_CigarettesPack"), 
                                        playerObj, Cigar.onSmokeCigarettesPack, cigarettes_pack)

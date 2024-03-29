@@ -85,7 +85,7 @@ local function doExtraInventoryMenu(player, context, items)
         if #equipped_containers > 0 then
             for _, container in ipairs(equipped_containers) do
                 if not isSelectedItem(container, items) and 
-                not isAnyItemInInventory(items, container:getInventory()) then
+                   not isAnyItemInInventory(items, container:getInventory()) then
                     table.insert(transfer_containers, container)
                 end
             end
@@ -95,9 +95,13 @@ local function doExtraInventoryMenu(player, context, items)
             local transferOption = context:addOption(getText("ContextMenu_Pack_to"))
             local transferMenu = ISContextMenu:getNew(context)
             context:addSubMenu(transferOption, transferMenu)
-
+            
             for _, trans_to in ipairs(transfer_containers) do
-                transferMenu:addOption(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
+                if trans_to == playerObj:getWornItem('Back') then
+                    transferMenu:addOptionOnTop(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
+                else
+                    transferMenu:addOption(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
+                end
             end
         end
     end
