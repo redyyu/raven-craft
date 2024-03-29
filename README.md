@@ -560,6 +560,7 @@ if no NLATrack exsit, try select the animate action you want than click on the m
 when export set the transform to `-Z forward / Y up` and armature primary bone `X aixs`, secondary bone `Y aixs`.
 sometime the exported model is messup, try reverse the those options, might be problem may solved.
 
+*use the template with bone from `_assets/`.*
 *better to learn more about blender anyway.*
 
 the etc. `Dummy01|BenchIn`
@@ -857,10 +858,9 @@ end
 
 export `.fbx` file for now. `X` is too old.
 if make **Static** model, like shoes / mask/ hat, can bind bone in **ClothingItem** or make to skinned bind in model both work.
-if make skinned model might use the template with bone from `_assets/`.
 
-when export Staic model to `.fbx`, should take care of the **Transform** settings *Up* and *Forward*.
-Can also just move or rotate the model to right position in model, and leave the default settings and export.
+when export **Staic** model to `.fbx`, should take care of the **Transform** settings *Up* and *Forward*.
+unlike make Chararcter, Most time only need move or rotate the model to right position in model, and leave the default settings and export.
 try not select **Armature** and **Bake Animation**. not sure what happen, maybe nothing.
 
 *Becareful the size of model*. most time the model in game is really small, must set scale to very small in export settings. etc. `0.01`
