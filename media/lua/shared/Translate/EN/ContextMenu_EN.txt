@@ -36,6 +36,7 @@ ContextMenu_EN = {
   -- UI
   ContextMenu_Put_Washer = "Put to %1"
   ContextMenu_All_Blooded_Clothes = "All Bloodstained Clothes"
+  ContextMenu_All_Dirty_Clothes = "All Dirty Clothes"
   ContextMenu_TAKE_BARREL = "Take Barrel"
   ContextMenu_WORKBENCH = "Workbench"
 

@@ -87,7 +87,7 @@ PtDty.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects, 
 					bloodOpt.notAvailable = true
 				end
             end
-            local allOpt = washerMenu:addOptionOnTop(getText("ContextMenu_WashAllClothing"), playerObj, PtDty.onTransferToWashMachine, container, dirty_clothes)
+            local allOpt = washerMenu:addOptionOnTop(getText("ContextMenu_All_Dirty_Clothes"), playerObj, PtDty.onTransferToWashMachine, container, dirty_clothes)
             local alltip = ISWorldObjectContextMenu.addToolTip()
             local total_water_remain = math.min(waterRemaining, totalWaterRequired)
             alltip.description = getText("ContextMenu_WaterName") .. ": " .. tostring(total_water_remain) .. " / " .. tostring(totalWaterRequired)
