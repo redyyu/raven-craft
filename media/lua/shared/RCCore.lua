@@ -135,6 +135,77 @@ RC.modifySandboxOption = function(option_name, option_value)
 end
 
 
+RC.getMoveableDisplayName = function(obj)
+    if not obj then return nil end
+    if not obj:getSprite() then return nil end
+    local props = obj:getSprite():getProperties()
+    if props:Is("CustomName") then
+        local name = props:Val("CustomName")
+        if props:Is("GroupName") then
+            name = props:Val("GroupName") .. " " .. name
+        end
+        return Translator.getMoveableDisplayName(name)
+    end
+    return nil
+end
+
+
+RC.pickVehicle = function(playerNum)
+    local playerObj = getSpecificPlayer(playerNum)
+    if JoypadState.players[playerNum+1] then
+        local px = playerObj:getX()
+        local py = playerObj:getY()
+        local pz = playerObj:getZ()
+        local sqs = {}
+        sqs[1] = getCell():getGridSquare(px, py, pz)
+        local dir = playerObj:getDir()
+        if (dir == IsoDirections.N) then 
+            sqs[2] = getCell():getGridSquare(px-1, py-1, pz)
+            sqs[3] = getCell():getGridSquare(px, py-1, pz)
+            sqs[4] = getCell():getGridSquare(px+1, py-1, pz)
+        elseif (dir == IsoDirections.NE) then 
+            sqs[2] = getCell():getGridSquare(px, py-1, pz)
+            sqs[3] = getCell():getGridSquare(px+1, py-1, pz)
+            sqs[4] = getCell():getGridSquare(px+1, py, pz);
+        elseif (dir == IsoDirections.E) then 
+            sqs[2] = getCell():getGridSquare(px+1, py-1, pz)
+            sqs[3] = getCell():getGridSquare(px+1, py, pz)
+            sqs[4] = getCell():getGridSquare(px+1, py+1, pz)
+        elseif (dir == IsoDirections.SE) then 
+            sqs[2] = getCell():getGridSquare(px+1, py, pz)
+            sqs[3] = getCell():getGridSquare(px+1, py+1, pz)
+            sqs[4] = getCell():getGridSquare(px, py+1, pz)
+        elseif (dir == IsoDirections.S) then 
+            sqs[2] = getCell():getGridSquare(px+1, py+1, pz)
+            sqs[3] = getCell():getGridSquare(px, py+1, pz)
+            sqs[4] = getCell():getGridSquare(px-1, py+1, pz)
+        elseif (dir == IsoDirections.SW) then 
+            sqs[2] = getCell():getGridSquare(px, py+1, pz)
+            sqs[3] = getCell():getGridSquare(px-1, py+1, pz)
+            sqs[4] = getCell():getGridSquare(px-1, py, pz)
+        elseif (dir == IsoDirections.W) then 
+            sqs[2] = getCell():getGridSquare(px-1, py+1, pz)
+            sqs[3] = getCell():getGridSquare(px-1, py, pz)
+            sqs[4] = getCell():getGridSquare(px-1, py-1, pz)
+        elseif (dir == IsoDirections.NW) then 
+            sqs[2] = getCell():getGridSquare(px-1, py, pz)
+            sqs[3] = getCell():getGridSquare(px-1, py-1, pz)
+            sqs[4] = getCell():getGridSquare(px, py-1, pz)
+        end
+        
+        for _, sq in ipairs(sqs) do
+            local vehicle = sq:getVehicleContainer()
+            if vehicle then
+                return vehicle
+            end
+        end
+        return
+    end
+    
+    return IsoObjectPicker.Instance:PickVehicle(getMouseXScaled(), getMouseYScaled())
+end
+
+
 RC.printDebug = function(contents, name)
     if isDebugEnabled() then
         if name == true or name == nil then

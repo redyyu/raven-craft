@@ -260,36 +260,11 @@ Mech.doTrainingMechanicsMenu = function(playerObj, context, vehicle, test)
 end
 
 
-Mech.onFillWorldObjectContextMenu = function(player, context, worldobjects, test)
-    local playerObj = getSpecificPlayer(player)
+Mech.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects, test)
+    local playerObj = getSpecificPlayer(playerNum)
     local vehicle = playerObj:getVehicle()
     if not vehicle then
-        if JoypadState.players[player+1] then
-            local px = playerObj:getX()
-            local py = playerObj:getY()
-            local pz = playerObj:getZ()
-            local sqs = {}
-            sqs[1] = getCell():getGridSquare(px, py, pz)
-            local dir = playerObj:getDir()
-            if (dir == IsoDirections.N) then        sqs[2] = getCell():getGridSquare(px-1, py-1, pz); sqs[3] = getCell():getGridSquare(px, py-1, pz);   sqs[4] = getCell():getGridSquare(px+1, py-1, pz);
-            elseif (dir == IsoDirections.NE) then   sqs[2] = getCell():getGridSquare(px, py-1, pz);   sqs[3] = getCell():getGridSquare(px+1, py-1, pz); sqs[4] = getCell():getGridSquare(px+1, py, pz);
-            elseif (dir == IsoDirections.E) then    sqs[2] = getCell():getGridSquare(px+1, py-1, pz); sqs[3] = getCell():getGridSquare(px+1, py, pz);   sqs[4] = getCell():getGridSquare(px+1, py+1, pz);
-            elseif (dir == IsoDirections.SE) then   sqs[2] = getCell():getGridSquare(px+1, py, pz);   sqs[3] = getCell():getGridSquare(px+1, py+1, pz); sqs[4] = getCell():getGridSquare(px, py+1, pz);
-            elseif (dir == IsoDirections.S) then    sqs[2] = getCell():getGridSquare(px+1, py+1, pz); sqs[3] = getCell():getGridSquare(px, py+1, pz);   sqs[4] = getCell():getGridSquare(px-1, py+1, pz);
-            elseif (dir == IsoDirections.SW) then   sqs[2] = getCell():getGridSquare(px, py+1, pz);   sqs[3] = getCell():getGridSquare(px-1, py+1, pz); sqs[4] = getCell():getGridSquare(px-1, py, pz);
-            elseif (dir == IsoDirections.W) then    sqs[2] = getCell():getGridSquare(px-1, py+1, pz); sqs[3] = getCell():getGridSquare(px-1, py, pz);   sqs[4] = getCell():getGridSquare(px-1, py-1, pz);
-            elseif (dir == IsoDirections.NW) then   sqs[2] = getCell():getGridSquare(px-1, py, pz);   sqs[3] = getCell():getGridSquare(px-1, py-1, pz); sqs[4] = getCell():getGridSquare(px, py-1, pz);
-            end
-            for _, sq in ipairs(sqs) do
-                vehicle = sq:getVehicleContainer()
-                if vehicle then
-                    return Mech.doTrainingMechanicsMenu(playerObj, context, vehicle, test)
-                end
-            end
-            return
-        end
-        
-        vehicle = IsoObjectPicker.Instance:PickVehicle(getMouseXScaled(), getMouseYScaled())
+        vehicle = RC.pickVehicle(playerNum)
         if vehicle then
             return Mech.doTrainingMechanicsMenu(playerObj, context, vehicle, test)
         end

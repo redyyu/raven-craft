@@ -25,24 +25,6 @@ local function isAnyItemInInventory(items, inventory)
 end
 
 
-local function onTransferToContainer(playerObj, container, items)
-    local is_too_havey = true
-    local inventory = container:getInventory()
-
-    for _, item in ipairs(items) do
-        if not inventory:contains(item) then
-            if inventory:hasRoomFor(playerObj, item) then
-                ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), inventory))
-                is_too_havey = false  -- will say nothing if one of the item is good for go.
-            end
-        end
-	end
-    if is_too_havey then
-        playerObj:Say(getText("IGUI_PlayerText_Too_Havey"))
-    end
-end
-
-
 local function getEquippedContainers(playerObj)
     local playerInv = playerObj:getInventory()
     local containers = playerInv:getItemsFromCategory("Container")
@@ -68,8 +50,28 @@ local function getCurrentInventory(items)
 end
 
 
-local function doExtraInventoryMenu(player, context, items)
-    local playerObj = getSpecificPlayer(player)
+local Trsf = {}
+
+Trsf.onTransferToContainer = function(playerObj, container, items)
+    local is_too_havey = true
+    local inventory = container:getInventory()
+
+    for _, item in ipairs(items) do
+        if not inventory:contains(item) then
+            if inventory:hasRoomFor(playerObj, item) then
+                ISTimedActionQueue.add(ISInventoryTransferAction:new(playerObj, item, item:getContainer(), inventory))
+                is_too_havey = false  -- will say nothing if one of the item is good for go.
+            end
+        end
+	end
+    if is_too_havey then
+        playerObj:Say(getText("IGUI_PlayerText_Too_Havey"))
+    end
+end
+
+
+Trsf.onFillInventoryObjectContextMenu = function(playerNum, context, items)
+    local playerObj = getSpecificPlayer(playerNum)
     local playerInv = playerObj:getInventory()
 
     local items = ISInventoryPane.getActualItems(items)
@@ -98,24 +100,23 @@ local function doExtraInventoryMenu(player, context, items)
             
             for _, trans_to in ipairs(transfer_containers) do
                 if trans_to == playerObj:getWornItem('Back') then
-                    transferMenu:addOptionOnTop(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
+                    transferMenu:addOptionOnTop(trans_to:getDisplayName(), playerObj, Trsf.onTransferToContainer, trans_to, items)
                 else
-                    transferMenu:addOption(trans_to:getDisplayName(), playerObj, onTransferToContainer, trans_to, items)
+                    transferMenu:addOption(trans_to:getDisplayName(), playerObj, Trsf.onTransferToContainer, trans_to, items)
                 end
             end
         end
     end
 
     -- Transfer items to ground
-    
     if currInventory:getType() ~= "floor" and playerObj:getJoypadBind() == -1 and
        not currInventory:isInCharacterInventory(playerObj) and
        not ISInventoryPaneContextMenu.isAllFav(items) and
        not ISInventoryPaneContextMenu.isAllNoDropMoveable(items) then
-        context:addOption(getText("ContextMenu_Grab_to_Ground"), items, ISInventoryPaneContextMenu.onDropItems, player);
+        context:addOption(getText("ContextMenu_Grab_to_Ground"), items, ISInventoryPaneContextMenu.onDropItems, playerNum)
     end
 
- end
+end
 
 
-Events.OnFillInventoryObjectContextMenu.Add(doExtraInventoryMenu)
+Events.OnFillInventoryObjectContextMenu.Add(Trsf.onFillInventoryObjectContextMenu)
