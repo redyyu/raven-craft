@@ -1,0 +1,59 @@
+module RavenCraft
+{
+
+    imports {
+		Base,
+	}
+
+    /* Corset */
+
+    recipe Reinforce Survivor Backpack {
+        Bag_SurvivorBag,
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        LeatherStrips=2,
+        DenimStrips=2,
+        RippedSheets=4,
+        Thread=2,
+        
+        OnTest: Recipe.OnTest.IsBagCanReinforce,
+
+        Result: Bag_SurvivorBag_R,
+        SkillRequired: Tailoring=8,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 550.0,
+        Category: Tailoring,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING_EMPTY,
+    }
+
+
+    recipe Reinforce Large Backpack {
+        Bag_ALICEpack,
+        keep Needle/SutureNeedle,
+        keep Scissors,
+        LeatherStrips=2,
+        DenimStrips=2,
+        RippedSheets=4,
+        Thread=2,
+        
+        OnTest: Recipe.OnTest.IsBagCanReinforce,
+
+        Result: Bag_ALICEpack_R,
+        SkillRequired: Tailoring=8,
+
+        AnimNode: RipSheets,
+        Prop1: Source=1,
+        Prop2: Source=2,
+        Sound: ClothesRipping,
+        Time: 550.0,
+        Category: Tailoring,
+
+        Tooltip: Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING_EMPTY,
+    }
+
+}

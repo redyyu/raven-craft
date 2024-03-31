@@ -514,6 +514,7 @@ function Recipe.OnCreate.RestoreBagItemsWithTexture(items, resultItem, player)
     end
 end
 
+
 -- NOT PRINT Backpacks anymore.
 -- function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
 --     Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
@@ -528,6 +529,13 @@ end
 --     resultItem:getVisual():setTextureChoice(0)
 --     resultItem:synchWithVisual()
 -- end
+
+function Recipe.OnTest.IsBagCanReinforce(item)
+    if instanceof(item, "InventoryContainer") then
+        return item:getInventory():getItems():size() < 1 and not item:isEquipped()
+    end
+    return true
+end
 
 
 function Recipe.OnTest.IsEmptyBag(item)
