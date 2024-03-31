@@ -514,20 +514,20 @@ function Recipe.OnCreate.RestoreBagItemsWithTexture(items, resultItem, player)
     end
 end
 
+-- NOT PRINT Backpacks anymore.
+-- function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
+--     Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
 
-function Recipe.OnCreate.printArmyPackToBlack(items, resultItem, player)
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
+--     resultItem:getVisual():setTextureChoice(1)
+--     resultItem:synchWithVisual()
+-- end
 
-    resultItem:getVisual():setTextureChoice(1)
-    resultItem:synchWithVisual()
-end
+-- function Recipe.OnCreate.printArmyPackToArmy(items, resultItem, player)
+--     Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
 
-function Recipe.OnCreate.printArmyPackToArmy(items, resultItem, player)
-    Recipe.OnCreate.RestoreBagItemsOnly(items, resultItem, player)
-
-    resultItem:getVisual():setTextureChoice(0)
-    resultItem:synchWithVisual()
-end
+--     resultItem:getVisual():setTextureChoice(0)
+--     resultItem:synchWithVisual()
+-- end
 
 
 function Recipe.OnTest.IsEmptyBag(item)

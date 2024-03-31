@@ -59,7 +59,7 @@ module Base
         WeightReduction = 87,
         Weight = 2,
         Capacity = 28,
-        IconsForTexture = AliceBag_Camo;AliceBag_Camo_Dark,
+        IconsForTexture = AliceBag_CamoGreen;AliceBag_CamoUrban;AliceBag_CamoDesert,
         OpenSound = OpenBag,
         CloseSound = CloseBag,
         PutInSound = PutItemInBag,
