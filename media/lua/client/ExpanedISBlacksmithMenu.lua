@@ -304,7 +304,7 @@ local doBuildMenu = function(player, context, worldobjects, test)
     local playerObj = getSpecificPlayer(player)
     local playerInv = playerObj:getInventory()
     
-    if playerObj:getVehicle() then return; end
+    if playerObj:getVehicle() then return end
 
     local option = context:getOptionFromName(getText("ContextMenu_MetalWelding"))
 

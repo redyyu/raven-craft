@@ -109,7 +109,9 @@ Trsf.onFillInventoryObjectContextMenu = function(playerNum, context, items)
     end
 
     -- Transfer items to ground
-    if currInventory:getType() ~= "floor" and playerObj:getJoypadBind() == -1 and
+    if currInventory:getType() ~= "floor" and 
+       playerObj:getJoypadBind() == -1 and
+       not playerObj:getVehicle() and
        not currInventory:isInCharacterInventory(playerObj) and
        not ISInventoryPaneContextMenu.isAllFav(items) and
        not ISInventoryPaneContextMenu.isAllNoDropMoveable(items) then
