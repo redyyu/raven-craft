@@ -7,5 +7,6 @@
     <m_AllowRandomHue>true</m_AllowRandomHue>
     <m_AllowRandomTint>false</m_AllowRandomTint>
     <m_AttachBone></m_AttachBone>
-    <m_BaseTextures>clothes/Trousers/TrousersTightDenimHUE</m_BaseTextures>
+    <m_BaseTextures>clothes/Trousers/TrousersTightDenim</m_BaseTextures>
+    <m_BaseTextures>clothes/Trousers/TrousersTightDenimBlack</m_BaseTextures>
 </clothingItem>

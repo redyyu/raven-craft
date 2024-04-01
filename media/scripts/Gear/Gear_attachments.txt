@@ -11,6 +11,32 @@ module Base
             bone = Bip01_Head,
         }
 
+        attachment canteen_belt_left
+        {
+            offset = -0.0150 0.1000 0.0,
+            rotate = 180.0000 0.0000 -75.0000,
+            bone = Bip01_Spine,
+        }
+        attachment canteen_belt_right
+        {
+            offset = -0.0150 -0.1000 0.0,
+            rotate = 0.0000 0.0000 -75.0000,
+            bone = Bip01_Spine,
+        }
+
+        attachment gear_belt_left
+        {
+            offset = 0.0 0.0650 0.0250,
+            rotate = 45.0000 0.0000 75.0000,
+            bone = Bip01_Spine,
+        }
+        attachment gear_belt_right
+        {
+            offset = 0.0 -0.0650 0.0250,
+            rotate = -45.0000 0.0000 -75.0000,
+            bone = Bip01_Spine,
+        }
+
         attachment chest_rig_mag_left
         {
             offset = 0.1700 0.0600 0.0550,
@@ -108,6 +134,32 @@ module Base
             offset = 0.145 0.0000 0.0650,
             rotate = 0.0000 -80.00 0.0000,
             bone = Bip01_Head,
+        }
+
+        attachment canteen_belt_left
+        {
+            offset = -0.0150 0.1000 0.0,
+            rotate = 180.0000 0.0000 -75.0000,
+            bone = Bip01_Spine,
+        }
+        attachment canteen_belt_right
+        {
+            offset = -0.0150 -0.1000 0.0,
+            rotate = 0.0000 0.0000 -75.0000,
+            bone = Bip01_Spine,
+        }
+
+        attachment gear_belt_left
+        {
+            offset = 0.0 0.0650 0.0250,
+            rotate = 45.0000 0.0000 75.0000,
+            bone = Bip01_Spine,
+        }
+        attachment gear_belt_right
+        {
+            offset = 0.0 -0.0650 0.0250,
+            rotate = -45.0000 0.0000 -75.0000,
+            bone = Bip01_Spine,
         }
 
         attachment chest_rig_mag_left

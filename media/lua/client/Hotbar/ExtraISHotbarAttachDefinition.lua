@@ -8,10 +8,12 @@ local AttachementExtends = {
     SmallBeltLeft = {
         BigBlade = "Belt Left Upside",
         Canteen = "Canteen Belt Left",
+        Gear = "Gear Belt Left",
     },
     SmallBeltRight = {
         BigBlade = "Belt Right Upside",
         Canteen = "Canteen Belt Right",
+        Gear = "Gear Belt Right",
     },
 }
 
