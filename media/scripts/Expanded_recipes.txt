@@ -318,7 +318,9 @@ module RavenCraft
         keep Spoon/GrillBrush/Spatula,
         Water=2,
         Flour=1,
-        [Recipe.GetItemTypes.Sugar];4,
+        Rice;5,
+        [Recipe.GetItemTypes.Sugar];2,
+        [Recipe.GetItemTypes.Milk]/Yoghurt;1,
         
         Result: Glue,
         SkillRequired: Woodwork=4;Cooking=6;,
@@ -330,13 +332,14 @@ module RavenCraft
         Category: Carpentry,
     }
 	
-	recipe Self-made Wood Glue {
+    recipe Self-made Wood Glue {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
         Water=2,
         Flour=2,
-        [Recipe.GetItemTypes.Sugar];6,
-        [Recipe.GetItemTypes.Milk]/Yoghurt;10,
+        Rice;10,
+        [Recipe.GetItemTypes.Sugar];4,
+        [Recipe.GetItemTypes.Milk]/Yoghurt;4,
         Glue=5,
         
         AllowRottenItem: true,
