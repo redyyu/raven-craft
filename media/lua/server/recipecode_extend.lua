@@ -126,7 +126,7 @@ end
 function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
     local condition_ratio = 1
     local dirtyness = 0
-    local bloodlevel = 0
+    -- local bloodlevel = 0
     local wetness = 0
     
     local suitPartMap = {}
@@ -148,10 +148,10 @@ function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
                 dirtyness = drt
             end
 
-            local bld = item:getBloodLevel()
-            if bld > bloodlevel then
-                bloodlevel = bld
-            end
+            -- local bld = item:getBloodLevel()
+            -- if bld > bloodlevel then
+            --     bloodlevel = bld
+            -- end
 
             local wet = item:getWetness()
             if wet > wetness then
@@ -161,17 +161,23 @@ function Recipe.OnCreate.AssembleArmorSuit(items, result, player)
             local item_parts = item:getCoveredParts()
             for i=0, item_parts:size() - 1 do
                 local p = item_parts:get(i)
-                if suitPartMap[p] and item:getVisual():getHole(p) > 0 then
-                    result:getVisual():setHole(p)
+                if suitPartMap[p] then 
+                    if item:getVisual():getHole(p) > 0 then
+                        result:getVisual():setHole(p)
+                    end
+                    if item:getVisual():getBlood(p) > 0 then
+                        result:getVisual():setBlood(p, item:getVisual():getBlood(p))
+                    end
                 end
             end
         end
     end
+    
     result:synchWithVisual()
     result:setCondition(math.floor(result:getConditionMax() * condition_ratio))
     result:setDirtyness(dirtyness)
     result:setWetness(wetness)
-    result:setBloodLevel(bloodlevel)
+    -- result:setBloodLevel(bloodlevel)
 end
 
 
