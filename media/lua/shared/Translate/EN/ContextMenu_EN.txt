@@ -27,6 +27,7 @@ ContextMenu_EN = {
   
   -- Ditch
   ContextMenu_DigDitch = "Dig Ditch"
+  ContextMenu_Water_Ditch = Ditch"
 
   -- Silencer
   ContextMenu_Add_Silencer_Upgrade = "Attach Silencer"

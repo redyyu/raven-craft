@@ -17,14 +17,14 @@ function SMetalDrumSystem:OnClientCommand(command, player, args)
         return
     end
     if command == "addLogs" then
-        for i=1, 2 do
+        for i=1, 3 do
             player:sendObjectChange('removeOneOf', { type = 'Log' })
         end
         drum:setHaveLogs(true)
         return
     end
     if command == "removeLogs" then
-        player:sendObjectChange('addItemOfType', { type = 'Base.Log', count = 2 })
+        player:sendObjectChange('addItemOfType', { type = 'Base.Log', count = 3 })
         drum:setHaveLogs(false)
         return
     end
@@ -43,7 +43,7 @@ function SMetalDrumSystem:OnClientCommand(command, player, args)
     if command == "removeCharcoal" then
         if drum.haveCharcoal then
             drum:setHaveCharcoal(false)
-            player:sendObjectChange('addItemOfType', { type = 'Base.Charcoal', count = 2 })
+            player:sendObjectChange('addItemOfType', { type = 'Base.Charcoal', count = 3 })
         end
         return
     end

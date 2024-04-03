@@ -14,30 +14,30 @@ end
 -- end
 
 
-local PatchMenu = {};
+local PatchMenu = {}
 
 
 PatchMenu.doBuildMenu = function(player, context, worldobjects, test)
 	if test and ISWorldObjectContextMenu.Test then return true end
 
     if getCore():getGameMode()=="LastStand" then
-        return;
+        return
     end
 	
 	local playerObj = getSpecificPlayer(player)
 	local playerInv = playerObj:getInventory()
 
-	if playerObj:getVehicle() then return; end
+	if playerObj:getVehicle() then return end
 
 
     -- Path for Vanilla --
-    local furnace = nil;
-    local metal_drum = nil;
+    local furnace = nil
+    local metal_drum = nil
 
     for i, v in ipairs(worldobjects) do
         -- find Stone Furnace --
         if instanceof(v, "BSFurnace") then
-            furnace = v;
+            furnace = v
             print(furnace)
         end
         -- find Metal Drum --
@@ -48,21 +48,21 @@ PatchMenu.doBuildMenu = function(player, context, worldobjects, test)
     
     -- fix `Put out fire` on furnace not change texture. --
     if furnace and furnace:isFireStarted() then
-        context:removeOptionByName(getText("ContextMenu_Put_out_fire"));
-        context:addOption(getText("ContextMenu_Put_out_fire"), worldobjects, furnaceOnStopFire, furnace, playerObj);
+        context:removeOptionByName(getText("ContextMenu_Put_out_fire"))
+        context:addOption(getText("ContextMenu_Put_out_fire"), worldobjects, furnaceOnStopFire, furnace, playerObj)
     end
 
     -- fix 5 Logs is too heavy. change to 2 --
     if metal_drum and not metal_drum.haveLogs and not metal_drum.haveCharcoal then
-        local drumMenuOption = context:getOptionFromName(getText("ContextMenu_Metal_Drum"));
+        local drumMenuOption = context:getOptionFromName(getText("ContextMenu_Metal_Drum"))
         if drumMenuOption then
-            local subDrumMenu = context:getSubMenu(drumMenuOption.subOption);
-            -- subDrumMenu:removeOptionByName(getText("ContextMenu_Add_Logs"));
-            local addLogOption = subDrumMenu:getOptionFromName(getText("ContextMenu_Add_Logs"));
+            local subDrumMenu = context:getSubMenu(drumMenuOption.subOption)
+            -- subDrumMenu:removeOptionByName(getText("ContextMenu_Add_Logs"))
+            local addLogOption = subDrumMenu:getOptionFromName(getText("ContextMenu_Add_Logs"))
             if addLogOption then
-                local tooltip = addLogOption.toolTip;
-                tooltip.description = getText("Tooltip_CHARCOAL_LOGS", 2);
-                addLogOption.notAvailable = playerInv:getItemCount("Base.Log") < 2;
+                local tooltip = addLogOption.toolTip
+                tooltip.description = getText("Tooltip_CHARCOAL_LOGS", 3)
+                addLogOption.notAvailable = playerInv:getItemCount("Base.Log") < 3
             end
         end
     end
