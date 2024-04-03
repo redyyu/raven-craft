@@ -124,6 +124,7 @@ end
 -- the previewSprite and overlaySprite is used for hacking the color of MetalDrum
 -- by setOverlaySprite, and previewSprite is used for showing on square before craft.
 -- In the end, I thought it's bit boring and silly, so remove it, but keep code here.
+-- (those custom sprite texture is in custom texturepacks, not sure is have or not in future)
 
 local DRUM_SPRITES_MAP = {
     ["Moveables.crafted_01_32"] = {
