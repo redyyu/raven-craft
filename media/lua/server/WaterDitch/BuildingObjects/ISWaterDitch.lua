@@ -5,7 +5,7 @@ ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
 ISWaterDitch.waterMax = 800
 
 ISWaterDitch.spriteGroupMap = {
-	[''] = {
+	['_'] = {
 		empty = 'rc_natural_ditch_0',
         water = 'rc_natural_ditch_1',
 	},
@@ -87,8 +87,8 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     local args = { x = self.sq:getX(), y = self.sq:getY(), z = self.sq:getZ() }
     sendClientCommand('erosion', 'disableForSquare', args)
     
-    local sprite = ISWaterDitch.reckonSPrite(self.sq)
-    self.javaObject = IsoThumpable.new(cell, self.sq, sprite, north, self)
+    local sprite_group = ISWaterDitch.reckonSpriteGroup(self.sq)
+    self.javaObject = IsoThumpable.new(cell, self.sq, sprite_group.empty, north, self)
     buildUtil.setInfo(self.javaObject, self)
     
     self.sq:RecalcAllWithNeighbours(true)
@@ -96,6 +96,8 @@ function ISWaterDitch:create(x, y, z, north, sprite)
 
     self.javaObject:getModData()["waterMax"] = self.waterMax
     self.javaObject:getModData()["waterAmount"] = 0
+    self.javaObject:getModData()["waterSprite"] = sprite_group.water
+    self.javaObject:getModData()["emptySprite"] = sprite_group.empty
     self.javaObject:setSpecialTooltip(true)
     self.javaObject:transmitCompleteItemToServer()
 
@@ -188,14 +190,25 @@ function ISWaterDitch:updateAdjacentSprite()
     
     for _, square in ipairs(squares) do
         local ditch = ISWaterDitch.getDitch(square)
-        local spriteName = ISWaterDitch.reckonSprite(square, ditch)
-        ditch:setSprite(spriteName)
-		ditch:transmitUpdatedSpriteToClients()
+        local sprite_group = ISWaterDitch.reckonSprite(square)
+        if ditch and ditch:getModData()["waterAmount"] > 0 and ditch:getModData()["waterMax"] > 0 then
+            if ditch:getModData()["waterAmount"] >= ditch:getModData()["waterMax"] * 0.25 then
+                ditch:setSprite(sprite_group.water)
+            else
+                ditch:setSprite(sprite_group.empty)
+            end
+            ditch:getModData()["waterSprite"] = sprite_group.water
+            ditch:getModData()["emptySprite"] = sprite_group.empty
+            ditch:transmitUpdatedSpriteToClients()
+        end
     end
 end
 
 
-function ISWaterDitch.reckonSprite(square, ditch)
+function ISWaterDitch.reckonSprite(square)
+    if not square then
+        return ISWaterDitch.spriteGroupMap['_']
+    end
     local north_square = square:getAdjacentSquare(IsoDirections.N)
     local south_square = square:getAdjacentSquare(IsoDirections.S)
     local west_square = square:getAdjacentSquare(IsoDirections.W)
@@ -219,17 +232,11 @@ function ISWaterDitch.reckonSprite(square, ditch)
         group = group + 'S'
     end
 
-    local sprite_group = ISWaterDitch.spriteGroupMap[group]
-
-    if ditch and ditch:getModData()["waterAmount"] > 0 and ditch:getModData()["waterMax"] > 0 then
-        if ditch:getModData()["waterAmount"] >= ditch:getModData()["waterMax"] * 0.25 then
-            return sprite_group.water
-        else
-            return sprite_group.empty
-        end
-    else
-        return sprite_group.empty
+    if group == '' then
+        group = '_'
     end
+    return ISWaterDitch.spriteGroupMap[group]
+
 end
 
 

@@ -69,11 +69,19 @@ function SWaterDitchGlobalObject:changeSprite()
 	local isoObject = self:getIsoObject()
 	if not isoObject then return end
 	local spriteName = nil
-	if self.waterAmount >= self.waterMax * 0.25 then
-		spriteName = "carpentry_02_55"
-	else
-		spriteName = "carpentry_02_54"
+	local square = isoObject:getSquare()
+	if not isoObject:getModData()["waterSprite"] or not isoObject:getModData()["emptySprite"] then
+		local sprite_group = ISWaterDitch.reckonSpriteGroup(square)
+		isoObject:getModData()["waterSprite"] = sprite_group.water
+		isoObject:getModData()["emptySprite"] = sprite_group.empty
 	end
+	
+	if self.waterAmount >= self.waterMax * 0.25 then
+		spriteName = isoObject:getModData()["waterSprite"]
+	else
+		spriteName = isoObject:getModData()["emptySprite"]
+	end
+	
 	if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSprite():getName()) then
 		self:noise('sprite changed to '..spriteName..' at '..self.x..','..self.y..','..self.z)
 		isoObject:setSprite(spriteName)

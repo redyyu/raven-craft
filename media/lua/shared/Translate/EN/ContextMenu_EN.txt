@@ -25,7 +25,7 @@ ContextMenu_EN = {
   ContextMenu_ANVIL = "Anvil"
   ContextMenu_WATER_WELL = "Water Well"
   
-  -- Dicth
+  -- Ditch
   ContextMenu_DigDitch = "Dig Ditch"
 
   -- Silencer

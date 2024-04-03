@@ -6,7 +6,7 @@ end
 local Ditch = {}
 
 
-Dicth.onDigDitch = function(worldobjects, playerNum, shovel)
+Ditch.onDigDitch = function(worldobjects, playerNum, shovel)
     local bo = ISWaterDitch:new(playerNum, "rc_natural_ditch_0", shovel)
 	bo.player = playerNum
 	getCell():setDrag(bo, bo.player)
@@ -17,7 +17,7 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
     local playerObj = getSpecificPlayer(playerNum)
     local shovel = playerInv:getFirstEvalRecurse(predicateDigGrave)
     if (JoypadState.players[playerNum+1] or ISWaterDitch.canDigHere(worldobjects)) and not playerObj:getVehicle() and shovel then
-		context:addOption(getText("ContextMenu_DigDitch"), worldobjects, Dicth.onDigDitch, playerNum, shovel)
+		context:addOption(getText("ContextMenu_DigDitch"), worldobjects, Ditch.onDigDitch, playerNum, shovel)
 	end
 end
 
