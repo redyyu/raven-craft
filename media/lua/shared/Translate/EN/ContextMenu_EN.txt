@@ -24,6 +24,9 @@ ContextMenu_EN = {
   ContextMenu_STONE_FURNACE = "Stone Furnace"
   ContextMenu_ANVIL = "Anvil"
   ContextMenu_WATER_WELL = "Water Well"
+  
+  -- Dicth
+  ContextMenu_DigDitch = "Dig Ditch"
 
   -- Silencer
   ContextMenu_Add_Silencer_Upgrade = "Attach Silencer"

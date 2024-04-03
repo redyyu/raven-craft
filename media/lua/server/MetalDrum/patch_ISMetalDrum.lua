@@ -1,7 +1,8 @@
 -- This Patch is for make MetalDrum with differnt barrel colors.
 -- but all that work is only for the color, looks dum.
 -- it's work pertty good, but NO NEED use it, just keep Vanilla colors is fine.
-
+-- also previewSprite should use in `:render`, not replace sprite as native.
+-- no need fix that, not use that anyway.
 
 -- require "MetalDrum/BuildingObjects/ISMetalDrum"
 

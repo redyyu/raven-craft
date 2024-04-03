@@ -150,6 +150,32 @@ RC.getMoveableDisplayName = function(obj)
 end
 
 
+RC.findSquaresRadius = function(currSquare, radius, predicateCall, param1, param2, param3, param4, param5, param6)
+    local squares = {}
+    local doneSquares = {}
+    local minX = math.floor(currSquare:getX() - radius)
+    local maxX = math.ceil(currSquare:getX() + radius)
+    local minY = math.floor(currSquare:getY() - radius)
+    local maxY = math.ceil(currSquare:getY() + radius)
+    for y = minY, maxY do
+        for x = minX, maxX do
+            local square = getCell():getGridSquare(x, y, currSquare:getZ())
+            if square and not doneSquares[square] then
+                doneSquares[square] = true
+                if type(predicateCall) == 'function' then
+                    if predicateCall(square, currSquare, param1, param2, param3, param4, param5, param6) then
+                        table.insert(squares, square)
+                    end
+                else
+                    table.insert(squares, square)
+                end
+            end
+        end
+    end
+    return squares
+end
+
+
 RC.pickVehicle = function(playerNum)
     local playerObj = getSpecificPlayer(playerNum)
     if JoypadState.players[playerNum+1] then
