@@ -81,10 +81,11 @@ function SWaterDitchGlobalObject:changeSprite()
 	else
 		spriteName = isoObject:getModData()["emptySprite"]
 	end
-	
+
 	if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSprite():getName()) then
 		self:noise('sprite changed to '..spriteName..' at '..self.x..','..self.y..','..self.z)
 		isoObject:setSprite(spriteName)
+		isoObject:getSprite():setName(spriteName)
 		isoObject:transmitUpdatedSpriteToClients()
 	end
 end

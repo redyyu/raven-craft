@@ -15,9 +15,10 @@ end
 
 Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
     local playerObj = getSpecificPlayer(playerNum)
+    local playerInv = playerObj:getInventory()
     local shovel = playerInv:getFirstEvalRecurse(predicateDigGrave)
     if (JoypadState.players[playerNum+1] or ISWaterDitch.canDigHere(worldobjects)) and not playerObj:getVehicle() and shovel then
-		context:addOption(getText("ContextMenu_DigDitch"), worldobjects, Ditch.onDigDitch, playerNum, shovel)
+		context:addOptionOnTop(getText("ContextMenu_DigDitch"), worldobjects, Ditch.onDigDitch, playerNum, shovel)
 	end
 end
 

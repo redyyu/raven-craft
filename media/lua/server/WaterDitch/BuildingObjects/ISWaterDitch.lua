@@ -20,7 +20,7 @@ ISWaterDitch.spriteGroupMap = {
     ['W'] = {
         empty = 'rc_natural_ditch_6',
         water = 'rc_natural_ditch_7',
-    }
+    },
 	['S'] = {
         empty = 'rc_natural_ditch_8',
         water = 'rc_natural_ditch_9',
@@ -88,12 +88,14 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     sendClientCommand('erosion', 'disableForSquare', args)
     
     local sprite_group = ISWaterDitch.reckonSpriteGroup(self.sq)
+
     self.javaObject = IsoThumpable.new(cell, self.sq, sprite_group.empty, north, self)
     buildUtil.setInfo(self.javaObject, self)
     
     self.sq:RecalcAllWithNeighbours(true)
     self.sq:AddSpecialObject(self.javaObject)
 
+    self.javaObject:getSprite():setName(sprite_group.empty)
     self.javaObject:getModData()["waterMax"] = self.waterMax
     self.javaObject:getModData()["waterAmount"] = 0
     self.javaObject:getModData()["waterSprite"] = sprite_group.water
@@ -190,12 +192,14 @@ function ISWaterDitch:updateAdjacentSprite()
     
     for _, square in ipairs(squares) do
         local ditch = ISWaterDitch.getDitch(square)
-        local sprite_group = ISWaterDitch.reckonSprite(square)
+        local sprite_group = ISWaterDitch.reckonSpriteGroup(square)
         if ditch and ditch:getModData()["waterAmount"] > 0 and ditch:getModData()["waterMax"] > 0 then
             if ditch:getModData()["waterAmount"] >= ditch:getModData()["waterMax"] * 0.25 then
                 ditch:setSprite(sprite_group.water)
+                ditch:getSprite():setName(sprite_group.water)
             else
                 ditch:setSprite(sprite_group.empty)
+                ditch:getSprite():setName(sprite_group.empty)
             end
             ditch:getModData()["waterSprite"] = sprite_group.water
             ditch:getModData()["emptySprite"] = sprite_group.empty
@@ -205,7 +209,7 @@ function ISWaterDitch:updateAdjacentSprite()
 end
 
 
-function ISWaterDitch.reckonSprite(square)
+function ISWaterDitch.reckonSpriteGroup(square)
     if not square then
         return ISWaterDitch.spriteGroupMap['_']
     end
@@ -221,15 +225,15 @@ function ISWaterDitch.reckonSprite(square)
     end
 
     if ISWaterDitch.isWaterSquare(east_square) or ISWaterDitch.getDitch(east_square) then
-        group = group + 'E'
+        group = group .. 'E'
     end
 
     if ISWaterDitch.isWaterSquare(north_square) or ISWaterDitch.getDitch(north_square) then
-        group = group + 'N'
+        group = group .. 'N'
     end
 
     if ISWaterDitch.isWaterSquare(south_square) or ISWaterDitch.getDitch(south_square) then
-        group = group + 'S'
+        group = group .. 'S'
     end
 
     if group == '' then
