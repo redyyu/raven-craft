@@ -142,6 +142,20 @@ function ISWaterDitch:isValid(square)
         return false
     end
     
+    local spriteName = self:getSprite()
+    if spriteName == ISWaterDitch.sprites.NS.empty then
+        local north_square = square:getAdjacentSquare(IsoDirections.N)
+        local south_square = square:getAdjacentSquare(IsoDirections.S)
+        if not ISWaterDitch.getDitch(north_square) and not ISWaterDitch.getDitch(south_square) then
+            return false
+        end
+    elseif spriteName == ISWaterDitch.sprites.WE.empty then
+        local west_square = square:getAdjacentSquare(IsoDirections.W)
+        local east_square = square:getAdjacentSquare(IsoDirections.E)
+        if not ISWaterDitch.getDitch(west_square) and not ISWaterDitch.getDitch(east_square) then
+            return false
+        end
+    end
     return true
 end
 
@@ -196,10 +210,12 @@ end
 
 
 function ISWaterDitch.getDitch(square)
-    for i=0, square:getObjects():size()-1 do
-        local object = square:getObjects():get(i)
-        if object:getName() == "Water Ditch" then
-            return object
+    if square then
+        for i=0, square:getObjects():size()-1 do
+            local object = square:getObjects():get(i)
+            if object:getName() == "Water Ditch" then
+                return object
+            end
         end
     end
     return nil
