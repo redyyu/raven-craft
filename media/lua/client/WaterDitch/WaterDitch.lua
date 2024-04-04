@@ -12,12 +12,11 @@ end
 
 
 Ditch.onFillDirt = function(playerObj, ditch, shovel)
-    if ditch:getSquare() then
-        ISTimedActionQueue.add(ISWalkToTimedAction:new(playerObj, ditch:getSquare()))
+    if luautils.walkAdj(playerObj, ditch:getSquare()) then
+        local hand_item = playerObj:getPrimaryHandItem()
+        ISWorldObjectContextMenu.equip(playerObj, hand_item, shovel, true, true)
+        ISTimedActionQueue.add(ISFillDirtDitchAction:new(playerObj, ditch, shovel, 4))
     end
-    local hand_item = playerObj:getPrimaryHandItem()
-    ISWorldObjectContextMenu.equip(playerObj, hand_item, shovel, true, true)
-    ISTimedActionQueue.add(ISFillDirtDitchAction:new(playerObj, ditch, shovel, 4))
 end
 
 
@@ -69,19 +68,19 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
 
             local optFill = ditchMenu:addOption(getText("ContextMenu_Ditch_Fill_Dirt"), playerObj, Ditch.onFillDirt, ditch, shovel)
             local fill_tooltip = ISWorldObjectContextMenu.addToolTip()
-            fill_tooltip.description = getText("Tooltip_Ditch_Fill_Dirt")
+            fill_tooltip.description = getText("Tooltip_Ditch_Fill_Dirt") .. " <BR> "
 
             if shovel then
-                fill_tooltip.description = toolTip.description .. RC.Txt.ghs .. shovel:getDisplayName() .." <LINE> "
+                fill_tooltip.description = fill_tooltip.description .. RC.Txt.ghs .. shovel:getDisplayName() .." <LINE> "
             else
-                fill_tooltip.description = toolTip.description .. RC.Txt.bhs .. "Shovel <LINE> "
+                fill_tooltip.description = fill_tooltip.description .. RC.Txt.bhs .. "Shovel <LINE> "
                 optFill.notAvailable = true
             end
 
-            if dirt_uses > 4 then
-                fill_tooltip.description = toolTip.description .. RC.Txt.ghs .. "Dirt" .. dirt_uses .."/4 <LINE> "
+            if dirt_uses >= 4 then
+                fill_tooltip.description = fill_tooltip.description .. RC.Txt.ghs .. "Dirt " .. dirt_uses .."/4 <LINE> "
             else
-                fill_tooltip.description = toolTip.description .. RC.Txt.bhs .. "Dirt" .. dirt_uses .."/4 <LINE> "
+                fill_tooltip.description = fill_tooltip.description .. RC.Txt.bhs .. "Dirt " .. dirt_uses .."/4 <LINE> "
                 optFill.notAvailable = true
             end
             

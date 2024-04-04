@@ -5,7 +5,7 @@ ISFillDirtDitchAction = ISBaseTimedAction:derive("ISFillDirtDitchAction")
 
 function ISFillDirtDitchAction:isValid()
     local uses = self.inventory:getUsesTypeRecurse("Dirtbag")
-    return self.shovel and not self.shovel:isBroken() and uses > 4
+    return self.shovel and not self.shovel:isBroken() and uses >= self.dirt_use
 end
 
 function ISFillDirtDitchAction:update()
@@ -33,13 +33,13 @@ end
 function ISFillDirtDitchAction:waitToStart()
     self.character:faceThisObject(self.ditch)
     if self.sound then self.character:stopOrTriggerSound(self.sound) end
-	return self.character:shouldBeTurning()
+    return self.character:shouldBeTurning()
 end
 
 function ISFillDirtDitchAction:perform()
     local dirt_bag = self.inventory:getFirstTypeRecurse("Dirtbag")
     local use_count = 0
-    while use_count < self.dirt_use and dirt_bag then
+    while use_count < self.dirt_use and dirt_bag do
         dirt_bag:Use()
         use_count = use_count + 1
         if not dirt_bag then
@@ -47,15 +47,36 @@ function ISFillDirtDitchAction:perform()
         end
     end
 
+    local square = self.ditch:getSquare()
     if isClient() then
-		local sq = self.ditch:getSquare()
-		local args = { x = sq:getX(), y = sq:getY(), z = sq:getZ(), index = self.ditch:getObjectIndex() }
-		sendClientCommand(self.character, 'object', 'OnDestroyIsoThumpable', args)
+        local sq = square
+        local args = { x = sq:getX(), y = sq:getY(), z = sq:getZ(), index = self.ditch:getObjectIndex() }
+        sendClientCommand(self.character, 'object', 'OnDestroyIsoThumpable', args)
     else
-        self.ditch:getSquare():transmitRemoveItemFromSquare(self.ditch)
-	end
+        square:transmitRemoveItemFromSquare(self.ditch)
+    end
+    
+    local cell = getWorld():getCell()
+    local javaObject = IsoThumpable.new(cell, square, ISWaterDitch.dirtSprite, false, nil)
+    
+    javaObject:setName("DirtFloor")
+    javaObject:setCanBarricade(false)
+    javaObject:setIsThumpable(false)
+    javaObject:setCanPassThrough(true)
+    javaObject:setIsContainer(false)
+    javaObject:setIsDoor(false)
+    javaObject:setIsDoorFrame(false)
+    javaObject:setBlockAllTheSquare(false)
+    javaObject:setIsDismantable(false)
+    javaObject:setCanBePlastered(false)
+    javaObject:setIsHoppable(false)
+    javaObject:setIsFloor(true)
+    javaObject:transmitCompleteItemToServer()
 
-	self.shovel:setJobDelta(0.0)
+    square:AddSpecialObject(javaObject)
+    square:RecalcAllWithNeighbours(true)
+
+    self.shovel:setJobDelta(0.0)
     ISBaseTimedAction.perform(self) 
 end
 
@@ -65,10 +86,11 @@ function ISFillDirtDitchAction:new(character, ditch, shovel, dirt_use)
     self.__index = self
     o.character = character
     o.inventory = character:getInventory()
+    o.ditch = ditch
     o.dirt_use = dirt_use
     o.maxTime = 200
     o.stopOnWalk = false
     o.stopOnRun = false
-	o.shovel = shovel
+    o.shovel = shovel
     return o
 end

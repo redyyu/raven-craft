@@ -24,6 +24,8 @@ ISWaterDitch.sprites = {
     },
 }
 
+ISWaterDitch.dirtSprite = "rc_natural_ditch_9"
+
 
 function ISWaterDitch:create(x, y, z, north, sprite)
     local cell = getWorld():getCell()
