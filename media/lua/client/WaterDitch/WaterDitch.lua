@@ -11,7 +11,7 @@ Ditch.isCloseEnough = function(playerObj, ditch)
 end
 
 Ditch.onDigDitch = function(worldobjects, playerNum, shovel)
-    local bo = ISWaterDitch:new(playerNum, "rc_natural_ditch_0", shovel)
+    local bo = ISWaterDitch:new(playerNum, shovel, "rc_natural_ditch_0")
 	bo.player = playerNum
 	getCell():setDrag(bo, bo.player)
 end
@@ -23,6 +23,8 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
 
     local ditch
     for _, v in ipairs(worldobjects) do
+        print("====================================")
+        print(v:getName())
         if CWaterDitchSystem.instance:isValidIsoObject(v) then
             ditch = v
             break

@@ -2,72 +2,24 @@
 require "BuildingObjects/ISBuildingObject"
 
 ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
+ISWaterDitch.waterScale = 4
 ISWaterDitch.waterMax = 1200
 
-ISWaterDitch.spriteGroupMap = {
-	['_'] = {
-		empty = 'rc_natural_ditch_0',
-        water = 'rc_natural_ditch_1',
-	},
-    ['E'] = {
-        empty = 'rc_natural_ditch_2',
-        water = 'rc_natural_ditch_3',
+ISWaterDitch.sprites = {
+    storage = {
+        empty = 'rc_natural_ditch_0',
+        half = 'rc_natural_ditch_1',
+        full = 'rc_natural_ditch_2',
     },
-    ['WE'] = {
-        empty = 'rc_natural_ditch_4',
-        water = 'rc_natural_ditch_5',
+    WE = {
+        empty = 'rc_natural_ditch_3',
+        half = 'rc_natural_ditch_4',
+        full = 'rc_natural_ditch_5',
     },
-    ['W'] = {
+    NS = {
         empty = 'rc_natural_ditch_6',
-        water = 'rc_natural_ditch_7',
-    },
-	['S'] = {
-        empty = 'rc_natural_ditch_8',
-        water = 'rc_natural_ditch_9',
-    },
-    ['NS'] = {
-        empty = 'rc_natural_ditch_10',
-        water = 'rc_natural_ditch_11',
-    },
-    ['N'] = {
-        empty = 'rc_natural_ditch_12',
-        water = 'rc_natural_ditch_13',
-    },
-    ['WN'] = {
-        empty = 'rc_natural_ditch_14',
-        water = 'rc_natural_ditch_15',
-    },
-    ['ES'] = {
-        empty = 'rc_natural_ditch_16',
-        water = 'rc_natural_ditch_17',
-    },
-    ['WS'] = {
-        empty = 'rc_natural_ditch_18',
-        water = 'rc_natural_ditch_19',
-    },
-    ['EN'] = {
-        empty = 'rc_natural_ditch_20',
-        water = 'rc_natural_ditch_21',
-    },
-    ['ENS'] = {
-        empty = 'rc_natural_ditch_22',
-        water = 'rc_natural_ditch_23',
-    },
-    ['WES'] = {
-        empty = 'rc_natural_ditch_24',
-        water = 'rc_natural_ditch_25',
-    },
-    ['WEN'] = {
-        empty = 'rc_natural_ditch_26',
-        water = 'rc_natural_ditch_27',
-    },
-    ['WNS'] = {
-        empty = 'rc_natural_ditch_28',
-        water = 'rc_natural_ditch_29',
-    },
-    ['WENS'] = {
-        empty = 'rc_natural_ditch_30',
-        water = 'rc_natural_ditch_31',
+        half = 'rc_natural_ditch_7',
+        full = 'rc_natural_ditch_8',
     },
 }
 
@@ -87,25 +39,27 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     local args = { x = self.sq:getX(), y = self.sq:getY(), z = self.sq:getZ() }
     sendClientCommand('erosion', 'disableForSquare', args)
 
-    local sprite_group = ISWaterDitch.reckonSpriteGroup(self.sq)
-
-    self.javaObject = IsoThumpable.new(cell, self.sq, sprite_group.empty, north, self)
-    buildUtil.setInfo(self.javaObject, self)
+    self.javaObject = IsoThumpable.new(cell, self.sq, sprite, north, self)
+    self.javaObject:setCanPassThrough(self.canPassThrough)
+	self.javaObject:setBlockAllTheSquare(self.blockAllTheSquare)
+    self.javaObject:setName(self.name)
+    self.javaObject:setIsThumpable(self.isThumpable)
 
     self.sq:AddSpecialObject(self.javaObject)
     self.sq:RecalcAllWithNeighbours(true)
 
-    self.javaObject:getSprite():setName(sprite_group.empty)
-    self.javaObject:getModData()["waterMax"] = self.waterMax
-    self.javaObject:getModData()["waterAmount"] = 0
-    self.javaObject:getModData()["waterSprite"] = sprite_group.water
-    self.javaObject:getModData()["emptySprite"] = sprite_group.empty
-    self.javaObject:setSpecialTooltip(true)
+    self.javaObject:setBlockAllTheSquare(true)
+    self.javaObject:getSprite():setName(sprite)
+    self.javaObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
+    
+    self.javaObject:getModData().waterMax = self.waterMax
+    self.javaObject:getModData().waterAmount = 0
+    self.javaObject:getModData().spriteName = sprite
+    self.javaObject:getModData().objectName = self.name
     self.javaObject:transmitCompleteItemToServer()
 
     triggerEvent("OnObjectAdded", self.javaObject)
 
-    self:updateAdjacentSprite()
 end
 
 
@@ -116,22 +70,22 @@ function ISWaterDitch:walkTo(x, y, z)
 end
 
 
-function ISWaterDitch:new(player, sprite, shovel)
+function ISWaterDitch:new(player, shovel, sprite, northSprite)
     local o = {}
     setmetatable(o, self)
     self.__index = self
     o:init()
     o:setSprite(sprite)
-    o:setNorthSprite(sprite)
+    o:setNorthSprite(northSprite or sprite)
     o.name = "Water Ditch"
     o.player = player
     o.waterMax = ISWaterDitch.waterMax
     o.noNeedHammer = true
-    o.ignoreNorth = true
+    o.ignoreNorth = false
     o.equipBothHandItem = shovel
-    o.maxTime = 250
-    o.isThumpable = false
-    o.canBarricade = false
+    o.maxTime = 200
+    o.isThumpable = true  -- false will not block the square. and must setName to the JavaObject.
+    o.canPassThrough = false
 	o.blockAllTheSquare = true
     o.actionAnim = ISFarmingMenu.getShovelAnim(shovel)
     o.craftingBank = "Shoveling"
@@ -153,9 +107,7 @@ function ISWaterDitch:render(x, y, z, square)
     if not floor then
         return
     end
-    local spriteFree = ISBuildingObject.isValid(self, square) and ISWaterDitch.isValidFloorTexture(floor)
-
-    spriteFree = spriteFree and ISWaterDitch.shovelledFloorCanDig(square)
+    local spriteFree = self:isValid(square) and ISWaterDitch.shovelledFloorCanDig(square)
 
     if spriteFree and z==0 then
         sprite:RenderGhostTile(x, y, z)
@@ -180,67 +132,6 @@ function ISWaterDitch:isValid(square)
     end
     
     return true
-end
-
-function ISWaterDitch:updateAdjacentSprite()
-    local squares = {
-        self.sq:getAdjacentSquare(IsoDirections.N),
-        self.sq:getAdjacentSquare(IsoDirections.S),
-        self.sq:getAdjacentSquare(IsoDirections.W),
-        self.sq:getAdjacentSquare(IsoDirections.E),
-    }
-    
-    for _, square in ipairs(squares) do
-        local ditch = ISWaterDitch.getDitch(square)
-        local sprite_group = ISWaterDitch.reckonSpriteGroup(square)
-        if ditch and ditch:getModData()["waterAmount"] > 0 and ditch:getModData()["waterMax"] > 0 then
-            if ditch:getModData()["waterAmount"] >= ditch:getModData()["waterMax"] * 0.25 then
-                ditch:setSprite(sprite_group.water)
-                ditch:getSprite():setName(sprite_group.water)
-            else
-                ditch:setSprite(sprite_group.empty)
-                ditch:getSprite():setName(sprite_group.empty)
-            end
-            ditch:getModData()["waterSprite"] = sprite_group.water
-            ditch:getModData()["emptySprite"] = sprite_group.empty
-            ditch:transmitUpdatedSpriteToClients()
-        end
-    end
-end
-
-
-function ISWaterDitch.reckonSpriteGroup(square)
-    if not square then
-        return ISWaterDitch.spriteGroupMap['_']
-    end
-    local north_square = square:getAdjacentSquare(IsoDirections.N)
-    local south_square = square:getAdjacentSquare(IsoDirections.S)
-    local west_square = square:getAdjacentSquare(IsoDirections.W)
-    local east_square = square:getAdjacentSquare(IsoDirections.E)
-    
-    local group = ''
-
-    if ISWaterDitch.isRiverSquare(west_square) or ISWaterDitch.getDitch(west_square) then
-        group = 'W'
-    end
-
-    if ISWaterDitch.isRiverSquare(east_square) or ISWaterDitch.getDitch(east_square) then
-        group = group .. 'E'
-    end
-
-    if ISWaterDitch.isRiverSquare(north_square) or ISWaterDitch.getDitch(north_square) then
-        group = group .. 'N'
-    end
-
-    if ISWaterDitch.isRiverSquare(south_square) or ISWaterDitch.getDitch(south_square) then
-        group = group .. 'S'
-    end
-
-    if group == '' then
-        group = '_'
-    end
-    return ISWaterDitch.spriteGroupMap[group]
-
 end
 
 
@@ -288,6 +179,9 @@ function ISWaterDitch.shovelledFloorCanDig(square)
         return false
     end
     local floor = square:getFloor()
+    
+    if not floor then return false end
+
     local sprites = floor:getModData() and floor:getModData().shovelledSprites
     if sprites then
         for i=1,#sprites do
