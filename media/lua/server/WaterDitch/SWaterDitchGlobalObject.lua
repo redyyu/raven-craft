@@ -21,7 +21,7 @@ function SWaterDitchGlobalObject:initNew()
 	self.exterior = false
 	self.taintedWater = false
 	self.waterAmount = 0
-	self.waterMax = RainCollectorBarrel.largeWaterMax
+	self.waterMax = ISWaterDitch.waterMax
 end
 
 
@@ -30,6 +30,8 @@ function SWaterDitchGlobalObject:stateFromIsoObject(isoObject)
 	self.taintedWater = isoObject:isTaintedWater()
 	self.waterAmount = isoObject:getWaterAmount()
 	self.waterMax = isoObject:getModData().waterMax
+	self.objectName = isoObject:getName()
+	self.spriteName = isoObject:getSpriteName()
 
 	-- Sanity check
 	if not self.waterMax then
@@ -38,7 +40,12 @@ function SWaterDitchGlobalObject:stateFromIsoObject(isoObject)
 
 	isoObject:getModData().waterMax = self.waterMax
 	self:changeSprite()
-	isoObject:transmitModData()
+
+	if isServer() then
+		isoObject:sendObjectChange('name')
+		isoObject:sendObjectChange('sprite')
+		isoObject:transmitModData()
+	end
 end
 
 
@@ -60,8 +67,16 @@ function SWaterDitchGlobalObject:stateToIsoObject(isoObject)
 
 	isoObject:setWaterAmount(self.waterAmount) -- OnWaterAmountChanged happens here
 	isoObject:getModData().waterMax = self.waterMax
+	isoObject:setName(self.objectName)
+	isoObject:setSprite(self.spriteName)
+
 	self:changeSprite()
-	isoObject:transmitModData()
+	
+	if isServer() then
+		isoObject:sendObjectChange('name')
+		isoObject:sendObjectChange('sprite')
+		isoObject:transmitModData()
+	end
 end
 
 
@@ -87,6 +102,28 @@ function SWaterDitchGlobalObject:changeSprite()
 		isoObject:setSprite(spriteName)
 		isoObject:getSprite():setName(spriteName)
 		isoObject:transmitUpdatedSpriteToClients()
+		self:setSpriteName(spriteName)
 	end
 end
 
+
+function SWaterDitchGlobalObject:setSpriteName(spriteName)
+	if spriteName == self.spriteName then return end
+	self.spriteName = spriteName
+	local object = self:getIsoObject()
+	if object then
+		object:setSprite(self.spriteName)
+		if isServer() then
+			object:sendObjectChange('sprite')
+		end
+		-- spriteName is stored in modData
+		self:toModData(object:getModData())
+		-- also update GameTime modData
+	end
+end
+
+function SWaterDitchGlobalObject:toModData(modData)
+	modData.exterior = self.exterior
+	modData.spriteName = self.spriteName
+	modData.objectName = self.objectName
+end

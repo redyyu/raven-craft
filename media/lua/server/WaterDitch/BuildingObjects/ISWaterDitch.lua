@@ -2,7 +2,7 @@
 require "BuildingObjects/ISBuildingObject"
 
 ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
-ISWaterDitch.waterMax = 800
+ISWaterDitch.waterMax = 1200
 
 ISWaterDitch.spriteGroupMap = {
 	['_'] = {
@@ -86,14 +86,14 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.sq:disableErosion()
     local args = { x = self.sq:getX(), y = self.sq:getY(), z = self.sq:getZ() }
     sendClientCommand('erosion', 'disableForSquare', args)
-    
+
     local sprite_group = ISWaterDitch.reckonSpriteGroup(self.sq)
 
     self.javaObject = IsoThumpable.new(cell, self.sq, sprite_group.empty, north, self)
     buildUtil.setInfo(self.javaObject, self)
-    
-    self.sq:RecalcAllWithNeighbours(true)
+
     self.sq:AddSpecialObject(self.javaObject)
+    self.sq:RecalcAllWithNeighbours(true)
 
     self.javaObject:getSprite():setName(sprite_group.empty)
     self.javaObject:getModData()["waterMax"] = self.waterMax
@@ -220,19 +220,19 @@ function ISWaterDitch.reckonSpriteGroup(square)
     
     local group = ''
 
-    if ISWaterDitch.isWaterSquare(west_square) or ISWaterDitch.getDitch(west_square) then
+    if ISWaterDitch.isRiverSquare(west_square) or ISWaterDitch.getDitch(west_square) then
         group = 'W'
     end
 
-    if ISWaterDitch.isWaterSquare(east_square) or ISWaterDitch.getDitch(east_square) then
+    if ISWaterDitch.isRiverSquare(east_square) or ISWaterDitch.getDitch(east_square) then
         group = group .. 'E'
     end
 
-    if ISWaterDitch.isWaterSquare(north_square) or ISWaterDitch.getDitch(north_square) then
+    if ISWaterDitch.isRiverSquare(north_square) or ISWaterDitch.getDitch(north_square) then
         group = group .. 'N'
     end
 
-    if ISWaterDitch.isWaterSquare(south_square) or ISWaterDitch.getDitch(south_square) then
+    if ISWaterDitch.isRiverSquare(south_square) or ISWaterDitch.getDitch(south_square) then
         group = group .. 'S'
     end
 
@@ -244,11 +244,12 @@ function ISWaterDitch.reckonSpriteGroup(square)
 end
 
 
-function ISWaterDitch.isWaterSquare(square)
+function ISWaterDitch.isRiverSquare(square)
     if square and square:getFloor() then
         local sprite = square:getFloor():getSprite()
         if sprite and sprite:getProperties() then
-            return sprite:getProperties():Is(IsoFlagType.water)
+            local is_water_sprite = luautils.stringStarts(sprite:getName(), 'blends_natural_02')
+            return sprite:getProperties():Is(IsoFlagType.water) and is_water_sprite and not square:isFree(false)
         else
             return false
         end
