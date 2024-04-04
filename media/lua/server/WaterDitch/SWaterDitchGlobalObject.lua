@@ -21,25 +21,24 @@ function SWaterDitchGlobalObject:initNew()
     self.exterior = false
     self.taintedWater = false
     self.waterAmount = 0
-    self.waterMax = ISWaterDitch.waterMax
+    self.waterMax = ISWaterDitch.poolWaterMax
 end
 
 
 function SWaterDitchGlobalObject:stateFromIsoObject(isoObject)
+    ISWaterDitch.recognizeDitch(isoObject)
     self.exterior = isoObject:getSquare():isOutside()
     self.taintedWater = isoObject:isTaintedWater()
     self.waterAmount = isoObject:getWaterAmount()
     self.waterMax = isoObject:getModData().waterMax
     self.objectName = isoObject:getName()
     self.spriteName = isoObject:getSpriteName()
-    print("====stateFromIsoObject==========================")
 
     -- Sanity check
     if not self.waterMax then
-        self.waterMax = ISWaterDitch.waterMax
+        self.waterMax = isoObject:getModData().waterMax
     end
 
-    isoObject:getModData().waterMax = self.waterMax
     self:changeSprite()
 
     if isServer() then
@@ -51,12 +50,13 @@ end
 
 
 function SWaterDitchGlobalObject:stateToIsoObject(isoObject)
+    ISWaterDitch.recognizeDitch(isoObject)
     -- Sanity check
     if not self.waterAmount then
         self.waterAmount = 0
     end
     if not self.waterMax then
-        self.waterMax = ISWaterDitch.waterMax
+        self.waterMax = isoObject:getModData().waterMax
     end
 
     self.exterior = isoObject:getSquare():isOutside()
@@ -80,18 +80,42 @@ function SWaterDitchGlobalObject:stateToIsoObject(isoObject)
 end
 
 
+function SWaterDitchGlobalObject:isPool()
+    local isoObject = self:getIsoObject()
+    if isoObject then
+        ISWaterDitch.recognizeDitch(isoObject)
+        return isoObject:getModData().ditchType == 'pool'
+    else
+        return false
+    end
+end
+
+
+function SWaterDitchGlobalObject:getDitchType()
+    local isoObject = self:getIsoObject()
+    if isoObject then
+        ISWaterDitch.recognizeDitch(isoObject)
+        return isoObject:getModData().ditchType
+    else
+        return nil
+    end
+end
+
+
 function SWaterDitchGlobalObject:changeSprite()
     local isoObject = self:getIsoObject()
     if not isoObject then return end
 
+    ISWaterDitch.recognizeDitch(isoObject)
+
     local spriteName = nil
 
     if self.waterAmount < self.waterMax * 0.25 then
-        spriteName = ISWaterDitch.sprites.storage.empty
+        spriteName = isoObject:getModData().sprites.empty
     elseif self.waterAmount < self.waterMax * 0.5 then
-        spriteName = ISWaterDitch.sprites.storage.half
+        spriteName = isoObject:getModData().sprites.half
     else
-        spriteName = ISWaterDitch.sprites.storage.full
+        spriteName = isoObject:getModData().sprites.full
     end
 
     if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSprite():getName()) then

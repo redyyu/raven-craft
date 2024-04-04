@@ -3,10 +3,11 @@ require "BuildingObjects/ISBuildingObject"
 
 ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
 ISWaterDitch.waterScale = 4
-ISWaterDitch.waterMax = 1200
+ISWaterDitch.wayWaterMax = 200
+ISWaterDitch.poolWaterMax = 1200
 
 ISWaterDitch.sprites = {
-    storage = {
+    pool = {
         empty = 'rc_natural_ditch_0',
         half = 'rc_natural_ditch_1',
         full = 'rc_natural_ditch_2',
@@ -56,6 +57,9 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:getModData().waterAmount = 0
     self.javaObject:getModData().spriteName = sprite
     self.javaObject:getModData().objectName = self.name
+    
+    ISWaterDitch.recognizeDitch(self.javaObject)
+
     self.javaObject:transmitCompleteItemToServer()
 
     triggerEvent("OnObjectAdded", self.javaObject)
@@ -79,11 +83,16 @@ function ISWaterDitch:new(player, shovel, sprite, northSprite)
     o:setNorthSprite(northSprite or sprite)
     o.name = "Water Ditch"
     o.player = player
-    o.waterMax = ISWaterDitch.waterMax
     o.noNeedHammer = true
     o.ignoreNorth = false
     o.equipBothHandItem = shovel
     o.maxTime = 200
+    o.isPool = not northSprite or sprite == northSprite
+    if o.isPool then
+        o.waterMax = ISWaterDitch.poolWaterMax
+    else
+        o.waterMax = ISWaterDitch.wayWaterMax
+    end
     o.isThumpable = true  -- false will not block the square. and must setName to the JavaObject.
     o.canPassThrough = false
 	o.blockAllTheSquare = true
@@ -135,6 +144,40 @@ function ISWaterDitch:isValid(square)
 end
 
 
+function ISWaterDitch.recognizeDitch(object)
+    local sprite = object:getSprite()
+    if sprite and sprite:getName() then
+        for k, v in pairs(ISWaterDitch.sprites.pool) do
+            if sprite:getName() == v then
+                object:getModData().waterMax = ISWaterDitch.poolWaterMax
+                object:getModData().sprites = ISWaterDitch.sprites.pool
+                object:getModData().ditchType = 'pool'
+            end
+        end
+
+        for k, v in pairs(ISWaterDitch.sprites.WE) do
+            if sprite:getName() == v then
+                object:getModData().waterMax = ISWaterDitch.wayWaterMax
+                object:getModData().sprites = ISWaterDitch.sprites.WE
+                object:getModData().ditchType = 'WE'
+            end
+        end
+
+        for k, v in pairs(ISWaterDitch.sprites.NS) do
+            if sprite:getName() == v then
+                object:getModData().waterMax = ISWaterDitch.wayWaterMax
+                object:getModData().sprites = ISWaterDitch.sprites.NS
+                object:getModData().ditchType = 'NS'
+            end
+        end
+    else
+        object:getModData().waterMax = ISWaterDitch.poolWaterMax
+        object:getModData().sprites = ISWaterDitch.sprites.pool
+        object:getModData().ditchType = 'pool'
+    end
+end
+
+
 function ISWaterDitch.isRiverSquare(square)
     if square and square:getFloor() then
         local sprite = square:getFloor():getSprite()
@@ -157,7 +200,7 @@ function ISWaterDitch.getDitch(square)
             return object
         end
     end
-    return false
+    return nil
 end
 
 
