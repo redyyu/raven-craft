@@ -7,8 +7,20 @@ local Ditch = {}
 
 Ditch.isCloseEnough = function(playerObj, ditch)
     return ditch:getSquare():getBuilding() == playerObj:getBuilding() and 
-           playerObj:DistToSquared(ditch:getX() + 0.5, ditch:getY() + 0.5) < 2 * 2
+           playerObj:DistToSquared(ditch:getX() + 0.5, ditch:getY() + 0.5) < 2 * 3
 end
+
+
+Ditch.onFillDirt = function(playerObj, ditch, shovel)
+    if ditch:getSquare() then
+        ISTimedActionQueue.add(ISWalkToTimedAction:new(playerObj, ditch:getSquare()))
+    end
+    local hand_item = playerObj:getPrimaryHandItem()
+    ISWorldObjectContextMenu.equip(playerObj, hand_item, shovel, true, true)
+    ISTimedActionQueue.add(ISFillDirtDitchAction:new(playerObj, ditch, shovel, 4))
+end
+
+
 
 Ditch.onDigDitch = function(worldobjects, playerNum, shovel, isPool)
     local bo = nil
@@ -38,7 +50,10 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
 
     if ditch then
         if Ditch.isCloseEnough(playerObj, ditch) then
-            local option = context:addOptionOnTop(getText("ContextMenu_Ditch"), worldobjects, nil)
+            local ditchOption = context:addOptionOnTop(getText("ContextMenu_Ditch"), worldobjects, nil)
+            local ditchMenu = ISContextMenu:getNew(context)
+            context:addSubMenu(ditchOption, ditchMenu)
+
             local tooltip = ISWorldObjectContextMenu.addToolTip()
             tooltip:setName(getText("ContextMenu_Ditch"))
             local tx = getTextManager():MeasureStringX(tooltip.font, getText("ContextMenu_WaterName") .. ":") + 20
@@ -47,7 +62,30 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
                 tooltip.description = tooltip.description .. " <BR> <RGB:1,0.5,0.5> " .. getText("Tooltip_item_TaintedWater")
             end
             tooltip.maxLineWidth = 512
-            option.toolTip = tooltip
+            ditchOption.toolTip = tooltip
+
+            local shovel = playerInv:getFirstEvalRecurse(predicateDigGrave)
+            local dirt_uses = playerInv:getUsesTypeRecurse("Dirtbag")
+
+            local optFill = ditchMenu:addOption(getText("ContextMenu_Ditch_Fill_Dirt"), playerObj, Ditch.onFillDirt, ditch, shovel)
+            local fill_tooltip = ISWorldObjectContextMenu.addToolTip()
+            fill_tooltip.description = getText("Tooltip_Ditch_Fill_Dirt")
+
+            if shovel then
+                fill_tooltip.description = toolTip.description .. RC.Txt.ghs .. shovel:getDisplayName() .." <LINE> "
+            else
+                fill_tooltip.description = toolTip.description .. RC.Txt.bhs .. "Shovel <LINE> "
+                optFill.notAvailable = true
+            end
+
+            if dirt_uses > 4 then
+                fill_tooltip.description = toolTip.description .. RC.Txt.ghs .. "Dirt" .. dirt_uses .."/4 <LINE> "
+            else
+                fill_tooltip.description = toolTip.description .. RC.Txt.bhs .. "Dirt" .. dirt_uses .."/4 <LINE> "
+                optFill.notAvailable = true
+            end
+            
+            optFill.toolTip = fill_tooltip
         end
     elseif JoypadState.players[playerNum+1] or ISWaterDitch.canDigHere(worldobjects) then
         local shovel = playerInv:getFirstEvalRecurse(predicateDigGrave)
@@ -55,6 +93,7 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
             local ditchOption = context:addOptionOnTop(getText("ContextMenu_DigDitch"))
             local ditchMenu = ISContextMenu:getNew(context)
             context:addSubMenu(ditchOption, ditchMenu)
+
             local optPool = ditchMenu:addOption(getText("ContextMenu_DigDitch_Pool"), worldobjects, Ditch.onDigDitch, playerNum, shovel, true)
             optPool.toolTip = ISWorldObjectContextMenu.addToolTip()
             optPool.toolTip.description = getText("Tooltip_DigDitch_Pool")

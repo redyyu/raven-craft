@@ -29,6 +29,7 @@ ContextMenu_EN = {
   ContextMenu_DigDitch = "Dig Ditch"
   ContextMenu_DigDitch_Pool = "Dig Ditch Pool"
   ContextMenu_DigDitch_Waterway = "Dig Ditch Waterway"
+  ContextMenu_Ditch_Fill_Dirt = "Fill Ditch with Dirt"
   ContextMenu_Ditch = "Ditch"
 
   -- Silencer
