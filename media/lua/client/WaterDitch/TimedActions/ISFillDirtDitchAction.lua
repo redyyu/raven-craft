@@ -46,6 +46,15 @@ function ISFillDirtDitchAction:perform()
             dirt_bag = self.inventory:getFirstTypeRecurse("Dirtbag")
         end
     end
+
+    if isClient() then
+		local sq = self.ditch:getSquare()
+		local args = { x = sq:getX(), y = sq:getY(), z = sq:getZ(), index = self.ditch:getObjectIndex() }
+		sendClientCommand(self.character, 'object', 'OnDestroyIsoThumpable', args)
+    else
+        self.ditch:getSquare():transmitRemoveItemFromSquare(self.ditch)
+	end
+
 	self.shovel:setJobDelta(0.0)
     ISBaseTimedAction.perform(self) 
 end
