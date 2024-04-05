@@ -33,15 +33,19 @@ ISWaterDitch.variety = {
     },
 }
 ISWaterDitch.defaultVariety = 'pool'
-ISWaterDitch.dirtSprite = "rc_natural_ditch_9"
+ISWaterDitch.dirtSprite = 'rc_natural_ditch_9'
+ISWaterDitch.floorSprite = 'blends_natural_01_64'
 
 ISWaterDitch.varietySpriteMap = {}
 
 for variety_key, variety_val in pairs(ISWaterDitch.variety) do
     for _, v in pairs(variety_val.sprites) do
         ISWaterDitch.varietySpriteMap[v] = variety_key
+        RC.addNewSprite(v, {flag = IsoFlagType.solidtrans})
     end
 end
+
+RC.addNewSprite(ISWaterDitch.dirtSprite)
 
 
 function ISWaterDitch:create(x, y, z, north, sprite)
@@ -50,6 +54,16 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     if not self.sq:getProperties() then
         return false
     end
+
+    -- update floor
+    local floor = self.sq:getFloor()
+    if floor then
+        floor:clearAttachedAnimSprite()
+    end
+    floor = self.sq:addFloor(ISWaterDitch.floorSprite)
+
+    -- add dirt under layer.
+    -- self.sq:AddTileObject(IsoObject.new(sq, ISWaterDitch.dirtSprite))
 
     for i=0, self.sq:getObjects():size()-1 do
         local object = self.sq:getObjects():get(i)
@@ -71,10 +85,6 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:setIsDismantable(self.dismantable)
     self.javaObject:setIsHoppable(self.hoppable)
 	self.javaObject:setCanBarricade(self.canBarricade)
-
-    -- self.javaObject:getSprite():setName(sprite)
-    -- self.javaObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
-    -- self.javaObject:getSprite():getProperties():Set('BlocksPlacement', '')
     self.javaObject:getModData().waterMax = self.waterMax
     
     local variety = nil
@@ -100,8 +110,9 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:getModData().objectName = self.name
 
     self.sq:AddSpecialObject(self.javaObject)
-    self.sq:RecalcAllWithNeighbours(true)
     -- self.sq:getProperties():Set('BlocksPlacement', '')
+    -- self.sq:getProperties():Set(IsoFlagType.solidtrans) -- seems NO working here.
+    self.sq:RecalcAllWithNeighbours(true)
 
     self.javaObject:transmitCompleteItemToServer()
 
@@ -173,10 +184,8 @@ function ISWaterDitch:isValid(square)
     if square:getZ() > 0 then
         return false
     end
-
-    print("==========square:isFreeOrMidair(true, true)==============")
+    print("=============square:isFreeOrMidair(true, true)===========")
     print(square:isFreeOrMidair(true, true))
-
     if CWaterDitchSystem.instance:getLuaObjectOnSquare(square) then
 		return false
 	end

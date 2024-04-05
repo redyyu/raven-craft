@@ -125,6 +125,7 @@ end
 function SWaterDitchSystem:checkUpdating()
     for i=1,self:getLuaObjectCount() do
         local luaObject = self:getLuaObjectByIndex(i)
+        luaObject:updateFloor()
         luaObject:changeSprite()
 
         local water_amount_modifier = self:checkRain(luaObject)

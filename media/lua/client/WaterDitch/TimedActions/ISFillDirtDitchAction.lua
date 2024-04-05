@@ -56,24 +56,14 @@ function ISFillDirtDitchAction:perform()
         square:transmitRemoveItemFromSquare(self.ditch)
     end
     
-    local cell = getWorld():getCell()
-    local javaObject = IsoThumpable.new(cell, square, ISWaterDitch.dirtSprite, false, nil)
-    
-    javaObject:setName("DirtFloor")
-    javaObject:setCanBarricade(false)
-    javaObject:setIsThumpable(false)
-    javaObject:setCanPassThrough(true)
-    javaObject:setIsContainer(false)
-    javaObject:setIsDoor(false)
-    javaObject:setIsDoorFrame(false)
-    javaObject:setBlockAllTheSquare(false)
-    javaObject:setIsDismantable(false)
-    javaObject:setCanBePlastered(false)
-    javaObject:setIsHoppable(false)
-    javaObject:setIsFloor(true)
-    javaObject:transmitCompleteItemToServer()
+    local floor = square:getFloor()
+    if not floor then
+        floor = square:addFloor(ISWaterDitch.floorSprite)
+    end
+    local floor_props = floor:getProperties()
+    floor_props:UnSet(IsoFlagType.solidtrans)
+    -- unset floor `solidtrans` to make sure square:isFree or square:isFreeOrMidair return true.
 
-    square:AddSpecialObject(javaObject)
     square:RecalcAllWithNeighbours(true)
 
     self.shovel:setJobDelta(0.0)

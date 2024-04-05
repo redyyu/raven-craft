@@ -158,12 +158,31 @@ function SWaterDitchGlobalObject:setSpriteName(spriteName)
         isoObject:setSprite(self.spriteName)
         isoObject:getSprite():setName(self.spriteName)
         isoObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
+
         if isServer() then
             isoObject:sendObjectChange('sprite')
         end
         isoObject:transmitUpdatedSpriteToClients()
     end
 end
+
+
+function SWaterDitchGlobalObject:updateFloor()
+    local isoObject = self:getIsoObject()
+    -- make sure square is not free.
+    if isoObject then
+        local square = isoObject:getSquare()
+        if square and square:getProperties() then
+            square:getProperties():Set(IsoFlagType.solidtrans)
+        end
+        -- DO NOT change floor there.
+        -- if square and square:getFloor() and square:getFloor():getProperties() then
+        --     square:getFloor():getProperties():Set(IsoFlagType.solidtrans)
+        --     square:RecalcAllWithNeighbours(true)
+        -- end
+    end
+end
+
 
 function SWaterDitchGlobalObject:toModData(modData)
     modData.exterior = self.exterior

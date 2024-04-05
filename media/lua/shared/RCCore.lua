@@ -232,6 +232,27 @@ RC.pickVehicle = function(playerNum)
 end
 
 
+RC.addNewSprite = function(spriteTextureName, properties)
+    local spr = IsoSpriteManager.instance:getSprite(spriteTextureName)
+    if spr then
+        return false
+    end
+    spr = IsoSpriteManager.instance:AddSprite(spriteTextureName)
+    spr:setName(spriteTextureName)
+    local props = spr:getProperties()
+    if type(properties) == 'table' and props then
+        for k, v in pairs(properties) do
+            if k == 'flag' then
+                props:Set(v)
+            else
+                props:Set(tostring(k), tostring(v))
+            end
+        end
+    end
+    return spr
+end
+
+
 RC.tableIndexOf = function(tableList, val)
     if type(tableList) ~= 'table' or #tableList <= 0 then
         return nil
