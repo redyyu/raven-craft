@@ -903,6 +903,39 @@ end
 ```
 
 
+# Sprite & Texture
+
+custom sprite's texture might not work directly in game, such as texturepack without `.tiles`.
+
+When give param as string for sprite, that will add the sprite with same keyname from current `.tiles` definition.
+if doesn't have it, a empty sprite will added (only a texture).
+
+some function require sprite name, a empty sprite will cause unexception error.
+less do `sprite:setName('the_sprite_name')`.
+
+or can also add this sprite before use. like
+```
+local spr = IsoSpriteManager.instance:AddSprite('rc_natural_ditch_9')
+spr:setName('rc_natural_ditch_9')
+local props = spr:getProperties()
+props:Set(IsoFlagType.solidtrans)
+```
+
+probably add all custom sprites by IsoSpriteManager manually, it can avoid to use `.tiles` file,
+because it will break game save when deactive this MOD.
+but there alot work to do, do not add too much...
+
+when using custom sprite like this to create `IsoThumpable`, 
+it might have not change `square:isFree` or `isFreeOrMidair`, 
+try `square:getFloor()` and modify the floor's Properties to ovrride it.
+
+```
+local floor = sq:getFloor()
+local floor_props = floor:getProperties()
+floor_props:Set(IsoFlagType.solidtrans)
+floor_props:Set('BlocksPlacement', '')
+```
+
 # Timed Actions
 
 if character wear item instantly, check the cheat menu, `Timed Action instant` might be turned ON.

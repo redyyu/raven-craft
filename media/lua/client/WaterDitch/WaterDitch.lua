@@ -22,14 +22,69 @@ end
 
 
 Ditch.onDigDitch = function(worldobjects, playerNum, shovel, isPool)
-    local bo = nil
-    if isPool then
-        bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.variety.pool.sprites.empty)
-    else
-        bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.variety.WE.sprites.empty, ISWaterDitch.variety.NS.sprites.empty)
-    end
-	bo.player = playerNum
-	getCell():setDrag(bo, bo.player)
+    -- local bo = nil
+    -- if isPool then
+    --     bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.variety.pool.sprites.empty)
+    -- else
+    --     bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.variety.WE.sprites.empty, ISWaterDitch.variety.NS.sprites.empty)
+    -- end
+	-- bo.player = playerNum
+	-- getCell():setDrag(bo, bo.player)
+    local waterAmount = 10
+    local waterMax = 100
+    local modData = {}
+	modData["need:Base.Plank"] = "4"
+	modData["need:Base.Nails"] = "4"
+	modData["need:Base.Garbagebag"] = "4"
+	modData["waterAmount"] = waterAmount
+	modData["waterMax"] = waterMax
+    local health = 100
+
+    local cell = getWorld():getCell()
+	local north = false
+    local playerObj = getSpecificPlayer(playerNum)
+    local sq = playerObj:getCurrentSquare()
+    local spriteName = 'rc_natural_ditch_0'
+    -- 'rc_natural_ditch_0' 'carpentry_02_52'
+	-- local javaObject = IsoThumpable.new(cell, sq, spriteName, north, modData)
+    -- local spr = IsoSpriteManager.instance:AddSprite('rc_natural_ditch_9')
+    -- spr:setName('rc_natural_ditch_9')
+    local floor = sq:addFloor('blends_natural_01_64')
+    -- local floor_props = floor:getProperties()
+    -- floor_props:Set(IsoFlagType.solidtrans)
+    -- floor_props:Set('BlocksPlacement', '')
+
+
+	-- javaObject:setCanPassThrough(false)
+	-- javaObject:setCanBarricade(false)
+	-- javaObject:setThumpDmg(8)
+	-- javaObject:setIsContainer(false)
+	-- javaObject:setIsDoor(false)
+	-- javaObject:setIsDoorFrame(false)
+	-- javaObject:setCrossSpeed(1.0)
+	-- javaObject:setBlockAllTheSquare(true)
+	-- javaObject:setName("Water Ditch")
+	-- javaObject:setIsDismantable(true)
+	-- javaObject:setCanBePlastered(false)
+	-- javaObject:setIsHoppable(false)
+	-- javaObject:setIsThumpable(true)
+	-- javaObject:setModData(copyTable(modData))
+	-- javaObject:setMaxHealth(health)
+	-- javaObject:setHealth(health)
+	-- javaObject:setBreakSound("BreakObject")
+	-- javaObject:setSpecialTooltip(true)
+    
+
+	-- javaObject:setWaterAmount(waterAmount)
+	-- javaObject:setTaintedWater(waterAmount > 0 and sq:isOutside())
+
+    -- javaObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
+    -- javaObject:getSprite():getProperties():Set('BlocksPlacement', '')
+
+    -- sq:AddSpecialObject(javaObject)
+    
+
+	-- javaObject:transmitCompleteItemToClients()
 end
 
 

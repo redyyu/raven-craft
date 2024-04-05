@@ -47,6 +47,10 @@ end
 function ISWaterDitch:create(x, y, z, north, sprite)
     local cell = getWorld():getCell()
     self.sq = cell:getGridSquare(x, y, z)
+    if not self.sq:getProperties() then
+        return false
+    end
+
     for i=0, self.sq:getObjects():size()-1 do
         local object = self.sq:getObjects():get(i)
         if object:getProperties() and object:getProperties():Is(IsoFlagType.canBeRemoved) then
@@ -68,12 +72,9 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:setIsHoppable(self.hoppable)
 	self.javaObject:setCanBarricade(self.canBarricade)
 
-    self.sq:AddSpecialObject(self.javaObject)
-    self.sq:RecalcAllWithNeighbours(true)
-
-    self.javaObject:getSprite():setName(sprite)
-    self.javaObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
-    
+    -- self.javaObject:getSprite():setName(sprite)
+    -- self.javaObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
+    -- self.javaObject:getSprite():getProperties():Set('BlocksPlacement', '')
     self.javaObject:getModData().waterMax = self.waterMax
     
     local variety = nil
@@ -97,6 +98,10 @@ function ISWaterDitch:create(x, y, z, north, sprite)
 
     self.javaObject:getModData().spriteName = sprite
     self.javaObject:getModData().objectName = self.name
+
+    self.sq:AddSpecialObject(self.javaObject)
+    self.sq:RecalcAllWithNeighbours(true)
+    -- self.sq:getProperties():Set('BlocksPlacement', '')
 
     self.javaObject:transmitCompleteItemToServer()
 
@@ -169,10 +174,13 @@ function ISWaterDitch:isValid(square)
         return false
     end
 
+    print("==========square:isFreeOrMidair(true, true)==============")
+    print(square:isFreeOrMidair(true, true))
+
     if CWaterDitchSystem.instance:getLuaObjectOnSquare(square) then
 		return false
 	end
-
+    
 	if not square:isFreeOrMidair(true, true) then return false end
 
     local floor = square:getFloor()
