@@ -175,7 +175,7 @@ function SWaterDitchGlobalObject:updateFloor()
         if square and square:getProperties() then
             square:getProperties():Set(IsoFlagType.solidtrans)
         end
-        -- DO NOT change floor there.
+        -- DO NOT change floor there, weird happen, etc, around is block not no reason.
         -- if square and square:getFloor() and square:getFloor():getProperties() then
         --     square:getFloor():getProperties():Set(IsoFlagType.solidtrans)
         --     square:RecalcAllWithNeighbours(true)

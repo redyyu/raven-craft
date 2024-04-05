@@ -61,9 +61,18 @@ function ISWaterDitch:create(x, y, z, north, sprite)
         floor:clearAttachedAnimSprite()
     end
     floor = self.sq:addFloor(ISWaterDitch.floorSprite)
-
+    local floor_props = floor:getProperties()
+    if floor_props then
+        floor_props:Set(IsoFlagType.solidtrans)
+    end
     -- add dirt under layer.
-    -- self.sq:AddTileObject(IsoObject.new(sq, ISWaterDitch.dirtSprite))
+    local dirty_floor = IsoObject.new(self.sq, ISWaterDitch.dirtSprite, 'DirtFloor')
+    self.sq:AddTileObject(dirty_floor)
+
+    -- spriteName and objectName to ModData is for keep it when reload game.
+    dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
+    dirty_floor:getModData().objectName = 'DirtFloor'
+
 
     for i=0, self.sq:getObjects():size()-1 do
         local object = self.sq:getObjects():get(i)
@@ -184,8 +193,7 @@ function ISWaterDitch:isValid(square)
     if square:getZ() > 0 then
         return false
     end
-    print("=============square:isFreeOrMidair(true, true)===========")
-    print(square:isFreeOrMidair(true, true))
+
     if CWaterDitchSystem.instance:getLuaObjectOnSquare(square) then
 		return false
 	end

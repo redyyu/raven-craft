@@ -927,7 +927,7 @@ but there alot work to do, do not add too much...
 
 when using custom sprite like this to create `IsoThumpable`, 
 it might have not change `square:isFree` or `isFreeOrMidair`, 
-DO NOT `square:getFloor()` and modify the floor's Properties to ovrride it.
+try `square:getFloor()` and modify the floor's Properties to ovrride it.
 
 ```
 local floor = sq:getFloor()
@@ -936,9 +936,19 @@ floor_props:Set(IsoFlagType.solidtrans)
 floor_props:Set('BlocksPlacement', '')
 ```
 
-1. It's not working while reload game.
-2. DO NOT try add to GlobalObject System, weird happen, etc, around is block not no reson.
+*It's not working while reload game*
 
+Might have to add update to GlobalObject System, or some where can update when game reload.
+
+in this case only have to modify square property.
+```
+if square and square:getProperties() then
+    square:getProperties():Set(IsoFlagType.solidtrans)
+end
+```
+DO NOT try modify floor to GlobalObject System,
+weird happen, etc, around is block not no reason.
+No sure why, 
 
 
 
