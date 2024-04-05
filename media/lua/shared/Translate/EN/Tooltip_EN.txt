@@ -36,7 +36,7 @@ Tooltip_EN = {
     Tooltip_CURE_INJECTION = "Have a chance to Fights zombification, take it before the symptoms start."
 
     -- Ditch
-    Tooltip_DigDitch_Pool = "Dig a water pool to collect water from rain or river."
+    Tooltip_DigDitch_Pool = "Dig a water pool to collect water from rain or river, and slowly watering plants nearby."
     Tooltip_DigDitch_Waterway = "Dig a waterway, water will flow between pool. Must connect with water pool."
     Tooltip_Ditch_Fill_Dirt = "Ditch can be filled with dirt and restored to ground."
 

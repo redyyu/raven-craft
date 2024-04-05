@@ -91,21 +91,26 @@ function SWaterDitchGlobalObject:isPool()
 end
 
 
-function SWaterDitchGlobalObject:isWaterFlowing(object)
-    if not object then return false end
+function SWaterDitchGlobalObject:isFlowable(relLuaObject)
+    if not relLuaObject then return false end
     
     local isoObject = self:getIsoObject()
     if isoObject then
-        if object:getModData().ditchType == 'pool' then
+        if relLuaObject:isPool() then
             -- pool can not take water from pool
             return not self:isPool()
         else
             -- waterway can take water from pool or same direction waterway.
-            return self:isPool() or self:getDitchType() == object:getModData().ditchType
+            return self:isPool() or self:getDitchType() == relLuaObject:getDitchType()
         end
     else
         return false
     end
+end
+
+
+function SWaterDitchGlobalObject:isWaterToFlow()
+    return self.waterAmount > self.waterMax * 0.33
 end
 
 
@@ -163,23 +168,6 @@ function SWaterDitchGlobalObject:setSpriteName(spriteName)
             isoObject:sendObjectChange('sprite')
         end
         isoObject:transmitUpdatedSpriteToClients()
-    end
-end
-
-
-function SWaterDitchGlobalObject:updateFloor()
-    local isoObject = self:getIsoObject()
-    -- make sure square is not free.
-    if isoObject then
-        local square = isoObject:getSquare()
-        if square and square:getProperties() then
-            square:getProperties():Set(IsoFlagType.solidtrans)
-        end
-        -- DO NOT change floor there, weird happen, etc, around is block not no reason.
-        -- if square and square:getFloor() and square:getFloor():getProperties() then
-        --     square:getFloor():getProperties():Set(IsoFlagType.solidtrans)
-        --     square:RecalcAllWithNeighbours(true)
-        -- end
     end
 end
 

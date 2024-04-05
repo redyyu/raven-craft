@@ -36,6 +36,7 @@ ISWaterDitch.variety = {
 ISWaterDitch.defaultVariety = 'pool'
 ISWaterDitch.dirtSprite = 'rc_natural_ditch_9'
 ISWaterDitch.floorSprite = 'blends_natural_01_64'
+ISWaterDitch.placeHolderSprite = 'fixtures_counters_01_16'
 
 ISWaterDitch.varietySpriteMap = {}
 
@@ -63,17 +64,23 @@ function ISWaterDitch:create(x, y, z, north, sprite)
         floor:clearAttachedAnimSprite()
     end
     floor = self.sq:addFloor(ISWaterDitch.floorSprite)
-    local floor_props = floor:getProperties()
-    if floor_props then
-        floor_props:Set(IsoFlagType.solidtrans)
-    end
+
+    -- DO NOT change `PropertyContainer` here, 
+    -- seems it's shared by other squares ??
+    -- local floor_props = floor:getProperties()
+    -- if floor_props then
+    --     floor_props:Set(IsoFlagType.solidtrans)
+    -- end
+
     -- add dirt under layer.
     local dirty_floor = IsoObject.new(self.sq, ISWaterDitch.dirtSprite, 'DirtFloor')
     self.sq:AddTileObject(dirty_floor)
-
     -- spriteName and objectName to ModData is for keep it when reload game.
     dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
     dirty_floor:getModData().objectName = 'DirtFloor'
+
+    -- add place holder to prevent DigFurrow or build something on it.
+    self.sq:AddTileObject(IsoObject.new(self.sq, ISWaterDitch.placeHolderSprite, 'placeholder'))
 
 
     for i=0, self.sq:getObjects():size()-1 do
@@ -123,6 +130,7 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.sq:AddSpecialObject(self.javaObject)
     -- self.sq:getProperties():Set('BlocksPlacement', '')
     -- self.sq:getProperties():Set(IsoFlagType.solidtrans) -- seems NO working here.
+    self.sq:RecalcProperties()
     self.sq:RecalcAllWithNeighbours(true)
 
     self.javaObject:transmitCompleteItemToServer()

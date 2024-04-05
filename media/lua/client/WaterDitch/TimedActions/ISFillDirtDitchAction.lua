@@ -60,10 +60,16 @@ function ISFillDirtDitchAction:perform()
     if not floor then
         floor = square:addFloor(ISWaterDitch.floorSprite)
     end
-    local floor_props = floor:getProperties()
-    floor_props:UnSet(IsoFlagType.solidtrans)
-    -- unset floor `solidtrans` to make sure square:isFree or square:isFreeOrMidair return true.
 
+    local objects = square:getObjects()
+    for i=0, objects:size()-1 do
+        local obj = objects:get(i)
+        if obj:getName() == 'placeholder' then
+            square:RemoveTileObject(obj)
+        end
+    end
+
+    square:RecalcProperties()
     square:RecalcAllWithNeighbours(true)
 
     self.shovel:setJobDelta(0.0)

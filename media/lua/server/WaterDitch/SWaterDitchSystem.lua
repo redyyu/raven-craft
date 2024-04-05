@@ -62,9 +62,9 @@ function SWaterDitchSystem:checkWaterway(luaObject)
 
         for _, sq in ipairs(adjacentSquares) do
             if sq then
-                local ditch = ISWaterDitch.getDitch(sq)
-                if luaObject:isWaterFlowing(ditch) then
-                    table.insert(ditches, ditch)
+                local luaDitch = self:getLuaObjectAt(sq:getX(), sq:getY(), sq:getZ())
+                if luaObject:isFlowable(luaDitch) then
+                    table.insert(ditches, luaDitch)
                 end
             end
         end
@@ -74,10 +74,14 @@ function SWaterDitchSystem:checkWaterway(luaObject)
     if #ditches > 0 then
         local water_modifier = 0
         for _, rel_ditch in ipairs(ditches) do
-            if luaObject.waterAmount > rel_ditch:getWaterAmount() and rel_ditch:getWaterAmount() < rel_ditch:getWaterMax() then
-                water_modifier = math.max(- 1 * ISWaterDitch.waterScale, rel_ditch:getWaterAmount() - luaObject.waterAmount)
-            elseif luaObject.waterAmount < rel_ditch:getWaterAmount() and luaObject.waterAmount < luaObject.waterMax then
-                water_modifier = math.min(1 * ISWaterDitch.waterScale, rel_ditch:getWaterAmount()- luaObject.waterAmount)
+            if luaObject.waterAmount > rel_ditch.waterAmount and rel_ditch.waterAmount < rel_ditch.waterMax then
+                if luaObject:isWaterToFlow() then
+                    water_modifier = math.max(- 1 * ISWaterDitch.waterScale, rel_ditch.waterAmount - luaObject.waterAmount)
+                end
+            elseif luaObject.waterAmount < rel_ditch.waterAmount and luaObject.waterAmount < luaObject.waterMax then
+                if rel_ditch:isWaterToFlow() then
+                    water_modifier = math.min(1 * ISWaterDitch.waterScale, rel_ditch.waterAmount - luaObject.waterAmount)
+                end
             end
         end
         return water_modifier
@@ -122,7 +126,7 @@ end
 
 function SWaterDitchSystem:checkPlant(luaObject)
     local square = luaObject:getSquare()
-    if not luaObject:isPool() or luaObject.waterAmount <= 0 then
+    if not luaObject:isPool() or not luaObject:isWaterToFlow() then
         return 0
     end
 
@@ -142,7 +146,7 @@ function SWaterDitchSystem:checkPlant(luaObject)
         local plan = SFarmingSystem.instance:getLuaObjectOnSquare(sq)
         if plan and plan.state ~= "plow" and plan:isAlive() then
             local waterNeed = plan.waterNeeded or 50
-            if plan.waterLvl < waterNeed and luaObject.waterAmount > 0 then
+            if plan.waterLvl < waterNeed then
                 plan.waterLvl = math.min(plan.waterLvl + 1, waterNeed)
                 plan.lastWaterHour = SFarmingSystem.instance.hoursElapsed
                 plan:addIcon()
@@ -159,7 +163,6 @@ end
 function SWaterDitchSystem:checkUpdating()
     for i=1,self:getLuaObjectCount() do
         local luaObject = self:getLuaObjectByIndex(i)
-        luaObject:updateFloor()
         luaObject:changeSprite()
 
         local water_amount_modifier = self:checkRain(luaObject)

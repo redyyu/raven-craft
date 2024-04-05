@@ -948,7 +948,7 @@ end
 ```
 DO NOT try modify floor to GlobalObject System,
 weird happen, etc, around is block not no reason.
-No sure why, 
+No sure why, might be they share same `PropertyContainer`?
 
 
 
