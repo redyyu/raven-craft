@@ -37,7 +37,11 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
     local playerObj = getSpecificPlayer(playerNum)
     local playerInv = playerObj:getInventory()
 
-    if playerObj:getVehicle() or not ISWaterDitch.canSkill(playerObj) then return end
+    if playerObj:getVehicle() then return end
+
+    if not playerObj:isRecipeKnown("Dig Water Ditch") or not ISWaterDitch.canSkill(playerObj) then
+        return
+    end
 
     local ditch
     for _, v in ipairs(worldobjects) do
