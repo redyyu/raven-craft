@@ -7,7 +7,7 @@ local Ditch = {}
 
 Ditch.isCloseEnough = function(playerObj, ditch)
     return ditch:getSquare():getBuilding() == playerObj:getBuilding() and 
-           playerObj:DistToSquared(ditch:getX() + 0.5, ditch:getY() + 0.5) < 2 * 3
+           playerObj:DistToSquared(ditch:getX() + 0.5, ditch:getY() + 0.5) < 2 * 5
 end
 
 
@@ -24,9 +24,9 @@ end
 Ditch.onDigDitch = function(worldobjects, playerNum, shovel, isPool)
     local bo = nil
     if isPool then
-        bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.sprites.pool.empty)
+        bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.variety.pool.sprites.empty)
     else
-        bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.sprites.WE.empty, ISWaterDitch.sprites.NS.empty)
+        bo = ISWaterDitch:new(playerNum, shovel, ISWaterDitch.variety.WE.sprites.empty, ISWaterDitch.variety.NS.sprites.empty)
     end
 	bo.player = playerNum
 	getCell():setDrag(bo, bo.player)
@@ -49,19 +49,20 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
 
     if ditch then
         if Ditch.isCloseEnough(playerObj, ditch) then
-            local ditchOption = context:addOptionOnTop(getText("ContextMenu_Ditch"), worldobjects, nil)
+            local ditchOption = context:addOptionOnTop(getText("ContextMenu_Ditch"))
             local ditchMenu = ISContextMenu:getNew(context)
             context:addSubMenu(ditchOption, ditchMenu)
 
-            local tooltip = ISWorldObjectContextMenu.addToolTip()
-            tooltip:setName(getText("ContextMenu_Ditch"))
-            local tx = getTextManager():MeasureStringX(tooltip.font, getText("ContextMenu_WaterName") .. ":") + 20
-            tooltip.description = string.format("%s: <SETX:%d> %d / %d", getText("ContextMenu_WaterName"), tx, ditch:getWaterAmount(), ditch:getWaterMax())
+            local optInfo = ditchMenu:addOption(getText("ContextMenu_Info"))
+            local info_tooltip = ISWorldObjectContextMenu.addToolTip()
+            info_tooltip:setName(getText("ContextMenu_Ditch"))
+            local tx = getTextManager():MeasureStringX(info_tooltip.font, getText("ContextMenu_WaterName") .. ":") + 20
+            info_tooltip.description = string.format("%s: <SETX:%d> %d / %d", getText("ContextMenu_WaterName"), tx, ditch:getWaterAmount(), ditch:getWaterMax())
             if ditch:isTaintedWater() and getSandboxOptions():getOptionByName("EnableTaintedWaterText"):getValue() then
-                tooltip.description = tooltip.description .. " <BR> <RGB:1,0.5,0.5> " .. getText("Tooltip_item_TaintedWater")
+                info_tooltip.description = info_tooltip.description .. " <BR> <RGB:1,0.5,0.5> " .. getText("Tooltip_item_TaintedWater")
             end
-            tooltip.maxLineWidth = 512
-            ditchOption.toolTip = tooltip
+            info_tooltip.maxLineWidth = 512
+            optInfo.toolTip = info_tooltip
 
             local shovel = playerInv:getFirstEvalRecurse(predicateDigGrave)
             local dirt_uses = playerInv:getUsesTypeRecurse("Dirtbag")

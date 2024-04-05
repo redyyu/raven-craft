@@ -60,14 +60,10 @@ function SWaterDitchSystem:checkWaterway(luaObject)
             }
         end
 
-        for _, v in ipairs(adjacentSquares) do
-            if square then
-                local ditch = ISWaterDitch.getDitch(square)
-                if luaObject:isPool() and ditch and ditch:getModData().ditchType ~= 'pool' then
-                    -- pool can not take water from pool
-                    table.insert(ditches, ditch)
-                elseif not luaObject:isPool() and ditch then
-                    -- waterway can take water from any ditchs
+        for _, sq in ipairs(adjacentSquares) do
+            if sq then
+                local ditch = ISWaterDitch.getDitch(sq)
+                if luaObject:isWaterFlowing(ditch) then
                     table.insert(ditches, ditch)
                 end
             end
@@ -77,18 +73,17 @@ function SWaterDitchSystem:checkWaterway(luaObject)
     
     if #ditches > 0 then
         local water_modifier = 0
-        for _, ditch in ipairs(ditches) do
-            if luaObject.waterAmount > ditch:getWaterAmount() then
+        for _, rel_ditch in ipairs(ditches) do
+            if luaObject.waterAmount > rel_ditch:getWaterAmount() then
                 water_modifier = - 1 * ISWaterDitch.waterScale
-            elseif luaObject.waterAmount < ditch:getWaterAmount() then
+            elseif luaObject.waterAmount < rel_ditch:getWaterAmount() then
                 water_modifier = 1 * ISWaterDitch.waterScale
             end
         end
-
         return water_modifier
     end
 
-    return luaObject.waterAmount
+    return 0
 end
 
 

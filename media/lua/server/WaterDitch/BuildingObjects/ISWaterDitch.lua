@@ -3,28 +3,46 @@ require "BuildingObjects/ISBuildingObject"
 
 ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
 ISWaterDitch.waterScale = 4
-ISWaterDitch.wayWaterMax = 200
-ISWaterDitch.poolWaterMax = 1200
+ISWaterDitch.waterMax = 1200
 
-ISWaterDitch.sprites = {
+ISWaterDitch.variety = {
     pool = {
-        empty = 'rc_natural_ditch_0',
-        half = 'rc_natural_ditch_1',
-        full = 'rc_natural_ditch_2',
+        waterMax = 1200,
+        sprites = {
+            empty = 'rc_natural_ditch_0',
+            half = 'rc_natural_ditch_1',
+            full = 'rc_natural_ditch_2',
+        }
     },
     WE = {
-        empty = 'rc_natural_ditch_3',
-        half = 'rc_natural_ditch_4',
-        full = 'rc_natural_ditch_5',
+        waterMax = 200,
+        sprites = {
+            empty = 'rc_natural_ditch_3',
+            half = 'rc_natural_ditch_4',
+            full = 'rc_natural_ditch_5',
+        }
     },
     NS = {
-        empty = 'rc_natural_ditch_6',
-        half = 'rc_natural_ditch_7',
-        full = 'rc_natural_ditch_8',
+        waterMax = 200,
+        sprites = {
+            empty = 'rc_natural_ditch_6',
+            half = 'rc_natural_ditch_7',
+            full = 'rc_natural_ditch_8',
+        }
     },
 }
-
+ISWaterDitch.defaultVariety = 'pool'
 ISWaterDitch.dirtSprite = "rc_natural_ditch_9"
+
+ISWaterDitch.varietySpriteMap = {}
+
+for variety_key, variety_val in pairs(ISWaterDitch.variety) do
+    for _, v in pairs(variety_val.sprites) do
+        ISWaterDitch.varietySpriteMap[v] = variety_key
+    end
+end
+
+print(ISWaterDitch.varietySpriteMap)
 
 
 function ISWaterDitch:create(x, y, z, north, sprite)
@@ -56,11 +74,28 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
     
     self.javaObject:getModData().waterMax = self.waterMax
+    
+    local variety = nil
+    local ditchType = nil
+    if self.isPool then
+        variety = ISWaterDitch.variety['pool']
+        ditchType = 'pool'
+    elseif north then
+        variety = ISWaterDitch.variety['NS']
+        ditchType = 'NS'
+    else
+        variety = ISWaterDitch.variety['WE']
+        ditchType = 'WE'
+    end
+    
+    self.javaObject:getModData().waterMax = variety.waterMax
     self.javaObject:getModData().waterAmount = 0
+    
+    self.javaObject:getModData().sprites = variety.sprites
+    self.javaObject:getModData().ditchType = ditchType
+
     self.javaObject:getModData().spriteName = sprite
     self.javaObject:getModData().objectName = self.name
-    
-    ISWaterDitch.recognizeDitch(self.javaObject)
 
     self.javaObject:transmitCompleteItemToServer()
 
@@ -90,11 +125,7 @@ function ISWaterDitch:new(player, shovel, sprite, northSprite)
     o.equipBothHandItem = shovel
     o.maxTime = 200
     o.isPool = not northSprite or sprite == northSprite
-    if o.isPool then
-        o.waterMax = ISWaterDitch.poolWaterMax
-    else
-        o.waterMax = ISWaterDitch.wayWaterMax
-    end
+    o.waterMax = ISWaterDitch.waterMax
     o.isThumpable = true  -- false will not block the square. and must setName to the JavaObject.
     o.canPassThrough = false
 	o.blockAllTheSquare = true
@@ -143,16 +174,16 @@ function ISWaterDitch:isValid(square)
     end
     
     local spriteName = self:getSprite()
-    if spriteName == ISWaterDitch.sprites.NS.empty then
+    if spriteName == ISWaterDitch.variety.NS.sprites.empty then
         local north_square = square:getAdjacentSquare(IsoDirections.N)
         local south_square = square:getAdjacentSquare(IsoDirections.S)
-        if not ISWaterDitch.getDitch(north_square) and not ISWaterDitch.getDitch(south_square) then
+        if not ISWaterDitch.getDitch(north_square, true) and not ISWaterDitch.getDitch(south_square, true) then
             return false
         end
-    elseif spriteName == ISWaterDitch.sprites.WE.empty then
+    elseif spriteName == ISWaterDitch.variety.WE.sprites.empty then
         local west_square = square:getAdjacentSquare(IsoDirections.W)
         local east_square = square:getAdjacentSquare(IsoDirections.E)
-        if not ISWaterDitch.getDitch(west_square) and not ISWaterDitch.getDitch(east_square) then
+        if not ISWaterDitch.getDitch(west_square, true) and not ISWaterDitch.getDitch(east_square, true) then
             return false
         end
     end
@@ -161,36 +192,16 @@ end
 
 
 function ISWaterDitch.recognizeDitch(object)
-    local sprite = object:getSprite()
-    if sprite and sprite:getName() then
-        for k, v in pairs(ISWaterDitch.sprites.pool) do
-            if sprite:getName() == v then
-                object:getModData().waterMax = ISWaterDitch.poolWaterMax
-                object:getModData().sprites = ISWaterDitch.sprites.pool
-                object:getModData().ditchType = 'pool'
-            end
-        end
-
-        for k, v in pairs(ISWaterDitch.sprites.WE) do
-            if sprite:getName() == v then
-                object:getModData().waterMax = ISWaterDitch.wayWaterMax
-                object:getModData().sprites = ISWaterDitch.sprites.WE
-                object:getModData().ditchType = 'WE'
-            end
-        end
-
-        for k, v in pairs(ISWaterDitch.sprites.NS) do
-            if sprite:getName() == v then
-                object:getModData().waterMax = ISWaterDitch.wayWaterMax
-                object:getModData().sprites = ISWaterDitch.sprites.NS
-                object:getModData().ditchType = 'NS'
-            end
-        end
-    else
-        object:getModData().waterMax = ISWaterDitch.poolWaterMax
-        object:getModData().sprites = ISWaterDitch.sprites.pool
-        object:getModData().ditchType = 'pool'
+    local ditchType = object:getModData().ditchType
+    
+    if not ditchType then
+        local spriteName = object:getSpriteName()
+        ditchType = ISWaterDitch.varietySpriteMap[spriteName] or ISWaterDitch.defaultVariety
     end
+    local variety = ISWaterDitch.variety[ditchType]
+    object:getModData().waterMax = variety.waterMax
+    object:getModData().sprites = variety.sprites
+    object:getModData().ditchType = ditchType
 end
 
 
@@ -209,12 +220,14 @@ function ISWaterDitch.isRiverSquare(square)
 end
 
 
-function ISWaterDitch.getDitch(square)
+function ISWaterDitch.getDitch(square, requirePool)
     if square then
         for i=0, square:getObjects():size()-1 do
             local object = square:getObjects():get(i)
             if object:getName() == "Water Ditch" then
-                return object
+                if not requirePool or object:getModData().ditchType == 'pool' then
+                    return object
+                end
             end
         end
     end
