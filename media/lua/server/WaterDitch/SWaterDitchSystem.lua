@@ -108,7 +108,6 @@ end
 function SWaterDitchSystem:checkRain(luaObject)
     if RainManager.isRaining() and luaObject.waterAmount < luaObject.waterMax then
         local square = luaObject:getSquare()
-
         if square then
             luaObject.exterior = square:isOutside()
         end
@@ -121,6 +120,41 @@ function SWaterDitchSystem:checkRain(luaObject)
 end
 
 
+function SWaterDitchSystem:checkPlant(luaObject)
+    local square = luaObject:getSquare()
+    if not luaObject:isPool() or luaObject.waterAmount <= 0 then
+        return 0
+    end
+
+    local adjacentSquares = {
+        square:getAdjacentSquare(IsoDirections.N),
+        square:getAdjacentSquare(IsoDirections.S),
+        square:getAdjacentSquare(IsoDirections.W),
+        square:getAdjacentSquare(IsoDirections.E),
+        square:getAdjacentSquare(IsoDirections.NE),
+        square:getAdjacentSquare(IsoDirections.NW),
+        square:getAdjacentSquare(IsoDirections.SE),
+        square:getAdjacentSquare(IsoDirections.SW),
+    }
+    local plants = {}
+    local waterConsume = 0
+    for _, sq in ipairs(adjacentSquares) do
+        local plan = SFarmingSystem.instance:getLuaObjectOnSquare(sq)
+        if plan and plan.state ~= "plow" and plan:isAlive() then
+            local waterNeed = plan.waterNeeded or 50
+            if plan.waterLvl < waterNeed and luaObject.waterAmount > 0 then
+                plan.waterLvl = math.min(plan.waterLvl + 1, waterNeed)
+                plan.lastWaterHour = SFarmingSystem.instance.hoursElapsed
+                plan:addIcon()
+		        plan:checkStat()
+		        plan:saveData()
+                waterConsume = waterConsume + 1
+            end
+        end
+    end
+    return - waterConsume
+end
+
 
 function SWaterDitchSystem:checkUpdating()
     for i=1,self:getLuaObjectCount() do
@@ -131,6 +165,7 @@ function SWaterDitchSystem:checkUpdating()
         local water_amount_modifier = self:checkRain(luaObject)
         water_amount_modifier = water_amount_modifier + self:checkRiver(luaObject)
         water_amount_modifier = water_amount_modifier + self:checkWaterway(luaObject)
+        water_amount_modifier = water_amount_modifier + self:checkPlant(luaObject)
 
         luaObject.waterAmount = math.max(0, math.min(luaObject.waterMax, luaObject.waterAmount + water_amount_modifier))
         luaObject.taintedWater = true

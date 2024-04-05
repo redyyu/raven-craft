@@ -5,6 +5,7 @@ ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
 ISWaterDitch.waterScale = 4
 ISWaterDitch.waterMax = 200
 ISWaterDitch.poolWaterMax = 400
+ISWaterDitch.skillRequired = 6
 
 ISWaterDitch.variety = {
     pool = {
@@ -46,6 +47,7 @@ for variety_key, variety_val in pairs(ISWaterDitch.variety) do
 end
 
 RC.addNewSprite(ISWaterDitch.dirtSprite)
+
 
 
 function ISWaterDitch:create(x, y, z, north, sprite)
@@ -340,3 +342,7 @@ function ISWaterDitch.canDigHere(worldObjects)
     return false
 end
 
+
+function ISWaterDitch.canSkill(playerObj)
+    return playerObj:getPerkLevel(Perks.Farming) >= ISWaterDitch.skillRequired
+end

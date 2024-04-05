@@ -3,28 +3,28 @@ require "Journal/SurvivalPerks"
 
 SurvivalJournal = {}  -- DO NOT `local`, need it somewhere else.
 
-SurvivalJournal.canWrite = function(recipe, player)
-    return not player:HasTrait("Illiterate")
+SurvivalJournal.canWrite = function(recipe, playerObj)
+    return not playerObj:HasTrait("Illiterate")
 end 
 
 
-SurvivalJournal.onWrite = function(items, result, player)
+SurvivalJournal.onWrite = function(items, result, playerObj)
     local journalData = {
         ['id'] = tostring(result:getID()),
-        ['pid'] = player:getSteamID(),
+        ['pid'] = playerObj:getSteamID(),
         ['numPages'] = 0,
         ['Perks'] = {},
         ['AlreadyReadBook'] = {},
         ['KnownRecipes'] = {},
     }
 
-    for i = 0 , player:getAlreadyReadBook():size() -1 do
-        table.insert(journalData['AlreadyReadBook'], player:getAlreadyReadBook():get(i))
+    for i = 0 , playerObj:getAlreadyReadBook():size() -1 do
+        table.insert(journalData['AlreadyReadBook'], playerObj:getAlreadyReadBook():get(i))
         journalData['numPages'] = journalData['numPages'] + 1
     end
 
-    for j = 0 , player:getKnownRecipes():size() -1 do
-        table.insert(journalData['KnownRecipes'], player:getKnownRecipes():get(j))
+    for j = 0 , playerObj:getKnownRecipes():size() -1 do
+        table.insert(journalData['KnownRecipes'], playerObj:getKnownRecipes():get(j))
         journalData['numPages'] = journalData['numPages'] + 1
     end
 
@@ -33,13 +33,13 @@ SurvivalJournal.onWrite = function(items, result, player)
             journalData['AlreadyReadBook'],
             journalData['KnownRecipes'],
         }, 'Write RCJournal')
-        player:getAlreadyReadBook():clear()
-        player:getKnownRecipes():clear()
+        playerObj:getAlreadyReadBook():clear()
+        playerObj:getKnownRecipes():clear()
     end
 
     local modifier = SandboxVars.RavenCraft.SurvivalJournalMultiplierModifier
     for k, v in pairs(SurvivalPerks) do
-        local perks_lv = player:getPerkLevel(v)
+        local perks_lv = playerObj:getPerkLevel(v)
         local perks_multiplier = perks_lv * modifier
         journalData['Perks'][k] = {
             ['maxLevel'] = perks_lv,
@@ -48,14 +48,14 @@ SurvivalJournal.onWrite = function(items, result, player)
         journalData['numPages'] = journalData['numPages'] + perks_multiplier
         if isDebugEnabled() then
             print('Write Multiplier: '.. k ..' x'.. perks_multiplier .. ' MaxLv: '..perks_lv)
-            player:getXp():getMultiplierMap():remove(v)
+            playerObj:getXp():getMultiplierMap():remove(v)
         end
     end
 
     result:getModData()['RCJournal'] = journalData
-    SurvivalJournal.setReaded(player, journalData['id'], 0)
+    SurvivalJournal.setReaded(playerObj, journalData['id'], 0)
     
-    local journal_name = getText('IGUI_SURVIVAL_JOURNAL_SOMEONE_S', player:getDescriptor():getSurname())
+    local journal_name = getText('IGUI_SURVIVAL_JOURNAL_SOMEONE_S', playerObj:getDescriptor():getSurname())
 
     result:setBookName(journal_name)
     result:setName(journal_name)
@@ -66,24 +66,24 @@ SurvivalJournal.onWrite = function(items, result, player)
 end
 
 
-SurvivalJournal.ensureReadedTable = function(player)
-    if not player:getModData()['RCJournal'] then
-        player:getModData()['RCJournal'] = {}
-    elseif not player:getModData()['RCJournal']['readed'] then
-        player:getModData()['RCJournal']['readed'] = {}
+SurvivalJournal.ensureReadedTable = function(playerObj)
+    if not playerObj:getModData()['RCJournal'] then
+        playerObj:getModData()['RCJournal'] = {}
+    elseif not playerObj:getModData()['RCJournal']['readed'] then
+        playerObj:getModData()['RCJournal']['readed'] = {}
     end
 end
 
-SurvivalJournal.getReadedTable = function(player)
-    SurvivalJournal.ensureReadedTable(player)
-    return player:getModData()['RCJournal']['readed']
+SurvivalJournal.getReadedTable = function(playerObj)
+    SurvivalJournal.ensureReadedTable(playerObj)
+    return playerObj:getModData()['RCJournal']['readed']
 end
 
 
-SurvivalJournal.getReaded = function(player, journa_id)
-    SurvivalJournal.ensureReadedTable(player)
+SurvivalJournal.getReaded = function(playerObj, journa_id)
+    SurvivalJournal.ensureReadedTable(playerObj)
     local readPages = 0
-    local readed_table = player:getModData()['RCJournal']['readed']
+    local readed_table = playerObj:getModData()['RCJournal']['readed']
     if readed_table and journa_id then
         readPages = readed_table[journa_id] or 0
     end
@@ -91,11 +91,11 @@ SurvivalJournal.getReaded = function(player, journa_id)
 end
 
 
-SurvivalJournal.setReaded = function(player, journal_id, num)
-    SurvivalJournal.ensureReadedTable(player)
-    local readed_table = player:getModData()['RCJournal']['readed']
+SurvivalJournal.setReaded = function(playerObj, journal_id, num)
+    SurvivalJournal.ensureReadedTable(playerObj)
+    local readed_table = playerObj:getModData()['RCJournal']['readed']
     if readed_table and journal_id then
-        player:getModData()['RCJournal']['readed'][journa_id] = num
+        playerObj:getModData()['RCJournal']['readed'][journa_id] = num
     end
     return num
 end
@@ -135,38 +135,38 @@ SurvivalJournal.setTooltip = function(journal)
 end
 
 
-SurvivalJournal.onRead = function(player, journal)
+SurvivalJournal.onRead = function(playerObj, journal)
     if journal:getContainer() == nil then
 		return
 	end
     local journalData = journal:getModData()['RCJournal'] or {}
     local self_read_only = SandboxVars.RavenCraft.SurvivalJournalSelfReadOnly
-    local readPages = SurvivalJournal.getReaded(player, journalData['id'])
+    local readPages = SurvivalJournal.getReaded(playerObj, journalData['id'])
 
-    if journalData['pid'] ~= player:getSteamID() and self_read_only then
-        player:Say(getText("IGUI_PlayerText_DontGet"))
+    if journalData['pid'] ~= playerObj:getSteamID() and self_read_only then
+        playerObj:Say(getText("IGUI_PlayerText_DontGet"))
     else
         -- if readPages >= journalData['numPages'] then
-        --     player:Say(getText("IGUI_PlayerText_BookObsolete"))
-        --     player:Say(getText("IGUI_PlayerText_ReReadBook"))
-        --     SurvivalJournal.setReaded(player, journalData['id'], 0)
+        --     playerObj:Say(getText("IGUI_PlayerText_BookObsolete"))
+        --     playerObj:Say(getText("IGUI_PlayerText_ReReadBook"))
+        --     SurvivalJournal.setReaded(playerObj, journalData['id'], 0)
         -- end
         if readPages < journalData['numPages'] then
-            ISInventoryPaneContextMenu.transferIfNeeded(player, journal)
+            ISInventoryPaneContextMenu.transferIfNeeded(playerObj, journal)
             -- read
-            player:reportEvent("EventSitOnGround")
-            local readed_data = SurvivalJournal.getReadedTable(player)
-            ISTimedActionQueue.add(ISReadAJournal:new(player, journal, journalData, readed_data))
+            playerObj:reportEvent("EventSitOnGround")
+            local readed_data = SurvivalJournal.getReadedTable(playerObj)
+            ISTimedActionQueue.add(ISReadAJournal:new(playerObj, journal, journalData, readed_data))
         else
-            player:Say(getText("IGUI_PlayerText_BookObsolete"))
+            playerObj:Say(getText("IGUI_PlayerText_BookObsolete"))
         end
     end
 end
 
 
 
-SurvivalJournal.onFillInventoryObjectContextMenu = function(player, context, items)
-    local playerObj = getSpecificPlayer(player)
+SurvivalJournal.onFillInventoryObjectContextMenu = function(playerNum, context, items)
+    local playerObj = getSpecificPlayer(playerNum)
 
     local items = ISInventoryPane.getActualItems(items)
     local journal = nil
