@@ -232,6 +232,20 @@ RC.pickVehicle = function(playerNum)
 end
 
 
+RC.tableIndexOf = function(tableList, val)
+    if type(tableList) ~= 'table' or #tableList <= 0 then
+        return nil
+    end
+
+    for idx, v in ipairs(tableList) do
+        if v == val then
+            return idx
+        end
+    end
+    return nil
+end
+
+
 RC.printDebug = function(contents, name)
     if isDebugEnabled() then
         if name == true or name == nil then

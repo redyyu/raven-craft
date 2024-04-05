@@ -74,10 +74,10 @@ function SWaterDitchSystem:checkWaterway(luaObject)
     if #ditches > 0 then
         local water_modifier = 0
         for _, rel_ditch in ipairs(ditches) do
-            if luaObject.waterAmount > rel_ditch:getWaterAmount() then
-                water_modifier = - 1 * ISWaterDitch.waterScale
-            elseif luaObject.waterAmount < rel_ditch:getWaterAmount() then
-                water_modifier = 1 * ISWaterDitch.waterScale
+            if luaObject.waterAmount > rel_ditch:getWaterAmount() and rel_ditch:getWaterAmount() < rel_ditch:getWaterMax() then
+                water_modifier = math.max(- 1 * ISWaterDitch.waterScale, rel_ditch:getWaterAmount() - luaObject.waterAmount)
+            elseif luaObject.waterAmount < rel_ditch:getWaterAmount() and luaObject.waterAmount < luaObject.waterMax then
+                water_modifier = math.min(1 * ISWaterDitch.waterScale, rel_ditch:getWaterAmount()- luaObject.waterAmount)
             end
         end
         return water_modifier

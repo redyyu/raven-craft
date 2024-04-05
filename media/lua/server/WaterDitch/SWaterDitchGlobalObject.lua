@@ -131,9 +131,10 @@ function SWaterDitchGlobalObject:changeSprite()
         self.waterAmount = isoObject:getWaterAmount()
     end
 
+    -- waterMax is different between different ditchType.
     if self.waterAmount < self.waterMax * 0.25 then
         spriteName = isoObject:getModData().sprites.empty
-    elseif self.waterAmount < self.waterMax * 0.5 then
+    elseif self.waterAmount < self.waterMax * 0.75 then
         spriteName = isoObject:getModData().sprites.half
     else
         spriteName = isoObject:getModData().sprites.full

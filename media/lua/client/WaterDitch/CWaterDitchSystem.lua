@@ -16,7 +16,7 @@ function CWaterDitchSystem:isValidIsoObject(isoObject)
 end
 
 function CWaterDitchSystem:newLuaObject(globalObject)
-	return CRainBarrelGlobalObject:new(self, globalObject)
+	return CWaterDitchGlobalObject:new(self, globalObject)
 end
 
 CGlobalObjectSystem.RegisterSystemClass(CWaterDitchSystem)

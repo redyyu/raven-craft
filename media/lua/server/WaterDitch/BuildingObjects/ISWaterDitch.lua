@@ -3,11 +3,12 @@ require "BuildingObjects/ISBuildingObject"
 
 ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
 ISWaterDitch.waterScale = 4
-ISWaterDitch.waterMax = 1200
+ISWaterDitch.waterMax = 200
+ISWaterDitch.poolWaterMax = 400
 
 ISWaterDitch.variety = {
     pool = {
-        waterMax = 1200,
+        waterMax = ISWaterDitch.poolWaterMax,
         sprites = {
             empty = 'rc_natural_ditch_0',
             half = 'rc_natural_ditch_1',
@@ -15,7 +16,7 @@ ISWaterDitch.variety = {
         }
     },
     WE = {
-        waterMax = 200,
+        waterMax = ISWaterDitch.waterMax,
         sprites = {
             empty = 'rc_natural_ditch_3',
             half = 'rc_natural_ditch_4',
@@ -23,7 +24,7 @@ ISWaterDitch.variety = {
         }
     },
     NS = {
-        waterMax = 200,
+        waterMax = ISWaterDitch.waterMax,
         sprites = {
             empty = 'rc_natural_ditch_6',
             half = 'rc_natural_ditch_7',
@@ -41,8 +42,6 @@ for variety_key, variety_val in pairs(ISWaterDitch.variety) do
         ISWaterDitch.varietySpriteMap[v] = variety_key
     end
 end
-
-print(ISWaterDitch.varietySpriteMap)
 
 
 function ISWaterDitch:create(x, y, z, north, sprite)
@@ -65,11 +64,13 @@ function ISWaterDitch:create(x, y, z, north, sprite)
 	self.javaObject:setBlockAllTheSquare(self.blockAllTheSquare)
     self.javaObject:setName(self.name)
     self.javaObject:setIsThumpable(self.isThumpable)
+    self.javaObject:setIsDismantable(self.dismantable)
+    self.javaObject:setIsHoppable(self.hoppable)
+	self.javaObject:setCanBarricade(self.canBarricade)
 
     self.sq:AddSpecialObject(self.javaObject)
     self.sq:RecalcAllWithNeighbours(true)
 
-    self.javaObject:setBlockAllTheSquare(true)
     self.javaObject:getSprite():setName(sprite)
     self.javaObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
     
@@ -87,10 +88,10 @@ function ISWaterDitch:create(x, y, z, north, sprite)
         variety = ISWaterDitch.variety['WE']
         ditchType = 'WE'
     end
-    
+
     self.javaObject:getModData().waterMax = variety.waterMax
     self.javaObject:getModData().waterAmount = 0
-    
+
     self.javaObject:getModData().sprites = variety.sprites
     self.javaObject:getModData().ditchType = ditchType
 
@@ -99,15 +100,16 @@ function ISWaterDitch:create(x, y, z, north, sprite)
 
     self.javaObject:transmitCompleteItemToServer()
 
+    -- OnObjectAdded event will create the SRainBarrelGlobalObject on the server.
+    -- This is only needed for singleplayer which doesn't trigger OnObjectAdded.
     triggerEvent("OnObjectAdded", self.javaObject)
 
 end
 
 
 function ISWaterDitch:walkTo(x, y, z)
-    local playerObj = getSpecificPlayer(self.player)
     local square = getCell():getGridSquare(x, y, z)
-    return luautils.walkAdj(playerObj, square)
+    return luautils.walkAdj(self.character, square)
 end
 
 
@@ -120,6 +122,7 @@ function ISWaterDitch:new(player, shovel, sprite, northSprite)
     o:setNorthSprite(northSprite or sprite)
     o.name = "Water Ditch"
     o.player = player
+    o.character = getSpecificPlayer(player)
     o.noNeedHammer = true
     o.ignoreNorth = false
     o.equipBothHandItem = shovel
@@ -129,6 +132,8 @@ function ISWaterDitch:new(player, shovel, sprite, northSprite)
     o.isThumpable = true  -- false will not block the square. and must setName to the JavaObject.
     o.canPassThrough = false
 	o.blockAllTheSquare = true
+    o.dismantable = false
+    o.hoppable = false
     o.actionAnim = ISFarmingMenu.getShovelAnim(shovel)
     o.craftingBank = "Shoveling"
     return o
@@ -164,6 +169,12 @@ function ISWaterDitch:isValid(square)
         return false
     end
 
+    if CWaterDitchSystem.instance:getLuaObjectOnSquare(square) then
+		return false
+	end
+
+	if not square:isFreeOrMidair(true, true) then return false end
+
     local floor = square:getFloor()
     if not ISBuildingObject.isValid(self, square) or not ISWaterDitch.isValidFloorTexture(floor) then
         return false
@@ -177,13 +188,17 @@ function ISWaterDitch:isValid(square)
     if spriteName == ISWaterDitch.variety.NS.sprites.empty then
         local north_square = square:getAdjacentSquare(IsoDirections.N)
         local south_square = square:getAdjacentSquare(IsoDirections.S)
-        if not ISWaterDitch.getDitch(north_square, true) and not ISWaterDitch.getDitch(south_square, true) then
+        local ditch_type = {'pool', 'NS'}
+        if not ISWaterDitch.getDitch(north_square, ditch_type) and 
+           not ISWaterDitch.getDitch(south_square, ditch_type) then
             return false
         end
     elseif spriteName == ISWaterDitch.variety.WE.sprites.empty then
         local west_square = square:getAdjacentSquare(IsoDirections.W)
         local east_square = square:getAdjacentSquare(IsoDirections.E)
-        if not ISWaterDitch.getDitch(west_square, true) and not ISWaterDitch.getDitch(east_square, true) then
+        local ditch_type = {'pool', 'WE'}
+        if not ISWaterDitch.getDitch(west_square, ditch_type) and 
+           not ISWaterDitch.getDitch(east_square, ditch_type) then
             return false
         end
     end
@@ -220,12 +235,19 @@ function ISWaterDitch.isRiverSquare(square)
 end
 
 
-function ISWaterDitch.getDitch(square, requirePool)
+function ISWaterDitch.getDitch(square, ditchTypes)
+    if type(ditchTypes) == 'string' then
+        ditchTypes = {ditchTypes}
+    elseif ditchTypes == true then
+        ditchTypes = {'pool'}
+    elseif type(ditchTypes) ~= 'table' then
+        ditchTypes = {}
+    end
     if square then
         for i=0, square:getObjects():size()-1 do
             local object = square:getObjects():get(i)
             if object:getName() == "Water Ditch" then
-                if not requirePool or object:getModData().ditchType == 'pool' then
+                if #ditchTypes == 0 or RC.tableIndexOf(ditchTypes, object:getModData().ditchType) then
                     return object
                 end
             end
