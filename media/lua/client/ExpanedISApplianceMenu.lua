@@ -30,8 +30,8 @@ Apl.onAnvil = function(worldobjects, playerNum)
     -- Object name will be 'Anvil' recipe NearItem is work.
     local anvil = ISAnvil:new("Anvil", getSpecificPlayer(playerNum), "crafted_01_19", "crafted_01_19")
     anvil.modData["xp:Woodwork"] = 30
-    anvil.actionAnim = "DigTrowel"
-    anvil.craftingBank = "CampfireBuild"
+    anvil.actionAnim = "Loot"
+    anvil.craftingBank = "BuildFenceGravelbagFoley"
     anvil.modData["use:Base.IronIngot"]= 500
     anvil.modData["need:Base.Log"]= 1
     anvil.player = playerNum
