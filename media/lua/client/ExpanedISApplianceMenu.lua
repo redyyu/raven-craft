@@ -3,21 +3,9 @@ require 'Blacksmith/ISUI/ISBlacksmithMenu'
 
 local ISBuildBenchMenu = {}
 
-local function predicateNotBroken(item)
-    return not item:isBroken()
-end
-
 
 local function predicateDigGrave(item)
     return not item:isBroken() and item:hasTag("DigGrave")
-end
-
-
-local function requireHammer(playerInv, option)
-    if not playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) and not ISBuildMenu.cheat then
-        option.onSelect = nil
-        option.notAvailable = true
-    end
 end
 
 
@@ -28,10 +16,11 @@ Apl.onStoneFurnace = function(worldobjects, playerNum)
     -- Object name will be 'StoneFurnace'
     local furnace = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43")
     furnace.modData["xp:Woodwork"] = 30
-    furnace.craftingBank = "Hammering"
+    furnace.actionAnim = "DigTrowel"
+    furnace.craftingBank = "CampfireBuild"
     furnace.modData["need:Base.Stone"]= 30
     furnace.player = playerNum
-    furnace.completionSound = "BuildFenceGravelbag"
+    furnace.completionSound = "BuildFenceCairn"
     furnace.maxTime = 1200
     getCell():setDrag(furnace, playerNum)
 end
@@ -41,7 +30,8 @@ Apl.onAnvil = function(worldobjects, playerNum)
     -- Object name will be 'Anvil' recipe NearItem is work.
     local anvil = ISAnvil:new("Anvil", getSpecificPlayer(playerNum), "crafted_01_19", "crafted_01_19")
     anvil.modData["xp:Woodwork"] = 30
-    anvil.craftingBank = "Hammering"
+    anvil.actionAnim = "DigTrowel"
+    anvil.craftingBank = "CampfireBuild"
     anvil.modData["use:Base.IronIngot"]= 500
     anvil.modData["need:Base.Log"]= 1
     anvil.player = playerNum
@@ -62,7 +52,7 @@ Apl.onWaterWell = function(worldobjects, playerNum, shovel)
     well.modData["need:Base.Rope"] = 1
     well.modData["need:Base.BucketEmpty"] = 1
     well.craftingBank = "DigFurrowWithShovel"
-    well.actionAnim = "DigShovel"
+    well.actionAnim = ISFarmingMenu.getShovelAnim(shovel)
     well.player = playerNum
     well.maxTime = 1200
     well.completionSound = "BuildFenceGravelbag"
@@ -84,8 +74,6 @@ Apl.doBuildFurnaceMenu = function (subMenu, playerNum)
     tooltip:setName(itemName)
     tooltip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. tooltip.description
     tooltip:setTexture(spriteName)
-
-    requireHammer(playerInv, furnaceOption)
     
     local stoneCount = playerInv:getCountTypeRecurse("Base.Stone")
     if stoneCount >= 30 then
@@ -120,8 +108,6 @@ Apl.doBuildAnvilMenu = function(subMenu, playerNum)
     
     local metalCount = playerInv:getUsesTypeRecurse("Base.IronIngot")
     local logCount = playerInv:getCountTypeRecurse("Base.Log")
-
-    requireHammer(playerInv, anvilOption)
 
     if logCount >= 1 then
         tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1"
