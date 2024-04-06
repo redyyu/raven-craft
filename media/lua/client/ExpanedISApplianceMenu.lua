@@ -21,10 +21,10 @@ local function requireHammer(playerInv, option)
 end
 
 
-local WorkBench = {}
+local Apl = {}
 
 
-WorkBench.onStoneFurnace = function(worldobjects, playerNum)
+Apl.onStoneFurnace = function(worldobjects, playerNum)
     -- Object name will be 'StoneFurnace'
     local furnace = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43")
     furnace.modData["xp:Woodwork"] = 30
@@ -37,7 +37,7 @@ WorkBench.onStoneFurnace = function(worldobjects, playerNum)
 end
 
 
-WorkBench.onAnvil = function(worldobjects, playerNum)
+Apl.onAnvil = function(worldobjects, playerNum)
     -- Object name will be 'Anvil' recipe NearItem is work.
     local anvil = ISAnvil:new("Anvil", getSpecificPlayer(playerNum), "crafted_01_19", "crafted_01_19")
     anvil.modData["xp:Woodwork"] = 30
@@ -51,8 +51,8 @@ WorkBench.onAnvil = function(worldobjects, playerNum)
 end
 
 
-WorkBench.onWaterWell = function(worldobjects, playerNum, shovel)
-    local well = ISWaterWell:new("Well", playerNum, shovel, "camping_01_16")
+Apl.onWaterWell = function(worldobjects, playerNum, shovel)
+    local well = ISWaterWell:new("Well", shovel, "camping_01_16")
     well.modData["xp:Woodwork"] = 30
     well.modData["need:Base.Plank"] = 4
     well.modData["need:Base.Nails"] = 12
@@ -70,14 +70,14 @@ WorkBench.onWaterWell = function(worldobjects, playerNum, shovel)
 end
 
 
-WorkBench.doBuildFurnaceMenu = function (workbenchMenu, playerNum)
+Apl.doBuildFurnaceMenu = function (subMenu, playerNum)
     local playerObj = getSpecificPlayer(playerNum)
     local playerInv = playerObj:getInventory()
 
     -- StoneFurnace --
     local spriteName = "crafted_01_42" -- "crafted_01_16"
     local itemName = getText("ContextMenu_STONE_FURNACE")
-    local furnaceOption = workbenchMenu:addOption(itemName, worldobjects, WorkBench.onStoneFurnace, playerNum)
+    local furnaceOption = subMenu:addOption(itemName, worldobjects, Apl.onStoneFurnace, playerNum)
 
     local tooltip = ISBuildMenu.canBuild(0,0,0,0,0,6, furnaceOption, playerNum)
     -- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
@@ -103,7 +103,7 @@ WorkBench.doBuildFurnaceMenu = function (workbenchMenu, playerNum)
 end
 
 
-WorkBench.doBuildAnvilMenu = function(workbenchMenu, playerNum)
+Apl.doBuildAnvilMenu = function(subMenu, playerNum)
     local playerObj = getSpecificPlayer(playerNum)
     local playerInv = playerObj:getInventory()
 
@@ -111,7 +111,7 @@ WorkBench.doBuildAnvilMenu = function(workbenchMenu, playerNum)
     local spriteName = "crafted_01_19"
 
     local itemName = getText("ContextMenu_ANVIL")
-    anvilOption = workbenchMenu:addOption(itemName, worldobjects, WorkBench.onAnvil, playerNum)
+    anvilOption = subMenu:addOption(itemName, worldobjects, Apl.onAnvil, playerNum)
     local tooltip = ISBuildMenu.canBuild(0,0,0,0,0,6, anvilOption, playerNum)
     -- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
     tooltip:setName(itemName)
@@ -147,7 +147,7 @@ WorkBench.doBuildAnvilMenu = function(workbenchMenu, playerNum)
 end
 
 
-WorkBench.doBuildWellMenu = function(workbenchMenu, playerNum)
+Apl.doBuildWellMenu = function(subMenu, playerNum)
     local playerObj = getSpecificPlayer(playerNum)
     local playerInv = playerObj:getInventory()
 
@@ -156,7 +156,7 @@ WorkBench.doBuildWellMenu = function(workbenchMenu, playerNum)
     local shovel = playerInv:getFirstEvalRecurse(predicateDigGrave)
 
     local itemName = getText("ContextMenu_WATER_WELL")
-    wellOption = workbenchMenu:addOption(itemName, worldobjects, WorkBench.onWaterWell, playerNum, shovel)
+    wellOption = subMenu:addOption(itemName, worldobjects, Apl.onWaterWell, playerNum, shovel)
 
     local tooltip = ISBuildMenu.canBuild(4,12,0,0,0,6, wellOption, playerNum)
     -- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
@@ -230,7 +230,7 @@ WorkBench.doBuildWellMenu = function(workbenchMenu, playerNum)
 end
 
 
-WorkBench.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects, test)
+Apl.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects, test)
     if test and ISWorldObjectContextMenu.Test then return true end
 
     if getCore():getGameMode()=="LastStand" then
@@ -244,23 +244,25 @@ WorkBench.onFillWorldObjectContextMenu = function(playerNum, context, worldobjec
 
     local option = context:getOptionFromName(getText("ContextMenu_Build"))
 
-    if option and (playerObj:getKnownRecipes():contains("Craft Workbench") or ISBuildMenu.cheat) then
+    if option and (playerObj:getKnownRecipes():contains("Craft Appliance") or ISBuildMenu.cheat) then
         local buildMenu = context:getSubMenu(option.subOption)
-        local workbenchOption = buildMenu:addOptionOnTop(getText("ContextMenu_WORKBENCH"), worldobjects, nil)
-        local workbenchMenu = ISContextMenu:getNew(context)
-        buildMenu:addSubMenu(workbenchOption, workbenchMenu)
+        local aplOption = buildMenu:addOption(getText("ContextMenu_Appliance"), worldobjects, nil)
+        local aplMenu = ISContextMenu:getNew(buildMenu) 
+        -- it's very important, `getNew(buildMenu)`
+        -- if give context, the menu will keep on screen after option clicked.
+        buildMenu:addSubMenu(aplOption, aplMenu)
         
-        local furnaceOpt = WorkBench.doBuildFurnaceMenu(workbenchMenu, playerNum)
-        local anvilOpt = WorkBench.doBuildAnvilMenu(workbenchMenu, playerNum)
-        local wellOpt = WorkBench.doBuildWellMenu(workbenchMenu, playerNum)
+        local furnaceOpt = Apl.doBuildFurnaceMenu(aplMenu, playerNum)
+        local anvilOpt = Apl.doBuildAnvilMenu(aplMenu, playerNum)
+        local wellOpt = Apl.doBuildWellMenu(aplMenu, playerNum)
 
         -- Parent menu --
         if furnaceOpt.notAvailable and anvilOpt.notAvailable and wellOpt.notAvailable then
-            workbenchOption.notAvailable = true
+            aplOption.notAvailable = true
         end
     end
 
 end
 
 
-Events.OnFillWorldObjectContextMenu.Add(WorkBench.onFillWorldObjectContextMenu)
+Events.OnFillWorldObjectContextMenu.Add(Apl.onFillWorldObjectContextMenu)

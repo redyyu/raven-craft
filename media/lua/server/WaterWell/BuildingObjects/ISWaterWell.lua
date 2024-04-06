@@ -24,7 +24,7 @@ function ISWaterWell:removeFromGround(square)
     end
 end
 
-function ISWaterWell:new(name, player, shovel, sprite)
+function ISWaterWell:new(name, shovel, sprite)
     local o = {}
     setmetatable(o, self)
     self.__index = self
@@ -32,7 +32,6 @@ function ISWaterWell:new(name, player, shovel, sprite)
     o:setSprite(sprite)
     o:setNorthSprite(sprite)
     o.name = name
-    o.player = player
     o.equipBothHandItem = shovel
     o.noNeedHammer = true
     o.dismantable = true

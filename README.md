@@ -58,11 +58,11 @@ those knowledge is become my treasure, Thank you very much.
 *Those recipes is in vanilla metalworking magazine.*
 
 
-### Added new Workbench for Metalworking:
+### Added back appliance for Metalworking:
 1. **Stone Furnace**: Smelting metal products to workable ingot. which is hidden by vanilla, I bring it out, also the bug while "Put out fire" and fired texture not display is fixed.
 2. **Anvil**: Used in forging various metal objects, such as Aex, Shovel. not every metal have to near Anvil to make.
 
-*Required "Craft Workbench" recipe, which is in "The Spirit of Craftsman"(1-4) magazine.*
+*Required "Craft Appliance" recipe, which is in "The Spirit of Craftsman"(1-4) magazine.*
 
 
 ### Added new Farming Expands:
@@ -88,7 +88,7 @@ those knowledge is become my treasure, Thank you very much.
 
 ### Added Magazine Expands:
 
-1. **The Spirit of Craftsman Vol.1**: Teach `Craft Workbench`, `Craft Tongs`, `Craft Bellows`, `Quick make Charcoal`, `Self-made Glue`, `Self-made Wood Glue`, `Self-made Hairspray` and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
+1. **The Spirit of Craftsman Vol.1**: Teach `Craft Appliance`, `Craft Tongs`, `Craft Bellows`, `Quick make Charcoal`, `Self-made Glue`, `Self-made Wood Glue`, `Self-made Hairspray` and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
 
 2. **The Spirit of Craftsman Vol.2**: Teach `Craft Nails`, `Craft Paperclips`, `Craft Butter Knife`, `Craft Kitchen Knife`, `Craft Meat Cleaver`, `Craft Hand Scythe`, `Craft Hand Shovel`, `Craft Shovel`, `Craft Garden Hoe`, `Craft Pick Axe`, `Craft Crowbar`;
 

@@ -20,7 +20,7 @@ ContextMenu_EN = {
   ContextMenu_METAL_BARREL = "Barrel (Metal)"
   
 
-  -- Workbench
+  -- Appliance
   ContextMenu_STONE_FURNACE = "Stone Furnace"
   ContextMenu_ANVIL = "Anvil"
   ContextMenu_WATER_WELL = "Water Well"
@@ -45,7 +45,7 @@ ContextMenu_EN = {
   ContextMenu_All_Blooded_Clothes = "All Bloodstained Clothes"
   ContextMenu_All_Dirty_Clothes = "All Dirty Clothes"
   ContextMenu_TAKE_BARREL = "Take Barrel"
-  ContextMenu_WORKBENCH = "Workbench"
+  ContextMenu_Appliance = "Appliance"
 
   ContextMenu_TAKE_INJECTION = "Take Injection"
   
