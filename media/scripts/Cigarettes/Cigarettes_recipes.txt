@@ -22,7 +22,7 @@ module Base
         OnGiveXP: Recipe.OnGiveXP.None,
         StopOnWalk: false,
         
-        Time: 5.0,
+        Time: 45.0,
         Sound: PutItemInBag,
     }
 

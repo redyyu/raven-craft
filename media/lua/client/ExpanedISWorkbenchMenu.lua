@@ -1,10 +1,10 @@
 require 'BuildingObjects/ISUI/ISBuildMenu'
 require 'Blacksmith/ISUI/ISBlacksmithMenu'
 
-local ISBuildBenchMenu = {};
+local ISBuildBenchMenu = {}
 
 local function predicateNotBroken(item)
-	return not item:isBroken()
+    return not item:isBroken()
 end
 
 
@@ -18,260 +18,265 @@ end
 
 
 local function countUses(playerObj, item_type, amount)
-    local count = 0;
+    local count = 0
     local containers = ISInventoryPaneContextMenu.getContainers(playerObj)
     for i=1,containers:size() do
         local container = containers:get(i-1)
         for j=1,container:getItems():size() do
-            local item = container:getItems():get(j-1);
+            local item = container:getItems():get(j-1)
             if item:getType() == item_type then
-                count = count + item:getUsedDelta() / item:getUseDelta();
+                count = count + item:getUsedDelta() / item:getUseDelta()
                 if count >= amount then
                     return round(count, 0) -- round is defined in luautils
                 end
             end
         end
     end
-    return count;
+    return count
 end
 
+local WorkBench = {}
 
-local function onStoneFurnace(worldobjects, player)
+
+WorkBench.onStoneFurnace = function(worldobjects, playerNum)
     -- Object name will be 'StoneFurnace'
-    local furnace = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43");
-    -- furnace.firstItem = "Hammer";  -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
-    -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
-    furnace.modData["xp:Woodwork"] = 30;
-    furnace.craftingBank = "Hammering";
-    furnace.modData["need:Base.Stone"]= 50;
-    furnace.player = player;
-    furnace.completionSound = "BuildFenceGravelbag";
-    furnace.maxTime = 1200;
-    getCell():setDrag(furnace, player);
+    local furnace = ISBSFurnace:new("Stone Furnace", "crafted_01_42", "crafted_01_43")
+    furnace.modData["xp:Woodwork"] = 30
+    furnace.craftingBank = "Hammering"
+    furnace.modData["need:Base.Stone"]= 50
+    furnace.player = playerNum
+    furnace.completionSound = "BuildFenceGravelbag"
+    furnace.maxTime = 1200
+    getCell():setDrag(furnace, playerNum)
 end
 
 
-local function onAnvil(worldobjects, player)
+WorkBench.onAnvil = function(worldobjects, playerNum)
     -- Object name will be 'Anvil' recipe NearItem is work.
-    local anvil = ISAnvil:new("Anvil", getSpecificPlayer(player), "crafted_01_19", "crafted_01_19");
-    -- anvil.firstItem = "Hammer"; -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
-    -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
-    anvil.modData["xp:Woodwork"] = 30;
-    anvil.craftingBank = "Hammering";
-    anvil.modData["use:Base.IronIngot"]= 500;
-    anvil.player = player;
-    anvil.maxTime = 600;
-    anvil.completionSound = "BuildMetalStructureMedium";
-    getCell():setDrag(anvil, player);
+    local anvil = ISAnvil:new("Anvil", getSpecificPlayer(playerNum), "crafted_01_19", "crafted_01_19")
+    anvil.modData["xp:Woodwork"] = 30
+    anvil.craftingBank = "Hammering"
+    anvil.modData["use:Base.IronIngot"]= 500
+    anvil.player = playerNum
+    anvil.maxTime = 600
+    anvil.completionSound = "BuildMetalStructureMedium"
+    getCell():setDrag(anvil, playerNum)
 end
 
 
-local function onWaterWell(worldobjects, player)
-	local well = ISWaterWell:new("Well", "camping_01_16");
-    -- local playerObj = getSpecificPlayer(player);
-	-- local playerInv = playerObj:getInventory();
-	-- local sortof_shovel = playerInv:getFirstTagEvalRecurse("DigGrave", predicateNotBroken);
-
-	-- well.firstItem = sortof_shovel:getType();  -- DO NOT set it without check item in inventory. That will break ISBuildingObject.lua.
-    -- Leave the actionAnim, seems vanilla code not finish equip item yet. 
-	well.modData["xp:Woodwork"] = 30;
-	well.modData["need:Base.Plank"] = 4;
-	well.modData["need:Base.Nails"] = 12;
-	well.modData["need:Base.Stone"] = 30;
-	well.modData["need:Base.MetalPipe"] = 1;
-	well.modData["need:Base.Rope"] = 1;
-	well.modData["need:Base.BucketEmpty"] = 1;
-    well.craftingBank = "DigFurrowWithShovel";
-	-- well.actionAnim = "DigShovel";
-	well.player = player;
-    well.maxTime = 1200;
-	well.completionSound = "BuildFenceGravelbag";
-	getCell():setDrag(well, player);
+WorkBench.onWaterWell = function(worldobjects, playerNum)
+    local well = ISWaterWell:new("Well", "camping_01_16")
+    well.modData["xp:Woodwork"] = 30
+    well.modData["need:Base.Plank"] = 4
+    well.modData["need:Base.Nails"] = 12
+    well.modData["need:Base.Stone"] = 30
+    well.modData["need:Base.MetalPipe"] = 1
+    well.modData["need:Base.Rope"] = 1
+    well.modData["need:Base.BucketEmpty"] = 1
+    well.craftingBank = "DigFurrowWithShovel"
+    -- well.actionAnim = "DigShovel"
+    well.player = playerNum
+    well.maxTime = 1200
+    well.completionSound = "BuildFenceGravelbag"
+    getCell():setDrag(well, playerNum)
 end
 
 
-local function buildBenchMenu(workbenchMenu, option, player)
-    local playerObj = getSpecificPlayer(player);
-    local playerInv = playerObj:getInventory();
-
-    local furnaceOption = {};
-    local anvilOption = {};
-    local wellOption = {};
+WorkBench.doBuildFurnaceMenu = function (workbenchMenu, playerNum)
+    local playerObj = getSpecificPlayer(playerNum)
+    local playerInv = playerObj:getInventory()
 
     -- StoneFurnace --
-    local sprite = {};
-    sprite.sprite = "crafted_01_16";
+    local spriteName = "crafted_01_16"
+    local itemName = getText("ContextMenu_STONE_FURNACE")
+    local furnaceOption = workbenchMenu:addOption(itemName, worldobjects, WorkBench.onStoneFurnace, playerNum)
 
-    local itemName = getText("ContextMenu_STONE_FURNACE");
-    furnaceOption = workbenchMenu:addOption(itemName, worldobjects, onStoneFurnace, player);
-    local toolTip = ISBuildMenu.canBuild(0,0,0,0,0,6, furnaceOption, player);
-	-- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
-	toolTip:setName(itemName);
-	toolTip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+    local tooltip = ISBuildMenu.canBuild(0,0,0,0,0,6, furnaceOption, playerNum)
+    -- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
+    tooltip:setName(itemName)
+    tooltip.description = getText("Tooltip_CRAFT_STONEFURNACEDESC") .. tooltip.description
+    tooltip:setTexture(spriteName)
 
+    if playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) then
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1"
+    else
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Hammer") .. " 0/1"
+        if not ISBuildMenu.cheat then
+            furnaceOption.onSelect = nil
+            furnaceOption.notAvailable = true
+        end
+    end
+    
     local resourceCount = countMaterial(playerInv, "Base.Stone")
     if resourceCount >= 30 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30"
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. resourceCount .. "/30"
         if not ISBuildMenu.cheat then
-            furnaceOption.onSelect = nil;
-            furnaceOption.notAvailable = true;
+            furnaceOption.onSelect = nil
+            furnaceOption.notAvailable = true
         end
     end
 
+    return furnaceOption
+
+end
+
+
+WorkBench.doBuildAnvilMenu = function(workbenchMenu, playerNum)
+    local playerObj = getSpecificPlayer(playerNum)
+    local playerInv = playerObj:getInventory()
 
     -- Anvil --
-    local sprite = {};
-    sprite.sprite = "crafted_01_19";
+    local spriteName = "crafted_01_19"
 
-    local itemName = getText("ContextMenu_ANVIL");
-    anvilOption = workbenchMenu:addOption(itemName, worldobjects, onAnvil, player);
-    local toolTip = ISBuildMenu.canBuild(0,0,0,0,0,6, anvilOption, player);
-	-- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
-	toolTip:setName(itemName);
-	toolTip.description = getText("Tooltip_CRAFT_ANVILDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+    local itemName = getText("ContextMenu_ANVIL")
+    anvilOption = workbenchMenu:addOption(itemName, worldobjects, WorkBench.onAnvil, playerNum)
+    local tooltip = ISBuildMenu.canBuild(0,0,0,0,0,6, anvilOption, playerNum)
+    -- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
+    tooltip:setName(itemName)
+    tooltip.description = getText("Tooltip_CRAFT_ANVILDESC") .. tooltip.description
+    tooltip:setTexture(spriteName)
     
-    local metalCount = countUses(playerObj, "IronIngot", 500);
-	local logCount = countMaterial(playerInv, "Base.Log")
-    local canBeCrafted = true;
+    local metalCount = countUses(playerObj, "IronIngot", 500)
+    local logCount = countMaterial(playerInv, "Base.Log")
 
-    -- if not playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) then
-    --     toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Hammer") .. " 0/1" ;
-    --     canBeCrafted = false;
-    -- else
-    --     toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1" ;
-    -- end
+    if not playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) then
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Hammer") .. " 0/1"
+    else
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1"
+        if not ISBuildMenu.cheat then
+            anvilOption.onSelect = nil
+            anvilOption.notAvailable = true
+        end
+    end
 
     if logCount < 1 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Log") .. " 0/1" ;
-        canBeCrafted = false;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Log") .. " 0/1"
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1"
+        if not ISBuildMenu.cheat then
+            anvilOption.onSelect = nil
+            anvilOption.notAvailable = true
+        end
     end
 
     if metalCount < 500 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
-        canBeCrafted = false;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit"
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit";
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.IronIngot") .. " " .. metalCount .. " /500 Unit"
+        if not ISBuildMenu.cheat then
+            anvilOption.onSelect = nil
+            anvilOption.notAvailable = true
+        end
     end
 
-    if not canBeCrafted and not ISBuildMenu.cheat then
-        anvilOption.onSelect = nil;
-        anvilOption.notAvailable = true;
-    end
+    return anvilOption
+end
 
+
+WorkBench.doBuildWellMenu = function(workbenchMenu, playerNum)
+    local playerObj = getSpecificPlayer(playerNum)
+    local playerInv = playerObj:getInventory()
 
     -- Water Well --
-    local sprite = {};
-    sprite.sprite = "camping_01_16";
+    local spriteName = "camping_01_16"
 
-    local itemName = getText("ContextMenu_WATER_WELL");
-    wellOption = workbenchMenu:addOption(itemName, worldobjects, onWaterWell, player);
-    local toolTip = ISBuildMenu.canBuild(4,12,0,0,0,6, wellOption, player);
-	-- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
-	toolTip:setName(itemName);
-	toolTip.description = getText("Tooltip_CRAFT_WATERWELLDESC") .. toolTip.description;
-	toolTip:setTexture(sprite.sprite);
+    local itemName = getText("ContextMenu_WATER_WELL")
+    wellOption = workbenchMenu:addOption(itemName, worldobjects, WorkBench.onWaterWell, playerNum)
+    local tooltip = ISBuildMenu.canBuild(4,12,0,0,0,6, wellOption, playerNum)
+    -- ISBuildMenu.canBuild(plankNb, nailsNb, hingeNb, doorknobNb, baredWireNb, carpentrySkill, option, player)
+    tooltip:setName(itemName)
+    tooltip.description = getText("Tooltip_CRAFT_WATERWELLDESC") .. tooltip.description
+    tooltip:setTexture(spriteName)
 
-	local stoneCount = countMaterial(playerInv, "Base.Stone")
+    local stoneCount = countMaterial(playerInv, "Base.Stone")
     local ropeCount = countMaterial(playerInv, "Base.Rope")
     local bucketCount = countMaterial(playerInv, "Base.BucketEmpty")
-	local pipeCount = countMaterial(playerInv, "Base.MetalPipe")
+    local pipeCount = countMaterial(playerInv, "Base.MetalPipe")
 
-	-- ISBuildMenu.requireHammer(wellOption);
-
-	-- if playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) then
-	-- 	toolTip.description = toolTip.description .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Hammer") .. " 1/1 <LINE> ";
-	-- else
-	-- 	toolTip.description = toolTip.description .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Hammer") .. " 0/1 <LINE> ";
-	-- 	if not ISBuildMenu.cheat then
-	-- 		wellOption.onSelect = nil;
-    --     	wellOption.notAvailable = true;
-	-- 	end
-	-- end
-
-	if playerInv:containsTagEvalRecurse("DigGrave", predicateNotBroken) then
-		toolTip.description = toolTip.description .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Shovel") .. " 1/1 <LINE> ";
-	else
-		toolTip.description = toolTip.description .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Shovel") .. " 0/1 <LINE> ";
-		if not ISBuildMenu.cheat then
-			wellOption.onSelect = nil;
-        	wellOption.notAvailable = true;
-		end
-	end
-	
+    if playerInv:containsTagEvalRecurse("DigGrave", predicateNotBroken) then
+        tooltip.description = tooltip.description .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Shovel") .. " 1/1 <LINE> "
+    else
+        tooltip.description = tooltip.description .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Shovel") .. " 0/1 <LINE> "
+        if not ISBuildMenu.cheat then
+            wellOption.onSelect = nil
+            wellOption.notAvailable = true
+        end
+    end
+    
     if stoneCount >= 30 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. stoneCount .. "/30" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Stone") .. " " .. stoneCount .. "/30"
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. stoneCount .. "/30" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Stone") .. " " .. stoneCount .. "/30"
         if not ISBuildMenu.cheat then
-            wellOption.onSelect = nil;
-            wellOption.notAvailable = true;
+            wellOption.onSelect = nil
+            wellOption.notAvailable = true
         end
     end
-	if ropeCount >= 2 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Rope") .. " " .. ropeCount .. "/2" ;
+    if ropeCount >= 2 then
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Rope") .. " " .. ropeCount .. "/2"
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Rope") .. " " .. ropeCount .. "/2" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Rope") .. " " .. ropeCount .. "/2"
         if not ISBuildMenu.cheat then
-            wellOption.onSelect = nil;
-            wellOption.notAvailable = true;
+            wellOption.onSelect = nil
+            wellOption.notAvailable = true
         end
     end
-	if pipeCount >= 2 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.MetalPipe") .. " " .. pipeCount .. "/2" ;
+    if pipeCount >= 2 then
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.MetalPipe") .. " " .. pipeCount .. "/2"
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.MetalPipe") .. " " .. pipeCount .. "/2" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.MetalPipe") .. " " .. pipeCount .. "/2"
         if not ISBuildMenu.cheat then
-            wellOption.onSelect = nil;
-            wellOption.notAvailable = true;
+            wellOption.onSelect = nil
+            wellOption.notAvailable = true
         end
     end
-	if bucketCount >= 1 then
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.BucketEmpty") .. " " .. bucketCount .. "/1" ;
+    if bucketCount >= 1 then
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.BucketEmpty") .. " " .. bucketCount .. "/1"
     else
-        toolTip.description = toolTip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.BucketEmpty") .. " " .. bucketCount .. "/1" ;
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.BucketEmpty") .. " " .. bucketCount .. "/1"
         if not ISBuildMenu.cheat then
-            wellOption.onSelect = nil;
-            wellOption.notAvailable = true;
+            wellOption.onSelect = nil
+            wellOption.notAvailable = true
         end
     end
 
-
-    -- Parent menu --
-	if furnaceOption.notAvailable and anvilOption.notAvailable and wellOption.notAvailable then
-		option.notAvailable = true;
-	end
-
+    return wellOption
 end
 
 
-local doBuildMenu = function(player, context, worldobjects, test)
-	if test and ISWorldObjectContextMenu.Test then return true end
+WorkBench.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects, test)
+    if test and ISWorldObjectContextMenu.Test then return true end
 
     if getCore():getGameMode()=="LastStand" then
-        return;
+        return
     end
-	
-	local playerObj = getSpecificPlayer(player)
-	local playerInv = playerObj:getInventory()
+    
+    local playerObj = getSpecificPlayer(playerNum)
+    local playerInv = playerObj:getInventory()
 
-	if playerObj:getVehicle() then return; end
-	
-    local menuAvailable = playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) and playerObj:getKnownRecipes():contains("Craft Workbench");
+    if playerObj:getVehicle() then return end
 
-	if menuAvailable or ISBuildMenu.cheat then
-        local workbenchOption = context:addOption(getText("ContextMenu_WORKBENCH"), worldobjects, nil);
-        local workbenchMenu = ISContextMenu:getNew(context);
-        context:addSubMenu(workbenchOption, workbenchMenu);
-        buildBenchMenu(workbenchMenu, workbenchOption, player);
+    local option = context:getOptionFromName(getText("ContextMenu_Build"))
+
+    if option and playerObj:getKnownRecipes():contains("Craft Workbench") or ISBuildMenu.cheat then
+        local buildMenu = context:getSubMenu(option.subOption)
+        local workbenchOption = buildMenu:addOption(getText("ContextMenu_WORKBENCH"), worldobjects, nil)
+        local workbenchMenu = ISContextMenu:getNew(context)
+        buildMenu:addSubMenu(workbenchOption, workbenchMenu)
+        
+        local furnaceOpt = WorkBench.doBuildFurnaceMenu(workbenchMenu, playerNum)
+        local anvilOpt = WorkBench.doBuildAnvilMenu(workbenchMenu, playerNum)
+        local wellOpt = WorkBench.doBuildWellMenu(workbenchMenu, playerNum)
+
+        -- Parent menu --
+        if furnaceOpt.notAvailable and anvilOpt.notAvailable and wellOpt.notAvailable then
+            workbenchOption.notAvailable = true
+        end
     end
 
 end
 
 
-Events.OnFillWorldObjectContextMenu.Add(doBuildMenu)
+Events.OnFillWorldObjectContextMenu.Add(WorkBench.onFillWorldObjectContextMenu)
