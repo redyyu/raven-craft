@@ -1887,7 +1887,8 @@ module RavenCraft
         Sound: Plastering,
         Category: Cooking,
 
-        AllowOnlyOne: true,  /* not show numbers after recipe name in context menu. */
+        AllowOnlyOne: true,
+        
         IsHidden: true, 
         /* Vegetables are take form inventory by lua recipecode, 
            no Vegetables showing up in recipe, that looks confused.
