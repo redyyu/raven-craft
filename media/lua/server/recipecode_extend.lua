@@ -709,9 +709,12 @@ function Recipe.OnCreate.mixVegetables(items, result, playerObj)
                     vege:Use() 
                     -- use `:Use` to consume the vegetable, not `:Remove()`, 
                     -- seems that need much more coding to make it safe to remove.
-                    if not food_age or vege:getAge() > food_age then
-                        food_age = vege:getAge()
-                    end
+
+                    -- NO NEED age, it will be rotten when food is old,
+                    -- because mix vegetables has short age for rotten.
+                    -- if not food_age or vege:getAge() > food_age then
+                    --     food_age = vege:getAge()
+                    -- end
                 end
                 if total_hunger_change <= -0.30 then -- HungerChange is negative number.
                     break
@@ -726,8 +729,11 @@ function Recipe.OnCreate.mixVegetables(items, result, playerObj)
     if total_hunger_change >= 0 then -- make sure HungerChange is not 0.
         total_hunger_change = -0.001
     end
-    if food_age > 0 then
-        result:setAge(food_age)
-    end
+
+    -- NO NEED age, it will be rotten when food is old,
+    -- because mix vegetables has short age for rotten.
+    -- if food_age > 0 then
+    --     result:setAge(food_age)
+    -- end
     result:setHungChange(total_hunger_change)
 end

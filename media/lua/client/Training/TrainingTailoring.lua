@@ -33,9 +33,9 @@ Tail.onFillInventoryObjectContextMenu = function(player, context, items)
         option.toolTip = toolTip
 
         toolTip:setName(getText("ContextMenu_TRAIN_TAILORING"))
-        local threadScriptItem = ScriptManager.instance:getItem("Base.Thread")
-        local needleScriptItem = ScriptManager.instance:getItem("Base.Needle")
-        local ripsheetScriptItem = ScriptManager.instance:getItem("Base.RippedSheets")
+        local threadName = getItemNameFromFullType("Base.Thread")
+        local needleName = getItemNameFromFullType("Base.Needle")
+        local ripsheetName = getItemNameFromFullType("Base.RippedSheets")
         if needle and thread_uses > 0 and count_fabric > 0 then
             toolTip.description = getText("Tooltip_TRAINING_READY_FOR") .." <LINE><LINE> "
         else
@@ -44,21 +44,21 @@ Tail.onFillInventoryObjectContextMenu = function(player, context, items)
         end
 
         if needle then
-            toolTip.description = toolTip.description .. RC.Txt.ghs .. needleScriptItem:getDisplayName() .." <LINE> "
+            toolTip.description = toolTip.description .. RC.Txt.ghs .. needleName .." <LINE> "
         else
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. needleScriptItem:getDisplayName() .." <LINE> "
+            toolTip.description = toolTip.description .. RC.Txt.bhs .. needleName .." <LINE> "
         end
 
         if thread_uses > 0 then
-            toolTip.description = toolTip.description .. RC.Txt.ghs .. threadScriptItem:getDisplayName() .."  "..thread_uses.."/1 <LINE> "
+            toolTip.description = toolTip.description .. RC.Txt.ghs .. threadName .."  "..thread_uses.."/1 <LINE> "
         else
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. threadScriptItem:getDisplayName() .."  0/1 unit <LINE> "
+            toolTip.description = toolTip.description .. RC.Txt.bhs .. threadName .."  0/1 unit <LINE> "
         end
 
         if count_fabric > 0 then
-            toolTip.description = toolTip.description .. RC.Txt.ghs .. ripsheetScriptItem:getDisplayName() .. "  "..count_fabric.."/1 <LINE> "
+            toolTip.description = toolTip.description .. RC.Txt.ghs .. ripsheetName .. "  "..count_fabric.."/1 <LINE> "
         else
-            toolTip.description = toolTip.description .. RC.Txt.bhs .. ripsheetScriptItem:getDisplayName() .. "  0/1 <LINE> "
+            toolTip.description = toolTip.description .. RC.Txt.bhs .. ripsheetName .. "  0/1 <LINE> "
         end
     end
 end
