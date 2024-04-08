@@ -1,33 +1,72 @@
 module RavenCraft
 {
-	model CrossbowHand
-	{
-		mesh = Weapons/firearm/CrossbowHandNoBolt,
-		texture = Weapons/firearm/CrossbowHandNoBolt,
-	}
-	model CrossbowHandDrawn
-	{
-		mesh = Weapons/firearm/CrossbowHandDrawn,
-		texture = Weapons/firearm/CrossbowHandDrawn,
-	}
-	model CrossbowCompound
-	{
-		mesh = Weapons/firearm/CrossbowCompoundNoBolt,
-		texture = Weapons/firearm/CrossbowCompoundNoBolt,
-	}
-	model CrossbowCompoundDrawn
-	{
-		mesh = Weapons/firearm/CrossbowCompoundDrawn,
-		texture = Weapons/firearm/CrossbowCompoundDrawn,
-	}
-	model CrossbowWooden
-	{
-		mesh = Weapons/firearm/CrossbowWoodenNoBolt,
-		texture = Weapons/firearm/CrossbowWoodenNoBolt,
-	}
-	model CrossbowWoodenDrawn
-	{
-		mesh = Weapons/Firearm/CrossbowWoodenDrawn,
-		texture = Weapons/Firearm/CrossbowWoodenDrawn,
-	}
+    model ArrowBolt
+    {
+        mesh = Weapons/firearm/ArrowBolt|bolt,
+        texture = Weapons/firearm/ArrowBolt,
+    }
+
+    model ArrowBoltBroken
+    {
+        mesh = Weapons/firearm/ArrowBolt|bolt,
+        texture = Weapons/firearm/ArrowBolt,
+    }
+
+    model ArrowBoltBundle
+    {
+        mesh = Weapons/firearm/ArrowBolt|bundle,
+        texture = Weapons/firearm/ArrowBolt,
+    }
+
+    model ArrowBoltGround
+    {
+        mesh = Weapons/firearm/ArrowBolt|bolt,
+        texture = Weapons/firearm/ArrowBolt,
+        scale = 1.5,
+    }
+
+    model ArrowBoltBroken
+    {
+        mesh = Weapons/firearm/ArrowBolt|broken,
+        texture = Weapons/firearm/ArrowBolt,
+        scale = 1.5,
+    }
+
+    model ArrowBoltBundleGround
+    {
+        mesh = Weapons/firearm/ArrowBolt|bundle,
+        texture = Weapons/firearm/ArrowBolt,
+        scale = 1.5,
+    }
+
+    model CrossbowHand
+    {
+        mesh = Weapons/firearm/CrossbowHandNoBolt,
+        texture = Weapons/firearm/CrossbowHandNoBolt,
+    }
+    model CrossbowHandDrawn
+    {
+        mesh = Weapons/firearm/CrossbowHandDrawn,
+        texture = Weapons/firearm/CrossbowHandDrawn,
+    }
+    model CrossbowCompound
+    {
+        mesh = Weapons/firearm/CrossbowCompoundNoBolt,
+        texture = Weapons/firearm/CrossbowCompoundNoBolt,
+    }
+    model CrossbowCompoundDrawn
+    {
+        mesh = Weapons/firearm/CrossbowCompoundDrawn,
+        texture = Weapons/firearm/CrossbowCompoundDrawn,
+    }
+    model CrossbowWooden
+    {
+        mesh = Weapons/firearm/CrossbowWoodenNoBolt,
+        texture = Weapons/firearm/CrossbowWoodenNoBolt,
+    }
+    model CrossbowWoodenDrawn
+    {
+        mesh = Weapons/Firearm/CrossbowWoodenDrawn,
+        texture = Weapons/Firearm/CrossbowWoodenDrawn,
+    }
 }

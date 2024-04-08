@@ -316,7 +316,6 @@ module Base
         WaterResistance = 1.0,
         Tags = GasMask,
 
-        StaticModel = Pouch,
         AttachmentType = Gear,
     }
     

@@ -8,11 +8,11 @@ module RavenCraft
 /** Crossbows **/
 
     item CrossbowHand {
-        MinDamage = 0.50,
-        MaxDamage = 0.8,
+        MinDamage = 1.25,
+        MaxDamage = 1.65,
         DoorDamage = 4,
-        CriticalChance = 30,
-        CritDmgMultiplier = 5,
+        CriticalChance = 40,
+        CritDmgMultiplier = 8,
         AimingPerkCritModifier = 5,
   
         AimingTime = 10,
@@ -20,7 +20,7 @@ module RavenCraft
         AimingPerkHitChanceModifier = 5,
   
         MinRange = 0.5,
-        MaxRange = 6,
+        MaxRange = 6.5,
         MinAngle = 0.9,
   
         AmmoType = RavenCraft.CrossbowBolt,
@@ -118,8 +118,8 @@ module RavenCraft
         AngleFalloff = TRUE,
         MultipleHitConditionAffected = FALSE,
         SoundRadius = 6,
-        MinDamage = 1.0,
-        MaxDamage = 1.75,
+        MinDamage = 1.25,
+        MaxDamage = 2.00,
         KnockdownMod = 0,
         SplatBloodOnNoDeath = TRUE,
         Icon = CrossbowCompound,
@@ -159,8 +159,8 @@ module RavenCraft
         RangeFalloff = TRUE,
         WeaponSprite = RavenCraft.CrossbowWooden,
         ToHitModifier = 1.8,
-        SoundVolume    =    1,
-        NPCSoundBoost    =    1.5,
+        SoundVolume = 1,
+        NPCSoundBoost = 1.5,
         MinAngle = 0.95,
         Type = Weapon,
         KnockBackOnNoDeath = TRUE,
@@ -233,6 +233,9 @@ module RavenCraft
         DisplayName = Crossbow Bolt,
         Icon = CrossbowBolt,
         MetalValue = 1,
+
+        StaticModel = RavenCraft.ArrowBolt,
+        WorldStaticModel = RavenCraft.ArrowBolt,
     }
 
     item CrossbowBoltBox {
@@ -242,6 +245,11 @@ module RavenCraft
         DisplayCategory = Ammo,
         Icon = CrossbowBoltBundle,
         MetalValue = 24,
+
+        AttachmentType = Gear,
+
+        StaticModel = RavenCraft.ArrowBoltBundle,
+        WorldStaticModel = RavenCraft.ArrowBoltBundle,
     }
 
     item CrossbowBoltBroken {
@@ -249,8 +257,12 @@ module RavenCraft
         Type = Normal,
         DisplayName	= Broken Crossbow Bolt,
         Icon = CrossbowBoltBroken,
+
+        StaticModel = RavenCraft.ArrowBoltBroken,
+        WorldStaticModel = RavenCraft.ArrowBoltBroken,
     }
- 
+
+
 /** Magazines **/
 
     item CrossbowMakerMag {

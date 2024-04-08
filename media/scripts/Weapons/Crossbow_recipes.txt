@@ -54,7 +54,7 @@ module RavenCraft
     recipe Craft Crossbow Bolts {
         keep [Recipe.GetItemTypes.Saw],
         keep [Recipe.GetItemTypes.SharpKnife],
-        WoodenStick=12,
+        WoodenStick=6,
         ScrapMetal=3,
         Twine=5,
 

@@ -322,12 +322,14 @@ module Base
         DisplayCategory = Ammo,
         Icon = HandgunAmmoBox,
         MetalValue = 45,
-        WorldStaticModel = HandGunAmmoBox,
+        
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = HandGunAmmoBox,
+        WorldStaticModel = HandGunAmmoBox,
+
+        AttachmentType = Gear,
     }
 
     item Bullets45Box {
@@ -337,12 +339,14 @@ module Base
         DisplayName = Box of .45 Auto Bullets,
         Icon = HandgunAmmoBox,
         MetalValue = 45,
-        WorldStaticModel = BoxOf45Auto,
+        
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = BoxOf45Auto,
+        WorldStaticModel = BoxOf45Auto,
+
+        AttachmentType = Gear,
     }
 
     item Bullets44Box {
@@ -352,12 +356,14 @@ module Base
         DisplayName = Box of .44 Magnum Bullets,
         Icon = HandgunAmmoBox,
         MetalValue = 45,
-        WorldStaticModel = BoxOf44Magnum,
+        
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = BoxOf44Magnum,
+        WorldStaticModel = BoxOf44Magnum,
+
+        AttachmentType = Gear,
     }
 
     item Bullets38Box {
@@ -367,12 +373,14 @@ module Base
         DisplayName = Box of .38 Special Bullets,
         Icon = HandgunAmmoBox,
         MetalValue = 45,
-        WorldStaticModel = BoxOf38Special,
+        
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = BoxOf38Special,
+        WorldStaticModel = BoxOf38Special,
+
+        AttachmentType = Gear,
     }
 
     item ShotgunShellsBox {
@@ -382,12 +390,14 @@ module Base
         DisplayName = Box of Shotgun Shells,
         Icon = ShotgunAmmoBox,
         MetalValue = 36,
-        WorldStaticModel = BoxOfShotGunShells,
+        
         PlaceOneSound = BoxOfShellsPlaceOne,
         PlaceMultipleSound = BoxOfShellsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = BoxOfShotGunShells,
+        WorldStaticModel = BoxOfShotGunShells,
+
+        AttachmentType = Gear,
     }
 
     item 223Box {
@@ -398,12 +408,14 @@ module Base
         DisplayName = Box of .223 Bullets,
         Icon = RifleAmmo223,
         MetalValue = 60,
-        WorldStaticModel = RifleAmmoBox,
+        
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = RifleAmmoBox,
+        WorldStaticModel = RifleAmmoBox,
+
+        AttachmentType = Gear,
     }
 
     item 308Box {
@@ -414,12 +426,14 @@ module Base
         DisplayName = Box of .308 Bullets,
         Icon = RifleAmmo308,
         MetalValue = 60,
-        WorldStaticModel = RifleAmmoBox,
+        
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = RifleAmmoBox,
+        WorldStaticModel = RifleAmmoBox,
+
+        AttachmentType = Gear,
     }
 
     item 556Box {
@@ -430,12 +444,14 @@ module Base
         DisplayName = Box of .556 Bullets,
         Icon = RifleAmmo308,
         MetalValue = 60,
-        WorldStaticModel = RifleAmmoBox,
+        
         PlaceOneSound = BoxOfRoundsPlaceOne,
         PlaceMultipleSound = BoxOfRoundsPlaceAll,
 
-        StaticModel = Pouch,
-        /* AttachmentType = Gear, */
+        StaticModel = RifleAmmoBox,
+        WorldStaticModel = RifleAmmoBox,
+
+        AttachmentType = Gear,
     }
 
 
