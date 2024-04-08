@@ -22,6 +22,13 @@ ItemName_EN = {
     ItemName_farming.RemouladeEmpty = "Empty Remoulade Bottle"
     ItemName_farming.RemouladeWaterFull = "Remoulade Bottle of Water"
     
+    ItemName_Base.Bag_WorkerBag = "Worker Duffel Bag"
+    ItemName_Base.Bag_MoneyBag = "Money Duffel Bag"
+    ItemName_Base.InmateEscapedBag = "Escape Duffel Bag"
+    ItemName_Base.Bag_WeaponBag = "Weapon Duffel Bag"
+    ItemName_Base.Bag_Military = "Military Duffel Bag"
+
+
     ItemName_Base.Shoes_BlackBoots = "Black Boots"
     ItemName_Base.Shoes_BlueTrainers = "Blue Sneakers"
     ItemName_Base.Shoes_RedTrainers = "Red Sneakers"

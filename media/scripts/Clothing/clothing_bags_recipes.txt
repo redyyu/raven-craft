@@ -5,12 +5,14 @@ module RavenCraft
 		Base,
 	}
 
-    /* Corset */
+    /* Backpack */
 
     recipe Reinforce Survivor Backpack {
         Bag_SurvivorBag,
+        Bag_ALICEpack_Army,
         keep Needle/SutureNeedle,
         keep Scissors,
+        RubberBand=4,
         LeatherStrips=2,
         DenimStrips=2,
         RippedSheets=4,
@@ -34,8 +36,10 @@ module RavenCraft
 
     recipe Reinforce Large Backpack {
         Bag_ALICEpack,
+        Bag_ALICEpack_Army,
         keep Needle/SutureNeedle,
         keep Scissors,
+        RubberBand=4,
         LeatherStrips=2,
         DenimStrips=2,
         RippedSheets=4,
