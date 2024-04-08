@@ -226,7 +226,7 @@ module RavenCraft
 
     item CrossbowBolt {
         Count = 1,
-        Weight = 0.1,
+        Weight = 0.05,
         AlwaysWelcomeGift = TRUE,
         Type = Normal,
         DisplayCategory = Ammo,
@@ -239,7 +239,7 @@ module RavenCraft
     }
 
     item CrossbowBoltBox {
-        Weight = 0.5,
+        Weight = 0.35,
         Type = Normal,
         DisplayName = Bundle of Crossbow Bolts,
         DisplayCategory = Ammo,
