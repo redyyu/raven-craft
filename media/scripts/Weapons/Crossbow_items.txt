@@ -8,11 +8,11 @@ module RavenCraft
 /** Crossbows **/
 
     item CrossbowHand {
-        MinDamage = 1.25,
-        MaxDamage = 1.65,
+        MinDamage = 0.75,
+        MaxDamage = 1.45,
         DoorDamage = 4,
         CriticalChance = 40,
-        CritDmgMultiplier = 8,
+        CritDmgMultiplier = 6,
         AimingPerkCritModifier = 5,
   
         AimingTime = 10,
@@ -87,7 +87,7 @@ module RavenCraft
 
 
     item CrossbowCompound {
-        MaxRange = 11,
+        MaxRange = 12,
         RangeFalloff = TRUE,
         WeaponSprite = RavenCraft.CrossbowCompound,
         ToHitModifier = 1.5,
@@ -166,13 +166,13 @@ module RavenCraft
         KnockBackOnNoDeath = TRUE,
         Ranged = TRUE,
         ProjectileCount = 1,
-        ConditionLowerChanceOneIn = 60,
+        ConditionLowerChanceOneIn = 30,
         Weight = 2.4,
         SplatNumber = 5,
         PushBackMod = 2,
         SubCategory = Firearm,
         AimingMod = 2,
-        ConditionMax = 6,
+        ConditionMax = 10,
         ShareDamage = FALSE,
         MaxHitCount = 1,
         IsAimedHandWeapon = TRUE,
@@ -186,8 +186,8 @@ module RavenCraft
         AngleFalloff = TRUE,
         MultipleHitConditionAffected = FALSE,
         SoundRadius = 12,
-        MinDamage = 0.70,
-        MaxDamage = 1.50,
+        MinDamage = 0.85,
+        MaxDamage = 1.85,
         KnockdownMod = 0,
         SplatBloodOnNoDeath = TRUE,
         Icon = Crossbow_Wood,
