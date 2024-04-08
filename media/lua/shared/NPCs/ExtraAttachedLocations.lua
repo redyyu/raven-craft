@@ -41,7 +41,6 @@ group:getOrCreateLocation("ALICEpack Mag"):setAttachmentName("alicepack_mag")
 group:getOrCreateLocation("ALICEpack Mag Right"):setAttachmentName("alicepack_mag_right")
 group:getOrCreateLocation("ALICEpack Mag Left"):setAttachmentName("alicepack_mag_left")
 
-
 group:getOrCreateLocation("Gear Belt Right"):setAttachmentName("gear_belt_right")
 group:getOrCreateLocation("Gear Belt Left"):setAttachmentName("gear_belt_left")
 group:getOrCreateLocation("Canteen Belt Right"):setAttachmentName("canteen_belt_right")
