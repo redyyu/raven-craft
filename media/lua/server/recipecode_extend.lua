@@ -682,7 +682,7 @@ function Recipe.OnCanPerform.haveMixableVegetables(recipe, playerObj)
         for i=0, vege_items:size() -1 do
             local vege = vege_items:get(i)
             if instanceof(vege, 'Food') then
-                if vege:getHungerChange() > -0.04 and not vege:isRotten() then  -- HungerChange is negative number.
+                if vege:getHungerChange() > -0.05 and not vege:isRotten() then  -- HungerChange is negative number.
                     total_hunger_change = total_hunger_change + vege:getHungerChange()
                 end
             end
@@ -704,7 +704,7 @@ function Recipe.OnCreate.mixVegetables(items, result, playerObj)
         for i=0, vege_items:size() -1 do
             local vege = vege_items:get(i)
             if instanceof(vege, 'Food') then
-                if vege:getHungerChange() > -0.04 and not vege:isRotten() then -- HungerChange is negative number.
+                if vege:getHungerChange() > -0.05 and not vege:isRotten() then -- HungerChange is negative number.
                     total_hunger_change = total_hunger_change + vege:getHungerChange()
                     vege:Use() 
                     -- use `:Use` to consume the vegetable, not `:Remove()`, 
