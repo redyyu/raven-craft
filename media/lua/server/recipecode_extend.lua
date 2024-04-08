@@ -730,10 +730,10 @@ function Recipe.OnCreate.mixVegetables(items, result, playerObj)
         total_hunger_change = -0.001
     end
 
-    -- NO NEED age, it will be rotten when food is old,
-    -- because mix vegetables has short age for rotten.
     -- if food_age > 0 then
     --     result:setAge(food_age)
     -- end
+
+    result:setAge(0.5)
     result:setHungChange(total_hunger_change)
 end
