@@ -69,44 +69,4 @@ module RavenCraft
         Category: Survivalist,
     }
 
-
-    recipe Refresh Crossbow {
-        CrossbowHand,
-  
-        Result: CrossbowHand,
-        Sound: Sawing,
-        Time: 50,
-
-        AnimNode: Disassemble,
-        Prop1: Source=1,
-
-        Category: Survivalist,
-    }
-
-    recipe Refresh Bag_SurvivorBag_R {
-        Bag_SurvivorBag_R,
-      
-        Result: Bag_SurvivorBag_R,
-        Sound: Sawing,
-        Time: 50,
-
-        AnimNode: Disassemble,
-        Prop1: Source=1,
-        
-        Category: Survivalist,
-    }
-
-    recipe Refresh Bag_ALICEpack_R {
-        Bag_ALICEpack_R,
-
-        Result: Bag_ALICEpack_R,
-        Sound: Sawing,
-        Time: 50,
-
-        AnimNode: Disassemble,
-        Prop1: Source=1,
-        
-        Category: Survivalist,
-    }
-
 }
