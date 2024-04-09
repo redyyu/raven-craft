@@ -31,7 +31,7 @@ module Base
         DisplayCategory = Bag,
         Type = Container,
         DisplayName = Reinforced Survivor Backpack,
-        ClothingItem = Bag_SurvivorBag,
+        ClothingItem = Bag_SurvivorBagReinforced,  /* same with Bag_SurvivorBag, used to prevent in Zombie Outfits. */
         CanBeEquipped = Back,
         WeightReduction = 87,
         Weight = 2,
@@ -77,7 +77,7 @@ module Base
         DisplayCategory = Bag,
         Type = Container,
         DisplayName = Reinforced Large Backpack,
-        ClothingItem = Bag_ALICEpack,
+        ClothingItem = Bag_ALICEpackReinforced,  /* same with Bag_ALICEpack, used to prevent in Zombie Outfits. */
         CanBeEquipped = Back,
         WeightReduction = 87,
         Weight = 2,
