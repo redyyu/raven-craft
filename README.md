@@ -90,7 +90,7 @@ those knowledge is become my treasure, Thank you very much.
 
 1. **The Spirit of Craftsman Vol.1**: Teach `Craft Appliance`, `Craft Tongs`, `Craft Bellows`, `Quick make Charcoal`, `Self-made Glue`, `Self-made Wood Glue`, `Self-made Hairspray` and active `Make Metal Bar`, `Make Metal Pipe` which is hidden in vanilla;
 
-2. **The Spirit of Craftsman Vol.2**: Teach `Craft Nails`, `Craft Paperclips`, `Craft Butter Knife`, `Craft Kitchen Knife`, `Craft Meat Cleaver`, `Craft Hand Scythe`, `Craft Hand Shovel`, `Craft Shovel`, `Craft Garden Hoe`, `Craft Pick Axe`, `Craft Crowbar`;
+2. **The Spirit of Craftsman Vol.2**: Teach `Craft Nails`, `Craft Paperclips`, `Craft Butter Knife`, `Craft Kitchen Knife`, `Craft Meat Cleaver`, `Craft Hand Scythe`, `Craft Hand Shovel`, `Craft Shovel`, `Craft Garden Hoe`, `Craft Pick Axe`;
 
 3. **The Spirit of Craftsman Vol.3**: Teach `Self-made White Paint`, `Self-made Red Paint`,`Self-made Blue Paint`, `Self-made Yellow Paint`, `Self-made Orange Paint`, `Self-made Purple Paint`, `Self-made Black Paint`, `Self-made Brown Paint`, `Self-made Cyan Paint`, `Self-made Green Paint`, `Self-made Gray Paint`, `Self-made Light Blue Paint`, `Self-made Light Brown Paint`,`Self-made Pink Paint`, `Self-made Turquoise Paint`;
 

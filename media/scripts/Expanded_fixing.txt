@@ -19,6 +19,7 @@ module RavenCraft
         Fixer : Scotchtape=4,
     }
 
+    /*
     fixing Fix Pipe {
         Require : Pipe,
         ConditionModifier : 0.75,
@@ -27,7 +28,9 @@ module RavenCraft
         Fixer : Glue=2,
         Fixer : Scotchtape=4,
     }
+    */
 
+    /*
     fixing Fix Lead Pipe {
         Require : LeadPipe,
         GlobalItem : BlowTorch=2,
@@ -35,7 +38,9 @@ module RavenCraft
 
         Fixer : WeldingRods=2;MetalWelding=4,
     }
+    */
     
+    /*
     fixing Fix Crowbar {
         Require : Crowbar,
         GlobalItem : BlowTorch=2,
@@ -43,7 +48,9 @@ module RavenCraft
         
         Fixer : WeldingRods=2;MetalWelding=4,
     }
+    */
 
+    /*
     fixing Fix Wrench {
         Require : Wrench,
         GlobalItem : BlowTorch=2,
@@ -51,6 +58,7 @@ module RavenCraft
         
         Fixer : WeldingRods=3; MetalWelding=4,
     }
+    */
 
     fixing Fix Metal Bar {
         Require : MetalBar,

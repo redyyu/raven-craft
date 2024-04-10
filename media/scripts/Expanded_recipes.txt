@@ -777,7 +777,7 @@ module RavenCraft
         Category: Welding,
     }
 
-
+    /*
     recipe Craft Crowbar {
         BlowTorch=1,
         keep Crowbar,
@@ -800,6 +800,7 @@ module RavenCraft
         NeedToBeLearn: true,
         Category: Welding,
     }
+    */
     
 
     /** Trapper **/

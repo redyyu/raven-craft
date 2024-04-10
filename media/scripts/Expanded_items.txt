@@ -24,7 +24,7 @@ module RavenCraft
         Type = Literature,
         DisplayName = The Spirit of Craftsman Vol.2,
         Icon = MagazineBlacksmith2,
-        TeachedRecipes = Craft Nails;Craft Paperclips;Craft Butter Knife;Craft Kitchen Knife;Craft Meat Cleaver;Craft Hand Scythe;Craft Hand Shovel;Craft Shovel;Craft Garden Hoe;Craft Pick Axe;Craft Crowbar,
+        TeachedRecipes = Craft Nails;Craft Paperclips;Craft Butter Knife;Craft Kitchen Knife;Craft Meat Cleaver;Craft Hand Scythe;Craft Hand Shovel;Craft Shovel;Craft Garden Hoe;Craft Pick Axe,
         ReplaceOnUse = CraftsmenMag2,
         StaticModel = Magazine,
         WorldStaticModel = MagazineGround,
