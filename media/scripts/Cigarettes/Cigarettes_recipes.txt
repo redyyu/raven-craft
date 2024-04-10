@@ -20,7 +20,7 @@ module Base
 
         Result: CigarettesPack,
         OnGiveXP: Recipe.OnGiveXP.None,
-        StopOnWalk: false,
+        StopOnWalk: true,
         
         Time: 45.0,
         Sound: PutItemInBag,
@@ -36,16 +36,13 @@ module Base
 
         Result: CigarettesPack,
         OnGiveXP: Recipe.OnGiveXP.None,
-        StopOnWalk: false,
+        StopOnWalk: true,
 
         Time: 5.0,
         Sound: PutItemInBag,
         IsHidden: true,
     }
-    */
 
-
-    /*
     recipe Draw One Cigarettes from Pack {
         CigarettesPack,
 
