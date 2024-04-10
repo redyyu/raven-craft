@@ -5,7 +5,6 @@ module RavenCraft
         Require : Nightstick,
         ConditionModifier : 0.5,
 
-        Fixer : Woodglue=2; Woodwork=2,
         Fixer : DuctTape=2,
         Fixer : Glue=2,
         Fixer : Scotchtape=4,
