@@ -716,24 +716,19 @@ function Recipe.OnCreate.mixVegetables(items, result, playerObj)
                     --     food_age = vege:getAge()
                     -- end
                 end
-                if total_hunger_change <= -0.30 then -- HungerChange is negative number.
+                if total_hunger_change <= -0.20 then -- HungerChange is negative number.
                     break
                 end
             end
         end
 
-        if total_hunger_change <= -0.30 then -- HungerChange is negative number.
+        if total_hunger_change <= -0.20 then -- HungerChange is negative number.
             break
         end
     end
-    if total_hunger_change >= 0 then -- make sure HungerChange is not 0.
-        total_hunger_change = -0.001
-    end
+     -- make sure HungerChange is not 0 and < 20.
+    total_hunger_change = math.min(-0.001, math.max(total_hunger_change, -0.20))
 
-    -- if food_age > 0 then
-    --     result:setAge(food_age)
-    -- end
-
-    result:setAge(0.5)
+    result:setAge(0.5) -- make it fresh
     result:setHungChange(total_hunger_change)
 end
