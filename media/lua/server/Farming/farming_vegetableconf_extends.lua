@@ -287,6 +287,7 @@ farming_vegetableconf.props["Onion"] = {}
 farming_vegetableconf.props["Onion"].seedsRequired = 6
 farming_vegetableconf.props["Onion"].texture = "vegetation_farming_01_53"
 farming_vegetableconf.props["Onion"].waterLvl = 65
+farming_vegetableconf.props["Onion"].waterLvlMax = 80
 farming_vegetableconf.props["Onion"].timeToGrow = ZombRand(89, 103)
 farming_vegetableconf.props["Onion"].minVeg = 4
 farming_vegetableconf.props["Onion"].maxVeg = 5
