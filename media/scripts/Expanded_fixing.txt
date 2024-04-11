@@ -3,11 +3,10 @@ module RavenCraft
 
     fixing Fix Nightstick {
         Require : Nightstick,
-        ConditionModifier : 0.5,
 
-        Fixer : DuctTape=2,
+        Fixer : DuctTape,
         Fixer : Glue=2,
-        Fixer : Scotchtape=4,
+        Fixer : Scotchtape=2,
     }
 
     fixing Fix Meat Cleaver {
