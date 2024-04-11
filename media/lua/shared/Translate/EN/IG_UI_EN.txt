@@ -8,8 +8,8 @@ IGUI_EN = {
     IGUI_Hair_HatLongCurly = "Hat Long Curly"
     IGUI_Hair_HatLongBraided = "Hat Long Braided"
 
-    IGUI_HotbarAttachment_ChestRig = "Hoslter"
-    IGUI_HotbarAttachment_HarnessRig = "Harness"
+    IGUI_HotbarAttachment_ChestRig = "Chest Rig Left"
+    IGUI_HotbarAttachment_ChestRigRight = "Chest Rig Right"
 
     IGUI_PlayerText_Can_Reach_Vehicle = "Can't reach the vehicle."
     
