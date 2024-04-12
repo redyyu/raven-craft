@@ -109,11 +109,18 @@ function SWaterDitchSystem:checkRiver(luaObject)
 end
 
 
-function SWaterDitchSystem:checkRain(luaObject)
-    if RainManager.isRaining() and luaObject.waterAmount < luaObject.waterMax then
+function SWaterDitchSystem:checkRainOrSnow(luaObject)
+    local isRainingOrSnowing = RainManager.isRaining() or getClimateManager():isSnowing()
+
+    if isRainingOrSnowing and luaObject.waterAmount < luaObject.waterMax then
         local square = luaObject:getSquare()
         if square then
             luaObject.exterior = square:isOutside()
+        end
+
+        local waterScale = ISWaterDitch.waterScale
+        if not RainManager.isRaining() and getClimateManager():isSnowing() then
+            waterScale = waterScale * 0.25
         end
 
         if luaObject.exterior then
@@ -163,9 +170,7 @@ end
 function SWaterDitchSystem:checkUpdating()
     for i=1,self:getLuaObjectCount() do
         local luaObject = self:getLuaObjectByIndex(i)
-        luaObject:changeSprite()
-
-        local water_amount_modifier = self:checkRain(luaObject)
+        local water_amount_modifier = self:checkRainOrSnow(luaObject)
         water_amount_modifier = water_amount_modifier + self:checkRiver(luaObject)
         water_amount_modifier = water_amount_modifier + self:checkWaterway(luaObject)
         water_amount_modifier = water_amount_modifier + self:checkPlant(luaObject)
@@ -179,6 +184,8 @@ function SWaterDitchSystem:checkUpdating()
             isoObject:setWaterAmount(luaObject.waterAmount)
             isoObject:transmitModData()
         end
+        
+        luaObject:changeSprite()
     end
 end
 

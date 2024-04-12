@@ -61,14 +61,6 @@ function ISFillDirtDitchAction:perform()
         floor = square:addFloor(ISWaterDitch.floorSprite)
     end
 
-    local objects = square:getObjects()
-    for i=0, objects:size()-1 do
-        local obj = objects:get(i)
-        if obj:getName() == 'placeholder' then
-            square:RemoveTileObject(obj)
-        end
-    end
-
     square:RecalcProperties()
     square:RecalcAllWithNeighbours(true)
 

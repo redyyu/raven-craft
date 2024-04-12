@@ -36,7 +36,7 @@ ISWaterDitch.variety = {
 ISWaterDitch.defaultVariety = 'pool'
 ISWaterDitch.dirtSprite = 'rc_natural_ditch_9'
 ISWaterDitch.floorSprite = 'blends_natural_01_64'
-ISWaterDitch.placeHolderSprite = 'fixtures_counters_01_16'
+ISWaterDitch.baseSprite = 'fixtures_counters_01_16'
 
 ISWaterDitch.varietySpriteMap = {}
 
@@ -79,10 +79,6 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
     dirty_floor:getModData().objectName = 'DirtFloor'
 
-    -- add place holder to prevent DigFurrow or build something on it.
-    self.sq:AddTileObject(IsoObject.new(self.sq, ISWaterDitch.placeHolderSprite, 'placeholder'))
-
-
     for i=0, self.sq:getObjects():size()-1 do
         local object = self.sq:getObjects():get(i)
         if object:getProperties() and object:getProperties():Is(IsoFlagType.canBeRemoved) then
@@ -95,7 +91,11 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     local args = { x = self.sq:getX(), y = self.sq:getY(), z = self.sq:getZ() }
     sendClientCommand('erosion', 'disableForSquare', args)
 
-    self.javaObject = IsoThumpable.new(cell, self.sq, sprite, north, self)
+    -- when use custom sprite (texture only) without `Tile`,
+    -- the sprite cloud be disappear when character move far then come back.
+    -- until re setSprite again. (it might take time, 10 min in game time in current system logic.)
+    -- use overlay sprite can solved this problem, less client side, not test on server.
+    self.javaObject = IsoThumpable.new(cell, self.sq, ISWaterDitch.baseSprite, north, self)
     self.javaObject:setCanPassThrough(self.canPassThrough)
 	self.javaObject:setBlockAllTheSquare(self.blockAllTheSquare)
     self.javaObject:setName(self.name)
@@ -104,7 +104,9 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:setIsHoppable(self.hoppable)
 	self.javaObject:setCanBarricade(self.canBarricade)
     self.javaObject:getModData().waterMax = self.waterMax
-    
+    self.javaObject:getSprite():setName(ISWaterDitch.baseSprite)
+    self.javaObject:setOverlaySprite(sprite) -- use overloay sprite
+
     local variety = nil
     local ditchType = nil
     if self.isPool then
@@ -124,7 +126,8 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:getModData().sprites = variety.sprites
     self.javaObject:getModData().ditchType = ditchType
 
-    self.javaObject:getModData().spriteName = sprite
+    self.javaObject:getModData().spriteName = ISWaterDitch.baseSprite
+    self.javaObject:getModData().overlaySpriteName = sprite
     self.javaObject:getModData().objectName = self.name
 
     self.sq:AddSpecialObject(self.javaObject)

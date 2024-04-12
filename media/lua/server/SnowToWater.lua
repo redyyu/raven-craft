@@ -4,13 +4,13 @@ require "MetalDrum/SMetalDrumGlobalObject.lua"
 require "RainBarrel/SRainBarrelSystem.lua"
 
 
-local EXCHANGE_RATE = 0.25;
+local EXCHANGE_RATE = 0.25
 
 
 -- Gather Snow for Metal Drum
 
 function SMetalDrumGlobalObject:update()
-    local isSnowing = getClimateManager():isSnowing();
+    local isSnowing = getClimateManager():isSnowing()
 
     if RainManager.isRaining() or isSnowing then
         self.waterMax = self.waterMax or ISMetalDrum.waterMax

@@ -34,6 +34,12 @@ function SWaterDitchGlobalObject:stateFromIsoObject(isoObject)
     self.objectName = isoObject:getName()
     self.spriteName = isoObject:getSpriteName()
 
+    if isoObject:getOverlaySprite() and isoObject:getOverlaySprite():getName() then
+        self.overlaySpriteName = isoObject:getOverlaySprite():getName()
+    else
+        self.overlaySpriteName = isoObject:getModData().overlaySpriteName
+    end
+
     -- Sanity check
     if not self.waterMax then
         self.waterMax = isoObject:getModData().waterMax
@@ -128,49 +134,56 @@ function SWaterDitchGlobalObject:changeSprite()
     local isoObject = self:getIsoObject()
     if not isoObject then return end
 
-    local spriteName = nil
+    local overlaySpriteName = nil
+    local spriteName = ISWaterDitch.baseSprite
 
     if not self.waterMax or not self.waterAmount then
         ISWaterDitch.recognizeDitch(isoObject)
         self.waterMax = isoObject:getWaterMax() or isoObject:getModData().waterMax
         self.waterAmount = isoObject:getWaterAmount()
     end
+    
+    -- when use custom sprite (texture only) without `Tile`,
+    -- the sprite cloud be disappear when character move far then come back.
+    -- I guess this is relate the `rendering` of game engine. 
+    -- use overlaySprite looks fine on client side, not test on server.
 
     -- waterMax is different between different ditchType.
     if self.waterAmount < self.waterMax * 0.25 then
-        spriteName = isoObject:getModData().sprites.empty
+        overlaySpriteName = isoObject:getModData().sprites.empty
     elseif self.waterAmount < self.waterMax * 0.75 then
-        spriteName = isoObject:getModData().sprites.half
+        overlaySpriteName = isoObject:getModData().sprites.half
     else
-        spriteName = isoObject:getModData().sprites.full
+        overlaySpriteName = isoObject:getModData().sprites.full
     end
-    print("WaterDitch: -----------------------------------")
-    print("Sprite Name:", spriteName)
-    if isoObject:getSprite() then
-        print("isoObject Sprite Name:", isoObject:getSprite():getName())
-    else
-        print("isoObject Sprite:", isoObject:getSprite())
-    end
-    if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSprite():getName()) then
+    
+    if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSpriteName()) then
         self:noise('sprite changed to '..spriteName..' at '..self.x..','..self.y..','..self.z)
+        -- incase sprite is not samw with `ISWaterDitch.baseSprite`
         self:setSpriteName(spriteName)
-        print("------------------- WaterDitch Update Sprite", spriteName)
-        -- spriteName is stored in modData
-        self:toModData(isoObject:getModData())
-        -- also update GameTime modData
     end
+
+    local overlay_sprite = isoObject:getOverlaySprite()
+    if overlaySpriteName and (not overlay_sprite or overlaySpriteName ~= overlay_sprite:getName()) then
+        self:noise('overlay sprite changed to '..overlaySpriteName..' at '..self.x..','..self.y..','..self.z)
+        self.overlaySpriteName = overlaySpriteName
+        isoObject:setOverlaySprite(overlaySpriteName)
+    end
+
+    -- spriteName and overlaySpriteName is stored in modData
+    self:toModData(isoObject:getModData())
+    -- also update GameTime modData
 end
 
 
 function SWaterDitchGlobalObject:setSpriteName(spriteName)
     if spriteName == self.spriteName then return end
+
     self.spriteName = spriteName
     local isoObject = self:getIsoObject()
     if isoObject then
         isoObject:setSprite(self.spriteName)
         isoObject:getSprite():setName(self.spriteName)
-        isoObject:getSprite():getProperties():Set(IsoFlagType.solidtrans)
-
         if isServer() then
             isoObject:sendObjectChange('sprite')
         end
@@ -182,5 +195,6 @@ end
 function SWaterDitchGlobalObject:toModData(modData)
     modData.exterior = self.exterior
     modData.spriteName = self.spriteName
+    modData.overlaySpriteName = self.overlaySpriteName
     modData.objectName = self.objectName
 end
