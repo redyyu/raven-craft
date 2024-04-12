@@ -333,6 +333,38 @@ module Base
         Weight = 0.5,
     }
 
+    item Hat_BaseballCapArmy {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Army Baseball Cap,
+        ClothingItem = Hat_BaseballCapArmy,
+        ClothingItemExtra = Hat_BaseballCapArmy_Reverse,
+        ClothingItemExtraOption = ReverseCap,
+        clothingExtraSubmenu = ForwardCap,
+        BodyLocation = Hat,
+        IconsForTexture = BaseballHat_CamoGreen;BaseballHat_CamoUrban;BaseballHat_CamoDesert,
+        CanHaveHoles = false,
+        ChanceToFall = 60,
+        Insulation = 0.10,
+        Weight = 0.5,
+    }
+    
+    item Hat_BaseballCapArmy_Reverse {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Army Baseball Cap,
+        ClothingItem = Hat_BaseballCapArmy_Reverse,
+        ClothingItemExtra = Hat_BaseballCapArmy,
+        ClothingItemExtraOption = ForwardCap,
+        clothingExtraSubmenu = ReverseCap,
+        BodyLocation = Hat,
+        IconsForTexture = BaseballHat_CamoGreen;BaseballHat_CamoUrban;BaseballHat_CamoDesert,
+        CanHaveHoles = false,
+        ChanceToFall = 60,
+        Insulation = 0.10,
+        Weight = 0.5,
+    }
+
     item Hat_GasMask {
         DisplayCategory = Accessory,
         Type = Clothing,
