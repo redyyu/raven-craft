@@ -144,10 +144,17 @@ function SWaterDitchGlobalObject:changeSprite()
     else
         spriteName = isoObject:getModData().sprites.full
     end
-
+    print("WaterDitch: -----------------------------------")
+    print("Sprite Name:", spriteName)
+    if isoObject:getSprite() then
+        print("isoObject Sprite Name:", isoObject:getSprite():getName())
+    else
+        print("isoObject Sprite:", isoObject:getSprite())
+    end
     if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSprite():getName()) then
         self:noise('sprite changed to '..spriteName..' at '..self.x..','..self.y..','..self.z)
         self:setSpriteName(spriteName)
+        print("------------------- WaterDitch Update Sprite", spriteName)
         -- spriteName is stored in modData
         self:toModData(isoObject:getModData())
         -- also update GameTime modData

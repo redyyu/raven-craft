@@ -817,7 +817,7 @@ module RavenCraft
 
 	recipe Mill Corn Flour { 
         keep MortarPestle,
-        Corn = 30,
+        Corn;250,
         PaperBag/Paperbag_Spiffos/Paperbag_Jays/Lunchbag,
 
         Result: Cornflour,
@@ -852,7 +852,7 @@ module RavenCraft
 	recipe Mill PeanutButter { 
         keep MortarPestle,
         Peanuts;100,
-        Water = 2,
+        Water = 5,
         [Recipe.GetItemTypes.Sugar];2,
         farming.RemouladeEmpty/farming.MayonnaiseEmpty,
         Result: PeanutButter,
@@ -870,8 +870,8 @@ module RavenCraft
 	recipe Make Corn Sugar {
         keep Saucepan/GridlePan/RoastingPan/Pan/BakingPan/Bowl,
         keep Spoon/GrillBrush/Spatula,
-        Corn = 60,
-        Water = 4,
+        Cornflour=50,
+        Water = 10,
 
         Result: Sugar,
         Prop1: Source=1,
