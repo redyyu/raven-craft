@@ -300,7 +300,38 @@ module Base
         WorldStaticModel = BoxingGlovesBlue_Ground,
     }
 
-    /* Masks */
+    /* Hat & Masks */
+
+    item Hat_Army {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Military Helmet,
+        ClothingItem = Hat_Army,
+        BodyLocation = Hat,
+        IconsForTexture = ArmyHelmet_CamoGreen;ArmyHelmet_CamoUrban;ArmyHelmet_CamoDesert,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        BiteDefense = 100,
+        ScratchDefense = 100,
+        ChanceToFall = 10,
+        Insulation = 0.25,
+        WaterResistance = 0.2,
+    }
+
+    item Hat_BonnieHat_CamoGreen {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Bonnie Hat,
+        ClothingItem = Hat_BonnieHat_CamoGreen,
+        BodyLocation = Hat,
+        IconsForTexture = BonnieHat_CamoGreen;BonnieHat_CamoUrban;BonnieHat_CamoDesert,
+        CanHaveHoles = false,
+        ChanceToFall = 60,
+        BloodLocation = Head,
+        Insulation = 0.5,
+        WindResistance = 0.3,
+        Weight = 0.5,
+    }
 
     item Hat_GasMask {
         DisplayCategory = Accessory,

@@ -147,6 +147,16 @@
         <guid>3faa191a-87d7-4611-a71d-ee7f42124a02</guid>
     </files>
 
+    <!-- Military Hats -->
+    <files>
+        <path>media/clothing/clothingItems/Hat_Army.xml</path>
+        <guid>9709be80-dbd9-4f98-90a6-aaab8e87cd28</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Hat_BonnieHat_CamoGreen.xml</path>
+        <guid>7a946b38-8764-419f-a3fc-fd9c4c03cc23</guid>
+    </files>
+
     <!-- Large Backpack -->
     <files>
         <path>media/clothing/clothingItems/Bag_ALICEpackReinforced.xml</path>
