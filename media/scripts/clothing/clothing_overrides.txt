@@ -300,6 +300,24 @@ module Base
         WorldStaticModel = BoxingGlovesBlue_Ground,
     }
 
+    /* Bullet Vest */
+
+    item Vest_BulletArmy {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Military Bulletproof Vest,
+        ClothingItem = Vest_BulletArmy,
+        BodyLocation = TorsoExtraVest,
+        IconsForTexture = ArmyBulletVest_CamoGreen;ArmyBulletVest_CamoUrban;ArmyBulletVest_CamoDesert,
+        BloodLocation = ShirtNoSleeves,
+        Insulation = 0.75,
+        WindResistance = 0.45,
+        BiteDefense = 30,
+        ScratchDefense = 55,
+        BulletDefense = 100,
+        WorldStaticModel = BulletVest_Ground,
+    }
+
     /* Hat & Masks */
 
     item Hat_Army {

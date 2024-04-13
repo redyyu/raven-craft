@@ -53,7 +53,6 @@ Tooltip_EN = {
     Tooltip_CRAFT_REQUIRED_NOT_EQUIPPING_EMPTY = "Required not equipping and empty."
     Tooltip_CRAFT_RESULT_WIll_RANDOM_TINT = "Result item's color will be random."
 
-    Tooltip_MAKE_MIXED_VEGETABLES = "Gather various vegetables, total hunger require to be enough for a package."
 
     Tooltip_SURVIVAL_JOURNAL_NOT_ILLITERATE = "Required not Illiterate."
 

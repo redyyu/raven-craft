@@ -1870,17 +1870,36 @@ module RavenCraft
 
         Result: Tofu,
         SkillRequired: Cooking=6,
-        Time: 150.0,
+        Time: 250.0,
         Sound: Plastering,
         Category: Cooking,
     }
 
     recipe Make Mixed Vegetables {
         keep [Recipe.GetItemTypes.SharpKnife],
+
+        /* repeat ingredients to match total hungers. */
+        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
+        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+
+        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
+        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+
+        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
+        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+        
+        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
+        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+
         Plasticbag/GroceryBag1/GroceryBag2/GroceryBag3/GroceryBag4/GroceryBag5,
 
-        OnCanPerform: Recipe.OnCanPerform.haveMixableVegetables,
-        OnCreate: Recipe.OnCreate.mixVegetables,
+        /* NO need those anymore. */
+        /* OnCanPerform: Recipe.OnCanPerform.haveMixableVegetables, */
+        /* OnCreate: Recipe.OnCreate.mixVegetables, */
 
         Result: MixedVegetables,
         SkillRequired: Cooking=6,
@@ -1890,11 +1909,6 @@ module RavenCraft
 
         AllowOnlyOne: true,
         
-        IsHidden: true, 
-        /* Vegetables are take form inventory by lua recipecode, 
-           no Vegetables showing up in recipe, that looks confused.
-           that's why hidden it from Crafting list. */
-
         Tooltip: Tooltip_MAKE_MIXED_VEGETABLES,
     }
 

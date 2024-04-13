@@ -165,6 +165,13 @@
         <guid>7dead2df-7a17-4c12-a487-40f613d26c69</guid>
     </files>
 
+    <!-- Bullet Vest -->
+    <files>
+        <path>media/clothing/clothingItems/Vest_BulletArmy.xml</path>
+        <guid>1a437dbb-cee9-4013-8e8a-e158acf98b62</guid>
+    </files>
+    
+
     <!-- Large Backpack -->
     <files>
         <path>media/clothing/clothingItems/Bag_ALICEpackReinforced.xml</path>
