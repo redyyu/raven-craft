@@ -11,10 +11,9 @@ module Base
         OnCreate: Recipe.OnCreate.GatherGunpowder,
         OnGiveXP: Recipe.OnGiveXP.GatherGunpowder,
         Result: GunPowder,
-        Time: 30.0,
+        Time: 25.0,
         Override:true,
     }
-
 
 
 /** Override Open Ammo Box **/

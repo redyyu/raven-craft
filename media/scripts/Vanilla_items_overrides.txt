@@ -55,4 +55,19 @@ module Base
         WorldStaticModel = Stone,
     }
 
+
+/** Override Foods **/
+    item Flour {
+        DisplayCategory = Food,
+        Weight = 1,
+        Type = Drainable,
+        UseWhileEquipped = FALSE,
+        UseDelta = 0.1,
+        ReplaceOnDeplete = EmptySandbag,
+        DisplayName = Flour,
+        Icon = Flour,
+        WorldStaticModel = Flour,
+        Tags = Flour,
+    }
+
 }

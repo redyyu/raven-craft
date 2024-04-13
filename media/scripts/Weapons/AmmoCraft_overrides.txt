@@ -1,0 +1,16 @@
+module Base
+{
+
+    item GunPowder {
+        DisplayCategory = Material,
+        Weight = 3,
+        Type = Drainable,
+        UseDelta = 0.1,
+        UseWhileEquipped = FALSE,
+        DisplayName = Gunpowder,
+        Icon = GunpowderJar,
+        WeightEmpty = 0.5,
+        WorldStaticModel = GunpowderJar,
+    }
+
+}

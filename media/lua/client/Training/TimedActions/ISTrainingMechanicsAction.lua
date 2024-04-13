@@ -105,13 +105,13 @@ function ISTrainingMechanicsAction:waitToStart()
         if not self.item or not self.vehicle:canInstallPart(self.character, self.part) then
             self.action:setTime(0)
             self.action:setUseProgressBar(false)
-            RC.printDebug('Skip Install: '.. self.part:getId(), 'Training Mechanics')
+            RC.debugNoise('Skip Install: '.. self.part:getId(), 'Training Mechanics')
         end
     else
         if not self.part:getInventoryItem() or not self.vehicle:canUninstallPart(self.character, self.part) then
             self.action:setTime(0)
             self.action:setUseProgressBar(false)
-            RC.printDebug('Skip Uninstall: '.. self.part:getId(), 'Training Mechanics')
+            RC.debugNoise('Skip Uninstall: '.. self.part:getId(), 'Training Mechanics')
         end
     end
 	self.character:faceThisObject(self.vehicle)
@@ -146,7 +146,7 @@ function ISTrainingMechanicsAction:perform()
                 pdata.lootInventory:refreshBackpacks();
             end
             
-            RC.printDebug('Install: '.. self.part:getId() ..' with '.. self.item:getDisplayName(), 'Training Mechanics')
+            RC.debugNoise('Install: '.. self.part:getId() ..' with '.. self.item:getDisplayName(), 'Training Mechanics')
         end
     else
         if self.part:getInventoryItem() and self:prepareProcessPart() and self.vehicle:canUninstallPart(self.character, self.part) then
@@ -159,7 +159,7 @@ function ISTrainingMechanicsAction:perform()
              }
 	        sendClientCommand(self.character, 'vehicle', 'uninstallPart', args)
 
-            RC.printDebug('Uninstall: '.. self.part:getId(), 'Training Mechanics')
+            RC.debugNoise('Uninstall: '.. self.part:getId(), 'Training Mechanics')
         end
     end
 

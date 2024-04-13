@@ -10,7 +10,7 @@ local function execCureInjection(character, bodyDamage, modifier)
 
     local modified_cure_chance = cure_chance * modifier
     
-    RC.printDebug({
+    RC.debugNoise({
         'Chance of Cure: '..modified_cure_chance..' / '..cure_chance,
         'Chance modified by: '..modifier,
         'Must be than: '..rand,

@@ -1879,21 +1879,21 @@ module RavenCraft
         keep [Recipe.GetItemTypes.SharpKnife],
 
         /* repeat ingredients to match total hungers. */
-        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
-        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
+        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
 
-        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
-        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
+        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
 
-        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
-        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
+        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
         
-        Potato/Carrots/Lettuce/Tomato/Broccoli;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant;2,
-        BellPepper/PepperHabanero/PepperJalapeno/Lettuce/Daikon/RedRadish;2,
+        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
+        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
+        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
 
         Plasticbag/GroceryBag1/GroceryBag2/GroceryBag3/GroceryBag4/GroceryBag5,
 

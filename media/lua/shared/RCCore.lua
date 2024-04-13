@@ -267,7 +267,7 @@ RC.tableIndexOf = function(tableList, val)
 end
 
 
-RC.printDebug = function(contents, name)
+RC.debugNoise = function(contents, name)
     if isDebugEnabled() then
         if name == true or name == nil then
             name = "isDebug Print"
