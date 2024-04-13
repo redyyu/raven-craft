@@ -156,6 +156,14 @@
         <path>media/clothing/clothingItems/Hat_BonnieHat_CamoGreen.xml</path>
         <guid>7a946b38-8764-419f-a3fc-fd9c4c03cc23</guid>
     </files>
+    <files>
+        <path>media/clothing/clothingItems/Hat_BaseballCapArmy_Reverse.xml</path>
+        <guid>e80e7c12-87c9-4f18-9ab0-c0270c580252</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/Hat_BaseballCapArmy.xml</path>
+        <guid>7dead2df-7a17-4c12-a487-40f613d26c69</guid>
+    </files>
 
     <!-- Large Backpack -->
     <files>
