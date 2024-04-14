@@ -41,6 +41,7 @@ ContextMenu_EN = {
   ContextMenu_TRAIN_MECHANICS = "Training Mechanics Skill"
 
   -- UI
+  ContextMenu_Furnace_Put_out_fire = "Put out Furnace Fire"
   ContextMenu_Put_Washer = "Put Clothes to %1"
   ContextMenu_All_Blooded_Clothes = "All Bloodstained Clothes"
   ContextMenu_All_Dirty_Clothes = "All Dirty Clothes"

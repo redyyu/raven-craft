@@ -8,7 +8,7 @@ ISBlacksmithMenu.onAddLogs = function(worldobjects, metalDrum, playerObj, numReq
     local items = playerInv:getSomeTypeRecurse("Base.Log", numRequired)
     if items:size() < numRequired then return end
 
-    if luautils.walkAdj(player, metalDrum:getSquare()) then
+    if luautils.walkAdj(playerObj, metalDrum:getSquare()) then
         for i=1, numRequired do
             ISWorldObjectContextMenu.transferIfNeeded(playerObj, items:get(i-1))
         end
@@ -16,6 +16,26 @@ ISBlacksmithMenu.onAddLogs = function(worldobjects, metalDrum, playerObj, numReq
     end
 end
 
+
+local function removeUnexceptMenuOpts(context, optName)
+    local option = context:getOptionFromName(optName)
+    if option and option.subOption then
+        local sub_menu = context:getSubMenu(option.subOption)
+        local sub_options = sub_menu:getMenuOptionNames()
+        local removes = {}
+        for idx, opt in ipairs(sub_menu.options) do
+            -- param2 is the item pass to menu option.
+            if opt.param2 and opt.param2:isEquipped() then
+                opt.name = 'DEL_' .. idx ..'_' .. opt.name
+                table.insert(removes, opt.name)
+                -- sub_menu.options[idx] = nil
+            end
+        end
+        for _, rm in ipairs(removes) do
+            sub_menu:removeOptionByName(rm)
+        end
+    end
+end
 
 local PatchMenu = {}
 
@@ -51,18 +71,19 @@ PatchMenu.onFillWorldObjectContextMenu = function(player, context, worldobjects,
     -- fix `Put out fire` buggy. they forget pass playerObj to ISBlacksmithMenu.onStopFire.
     if furnace and furnace:isFireStarted() then
         context:removeOptionByName(getText("ContextMenu_Put_out_fire"))
-        context:addOption(getText("ContextMenu_Put_out_fire"), worldobjects, ISBlacksmithMenu.onStopFire, furnace, playerObj)
+        context:insertOptionAfter(getText("ContextMenu_Furnace_Info"), getText("ContextMenu_Furnace_Put_out_fire"), 
+                                  worldobjects, ISBlacksmithMenu.onStopFire, furnace, playerObj)
     end
 
-    -- fix 5 Logs is too heavy. lower the number of logs --
+    -- fix 5 Logs is too heavy. lower the number of logs.
     if metalDrumLuaObj and not metalDrumLuaObj.haveLogs and not metalDrumLuaObj.haveCharcoal then
-        local numLogs = 3
+        local numLogs = 3  -- when change this number, don't forget change the number in `SMetalDrumSystem:OnClientCommand` too.
         local drumMenuOption = context:getOptionFromName(getText("ContextMenu_Metal_Drum"))
         if drumMenuOption then
             local subDrumMenu = context:getSubMenu(drumMenuOption.subOption)
             subDrumMenu:removeOptionByName(getText("ContextMenu_Add_Logs"))  -- remove old add logs option.
 
-            local addLogsOption = subMenuDrum:addOption(getText("ContextMenu_Add_Logs"), 
+            local addLogsOption = subDrumMenu:addOption(getText("ContextMenu_Add_Logs"), 
                                                         worldobjects,
                                                         ISBlacksmithMenu.onAddLogs, 
                                                         metalDrumLuaObj,
@@ -77,6 +98,11 @@ PatchMenu.onFillWorldObjectContextMenu = function(player, context, worldobjects,
         end
     end
 
+    -- fix Light StoneFurnace with equipped items.
+    removeUnexceptMenuOpts(context, getText("ContextMenu_LitStoneFurnace"))
+    
+    -- fix Light MetalDrum with equipped items.
+    removeUnexceptMenuOpts(context, getText("ContextMenu_LitDrum"))
 end
 
 

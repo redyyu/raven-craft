@@ -195,7 +195,9 @@ local function onMetalDrum(worldobjects, player, barrel)
     metaldrum.modData["xp:MetalWelding"] = 15
     metaldrum.modData["use:Base.BlowTorch"] = 4
     metaldrum.modData["use:Base.WeldingRods"] = 2  -- must be half of Torch use.
-    metaldrum.modData["need:"..barrel:getFullType()] = 1
+    if barrel then  -- no barrel when cheat mode.
+        metaldrum.modData["need:"..barrel:getFullType()] = 1
+    end
     metaldrum.player = player
     metaldrum.completionSound = "BuildMetalStructureMedium"
     getCell():setDrag(metaldrum, player)
@@ -303,7 +305,7 @@ local function buildExpanedsMenu(subMenu, option, player, worldobjects)
 
         if not canCraft then drumOption.notAvailable = true end
 
-        if barrel then
+        if barrel or ISBuildMenu.cheat then
             toolTip.description = toolTip.description .. " <LINE> ".. ISBuildMenu.ghs .. getText("ContextMenu_METAL_BARREL")
         else
             toolTip.description = toolTip.description .. " <LINE> ".. ISBuildMenu.bhs .. getText("ContextMenu_METAL_BARREL")

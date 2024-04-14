@@ -55,7 +55,6 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
             local ditchMenu = ISContextMenu:getNew(context)
             context:addSubMenu(ditchOption, ditchMenu)
 
-            local optInfo = ditchMenu:addOption(getText("ContextMenu_Info"))
             local info_tooltip = ISWorldObjectContextMenu.addToolTip()
             info_tooltip:setName(getText("ContextMenu_Ditch"))
             local tx = getTextManager():MeasureStringX(info_tooltip.font, getText("ContextMenu_WaterName") .. ":") + 20
@@ -64,7 +63,7 @@ Ditch.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects)
                 info_tooltip.description = info_tooltip.description .. " <BR> <RGB:1,0.5,0.5> " .. getText("Tooltip_item_TaintedWater")
             end
             info_tooltip.maxLineWidth = 512
-            optInfo.toolTip = info_tooltip
+            ditchOption.toolTip = info_tooltip
 
             local shovel = playerInv:getFirstEvalRecurse(predicateDigGrave)
             local dirt_uses = playerInv:getUsesTypeRecurse("Dirtbag")
