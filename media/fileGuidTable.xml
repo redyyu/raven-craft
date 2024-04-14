@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <fileGuidTable>
+    <!-- MakeUp -->
+    <files>
+        <path>media/clothing/clothingItems/MakeUp_EyesShadowSliver.xml</path>
+        <guid>80298c7a-e6fe-4ec9-ae86-6d556cf7b717</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/MakeUp_LipsSliver.xml</path>
+        <guid>91718288-f40e-406b-a4fd-0f8c5a6610b5</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/MakeUp_EyesShadowPurple.xml</path>
+        <guid>27859b80-cb8e-4073-8dad-2520523c8858</guid>
+    </files>
+    <files>
+        <path>media/clothing/clothingItems/MakeUp_LipsPurple.xml</path>
+        <guid>ef564944-6490-4152-8ce7-9881a1f49627</guid>
+    </files>
+    
 
     <!-- Shoulder Pads -->
     <files>

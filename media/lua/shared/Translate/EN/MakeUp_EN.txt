@@ -1,0 +1,8 @@
+MakeUp_EN = {
+    MakeUpType_EyeShadowSliver = "Sliver Eyeshadow",
+    MakeUpType_EyeShadowPurple = "Purple Eyeshadow",
+
+    MakeUpType_LipsSliver = "Sliver Lipstick",
+    MakeUpType_LipsPurple = "Purple Lipstick",
+}
+

@@ -70,4 +70,40 @@ module Base
         Tags = Flour,
     }
 
+
+/** Makeups **/
+
+    item Lipstick {
+        DisplayCategory = Appearance,
+        Weight = 0.2,
+        Type = Drainable,
+        UseDelta = 0.02,
+        DisplayName = Lipstick,
+        Icon = Lipstick,
+        MetalValue = 1,
+        MakeUpType = Lips,
+        WorldStaticModel = Lipstick,
+    }
+
+    item MakeupEyeshadow {
+        DisplayCategory = Appearance,
+        Weight = 0.1,
+        Type = Drainable,
+        UseDelta = 0.02,
+        DisplayName = Eyes Makeup,
+        Icon = MakeupEyeshadow,
+        MakeUpType = Eyes,
+        WorldStaticModel = EyesMakeup,
+    }
+
+    item MakeupFoundation {
+        DisplayCategory = Appearance,
+        Weight = 0.1,
+        Type = Drainable,
+        UseDelta = 0.02,
+        DisplayName = Foundation Makeup,
+        Icon = MakeupFoundation,
+        MakeUpType = Foundation,
+        WorldStaticModel = FoundationMakeup,
+    }
 }

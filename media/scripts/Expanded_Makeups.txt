@@ -1,0 +1,37 @@
+module RavenCraft
+{
+    imports {
+        Base,
+    }
+
+/** MakeUp **/
+
+    item MakeUp_EyesShadowSliver {
+        DisplayCategory = Appearance,
+        Type = Clothing,
+        ClothingItem = MakeUp_EyesShadowSliver,
+        BodyLocation = MakeUp_EyesShadow,
+    }
+
+    item MakeUp_EyesShadowPurple {
+        DisplayCategory = Appearance,
+        Type = Clothing,
+        ClothingItem = MakeUp_EyesShadowPurple,
+        BodyLocation = MakeUp_EyesShadow,
+    }
+
+    item MakeUp_LipsSliver {
+        DisplayCategory = Appearance,
+        Type = Clothing,
+        ClothingItem = MakeUp_LipsSliver,
+        BodyLocation = MakeUp_Lips,
+    }
+
+    item MakeUp_LipsPurple {
+        DisplayCategory = Appearance,
+        Type = Clothing,
+        ClothingItem = MakeUp_LipsPurple,
+        BodyLocation = MakeUp_Lips,
+    }
+
+}
