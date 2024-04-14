@@ -666,16 +666,61 @@ function Recipe.OnTest.IsNotFullPack(item)
 end
 
 
-
--- NO NEED this, change back to recipe script.
 -- Mix Vegetables
 
-local MIXABLE_VEGE_TYPES = {
-    "Potato", "Carrots", "Lettuce", "Tomato", "Broccoli",
-    "Cabbage", "Corn", "Zucchini", "Edamame", "Eggplant",
-    "BellPepper", "PepperHabanero", "PepperJalapeno", "Lettuce",
-    "Daikon", "RedRadish",
-}
+function Recipe.OnTest.IsNotFullMixedVegetables(item)
+    if instanceof(item, "Food") and item:getFullType() == "Base.MixedVegetables" then
+        local scriptItem = item:getScriptItem()
+        -- hunger change is negative number and script item's hunger is x100 times.
+        hunger_limit = scriptItem:getHungerChange() / 100
+        return item:getHungerChange() > hunger_limit
+    end
+    return true
+end
+
+
+function Recipe.OnCreate.mixVegetables(items, resultItem, player)
+    resultItem:setHungChange(-0.01) -- `- 0.01` is matched with recipe. 
+end
+
+
+function Recipe.OnCreate.addMixedVegetables(items, resultItem, player)
+    local hungerDelta = 0 -- `- 0.01` is matched with recipe. 
+    local age = 0
+    for i = 0, (items:size()-1) do 
+        local item = items:get(i)
+        if instanceof(item, "Food") then
+            if item:getFullType() == "Base.MixedVegetables" then
+                -- hunger change is negative number.
+                hungerDelta = hungerDelta + item:getHungerChange()
+            else
+                hungerDelta = hungerDelta - 0.01
+            end
+            -- get most fresh age, including MixedVegetables it self.
+            if item:getAge() < age or age == 0 then
+                age = item:getAge()
+            end
+        end
+    end
+    
+    -- refresh age to most fresh ingredient.
+    if age > 0 then
+        resultItem:setAge(age)
+    else
+        resultItem:setAge(0.5)
+    end
+
+    resultItem:setHungChange(hungerDelta)
+end
+
+-- NO NEED this, change back to recipe script.
+
+-- local MIXABLE_VEGE_TYPES = {
+--     "Potato", "Carrots", "Lettuce", "Tomato", "Broccoli",
+--     "Cabbage", "Corn", "Zucchini", "Edamame", "Eggplant",
+--     "BellPepper", "PepperHabanero", "PepperJalapeno", "Lettuce",
+--     "Daikon", "RedRadish",
+-- }
 
 -- function Recipe.OnCanPerform.haveMixableVegetables(recipe, playerObj)
 --     local playerInv = playerObj:getInventory()

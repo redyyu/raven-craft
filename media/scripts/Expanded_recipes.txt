@@ -1878,38 +1878,34 @@ module RavenCraft
     recipe Make Mixed Vegetables {
         keep [Recipe.GetItemTypes.SharpKnife],
 
-        /* repeat ingredients to match total hungers. */
-        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
-        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
-
-        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
-        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
-
-        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
-        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
-        
-        Potato/Lettuce/Tomato/Broccoli/Lettuce/Daikon;2,
-        Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish;2,
-        Carrots/BellPepper/PepperHabanero/PepperJalapeno;2,
+        Potato/Lettuce/Broccoli/Lettuce/Daikon/Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish/Carrots/Tomato/BellPepper/PepperHabanero/PepperJalapeno;1,
 
         Plasticbag/GroceryBag1/GroceryBag2/GroceryBag3/GroceryBag4/GroceryBag5,
 
-        /* NO need those anymore. */
-        /* OnCanPerform: Recipe.OnCanPerform.haveMixableVegetables, */
-        /* OnCreate: Recipe.OnCreate.mixVegetables, */
+        OnTest: Recipe.OnTest.IsEmptyBag,  /* make sure plastic bag is empty. */
+        OnCreate: Recipe.OnCreate.mixVegetables,
 
         Result: MixedVegetables,
         SkillRequired: Cooking=6,
-        Time: 150.0,
-        Sound: Plastering,
+        Time: 100.0,
+        Sound: AddItemInRecipe,
         Category: Cooking,
+    }
 
-        AllowOnlyOne: true,
-        
-        Tooltip: Tooltip_MAKE_MIXED_VEGETABLES,
+    recipe Add to Mixed Vegetables {
+        MixedVegetables,
+        keep [Recipe.GetItemTypes.SharpKnife],
+
+        Potato/Lettuce/Broccoli/Lettuce/Daikon/Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish/Carrots/Tomato/BellPepper/PepperHabanero/PepperJalapeno;1,
+
+        OnTest: Recipe.OnTest.IsNotFullMixedVegetables,
+        OnCreate: Recipe.OnCreate.addMixedVegetables,
+
+        Result: MixedVegetables,
+        SkillRequired: Cooking=6,
+        Time: 25.0,
+        Sound: AddItemInRecipe,
+        Category: Cooking,
     }
 
     recipe Pickle Rabbit Meat {
