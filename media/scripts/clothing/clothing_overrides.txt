@@ -175,30 +175,67 @@ module Base
         WorldStaticModel = Trousers_Ground,
     }
 
-    /* Underwear */
+    /* Bunny Suit */
 
     item BunnySuitBlack {
         DisplayCategory = Clothing,
         Type = Clothing,
-        DisplayName = Bunny Suit,
+        DisplayName = Bunny Suit BLack,
         ClothingItem = BunnySuitBlack,
         BodyLocation = Underwear,
         Icon = BunnySuitBlack,
-        Weight = 0.1,
+        Weight = 0.2,
         WorldStaticModel = BunnySuitBlack_Ground,
     }
 
     item BunnySuitPink {
         DisplayCategory = Clothing,
         Type = Clothing,
-        DisplayName = Bunny Suit,
+        DisplayName = Bunny Suit Pink,
         ClothingItem = BunnySuitPink,
         BodyLocation = Underwear,
         Icon = BunnySuitPink,
-        Weight = 0.1,
+        Weight = 0.2,
         WorldStaticModel = BunnySuitPink_Ground,
     }
 
+    item BunnyTail {
+        DisplayCategory = Clothing,
+        Type = Clothing,
+        DisplayName = Bunny Tail,
+        ClothingItem = BunnyTail,
+        BodyLocation = Tail,
+        Icon = Rabbittail,
+        Weight = 0.1,
+        WorldStaticModel = BunnyTail_Ground,
+    }
+
+    item Hat_BunnyEarsBlack {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Bunny Ears Black,
+        ClothingItem = Hat_BunnyEarsBlack,
+        BodyLocation = Hat,
+        Icon = RabbitearsBlack,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        ChanceToFall = 10,
+        Weight = 0.1,
+        WorldStaticModel = BunnyEarsBlack_Ground,
+    }
+    item Hat_BunnyEarsWhite {
+        DisplayCategory = Accessory,
+        Type = Clothing,
+        DisplayName = Bunny Ears White,
+        ClothingItem = Hat_BunnyEarsWhite,
+        BodyLocation = Hat,
+        Icon = RabbitearsWhite,
+        CanHaveHoles = false,
+        BloodLocation = Head,
+        ChanceToFall = 10,
+        Weight = 0.1,
+        WorldStaticModel = BunnyEarsWhite_Ground,
+    }
 
     /* Gloves */
 
