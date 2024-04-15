@@ -71,7 +71,7 @@ module Base
     }
 
 
-/** Makeups **/
+/** Override Makeups **/
 
     item Lipstick {
         DisplayCategory = Appearance,
