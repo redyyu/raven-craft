@@ -17,7 +17,7 @@ end
 -- end
 
 function ISSmokeCigarettesPackAction:start()
-	self:setActionAnim(CharacterActionAnims.InsertBullets);
+	self:setActionAnim(CharacterActionAnims.InsertBullets)
 end
 
 function ISSmokeCigarettesPackAction:stop()

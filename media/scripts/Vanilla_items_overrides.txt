@@ -73,6 +73,26 @@ module Base
 
 /** Override Makeups **/
 
+    item Perfume {
+        DisplayCategory = Junk,
+        Weight = 0.1,
+        Type = Drainable,
+        UseDelta = 0.025,
+        DisplayName = Perfume,
+        Icon = Perfume1,
+        WorldStaticModel = Perfume,
+    }
+
+    item Cologne {
+        DisplayCategory = Junk,
+        Weight = 0.2,
+        Type = Drainable,
+        UseDelta = 0.025,
+        DisplayName = Cologne,
+        Icon = Cologne,
+        WorldStaticModel = Cologne,
+    }
+
     item Lipstick {
         DisplayCategory = Appearance,
         Weight = 0.2,

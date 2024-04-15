@@ -60,5 +60,8 @@ ContextMenu_EN = {
 
   ContextMenu_Pack_to = "Pack to"
   ContextMenu_Grab_to_Ground = "Grab to Ground"
+  ContextMenu_Grab_Unfilled = "Grab Unfilled"
+
+  ContextMenu_Use_Item = "Use %1"
 
 }

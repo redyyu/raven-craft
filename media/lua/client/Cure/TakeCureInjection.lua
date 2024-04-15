@@ -32,15 +32,15 @@ local function execCureInjection(character, bodyDamage, modifier)
     return false
 end
 
-
-function OnTake_CureInjection(food, player, percent)
-    local bodyDamage = player:getBodyDamage()
+-- callback by item script
+function OnTake_CureInjection(food, playerObj, percent)
+    local bodyDamage = playerObj:getBodyDamage()
     local cured = false
     if bodyDamage:IsInfected() and bodyDamage:getInfectionLevel() > 0 then
         if bodyDamage:getInfectionLevel() <= 25 then
-            cured = execCureInjection(player, bodyDamage, 1.0)
+            cured = execCureInjection(playerObj, bodyDamage, 1.0)
         else
-            cured = execCureInjection(player, bodyDamage, (75 - bodyDamage:getInfectionLevel()) / 100)
+            cured = execCureInjection(playerObj, bodyDamage, (75 - bodyDamage:getInfectionLevel()) / 100)
         end
     end
 
@@ -50,7 +50,7 @@ function OnTake_CureInjection(food, player, percent)
     end
 
     -- whatever cure or not, change to very bad condition anyway.
-    local player_stats = player:getStats()
+    local player_stats = playerObj:getStats()
     player_stats:setPanic(100)
     bodyDamage:setUnhappynessLevel(100)
     player_stats:setFatigue(1.0)

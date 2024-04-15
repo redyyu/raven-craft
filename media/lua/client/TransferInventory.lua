@@ -52,7 +52,7 @@ end
 
 local Trsf = {}
 
-Trsf.onTransferToContainer = function(playerObj, container, items)
+Trsf.onTransferToContainer = function(items, playerObj, container)
     local is_too_havey = true
     local inventory = container:getInventory()
 
@@ -100,9 +100,9 @@ Trsf.onFillInventoryObjectContextMenu = function(playerNum, context, items)
             
             for _, trans_to in ipairs(transfer_containers) do
                 if trans_to == playerObj:getWornItem('Back') then
-                    transferMenu:addOptionOnTop(trans_to:getDisplayName(), playerObj, Trsf.onTransferToContainer, trans_to, items)
+                    transferMenu:addOptionOnTop(trans_to:getDisplayName(), items, Trsf.onTransferToContainer, playerObj, trans_to)
                 else
-                    transferMenu:addOption(trans_to:getDisplayName(), playerObj, Trsf.onTransferToContainer, trans_to, items)
+                    transferMenu:addOption(trans_to:getDisplayName(), items, Trsf.onTransferToContainer, playerObj, trans_to)
                 end
             end
         end
@@ -118,6 +118,20 @@ Trsf.onFillInventoryObjectContextMenu = function(playerNum, context, items)
         context:addOption(getText("ContextMenu_Grab_to_Ground"), items, ISInventoryPaneContextMenu.onDropItems, playerNum)
     end
 
+    -- Transfer not full drainable items to bag
+    if not currInventory:isInCharacterInventory(playerObj) then
+        local unfilled_drainables = {}
+        for _, item in ipairs(items) do
+            if instanceof(item, "Drainable") and item:getUsedDelta() < 1.0 then
+                table.insert(unfilled_drainables, item)
+            end
+        end
+
+        if #unfilled_drainables > 0 then
+            context:addOptionOnTop(getText("ContextMenu_Grab_Unfilled"), unfilled_drainables, ISInventoryPaneContextMenu.onGrabItems, playerNum)
+        end
+    end
+    
 end
 
 
