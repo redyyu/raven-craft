@@ -45,6 +45,20 @@ containerTiles = {
         ContainerCapacity = '15',
     },
 
+    -- small Chest
+    ['furniture_storage_02_28'] = {
+        ContainerCapacity = '15',  -- seems only work x5 times. etc, 10, 15, 20, 25 ...
+    },
+    ['furniture_storage_02_29'] = {
+        ContainerCapacity = '15',
+    },
+    ['furniture_storage_02_30'] = {
+        ContainerCapacity = '15',
+    },
+    ['furniture_storage_02_31'] = {
+        ContainerCapacity = '15',
+    },
+
     -- Unable to change FreezerCapacity, it is keep failback to 20 as default.
     -- Build-in Trailer Fridge
     -- ['location_trailer_02_10'] = {

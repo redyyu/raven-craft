@@ -65,7 +65,9 @@ PtDty.onFillWorldObjectContextMenu = function(playerNum, context, worldobjects, 
                 -- local _water_remain = math.min(waterRemaining, waterRequired)
                 -- tooltip.description = getText("ContextMenu_WaterName") .. ": " .. tostring(_water_remain) .. " / " .. tostring(waterRequired)
                 -- tooltip.description = tooltip.description .. " <LINE> " .. getText("Tooltip_clothing_bloody") .. ": " .. bloodLevel .. " / 100"
-                tooltip.description = getText("Tooltip_clothing_bloody") .. ": " .. bloodLevel .. " / 100"
+                if bloodLevel > 0 then
+                    tooltip.description = getText("Tooltip_clothing_bloody") .. ": " .. bloodLevel .. " / 100"
+                end
                 tooltip.description = tooltip.description .. " <LINE> " .. getText("Tooltip_clothing_dirty") .. ": " .. dirtyness .. " / 100"
                 option.toolTip = tooltip
 				-- if (waterRemaining < waterRequired) then
