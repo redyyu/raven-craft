@@ -668,63 +668,33 @@ end
 
 -- Mix Vegetables
 
-function Recipe.OnTest.IsNotFullMixedVegetables(item)
-    if instanceof(item, "Food") and item:getFullType() == "Base.MixedVegetables" then
-        local scriptItem = item:getScriptItem()
-        -- hunger change is negative number and script item's hunger is x100 times.
-        hunger_limit = scriptItem:getHungerChange() / 100
-        return item:getHungerChange() > hunger_limit
-    end
-    return true
-end
-
-
-function Recipe.OnCreate.mixVegetables(items, resultItem, player)
-    resultItem:setHungChange(-0.01) -- `- 0.01` is matched with recipe. 
-end
-
-
-function Recipe.OnCreate.addMixedVegetables(items, resultItem, player)
-    local hungerDelta = 0 -- `- 0.01` is matched with recipe. 
-    local age = 0
-    for i = 0, (items:size()-1) do 
-        local item = items:get(i)
-        if instanceof(item, "Food") then
-            if item:getFullType() == "Base.MixedVegetables" then
-                -- hunger change is negative number.
-                hungerDelta = hungerDelta + item:getHungerChange()
-            else
-                hungerDelta = hungerDelta - 0.01
-            end
-            -- get most fresh age, including MixedVegetables it self.
-            if item:getAge() < age or age == 0 then
-                age = item:getAge()
-            end
+function Recipe.OnCreate.mixVegetables(items, resultItem, playerObj)
+    local total_hunger_change = 0
+    local food_age = nil
+    for i=0, items:size() -1 do
+        local vege = items:get(i)
+        if instanceof(vege, 'Food') then
+            total_hunger_change = total_hunger_change + vege:getHungerChange()
         end
     end
-    
-    -- refresh age to most fresh ingredient.
-    if age > 0 then
-        resultItem:setAge(age)
-    else
-        resultItem:setAge(0.5)
-    end
-
-    resultItem:setHungChange(hungerDelta)
+    total_hunger_change = math.min(-0.01, math.max(total_hunger_change, -0.20))
+    resultItem:setAge(0.1) -- make it fresh
+    resultItem:setHungChange(total_hunger_change)
 end
 
--- NO NEED this, change back to recipe script.
+
+-- NO NEED those, simplifed make mixable vegetables
 
 -- local MIXABLE_VEGE_TYPES = {
 --     "Potato", "Carrots", "Lettuce", "Tomato", "Broccoli",
 --     "Cabbage", "Corn", "Zucchini", "Edamame", "Eggplant",
---     "BellPepper", "PepperHabanero", "PepperJalapeno", "Lettuce",
+--     "BellPepper", "PepperHabanero", "PepperJalapeno", "Leek",
 --     "Daikon", "RedRadish",
 -- }
 
 -- function Recipe.OnCanPerform.haveMixableVegetables(recipe, playerObj)
 --     local playerInv = playerObj:getInventory()
---     local total_hunger_change = 0.01 -- in recipe already have 1.
+--     local total_hunger_change = 0 -- in recipe already have 1.
 --     for _, vege_type in ipairs(MIXABLE_VEGE_TYPES) do
 --         local vege_items = playerInv:getAllTypeRecurse(vege_type)
 --         for i=0, vege_items:size() -1 do
@@ -735,7 +705,10 @@ end
 --                 end
 --             end
 --         end
---         if total_hunger_change <= -0.10 then  -- HungerChange is negative number.
+--         print(total_hunger_change * 100)
+--         total_hunger_change = math.floor(total_hunger_change * 100 + 0.5) / 100
+--         print(total_hunger_change)
+--         if total_hunger_change <= -0.20 then  -- HungerChange is negative number.
 --             return true
 --         end
 --     end
@@ -743,21 +716,19 @@ end
 -- end
 
 
--- function Recipe.OnCreate.mixVegetables(items, result, playerObj)
+-- function Recipe.OnCreate.mixVegetables(items, resultItem, playerObj)
 --     local playerInv = playerObj:getInventory()
---     local total_hunger_change = 0.01 -- in recipe already have 1.
+--     local total_hunger_change = resultItem:getHungChange()
 --     local food_age = nil
 --     for _, vege_type in ipairs(MIXABLE_VEGE_TYPES) do
 --         local vege_items = playerInv:getAllTypeRecurse(vege_type)
+--         local is_full = false
 --         for i=0, vege_items:size() -1 do
 --             local vege = vege_items:get(i)
 --             if instanceof(vege, 'Food') then
 --                 if vege:getHungerChange() > -0.05 and not vege:isRotten() then -- HungerChange is negative number.
 --                     total_hunger_change = total_hunger_change + vege:getHungerChange()
---                     vege:Use() 
---                     -- use `:Use` to consume the vegetable, not `:Remove()`, 
---                     -- seems that need much more coding to make it safe to remove.
-
+--                     vege:Remove()
 --                     -- NO NEED age, it will be rotten when food is old,
 --                     -- because mix vegetables has short age for rotten.
 --                     -- if not food_age or vege:getAge() > food_age then
@@ -765,18 +736,19 @@ end
 --                     -- end
 --                 end
 --                 if total_hunger_change <= -0.20 then -- HungerChange is negative number.
+--                     is_full = true
 --                     break
 --                 end
 --             end
 --         end
 
---         if total_hunger_change <= -0.20 then -- HungerChange is negative number.
+--         if is_full then
 --             break
 --         end
 --     end
 --      -- make sure HungerChange is not 0 and < 20.
 --     total_hunger_change = math.min(-0.001, math.max(total_hunger_change, -0.20))
 
---     result:setAge(0.5) -- make it fresh
---     result:setHungChange(total_hunger_change)
+--     resultItem:setAge(0.1) -- make it fresh
+--     resultItem:setHungChange(total_hunger_change)
 -- end

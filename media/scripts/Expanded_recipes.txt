@@ -1878,32 +1878,19 @@ module RavenCraft
     recipe Make Mixed Vegetables {
         keep [Recipe.GetItemTypes.SharpKnife],
 
-        Potato/Lettuce/Broccoli/Lettuce/Daikon/Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish/Carrots/Tomato/BellPepper/PepperHabanero/PepperJalapeno;1,
+        Potato/Lettuce/Leek/Daikon,
+        Cabbage/Corn/Zucchini/Edamame,
+        Tomato/Broccoli/BellPepper/Eggplant,
+        Carrots/RedRadish/PepperHabanero/PepperJalapeno,
 
         Plasticbag/GroceryBag1/GroceryBag2/GroceryBag3/GroceryBag4/GroceryBag5,
-
+        
         OnTest: Recipe.OnTest.IsEmptyBag,  /* make sure plastic bag is empty. */
         OnCreate: Recipe.OnCreate.mixVegetables,
 
         Result: MixedVegetables,
         SkillRequired: Cooking=6,
-        Time: 100.0,
-        Sound: AddItemInRecipe,
-        Category: Cooking,
-    }
-
-    recipe Add to Mixed Vegetables {
-        MixedVegetables,
-        keep [Recipe.GetItemTypes.SharpKnife],
-
-        Potato/Lettuce/Broccoli/Lettuce/Daikon/Cabbage/Corn/Zucchini/Edamame/Eggplant/RedRadish/Carrots/Tomato/BellPepper/PepperHabanero/PepperJalapeno;1,
-
-        OnTest: Recipe.OnTest.IsNotFullMixedVegetables,
-        OnCreate: Recipe.OnCreate.addMixedVegetables,
-
-        Result: MixedVegetables,
-        SkillRequired: Cooking=6,
-        Time: 25.0,
+        Time: 200.0,
         Sound: AddItemInRecipe,
         Category: Cooking,
     }
