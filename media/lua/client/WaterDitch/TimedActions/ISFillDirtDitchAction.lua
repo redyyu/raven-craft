@@ -55,11 +55,6 @@ function ISFillDirtDitchAction:perform()
     else
         square:transmitRemoveItemFromSquare(self.ditch)
     end
-    
-    local floor = square:getFloor()
-    if not floor then
-        floor = square:addFloor(ISWaterDitch.floorSprite)
-    end
 
     square:RecalcProperties()
     square:RecalcAllWithNeighbours(true)

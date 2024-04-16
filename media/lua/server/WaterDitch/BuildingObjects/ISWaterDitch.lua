@@ -36,7 +36,7 @@ ISWaterDitch.variety = {
 ISWaterDitch.defaultVariety = 'pool'
 ISWaterDitch.dirtSprite = 'rc_natural_ditch_9'
 ISWaterDitch.floorSprite = 'blends_natural_01_64'
-ISWaterDitch.baseSprite = 'fixtures_counters_01_16'
+ISWaterDitch.baseSprite = 'vegetation_farming_01_0'
 
 ISWaterDitch.varietySpriteMap = {}
 
@@ -65,19 +65,19 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     end
     floor = self.sq:addFloor(ISWaterDitch.floorSprite)
 
+    -- add dirt under layer.
+    local dirty_floor = IsoObject.new(self.sq, ISWaterDitch.dirtSprite, 'DirtFloor')
+    self.sq:AddTileObject(dirty_floor)
+    -- guess: spriteName and objectName to ModData is for keep it when reload game.
+    dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
+    dirty_floor:getModData().objectName = 'DirtFloor'
+
     -- DO NOT change `PropertyContainer` here, 
     -- seems it's shared by other squares ??
     -- local floor_props = floor:getProperties()
     -- if floor_props then
     --     floor_props:Set(IsoFlagType.solidtrans)
     -- end
-
-    -- add dirt under layer.
-    local dirty_floor = IsoObject.new(self.sq, ISWaterDitch.dirtSprite, 'DirtFloor')
-    self.sq:AddTileObject(dirty_floor)
-    -- spriteName and objectName to ModData is for keep it when reload game.
-    dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
-    dirty_floor:getModData().objectName = 'DirtFloor'
 
     for i=0, self.sq:getObjects():size()-1 do
         local object = self.sq:getObjects():get(i)
@@ -97,7 +97,7 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     -- use overlay sprite can solved this problem, less client side, not test on server.
     self.javaObject = IsoThumpable.new(cell, self.sq, ISWaterDitch.baseSprite, north, self)
     self.javaObject:setCanPassThrough(self.canPassThrough)
-	self.javaObject:setBlockAllTheSquare(self.blockAllTheSquare)
+    self.javaObject:setBlockAllTheSquare(self.blockAllTheSquare)
     self.javaObject:setName(self.name)
     self.javaObject:setIsThumpable(self.isThumpable)
     self.javaObject:setIsDismantable(self.dismantable)
