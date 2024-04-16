@@ -21,7 +21,6 @@ local function removeUnexceptMenuOpts(context, optName)
     local option = context:getOptionFromName(optName)
     if option and option.subOption then
         local sub_menu = context:getSubMenu(option.subOption)
-        local sub_options = sub_menu:getMenuOptionNames()
         local removes = {}
         for idx, opt in ipairs(sub_menu.options) do
             -- param2 is the item pass to menu option.
@@ -34,6 +33,7 @@ local function removeUnexceptMenuOpts(context, optName)
         for _, rm in ipairs(removes) do
             sub_menu:removeOptionByName(rm)
         end
+        option.notAvailable = #sub_menu.options == 0
     end
 end
 
@@ -69,10 +69,25 @@ PatchMenu.onFillWorldObjectContextMenu = function(player, context, worldobjects,
     end
     
     -- fix `Put out fire` buggy. they forget pass playerObj to ISBlacksmithMenu.onStopFire.
-    if furnace and furnace:isFireStarted() then
-        context:removeOptionByName(getText("ContextMenu_Put_out_fire"))
-        context:insertOptionAfter(getText("ContextMenu_Furnace_Info"), getText("ContextMenu_Furnace_Put_out_fire"), 
-                                  worldobjects, ISBlacksmithMenu.onStopFire, furnace, playerObj)
+    if furnace then
+        if furnace:isFireStarted() then
+            context:removeOptionByName(getText("ContextMenu_Put_out_fire"))
+            context:insertOptionAfter(getText("ContextMenu_Furnace_Info"), getText("ContextMenu_Furnace_Put_out_fire"), 
+                                      worldobjects, ISBlacksmithMenu.onStopFire, furnace, playerObj)
+        else
+            local addFuelOpt = context:getOptionFromName(getText("ContextMenu_Add_fuel_to_fire"))
+            if addFuelOpt then
+                context:removeOptionByName(addFuelOpt.name)
+            end
+            local coal = playerInv:getFirstTypeRecurse("Charcoal") or playerInv:getFirstTypeRecurse("Coal")
+            addFuelOpt = context:insertOptionAfter(getText("ContextMenu_Furnace_Info"), getText("ContextMenu_Add_fuel_to_fire"),
+                                                   worldobjects, ISBlacksmithMenu.onAddFuel, furnace, coal, playerObj)
+            local fuel_tooltip = ISWorldObjectContextMenu.addToolTip()
+            fuel_tooltip:setName(getText("ContextMenu_Add_fuel_to_fire"))
+            fuel_tooltip.description = getText("Tooltip_Add_fuel_to_furnace", getItemNameFromFullType("Base.Charcoal"))
+            addFuelOpt.toolTip = fuel_tooltip
+            addFuelOpt.notAvailable = not coal
+        end
     end
 
     -- fix 5 Logs is too heavy. lower the number of logs.
@@ -90,10 +105,10 @@ PatchMenu.onFillWorldObjectContextMenu = function(player, context, worldobjects,
                                                         playerObj,
                                                         numLogs)
 
-            local tooltip = ISWorldObjectContextMenu.addToolTip()
-            tooltip:setName(getText("ContextMenu_Add_Logs"))
-            tooltip.description = getText("Tooltip_CHARCOAL_LOGS", numLogs)
-            addLogsOption.toolTip = tooltip
+            local logs_tooltip = ISWorldObjectContextMenu.addToolTip()
+            logs_tooltip:setName(getText("ContextMenu_Add_Logs"))
+            logs_tooltip.description = getText("Tooltip_CHARCOAL_LOGS", numLogs)
+            addLogsOption.toolTip = logs_tooltip
             addLogsOption.notAvailable = playerInv:getItemCountRecurse("Base.Log") < numLogs
         end
     end
