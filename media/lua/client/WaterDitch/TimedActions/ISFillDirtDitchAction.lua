@@ -50,7 +50,7 @@ function ISFillDirtDitchAction:perform()
     local square = self.ditch:getSquare()
     if isClient() then
         local sq = square
-        local args = { x = sq:getX(), y = sq:getY(), z = sq:getZ(), index = self.ditch:getObjectIndex() }
+        local args = { x = sq:getX(), y = sq:getY(), z = sq:getZ(), index = self.ditch:getObjectIndex()}
         sendClientCommand(self.character, 'object', 'OnDestroyIsoThumpable', args)
     else
         square:transmitRemoveItemFromSquare(self.ditch)

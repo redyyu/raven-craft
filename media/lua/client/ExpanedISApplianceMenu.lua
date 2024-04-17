@@ -28,7 +28,7 @@ end
 
 Apl.onAnvil = function(worldobjects, playerNum)
     -- Object name will be 'Anvil' recipe NearItem is work.
-    local anvil = ISAnvil:new("Anvil", getSpecificPlayer(playerNum), "crafted_01_19", "crafted_01_19")
+    local anvil = ISAnvil:new("Anvil", getSpecificPlayer(playerNum), "crafted_01_18", "crafted_01_18")
     anvil.modData["xp:Woodwork"] = 30
     anvil.actionAnim = "Loot"
     anvil.craftingBank = "BuildFenceGravelbagFoley"
@@ -96,7 +96,7 @@ Apl.doBuildAnvilMenu = function(subMenu, playerNum)
     local playerInv = playerObj:getInventory()
 
     -- Anvil --
-    local spriteName = "crafted_01_19"
+    local spriteName = "crafted_01_18"
 
     local itemName = getText("ContextMenu_ANVIL")
     anvilOption = subMenu:addOption(itemName, worldobjects, Apl.onAnvil, playerNum)
