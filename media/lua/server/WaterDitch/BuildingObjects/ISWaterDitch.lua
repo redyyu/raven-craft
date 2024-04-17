@@ -34,7 +34,8 @@ ISWaterDitch.variety = {
     },
 }
 ISWaterDitch.defaultVariety = 'pool'
-ISWaterDitch.dirtSprite = 'rc_natural_ditch_9'
+ISWaterDitch.dirtFillName = "Dirt Fill"
+ISWaterDitch.dirtFillSprite = 'rc_natural_ditch_9'
 ISWaterDitch.floorSprite = 'blends_natural_01_64'
 ISWaterDitch.baseSprite = 'vegetation_farming_01_0'  -- the one has BlocksPlacement
 
@@ -47,7 +48,7 @@ for variety_key, variety_val in pairs(ISWaterDitch.variety) do
     end
 end
 
-RC.addNewSprite(ISWaterDitch.dirtSprite)
+RC.addNewSprite(ISWaterDitch.dirtFillSprite)
 
 
 
@@ -67,7 +68,9 @@ function ISWaterDitch:create(x, y, z, north, sprite)
 
     for i=0, self.sq:getObjects():size()-1 do
         local object = self.sq:getObjects():get(i)
-        if object:getProperties() and object:getProperties():Is(IsoFlagType.canBeRemoved) then
+        if object:getName() == ISWaterDitch.dirtFillName then
+            self.sq:RemoveTileObject(object)
+        elseif object:getProperties() and object:getProperties():Is(IsoFlagType.canBeRemoved) then
             self.sq:transmitRemoveItemFromSquare(object)
             self.sq:RemoveTileObject(object)
             break
@@ -85,12 +88,13 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     floor = self.sq:addFloor(ISWaterDitch.floorSprite)
     -- don't worry dig furrow on ditch, it's already fixed by `patch_farmingPlot.lua`
     
-    local dirty_floor = IsoObject.new(self.sq, ISWaterDitch.baseSprite, 'DirtFloor')
-    dirty_floor:setOverlaySprite(ISWaterDitch.dirtSprite)
-    self.sq:AddTileObject(dirty_floor)
+    -- add dirty fill under ditch layer from beginning.
+    local dirty_fill = IsoObject.new(square, ISWaterDitch.dirtFillSprite, ISWaterDitch.dirtFillName)
+    dirty_fill:getSprite():setName(ISWaterDitch.dirtFillSprite)
+    square:AddTileObject(dirty_fill)
     -- I guess spriteName and objectName to ModData is for keep it when reload game.
-    dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
-    dirty_floor:getModData().objectName = 'DirtFloor'
+    dirty_fill:getModData().spriteName = ISWaterDitch.dirtFillSprite
+    dirty_fill:getModData().objectName = ISWaterDitch.dirtFillName
 
     -- when use custom sprite (texture only) without `Tile`,
     -- the sprite cloud be disappear when character move far then come back.
