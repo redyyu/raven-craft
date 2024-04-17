@@ -46,8 +46,9 @@ containerTiles = {
     },
 
     -- small Chest
+    -- seems only work x5 times. for example setted to 12 will got 15...
     ['furniture_storage_02_28'] = {
-        ContainerCapacity = '15',  -- seems only work x5 times. etc, 10, 15, 20, 25 ...
+        ContainerCapacity = '15',
     },
     ['furniture_storage_02_29'] = {
         ContainerCapacity = '15',
@@ -77,6 +78,14 @@ containerTiles = {
     --     ContainerCapacity = '25',
     --     FreezerCapacity = '25'
     -- },
+
+    ['crafted_01_18'] = {
+        BlocksPlacement = '',
+    },
+    ['crafted_01_40'] = {
+        BlocksPlacement = '',
+    },
+
 }
 
 local Tilmgr = {}
@@ -94,7 +103,6 @@ Tilmgr.onLoadedTileDefinitions = function(manager)
         --     print(names:get(i), props:Val(names:get(i)))
         -- end
     end
-
 end
 
 Events.OnLoadedTileDefinitions.Add(Tilmgr.onLoadedTileDefinitions)
