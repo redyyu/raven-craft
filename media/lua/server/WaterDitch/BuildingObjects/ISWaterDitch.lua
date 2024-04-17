@@ -120,6 +120,7 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.javaObject:getModData().spriteName = ISWaterDitch.baseSprite
     self.javaObject:getModData().overlaySpriteName = sprite
     self.javaObject:getModData().objectName = self.name
+    self.javaObject:setSpecialTooltip(true)
 
     self.sq:AddSpecialObject(self.javaObject)
     -- self.sq:getProperties():Set('BlocksPlacement', '')

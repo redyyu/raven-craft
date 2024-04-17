@@ -60,8 +60,6 @@ function SWaterDitchSystem:checkWaterway(luaObject)
                 end
             end
         end
-        print("===================== Water Way =======================")
-        print(water_modifier, '  ', #ditches)
         return water_modifier
     end
 
@@ -70,7 +68,7 @@ end
 
 
 function SWaterDitchSystem:checkRiver(luaObject)
-    if not luaObject.riverCount then
+    if not luaObject:isPool() or not luaObject.riverCount then
         return 0
     end
     if luaObject.waterAmount < luaObject.waterMax and luaObject.riverCount > 0 then
@@ -180,4 +178,20 @@ Events.EveryTenMinutes.Add(EveryTenMinutes)
 
 Events.OnWaterAmountChange.Add(OnWaterAmountChange)
 
-
+function SWaterDitchSystem:loadIsoObject(isoObject)
+	if not isoObject or not isoObject:getSquare() then return end
+	if not self:isValidIsoObject(isoObject) then return end
+	local square = isoObject:getSquare()
+	local luaObject = self:getLuaObjectOnSquare(square)
+	if luaObject then
+		self:noise('found isoObject with a luaObject '..luaObject.x..','..luaObject.y..','..luaObject.z)
+		luaObject:stateToIsoObject(isoObject)
+	else
+		self:noise('found isoObject without a luaObject '..square:getX()..','..square:getY()..','..square:getZ())
+		local globalObject = self.system:newObject(square:getX(), square:getY(), square:getZ())
+		local luaObject = self:newLuaObject(globalObject)
+		luaObject:stateFromIsoObject(isoObject)
+		self:noise('#objects='..self.system:getObjectCount())
+		self:newLuaObjectOnClient(luaObject)
+	end
+end

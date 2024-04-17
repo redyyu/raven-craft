@@ -48,12 +48,9 @@ function SWaterDitchGlobalObject:stateFromIsoObject(isoObject)
         self.waterMax = isoObject:getModData().waterMax
     end
 
-    self:changeSprite()
-
-    if isServer() then
-        isoObject:sendObjectChange('name')
-        isoObject:transmitModData()
-    end
+    isoObject:getModData().waterMax = self.waterMax
+	self:changeSprite()
+	isoObject:transmitModData()
 end
 
 
@@ -85,14 +82,9 @@ function SWaterDitchGlobalObject:stateToIsoObject(isoObject)
     isoObject:setTaintedWater(self.taintedWater)
     isoObject:setWaterAmount(self.waterAmount) -- OnWaterAmountChanged happens here
     isoObject:getModData().waterMax = self.waterMax
-    isoObject:setName(self.objectName)
 
     self:changeSprite()
-    
-    if isServer() then
-        isoObject:sendObjectChange('name')
-        isoObject:transmitModData()
-    end
+    isoObject:transmitModData()
 end
 
 

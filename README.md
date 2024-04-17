@@ -1001,4 +1001,7 @@ end
 that's the way how make different global objects.
 
 `stateFromIsoObject` and `stateToIsoObject` to transmit data between global object to iso object.
-`stateToIsoObject` used to create object by Map.
+`stateToIsoObject` will trigger when move far and comeback or Object Added.
+
+**Important:** when move far and comeback, is trigger by `MapObjects.OnLoadWithSprite`.
+
