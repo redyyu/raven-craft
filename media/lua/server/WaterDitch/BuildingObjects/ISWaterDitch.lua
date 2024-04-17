@@ -36,7 +36,7 @@ ISWaterDitch.variety = {
 ISWaterDitch.defaultVariety = 'pool'
 ISWaterDitch.dirtSprite = 'rc_natural_ditch_9'
 ISWaterDitch.floorSprite = 'blends_natural_01_64'
-ISWaterDitch.baseSprite = 'vegetation_farming_01_0'
+ISWaterDitch.baseSprite = 'vegetation_farming_01_0'  -- the one has BlocksPlacement
 
 ISWaterDitch.varietySpriteMap = {}
 
@@ -57,21 +57,7 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     if not self.sq:getProperties() then
         return false
     end
-
-    -- update floor
-    local floor = self.sq:getFloor()
-    if floor then
-        floor:clearAttachedAnimSprite()
-    end
-    floor = self.sq:addFloor(ISWaterDitch.floorSprite)
-
-    -- add dirt under layer.
-    local dirty_floor = IsoObject.new(self.sq, ISWaterDitch.dirtSprite, 'DirtFloor')
-    self.sq:AddTileObject(dirty_floor)
-    -- guess: spriteName and objectName to ModData is for keep it when reload game.
-    dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
-    dirty_floor:getModData().objectName = 'DirtFloor'
-
+    
     -- DO NOT change `PropertyContainer` here, 
     -- seems it's shared by other squares ??
     -- local floor_props = floor:getProperties()
@@ -90,6 +76,21 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.sq:disableErosion()
     local args = { x = self.sq:getX(), y = self.sq:getY(), z = self.sq:getZ() }
     sendClientCommand('erosion', 'disableForSquare', args)
+
+    -- update floor
+    local floor = self.sq:getFloor()
+    if floor then
+        floor:clearAttachedAnimSprite()
+    end
+    floor = self.sq:addFloor(ISWaterDitch.floorSprite)
+    -- don't worry dig furrow on ditch, it's already fixed by `patch_farmingPlot.lua`
+    
+    local dirty_floor = IsoObject.new(self.sq, ISWaterDitch.baseSprite, 'DirtFloor')
+    dirty_floor:setOverlaySprite(ISWaterDitch.dirtSprite)
+    self.sq:AddTileObject(dirty_floor)
+    -- I guess spriteName and objectName to ModData is for keep it when reload game.
+    dirty_floor:getModData().spriteName = ISWaterDitch.dirtSprite
+    dirty_floor:getModData().objectName = 'DirtFloor'
 
     -- when use custom sprite (texture only) without `Tile`,
     -- the sprite cloud be disappear when character move far then come back.

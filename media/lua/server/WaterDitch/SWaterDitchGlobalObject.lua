@@ -159,7 +159,7 @@ function SWaterDitchGlobalObject:changeSprite()
     
     if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSpriteName()) then
         self:noise('sprite changed to '..spriteName..' at '..self.x..','..self.y..','..self.z)
-        -- incase sprite is not samw with `ISWaterDitch.baseSprite`
+        -- incase sprite is not same with `ISWaterDitch.baseSprite`
         self:setSpriteName(spriteName)
     end
 

@@ -174,12 +174,14 @@ function SWaterDitchSystem:checkUpdating()
         water_amount_modifier = water_amount_modifier + self:checkRiver(luaObject)
         water_amount_modifier = water_amount_modifier + self:checkWaterway(luaObject)
         water_amount_modifier = water_amount_modifier + self:checkPlant(luaObject)
+        -- TODO: isoObject and Square is not exsits when charactor is too far.
+        -- make it update data by luaObject.
 
         luaObject.waterAmount = math.max(0, math.min(luaObject.waterMax, luaObject.waterAmount + water_amount_modifier))
         luaObject.taintedWater = true
         local isoObject = luaObject:getIsoObject()
         if isoObject then -- object might have been destroyed
-            self:noise('added rain to ditch at '..luaObject.x..","..luaObject.y..","..luaObject.z..' waterAmount='..luaObject.waterAmount)
+            self:noise('Water Ditch at '..luaObject.x..","..luaObject.y..","..luaObject.z..' waterAmount='..luaObject.waterAmount)
             isoObject:setTaintedWater(true)
             isoObject:setWaterAmount(luaObject.waterAmount)
             isoObject:transmitModData()

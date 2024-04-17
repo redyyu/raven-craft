@@ -55,6 +55,11 @@ function ISFillDirtDitchAction:perform()
     else
         square:transmitRemoveItemFromSquare(self.ditch)
     end
+    
+    local floor = square:getFloor()
+    if not floor then
+        floor = square:addFloor(ISWaterDitch.floorSprite)
+    end
 
     square:RecalcProperties()
     square:RecalcAllWithNeighbours(true)
@@ -72,8 +77,8 @@ function ISFillDirtDitchAction:new(character, ditch, shovel, dirt_use)
     o.ditch = ditch
     o.dirt_use = dirt_use
     o.maxTime = 200
-    o.stopOnWalk = false
-    o.stopOnRun = false
+    o.stopOnWalk = true
+    o.stopOnRun = true
     o.shovel = shovel
     return o
 end
