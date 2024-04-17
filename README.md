@@ -870,6 +870,7 @@ but could be any size when modeling, bigger enough too operate.
 
 ## TimedAction
 
+if character wear item instantly, check the cheat menu, `Timed Action instant` might be turned ON.
 
 ### isValidStart only trigger when after another action completed.
 
@@ -903,7 +904,7 @@ end
 ```
 
 
-# Sprite & Texture
+## Sprite & Texture
 
 custom sprite's texture might not work directly in game, such as texturepack without `.tiles`.
 
@@ -920,14 +921,15 @@ spr:setName('rc_natural_ditch_9')
 local props = spr:getProperties()
 props:Set(IsoFlagType.solidtrans)
 ```
+*It's not working while reload game or even move far from the square. (square reloaded)*
 
-probably add all custom sprites by IsoSpriteManager manually, it can avoid to use `.tiles` file,
-because it will break game save when deactive this MOD.
-but there alot work to do, do not add too much...
+probably add some properties by IsoSpriteManager manually, it can avoid to use `.tiles` file,
 
-when using custom sprite like this to create `IsoThumpable`, 
+when create `IsoObject` or `IsoThumpable` with sprite not have props with 'solidtrans' or 'solid',
 it might have not change `square:isFree` or `isFreeOrMidair`, 
-try `square:getFloor()` and modify the floor's Properties to ovrride it.
+doesn't matter by custom texturepack or vanilla sprite.
+
+bad idea is try `square:getFloor()` and modify the floor's Properties to ovrride it.
 
 ```
 local floor = sq:getFloor()
@@ -936,22 +938,67 @@ floor_props:Set(IsoFlagType.solidtrans)
 floor_props:Set('BlocksPlacement', '')
 ```
 
-*It's not working while reload game*
+difrerent square might be they share same `PropertyContainer`,
+it might cause blocked square around.
+Also it's not working while reload game or move far from the square.
 
-Might have to add update to GlobalObject System, or some where can update when game reload.
+with vanilla sprites can modify few props when `Events.OnLoadedTileDefinitions`.
+like `ContainerCapacity`, but not work for all props.
+*Capacity change seems x5 times, etc, setted to 12, real got 15.*
 
-in this case only have to modify square property.
+Anyway, it's very diffcult to change sprite props to work what you want without use `.tiles`.
+
+
+## Global Object and System
+
+The square and objects will disappear, when move too far (maybe another zone or cell), 
+when move close will realod.
+
+*that will cause sprite reload too, some custom texture only sprite might disappear.*
+
+global object is for make object still working in this case.
+
+global object is luaObject, can get IsoObject (javaObject) by `self:getIsoObject()` if the close to the square.
+otherwise will got `nil` (because the square and object is not loaded).
+
+the luaObject will communicate with IsoObject by `stateFromIsoObject` and `stateToIsoObject` automatically.
+
+Global Object System will manage all registered same kind Global Objects.
+
+when the `object` is build, must have `triggerEvent("OnObjectAdded", object)` on client side.
+Event `OnObjectAdded` triggered when build the object.
+
+Global Object System will listening this event and create the global lua object.
+
 ```
-if square and square:getProperties() then
-    square:getProperties():Set(IsoFlagType.solidtrans)
+function SGlobalObjectSystem:OnObjectAdded(isoObject)
+	if not self:isValidIsoObject(isoObject) then return end
+	self:loadIsoObject(isoObject)
+end
+
+...
+
+function SGlobalObjectSystem:loadIsoObject(isoObject)
+	if not isoObject or not isoObject:getSquare() then return end
+	if not self:isValidIsoObject(isoObject) then return end
+	local square = isoObject:getSquare()
+	local luaObject = self:getLuaObjectOnSquare(square)
+	if luaObject then
+		self:noise('found isoObject with a luaObject '..luaObject.x..','..luaObject.y..','..luaObject.z)
+		luaObject:stateToIsoObject(isoObject)
+	else
+		self:noise('found isoObject without a luaObject '..square:getX()..','..square:getY()..','..square:getZ())
+		local globalObject = self.system:newObject(square:getX(), square:getY(), square:getZ())
+		local luaObject = self:newLuaObject(globalObject)
+		luaObject:stateFromIsoObject(isoObject)
+		self:noise('#objects='..self.system:getObjectCount())
+		self:newLuaObjectOnClient(luaObject)
+	end
 end
 ```
-DO NOT try modify floor to GlobalObject System,
-weird happen, etc, around is block not no reason.
-No sure why, might be they share same `PropertyContainer`?
 
+`self:isValidIsoObject` and `self:newLuaObjectOnClient` is override by the custom SGlobalObject,
+that's the way how make different global objects.
 
-
-# Timed Actions
-
-if character wear item instantly, check the cheat menu, `Timed Action instant` might be turned ON.
+`stateFromIsoObject` and `stateToIsoObject` to transmit data between global object to iso object.
+`stateToIsoObject` used to create object by Map.

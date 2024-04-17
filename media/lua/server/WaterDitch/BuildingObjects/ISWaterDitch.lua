@@ -3,6 +3,7 @@ require "BuildingObjects/ISBuildingObject"
 
 ISWaterDitch = ISBuildingObject:derive("ISWaterDitch")
 ISWaterDitch.waterScale = 4
+ISWaterDitch.waterFlowScale = ISWaterDitch.waterScale * 5
 ISWaterDitch.waterMax = 200
 ISWaterDitch.poolWaterMax = 400
 ISWaterDitch.skillRequired = 6
@@ -58,28 +59,13 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     if not self.sq:getProperties() then
         return false
     end
-    
-    -- DO NOT change `PropertyContainer` here, 
-    -- seems it's shared by other squares ??
-    -- local floor_props = floor:getProperties()
-    -- if floor_props then
-    --     floor_props:Set(IsoFlagType.solidtrans)
-    -- end
 
-    for i=0, self.sq:getObjects():size()-1 do
-        local object = self.sq:getObjects():get(i)
-        if object:getName() == ISWaterDitch.dirtFillName then
-            self.sq:RemoveTileObject(object)
-        elseif object:getProperties() and object:getProperties():Is(IsoFlagType.canBeRemoved) then
-            self.sq:transmitRemoveItemFromSquare(object)
-            self.sq:RemoveTileObject(object)
-            break
-        end
-    end
     self.sq:disableErosion()
     local args = { x = self.sq:getX(), y = self.sq:getY(), z = self.sq:getZ() }
     sendClientCommand('erosion', 'disableForSquare', args)
 
+    self.sq:ClearTileObjectsExceptFloor()
+    
     -- update floor
     local floor = self.sq:getFloor()
     if floor then
@@ -87,11 +73,11 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     end
     floor = self.sq:addFloor(ISWaterDitch.floorSprite)
     -- don't worry dig furrow on ditch, it's already fixed by `patch_farmingPlot.lua`
-    
+
     -- add dirty fill under ditch layer from beginning.
-    local dirty_fill = IsoObject.new(square, ISWaterDitch.dirtFillSprite, ISWaterDitch.dirtFillName)
+    local dirty_fill = IsoObject.new(self.sq, ISWaterDitch.dirtFillSprite, ISWaterDitch.dirtFillName)
     dirty_fill:getSprite():setName(ISWaterDitch.dirtFillSprite)
-    square:AddTileObject(dirty_fill)
+    self.sq:AddTileObject(dirty_fill)
     -- I guess spriteName and objectName to ModData is for keep it when reload game.
     dirty_fill:getModData().spriteName = ISWaterDitch.dirtFillSprite
     dirty_fill:getModData().objectName = ISWaterDitch.dirtFillName
@@ -143,7 +129,7 @@ function ISWaterDitch:create(x, y, z, north, sprite)
 
     self.javaObject:transmitCompleteItemToServer()
 
-    -- OnObjectAdded event will create the SRainBarrelGlobalObject on the server.
+    -- OnObjectAdded event will create the SWaterDitchGlobalObject on the server.
     -- This is only needed for singleplayer which doesn't trigger OnObjectAdded.
     triggerEvent("OnObjectAdded", self.javaObject)
 
@@ -260,6 +246,44 @@ function ISWaterDitch.recognizeDitch(object)
     object:getModData().waterMax = variety.waterMax
     object:getModData().sprites = variety.sprites
     object:getModData().ditchType = ditchType
+end
+
+
+function ISWaterDitch.getAdjacentSquarePos(ditch)
+    if not ditch or not ditch:getSquare() then
+        return {}
+    end
+
+    local square = ditch:getSquare()
+    local adjacent_squares = {
+        N = square:getAdjacentSquare(IsoDirections.N),
+        S = square:getAdjacentSquare(IsoDirections.S),
+        W = square:getAdjacentSquare(IsoDirections.W),
+        E = square:getAdjacentSquare(IsoDirections.E),
+        NE = square:getAdjacentSquare(IsoDirections.NE),
+        NW = square:getAdjacentSquare(IsoDirections.NW),
+        SE = square:getAdjacentSquare(IsoDirections.SE),
+        SW = square:getAdjacentSquare(IsoDirections.SW),
+    }
+
+    local adjacent_pos = {}
+    for k, sq in pairs(adjacent_squares) do
+        if sq then
+            adjacent_pos[k] = {x=sq:getX(), y=sq:getY(), z=sq:getZ()}
+        end
+    end
+
+    return adjacent_pos
+end
+
+
+function ISWaterDitch.getTouchedRiverCount(ditch)
+    if not ditch or not ditch:getSquare() then
+        return 0
+    end
+    local square = ditch:getSquare()
+    local riverSquares = RC.findSquaresRadius(square, 1, ISWaterDitch.isRiverSquare)
+    return #riverSquares
 end
 
 

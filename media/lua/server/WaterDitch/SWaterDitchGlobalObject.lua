@@ -33,7 +33,10 @@ function SWaterDitchGlobalObject:stateFromIsoObject(isoObject)
     self.waterMax = isoObject:getWaterMax()
     self.objectName = isoObject:getName()
     self.spriteName = isoObject:getSpriteName()
-
+    self.ditchType = isoObject:getModData().ditchType
+    self.riverCount = ISWaterDitch.getTouchedRiverCount(isoObject)
+    self.adjacentPos = ISWaterDitch.getAdjacentSquarePos(isoObject)
+ 
     if isoObject:getOverlaySprite() and isoObject:getOverlaySprite():getName() then
         self.overlaySpriteName = isoObject:getOverlaySprite():getName()
     else
@@ -49,7 +52,6 @@ function SWaterDitchGlobalObject:stateFromIsoObject(isoObject)
 
     if isServer() then
         isoObject:sendObjectChange('name')
-        isoObject:sendObjectChange('sprite')
         isoObject:transmitModData()
     end
 end
@@ -60,6 +62,14 @@ function SWaterDitchGlobalObject:stateToIsoObject(isoObject)
     -- Sanity check
     if not self.waterAmount then
         self.waterAmount = 0
+    end
+
+    if not self.riverCount then
+        self.riverCount = 0
+    end
+    
+    if not self.adjacentPos then
+        self.adjacentPos = {}
     end
 
     if not self.waterMax then
@@ -81,57 +91,70 @@ function SWaterDitchGlobalObject:stateToIsoObject(isoObject)
     
     if isServer() then
         isoObject:sendObjectChange('name')
-        isoObject:sendObjectChange('sprite')
         isoObject:transmitModData()
     end
 end
 
 
 function SWaterDitchGlobalObject:isPool()
-    local isoObject = self:getIsoObject()
-    if isoObject then
-        return isoObject:getModData().ditchType == 'pool'
-    else
-        return false
-    end
+    return self.ditchType == 'pool'
+end
+
+
+function SWaterDitchGlobalObject:getDitchType()
+    return self.ditchType
 end
 
 
 function SWaterDitchGlobalObject:isFlowable(relLuaObject)
     if not relLuaObject then return false end
-    
-    local isoObject = self:getIsoObject()
-    if isoObject then
-        if relLuaObject:isPool() then
-            -- pool can not take water from pool
-            return not self:isPool()
-        else
-            -- waterway can take water from pool or same direction waterway.
-            return self:isPool() or self:getDitchType() == relLuaObject:getDitchType()
-        end
+    if relLuaObject:isPool() then
+        -- pool can not take water from pool
+        return not self:isPool()
     else
-        return false
+        -- waterway can take water from pool or same direction waterway.
+        return self:isPool() or self:getDitchType() == relLuaObject:getDitchType()
     end
 end
 
 
-function SWaterDitchGlobalObject:isWaterToFlow()
+function SWaterDitchGlobalObject:haveWaterToFlow()
     return self.waterAmount > self.waterMax * 0.33
 end
 
 
-function SWaterDitchGlobalObject:getDitchType()
-    local isoObject = self:getIsoObject()
-    if isoObject then
-        return isoObject:getModData().ditchType
-    else
-        return nil
+function SWaterDitchGlobalObject:getWaterFlowPos()
+    if not self.adjacentPos or not self.ditchType then
+        return {}
     end
+
+    local pos = {}
+    if self.ditchType == "pool" then
+        pos = {
+            self.adjacentPos.N,
+            self.adjacentPos.S,
+            self.adjacentPos.W,
+            self.adjacentPos.E,
+        }
+    elseif self.ditchType == 'WE' then
+        pos = {
+            self.adjacentPos.W,
+            self.adjacentPos.E,
+        }
+    elseif self.ditchType == 'NS' then
+        pos = {
+            self.adjacentPos.N,
+            self.adjacentPos.S,
+        }
+    end
+
+    return pos
 end
 
 
+
 function SWaterDitchGlobalObject:changeSprite()
-    local isoObject = self:getIsoObject()
+    local isoObject = self:getIsoObject()  -- it's only trigger when Object is Added.
     if not isoObject then return end
 
     local overlaySpriteName = nil
@@ -157,9 +180,9 @@ function SWaterDitchGlobalObject:changeSprite()
         overlaySpriteName = isoObject:getModData().sprites.full
     end
     
+    -- incase sprite is not same with `ISWaterDitch.baseSprite`
     if spriteName and (not isoObject:getSprite() or spriteName ~= isoObject:getSpriteName()) then
         self:noise('sprite changed to '..spriteName..' at '..self.x..','..self.y..','..self.z)
-        -- incase sprite is not same with `ISWaterDitch.baseSprite`
         self:setSpriteName(spriteName)
     end
 

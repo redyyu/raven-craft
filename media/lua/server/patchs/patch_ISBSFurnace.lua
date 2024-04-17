@@ -62,9 +62,7 @@ end
 
 -- NO working with destroy menu.
 -- ISBSFurnace.onDestroy = function(furncae)
---     print("===============BSFurnace============= ")
 --     if instanceof(furncae, 'BSFurnace') then
---         print("===============BSFurnace=============")
 --     end
 -- end
 
