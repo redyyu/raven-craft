@@ -666,6 +666,19 @@ function Recipe.OnTest.IsNotFullPack(item)
 end
 
 
+function Recipe.OnCreate.OpenGravelBag(items, resultItem, playerObj)
+    local add_stone_count = 0
+    for i=0, items:size() -1 do
+        local item = items:get(i)
+        if item:getType() == 'Gravelbag' then
+            add_stone_count = add_stone_count + item:getDrainableUsesInt()
+        end
+    end
+    add_stone_count = add_stone_count - 1  -- resutlItem have 1.
+    playerObj:getInventory():AddItems(resultItem:getFullType(), add_stone_count)
+    playerObj:getInventory():AddItem("EmptySandbag")
+end
+
 -- Mix Vegetables
 
 function Recipe.OnCreate.mixVegetables(items, resultItem, playerObj)

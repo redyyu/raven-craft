@@ -179,7 +179,7 @@ module RavenCraft
     }
 
     recipe Put Stone to Bag {
-        Stone=6,
+        Stone=4,
         EmptySandbag,
 
         Result: Gravelbag,
@@ -195,15 +195,15 @@ module RavenCraft
     recipe Open Gravel bag {
         destroy Gravelbag,
 
-        OnCreate: Recipe.OnCreate.OpenSackProduce,
+        OnCreate: Recipe.OnCreate.OpenGravelBag,
 
-        Result: Stone=6,
+        Result: Stone,
         Time: 200.0,
         SkillRequired: Woodwork = 4,
         AnimNode: Forage,
         Prop1: Source=1,
         Sound: PutItemInBag,
-        CanBeDoneFromFloor: true,
+        CanBeDoneFromFloor: false,
         Category: Carpentry,
     }
 
