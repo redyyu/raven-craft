@@ -35,18 +35,29 @@ function ISStopFurnaceFire:perform()
 end
 
 
-function ISFurnaceLightFromKindle:perform()
-    self.furnace:setFireStarted(true)
-    self.furnace:setSprite(lit_sprite)
-    self.furnace:transmitUpdatedSpriteToServer()
-    local square = self.furnace:getSquare()
-    if square then
-        square:RecalcProperties()
-        square:RecalcAllWithNeighbours(true)
-    end
-
-	self.plank:setJobDelta(0.0)
-	ISBaseTimedAction.perform(self)
+-- ISFurnaceLightFromKindle is lit from update
+function ISFurnaceLightFromKindle:update()
+	self.item:setJobDelta(self:getJobDelta())
+	self.plank:setJobDelta(self:getJobDelta())
+	local endurance = self.character:getStats():getEndurance() - 0.0001 * getGameTime():getMultiplier()
+	self.character:getStats():setEndurance(endurance)
+	if self:getJobDelta() < 0.2 then return end
+	local randNumber = 300;
+	local randBrokeNumber = 300;
+	if self.isOutdoorsMan then
+		randNumber = 150;
+		randBrokeNumber = 450;
+	end
+	if ZombRand(randNumber) == 0 then
+        self.furnace:setFireStarted(true)  -- lit here
+        self.furnace:setSprite(lit_sprite)
+        self.furnace:transmitUpdatedSpriteToServer()
+	else
+		-- fail ? Maybe the wood kit will broke...
+		if ZombRand(randBrokeNumber) == 0 then
+			self.character:getInventory():Remove(self.item)
+		end
+	end
 end
 
 
@@ -62,7 +73,8 @@ function ISFurnaceLightFromLiterature:perform()
 
     self.item:getContainer():setDrawDirty(true)
     self.item:setJobDelta(0.0)
-	self.character:getInventory():Remove(self.item)
+
+    self.character:getInventory():Remove(self.item)
 	self.lighter:Use()
 
 	ISBaseTimedAction.perform(self)
@@ -81,5 +93,7 @@ function ISFurnaceLightFromPetrol:perform()
 
     self.petrol:getContainer():setDrawDirty(true)
     self.petrol:setJobDelta(0.0)
+    self.lighter:Use()
+
 	ISBaseTimedAction.perform(self)
 end
