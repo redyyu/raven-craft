@@ -92,6 +92,7 @@ local Tilmgr = {}
 
 Tilmgr.onLoadedTileDefinitions = function(manager)
     -- only effect when the tile has been discovered. not work for the others already discovered on map.
+    -- and it's not working after gane reload, pickup and put down will effect agian.
     for k, v in pairs(containerTiles) do
         local props = manager:getSprite(k):getProperties()
         for key, val in pairs(v) do
