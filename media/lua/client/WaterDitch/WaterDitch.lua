@@ -20,7 +20,6 @@ Ditch.onFillDirt = function(playerObj, ditch, shovel)
 end
 
 
-
 Ditch.onDigDitch = function(playerNum, shovel, isPool)
     local bo = nil
     if isPool then
