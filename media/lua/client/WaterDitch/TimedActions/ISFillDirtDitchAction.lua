@@ -61,6 +61,13 @@ function ISFillDirtDitchAction:perform()
         floor = square:addFloor(ISWaterDitch.floorSprite)
     end
 
+    -- add dirty fill under ditch layer from beginning.
+    local dirty_fill = IsoObject.new(square, ISWaterDitch.dirtFillSprite, ISWaterDitch.dirtFillName)
+    square:AddTileObject(dirty_fill)
+    -- I guess spriteName and objectName to ModData is for keep it when reload game.
+    dirty_fill:getModData().spriteName = ISWaterDitch.dirtFillSprite
+    dirty_fill:getModData().objectName = ISWaterDitch.dirtFillName
+    
     square:RecalcProperties()
     square:RecalcAllWithNeighbours(true)
 

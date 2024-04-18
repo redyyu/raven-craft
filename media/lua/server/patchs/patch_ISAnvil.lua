@@ -36,9 +36,14 @@ function ISAnvil:isValid(square)
     if not square:TreatAsSolidFloor() then return false end
     if not self:haveMaterial(square) then return false end
     for i=0, square:getSpecialObjects():size()-1 do
-        local obj = square:getSpecialObjects():get(i-1)
+        local obj = square:getSpecialObjects():get(i)
+        local props = obj:getProperties()
         if self.name == obj:getName() or self:getSprite() == obj:getTextureName() then
             return false
+        elseif props then
+            if props:Is('BlocksPlacement') or props:Is('tree') then
+                return false
+            end
         end
     end
     

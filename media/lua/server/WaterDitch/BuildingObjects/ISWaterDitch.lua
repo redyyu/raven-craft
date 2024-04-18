@@ -45,12 +45,8 @@ ISWaterDitch.varietySpriteMap = {}
 for variety_key, variety_val in pairs(ISWaterDitch.variety) do
     for _, v in pairs(variety_val.sprites) do
         ISWaterDitch.varietySpriteMap[v] = variety_key
-        RC.addNewSprite(v, {flag = IsoFlagType.solidtrans})
     end
 end
-
-RC.addNewSprite(ISWaterDitch.dirtFillSprite)
-
 
 
 function ISWaterDitch:create(x, y, z, north, sprite)
@@ -63,8 +59,6 @@ function ISWaterDitch:create(x, y, z, north, sprite)
     self.sq:disableErosion()
     local args = { x = self.sq:getX(), y = self.sq:getY(), z = self.sq:getZ() }
     sendClientCommand('erosion', 'disableForSquare', args)
-
-    self.sq:ClearTileObjectsExceptFloor()
     
     -- update floor
     local floor = self.sq:getFloor()
@@ -72,15 +66,23 @@ function ISWaterDitch:create(x, y, z, north, sprite)
         floor:clearAttachedAnimSprite()
     end
     floor = self.sq:addFloor(ISWaterDitch.floorSprite)
+    floor:setName(ISWaterDitch.floorSprite)
     -- don't worry dig furrow on ditch, it's already fixed by `patch_farmingPlot.lua`
 
-    -- add dirty fill under ditch layer from beginning.
-    local dirty_fill = IsoObject.new(self.sq, ISWaterDitch.dirtFillSprite, ISWaterDitch.dirtFillName)
-    dirty_fill:getSprite():setName(ISWaterDitch.dirtFillSprite)
-    self.sq:AddTileObject(dirty_fill)
-    -- I guess spriteName and objectName to ModData is for keep it when reload game.
-    dirty_fill:getModData().spriteName = ISWaterDitch.dirtFillSprite
-    dirty_fill:getModData().objectName = ISWaterDitch.dirtFillName
+    local removes = {}
+    for i=0, self.sq:getObjects():size() -1 do
+        local obj = self.sq:getObjects():get(i)
+        if obj:getName() == ISWaterDitch.dirtFillName or 
+           obj:getTextureName() == ISWaterDitch.dirtFillSprite or
+           obj:getModData().objectName == ISWaterDitch.dirtFillName then
+            table.insert(removes, obj)
+        end
+    end
+
+    for _, object in ipairs(removes) do
+        self.sq:transmitRemoveItemFromSquare(object)
+        self.sq:RemoveTileObject(object)
+    end
 
     -- when use custom sprite (texture only) without `Tile`,
     -- the sprite cloud be disappear when character move far then come back.
@@ -200,10 +202,14 @@ function ISWaterDitch:isValid(square)
     end
 
     if CWaterDitchSystem.instance:getLuaObjectOnSquare(square) then
+        return false
+    end
+
+    if CFarmingSystem.instance:getLuaObjectOnSquare(square) then
 		return false
 	end
-    
-	if not square:isFreeOrMidair(true, true) then return false end
+
+    if not square:isFreeOrMidair(true, true) then return false end
 
     local floor = square:getFloor()
     if not ISBuildingObject.isValid(self, square) or not ISWaterDitch.isValidFloorTexture(floor) then
@@ -211,6 +217,10 @@ function ISWaterDitch:isValid(square)
     end
 
     if not ISWaterDitch.shovelledFloorCanDig(square) then
+        return false
+    end
+
+    if buildUtil.stairIsBlockingPlacement(square, true) then 
         return false
     end
     

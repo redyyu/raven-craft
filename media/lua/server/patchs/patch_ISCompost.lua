@@ -12,6 +12,16 @@ function ISCompost:isValid(square)
     if buildUtil.stairIsBlockingPlacement(square, true) then 
         return false
     end
+
+    for i=0, square:getSpecialObjects():size()-1 do
+        local obj = square:getSpecialObjects():get(i)
+        local props = obj:getProperties()
+        if props then
+            if (props:Is('BlocksPlacement') and not props:Is('IsHigh')) or props:Is('tree') then
+                return false
+            end
+        end
+    end
     
 	return ISBuildingObject.isValid(self, square)
 end
