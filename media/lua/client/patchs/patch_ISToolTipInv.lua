@@ -1,6 +1,3 @@
---***********************************************************
---**                    ROBERT JOHNSON                     **
---***********************************************************
 
 require "ISUI/ISToolTipInv"
 require "Journal/SurvivalJournal"

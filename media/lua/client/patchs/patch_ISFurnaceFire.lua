@@ -1,6 +1,3 @@
---***********************************************************
---**                    ROBERT JOHNSON                     **
---***********************************************************
 
 require "Blacksmith/TimedActions/ISStopFurnaceFire"
 require "Blacksmith/TimedActions/ISFurnaceLightFromKindle"
