@@ -5,14 +5,6 @@ local function predicateNotBroken(item)
 end
 
 
-local function requireHammer(playerInv, option)
-    if not playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) and not ISBuildMenu.cheat then
-        option.onSelect = nil
-        option.notAvailable = true
-    end
-end
-
-
 local function countConcerteUses(player)
     local playerObj = getSpecificPlayer(player)
     local playerInv = playerObj:getInventory()

@@ -16,6 +16,29 @@ module Base
 	}
 
 
+/** Override Tools **/
+    item Jack {
+        DisplayCategory = Tool,
+        Weight = 1.5,
+        Type = Normal,
+        DisplayName = Jack,
+        Icon = CarJack,
+        MetalValue = 35,
+        MechanicsItem = TRUE,
+        WorldStaticModel = CarJack,
+    }
+
+    item LugWrench {
+        DisplayCategory = Tool,
+        Weight = 1,
+        Type = Normal,
+        DisplayName = Lug Wrench,
+        Icon = LugWrench,
+        MetalValue = 30,
+        MechanicsItem = TRUE,
+        WorldStaticModel = LugWrench,
+    }
+
 /** Override Metalworks **/
 
     item PropaneTank {

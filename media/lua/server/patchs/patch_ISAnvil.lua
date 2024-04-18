@@ -53,3 +53,19 @@ function ISAnvil:isValid(square)
 
     return true
 end
+
+
+function ISAnvil:new(name, character, sprite, northSprite)
+    local o = {}
+    setmetatable(o, self)
+    self.__index = self
+    o:init()
+    o:setSprite(sprite)
+    o.character = character
+    o:setNorthSprite(northSprite)
+    o.noNeedHammer = false  -- change here.
+    o.name = name
+    o.blockAllTheSquare = true
+    o.canBeAlwaysPlaced = true
+    return o
+end

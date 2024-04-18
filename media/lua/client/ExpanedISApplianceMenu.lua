@@ -3,9 +3,20 @@ require 'Blacksmith/ISUI/ISBlacksmithMenu'
 
 local ISBuildBenchMenu = {}
 
+local function predicateNotBroken(item)
+    return not item:isBroken()
+end
 
 local function predicateDigGrave(item)
     return not item:isBroken() and item:hasTag("DigGrave")
+end
+
+
+local function requireHammer(playerInv, option)
+    if not playerInv:containsTagEvalRecurse("Hammer", predicateNotBroken) and not ISBuildMenu.cheat then
+        option.onSelect = nil
+        option.notAvailable = true
+    end
 end
 
 
@@ -30,10 +41,10 @@ Apl.onAnvil = function(worldobjects, playerNum)
     -- Object name will be 'Anvil' recipe NearItem is work.
     local anvil = ISAnvil:new("Anvil", getSpecificPlayer(playerNum), "crafted_01_18", "crafted_01_18")
     anvil.modData["xp:Woodwork"] = 30
-    anvil.actionAnim = "Loot"
-    anvil.craftingBank = "BuildFenceGravelbagFoley"
+    anvil.actionAnim = CharacterActionAnims.BuildLow
+    anvil.craftingBank = "SledgehammerHit"
     anvil.modData["use:Base.IronIngot"]= 500
-    anvil.modData["need:Base.Log"]= 1
+    anvil.modData["need:Base.LogStacks4"]= 1
     anvil.player = playerNum
     anvil.maxTime = 600
     anvil.completionSound = "BuildMetalStructureMedium"
@@ -107,12 +118,14 @@ Apl.doBuildAnvilMenu = function(subMenu, playerNum)
     tooltip:setTexture(spriteName)
     
     local metalCount = playerInv:getUsesTypeRecurse("Base.IronIngot")
-    local logCount = playerInv:getCountTypeRecurse("Base.Log")
+    local LogStacksCount = playerInv:getCountTypeRecurse("Base.LogStacks4")
 
-    if logCount >= 1 then
-        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.Log") .. " 1/1"
+    requireHammer(playerInv, anvilOption)
+
+    if LogStacksCount >= 1 then
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.ghs .. getItemNameFromFullType("Base.LogStacks4") .. " 1/1"
     else
-        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.Log") .. " 0/1"
+        tooltip.description = tooltip.description .. " <LINE> " .. ISBuildMenu.bhs .. getItemNameFromFullType("Base.LogStacks4") .. " 0/1"
         if not ISBuildMenu.cheat then
             anvilOption.onSelect = nil
             anvilOption.notAvailable = true
