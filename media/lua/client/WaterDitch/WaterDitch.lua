@@ -15,7 +15,7 @@ Ditch.onFillDirt = function(playerObj, ditch, shovel)
     if luautils.walkAdj(playerObj, ditch:getSquare()) then
         local hand_item = playerObj:getPrimaryHandItem()
         ISWorldObjectContextMenu.equip(playerObj, hand_item, shovel, true, true)
-        ISTimedActionQueue.add(ISFillDirtDitchAction:new(playerObj, ditch, shovel, 4))
+        ISTimedActionQueue.add(ISFillDirtDitchAction:new(playerObj, ditch, shovel))
     end
 end
 

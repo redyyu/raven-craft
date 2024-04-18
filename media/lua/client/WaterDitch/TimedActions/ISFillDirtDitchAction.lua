@@ -5,7 +5,8 @@ ISFillDirtDitchAction = ISBaseTimedAction:derive("ISFillDirtDitchAction")
 
 function ISFillDirtDitchAction:isValid()
     local uses = self.inventory:getUsesTypeRecurse("Dirtbag")
-    return self.shovel and not self.shovel:isBroken() and uses >= self.dirt_use
+    print("========================", uses, "/", self.dirt_uses)
+    return self.shovel and not self.shovel:isBroken() and uses >= self.dirt_uses
 end
 
 function ISFillDirtDitchAction:update()
@@ -38,7 +39,7 @@ end
 
 function ISFillDirtDitchAction:perform()
     -- local dirt_bags = self.inventory:getAllTypeRecurse("Dirtbag")
-    -- local remaining = self.dirt_use
+    -- local remaining = self.dirt_uses
     -- for i=0, dirt_bags:size() - 1 do
     --     local item = dirt_bags:get(i)
     --     if item:getDrainableUsesInt() > 0 then
@@ -79,14 +80,14 @@ function ISFillDirtDitchAction:perform()
     ISBaseTimedAction.perform(self) 
 end
 
-function ISFillDirtDitchAction:new(character, ditch, shovel, dirt_use)
+function ISFillDirtDitchAction:new(character, ditch, shovel, dirt_uses)
     local o = {}
     setmetatable(o, self)
     self.__index = self
     o.character = character
     o.inventory = character:getInventory()
     o.ditch = ditch
-    o.dirt_use = dirt_use
+    o.dirt_uses = dirt_uses or 1
     o.maxTime = 200
     o.stopOnWalk = true
     o.stopOnRun = true
