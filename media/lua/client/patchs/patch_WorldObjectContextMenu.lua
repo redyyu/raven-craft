@@ -17,6 +17,14 @@ ISBlacksmithMenu.onAddLogs = function(worldobjects, metalDrum, playerObj, numReq
 end
 
 
+ISBlacksmithMenu.onUseBellows = function(worldobjects, furnace, bellows, playerObj)
+    ISWorldObjectContextMenu.transferIfNeeded(playerObj, bellows)
+    if luautils.walkAdj(playerObj, furnace:getSquare(), true) then
+        ISTimedActionQueue.add(ISUseBellows:new(furnace, bellows, playerObj))
+    end
+end
+
+
 local function removeUnexceptMenuOpts(context, optName)
     local option = context:getOptionFromName(optName)
     if option and option.subOption then
