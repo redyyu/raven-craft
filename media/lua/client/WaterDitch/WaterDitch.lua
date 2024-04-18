@@ -90,14 +90,14 @@ Ditch.doCheckDigDitchMenu = function(playerNum, ditch, context)
         fill_tooltip.description = fill_tooltip.description .. RC.Txt.bhs .. "Shovel <LINE> "
     end
 
-    if dirt_uses >= 4 then
-        fill_tooltip.description = fill_tooltip.description .. RC.Txt.ghs .. "Dirt " .. dirt_uses .."/4 <LINE> "
+    if dirt_uses >= 1 then
+        fill_tooltip.description = fill_tooltip.description .. RC.Txt.ghs .. "Dirt " .. dirt_uses .."/1 <LINE> "
     else
-        fill_tooltip.description = fill_tooltip.description .. RC.Txt.bhs .. "Dirt " .. dirt_uses .."/4 <LINE> "
+        fill_tooltip.description = fill_tooltip.description .. RC.Txt.bhs .. "Dirt " .. dirt_uses .."/1 <LINE> "
     end
     
     optFill.toolTip = fill_tooltip
-    optFill.notAvailable = not shovel or dirt_uses < 4
+    optFill.notAvailable = not shovel or dirt_uses < 1
 end
 
 

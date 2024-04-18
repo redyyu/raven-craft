@@ -37,17 +37,19 @@ function ISFillDirtDitchAction:waitToStart()
 end
 
 function ISFillDirtDitchAction:perform()
-    local dirt_bags = self.inventory:getAllTypeRecurse("Dirtbag")
-    local remaining = self.dirt_use
-    for i=0, dirt_bags:size() - 1 do
-        local item = dirt_bags:get(i)
-        if item:getDrainableUsesInt() > 0 then
-            remaining = remaining - buildUtil.useDrainable(item, remaining)
-            if remaining <= 0 then
-                break
-            end
-        end
-    end
+    -- local dirt_bags = self.inventory:getAllTypeRecurse("Dirtbag")
+    -- local remaining = self.dirt_use
+    -- for i=0, dirt_bags:size() - 1 do
+    --     local item = dirt_bags:get(i)
+    --     if item:getDrainableUsesInt() > 0 then
+    --         remaining = remaining - buildUtil.useDrainable(item, remaining)
+    --         if remaining <= 0 then
+    --             break
+    --         end
+    --     end
+    -- end
+    local dirt_bag = self.inventory:getFirstTypeRecurse("Dirtbag")
+    dirt_bag:Use()
 
     local square = self.ditch:getSquare()
     if isClient() then
